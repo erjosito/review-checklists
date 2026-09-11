@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ report.metadata.name }}</title></head>
+<body>
+<h1>{{ report.metadata.name }}</h1>
+<p>Created: {{ report.metadata.created_at }}</p>
+<p>Corpus snapshot SHA-256: {{ report.metadata.corpus_sha256 }}</p>
+<p>Statuses are reviewer assessments, not automated compliance certification.
+Zero ARG results do not prove compliance. This report may contain sensitive review data.</p>
+<h2>Summary</h2>
+<ul>{% for status, count in report.summary.items() %}<li>{{ status }}: {{ count }}</li>{% endfor %}</ul>
+{% for item in report['items'] %}
+<section>
+  <h2>{{ item.recommendation.title }}</h2>
+  <p>{{ item.id }} | {{ item.recommendation.get('waf', '') }} |
+  {{ {0: 'High', 1: 'Medium', 2: 'Low'}.get(item.recommendation.severity, 'Unknown') }} severity</p>
+  <p><strong>{{ item.status }}</strong></p>
+  <pre>{{ item.comments }}</pre>
+  {% for evidence in item.evidence %}
+  <h3>ARG run {{ evidence.run_id }}: {{ evidence.outcome }}</h3>
+  <p>{{ evidence.completed_at }} | Subscriptions: {{ evidence.subscriptions | join(', ') }}</p>
+  <pre>{{ evidence.query }}</pre>
+  {% if evidence.outcome == 'error' %}<p>{{ evidence.error }}</p>{% else %}
+  <p>{{ evidence.rows | length }} rows saved.
+  {% if evidence.truncated %}<strong>TRUNCATED: incomplete results.</strong>{% endif %}
+  First 100 rows shown; the JSON export contains all saved rows.</p>
+  <pre>{{ evidence.rows[:100] | tojson(indent=2) }}</pre>
+  {% endif %}
+  {% endfor %}
+</section>
+{% endfor %}
+</body>
+</html>

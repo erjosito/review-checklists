@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+{% set reco = item.recommendation %}
+<h1>{{ reco.title }}</h1>
+<p>{{ reco.name }} | {{ item.id }}</p>
+<p>{{ {0: 'High', 1: 'Medium', 2: 'Low'}.get(reco.severity, 'Unknown') }} severity |
+{{ reco.get('waf', 'No WAF pillar') }} | Source: {{ reco.get('source', {}).get('type', 'Unknown') }}</p>
+<p>Azure service: {{ services | join(', ') if services else 'Not service-specific' }}</p>
+<p>{{ reco.get('area', '') }} / {{ reco.get('subarea', '') }}</p>
+<div class="text">{{ reco.get('description', '') }}</div>
+{% for link in reco.get('links', []) %}
+  {% if link.get('url', '').startswith(('https://', 'http://')) %}
+  <p><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.url }}</a></p>
+  {% endif %}
+{% endfor %}
+<h2>Review assessment</h2>
+<form method="post" action="{{ url_for('update', item_id=item.id, **listing_args) }}">
+  <input type="hidden" name="csrf" value="{{ session.csrf }}">
+  <input type="hidden" name="revision" value="{{ item.revision }}">
+  <label>Status <select name="status">{% for status in statuses %}
+    <option {% if status == item.status %}selected{% endif %}>{{ status }}</option>
+  {% endfor %}</select></label>
+  <label>Comments <textarea name="comments" rows="6" maxlength="20000">{{ item.comments }}</textarea></label>
+  <button type="submit">Save assessment</button>
+</form>
+{% if has_query %}
+<h2>Azure Resource Graph evidence</h2>
+<pre>{{ reco.queries.arg }}</pre>
+<p>Runs the query above using your existing <code>az login</code> session against only
+the scope you select below. Query and scope are sent to Azure; returned evidence is saved locally.
+Save any assessment edits before running or refreshing subscription details.</p>
+<p><strong>Rows are evidence, not a compliance verdict. Zero rows do not prove compliance.</strong></p>
+<form method="post" action="{{ url_for('run', item_id=item.id, **listing_args) }}">
+  <input type="hidden" name="csrf" value="{{ session.csrf }}">
+  {% include "scope.html" %}
+  <button type="submit">Run query and save evidence</button>
+</form>
+{% endif %}
+<h2>Evidence history</h2>
+{% for result in evidence %}
+<details {% if loop.first %}open{% endif %}>
+  <summary>{{ result.completed_at }}: {{ result.outcome }}
+  {% if result.get('truncated') %} - TRUNCATED{% endif %}</summary>
+  <p>Scope: {{ result.subscriptions | join(', ') }}</p>
+  {% if result.outcome == 'error' %}<p role="alert">{{ result.error }}</p>
+  {% else %}
+    <p>{{ result.rows | length }} rows saved. Showing at most 100; JSON export includes all saved rows.</p>
+    <pre>{{ result.rows[:100] | tojson(indent=2) }}</pre>
+  {% endif %}
+</details>
+{% else %}<p>No query runs recorded.</p>{% endfor %}
+{% endblock %}

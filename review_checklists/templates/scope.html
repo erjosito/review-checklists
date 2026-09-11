@@ -1,0 +1,28 @@
+<div class="scope" id="query-scope">
+  <label>
+    <input type="radio" name="scope_mode" value="current" {% if not scope_error %}checked{% endif %}>
+    Use Azure CLI subscription{% if active_subscription %}:
+    <strong>{{ active_subscription.name }}</strong> (<code>{{ active_subscription.id }}</code>)
+    {% else %} (no subscription ID needed){% endif %}
+  </label>
+  <p>At execution time, reads the subscription currently selected in Azure CLI and
+  runs only the checks you chose. Use the button below to preview the subscription first.</p>
+  <button type="submit" formaction="{{ context_url }}" formnovalidate>
+    {{ 'Refresh Azure CLI subscription' if active_subscription else 'Show Azure CLI subscription' }}
+  </button>
+  <p>Reads <code>az account show</code> from your existing CLI profile. Does not sign in,
+  change subscriptions, or run any queries. Access is checked when a query runs.</p>
+  {% if scope_error %}<p role="alert" class="scope-error">{{ scope_error }}</p>{% endif %}
+  {% if active_subscription %}
+  <input type="hidden" name="shown_subscription_id" value="{{ active_subscription.id }}">
+  <p>The displayed subscription is checked against the CLI before running.
+  If it changes, refresh these details before confirming the new scope.</p>
+  {% endif %}
+  <label>
+    <input type="radio" name="scope_mode" value="manual" {% if scope_error %}checked{% endif %}>
+    Enter subscription IDs manually
+  </label>
+  <label>Subscription GUIDs (comma-separated; required for manual mode)
+    <input name="subscriptions" value="{{ request.form.get('subscriptions', '') }}">
+  </label>
+</div>

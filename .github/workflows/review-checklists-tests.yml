@@ -1,0 +1,55 @@
+name: Test local review prototype
+
+on:
+  push:
+    paths:
+      - "review_checklists/**"
+      - "v2/recos/**"
+      - "v2/checklists/**"
+      - "scripts/modules/cl_analyze_v2.py"
+      - "scripts/modules/cl_v1tov2.py"
+      - "scripts/service_dictionary.json"
+      - ".github/workflows/review-checklists-tests.yml"
+  pull_request:
+    paths:
+      - "review_checklists/**"
+      - "v2/recos/**"
+      - "v2/checklists/**"
+      - "scripts/modules/cl_analyze_v2.py"
+      - "scripts/modules/cl_v1tov2.py"
+      - "scripts/service_dictionary.json"
+      - ".github/workflows/review-checklists-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.11", "3.13"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install dependencies
+        run: python -m pip install -r review_checklists/requirements.txt
+      - name: Run offline tests
+        run: python -m unittest discover -s review_checklists/tests -v
+
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install browser test dependencies
+        run: python -m pip install -r review_checklists/requirements-browser.txt
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: Run isolated browser form tests
+        run: python -m review_checklists.tests.browser_forms -v

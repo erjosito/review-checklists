@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Selected ARG query results</h1>
+<p {% if result.failed %}role="alert"{% else %}role="status"{% endif %}>
+{{ result.succeeded }} succeeded; {{ result.failed }} failed.
+</p>
+<p>Subscriptions: {{ result.subscriptions | join(', ') }}</p>
+<p>Only the selected checks were run. Compliance statuses were not changed.
+Each check's page contains its saved evidence history.</p>
+<table>
+  <thead><tr><th>Check</th><th>Outcome</th><th>Details</th></tr></thead>
+  <tbody>{% for item in result.results %}
+    <tr>
+      <td><a href="{{ url_for('detail', item_id=item.id, **listing_args) }}">{{ item.title }}</a></td>
+      <td>{{ item.outcome }}</td>
+      <td>{% if item.outcome == 'error' %}{{ item.error }}{% else %}
+        {{ item.row_count }} rows saved.
+        {% if item.truncated %}<strong>TRUNCATED: incomplete results.</strong>{% endif %}
+      {% endif %}</td>
+    </tr>
+  {% endfor %}</tbody>
+</table>
+<a href="{{ review_url }}">Return to filtered review</a>
+{% endblock %}

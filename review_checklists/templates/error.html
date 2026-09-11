@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Operation failed</h1>
+<p role="alert">{{ error }}</p>
+<p>No success should be inferred from this error. Return to the review and reload before retrying.</p>
+<a href="{{ url_for('index') }}">Return to review</a>
+{% endblock %}

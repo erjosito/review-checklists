@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ metadata.name }}</h1>
+<p>Local review with a pinned recommendation snapshot. No AI provider is required or enabled.</p>
+<nav><a href="{{ url_for('export', format='json') }}">Export full review as JSON</a> |
+<a href="{{ url_for('export', format='html') }}">Export full review as HTML</a></nav>
+<p id="filter-help">Choose any values in each group, then click Filter. Values within a group match
+any selection; different groups must all match. No selection means all values.</p>
+<form method="get" action="{{ url_for('index') }}" class="filters" aria-describedby="filter-help">
+  <label>Search recommendations <input name="search" value="{{ filters.search }}" type="search"></label>
+  {% for name, label, choices in [
+    ('status', 'Status', options.statuses),
+    ('severity', 'Severity', options.severities),
+    ('waf', 'WAF pillar', options.waf_pillars),
+    ('service', 'Azure service', options.services)
+  ] %}
+  <details class="filter-group">
+    <summary>{{ label }}: {% if filters[name] %}{{ filters[name] | length }} selected{% else %}All{% endif %}</summary>
+    <div class="filter-options" role="group" aria-label="{{ label }}">
+      {% for value, title in choices.items() %}
+      <label><input type="checkbox" name="{{ name }}" value="{{ value }}" {% if value in filters[name] %}checked{% endif %}>
+        {{ title }}</label>
+      {% endfor %}
+    </div>
+  </details>
+  {% endfor %}
+  <label><input type="checkbox" name="with_arg" value="1" {% if filters.with_arg %}checked{% endif %}>
+    Only checks with ARG queries</label>
+  <button type="submit">Filter</button>
+  <a href="{{ url_for('index') }}">Clear filters</a>
+</form>
+<section aria-labelledby="overview-title">
+  <h2 id="overview-title">Assessment overview (current filters)</h2>
+  <div class="overview">
+    <svg class="donut" viewBox="0 0 120 120" role="img" aria-labelledby="donut-title donut-description">
+      <title id="donut-title">Assessment status for {{ summary.total }} matching checks</title>
+      <desc id="donut-description">{% for segment in segments %}{{ segment.status }}: {{ segment.count }}. {% endfor %}</desc>
+      <circle class="donut-track" cx="60" cy="60" r="48"></circle>
+      <g transform="rotate(-90 60 60)">
+      {% for segment in segments if segment.count %}
+        <circle class="donut-segment {{ segment['class'] }}" cx="60" cy="60" r="48" pathLength="100"
+          stroke-dasharray="{{ segment.percentage }} {{ 100 - segment.percentage }}"
+          stroke-dashoffset="{{ -segment.offset }}"></circle>
+      {% endfor %}
+      </g>
+      <text class="donut-total" x="60" y="58" text-anchor="middle">{{ summary.total }}</text>
+      <text class="donut-label" x="60" y="74" text-anchor="middle">checks</text>
+    </svg>
+    <ul class="legend">{% for segment in segments %}
+      <li><span class="swatch {{ segment['class'] }}"></span>{{ segment.status }}: <strong>{{ segment.count }}</strong></li>
+    {% endfor %}</ul>
+    <div class="metric">
+      <h3>Compliance</h3>
+      <p class="metric-value">{% if summary.compliance_percentage is not none %}{{ summary.compliance_percentage }}%{% else %}N/A{% endif %}</p>
+      <p>{{ summary.counts['Compliant'] }} compliant / {{ summary.assessed }} applicable checks assessed.</p>
+      <p>Excludes unreviewed and not-applicable checks.</p>
+    </div>
+    <div class="metric">
+      <h3>Review progress</h3>
+      <p class="metric-value">{% if summary.progress_percentage is not none %}{{ summary.progress_percentage }}%{% else %}N/A{% endif %}</p>
+      <p>{{ summary.reviewed }} reviewed / {{ summary.total }} matching checks.</p>
+      <p>Includes not-applicable assessments.</p>
+    </div>
+  </div>
+  <p>Based on reviewer-assigned statuses across all matching pages. Running ARG queries does not change these assessments.</p>
+</section>
+<p>{{ total }} matching recommendations. Page {{ page }} of {{ pages }}.</p>
+<form method="post" action="{{ url_for('run_selection', **listing_args) }}">
+<input type="hidden" name="csrf" value="{{ session.csrf }}">
+<fieldset id="query-controls">
+  <legend>Run selected ARG queries</legend>
+  <p>Tick the checks to run on this page (up to 50). Filters do not select checks.
+  Only ticked checks will run, sequentially, using your existing Azure CLI login.</p>
+  <p id="query-availability">{{ query_ids | length }} runnable ARG checks on this page;
+    {{ matching_query_count }} of {{ total }} matching checks have ARG queries.</p>
+  {% if not query_ids %}
+  <p role="status" class="notice">
+    {% if matching_query_count %}
+      No checks on this page have an ARG query. The {{ matching_query_count }} runnable checks are on other pages.
+      <a href="{{ runnable_url }}">Show only checks with ARG queries</a>.
+    {% elif total %}
+      None of the matching checks contains an ARG query. These checks require manual review;
+      choose different filters to find runnable checks.
+    {% else %}
+      No checks match the current filters. Change or clear the filters to find runnable checks.
+    {% endif %}
+    Selecting a subscription does not enable checks without queries.
+  </p>
+  {% elif matching_query_count > query_ids | length %}
+  <p><a href="{{ runnable_url }}">Show only checks with ARG queries</a> across the current filters.</p>
+  {% endif %}
+  {% include "scope.html" %}
+  <button type="submit" aria-describedby="query-availability" {% if not query_ids %}disabled{% endif %}>Run selected queries</button>
+  <p>Wait for the results before submitting again. Evidence is saved per check; compliance statuses remain unchanged.</p>
+</fieldset>
+<table>
+  <thead><tr><th>Select</th><th>Recommendation</th><th>Severity</th><th>WAF</th><th>Azure service</th><th>Status</th><th>ARG</th></tr></thead>
+  <tbody>{% for item in items %}
+    <tr>
+      <td>{% if item.id in query_ids %}
+        <input type="checkbox" name="selected" value="{{ item.id }}" {% if item.id in selected_ids %}checked{% endif %}
+          aria-label="Run query for {{ item.recommendation.title }}">
+      {% else %}Manual{% endif %}</td>
+      <td><a href="{{ url_for('detail', item_id=item.id, **listing_args) }}">{{ item.recommendation.title }}</a></td>
+      <td>{{ {0: 'High', 1: 'Medium', 2: 'Low'}.get(item.recommendation.severity, 'Unknown') }}</td>
+      <td>{{ item.recommendation.get('waf', 'Not specified') }}</td>
+      <td>{{ item_services[item.id] | join(', ') if item_services[item.id] else 'Not service-specific' }}</td>
+      <td>{{ item.status }}</td>
+      <td>{{ 'Available' if item.id in query_ids else 'Manual' }}</td>
+    </tr>
+  {% endfor %}</tbody>
+</table>
+</form>
+<nav>
+{% if page > 1 %}<a href="{{ url_for('index', page=page-1, **filters) }}">Previous</a>{% endif %}
+{% if page < pages %}<a href="{{ url_for('index', page=page+1, **filters) }}">Next</a>{% endif %}
+</nav>
+{% endblock %}

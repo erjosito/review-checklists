@@ -1,7 +1,7 @@
 # Next-Generation Review Checklists — Design Decisions
 
 Status: **Draft / living document**
-Last updated: 2026-06-22
+Last updated: 2026-09-11
 
 This document captures the design decisions for evolving the Azure Review Checklists
 project beyond the macro-enabled Excel spreadsheet, leveraging the existing structured
@@ -71,6 +71,15 @@ container) that runs on the reviewer's own machine.
 - Review state persists to a local, git-friendly file (SQLite or JSON).
 
 This is the macro-spreadsheet replacement and the focus of initial effort.
+
+**First milestone (2026-09-11):** Python CLI + localhost Flask UI, served by
+Waitress, with SQLite working state and git-friendly JSON export. Implemented
+under [`review_checklists/`](../../review_checklists/README.md); the existing web app
+and scripts remain unchanged. The package name is independent of release versions.
+The prototype restricts `DefaultAzureCredential` to the existing Azure CLI session.
+Azure query execution sends query/scope to Azure; optional remote AI would require
+separate data-egress approval. Local-first is not a promise that explicit Azure
+operations are offline.
 
 ### A.2 Team option: customer-deployed app with managed identity — **DEFERRED (specced)**
 
@@ -241,11 +250,30 @@ precedent rather than introducing a new paradigm.
 
 ## Open items / next steps
 
-- [ ] Confirm Decision C scope.
-- [ ] Sketch the LLM provider-abstraction interface (`complete()` / `embed()` with
-      Copilot, Foundry, and local implementations).
-- [ ] Prototype A.1 (local-first app with `DefaultAzureCredential`).
-- [ ] Design the MCP server over the checklist corpus + review state (feature 7).
+- [x] Confirm first-milestone scope: local prototype plus provider/MCP designs;
+      defer Decision C implementation and customer-hosted collaboration.
+- [x] Sketch the LLM provider abstraction; separate completion and optional
+      embedding capabilities. See [integration contracts](../../review_checklists/docs/integration-design.md).
+- [x] Prototype A.1: local CLI/web, pinned v2 recommendations, SQLite assessments,
+      explicit ARG evidence, JSON/HTML export. No automatic compliance decisions.
+- [x] Add severity/WAF/service/ARG-only filters, explicit selected-check query runs,
+      and a filtered assessment donut with compliance/progress percentages.
+- [x] Support multiple status/severity/WAF/service selections, using OR within a
+      group and AND across groups, consistently in the UI, CLI and navigation.
+- [x] Offer opt-in Azure CLI subscription lookup in query forms, with displayed-ID
+      confirmation, manual scope override, and stale-form protection.
+- [x] Add an always-visible current-CLI-subscription execution option, and real-browser
+      form regression coverage for subscription lookup, query submission and assessment saves.
+- [x] Consolidate CLI scope selection into one option with name/ID preview and change
+      confirmation; explain disabled query actions with page/filtered query counts.
+- [x] Design the MCP server over the checklist corpus + review state (feature 7).
+- [ ] Validate the ARG path against explicitly authorized live subscription scope.
+- [ ] Implement read-only stdio MCP with bounded output and explicit host-data disclosure.
+- [ ] Implement and validate a first provider adapter with explicit remote-data approval.
+- [ ] Design/implement trusted local approvals before enabling mutating MCP tools.
+
+The provider and MCP documents are contracts, not working integrations. No paid AI
+calls or live Azure queries were needed for the local prototype's automated tests.
 
 ## Decision summary
 

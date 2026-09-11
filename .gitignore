@@ -8,3 +8,8 @@ spreadsheet/~*.*
 # VS Code
 .vs/
 .vscode/
+
+# Local runtime and private review data
+.venv/
+__pycache__/
+.reviews/

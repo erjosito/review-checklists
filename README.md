@@ -2,6 +2,10 @@
 
 # Azure Review Checklists
 
+**Local app development:** the [local-first Python CLI and web prototype](review_checklists/README.md)
+is available on this branch. It works without AI and keeps review state locally.
+See the [v3 decision log](v2/docs/next-generation-design.md) for the roadmap.
+
 ![](./pictures/overview.png)
 
 Quick links for using the checklists in this repo:
