@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/zone-redundant?source=recommendations
 queries: {}
+schemaVersion: 1
+id: b32e1aa1-4813-4602-88fe-27ca2891f421
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

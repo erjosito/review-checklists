@@ -1,0 +1,1728 @@
+{
+  "artifactSchema": "key-vault-followup-proposals/1",
+  "date": "2026-09-13",
+  "frozenAt": "2026-09-12T21:34:55.609209+00:00",
+  "scope": "Exactly eight existing Security-manifest needsmanualreview records concerning Key Vault identity/access, usage auditing, secrets and certificates, including direct APIM/VM/AKS/Application Gateway integration. No other families or IDs.",
+  "historicalManifest": "full-refresh-2026-09-11/security-manifest.json",
+  "historicalManifestHash": "sha256:c1024f23778dada4ee61d5edb4fb81ec624251ec06f0c01f949a1080e09574c5",
+  "status": "complete-proposals-not-applied",
+  "corpusReadOnly": true,
+  "humanApproval": false,
+  "liveAzureValidation": false,
+  "frozenIds": [
+    "b12308ca-5017-4f15-9e3a-b3693829e7e3",
+    "17d6326a-f625-4ca4-9e56-95f2223ace8c",
+    "6d70ba6c-97be-4995-8904-83845c986cb2",
+    "f8af3d94-1d2b-4070-846f-849197524258",
+    "39460bdb-156f-4dc2-a87f-1e8c11ab0998",
+    "08be36ad-0190-4740-b002-9adae9be0cca",
+    "5e3df584-eccc-4d97-a3b6-bcda3b50eb2e",
+    "5692cf86-c36a-4c1b-a73f-1a73f5728cd0"
+  ],
+  "sources": [
+    {
+      "id": "kv-secure",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/secure-key-vault",
+      "title": "Secure your Azure Key Vault",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "8c70a6ed14843a3c86bc043e235d21cf61d414d7",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Identity and access management",
+        "Logging and monitoring",
+        "Compliance and governance"
+      ],
+      "coverageBounds": "Full page fetched; previous best-practices URL redirected here. RBAC, least privilege, eligible PIM roles, audit logging and Azure Policy support the bounded proposals."
+    },
+    {
+      "id": "kv-rbac",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
+      "title": "Grant permission to applications to access an Azure key vault using Azure RBAC",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "6502b5a33690f91073651cbd073ebd42edae2634",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Key Vault access model overview",
+        "Managing administrative access to Key Vault",
+        "Azure built-in roles for Key Vault data plane operations"
+      ],
+      "coverageBounds": "Read through the access-model and built-in-role sections. Control-plane and data-plane rights are independent; Key Vault Contributor does not itself grant object data access under RBAC. No ABAC preview proposal."
+    },
+    {
+      "id": "kv-monitor",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault",
+      "title": "Monitor Azure Key Vault",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "cc9ac0f545a688e4f2016a1541f565f136e23129",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Data storage",
+        "Collection and routing",
+        "Azure Monitor resource logs",
+        "Azure activity log"
+      ],
+      "coverageBounds": "Read monitoring, collection and routing sections. Resource logs need diagnostic settings; platform metrics and Activity Log do not establish data-plane usage audit collection. Log Analytics is suggested, with other supported destinations."
+    },
+    {
+      "id": "kv-monitor-reference",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault-reference",
+      "title": "Monitoring data reference for Azure Key Vault",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "cc9ac0f545a688e4f2016a1541f565f136e23129",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Supported resource logs for Microsoft.KeyVault/vaults"
+      ],
+      "coverageBounds": "Read through the resource-log category table. AuditEvent is supported. No single Log Analytics table name is imposed because the full destination-mode contract was not assessed."
+    },
+    {
+      "id": "kv-certificate-renewal",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/certificates/overview-renew-certificate",
+      "title": "About Azure Key Vault certificate renewal",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "cc9ac0f545a688e4f2016a1541f565f136e23129",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Get notified about certificate expiration",
+        "Renew an integrated CA certificate",
+        "Renew a nonintegrated CA certificate",
+        "Renew a self-signed certificate"
+      ],
+      "coverageBounds": "Full page fetched. Integrated DigiCert/GlobalSign renewal differs from nonintegrated CA notification and CSR/sign/merge workflows. Renewal creates a new version."
+    },
+    {
+      "id": "apim-named-values",
+      "url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-properties",
+      "title": "How to Use Named Values in Azure API Management policies",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "4a74bf2f66742c18e9cbe465af133be6f87c895b",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Value types",
+        "Key vault secrets",
+        "Prerequisites for key vault integration",
+        "Configure access to key vault",
+        "Requirements for Key Vault firewall",
+        "Add a key vault secret to API Management",
+        "Use a named value"
+      ],
+      "coverageBounds": "Read through named-value configuration and tracing/policy-access cautions. Key Vault secret references are recommended, not available in workspaces, require managed-identity access, and need versionless identifiers for automatic refresh within four hours."
+    },
+    {
+      "id": "apim-custom-domain",
+      "url": "https://learn.microsoft.com/en-us/azure/api-management/configure-custom-domain",
+      "title": "Configure custom domain name for Azure API Management instance",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "4a74bf2f66742c18e9cbe465af133be6f87c895b",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Domain certificate options: Key Vault",
+        "Configure access to key vault",
+        "Certificate synchronization and troubleshooting for Azure Key Vault-backed certificates"
+      ],
+      "coverageBounds": "Fetched both page ranges, including synchronization section. Store Key Vault-backed custom-domain material as a certificate object; Secrets User access is documented. Automatic custom-domain update may take one to two days in SLA tiers; failures can leave a cached certificate until expiry. No proposal about the separate managed-certificate availability timeline."
+    },
+    {
+      "id": "apim-backend-certificates",
+      "url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates",
+      "title": "Secure API Management Backend Using Client Certificate Authentication",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "4a74bf2f66742c18e9cbe465af133be6f87c895b",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Certificate options",
+        "Prerequisites for key vault integration",
+        "Configure access to key vault",
+        "Requirements for Key Vault firewall",
+        "Add a key vault certificate"
+      ],
+      "coverageBounds": "Full page fetched. Backend-client Key Vault certificate references have a documented four-hour refresh, require a versionless identifier for automatic rotation and are unavailable in workspaces. No proposal to disable certificate-chain validation."
+    },
+    {
+      "id": "vm-key-vault-windows",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-windows",
+      "title": "Azure Key Vault VM extension for Windows",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "a6108b6855ca3cc956d62f228b283b358cd49f71",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Operating systems",
+        "Features",
+        "Upgrading from 3.0",
+        "Prerequisites",
+        "Extension schema"
+      ],
+      "coverageBounds": "Read through prerequisites and extension schema. Automatic certificate retrieval/install is supported. Current 4.x platform/version limits and versionless secret URLs must be checked before deployment; no forced major-version upgrade proposed."
+    },
+    {
+      "id": "vm-key-vault-linux",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-linux",
+      "title": "Azure Key Vault virtual machine extension for Linux",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "a6108b6855ca3cc956d62f228b283b358cd49f71",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Operating systems",
+        "Features",
+        "Upgrading from 3.0",
+        "Prerequisites",
+        "Extension schema"
+      ],
+      "coverageBounds": "Read through platform, upgrade, identity and certificate-URL requirements. Current 4.x changes file layout and supports specific distributions; no claim that extension installation verifies application certificate reload."
+    },
+    {
+      "id": "aks-csi-provider",
+      "url": "https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver",
+      "title": "Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) Secrets",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "197d848e6164a5d5fb0542477599f8843340230e",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Features",
+        "Limitations",
+        "Prerequisites",
+        "Roles",
+        "Create an AKS cluster",
+        "Update an existing AKS cluster"
+      ],
+      "coverageBounds": "Read provider features, limitations and installation/identity sections. Provider mounts existing Key Vault objects; the add-on identity and least-privilege object access need explicit configuration."
+    },
+    {
+      "id": "aks-csi-rotation",
+      "url": "https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-configuration-options",
+      "title": "Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) Configuration Options",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "362c2a92da9031ca678e8b5a7a4d21d0d5676b52",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Autorotation and secret sync overview",
+        "Enable autorotation on an existing AKS cluster",
+        "Sync mounted content with a Kubernetes secret",
+        "Set an environment variable to reference Kubernetes secrets"
+      ],
+      "coverageBounds": "Read rotation and sync sections. Enabling rotation polls existing upstream versions; it does not issue new credentials. Application file watches or pod restarts are required according to consumption mode."
+    },
+    {
+      "id": "appgw-key-vault",
+      "url": "https://learn.microsoft.com/en-us/azure/application-gateway/key-vault-certs",
+      "title": "TLS termination with Azure Key Vault certificates",
+      "accessedAt": "2026-09-13",
+      "accessDateTimeZone": "+03:00",
+      "retrievalMethod": "functions.web_fetch public HTTPS document content, not search snippets",
+      "pageReportedRevision": "dbcf0cf069457e85683a7a4c4422074fe4546574",
+      "revisionVerification": "Observed in Learn page metadata; backing private repository not independently fetched. Not assigned to corpus provenance.upstreamRevision.",
+      "sectionsRead": [
+        "Supported certificates",
+        "Certificate settings in Key Vault",
+        "How integration works",
+        "Verify Firewall Permissions to Key Vault",
+        "Investigating and resolving Key Vault errors"
+      ],
+      "coverageBounds": "Read through integration, supported certificate, networking and failure sections. Integration is v2-only; it uses a user-assigned managed identity, enabled software PFX with an exportable private key, and preferably a versionless secret URI. Polling is four-hourly; access loss can disable a listener."
+    }
+  ],
+  "records": [
+    {
+      "id": "b12308ca-5017-4f15-9e3a-b3693829e7e3",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-DelegateKeyVaultInstantiationPrivilegedAccess.yaml",
+      "name": "revcl-DelegateKeyVaultInstantiationPrivilegedAccess",
+      "source": {
+        "type": "revcl",
+        "file": "./checklists/waf_checklist.en.json"
+      },
+      "aliases": [],
+      "historicalOutcome": "needsmanualreview",
+      "historicalEntryHash": "sha256:023bb8fd8ba718f974af93ed37f2d5670cd196586295ebe05ba3cd5bd08de506",
+      "beforeFileHash": "sha256:a8b59e1a7040d7563a07fae05e8302236a4a3ec1a32c416e721cd6230d806bd6",
+      "beforeContentHash": "sha256:12fd621d8270cf371690d6847fb5ed2fc37a8e832234b9762683c7e339a12da5",
+      "before": {
+        "name": "revcl-DelegateKeyVaultInstantiationPrivilegedAccess",
+        "title": "Delegate Key Vault instantiation and privileged access and use Azure Policy to enforce a consistent compliant configuration.",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.keyvault/vaults"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "b12308ca-5017-4f15-9e3a-b3693829e7e3"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/azure/key-vault/general/best-practices"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "b12308ca-5017-4f15-9e3a-b3693829e7e3",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": []
+        }
+      },
+      "decision": "updated",
+      "reason": "The original delegation instruction leaves the access boundary unspecified. Current Key Vault guidance supports scoped RBAC delegation, separate control/data-plane permissions and JIT privileged roles; Azure Policy remains the configuration control rather than an assertion of universal compliance.",
+      "proposedEdits": [
+        {
+          "field": "title",
+          "beforePresent": true,
+          "before": "Delegate Key Vault instantiation and privileged access and use Azure Policy to enforce a consistent compliant configuration.",
+          "after": "Delegate Key Vault provisioning and privileged access through least-privilege Azure RBAC, and enforce vault configuration with Azure Policy."
+        },
+        {
+          "field": "provenance",
+          "beforePresent": true,
+          "before": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "after": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/secure-key-vault",
+                "title": "Secure your Azure Key Vault",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              },
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
+                "title": "Grant permission to applications to access an Azure key vault using Azure RBAC",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              }
+            ]
+          }
+        },
+        {
+          "field": "description",
+          "beforePresent": false,
+          "before": null,
+          "after": "Separate control-plane vault provisioning from data-plane access to keys, secrets and certificates. Delegate only the roles and scope required by each team, use eligible just-in-time privileged roles through Microsoft Entra Privileged Identity Management where applicable, and audit or enforce the required vault configuration with Azure Policy. A configuration policy does not replace authorization review."
+        }
+      ],
+      "sourceRefs": [
+        "kv-secure",
+        "kv-rbac"
+      ],
+      "querySemanticsConcerns": [
+        "ARG inventory of a vault or its permission-model flag does not prove effective inherited role assignments, least privilege, PIM eligibility/activation, or policy exemptions. Review effective authorization and governance evidence separately."
+      ],
+      "remainingLimitations": [
+        "No tenant-specific PIM licensing, role design or actual policy effectiveness was verified."
+      ],
+      "applied": false,
+      "after": {
+        "name": "revcl-DelegateKeyVaultInstantiationPrivilegedAccess",
+        "title": "Delegate Key Vault provisioning and privileged access through least-privilege Azure RBAC, and enforce vault configuration with Azure Policy.",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.keyvault/vaults"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "b12308ca-5017-4f15-9e3a-b3693829e7e3"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/azure/key-vault/general/best-practices"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "b12308ca-5017-4f15-9e3a-b3693829e7e3",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": [
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/secure-key-vault",
+              "title": "Secure your Azure Key Vault",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
+              "title": "Grant permission to applications to access an Azure key vault using Azure RBAC",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            }
+          ]
+        },
+        "description": "Separate control-plane vault provisioning from data-plane access to keys, secrets and certificates. Delegate only the roles and scope required by each team, use eligible just-in-time privileged roles through Microsoft Entra Privileged Identity Management where applicable, and audit or enforce the required vault configuration with Azure Policy. A configuration policy does not replace authorization review."
+      },
+      "proposedAfterContentHash": "sha256:b9d8c57a675be5316327ec18144b91a79dbe0f50a8e51631a69c5af3e3e19139",
+      "guidanceChanged": true,
+      "changedFields": [
+        "title",
+        "provenance",
+        "description"
+      ],
+      "preservedFields": [
+        "id",
+        "name",
+        "source",
+        "aliases",
+        "labels",
+        "waf",
+        "severity",
+        "services",
+        "resourceTypes",
+        "queries",
+        "automation"
+      ],
+      "aliasAssessment": "No aliases are present.",
+      "unknownDatesPreserved": {
+        "lastReviewed": null,
+        "validatedAt": null,
+        "upstreamRevision": null
+      }
+    },
+    {
+      "id": "17d6326a-f625-4ca4-9e56-95f2223ace8c",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-PlatformCentralAzureMonitorLogAnalyticsWorkspaceSecretUsage.yaml",
+      "name": "revcl-PlatformCentralAzureMonitorLogAnalyticsWorkspaceSecretUsage",
+      "source": {
+        "type": "revcl",
+        "file": "./checklists/waf_checklist.en.json"
+      },
+      "aliases": [],
+      "historicalOutcome": "needsmanualreview",
+      "historicalEntryHash": "sha256:3eb63e72c3900eb7366f50417bdf8288189540d0db1b2386b666e150c5ddacf7",
+      "beforeFileHash": "sha256:ec085551f72a761e4e995bcb279ab1ffedca4b6557e8248eedb88c331c99e657",
+      "beforeContentHash": "sha256:742342bc7f34f5d09b842d34ff86b869395d39d611b99fae15983c535c00dc3f",
+      "before": {
+        "name": "revcl-PlatformCentralAzureMonitorLogAnalyticsWorkspaceSecretUsage",
+        "title": "Use the platform-central Azure Monitor Log Analytics workspace to audit key, certificate, and secret usage within each instance of Key Vault.",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.keyvault/vaults"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "17d6326a-f625-4ca4-9e56-95f2223ace8c"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/azure/key-vault/general/monitor-key-vault"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "17d6326a-f625-4ca4-9e56-95f2223ace8c",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": []
+        }
+      },
+      "decision": "updated",
+      "reason": "The source supports explicit diagnostic settings and several destinations, not a universal requirement for one platform-central workspace. The proposal preserves centralized auditing where required while making the actual data-plane collection requirement testable.",
+      "proposedEdits": [
+        {
+          "field": "title",
+          "beforePresent": true,
+          "before": "Use the platform-central Azure Monitor Log Analytics workspace to audit key, certificate, and secret usage within each instance of Key Vault.",
+          "after": "Enable Key Vault audit logging and route key, certificate, and secret usage events to the designated security monitoring destination."
+        },
+        {
+          "field": "provenance",
+          "beforePresent": true,
+          "before": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "after": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault",
+                "title": "Monitor Azure Key Vault",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              },
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault-reference",
+                "title": "Monitoring data reference for Azure Key Vault",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              },
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/secure-key-vault",
+                "title": "Secure your Azure Key Vault",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              }
+            ]
+          }
+        },
+        {
+          "field": "description",
+          "beforePresent": false,
+          "before": null,
+          "after": "Create diagnostic settings that collect Key Vault AuditEvent resource logs. Route them to the designated Log Analytics workspace, including the platform-central workspace when required by the organization, or another supported audit destination. Verify ingestion, retention and access controls. Automatically collected platform metrics and the subscription Activity Log do not replace data-plane usage audit logs."
+        }
+      ],
+      "sourceRefs": [
+        "kv-monitor",
+        "kv-monitor-reference",
+        "kv-secure"
+      ],
+      "querySemanticsConcerns": [
+        "No ARG or Log Analytics query is added. A diagnostic-setting inventory is configuration evidence only; log availability, retention, destination access, expected activity and time range require separate verification. Zero log rows do not establish compliance or absence of secret use."
+      ],
+      "remainingLimitations": [
+        "No workspace topology or regulatory retention duration is prescribed. Destination-specific table/schema selection remains outside this bounded review."
+      ],
+      "applied": false,
+      "after": {
+        "name": "revcl-PlatformCentralAzureMonitorLogAnalyticsWorkspaceSecretUsage",
+        "title": "Enable Key Vault audit logging and route key, certificate, and secret usage events to the designated security monitoring destination.",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.keyvault/vaults"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "17d6326a-f625-4ca4-9e56-95f2223ace8c"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/azure/key-vault/general/monitor-key-vault"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "17d6326a-f625-4ca4-9e56-95f2223ace8c",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": [
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault",
+              "title": "Monitor Azure Key Vault",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault-reference",
+              "title": "Monitoring data reference for Azure Key Vault",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/secure-key-vault",
+              "title": "Secure your Azure Key Vault",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            }
+          ]
+        },
+        "description": "Create diagnostic settings that collect Key Vault AuditEvent resource logs. Route them to the designated Log Analytics workspace, including the platform-central workspace when required by the organization, or another supported audit destination. Verify ingestion, retention and access controls. Automatically collected platform metrics and the subscription Activity Log do not replace data-plane usage audit logs."
+      },
+      "proposedAfterContentHash": "sha256:7959651b5970e6da03b91070dae7ea2d6e2e1fd3a02179d94a87892e66884b18",
+      "guidanceChanged": true,
+      "changedFields": [
+        "title",
+        "provenance",
+        "description"
+      ],
+      "preservedFields": [
+        "id",
+        "name",
+        "source",
+        "aliases",
+        "labels",
+        "waf",
+        "severity",
+        "services",
+        "resourceTypes",
+        "queries",
+        "automation"
+      ],
+      "aliasAssessment": "No aliases are present.",
+      "unknownDatesPreserved": {
+        "lastReviewed": null,
+        "validatedAt": null,
+        "upstreamRevision": null
+      }
+    },
+    {
+      "id": "6d70ba6c-97be-4995-8904-83845c986cb2",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-PublicCertificateAuthoritiesCertificateManagement.yaml",
+      "name": "revcl-PublicCertificateAuthoritiesCertificateManagement",
+      "source": {
+        "type": "revcl",
+        "file": "./checklists/waf_checklist.en.json"
+      },
+      "aliases": [],
+      "historicalOutcome": "needsmanualreview",
+      "historicalEntryHash": "sha256:bbfed9af2d81869b8b2723e454356437f7ce390551fc20c5cad27b512ddce894",
+      "beforeFileHash": "sha256:b90f72037fbfd41303de262a8244a8966599c6a2c5bf3274e2fd8e091a22e28d",
+      "beforeContentHash": "sha256:4d4b42fbd466586094a7acb7dc1442ae44c9fc670905bc51fa5e6f376ac29486",
+      "before": {
+        "name": "revcl-PublicCertificateAuthoritiesCertificateManagement",
+        "title": "Automate the certificate management and renewal process with public certificate authorities to ease administration.",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.keyvault/vaults"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "6d70ba6c-97be-4995-8904-83845c986cb2"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/azure/key-vault/general/best-practices"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "6d70ba6c-97be-4995-8904-83845c986cb2",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": []
+        }
+      },
+      "decision": "updated",
+      "reason": "The original unqualified instruction can imply that all public CAs receive the same built-in renewal support. Current documentation explicitly distinguishes integrated CA renewal from nonintegrated CA notification and CSR/sign/merge workflows.",
+      "proposedEdits": [
+        {
+          "field": "title",
+          "beforePresent": true,
+          "before": "Automate the certificate management and renewal process with public certificate authorities to ease administration.",
+          "after": "Automate Key Vault certificate renewal with supported integrated certificate authorities, and define renewal workflows for other issuers."
+        },
+        {
+          "field": "provenance",
+          "beforePresent": true,
+          "before": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "after": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/key-vault/certificates/overview-renew-certificate",
+                "title": "About Azure Key Vault certificate renewal",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              }
+            ]
+          }
+        },
+        {
+          "field": "description",
+          "beforePresent": false,
+          "before": null,
+          "after": "Configure certificate lifetime actions and renewal for the supported integrated certificate authorities, DigiCert and GlobalSign. For certificates issued by nonintegrated authorities, configure expiry notifications and an external or manual issuance/import workflow that creates the replacement certificate version. Verify that dependent services retrieve and use the renewed version; storing a certificate in Key Vault alone does not automate every issuer or consumer."
+        }
+      ],
+      "sourceRefs": [
+        "kv-certificate-renewal"
+      ],
+      "querySemanticsConcerns": [
+        "ARG vault existence does not reveal certificate issuer integration, lifetime policy, private-key material, successful renewal or consumer uptake. Review certificate policy and renewal evidence without exporting secret values or private keys."
+      ],
+      "remainingLimitations": [
+        "No CA account onboarding, issuance success or consumer renewal was tested. No promise that every imported certificate automatically renews."
+      ],
+      "applied": false,
+      "after": {
+        "name": "revcl-PublicCertificateAuthoritiesCertificateManagement",
+        "title": "Automate Key Vault certificate renewal with supported integrated certificate authorities, and define renewal workflows for other issuers.",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.keyvault/vaults"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "6d70ba6c-97be-4995-8904-83845c986cb2"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/azure/key-vault/general/best-practices"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "6d70ba6c-97be-4995-8904-83845c986cb2",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": [
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/key-vault/certificates/overview-renew-certificate",
+              "title": "About Azure Key Vault certificate renewal",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            }
+          ]
+        },
+        "description": "Configure certificate lifetime actions and renewal for the supported integrated certificate authorities, DigiCert and GlobalSign. For certificates issued by nonintegrated authorities, configure expiry notifications and an external or manual issuance/import workflow that creates the replacement certificate version. Verify that dependent services retrieve and use the renewed version; storing a certificate in Key Vault alone does not automate every issuer or consumer."
+      },
+      "proposedAfterContentHash": "sha256:ae4d679fe085099751dcab1aae09e491d0ebfafd09759900128f59cfdbddec00",
+      "guidanceChanged": true,
+      "changedFields": [
+        "title",
+        "provenance",
+        "description"
+      ],
+      "preservedFields": [
+        "id",
+        "name",
+        "source",
+        "aliases",
+        "labels",
+        "waf",
+        "severity",
+        "services",
+        "resourceTypes",
+        "queries",
+        "automation"
+      ],
+      "aliasAssessment": "No aliases are present.",
+      "unknownDatesPreserved": {
+        "lastReviewed": null,
+        "validatedAt": null,
+        "upstreamRevision": null
+      }
+    },
+    {
+      "id": "f8af3d94-1d2b-4070-846f-849197524258",
+      "path": "v2/recos/Services/MicrosoftApiManagement-service/Security/revcl-AzureKeyVaultNamedValues.yaml",
+      "name": "revcl-AzureKeyVaultNamedValues",
+      "source": {
+        "type": "revcl",
+        "file": "./checklists/waf_checklist.en.json"
+      },
+      "aliases": [],
+      "historicalOutcome": "needsmanualreview",
+      "historicalEntryHash": "sha256:ac6a176927f92be84ac321ee2cf848c03ac2dc58d57c3be2bf43934cac4b3d4c",
+      "beforeFileHash": "sha256:1e2a847fb72fc574ca620cf9a0c68347b84e8465f331a84f08f879000b876fd1",
+      "beforeContentHash": "sha256:995e7b9b4f3dd2afe5e9064de758c938164a1ce9b8f09c50a45370ff21543ac0",
+      "before": {
+        "name": "revcl-AzureKeyVaultNamedValues",
+        "title": "Ensure that secrets (Named values) are stored an Azure Key Vault so they can be securely accessed and updated",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.apimanagement/service"
+        ],
+        "waf": "Security",
+        "severity": 0,
+        "labels": {
+          "guid": "f8af3d94-1d2b-4070-846f-849197524258"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#im-8-restrict-the-exposure-of-credential-and-secrets"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "f8af3d94-1d2b-4070-846f-849197524258",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": []
+        }
+      },
+      "decision": "updated",
+      "reason": "Current documentation distinguishes plain values from secrets, excludes workspaces, requires identity access and versionless references, and warns that policy editing or tracing can expose resolved values. These are concrete qualifications to the original broad storage instruction.",
+      "proposedEdits": [
+        {
+          "field": "title",
+          "beforePresent": true,
+          "before": "Ensure that secrets (Named values) are stored an Azure Key Vault so they can be securely accessed and updated",
+          "after": "Store secret API Management named values in Azure Key Vault where the integration is supported."
+        },
+        {
+          "field": "provenance",
+          "beforePresent": true,
+          "before": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "after": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-properties",
+                "title": "How to Use Named Values in Azure API Management policies",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              }
+            ]
+          }
+        },
+        {
+          "field": "description",
+          "beforePresent": false,
+          "before": null,
+          "after": "Reference a Key Vault secret from the named value using an API Management managed identity with the required secret-read permissions. Use a versionless secret identifier for automatic refresh, and verify access after rotation; the documented refresh interval is up to four hours. This integration is not available for workspace named values. Restrict policy-editing and request-tracing access because storing the source secret in Key Vault does not prevent authorized API Management features from exposing its resolved value."
+        }
+      ],
+      "sourceRefs": [
+        "apim-named-values"
+      ],
+      "querySemanticsConcerns": [
+        "A Key Vault reference or managed identity in ARG is not proof of successful secret retrieval, refresh, or safe policy/tracing permissions. Do not retrieve resolved secret values in a query or report."
+      ],
+      "remainingLimitations": [
+        "The fetched firewall guidance requires the system-assigned identity for the documented trusted-service firewall scenario; this proposal does not assert that every identity/network combination works. Secret size bounds and tier/network configuration still require deployment-specific checks."
+      ],
+      "applied": false,
+      "after": {
+        "name": "revcl-AzureKeyVaultNamedValues",
+        "title": "Store secret API Management named values in Azure Key Vault where the integration is supported.",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.apimanagement/service"
+        ],
+        "waf": "Security",
+        "severity": 0,
+        "labels": {
+          "guid": "f8af3d94-1d2b-4070-846f-849197524258"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#im-8-restrict-the-exposure-of-credential-and-secrets"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "f8af3d94-1d2b-4070-846f-849197524258",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": [
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-properties",
+              "title": "How to Use Named Values in Azure API Management policies",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            }
+          ]
+        },
+        "description": "Reference a Key Vault secret from the named value using an API Management managed identity with the required secret-read permissions. Use a versionless secret identifier for automatic refresh, and verify access after rotation; the documented refresh interval is up to four hours. This integration is not available for workspace named values. Restrict policy-editing and request-tracing access because storing the source secret in Key Vault does not prevent authorized API Management features from exposing its resolved value."
+      },
+      "proposedAfterContentHash": "sha256:66fb14ad9788123fb0064cc087ff3b6aaa2bcae4abfe0ac05c8918a08c8690a1",
+      "guidanceChanged": true,
+      "changedFields": [
+        "title",
+        "provenance",
+        "description"
+      ],
+      "preservedFields": [
+        "id",
+        "name",
+        "source",
+        "aliases",
+        "labels",
+        "waf",
+        "severity",
+        "services",
+        "resourceTypes",
+        "queries",
+        "automation"
+      ],
+      "aliasAssessment": "No aliases are present.",
+      "unknownDatesPreserved": {
+        "lastReviewed": null,
+        "validatedAt": null,
+        "upstreamRevision": null
+      }
+    },
+    {
+      "id": "39460bdb-156f-4dc2-a87f-1e8c11ab0998",
+      "path": "v2/recos/Services/MicrosoftApiManagement-service/Security/revcl-CustomSslCertificatesAzureKeyVault.yaml",
+      "name": "revcl-CustomSslCertificatesAzureKeyVault",
+      "source": {
+        "type": "revcl",
+        "file": "./checklists/waf_checklist.en.json"
+      },
+      "aliases": [],
+      "historicalOutcome": "needsmanualreview",
+      "historicalEntryHash": "sha256:d2e70b6ef91af9a0005aed32b01c36907f919d5774af5ab9255275fad2a3623b",
+      "beforeFileHash": "sha256:ad20a2373c9c4b45116b41b5b3cf5df5528bc5c13a9760ddc907e31c46438156",
+      "beforeContentHash": "sha256:94ba3ee323765a5035bf7d9556007f4ae96d0bbcd18429204eef518da5e26e6b",
+      "before": {
+        "name": "revcl-CustomSslCertificatesAzureKeyVault",
+        "title": "Ensure that custom SSL certificates are stored an Azure Key Vault so they can be securely accessed and updated",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.apimanagement/service"
+        ],
+        "waf": "Security",
+        "severity": 0,
+        "labels": {
+          "guid": "39460bdb-156f-4dc2-a87f-1e8c11ab0998"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#certificate-management-in-azure-key-vault"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "39460bdb-156f-4dc2-a87f-1e8c11ab0998",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": []
+        }
+      },
+      "decision": "updated",
+      "reason": "The original broad SSL-storage statement does not distinguish custom-domain certificates from backend-client certificates. Current service documentation recommends Key Vault but specifies certificate objects, identity access, scenario-specific synchronization and workspace exclusions.",
+      "proposedEdits": [
+        {
+          "field": "title",
+          "beforePresent": true,
+          "before": "Ensure that custom SSL certificates are stored an Azure Key Vault so they can be securely accessed and updated",
+          "after": "Use Azure Key Vault to manage customer-provided TLS certificates for API Management where Key Vault integration is supported."
+        },
+        {
+          "field": "provenance",
+          "beforePresent": true,
+          "before": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "after": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/api-management/configure-custom-domain",
+                "title": "Configure custom domain name for Azure API Management instance",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              },
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates",
+                "title": "Secure API Management Backend Using Client Certificate Authentication",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              },
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
+                "title": "Grant permission to applications to access an Azure key vault using Azure RBAC",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              }
+            ]
+          }
+        },
+        {
+          "field": "description",
+          "beforePresent": false,
+          "before": null,
+          "after": "Use Key Vault certificate objects and grant the API Management managed identity the required access to their secret material. For custom-domain certificates, verify certificate synchronization and monitor access failures rather than assuming that renewal in Key Vault immediately updates the gateway. For backend-client certificate references, use a versionless identifier for automatic rotation; that integration is unavailable in workspaces. Apply the synchronization and support requirements for the specific certificate scenario."
+        }
+      ],
+      "sourceRefs": [
+        "apim-custom-domain",
+        "apim-backend-certificates",
+        "kv-rbac"
+      ],
+      "querySemanticsConcerns": [
+        "A stored certificate or reference cannot prove TLS hostname validity, certificate freshness, Key Vault data-plane access, or runtime synchronization. Avoid the incorrect generic four-hour assumption: backend-client certificates document four hours, while custom-domain updates can take one to two days in SLA tiers."
+      ],
+      "remainingLimitations": [
+        "No proposal about availability of the separate free managed-certificate preview; the fetched page contains a dated suspension notice not suitable for inferring current service availability. No changes to TLS trust/chain-validation policy are proposed."
+      ],
+      "applied": false,
+      "after": {
+        "name": "revcl-CustomSslCertificatesAzureKeyVault",
+        "title": "Use Azure Key Vault to manage customer-provided TLS certificates for API Management where Key Vault integration is supported.",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.apimanagement/service"
+        ],
+        "waf": "Security",
+        "severity": 0,
+        "labels": {
+          "guid": "39460bdb-156f-4dc2-a87f-1e8c11ab0998"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#certificate-management-in-azure-key-vault"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "39460bdb-156f-4dc2-a87f-1e8c11ab0998",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": [
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/api-management/configure-custom-domain",
+              "title": "Configure custom domain name for Azure API Management instance",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates",
+              "title": "Secure API Management Backend Using Client Certificate Authentication",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
+              "title": "Grant permission to applications to access an Azure key vault using Azure RBAC",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            }
+          ]
+        },
+        "description": "Use Key Vault certificate objects and grant the API Management managed identity the required access to their secret material. For custom-domain certificates, verify certificate synchronization and monitor access failures rather than assuming that renewal in Key Vault immediately updates the gateway. For backend-client certificate references, use a versionless identifier for automatic rotation; that integration is unavailable in workspaces. Apply the synchronization and support requirements for the specific certificate scenario."
+      },
+      "proposedAfterContentHash": "sha256:2a7ceeb5199f356038d1940ceacd1be9831200b0f7ae741205a3e38b6668f825",
+      "guidanceChanged": true,
+      "changedFields": [
+        "title",
+        "provenance",
+        "description"
+      ],
+      "preservedFields": [
+        "id",
+        "name",
+        "source",
+        "aliases",
+        "labels",
+        "waf",
+        "severity",
+        "services",
+        "resourceTypes",
+        "queries",
+        "automation"
+      ],
+      "aliasAssessment": "No aliases are present.",
+      "unknownDatesPreserved": {
+        "lastReviewed": null,
+        "validatedAt": null,
+        "upstreamRevision": null
+      }
+    },
+    {
+      "id": "08be36ad-0190-4740-b002-9adae9be0cca",
+      "path": "v2/recos/Services/MicrosoftCompute-virtualMachines/Security/wafsg-AzureKeyVaultExtensionCorrespondingCertificates.yaml",
+      "name": "wafsg-AzureKeyVaultExtensionCorrespondingCertificates",
+      "source": {
+        "type": "wafsg",
+        "file": "well-architected/service-guides/virtual-machines.md",
+        "timestamp": "July 24, 2024"
+      },
+      "aliases": [],
+      "historicalOutcome": "needsmanualreview",
+      "historicalEntryHash": "sha256:f9f944252bbf9b7b641cf5f84af8ac12da2ee8fd25cefebf9f2866e1eb21321e",
+      "beforeFileHash": "sha256:b24296ad44fd3ed255aa7326cead21b4b3dd78fa9458791474769172377b2fbc",
+      "beforeContentHash": "sha256:dba23ee4ef209584557d88e234e3bd8dca06da382e1b9411334c397067da77bb",
+      "before": {
+        "name": "wafsg-AzureKeyVaultExtensionCorrespondingCertificates",
+        "title": "Protect secrets such as the certificates that you need to protect data in transit. Consider using the Azure Key Vault extension for Windows or Linux that automatically refreshes the certificates stored in a key vault. When it detects a change in the certificates, the extension retrieves and installs the corresponding certificates.",
+        "description": "",
+        "source": {
+          "type": "wafsg",
+          "file": "well-architected/service-guides/virtual-machines.md",
+          "timestamp": "July 24, 2024"
+        },
+        "resourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "08be36ad-0190-4740-b002-9adae9be0cca"
+        },
+        "links": [],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "08be36ad-0190-4740-b002-9adae9be0cca",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": []
+        }
+      },
+      "decision": "supportedunchanged",
+      "reason": "Both current Windows and Linux extension documents directly support the existing recommendation: observe Key Vault certificates, detect new versions, retrieve and install them. Retain the current guidance without replacing it with a generic security rewrite; add current evidence only.",
+      "proposedEdits": [
+        {
+          "field": "provenance",
+          "beforePresent": true,
+          "before": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "after": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-windows",
+                "title": "Azure Key Vault VM extension for Windows",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              },
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-linux",
+                "title": "Azure Key Vault virtual machine extension for Linux",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              }
+            ]
+          }
+        }
+      ],
+      "sourceRefs": [
+        "vm-key-vault-windows",
+        "vm-key-vault-linux"
+      ],
+      "querySemanticsConcerns": [
+        "Extension presence or successful provisioning does not demonstrate that an application is serving the intended renewed certificate or that private-key file/store permissions meet the workload requirement. No automatic compliance query is proposed."
+      ],
+      "remainingLimitations": [
+        "Use the supported platform and identity configuration for the deployed extension version. Current 4.x documentation has OS and breaking-change constraints; no forced major-version upgrade is proposed. Certificate secret-read access differs from metadata-only certificate access."
+      ],
+      "applied": false,
+      "after": {
+        "name": "wafsg-AzureKeyVaultExtensionCorrespondingCertificates",
+        "title": "Protect secrets such as the certificates that you need to protect data in transit. Consider using the Azure Key Vault extension for Windows or Linux that automatically refreshes the certificates stored in a key vault. When it detects a change in the certificates, the extension retrieves and installs the corresponding certificates.",
+        "description": "",
+        "source": {
+          "type": "wafsg",
+          "file": "well-architected/service-guides/virtual-machines.md",
+          "timestamp": "July 24, 2024"
+        },
+        "resourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "08be36ad-0190-4740-b002-9adae9be0cca"
+        },
+        "links": [],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "08be36ad-0190-4740-b002-9adae9be0cca",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": [
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-windows",
+              "title": "Azure Key Vault VM extension for Windows",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-linux",
+              "title": "Azure Key Vault virtual machine extension for Linux",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            }
+          ]
+        }
+      },
+      "proposedAfterContentHash": "sha256:27d0e2a9000e5a29c62840ad7e6e66ea8c2f63b4da435746800f786672beb5c8",
+      "guidanceChanged": false,
+      "changedFields": [
+        "provenance"
+      ],
+      "preservedFields": [
+        "id",
+        "name",
+        "source",
+        "aliases",
+        "labels",
+        "waf",
+        "severity",
+        "services",
+        "resourceTypes",
+        "queries",
+        "automation"
+      ],
+      "aliasAssessment": "No aliases are present.",
+      "unknownDatesPreserved": {
+        "lastReviewed": null,
+        "validatedAt": null,
+        "upstreamRevision": null
+      }
+    },
+    {
+      "id": "5e3df584-eccc-4d97-a3b6-bcda3b50eb2e",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-CsiSecretsStoreDriverAzureKeyVault.yaml",
+      "name": "revcl-CsiSecretsStoreDriverAzureKeyVault",
+      "source": {
+        "type": "revcl",
+        "file": "./checklists/waf_checklist.en.json"
+      },
+      "aliases": [],
+      "historicalOutcome": "needsmanualreview",
+      "historicalEntryHash": "sha256:f19cc6efa1fef2729120556575af15a3be4346989b74e2d4f38cea08e2ceb92f",
+      "beforeFileHash": "sha256:8886d8790ec3920453999f73a7c3b2b442acc8d25bb6b79c52db1e9b13f5b960",
+      "beforeContentHash": "sha256:19f4a3579a92ec9cff79d990015fb7e36cff885742b694ae1adef1fb207657cd",
+      "before": {
+        "name": "revcl-CsiSecretsStoreDriverAzureKeyVault",
+        "title": "Store your secrets in Azure Key Vault with the CSI Secrets Store driver",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.containerservice/managedclusters"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "5e3df584-eccc-4d97-a3b6-bcda3b50eb2e"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://github.com/Azure/secrets-store-csi-driver-provider-azure"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "5e3df584-eccc-4d97-a3b6-bcda3b50eb2e",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": []
+        }
+      },
+      "decision": "updated",
+      "reason": "The driver consumes and mounts existing Key Vault secrets; it is not the secret authoring or credential-issuance mechanism. Current documentation explicitly distinguishes provider installation, identity access, rotation enablement, mounted/synchronized content and application reload behavior.",
+      "proposedEdits": [
+        {
+          "field": "title",
+          "beforePresent": true,
+          "before": "Store your secrets in Azure Key Vault with the CSI Secrets Store driver",
+          "after": "Mount secrets stored in Azure Key Vault into AKS workloads with the Azure Key Vault provider for Secrets Store CSI Driver."
+        },
+        {
+          "field": "provenance",
+          "beforePresent": true,
+          "before": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "after": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver",
+                "title": "Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) Secrets",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              },
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-configuration-options",
+                "title": "Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) Configuration Options",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              }
+            ]
+          }
+        },
+        {
+          "field": "description",
+          "beforePresent": false,
+          "before": null,
+          "after": "Configure the provider and SecretProviderClass with an authorized identity and least-privilege access to the required Key Vault objects. Enable secret autorotation when workloads must consume new upstream versions, and verify how the application reloads them. CSI rotation updates mounted content and optionally synchronized Kubernetes Secrets; it does not create or rotate the source credential. Environment-variable consumers need a pod restart, and subPath mounts do not receive automatic updates."
+        }
+      ],
+      "sourceRefs": [
+        "aks-csi-provider",
+        "aks-csi-rotation"
+      ],
+      "querySemanticsConcerns": [
+        "An enabled AKS add-on or managed identity is not evidence of SecretProviderClass bindings, successful pod mounts, per-workload authorization, or application reload. These require Kubernetes/runtime evidence, not an ARG compliance verdict."
+      ],
+      "remainingLimitations": [
+        "No workload manifests, cluster, secret values or managed identities were accessed. Kubernetes Secret synchronization is optional and is not required by this proposal."
+      ],
+      "applied": false,
+      "after": {
+        "name": "revcl-CsiSecretsStoreDriverAzureKeyVault",
+        "title": "Mount secrets stored in Azure Key Vault into AKS workloads with the Azure Key Vault provider for Secrets Store CSI Driver.",
+        "source": {
+          "type": "revcl",
+          "file": "./checklists/waf_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.containerservice/managedclusters"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "5e3df584-eccc-4d97-a3b6-bcda3b50eb2e"
+        },
+        "links": [
+          {
+            "type": "docs",
+            "url": "https://github.com/Azure/secrets-store-csi-driver-provider-azure"
+          }
+        ],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "5e3df584-eccc-4d97-a3b6-bcda3b50eb2e",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": [
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver",
+              "title": "Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) Secrets",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-configuration-options",
+              "title": "Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) Configuration Options",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            }
+          ]
+        },
+        "description": "Configure the provider and SecretProviderClass with an authorized identity and least-privilege access to the required Key Vault objects. Enable secret autorotation when workloads must consume new upstream versions, and verify how the application reloads them. CSI rotation updates mounted content and optionally synchronized Kubernetes Secrets; it does not create or rotate the source credential. Environment-variable consumers need a pod restart, and subPath mounts do not receive automatic updates."
+      },
+      "proposedAfterContentHash": "sha256:f533dc0452e1943c2492baf0f4a68145229f435b5b0ea07da3dc85379b35545d",
+      "guidanceChanged": true,
+      "changedFields": [
+        "title",
+        "provenance",
+        "description"
+      ],
+      "preservedFields": [
+        "id",
+        "name",
+        "source",
+        "aliases",
+        "labels",
+        "waf",
+        "severity",
+        "services",
+        "resourceTypes",
+        "queries",
+        "automation"
+      ],
+      "aliasAssessment": "No aliases are present.",
+      "unknownDatesPreserved": {
+        "lastReviewed": null,
+        "validatedAt": null,
+        "upstreamRevision": null
+      }
+    },
+    {
+      "id": "5692cf86-c36a-4c1b-a73f-1a73f5728cd0",
+      "path": "v2/recos/Services/microsoftnetwork-applicationGateways/Security/wafsg-EasierCertificateRenewalAzureKeyVault.yaml",
+      "name": "wafsg-EasierCertificateRenewalAzureKeyVault",
+      "source": {
+        "type": "wafsg",
+        "file": "./checklists-ext/wafsg_checklist.en.json"
+      },
+      "aliases": [
+        {
+          "id": "2e0b6e8f-2784-4ea8-bec5-a128ddce6c98",
+          "name": "wafsg-AzureKeyVaultTlsCertificates",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-application-gateway.md",
+            "timestamp": "July 24, 2024"
+          },
+          "labels": {
+            "guid": "2e0b6e8f-2784-4ea8-bec5-a128ddce6c98"
+          },
+          "corpusFile": "Services/microsoftnetwork-applicationGateways/Security/wafsg-AzureKeyVaultTlsCertificates.yaml"
+        }
+      ],
+      "historicalOutcome": "needsmanualreview",
+      "historicalEntryHash": "sha256:65e1bc4affd810ce62fdefb35e4c89ef5e3de7203ab35a76d70241f8f17614c6",
+      "beforeFileHash": "sha256:9bfeb2bfd432c700a77f484ce1adeddd4608852776903a278d9b6eb0d3acdf81",
+      "beforeContentHash": "sha256:e2a1895e0f824502dd650c0ab58b1c017180475c2010357c41875b6591e06fd7",
+      "before": {
+        "name": "wafsg-EasierCertificateRenewalAzureKeyVault",
+        "title": "Use Azure Key Vault to store TLS certificates",
+        "description": "Application Gateway can be integrated with Key Vault. This provides stronger security, easier separation of roles and responsibilities, support for managed certificates, and an easier certificate renewal and rotation process.",
+        "source": {
+          "type": "wafsg",
+          "file": "./checklists-ext/wafsg_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.network/applicationgateways"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "5692cf86-c36a-4c1b-a73f-1a73f5728cd0"
+        },
+        "links": [],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "5692cf86-c36a-4c1b-a73f-1a73f5728cd0",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": []
+        },
+        "aliases": [
+          {
+            "id": "2e0b6e8f-2784-4ea8-bec5-a128ddce6c98",
+            "name": "wafsg-AzureKeyVaultTlsCertificates",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "2e0b6e8f-2784-4ea8-bec5-a128ddce6c98"
+            },
+            "corpusFile": "Services/microsoftnetwork-applicationGateways/Security/wafsg-AzureKeyVaultTlsCertificates.yaml"
+          }
+        ]
+      },
+      "decision": "updated",
+      "reason": "Current Application Gateway documentation limits the integration to v2 and identifies concrete certificate, identity, rotation and failure conditions missing from the original general recommendation. The existing TLS-certificate alias remains represented by the same canonical requirement.",
+      "proposedEdits": [
+        {
+          "field": "title",
+          "beforePresent": true,
+          "before": "Use Azure Key Vault to store TLS certificates",
+          "after": "Use Azure Key Vault certificates for Application Gateway v2 HTTPS listeners."
+        },
+        {
+          "field": "description",
+          "beforePresent": true,
+          "before": "Application Gateway can be integrated with Key Vault. This provides stronger security, easier separation of roles and responsibilities, support for managed certificates, and an easier certificate renewal and rotation process.",
+          "after": "Use an enabled software-backed PFX certificate with an exportable private key, and reference its Key Vault secret through a user-assigned managed identity with the required secret-read permission. Prefer a versionless secret identifier so Application Gateway can retrieve renewed versions during its four-hour polling cycle. Verify Key Vault network reachability and monitor access failures, because loss of certificate access can disable the listener. HSM-backed certificates are not supported by this integration."
+        },
+        {
+          "field": "provenance",
+          "beforePresent": true,
+          "before": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "after": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/en-us/azure/application-gateway/key-vault-certs",
+                "title": "TLS termination with Azure Key Vault certificates",
+                "accessedAt": "2026-09-13",
+                "revision": null
+              }
+            ]
+          }
+        }
+      ],
+      "sourceRefs": [
+        "appgw-key-vault"
+      ],
+      "querySemanticsConcerns": [
+        "A listener Key Vault reference is inventory evidence, not proof of an enabled usable certificate, current data-plane permissions/network reachability, or successful runtime rotation. No ARG verdict or TLS probe is added."
+      ],
+      "remainingLimitations": [
+        "Alias 2e0b6e8f-2784-4ea8-bec5-a128ddce6c98 remains unchanged. This proposal does not merge or retire any additional recommendation, and it does not extend the requirement to v1 or unsupported certificate types."
+      ],
+      "applied": false,
+      "after": {
+        "name": "wafsg-EasierCertificateRenewalAzureKeyVault",
+        "title": "Use Azure Key Vault certificates for Application Gateway v2 HTTPS listeners.",
+        "description": "Use an enabled software-backed PFX certificate with an exportable private key, and reference its Key Vault secret through a user-assigned managed identity with the required secret-read permission. Prefer a versionless secret identifier so Application Gateway can retrieve renewed versions during its four-hour polling cycle. Verify Key Vault network reachability and monitor access failures, because loss of certificate access can disable the listener. HSM-backed certificates are not supported by this integration.",
+        "source": {
+          "type": "wafsg",
+          "file": "./checklists-ext/wafsg_checklist.en.json"
+        },
+        "resourceTypes": [
+          "microsoft.network/applicationgateways"
+        ],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {
+          "guid": "5692cf86-c36a-4c1b-a73f-1a73f5728cd0"
+        },
+        "links": [],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "5692cf86-c36a-4c1b-a73f-1a73f5728cd0",
+        "services": [],
+        "automation": {
+          "status": "unknown",
+          "validatedAt": null
+        },
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": [
+            {
+              "url": "https://learn.microsoft.com/en-us/azure/application-gateway/key-vault-certs",
+              "title": "TLS termination with Azure Key Vault certificates",
+              "accessedAt": "2026-09-13",
+              "revision": null
+            }
+          ]
+        },
+        "aliases": [
+          {
+            "id": "2e0b6e8f-2784-4ea8-bec5-a128ddce6c98",
+            "name": "wafsg-AzureKeyVaultTlsCertificates",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "2e0b6e8f-2784-4ea8-bec5-a128ddce6c98"
+            },
+            "corpusFile": "Services/microsoftnetwork-applicationGateways/Security/wafsg-AzureKeyVaultTlsCertificates.yaml"
+          }
+        ]
+      },
+      "proposedAfterContentHash": "sha256:b2a8c00abcc4ad7e736c42ba1e9f507ac44c5679315eb0901402e3a024eee193",
+      "guidanceChanged": true,
+      "changedFields": [
+        "title",
+        "description",
+        "provenance"
+      ],
+      "preservedFields": [
+        "id",
+        "name",
+        "source",
+        "aliases",
+        "labels",
+        "waf",
+        "severity",
+        "services",
+        "resourceTypes",
+        "queries",
+        "automation"
+      ],
+      "aliasAssessment": "Retained alias metadata identifies the same Application Gateway TLS/Key Vault requirement. No alias collision, new merge or retirement is proposed; the alias is not a separate canonical record in the historical Security manifest.",
+      "unknownDatesPreserved": {
+        "lastReviewed": null,
+        "validatedAt": null,
+        "upstreamRevision": null
+      }
+    }
+  ],
+  "limitations": [
+    "Source-backed proposals only; parent owns applying any changes and immutable-history follow-up integration.",
+    "No source inventory or upstream ID mappings are created.",
+    "Existing GUID/name/source/aliases, classification and query semantics must be preserved unless a specific proposal states otherwise."
+  ],
+  "completedAt": "2026-09-12T21:37:48.412803+00:00",
+  "counts": {
+    "frozen": 8,
+    "updated": 7,
+    "supportedunchanged": 1,
+    "unresolved": 0,
+    "applied": 0,
+    "newRecommendations": 0,
+    "newMappings": 0
+  },
+  "nextAction": "Parent must revalidate each beforeFileHash/beforeContentHash against the current corpus, reconcile any overlapping proposals, then apply accepted field edits through the separate immutable-history follow-up stage. Do not modify this original Security manifest or treat these proposals as human approval.",
+  "sourceCoverage": {
+    "unit": "Eight frozen existing corpus recommendations, not an upstream service catalogue denominator",
+    "reviewedIds": [
+      "b12308ca-5017-4f15-9e3a-b3693829e7e3",
+      "17d6326a-f625-4ca4-9e56-95f2223ace8c",
+      "6d70ba6c-97be-4995-8904-83845c986cb2",
+      "f8af3d94-1d2b-4070-846f-849197524258",
+      "39460bdb-156f-4dc2-a87f-1e8c11ab0998",
+      "08be36ad-0190-4740-b002-9adae9be0cca",
+      "5e3df584-eccc-4d97-a3b6-bcda3b50eb2e",
+      "5692cf86-c36a-4c1b-a73f-1a73f5728cd0"
+    ],
+    "sourcesFetched": 13,
+    "newInventories": 0,
+    "upstreamCoveragePercent": null,
+    "reason": "Bounded source-backed requirement review; no complete upstream recommendation inventory was enumerated and no hash-bound upstream ID mapping was created.",
+    "excluded": "Other Security manual-review records, vault disaster recovery/geography, disk encryption, other service integrations, Managed HSM, customer implementation and live query execution."
+  },
+  "validation": {
+    "status": "passed",
+    "checkedAt": "2026-09-12T21:38:56.335831+00:00",
+    "checks": [
+      "Exactly eight frozen historical needsmanualreview canonical IDs; one existing alias preserved.",
+      "Historical manifest file hash and all eight historical entry hashes unchanged.",
+      "All eight live corpus files match frozen byte hashes and full before documents; no proposal applied.",
+      "Every explicit before/after field edit replays to the exact proposed after document and hash.",
+      "Existing validate_corpus accepts all eight proposed records and their aliases.",
+      "GUID/name/source/aliases/classification/severity/query/automation fields unchanged.",
+      "Unknown lastReviewed, validatedAt and upstreamRevision remain null.",
+      "All evidence references resolve to the thirteen actually fetched public-source entries."
+    ],
+    "notPerformed": [
+      "No live Azure, ARG, Kubernetes, secret/certificate access, or runtime validation.",
+      "No corpus write, new inventory, upstream ID mapping, or human approval."
+    ]
+  }
+}

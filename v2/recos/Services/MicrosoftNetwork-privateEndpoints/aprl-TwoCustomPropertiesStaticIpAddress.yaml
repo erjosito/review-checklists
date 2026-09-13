@@ -1,13 +1,14 @@
 name: aprl-TwoCustomPropertiesStaticIpAddress
 title: Resolve issues with Private Endpoints in non Succeeded connection state
-description: |-
-  A private endpoint has two custom properties, static IP address and the network interface name, which must be set at creation. If not in Succeeded state, there may be issues with the endpoint or associated resource.
+description: A private endpoint has two custom properties, static IP address and the network interface
+  name, which must be set at creation. If not in Succeeded state, there may be issues with the endpoint
+  or associated resource.
 source:
   type: aprl
   file: azure-resources/Network/privateEndpoints/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/privateEndpoints
+- microsoft.network/privateendpoints
 severity: 1
 labels:
   guid: b89c9acc-0aba-fb44-9ff2-3dbfcf97dce7
@@ -21,3 +22,31 @@ queries:
     | where type =~ "microsoft.network/privateendpoints"
     | where (properties.provisioningState =~ "Succeeded" and (properties.privateLinkServiceConnections[0].properties.provisioningState =~ "Succeeded" or properties.manualPrivateLinkServiceConnections[0].properties.provisioningState =~ "Succeeded")) == false
     | project recommendationId = "b89c9acc-0aba-fb44-9ff2-3dbfcf97dce7", name, id, tags, param1 = strcat("provisioningState: ", tostring(properties.provisioningState)), param2 = strcat("provisioningState: ", tostring(properties.privateLinkServiceConnections[0].properties.provisioningState)), param3 = strcat("manualProvisioningState: ", tostring(properties.manualPrivateLinkServiceConnections[0].properties.provisioningState))
+schemaVersion: 1
+id: b89c9acc-0aba-fb44-9ff2-3dbfcf97dce7
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/privateEndpoints/recommendations.yaml
+    title: 'APRL b89c9acc-0aba-fb44-9ff2-3dbfcf97dce7: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b89c9acc-0aba-fb44-9ff2-3dbfcf97dce7
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/privateEndpoints/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:c21d820c364d7cf99e934c20c61926a7313e10ab3795d004832f259077094b26
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

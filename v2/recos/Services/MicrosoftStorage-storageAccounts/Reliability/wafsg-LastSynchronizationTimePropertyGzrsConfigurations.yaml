@@ -1,12 +1,12 @@
 name: wafsg-LastSynchronizationTimePropertyGzrsConfigurations
-title: Before initiating a failover or failback, evaluate the potential for data loss
-  by checking the value of the last synchronization time property. This recommendation
-  applies only to GRS and GZRS configurations.
-description: This property helps you estimate how much data you might lose by initiating
-  an account failover. All data and metadata written before the last synchronization
-  time is available on the secondary region, but data and metadata written after the
-  last synchronization time might be lost because it's not written to the secondary
-  region.
+title: Before initiating a failover or failback, evaluate the potential for data loss by checking the
+  value of the last synchronization time property. This recommendation applies only to GRS and GZRS configurations.
+description: |-
+  This property helps you estimate how much data you might lose by initiating an account failover. All data and metadata written before the last synchronization time is available on the secondary region, but data and metadata written after the last synchronization time might be lost because it's not written to the secondary region.
+
+  This property helps you estimate how much data you might lose if you initiate an account failover. All data and metadata that's written before the last synchronization time is available on the secondary region, but you might lose data and metadata that's written after the last synchronization time because it's not written to the secondary region.
+
+  Interpret these statements as potential loss: writes after Last Sync Time might already have replicated, but are not guaranteed. Assess customer-managed unplanned failover separately from planned failover and failback, for which data loss is not expected while both regions remain available throughout the operation. GRS and GZRS here include their read-access variants; this guidance does not apply to LRS or ZRS alone.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -18,3 +18,22 @@ labels:
   guid: af07c8fb-ba63-41e5-b924-3bc6759ad671
 links: []
 queries: {}
+schemaVersion: 1
+id: af07c8fb-ba63-41e5-b924-3bc6759ad671
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: f436bbde-bfd0-4be2-85a6-c13f0d79cee1
+  name: wafsg-LastSynchronizationTimePropertyGzrsConfigurations-1
+  source:
+    type: wafsg
+    file: ./checklists-ext/wafsg_checklist.en.json
+  labels:
+    guid: f436bbde-bfd0-4be2-85a6-c13f0d79cee1
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Reliability/wafsg-LastSynchronizationTimePropertyGzrsConfigurations-1.yaml

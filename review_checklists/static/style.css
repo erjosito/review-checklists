@@ -43,3 +43,27 @@ fieldset { margin: 1rem 0; border: 1px solid #ccd4df; }
 .metric { max-width: 230px; }
 .metric h3 { margin-bottom: .3rem; }
 .metric-value { margin: .2rem 0; font-size: 2rem; font-weight: bold; }
+[hidden] { display: none !important; }
+.assessment-cell { vertical-align: top; }
+.assessment { min-width: 15rem; }
+@supports (content-visibility: auto) {
+    .assessment { content-visibility: auto; contain-intrinsic-block-size: auto 7rem; }
+}
+@media print {
+    .assessment { content-visibility: visible; contain-intrinsic-block-size: none; }
+}
+.comments-editor { max-width: 24rem; margin: .5rem 0; }
+.comments-editor summary { cursor: pointer; overflow-wrap: anywhere; }
+.comments-preview { white-space: pre-wrap; }
+.comments-editor label { margin: .5rem 0; }
+.save-state { font-size: .9rem; margin: .5rem 0; }
+.autosave-clean-note { display: none; }
+.autosave-enabled .autosave-clean-note { display: inline; }
+.autosave-enabled .manual-save-note,
+.autosave-enabled .assessment:not([data-save-state="error"]) .save-assessment { display: none; }
+.assessment[data-save-state="error"] .save-state, .warning {
+    color: #8b211e; background: #fde8e7; padding: .5rem;
+}
+.assessment[data-save-state="unsaved"] .save-state,
+.assessment[data-save-state="saving"] .save-state { color: #765000; }
+.conflict-help { display: block; margin: .5rem 0; }

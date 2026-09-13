@@ -1,26 +1,28 @@
-# Retrieve recommendations from Well Architected service guides
+# Validate recommendation sources and checklists
 
-This action retrieves the recommendations described in [Well-Architected Service Guides](https://learn.microsoft.com/azure/well-architected/service-guides/?product=popular) and stores it as a new checklist.
+This offline composite action validates every YAML recommendation against the
+single versioned contract in `v2/schema/recommendation.schema.json`, including
+semantic checks and global canonical/alias ID and name uniqueness. It rejects
+duplicate YAML keys, missing metadata, malformed files, and empty corpora rather
+than enriching documents during validation. Legacy checklist definitions are
+validated against `v2/schema/checklist.schema.json`.
 
-## Inputs
-
-## `services`
-
-**Optional** Service(s) whose service guide will be downloaded (leave blank for all service guides). You can specify multiple comma-separated values. Default `""`.
-
-## `output_folder`
-
-**Optional** Folder where the new checklists will be stored. Default `"./checklists-ext"`.
-
-## `verbose`
-
-**Optional** Whether script output is verbose or not. Default `"true"`.
-
-## Example usage
-
+```yaml
+- uses: ./.github/actions/recov2lint
+  with:
+    folder: './v2'
 ```
-uses: ./.github/actions/get_service_guides
-with:
-  output_file: './checklists'
-  service: 'Azure Kubernetes Service'
+
+`folder` defaults to `./v2`. `verbose` remains accepted for compatibility.
+The checkout must contain `scripts` and `v2/schema`; no package-path mutation is
+needed. Python 3.13 and the action's requirements are installed by the action.
+For local use, install those requirements and run from the repository root:
+
+```powershell
+python -m scripts.validate_corpus --root v2
+python -m unittest discover -s scripts\tests -v
 ```
+
+The old Python entrypoint remains a compatibility wrapper for this same module.
+Neither validation nor the separate catalog-build CI job retrieves upstream
+content or runs cloud queries.

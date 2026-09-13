@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/multi-tenant/automation
 queries: {}
+schemaVersion: 1
+id: 6309957b-821a-43d1-b9d9-7fcf1802b747
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

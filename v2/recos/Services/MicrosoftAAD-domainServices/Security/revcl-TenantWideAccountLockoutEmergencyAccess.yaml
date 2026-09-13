@@ -1,6 +1,5 @@
 name: revcl-TenantWideAccountLockoutEmergencyAccess
-title: Implement an emergency access or break-glass accounts to prevent tenant-wide
-  account lockout
+title: Maintain at least two protected, cloud-only emergency access accounts and test them regularly.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +15,35 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/azure-ad-privileged-identity-management/
 queries: {}
+schemaVersion: 1
+id: 984a859c-773e-47d2-9162-3a765a917e1f
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/entra/identity/role-based-access-control/security-emergency-access
+    title: Manage emergency access admin accounts
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Use nonfederated, nonsynchronized onmicrosoft.com accounts with permanent active Global Administrator
+  assignments. Register phishing-resistant authentication with dependencies independent of routine administration,
+  store credentials securely in separate locations, and use a designated secure workstation. Exclude the
+  accounts from Conditional Access policies that block or restrict sign-in, but do not bypass strong authentication.
+  Alert on every use, investigate activity, prevent credential expiration or automated cleanup, and validate
+  sign-in and administrative recovery at least every 90 days.

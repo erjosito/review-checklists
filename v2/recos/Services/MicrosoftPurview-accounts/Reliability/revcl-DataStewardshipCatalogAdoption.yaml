@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/catalog-adoption-insights
 queries: {}
+schemaVersion: 1
+id: aa3d3ef7-f317-46c4-a97b-15b8a219a4ab
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

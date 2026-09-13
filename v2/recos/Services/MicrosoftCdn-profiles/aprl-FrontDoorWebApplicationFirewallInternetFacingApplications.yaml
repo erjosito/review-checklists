@@ -1,13 +1,14 @@
 name: aprl-FrontDoorWebApplicationFirewallInternetFacingApplications
 title: Enable the WAF
-description: |-
-  For internet-facing applications, enabling the Front Door web application firewall (WAF) and configuring it to use managed rules is recommended for protection against a wide range of attacks using Microsoft-managed rules.
+description: For internet-facing applications, enabling the Front Door web application firewall (WAF)
+  and configuring it to use managed rules is recommended for protection against a wide range of attacks
+  using Microsoft-managed rules.
 source:
   type: aprl
   file: azure-resources/Cdn/profiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Cdn/profiles
+- microsoft.cdn/profiles
 severity: 1
 labels:
   guid: 1bd2b7e8-400f-e64a-99a2-c572f7b08a62
@@ -54,3 +55,34 @@ queries:
         param1 = strcat("associatedsecuritypolicies:", associatedsecuritypolicies),
         param2 = strcat("wafswithmanagedrules:", wafswithmanagedrules),
         param3 = strcat("skuname:",skuname)
+schemaVersion: 1
+id: 1bd2b7e8-400f-e64a-99a2-c572f7b08a62
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    title: 'APRL 1bd2b7e8-400f-e64a-99a2-c572f7b08a62: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1bd2b7e8-400f-e64a-99a2-c572f7b08a62
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:55aad7e687403b56f5b914fddb352530e9ad48ed033f7a7a1c94df08267fb3b4
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

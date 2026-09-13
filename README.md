@@ -1,119 +1,139 @@
-[![GitHub Super-Linter](https://github.com/Azure/review-checklists/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-
 # Azure Review Checklists
 
-**Local app development:** the [local-first Python CLI and web prototype](review_checklists/README.md)
-is available on this branch. It works without AI and keeps review state locally.
-See the [v3 decision log](v2/docs/next-generation-design.md) for the roadmap.
+**A local-first Python CLI and localhost web UI for Azure architecture reviews.**
+On this development branch, the current v3 prototype replaces the spreadsheet
+review workflow. Browse recommendations, record assessments and comments offline,
+optionally collect Azure Resource Graph (ARG) evidence, and export JSON or HTML.
+No hosted backend, cloud database, AI entitlement, or AI endpoint is required.
 
-![](./pictures/overview.png)
+**Prototype, not a production/team release.** The application has no implemented
+AI provider adapters, embedding index, or MCP server. Those are
+[future integration designs](review_checklists/docs/integration-design.md), not
+features to configure. The older spreadsheet and MySQL/ACI web prototype are
+[legacy assets](docs/legacy-v1.md), not prerequisites or hosted versions of this app.
 
-Quick links for using the checklists in this repo:
+## Start a local review
 
-- [Latest release of the Excel spreadsheet](https://github.com/Azure/review-checklists/releases/latest/download/review_checklist.xlsm)
-- [https://aka.ms/ftaaas](https://aka.ms/ftaaas) for a web frontend (check out our sister repo [https://github.com/Azure/fta-aas](https://github.com/Azure/fta-aas)).
+Use Python **3.11+**. From a checkout of this branch, run in PowerShell:
 
-Summary of checklists supported and the respective responsible owners:
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r review_checklists\requirements.txt
+.\.venv\Scripts\python.exe -m review_checklists init `
+    --name "My Azure review" --description "Scope and objectives of this review."
+.\.venv\Scripts\python.exe -m review_checklists serve
+```
 
-| Checklist | Status | CodeOwners |
-| --- | --- | --- |
-| ALZ  | GA | FTA-ALZ-vTeam, ALZ-checklist-contributors  |
-| WAF | GA | Dynamically generated |
-| AKS | GA | [@msftnadavbh](https://github.com/msftnadavbh) [@seenu433](https://github.com/seenu433) [@erjosito](https://github.com/erjosito) |
-| ARO | Preview | [@msftnadavbh](https://github.com/msftnadavbh) [@naioja](https://github.com/naioja) [@erjosito](https://github.com/erjosito) |
-| AVD | GA | [@igorpag](https://github.com/igorpag) [@mikewarr](https://github.com/mikewarr) [@bagwyth](https://github.com/bagwyth) |
-| Cost | GA | [@brmoreir](https://github.com/brmoreir) [@pea-ms](https://github.com/pea-ms) |
-| Multitenancy | GA | [@arsenvlad](https://github.com/arsenvlad) [@cherchyk](https://github.com/cherchyk) |
-| Application Delivery Networking | GA | [@erjosito](https://github.com/erjosito) [@andredewes](https://github.com/andredewes) |
-| AVS design | Preview | [@fskelly](https://github.com/fskelly) [@mgodfrey50](https://github.com/mgodfrey50) [@robinher](https://github.com/robinher) |
-| AVS implementation | Preview | [@fskelly](https://github.com/fskelly) [@mgodfrey50](https://github.com/mgodfrey50) [@robinher](https://github.com/robinher) |
-| SAP | GA | [@NaokiIgarashi](https://github.com/NaokiIgarashi) [@AlastairMorrison](https://github.com/AlastairMorrison) [@mottach](https://github.com/mottach) |
-| API Management | Preview | [@andredewes](https://github.com/andredewes) [@seenu433](https://github.com/seenu433) |
-| Stack HCI | Preview | [@mbrat2005](https://github.com/mbrat2005) [@steveswalwell](https://github.com/steveswalwell) [@igomaa](https://github.com/igomaa) |
-| Spring Apps | Preview | [@bappadityams](https://github.com/) [@vermegi](https://github.com/vermegi) [@fmustaf](https://github.com/fmustaf) |
-| Azure DevOps | Preview | [@roshair](https://github.com/roshair) |
-| SQL Migration | Preview | [@karthikyella](https://github.com/karthikyella) [@dbabulldog-repo](https://github.com/dbabulldog-repo) |
-| Security | Deprecated | [@mgodfrey50](https://github.com/mgodfrey50) [@rudneir2](https://github.com/rudneir2) |
+Open `http://127.0.0.1:8765`. Stop the server with Ctrl+C. It binds to loopback;
+starting it does not sign in to Azure or run queries. The default review database
+is `.reviews\review.sqlite3`. **Resume with `serve`, not `init`**: initialization
+refuses to overwrite an existing review.
 
-## What is an Azure Design Review?
+For a separate review with a smaller checklist:
 
-A common request of many organisations, starting with the public cloud, is to have their design double-checked to make sure that best practices are being followed. The scope of this exercise could vary, from generic Azure landing zones to workload-specific deployments.
+```powershell
+.\.venv\Scripts\python.exe -m review_checklists --review .reviews\delivery.sqlite3 init `
+    --name "Application delivery" --description "Production ingress design." `
+    --checklist v2\checklists\app_delivery.yaml
+.\.venv\Scripts\python.exe -m review_checklists --review .reviews\delivery.sqlite3 serve --port 8766
+```
 
-When doing Azure design reviews (or any review for that matter), Microsoft employees and Microsoft partners often leverage Excel spreadsheets as the medium of choice to document findings and track design improvements and recommendations. A problem with Excel spreadsheets is that they are not easily subject to revision control. Additionally, team collaboration with branching, issues, pull requests, reviews, and others is difficult at best—impossible in most cases.
+**`--review` is a global option: put it BEFORE the subcommand.** Its path chooses
+the SQLite file; `--name` is a friendly name stored inside that file, not a filename.
+The description is review-wide context, distinct from per-check comments. Reuse
+the same `--review` path for every command on that review. Omitting it selects the
+default database, even if another review has a similar friendly name.
 
-## Why this repository?
+The package name `review_checklists` is independent of release and branch names.
+The historical `v2\recos` and `v2\checklists` paths remain intentional.
+See the [application guide](review_checklists/README.md) for detailed UI filtering,
+pagination, saving behavior, metadata editing, ARG scope controls, and troubleshooting.
 
-This repo separates the actual review checklist content from the presentation layer so that the JSON-formatted checklist can be subject to version control, and it can then be imported into an Excel spreadsheet by means of Visual Basic for Applications (VBA) macros for easier handling (not all of us like working natively with JSON). The provided [Checklist Review Spreadsheet](https://github.com/Azure/review-checklists/releases/latest/download/review_checklist.xlsm) leverages code to interpret JSON from the VBA module in [https://github.com/VBA-tools/VBA-JSON/](https://github.com/VBA-tools/VBA-JSON/), from which there is a copy in this repo to be self-contained (make sure you use the latest version though). The [Checklist Review Spreadsheet](https://github.com/Azure/review-checklists/releases/latest/download/review_checklist.xlsm) includes some macros (find the source code both in the spreadsheet as well as [here](./spreadsheet/Sheet1.cls)), which are accessible from control buttons in the main sheet.
+## Assess and export
 
-Note: the VBA code in the spreadsheet does not work on Excel for Mac, due to some critical missing libraries.
+These examples use the default review. Choose a recommendation ID from `list`:
 
-Additionally, a Github action in this repository translates after every commit the English version of the checklist to additional languages (Japanese, Korean, Spanish, and Brazilian Portuguese), using the cognitive service [Azure Translator](https://azure.microsoft.com/services/cognitive-services/translator/). See an example of a translated checklist in [aks_checklist.ja.json](./checklists/aks_checklist.ja.json)
+```powershell
+.\.venv\Scripts\python.exe -m review_checklists list --search "tags"
+.\.venv\Scripts\python.exe -m review_checklists show "<recommendation-guid>"
+.\.venv\Scripts\python.exe -m review_checklists update "<recommendation-guid>" `
+    --status "Non-compliant" --comments "Agree a tagging policy with the owner."
+.\.venv\Scripts\python.exe -m review_checklists metadata --description "Scope: production subscriptions."
+.\.venv\Scripts\python.exe -m review_checklists export --format json --output .reviews\report.json
+.\.venv\Scripts\python.exe -m review_checklists export --format html --output .reviews\report.html
+```
 
-## Reporting errors and contributing
+Statuses are **Not reviewed**, **Compliant**, **Non-compliant**, and
+**Not applicable**. They are reviewer decisions and can be recorded without
+Azure access. Document applicability and tradeoffs rather than treating design
+review as automatic certification.
 
-Please feel free to open an issue or create a PR if you find any error or missing information in the checklists, following the [Contributing guidelines](./CONTRIBUTING.md)
+Optional ARG execution uses an existing Azure CLI login and explicitly selected
+subscription scope. It sends query text and scope to Azure and stores evidence
+locally; it **never changes assessment status**. Inventory, Advisor findings,
+optimization candidates, and empty results are not compliance verdicts or proven
+savings. Read [ARG execution and limitations](review_checklists/README.md#running-arg)
+before running any query.
 
-## Using the spreadsheet for Azure reviews
+JSON exports include the pinned recommendations, review metadata, assessments and
+evidence; HTML is a standalone report. Export commands refuse overwrites. SQLite
+and reports can contain sensitive customer information and are not encrypted by
+the app. Protect them locally and do not commit them to this public repository.
+The app does not send review data to an LLM.
 
-1. Download the Excel spreadsheet from the [latest release](https://github.com/Azure/review-checklists/releases/latest/download/review_checklist.xlsm) to your PC
+## Content and review data
 
-2. Use the dropdown lists to select the technology and language you would like to do your review
+The current local draft contains **2,008 canonical recommendations and 58
+preserved aliases**. The latest [bounded follow-up](review_checklists/docs/corpus-refresh/followup-2026-09-13.md)
+documents applied corrections, verified sources, checklist effects and remaining gaps.
 
-![](./pictures/spreadsheet_screenshot.png)
+| Layer | Current role |
+| --- | --- |
+| [`v2/recos`](v2/recos) | Canonical, individually authored YAML recommendations with stable IDs, services, automation semantics, provenance and duplicate aliases |
+| [`v2/checklists`](v2/checklists) | YAML selectors assembling recommendations into checklists |
+| [Versioned JSON bundle](review_checklists/docs/corpus-contract.md#distribution) | Deterministic, validated distribution artifact generated from YAML, not a second editable source |
+| Local SQLite review | Pinned snapshot initialized from YAML or a bundle, plus that review's metadata, assessments, comments and evidence |
+| JSON / HTML report | Explicit export of the review, not an automatic corpus update |
 
-3. Click the control button "Import latest checklist". After you accept the verification message, the spreadsheet will load the latest version of the selected technology and language
+A corpus refresh does not silently update existing reviews. For bundle creation,
+initialization from a bundle, identity compatibility, and the single shared schema,
+see the [corpus contract](review_checklists/docs/corpus-contract.md).
+To adopt a new bundle deliberately, use **Refresh review** in the UI or the
+[`refresh` command](review_checklists/docs/review-refresh.md). Preview changes
+before applying; existing assessments, comments and evidence are preserved,
+with changed guidance flagged for reassessment.
 
-4. (Optional) If you are going to distribute the spreadsheet to users who cannot work with macros (for example, either because of security reasons or because they use Office for Mac), save a version of the spreadsheet in xlsx format (instead of xlsm). Note that disabling macros will result in the spreadsheet losing its ability to import updated versions of the checklist or JSON-based Azure Resource Graph query results
+The **Corpus administration** header link shows the current public corpus,
+service/pillar distributions, ARG metadata, recorded upstream coverage and
+maintenance history. It is separate from the review's pinned snapshot and does
+not execute queries or initiate refreshes. It also runs independently:
 
-5. Go row by row, set the "Status" field to one of the available options, and write any remarks in the "Comments" field (such as why a recommendation is not relevant, or who will fix the open item)
+```powershell
+.\.venv\Scripts\python.exe -m review_checklists.corpus_admin
+```
 
-   1. Since there are many rows in a review, it is recommended to proceed in chunks: either going area after area (first "Networking", then "Security", etc) or starting with the "High" priority elements and afterward moving down to "Medium" and "Low"
-   1. If any recommendation is not clear, there is a "More Info" link with more context information.
-   1. **IMPORTANT**: design decisions are not a checkbox exercise, but a series of compromises. It is OK to deviate from certain recommendations if the implications are clear (for example, sacrificing security with operational simplicity or lower cost for non-critical applications)
+Open `http://127.0.0.1:8767/corpus/`. See the
+[corpus administration guide](review_checklists/docs/corpus-admin.md).
 
-6. Check the "Dashboard" worksheet for a graphical representation of the review progress
+Content updates are source-backed proposals with deterministic validation and
+human review. Automatic APRL, AKS-checklist and WAF service-guide ingestion is
+deprecated; manual importer fallbacks do not bypass those gates. LLM-assisted
+curation does not mean automatic publication or in-app AI. The former Azure
+Translator and Text Analytics dependencies are decommissioned; archived
+translation/enrichment workflows are not setup requirements.
 
-![](./pictures/spreadsheet_screenshot_dashboard.png)
+## Documentation and contributions
 
-## Security settings running macros
-
-There are some settings that you might need to change in your system to run macro-enabled Excel spreadsheets. When initially opening the file you may see the following error, which prevents Excel from loading:
-
-> Excel cannot open the file 'review_checklist.xlsm' because the file format or file extension is not valid. Verify that the file has not been corrupted and that the file extension matches the format of the file.
-
-In other cases, the file opens with the following message, which prevents you from being able to load the checklist items:
-
-![macro warning in excel](./pictures/macro_warning.png)
-
-### Unblock the file or add an exception to Windows Security
-
-1. You might need to unblock the file from the file properties in the Windows File Explorer so that you can use the macros required to import the checklist content from github.com:
-
-![how to unblock a file to run macros](./pictures/unblock.png)
-
-2. Additionally, you might want to add the macro-enabled spreadsheet file to the list of exceptions in Windows Security (in the Virus & Threat Protection section):
-
-![how to add an exception to windows security 1](./pictures/defender_settings_1.png)
-![how to add an exception to windows security 2](./pictures/defender_settings_2.png)
-![how to add an exception to windows security 3](./pictures/defender_settings_3.png)
-![how to add an exception to windows security 4](./pictures/defender_settings_4.png)
-
-## Using the spreadsheet to generate JSON checklist files (advanced)
-
-If you wish to do contributions to the checklists, one option is the following:
-
-1. Load up the latest version of the checklist you want to modify
-2. Do the required modifications to the checklist items
-3. Push the button "Export checklist to JSON" in the **"Advanced"** section of controls in the checklist. Store your file in your local file system, and upload it to the [checklists folder](./checklists) of this Github repo (use the format `<technology>_checklist.en.json`, for example, `lz_checklist.en.json`)
-4. This will create a PR and will be reviewed by the corresponding approvers.
-
-## Using Azure Resource Graph to verify Azure environments (advanced)
-
-Some of the checks have associated [Azure Resource Graph](https://learn.microsoft.com/azure/governance/resource-graph/overview) queries, which return a list of related resources and a compliance status for each. Resource Graph queries enable objective verification of the associated checks and make filling out the spreadsheet easier by collecting some environment details for you. 
-
-Along with the spreadsheet, this repo includes the script [checklist_graph.sh](./scripts/checklist_graph.sh). This script will run the graph queries stored in the JSON checklists and produce an output that can easily be copied and pasted into the spreadsheet, or alternatively generate a JSON file that can then be imported to the spreadsheet.
-
-See the [checklist_graph.sh README file](./scripts/README.md) for more information about how to use [checklist_graph.sh](./scripts/checklist_graph.sh).
+- [Application guide](review_checklists/README.md): current CLI, localhost UI, reports and data boundaries.
+- [Contributing](CONTRIBUTING.md) and [agent/contributor guidance](AGENTS.md): authoring, implementation and validation practices.
+- [Cost sources and coverage](review_checklists/docs/corpus-refresh/cost-sources.md) and [Cost refresh report](review_checklists/docs/corpus-refresh/cost-refresh-report.md): verified references, exact changes, query caveats and untouched areas. This is a **bounded refresh**, not an exhaustive corpus audit.
+- [All-pillar/APRL assessment](review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/README.md): the subsequent 2,005-record accounting pass, six additions, verified changes and explicit manual-review gaps.
+- [Applied September 13 follow-up](review_checklists/docs/corpus-refresh/followup-2026-09-13.md): classification/Key Vault corrections, two storage duplicate merges, source evidence and remaining decisions.
+- [Source inventory and coverage tools](review_checklists/docs/source-coverage.md): recorded upstream IDs and hashes, dated denominators, and explicit read-only comparison commands.
+- [Decision log](v2/docs/next-generation-design.md): current decisions, historical context and deferred work.
+- [Scripts](scripts/README.md): current deterministic authoring tools and explicitly legacy adapters.
+- [Legacy v1 guide](docs/legacy-v1.md): preserved spreadsheet how-tos and links to legacy JSON, workbooks and the old web prototype.
+- [Support](SUPPORT.md), [security reporting](SECURITY.md), and [code of conduct](CODE_OF_CONDUCT.md).
 
 ## Disclaimer
 

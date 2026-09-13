@@ -1,18 +1,49 @@
 name: aprl-AutoGuestPatchingVmssImageVersions
 title: Upgrade VMSS Image versions scheduled to be deprecated or already retired
-description: |-
-  Ensure current versions of images are in use to avoid disruption after image deprecation. Please review the publisher, offer, sku information of the VM to ensure you are running on a supported image. Enable Auto Guest Patching or Image Upgrades, to get notifications about image deprecation.
+description: Ensure current versions of images are in use to avoid disruption after image deprecation.
+  Please review the publisher, offer, sku information of the VM to ensure you are running on a supported
+  image. Enable Auto Guest Patching or Image Upgrades, to get notifications about image deprecation.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachineScaleSets
+- microsoft.compute/virtualmachinescalesets
 severity: 0
 labels:
   guid: 83d61669-7bd6-9642-a305-175db8adcdf4
   area: Governance
 links: []
 queries:
-  arg: |
-    //cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 83d61669-7bd6-9642-a305-175db8adcdf4
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    title: 'APRL 83d61669-7bd6-9642-a305-175db8adcdf4: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 83d61669-7bd6-9642-a305-175db8adcdf4
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:8e3608df0640f52fcfdc54d180d8d8144635f0b67afa637debb907a2209aa673
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

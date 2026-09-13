@@ -1,18 +1,48 @@
 name: aprl-AzureNetappFilesAzurePolicyIntegration
 title: Enforce standards and assess compliance in Azure NetApp Files with Azure policy
-description: |-
-  Azure NetApp Files supports Azure policy integration using either built-in policy definitions or by creating custom ones to maintain organizational standards and compliance.
+description: Azure NetApp Files supports Azure policy integration using either built-in policy definitions
+  or by creating custom ones to maintain organizational standards and compliance.
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 1
 labels:
   guid: 687ae58f-517f-ca43-90fe-922497e61283
   area: Governance
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 687ae58f-517f-ca43-90fe-922497e61283
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL 687ae58f-517f-ca43-90fe-922497e61283: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 687ae58f-517f-ca43-90fe-922497e61283
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d8fa428481aaf96c0551e2f5be7f8bcce6bed61016d4432545246b9eb9f9f352
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/search/search-reliability#use-azure-traffic-manager-to-coordinate-requests
 queries: {}
+schemaVersion: 1
+id: 85ee93c9-f53c-4803-be51-e6e4aa37ff4e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

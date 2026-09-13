@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/secure-vms-with-azure-security-center/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 8fe72734-c486-4ba2-a0dc-0591cf65de8e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

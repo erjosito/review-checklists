@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-cache-for-redis/cache-how-to-zone-redundancy
 queries: {}
+schemaVersion: 1
+id: 65285269-440b-44be-9d3e-0844276d4bdc
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

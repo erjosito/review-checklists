@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/rest/api/storageservices/authorize-with-shared-key
 queries: {}
+schemaVersion: 1
+id: 15f51296-5398-4e6d-bd22-7dd142b06c21
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

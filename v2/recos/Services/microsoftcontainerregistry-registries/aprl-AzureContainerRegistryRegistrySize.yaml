@@ -1,13 +1,13 @@
 name: aprl-AzureContainerRegistryRegistrySize
 title: Manage registry size
-description: |-
-  The storage constraints of Azure Container Registry's service tiers align with usage scenarios: Basic for starters, Standard for production, and Premium for high-scale performance and geo-replication.
+description: 'The storage constraints of Azure Container Registry''s service tiers align with usage scenarios:
+  Basic for starters, Standard for production, and Premium for high-scale performance and geo-replication.'
 source:
   type: aprl
   file: azure-resources/ContainerRegistry/registries/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerRegistry/registries
+- microsoft.containerregistry/registries
 severity: 1
 labels:
   guid: 3ef86f16-f65b-c645-9901-7830d6dc3a1b
@@ -22,3 +22,34 @@ queries:
     | where properties.policies.retentionPolicy.status == "disabled"
     | project recommendationId = "3ef86f16-f65b-c645-9901-7830d6dc3a1b", name, id, tags, param1='retentionPolicy:disabled'
     | order by id asc
+schemaVersion: 1
+id: 3ef86f16-f65b-c645-9901-7830d6dc3a1b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    title: 'APRL 3ef86f16-f65b-c645-9901-7830d6dc3a1b: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 3ef86f16-f65b-c645-9901-7830d6dc3a1b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d50ecf511ff9d8465f8e827a9e29e872b0c43ed57ebcf24c53dad54b89ac19ee
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Cost

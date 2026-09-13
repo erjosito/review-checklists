@@ -21,3 +21,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/azure-ad-privileged-identity-management/
 queries: {}
+schemaVersion: 1
+id: 786d60f9-6c96-4ad8-a55d-04c2b39c986b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

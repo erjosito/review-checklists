@@ -1,10 +1,10 @@
 name: wafsg-AccessControlListsSecurityRequirements
-title: 'Understand your organization''s security requirements: NFS Azure file shares
-  only support Linux clients that use the NFSv4.1 protocol, with support for most
-  features from the 4.1 protocol specification. Some security features, such as Kerberos
-  authentication, access control lists (ACLs), and encryption in transit, aren''t
-  supported.'
-description: ''
+title: Verify NFS Azure Files security requirements, including supported encryption in transit.
+description: Azure Files NFSv4.1 supports encryption in transit, but does not provide Kerberos user authentication
+  or NFS ACLs. Use supported Linux clients, restricted network access, and appropriate POSIX permissions
+  and root-squash configuration. Review Require Encryption in Transit for NFS and client configuration
+  rather than assuming the storage-account secure-transfer default is sufficient. Validate the capabilities
+  of the selected Microsoft.Storage or Microsoft.FileShares resource model.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-files.md
@@ -17,3 +17,32 @@ labels:
   guid: a07d96be-b231-444c-8b2e-3123950de82f
 links: []
 queries: {}
+schemaVersion: 1
+id: a07d96be-b231-444c-8b2e-3123950de82f
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/files/files-nfs-protocol
+    title: NFS file shares in Azure Files
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/storage/common/storage-require-secure-transfer
+    title: Require secure transfer to ensure secure connections
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:07
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/encryption
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

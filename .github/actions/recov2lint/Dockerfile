@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM python:3.13-slim
 WORKDIR /app
 COPY requirements.txt requirements.txt
 COPY entrypoint.py entrypoint.py

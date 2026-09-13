@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/sap/workloads/rise-integration
 queries: {}
+schemaVersion: 1
+id: 87585797-5551-4d53-bb7d-a94ee415734d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

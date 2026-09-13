@@ -1,6 +1,5 @@
 name: revcl-AdditionalAksClusterNodes
-title: If more than 5000 nodes are required for scalability then consider using an
-  additional AKS cluster
+title: Plan AKS cluster boundaries against current tier and service scale limits
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,23 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/quotas-skus-regions#service-quotas-and-limits
 queries: {}
+schemaVersion: 1
+id: 38800e6a-ae01-40a2-9fbc-ae5a06e5462d
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/cluster-configuration
+    title: Core concepts for Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service
+    title: Architecture best practices for Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+description: Check current AKS tier, node-pool and cluster limits before choosing a multi-cluster design.
+  The retrieved core concepts guide lists up to 1,000 nodes for Free and 5,000 for Standard; verify current
+  limits and supported configuration for the deployment. Account for failure isolation, operational overhead
+  and load tests rather than using a single threshold as a complete scalability design.

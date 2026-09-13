@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/azure-functions/dedicated-plan#always-on
 queries: {}
+schemaVersion: 1
+id: c7b5f3d1-0569-4fd2-9f32-c0b64e9c0c5e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

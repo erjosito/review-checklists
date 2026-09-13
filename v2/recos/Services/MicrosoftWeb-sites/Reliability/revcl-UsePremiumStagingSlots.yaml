@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans
 queries: {}
+schemaVersion: 1
+id: e4b31c6a-2e3f-4df1-8e8b-9c3aa5a27820
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

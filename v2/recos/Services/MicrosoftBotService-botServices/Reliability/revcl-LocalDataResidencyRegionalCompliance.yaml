@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-regionalization
 queries: {}
+schemaVersion: 1
+id: e65de8e1-3f9c-4cbd-9682-66abca264f9a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

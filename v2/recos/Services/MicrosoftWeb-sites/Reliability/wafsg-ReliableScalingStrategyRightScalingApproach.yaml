@@ -1,11 +1,9 @@
 name: wafsg-ReliableScalingStrategyRightScalingApproach
-title: 'Have a reliable scaling strategy: Unexpected load on an application can make
-  it unreliable. Consider the right scaling approach based on your workload characteristics.
-  You can sometimes scale up to handle the load. However, if the load continues to
-  increase, scale out to new instances. Prefer automatic scaling over manual approaches.
-  Always maintain a buffer of extra capacity during scaling operations to prevent
-  performance degradation.'
-description: ''
+title: Test a timely App Service scaling strategy with capacity headroom
+description: Choose scale-out and supported autoscaling based on observed or predicted demand and plan
+  limits; retain headroom while new instances initialize. Externalize state where needed so multiple instances
+  work correctly. Test scaling rules with realistic load, log scaling events and verify recovery under
+  resource limits. A configured rule alone does not demonstrate successful scaling.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -18,3 +16,28 @@ labels:
   guid: e03792ee-d7db-4ec3-8596-9d77baf09f8f
 links: []
 queries: {}
+schemaVersion: 1
+id: e03792ee-d7db-4ec3-8596-9d77baf09f8f
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist
+    title: Design review checklist for Reliability
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/scaling
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:1bb1a64b7d71faa956cdc9b236675afad9e27e59a7845645e4f575e34cf7049e
+    notes: Demand-led autoscaling, initialization and headroom are addressed for App Service; independently
+      scaling data and other infrastructure is outside this check.

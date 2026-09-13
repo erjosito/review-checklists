@@ -1,0 +1,25 @@
+{
+  "reason": "Authorized trailing-whitespace-only URL normalization to satisfy strict URI validation before non-Cost duplicate merges. No other content changed.",
+  "files": [
+    {
+      "path": "v2\\recos\\Services\\MicrosoftCompute-virtualMachines\\Operations\\revcl-AzureUpdateManagerPatchingMechanism.yaml",
+      "id": "f9887952-5d62-4688-9d70-ba6c97be9951",
+      "changedField": "links[0].url",
+      "before": "https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-operational-compliance#update-management-considerations ",
+      "after": "https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-operational-compliance#update-management-considerations",
+      "beforeSha256": "4de0d09c50eb0bcf720791ac9e872f449e2f2382eb6025b49519431d322c56e5",
+      "afterSha256": "10db4f9d3ece352c5eaf7f9647bdbfbc822739c2767d94e61010159071994d85",
+      "onlyAuthorizedBytesChanged": true
+    },
+    {
+      "path": "v2\\recos\\Services\\MicrosoftCompute-virtualMachines\\Operations\\revcl-AzureUpdateManagerPatchingMechanism-1.yaml",
+      "id": "c806c048-26b7-4ddf-b4c2-b4f0c476925d",
+      "changedField": "links[0].url",
+      "before": "https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-operational-compliance#update-management-considerations ",
+      "after": "https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-operational-compliance#update-management-considerations",
+      "beforeSha256": "8fb6bd282dc3bf199a27109d86acb1b209f8680accbc5374c3ebbf590dc6f068",
+      "afterSha256": "f5337d96c164c9b9106463776a55e696f00044407b14dd861202d73d4fc11ca5",
+      "onlyAuthorizedBytesChanged": true
+    }
+  ]
+}

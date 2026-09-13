@@ -16,3 +16,14 @@ queries:
   arg: where type=='microsoft.containerservice/managedclusters' | project id,resourceGroup,name,pools=properties.agentPoolProfiles
     | project id,name,resourceGroup,poolcount=array_length(pools) | extend compliant
     = (poolcount > 1)
+schemaVersion: 1
+id: 6f158e3e-a3a9-42c2-be7e-2165c3a87af4
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

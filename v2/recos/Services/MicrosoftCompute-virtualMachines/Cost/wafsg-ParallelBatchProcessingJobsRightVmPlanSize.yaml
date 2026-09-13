@@ -19,3 +19,13 @@ labels:
   guid: 12835f9e-fdcf-4ecd-8d96-22d2a32bbd29
 links: []
 queries: {}
+schemaVersion: 1
+id: 12835f9e-fdcf-4ecd-8d96-22d2a32bbd29
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

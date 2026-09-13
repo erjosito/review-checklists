@@ -1,13 +1,14 @@
 name: aprl-AzureContainerRegistryAnonymousPullAccess
 title: Disable anonymous pull access
-description: |-
-  By default, Azure container registry requires authentication for pull/push actions. Enabling anonymous pull access exposes all content for public read actions. This applies to all repositories, potentially allowing unrestricted access if repository-scoped tokens are used.
+description: By default, Azure container registry requires authentication for pull/push actions. Enabling
+  anonymous pull access exposes all content for public read actions. This applies to all repositories,
+  potentially allowing unrestricted access if repository-scoped tokens are used.
 source:
   type: aprl
   file: azure-resources/ContainerRegistry/registries/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerRegistry/registries
+- microsoft.containerregistry/registries
 severity: 1
 labels:
   guid: 03f4a7d8-c5b4-7842-8e6e-14997a34842b
@@ -22,3 +23,31 @@ queries:
     | where properties.anonymousPullEnabled == "true"
     | project recommendationId = "03f4a7d8-c5b4-7842-8e6e-14997a34842b", name, id, tags
     | order by id asc
+schemaVersion: 1
+id: 03f4a7d8-c5b4-7842-8e6e-14997a34842b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    title: 'APRL 03f4a7d8-c5b4-7842-8e6e-14997a34842b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 03f4a7d8-c5b4-7842-8e6e-14997a34842b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:fa3c8e58b3516b6f268b09f364710c1c34295d094be2a98735ec6be0496de962
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

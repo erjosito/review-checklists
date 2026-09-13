@@ -1,7 +1,9 @@
 name: wafsg-ApplicationGatewayInstancesEmptyBackendPools
-title: Review underutilized resources
-description: Identify and delete Application Gateway instances with empty backend
-  pools to avoid unnecessary costs.
+title: Review Application Gateways with no configured backend targets
+description: Identify gateways with no visible backend targets and verify provisioning state, traffic,
+  ownership, automation and approved standby plans. Remove only confirmed unnecessary instances through
+  controlled change. Empty or missing backend metadata is a candidate signal, not proof of waste or authority
+  to delete.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -12,4 +14,47 @@ severity: 1
 labels:
   guid: 7947e534-c9a8-435b-9e03-d300143b5f74
 links: []
-queries: {}
+queries:
+  arg: |-
+    Resources
+    | where type =~ 'microsoft.network/applicationgateways'
+    | project id, name, subscriptionId, resourceGroup, location, sku
+    | join kind=leftouter (
+        Resources
+        | where type =~ 'microsoft.network/applicationgateways'
+        | mv-expand pool = properties.backendAddressPools limit 2000
+        | extend ipCount = array_length(pool.properties.backendIPConfigurations),
+            addressCount = array_length(pool.properties.backendAddresses)
+        | summarize backendTargets = sum(coalesce(ipCount, 0) + coalesce(addressCount, 0)) by id
+    ) on id
+    | where coalesce(backendTargets, 0) == 0
+    | project id, name, subscriptionId, resourceGroup, location, sku, backendTargets
+schemaVersion: 1
+id: 7947e534-c9a8-435b-9e03-d300143b5f74
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Gateways with no targets visible across backend pools, including gateways with an empty pool array.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Missing fields can be incomplete metadata, not an empty live configuration. Validate current backend targets, provisioning status, traffic and IaC ownership. Backend pool expansion is explicitly limited to the documented ARG maximum of 2,000; verify the array is fully represented before interpreting an empty sum. An intentionally stopped or staged gateway is not automatically waste. Requires human confirmation before deletion.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/networking
+    title: FinOps best practices for Networking
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'

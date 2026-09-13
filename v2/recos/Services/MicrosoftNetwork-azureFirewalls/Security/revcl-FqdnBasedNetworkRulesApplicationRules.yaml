@@ -16,3 +16,14 @@ links:
 queries:
   arg: resources | where type=='microsoft.network/firewallpolicies' | extend compliant
     = (properties.dnsSettings.enableProxy == true) | distinct id,compliant
+schemaVersion: 1
+id: 14d99880-2f88-47e8-a134-62a7d85c94af
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

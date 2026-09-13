@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html
 queries: {}
+schemaVersion: 1
+id: 08951710-79a2-492a-adbc-06d7a401545b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

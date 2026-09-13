@@ -1,6 +1,9 @@
 name: wafsg-DiagnosticToolsLogging
-title: Do not enable diagnostic tools and logging if not required.
-description: ''
+title: Limit expensive Azure Firewall diagnostics without removing required observability
+description: Retain security, operational and audit logging required by the workload. Enable high-overhead
+  troubleshooting features only for an explicit purpose and duration, measure their performance effect,
+  and disable them when the investigation ends. Do not interpret performance tuning as a blanket instruction
+  to disable diagnostics.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-firewall.md
@@ -13,3 +16,19 @@ labels:
   guid: 565d2322-9a28-4f3d-a657-95391fa683a5
 links: []
 queries: {}
+schemaVersion: 1
+id: 565d2322-9a28-4f3d-a657-95391fa683a5
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall
+    title: Architecture best practices for Azure Firewall
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/optimize-operational-tasks
+    title: Architecture strategies for optimizing operational tasks
+    accessedAt: '2026-09-11'

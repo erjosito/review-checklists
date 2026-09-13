@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/
 queries: {}
+schemaVersion: 1
+id: aa45be6a-8f2d-4896-b0e3-775e6e94e610
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

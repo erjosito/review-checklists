@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/control-spending-manage-bills/
 queries: {}
+schemaVersion: 1
+id: ae28c84c-33b6-4b78-88b9-fe5c41049d40
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

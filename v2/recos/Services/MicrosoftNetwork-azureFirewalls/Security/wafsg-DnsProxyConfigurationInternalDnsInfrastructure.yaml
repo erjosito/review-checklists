@@ -15,3 +15,13 @@ labels:
   guid: 35c2f653-acd6-471c-91a9-f7e4a3fcce3e
 links: []
 queries: {}
+schemaVersion: 1
+id: 35c2f653-acd6-471c-91a9-f7e4a3fcce3e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

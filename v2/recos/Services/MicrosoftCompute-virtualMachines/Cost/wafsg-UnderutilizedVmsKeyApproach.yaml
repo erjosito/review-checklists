@@ -1,9 +1,9 @@
 name: wafsg-UnderutilizedVmsKeyApproach
-title: Monitor usage. Continuously monitor usage patterns and detect unused or underutilized
-  VMs. For those instances, shut down VM instances when they're not in use. Monitoring
-  is a key approach of Operational Excellence. For more information, see the recommendations
-  in Operational Excellence.
-description: ''
+title: Deallocate idle VMs instead of only shutting down the guest OS
+description: Agree off-hours and idle shutdown policies with workload owners. Use Azure deallocation when
+  releasing compute is safe; an OS-stopped VM can remain allocated and billed. Account for restart availability,
+  changed dynamic addressing, temporary storage and remaining disk/network charges. Keep approved standby
+  exceptions.
 source:
   type: wafsg
   file: well-architected/service-guides/virtual-machines.md
@@ -15,4 +15,45 @@ severity: 1
 labels:
   guid: 9269756b-3f6f-4066-907b-a24ef20d44c9
 links: []
-queries: {}
+queries:
+  arg: |-
+    Resources
+    | where type =~ 'microsoft.compute/virtualmachines'
+    | extend powerState = tostring(properties.extended.instanceView.powerState.code)
+    | where powerState =~ 'PowerState/stopped'
+    | project id, name, subscriptionId, resourceGroup, location, powerState
+schemaVersion: 1
+id: 9269756b-3f6f-4066-907b-a24ef20d44c9
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    VMs observed in the stopped/allocated power state. This is an allocation-state finding, not proof the VM is unused or safe to deallocate.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. A VM may be intentionally stopped briefly or require retained allocation. Missing power state is not included and must not be treated as deallocated. Deallocation stops allocation-based compute charges, not disks or other dependent charges; commitment payments can continue. ARG extended properties are documented as preview; confirm availability and freshness for the reviewed VM types.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/compute
+    title: FinOps best practices for compute
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/set-spending-guardrails
+    title: Architecture strategies for setting spending guardrails
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/samples/advanced#summarize-virtual-machine-by-the-power-states-extended-property
+    title: Advanced Resource Graph query samples
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'

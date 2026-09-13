@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-wan/azure-monitor-insights
 queries: {}
+schemaVersion: 1
+id: 261623a7-65a9-417e-8f34-8ef254c27d42
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

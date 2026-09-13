@@ -1,0 +1,13 @@
+{% set state = item.refresh_state %}
+<p class="guidance-state">
+  <strong>{{ {'current': 'Current', 'superseded': 'Superseded - original guidance retained', 'no-longer-current': 'No longer current - original guidance retained'}.get(state.currency, state.currency) }}</strong>
+  {% if state.needs_reassessment %}<strong class="warning">Needs reassessment</strong>{% endif %}
+  {% if state.currency == 'superseded' %}Canonical relationship: <code>{{ state.canonical_id }}</code>. This assessment was not merged.{% endif %}
+</p>
+<p>Guidance snapshot source: {{ state.source.get('version') or 'Original unversioned snapshot' }}.
+<code>{{ state.source.get('content_hash') or state.source.get('snapshot_hash') or 'Hash not recorded' }}</code></p>
+{% if state.needs_reassessment %}
+<p class="warning">The saved {{ item.status }} assessment predates changed guidance.
+Comments alone do not acknowledge this change. Review the new guidance, then change status deliberately
+or explicitly confirm the current assessment.</p>
+{% endif %}

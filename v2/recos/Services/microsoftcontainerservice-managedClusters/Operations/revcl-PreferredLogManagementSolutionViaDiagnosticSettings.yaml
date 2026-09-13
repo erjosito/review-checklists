@@ -1,7 +1,9 @@
 name: revcl-PreferredLogManagementSolutionViaDiagnosticSettings
-title: Send master logs (aka API logs) to Azure Monitor or your preferred log management
-  solution
-description: Via Diagnostic Settings at the cluster level
+title: Collect required AKS control-plane resource logs with diagnostic settings
+description: Configure diagnostic settings on the AKS cluster to collect the required control-plane resource-log
+  categories into the approved destination. Select categories according to audit and troubleshooting requirements
+  and validate that expected events arrive. Container stdout/stderr collection is separate from control-plane
+  logging. Review retention, access and alert dependencies manually.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +17,25 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/monitor-aks
 queries: {}
+schemaVersion: 1
+id: 5b56ad48-408f-4e72-934c-476ba280dcf5
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-overview
+    title: Kubernetes monitoring in Azure Monitor
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:07
+    coverage: partial
+    notes: Replace master/API-log shorthand with separately configured control-plane resource logs. Narrow
+      control or service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540

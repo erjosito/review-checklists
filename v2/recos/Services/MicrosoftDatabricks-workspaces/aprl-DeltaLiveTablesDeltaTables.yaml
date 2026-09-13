@@ -1,18 +1,49 @@
 name: aprl-DeltaLiveTablesDeltaTables
 title: Use constraints and data expectations
-description: |-
-  Delta tables verify data quality automatically with SQL constraints, triggering an error for violations. Delta Live Tables enhance this by defining expectations for data quality, utilizing Python or SQL, to manage actions for record failures, ensuring data integrity and compliance.
+description: Delta tables verify data quality automatically with SQL constraints, triggering an error
+  for violations. Delta Live Tables enhance this by defining expectations for data quality, utilizing
+  Python or SQL, to manage actions for record failures, ensuring data integrity and compliance.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 2
 labels:
   guid: a42297c4-7e4f-8b41-8d4b-114033263f0e
   area: Business Continuity
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: a42297c4-7e4f-8b41-8d4b-114033263f0e
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL a42297c4-7e4f-8b41-8d4b-114033263f0e: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: a42297c4-7e4f-8b41-8d4b-114033263f0e
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:bfa6cd4ea490b33379f5421a17367ccbd0c518bbc9417892d0441fe340b4a89f
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

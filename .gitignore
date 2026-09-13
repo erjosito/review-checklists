@@ -13,3 +13,6 @@ spreadsheet/~*.*
 .venv/
 __pycache__/
 .reviews/
+
+# Generated corpus distribution artifacts
+/dist/

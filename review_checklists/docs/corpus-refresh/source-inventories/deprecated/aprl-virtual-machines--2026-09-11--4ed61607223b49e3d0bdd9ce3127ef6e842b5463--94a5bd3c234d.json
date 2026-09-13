@@ -1,0 +1,541 @@
+{
+  "asOf": "2026-09-11",
+  "fingerprintScope": "canonical-json-v1 payload is the complete original YAML recommendation object (ISO dates), excluding enclosing document and generated fetch/commit metadata",
+  "inventoryStatus": "complete",
+  "items": [
+    {
+      "contentHash": "sha256:94ace26cec0f502d8812bc5e0417038d1a4cedde600fe8d7177f621f1955f8ff",
+      "id": "122d11d7-b91f-8747-a562-f56b79bcfbdc",
+      "payload": {
+        "aprlGuid": "122d11d7-b91f-8747-a562-f56b79bcfbdc",
+        "automationAvailable": true,
+        "description": "Use Managed Disks for VM disks",
+        "learnMoreLink": [
+          {
+            "name": "Migrate your Azure unmanaged disks by Sep 30, 2025",
+            "url": "https://learn.microsoft.com/azure/virtual-machines/unmanaged-disks-deprecation"
+          }
+        ],
+        "longDescription": "Azure is retiring unmanaged disks on September 30, 2025. Users should plan the migration to avoid disruptions and maintain service reliability.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Avoid retirement disruption, enhance reliability",
+        "recommendationControl": "HighAvailability",
+        "recommendationImpact": "High",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": "57ecb3cd-f2b4-4cad-8b3a-232cca527a0b",
+        "tags": []
+      },
+      "title": "Use Managed Disks for VM disks",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:26f7a4a57c69ec0f3dbc6ee9176662c5adb4bb4d3b5a72bf66801eabd6c30e45",
+      "id": "1981f704-97b9-b645-9c57-33f8ded9261a",
+      "payload": {
+        "aprlGuid": "1981f704-97b9-b645-9c57-33f8ded9261a",
+        "automationAvailable": true,
+        "description": "Backup VMs with Azure Backup service",
+        "learnMoreLink": [
+          {
+            "name": "What is the Azure Backup service?",
+            "url": "https://learn.microsoft.com/azure/backup/backup-overview"
+          }
+        ],
+        "longDescription": "Enable backups for your virtual machines with Azure Backup to secure and quickly recover your data. This service offers simple, secure, and cost-effective solutions for backing up and recovering data from the Microsoft Azure cloud.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Secure data recovery and backup",
+        "recommendationControl": "DisasterRecovery",
+        "recommendationImpact": "Medium",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": "651c7925-17a3-42e5-85cd-73bd095cf27f",
+        "tags": []
+      },
+      "title": "Backup VMs with Azure Backup service",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:e52e5e3fb7e15f3c2d10947a496e9fcd3b0dfd0f9786cae685ac5ef33afae134",
+      "id": "273f6b30-68e0-4241-85ea-acf15ffb60bf",
+      "payload": {
+        "aprlGuid": "273f6b30-68e0-4241-85ea-acf15ffb60bf",
+        "automationAvailable": true,
+        "description": "Run production workloads on two or more VMs using VMSS Flex",
+        "learnMoreLink": [
+          {
+            "name": "What has changed with Flexible orchestration mode",
+            "url": "https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#what-has-changed-with-flexible-orchestration-mode"
+          }
+        ],
+        "longDescription": "Production VM workloads should be deployed on multiple VMs and grouped in a VMSS Flex instance to intelligently distribute across the platform, minimizing the impact of platform faults and updates.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Enhanced fault/update resilience",
+        "recommendationControl": "HighAvailability",
+        "recommendationImpact": "High",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": "5f2613df-629f-4b07-9425-2a47ea0dfad3",
+        "tags": []
+      },
+      "title": "Run production workloads on two or more VMs using VMSS Flex",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:5a381388fd380ff21159ae3c3d8abb51fac827b20e1c1972b0dbae9c37897b8d",
+      "id": "2bd0be95-a825-6f47-a8c6-3db1fb5eb387",
+      "payload": {
+        "aprlGuid": "2bd0be95-a825-6f47-a8c6-3db1fb5eb387",
+        "automationAvailable": true,
+        "description": "Deploy VMs across Availability Zones",
+        "learnMoreLink": [
+          {
+            "name": "Create virtual machines in an availability zone using the Azure portal",
+            "url": "https://learn.microsoft.com/azure/virtual-machines/create-portal-availability-zone?tabs=standard"
+          }
+        ],
+        "longDescription": "Azure Availability Zones, within each Azure region, are tolerant to local failures, protecting applications and data against unlikely Datacenter failures by being physically separate.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Enhanced VM resilience to failures",
+        "recommendationControl": "HighAvailability",
+        "recommendationImpact": "High",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": "066a047a-9ace-45f4-ac50-6325840a6b00",
+        "tags": []
+      },
+      "title": "Deploy VMs across Availability Zones",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:e80a0347ce2ebadc34148c8424b2090a8ab1195834ccf11776b43ed78e956322",
+      "id": "2de8fa5e-14f4-4c4c-857f-1520f87a629f",
+      "payload": {
+        "aprlGuid": "2de8fa5e-14f4-4c4c-857f-1520f87a629f",
+        "automationAvailable": false,
+        "description": "Enable Scheduled Events for Maintenance sensitive workload VMs",
+        "learnMoreLink": [
+          {
+            "name": "Monitor scheduled events for your Azure VMs",
+            "url": "https://learn.microsoft.com/azure/virtual-machines/windows/scheduled-event-service"
+          }
+        ],
+        "longDescription": "If your workload is Maintenance sensitive, enable Scheduled Events. This Azure Metadata Service lets your app prepare for virtual machine maintenance by providing information on upcoming events like reboots, reducing disruptions.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Minimize downtime for VMs",
+        "recommendationControl": "HighAvailability",
+        "recommendationImpact": "Medium",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "Enable Scheduled Events for Maintenance sensitive workload VMs",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:7ef94be0561805ce29b426fe3f56c7b9f47dcb335396ec240c7eff5964c85a20",
+      "id": "302fda08-ee65-4fbe-a916-6dc0b33169c4",
+      "payload": {
+        "aprlGuid": "302fda08-ee65-4fbe-a916-6dc0b33169c4",
+        "automationAvailable": true,
+        "description": "Reserve Compute Capacity for critical workloads",
+        "learnMoreLink": [
+          {
+            "name": "On-demand Capacity Reservation",
+            "url": "https://aka.ms/on-demand-capacity-reservations-docs"
+          }
+        ],
+        "longDescription": "Azure Capacity Reservations ensure high availability for virtual machines by reserving compute capacity in advance within a specific region or availability zone. This guarantees that VMs will have the necessary resources during peak demand or maintenance events, enhancing reliability and uptime.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Guaranteed capacity in constrained regions/zones",
+        "recommendationControl": "HighAvailability",
+        "recommendationImpact": "High",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": "1670c0af-6536-4cbf-872f-152c91a51a80",
+        "tags": []
+      },
+      "title": "Reserve Compute Capacity for critical workloads",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:b607ecd3688e61537370aafdd66b00803e942a424e9204857fd8e0611d8e3339",
+      "id": "3201dba8-d1da-4826-98a4-104066545170",
+      "payload": {
+        "aprlGuid": "3201dba8-d1da-4826-98a4-104066545170",
+        "automationAvailable": true,
+        "description": "Don't use A or B-Series VMs for production needing constant full CPU performance",
+        "learnMoreLink": [
+          {
+            "name": "B-series burstable virtual machine sizes",
+            "url": "https://learn.microsoft.com/azure/virtual-machines/sizes-b-series-burstable"
+          }
+        ],
+        "longDescription": "A-series VMs are tailored for entry-level workloads like development and testing, including use cases such as development and test servers, low traffic web servers, and small to medium databases.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Ensures full CPU usage for heavy tasks",
+        "recommendationControl": "Scalability",
+        "recommendationImpact": "High",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": "7f71b153-c0b7-4e99-a23e-db8179183ec9",
+        "tags": []
+      },
+      "title": "Don't use A or B-Series VMs for production needing constant full CPU performance",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:e8b5c5f9ca5ab17e34c144cd87947ed6f8cc1e2bc347537c5d3abeaff8182626",
+      "id": "41a22a5e-5e08-9647-92d0-2ffe9ef1bdad",
+      "payload": {
+        "aprlGuid": "41a22a5e-5e08-9647-92d0-2ffe9ef1bdad",
+        "automationAvailable": true,
+        "description": "IP Forwarding should only be enabled for Network Virtual Appliances",
+        "learnMoreLink": [
+          {
+            "name": "Enable or disable IP forwarding",
+            "url": "https://learn.microsoft.com/azure/virtual-network/virtual-network-network-interface?tabs=network-interface-portal#enable-or-disable-ip-forwarding"
+          }
+        ],
+        "longDescription": "IP forwarding allows a virtual machine network interface to receive and send network traffic not destined for or originating from its assigned IP addresses.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Enhances network appliance function",
+        "recommendationControl": "OtherBestPractices",
+        "recommendationImpact": "Medium",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "IP Forwarding should only be enabled for Network Virtual Appliances",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:92a163ac6ac0a0a22416033ff790610384dfbcfcc87af4acc16db18f6a65bcb3",
+      "id": "4ea2878f-0d69-8d4a-b715-afc10d1e538e",
+      "payload": {
+        "aprlGuid": "4ea2878f-0d69-8d4a-b715-afc10d1e538e",
+        "automationAvailable": true,
+        "description": "Host database data on a data disk",
+        "learnMoreLink": [
+          {
+            "name": "Introduction to Azure managed disks - Data disks",
+            "url": "https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview#data-disk"
+          }
+        ],
+        "longDescription": "A data disk is a managed disk attached to a virtual machine for storing database or other essential data. These disks are SCSI drives labeled as per choice.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Enhances performance, recovery, migration flexibility",
+        "recommendationControl": "Scalability",
+        "recommendationImpact": "Low",
+        "recommendationMetadataState": "Disabled",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "Host database data on a data disk",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:8e2d01303ddd21257530343c198dc8fcb9138a4e704df6a4f4d213b6dd025b62",
+      "id": "52ab9e5c-eec0-3148-8bd7-b6dd9e1be870",
+      "payload": {
+        "aprlGuid": "52ab9e5c-eec0-3148-8bd7-b6dd9e1be870",
+        "automationAvailable": true,
+        "description": "Use maintenance configurations for the Dedicated and/or Isolated VM SKUs",
+        "learnMoreLink": [
+          {
+            "name": "Use maintenance configurations to control and manage the VM updates",
+            "url": "https://learn.microsoft.com/azure/virtual-machines/maintenance-configurations"
+          }
+        ],
+        "longDescription": "The maintenance configuration settings let users schedule and manage updates, making sure the updates or interruptions on the VM are performed within a planned timeframe.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Scheduled updates for VMs",
+        "recommendationControl": "HighAvailability",
+        "recommendationImpact": "Medium",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "Use maintenance configurations for the Dedicated and/or Isolated VM SKUs",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:58d8ddf66fd4432ab6b81946f51194d41c3fee3e05c89838d47c7feabfe77af8",
+      "id": "587ca3e4-113b-4c4f-b4e0-92cd8d2065b6",
+      "payload": {
+        "aprlGuid": "587ca3e4-113b-4c4f-b4e0-92cd8d2065b6",
+        "automationAvailable": false,
+        "description": "Reserve Compute Capacity in Disaster Recovery Regions",
+        "learnMoreLink": [
+          {
+            "name": "On-demand Capacity Reservation",
+            "url": "https://aka.ms/on-demand-capacity-reservations-docs"
+          }
+        ],
+        "longDescription": "On-Demand Capacity Reservations ensure recovery of virtual machines in the event of a natural disaster by reserving compute capacity in advance within a specific region or zone. This guarantees that VMs have the necessary resources during disaster recovery failover events thus reducing downtime.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Guaranteed capacity in disaster recovery regions",
+        "recommendationControl": "DisasterRecovery",
+        "recommendationImpact": "Medium",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "Reserve Compute Capacity in Disaster Recovery Regions",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:516b07fc15d5f3c553a10b20eeae7907d06cef7211197d99aa7ee65b4155975a",
+      "id": "5f7e8a12-3c4f-456b-919c-2e9adff98c38",
+      "payload": {
+        "aprlGuid": "5f7e8a12-3c4f-456b-919c-2e9adff98c38",
+        "automationAvailable": false,
+        "description": "Update the Azure Linux VM Agent",
+        "learnMoreLink": [
+          {
+            "name": "How to update the Azure Linux Agent on a VM",
+            "url": "https://learn.microsoft.com/azure/virtual-machines/extensions/update-linux-agent?tabs=ubuntu"
+          }
+        ],
+        "longDescription": "If you've installed the Azure Linux Agent or are using an endorsed distribution image, ensure your agent version is up-to-date. Some Linux distributions may disable auto-update or use older agent versions.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Reduces complications with VM provisioning",
+        "recommendationControl": "HighAvailability",
+        "recommendationImpact": "Medium",
+        "recommendationMetadataState": "Disabled",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "Update the Azure Linux VM Agent",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:a924b8bafbbe0738c1aa541c49ccb43795eb1897c8236e68880d59e94d7beaa8",
+      "id": "70b1d2be-e6c4-b54e-9959-b1b690f9e485",
+      "payload": {
+        "aprlGuid": "70b1d2be-e6c4-b54e-9959-b1b690f9e485",
+        "automationAvailable": true,
+        "description": "Network access to the VM disk should be set to Disable public access and enable private access",
+        "learnMoreLink": [
+          {
+            "name": "Restrict import/export access for managed disks using Azure Private Link",
+            "url": "https://learn.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal"
+          }
+        ],
+        "longDescription": "Recommended changing to \"Disable public access and enable private access\" and creating a Private Endpoint to improve security by restricting direct public access and ensuring connections are made privately, enhancing data protection and minimizing potential external threats.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Enhances VM security and privacy",
+        "recommendationControl": "Security",
+        "recommendationImpact": "Low",
+        "recommendationMetadataState": "Disabled",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "Network access to the VM disk should be set to Disable public access and enable private access",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:8740e02f040e6066e1f3a4f604699f89ea5b6c453585764a51dbff7c86fbc3b3",
+      "id": "73d1bb04-7d3e-0d47-bc0d-63afe773b5fe",
+      "payload": {
+        "aprlGuid": "73d1bb04-7d3e-0d47-bc0d-63afe773b5fe",
+        "automationAvailable": true,
+        "description": "When AccelNet is enabled, you must manually update the GuestOS NIC driver",
+        "learnMoreLink": [
+          {
+            "name": "Accelerated Networking (AccelNet) overview",
+            "url": "https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview"
+          }
+        ],
+        "longDescription": "When Accelerated Networking is enabled, the default Azure VNet interface in GuestOS is swapped for a Mellanox, and its driver comes from a 3rd party. Marketplace images have the latest Mellanox drivers, but post-deployment, updating the driver is the user's responsibility.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Enhanced VM network efficiency",
+        "recommendationControl": "OtherBestPractices",
+        "recommendationImpact": "Low",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "When AccelNet is enabled, you must manually update the GuestOS NIC driver",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:e52d35f0ac1cc5792186fb4f24098dee91500cc80d722b5b489729531901514f",
+      "id": "9ab499d8-8844-424d-a2d4-8f53690eb8f8",
+      "payload": {
+        "aprlGuid": "9ab499d8-8844-424d-a2d4-8f53690eb8f8",
+        "automationAvailable": false,
+        "description": "Use Azure Boost VMs for Maintenance sensitive workload VMs",
+        "learnMoreLink": [
+          {
+            "name": "Microsoft Azure Boost",
+            "url": "https://learn.microsoft.com/azure/azure-boost/overview"
+          }
+        ],
+        "longDescription": "If the workload is Maintenance sensitive, consider Azure Boost compatible VMs. Azure Boost is designed to lessen the impact on customers when Azure maintenance activities occur on the host.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Less maintenance impact",
+        "recommendationControl": "HighAvailability",
+        "recommendationImpact": "Medium",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "Use Azure Boost VMs for Maintenance sensitive workload VMs",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:413015905117e00751fe5199969ae5869cd4545fcdc519d6ed480f2f969bc480",
+      "id": "a8d25876-7951-b646-b4e8-880c9031596b",
+      "payload": {
+        "aprlGuid": "a8d25876-7951-b646-b4e8-880c9031596b",
+        "automationAvailable": true,
+        "description": "Migrate VMs using availability sets to VMSS Flex",
+        "learnMoreLink": [
+          {
+            "name": "Migrate deployments and resources to Virtual Machine Scale Sets in Flexible orchestration",
+            "url": "https://learn.microsoft.com/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources"
+          }
+        ],
+        "longDescription": "While availability sets are not scheduled for immediate deprecation, they are planned to be deprecated in the future. Migrate workloads from VMs to VMSS Flex for deployment across zones or within the same zone across different fault domains (FDs) for better reliability.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Enhances reliability and future-proofs VMs",
+        "recommendationControl": "HighAvailability",
+        "recommendationImpact": "High",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": "39fb2718-a2ae-4662-a8c9-cd8df23f01eb",
+        "tags": []
+      },
+      "title": "Migrate VMs using availability sets to VMSS Flex",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:6f75c6f76113cfa750e628dd9902be550b755efe2878e02a9e597a5f26be638d",
+      "id": "b72214bb-e879-5f4b-b9cd-642db84f36f4",
+      "payload": {
+        "aprlGuid": "b72214bb-e879-5f4b-b9cd-642db84f36f4",
+        "automationAvailable": true,
+        "description": "Enable VM Insights",
+        "learnMoreLink": [
+          {
+            "name": "Overview of VM insights",
+            "url": "https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview"
+          }
+        ],
+        "longDescription": "VM Insights monitors VM and scale set performance, health, running processes, and dependencies. It enhances the predictability of application performance and availability by pinpointing performance bottlenecks and network issues, and it clarifies if problems are related to other dependencies.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Improves VM performance and health",
+        "recommendationControl": "MonitoringAndAlerting",
+        "recommendationImpact": "Low",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "Enable VM Insights",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:86641afa474caee5e28e742f61ea1be00a1a3a6f1ce00c846566cf8078d190f4",
+      "id": "cfe22a65-b1db-fd41-9e8e-d573922709ae",
+      "payload": {
+        "aprlGuid": "cfe22a65-b1db-fd41-9e8e-d573922709ae",
+        "automationAvailable": true,
+        "description": "Replicate VMs using Azure Site Recovery",
+        "learnMoreLink": [
+          {
+            "name": "Resiliency checklist for Virtual Machines",
+            "url": "https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines"
+          }
+        ],
+        "longDescription": "Replicating Azure VMs via Site Recovery entails continuous, asynchronous disk replication to a target region. Recovery points are generated every few minutes, ensuring a Recovery Point Objective (RPO) in minutes.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Minimize downtime in disasters",
+        "recommendationControl": "DisasterRecovery",
+        "recommendationImpact": "Medium",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": "ed651749-cd37-4fd5-9897-01b416926745",
+        "tags": []
+      },
+      "title": "Replicate VMs using Azure Site Recovery",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:5e6804f6961e3037319d163d0e8b02fbdcbb0f2fceed50f72a45dc2003cf7852",
+      "id": "df0ff862-814d-45a3-95e4-4fad5a244ba6",
+      "payload": {
+        "aprlGuid": "df0ff862-814d-45a3-95e4-4fad5a244ba6",
+        "automationAvailable": true,
+        "description": "Mission Critical Workloads should consider using Premium or Ultra Disks",
+        "learnMoreLink": [
+          {
+            "name": "Disk type comparison and decision tree",
+            "url": "https://learn.microsoft.com/azure/virtual-machines/disks-types#disk-type-comparison"
+          }
+        ],
+        "longDescription": "Compared to Standard HDD and SSD, Premium SSD, SSD v2, and Ultra Disks offer improved performance, configurability, and higher single-instance VM uptime SLAs. The lowest SLA of all disks on a VM applies, so it is best to use Premium or Ultra Disks for the highest uptime SLA.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Enhanced performance, cost efficiency, and uptime SLA",
+        "recommendationControl": "Scalability",
+        "recommendationImpact": "High",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": "58d6648d-32e8-4346-827c-4f288dd8ca24",
+        "tags": []
+      },
+      "title": "Mission Critical Workloads should consider using Premium or Ultra Disks",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    },
+    {
+      "contentHash": "sha256:d7f355ada296562705e7d2090efbb580b261766ac051889e56dee8de4d69ae0d",
+      "id": "dfedbeb1-1519-fc47-86a5-52f96cf07105",
+      "payload": {
+        "aprlGuid": "dfedbeb1-1519-fc47-86a5-52f96cf07105",
+        "automationAvailable": true,
+        "description": "Enable Accelerated Networking (AccelNet)",
+        "learnMoreLink": [
+          {
+            "name": "Accelerated Networking (AccelNet) overview",
+            "url": "https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview"
+          }
+        ],
+        "longDescription": "Accelerated networking enables SR-IOV to a VM, greatly improving its networking performance by bypassing the host from the data path, which reduces latency, jitter, and CPU utilization for demanding network workloads on supported VM types.\n",
+        "pgVerified": true,
+        "potentialBenefits": "Reduces latency, jitter and CPU use",
+        "recommendationControl": "Scalability",
+        "recommendationImpact": "Medium",
+        "recommendationMetadataState": "Active",
+        "recommendationResourceType": "Microsoft.Compute/virtualMachines",
+        "recommendationTypeId": null,
+        "tags": []
+      },
+      "title": "Enable Accelerated Networking (AccelNet)",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+    }
+  ],
+  "limitations": [
+    "Virtual Machines recommendations only, not all APRL.",
+    "Separate KQL files are not part of this source unit fingerprint; query behavior is not evaluated."
+  ],
+  "retrievedAt": "2026-09-11T18:05:21.303733Z",
+  "schemaVersion": 1,
+  "scope": "All records in Azure/Azure-Proactive-Resiliency-Library-v2 azure-resources/Compute/virtualMachines/recommendations.yaml at the pinned commit",
+  "sourceId": "aprl-virtual-machines",
+  "sourceUrls": [
+    "https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml"
+  ],
+  "title": "APRL Virtual Machines structured recommendations",
+  "unit": "aprl-guid",
+  "upstreamRevision": "4ed61607223b49e3d0bdd9ce3127ef6e842b5463"
+}

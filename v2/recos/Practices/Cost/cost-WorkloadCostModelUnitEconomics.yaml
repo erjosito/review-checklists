@@ -1,0 +1,51 @@
+id: ccf66d9e-1364-576b-9b40-16f91a5b52b7
+name: cost-WorkloadCostModelUnitEconomics
+source:
+  type: curated
+  url: https://learn.microsoft.com/azure/well-architected/cost-optimization/cost-model
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/well-architected/cost-optimization/cost-model
+- type: docs
+  url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+- type: docs
+  url: https://learn.microsoft.com/azure/well-architected/cost-optimization/collect-review-cost-data
+title: Maintain a workload cost model tied to business units and reliability targets
+description: Model initial, run-rate and ongoing cost for compute, data, network, licensing, security,
+  observability, support and engineering operations. Include resilience/recovery and growth scenarios.
+  Track meaningful unit costs such as cost per transaction or customer, agree a budget buffer and update
+  the model when architecture, price or demand changes.
+waf: Cost
+severity: 1
+services: []
+resourceTypes: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload/business judgment and evidence outside ARG; no universal compliance query is
+    appropriate.
+queries: {}
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/cost-model
+    title: Architecture strategies for creating a cost model
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/collect-review-cost-data
+    title: Architecture strategies for collecting and reviewing cost data
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:02
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/cost-model
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:a2c276a8656c81b4067ae80556ca29b1ac1cc592c7de15f630b1e368af9efb90
+    notes: The local control explicitly requires initial, run-rate and ongoing cost, an agreed budget
+      buffer and maintained demand/architecture updates, covering the complete checklist-row requirement.
+      Source-text assessment, not independent human approval or live Azure validation.
+schemaVersion: 1

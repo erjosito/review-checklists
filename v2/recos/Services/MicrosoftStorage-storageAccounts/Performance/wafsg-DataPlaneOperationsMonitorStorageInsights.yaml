@@ -18,3 +18,13 @@ labels:
   guid: 557fe672-1057-4798-acbb-bb377abcb704
 links: []
 queries: {}
+schemaVersion: 1
+id: 557fe672-1057-4798-acbb-bb377abcb704
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

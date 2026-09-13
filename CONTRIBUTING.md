@@ -1,103 +1,147 @@
-# Why contributing?
+# Contributing to Azure Review Checklists
 
-The Azure review checklists are a curated repository of Azure best practices and related metadata, such as Azure Resource Graph (queries) to evaluate the compliance with those best practices at real time and hyperlinks to additional documentation and learning resources. These checklists are used in several motions by Microsoft employees, such as FastTrack engineers and Customer Solution Architects, as well as by many partners and customers to evaluate Azure their designs.
+Contributions are welcome from reviewers, customers, partners and Microsoft
+employees. Report incorrect or missing guidance, propose source-backed content
+changes, or improve the local application. Start with the [project README](README.md),
+[AGENTS.md](AGENTS.md), and the [corpus contract](review_checklists/docs/corpus-contract.md).
+For bug reports use [Support](SUPPORT.md); follow [SECURITY.md](SECURITY.md) for
+security reports rather than a public issue.
 
-The main reason why these checklists are in a public repo is so that anybody can contribute if they detect inaccuracies or missing recommendations or metadata (links, ARG queries). The power of the open source community has taken this project to a level that a single Microsoft group would probably not have been able to achieve, especially given the fast pace of change around Microsoft Azure. If you decide to help in this project you will be contributing to the success of so many other organizations that leverage Microsoft Azure for their workloads.
+## Work against the current implementation
 
-# Project lifecycle
+The current v3 work is a local-first Python CLI/localhost UI prototype, not a
+hosted service or a generally available team product. Check the target branch
+before opening a PR: development-branch changes belong against that branch, not
+automatically against an upstream `main` with a different implementation.
+The package remains `review_checklists`; `v2/recos` is the intentional historical
+path of the current YAML corpus.
 
-This repo manages versioning as follows:
+Fork or create a working branch, keep the change focused, and request review from
+the applicable [CODEOWNERS](CODEOWNERS). Include the motivation, affected IDs and
+files, sources, semantic changes, validation results, and any unresolved limits.
+Do not include review databases, customer evidence, credentials, virtual
+environments, generated bundles, or machine-local paths.
 
- - The `main` branch always have the latest version of the assets, that is why every PR needs to be reviewed by a set of specialists that will make sure that the body of review recommendations is consistent.
- - New checklists will start in "Preview" state. When checklists have undergone multiple revisions and have been battle tested, they will become "Generally available". The state of the checklist is described in the checklist metadata, which is reflected accordingly in the frontend (such as in the Excel spreadsheet).
- - Releases are tagged according to semantic versioning, and each release will contain a frozen set of the assets including the macro-enabled spreadsheet that many users leverage as frontend to the checklists. See the [Releases page](https://github.com/Azure/review-checklists/releases) for more details. Before publishing an official release, the project team will review the assets and make sure that they fulfill the minimum quality standards for the repository.
+The [legacy guide](docs/legacy-v1.md) preserves spreadsheet/JSON authoring history.
+It is not the current contribution workflow. Historical GA/Preview labels and
+spreadsheet releases do not establish the maturity of this prototype.
 
-# Who can contribute?
+## Author recommendations in YAML
 
-Anybody is welcome to contribute, regardless if you are a Microsoft employee, a Microsoft partner, or just using Azure. If you find anything missing or inaccurate, such as for example recommendations without an Azure Resource Graph query or that don't reflect the latest Azure innovations, we would kindly ask you to do this:
+Edit individual files in [`v2/recos`](v2/recos), not generated JSON in
+[`checklists`](checklists/README.md), release bundles, translated files, or workbooks.
+Use the single [recommendation schema](v2/schema/recommendation.schema.json);
+the app and authoring tools share parsing and validation through
+`scripts/modules/cl_corpus.py`. Do not add a competing schema or rely on the
+legacy loader to fill in missing authored metadata.
 
-1. At the very least, we would be grateful if the problem is highlighted in a GitHub issue. You can open a new issue [here](https://github.com/Azure/review-checklists/issues/new).
-1. If additionally you want to suggest the modifications to be carried out, Pull Requests are of course very welcome (see the next section on how).
+1. **Find the existing requirement first.** Search canonical IDs, names, aliases,
+   services and resource scopes. Prefer updating the existing recommendation
+   over adding overlapping guidance.
+2. **Make the requirement actionable, verifiable and scoped.** State the setting
+   or decision to assess, applicability, and necessary evidence. Use primary
+   guidance to justify numerical limits or service-specific constraints; do not
+   turn context-dependent advice into an unconditional rule.
+3. **Preserve identity.** Keep existing canonical lowercase UUIDs, names and legacy
+   GUID labels. New recommendations need unique stable IDs and normally
+   `source.type: curated`. Include the required `schemaVersion`, service,
+   automation and provenance metadata described in the corpus contract.
+4. **Classify only supported facts.** Use canonical names from the
+   [service dictionary](scripts/service_dictionary.json). Empty `services` means
+   no explicit classification, not permission to guess specialization from a
+   generic resource type. Review resource types, WAF pillar and severity together.
+5. **Record evidence honestly.** Include public source URLs, titles, actual access
+   dates, what changed and why in the PR and applicable provenance/report.
+   Unknown `upstreamRevision`, `lastReviewed` and `validatedAt` stay null.
+   Source access is not human approval, an upstream commit, or live query testing.
 
-# What to contribute?
+For a new checklist, add a YAML selector under [`v2/checklists`](v2/checklists);
+use [app_delivery.yaml](v2/checklists/app_delivery.yaml) and existing definitions
+as examples. Reuse canonical recommendations rather than copying them into
+another corpus. Verify root/area/subarea inclusion and exclusion behavior,
+including aliases and expected memberships, before submitting.
 
-Checklists are intended to be used to review designs or existing solutions, to understand the alignment to best practices and what can be done to improve the resources under review.  To that end, individual checklist items should follow these guidelines:
+### ARG queries provide evidence
 
-1. **Actionable, not informational.**  The checklist items need to be things that the reviewer can actual action and check for.  Things like "Consider service X" or "Be aware of Y" are not good checklist items, but "Verify that setting X is enabled" or "Use service Y if..." are more appropriate
-1. **Verifiable.**  The user of the checklist should be able to verify the setting itself by referencing something.  Ideally this is in an Azure itself, either through a Graph query or referencingsomething in the portal.  However, some items will verify the presence of a document (like a BCDR plan) or an external policy (like the association of supernets to regions).  If it can't be explicitly verified, then it might not be a good checklist item.
-1. **Specific.**  The checklist items should be as specific as possible.  For example, saying "Plan your hub network to have sufficient size" isn't specific enough, but "Assign your hub at least a /22 network space" is appropriately specific.
+The application executes one primary `queries.arg` per recommendation.
+Set `automation.status` and, for an available query, `resultSemantics` according
+to the [contract](review_checklists/docs/corpus-contract.md#required-metadata).
+`query_available` is not a validation claim. `compliance` semantics require
+`complianceColumn`; the current app does not require every query to return the
+legacy `id`/`compliant` pair.
 
-# How to contribute?
+Explain required scope, permissions, missing data, expected output, false positives,
+and interpretation. Inventory and Advisor findings are evidence, not automatic
+non-compliance or realized savings. Zero rows do not establish compliance.
+Do not invent ARG access to utilization, billing, licensing or business context.
+Keep additional researched query variants and caveats in the source/refresh
+report; do not imply that the UI runs them or invent schema fields for them.
+Live query testing requires separately authorized Azure scope.
 
-If you wish to make a contribution, please create the proposed changes in a forked repository and open a Pull Request against the main branch. Microsoft engineers will verify the proposed change, and either accept it, suggest modifications, or decline it. The following sections cover changes to different objects in this repository:
+### Confirm duplicates before merging
 
-1. Adding Resource Graph Queries
-1. Modifying recommendations (modifying the JSON directly, or generating new JSON from the macro-enabled spreadsheet)
-1. Modifying the spreadsheet assets
-1. Adding a new Checklist
+Merge only equivalent technical requirements. Keep an existing survivor ID and
+retain retired IDs, names, original source and labels as aliases using the
+manifest/dry-run process described in [AGENTS.md](AGENTS.md).
+Reconcile or defer conflicts in scope, severity, WAF pillar, KQL and provenance.
+Similar titles are not sufficient evidence for deletion.
 
-## 1. Adding or modifying Resource Graph queries
+Check selector compatibility and area/subarea membership after a merge.
+Existing SQLite reviews remain pinned snapshots: never rewrite or combine
+their assessments, comments or evidence as part of a corpus cleanup.
 
-When adding Azure Resource Graph queries to existing recommendations the query is expected to return (at least) two fields:
+## Source-backed refreshes, not autonomous imports
 
-* `id`: ARM ID of the resource being evaluated
-* `compliant`: boolean value that indicates whether the resource is compliant or non-compliant with the recommendation
+Scheduled APRL, AKS-checklist and WAF service-guide ingestion is deprecated.
+The importers are manual fallbacks whose output still requires reconciliation,
+validation and human review. LLM-assisted research/editing produces proposals,
+not automatic publication. Deterministic parsing, validation, assembly and
+rendering remain required even when an LLM helped draft the change.
 
-For example, take the recommendation in the AKS checklist "Use Availability Zones if supported in your Azure region". The following query creates the `compliant` column based on a boolean check, and returns both the `id` and the new `compliant` columns:
+Read [Cost sources and coverage](review_checklists/docs/corpus-refresh/cost-sources.md)
+and the [Cost refresh report](review_checklists/docs/corpus-refresh/cost-refresh-report.md)
+for the established evidence/coverage pattern. Record untouched areas, rejected
+proposals and gaps; a bounded refresh is not an exhaustive audit.
 
+Azure Translator and Text Analytics endpoints used by the old pipelines are
+decommissioned. Fork setup does **not** require provisioning them or adding their
+secrets. Historical translations are not guaranteed to reflect current YAML.
+See [scripts/README.md](scripts/README.md) for the retained deterministic tools
+and manual adapters; optional future AI integrations are not implemented.
+
+## Validate before requesting review
+
+Use Python 3.11+ from the repository root:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r review_checklists\requirements.txt
+.\.venv\Scripts\python.exe -m review_checklists corpus validate
+.\.venv\Scripts\python.exe -m review_checklists corpus build `
+    --version "local-review" --output dist\catalog-local-review-a.json
+.\.venv\Scripts\python.exe -m review_checklists corpus build `
+    --version "local-review" --output dist\catalog-local-review-b.json
+Get-FileHash dist\catalog-local-review-a.json, dist\catalog-local-review-b.json
 ```
-where type=='microsoft.containerservice/managedclusters' | extend compliant= isnotnull(zones) | distinct id,compliant
+
+For identical source and version, both SHA-256 hashes must match. Build commands
+refuse overwrites: choose fresh output names rather than deleting unknown files.
+Review the semantic diff, identities/aliases, provenance and selector membership
+as well as schema results. Passing validation is not proof of technically correct
+guidance or valid live KQL.
+
+For application changes, run the relevant test modules first, then the needed
+integration coverage; the full local suite is:
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s review_checklists\tests -v
 ```
 
-It is important for the query to return these two fields for the automation to work such as the bash script and automatic Azure Monitor Workbook generation.
+For script/legacy-adapter changes, use the dependencies and checks in the
+[scripts guide](scripts/README.md). Documentation-only changes need relative-link
+and command/configuration checks, not live Azure execution or a full app test run.
+See the [application guide](review_checklists/README.md) for optional browser tests.
+Never target a user's active review database in tests.
 
-### Microsoft approvers
-
-Specific approvers (at least two individuals) for each checklist are defined in the [CODEOWNERS](./CODEOWNERS) file. Microsoft approvers should verify the correct operation of the proposed ARG query before approving the Pull Request:
-
-- The query doesn't return either false positives or false negatives.
-- The output fields are `id` and `compliant` (case is important).
-
-After merging, the Microsoft approver should verify that the automatically generated Workbook (see the [Workbooks README](./workbooks/README.md)) operates correctly with the new query.
-
-## 2. Modifications to checklists recommendations
-
-There are two ways in which you can modify the existing checklists:
-
-### Option 2a: Modifying the JSON file directly
-
-To make changes to existing checklists, modify the relevant `.en.json` file in the `checklists` directory, either in the Github portal or in your own clone using your favorite text editor, and then submit  a Pull Request to the main branch. Each checklist (LZ, AKS, AVD) has a predefined set of owners that will review the individual PRs (see [CODEOWNERS](./CODEOWNERS)).
-
-> **Warning**
-> Do not modify the non-English versions of the checklists, as they are dynamically generated
-
-If you are adding new rules, make sure to include unique GUIDs for each. You can use your favorite GUID generation tool to generate new random GUIDs, such as [https://guidgenerator.com/](https://guidgenerator.com/)
-
-### Option 2b: Using the spreadsheet to create new JSON files
-
-Optionally, you can use the provided Excel spreadsheet to make changes to the existing checklists:
-
-1. Open the [Excel spreadsheet](./spreadsheet/review_checklist.xlsm), and load the English version of any of the supported checklist
-1. Make any changes you want. Some remarks:
-    - If adding or changing hyperlinks, it is OK to put the raw URL in the corresponding cell. The export mechanism will take care of removing the localization
-    - If adding new rules, you can leave the GUID field empty, the export mechanism will generate a new random GUID
-1. Export the checklist to a JSON file (using the button "Export checklist to JSON"), which you can check into the GitHub repository (refer to [Option 1: Modifying the JSON file directly](#option-1-modifying-the-jSON-file-directly))
-
-## 3. Changes to the spreadsheet
-
-Modify the file [spreadsheet/review_checklist.xlsm](./spreadsheet/review_checklist.xlsm) in your own fork, and send a Pull Request to the main branch. Make sure not to check in temporary files (by closing the Excel spreadsheet before git-adding the files).
-
-## 4. Adding a new Checklist
-
-1. Start by cloning the repository and creating a new branch for your new checklist.
-1. Create a copy of the [template.json](checklists/template.json) and name it **_\<service>.en.json_**. For example, for AKS it would be aks.en.json.
-1. In the template you will notice there is a sample item and the supporting objects and metadata. There is also a referenced schema file. Please ensure you follow the schema to make sure your checklist opens correctly and doesn't break the UI.
-1. Commit your branch and create a pull request to have it merged to master.
-
-## Forking the Repository
-
-If you fork this repository, you will need to set up an Azure Translator in Azure and define three secrets in your repository to enable automatic translation:
-
-- `AZURE_TRANSLATOR_ENDPOINT`: containing the endpoint URL for your Azure Translator. You will find this in the Azure Portal, in the blade "Keys and Endpoint" of your Azure Translator, under "Text Translation".
-- `AZURE_TRANSLATOR_REGION` (optional): containing the region for your Azure Translator. You will find this in the Azure Portal, in the blade "Keys and Endpoint" of your Azure Translator, under "Location/Region".
-- `AZURE_TRANSLATOR_SUBSCRIPTION_KEY`: the subscription key for your Azure Translator. You will find this in the Azure Portal, in the blade "Keys and Endpoint" of your Azure Translator, under "Key 1" or "Key 2" (you can use either of them).
+Human review remains required before merge. Do not equate validation success or
+an LLM-generated diff with approval, production readiness, or an architecture sign-off.

@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-microsoft-customer-agreement#design-recommendations
 queries: {}
+schemaVersion: 1
+id: e81a73f0-84c4-4641-b406-14db3b4d1f50
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

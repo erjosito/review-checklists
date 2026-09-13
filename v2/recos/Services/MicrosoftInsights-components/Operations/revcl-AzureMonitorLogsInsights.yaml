@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/monitoring-reporting?tabs=AzureMonitor
 queries: {}
+schemaVersion: 1
+id: 6944008b-e7d7-4e48-9327-6d8bdc055bcf
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

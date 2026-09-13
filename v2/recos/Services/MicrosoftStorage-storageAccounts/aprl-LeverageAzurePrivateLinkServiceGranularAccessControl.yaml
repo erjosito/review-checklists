@@ -1,13 +1,14 @@
 name: aprl-LeverageAzurePrivateLinkServiceGranularAccessControl
 title: Enable Azure Private Link service for storage accounts
-description: |-
-  Leverage Azure Private Link Service for secure access to Azure Storage and services via Private Endpoint in your VNet. Eliminate the need for public IPs, ensuring data privacy. Enjoy granular access control for enhanced security.
+description: Leverage Azure Private Link Service for secure access to Azure Storage and services via Private
+  Endpoint in your VNet. Eliminate the need for public IPs, ensuring data privacy. Enjoy granular access
+  control for enhanced security.
 source:
   type: aprl
   file: azure-resources/Storage/storageAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Storage/storageAccounts
+- microsoft.storage/storageaccounts
 severity: 1
 labels:
   guid: dc55be60-6f8c-461e-a9d5-a3c7686ed94e
@@ -23,3 +24,34 @@ queries:
     | extend param1 = strcat('Private Endpoint: ', iif(isnotnull(properties.privateEndpointConnections),split(properties.privateEndpointConnections[0].properties.privateEndpoint.id,'/')[8],'No Private Endpoint'))
     | extend param2 = strcat('Access: ', iif(properties.publicNetworkAccess == 'Disabled', 'Public Access Disabled', iif(isnotnull(properties.networkAcls), 'NetworkACLs in place','Public Access Enabled')))
     | project recommendationId = "dc55be60-6f8c-461e-a9d5-a3c7686ed94e", name, id, tags, param1, param2
+schemaVersion: 1
+id: dc55be60-6f8c-461e-a9d5-a3c7686ed94e
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    title: 'APRL dc55be60-6f8c-461e-a9d5-a3c7686ed94e: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: dc55be60-6f8c-461e-a9d5-a3c7686ed94e
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ad515485d158f63283728bba620174d2f1b0d15dcc7dfba144bf7d4a7f7c8389
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

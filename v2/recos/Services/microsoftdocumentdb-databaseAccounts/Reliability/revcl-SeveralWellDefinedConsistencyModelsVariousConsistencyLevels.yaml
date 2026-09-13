@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cosmos-db/consistency-levels
 queries: {}
+schemaVersion: 1
+id: 9f8ea848-25ec-4140-bc32-2758e6ee9ac0
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -86,6 +86,7 @@ def load_yaml(filename):
 
 # Function to get list of URLs containing the APRL objects
 def get_aprl_recos():
+    print("WARNING: Deprecated manual import; validate and human-review curated changes before merging.")
     # Variables
     github_org = 'Azure'
     github_repo = 'Azure-Proactive-Resiliency-Library-v2'

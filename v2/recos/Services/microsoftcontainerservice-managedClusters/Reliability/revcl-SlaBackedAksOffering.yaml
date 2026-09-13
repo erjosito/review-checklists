@@ -15,3 +15,14 @@ links:
 queries:
   arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
     = (sku.tier=='Paid') | distinct id,compliant
+schemaVersion: 1
+id: 71d41e36-10cc-457b-9a4b-1410d4395898
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

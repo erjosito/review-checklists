@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/app-service/environment/intro
 queries: {}
+schemaVersion: 1
+id: bd91245c-fe32-4e98-a085-794a40f4bfe1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

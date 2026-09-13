@@ -1,11 +1,9 @@
 name: wafsg-ArchitecturalDesignDecisionsAzureOpenaiModels
-title: 'Monitor pay-as-you-go usage: If you use the pay-as-you-go approach, monitor
-  usage of TPM and RPM. Use that information to inform architectural design decisions
-  such as what models to use, and to optimize prompt sizes.'
-description: Continuously monitoring TPM and RPM gives you relevant metrics to optimize
-  the cost of Azure OpenAI models. You can couple this monitoring with model features
-  and model pricing to optimize model usage. You can also use this monitoring to optimize
-  prompt sizes.
+title: Reconcile Azure OpenAI usage metrics with billed model and deployment meters
+description: Monitor request and token usage to detect demand changes, but use matching-scope Cost Management
+  meters and invoiced charges for financial reconciliation. Include input, visible output and reasoning
+  tokens where applicable, hosting and other application dependencies. TPM and RPM are operational rates,
+  not a complete monetary-cost calculation.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -17,3 +15,21 @@ labels:
   guid: 0d6d5b07-c475-408c-8f6a-fa8c92b96957
 links: []
 queries: {}
+schemaVersion: 1
+id: 0d6d5b07-c475-408c-8f6a-fa8c92b96957
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Avoid treating TPM/RPM alone as financial truth. Requires workload,
+    billing and operational evidence; no ARG query or live validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/foundry/concepts/manage-costs
+    title: Plan and Manage Costs - Microsoft Foundry
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/foundry/openai/how-to/reasoning
+    title: Azure OpenAI reasoning models
+    accessedAt: '2026-09-11'

@@ -1,18 +1,49 @@
 name: aprl-SmbContinuousAvailabilitySmbTransparentFailover
 title: Make use of SMB continuous availability for supported applications
-description: |-
-  Certain SMB applications need SMB Transparent Failover for maintenance without interrupting server connectivity. Azure NetApp Files provides this through SMB Continuous Availability for applications like Citrix App Layering, FSLogix user/profile containers, Microsoft SQL Server, MSIX app attach.
+description: Certain SMB applications need SMB Transparent Failover for maintenance without interrupting
+  server connectivity. Azure NetApp Files provides this through SMB Continuous Availability for applications
+  like Citrix App Layering, FSLogix user/profile containers, Microsoft SQL Server, MSIX app attach.
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 0
 labels:
   guid: d1e7ccc3-e6c1-40e9-a36e-fd134711c808
   area: High Availability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: d1e7ccc3-e6c1-40e9-a36e-fd134711c808
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL d1e7ccc3-e6c1-40e9-a36e-fd134711c808: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: d1e7ccc3-e6c1-40e9-a36e-fd134711c808
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:8fb73511305d769d0fc41f33744c645d45b87ecf55a158060681d33ee535b214
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Upstream resource scope is ['Microsoft.NetApp/netAppAccounts/capacityPools/volumes'],
+      while the frozen corpus scope is ['Microsoft.NetApp/netAppAccounts']; applicability is not broadened
+      or narrowed without separate verification. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

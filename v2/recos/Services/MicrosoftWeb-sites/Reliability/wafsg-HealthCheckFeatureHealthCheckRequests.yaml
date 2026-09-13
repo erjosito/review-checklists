@@ -1,9 +1,9 @@
 name: wafsg-HealthCheckFeatureHealthCheckRequests
-title: (App Service) Enable the health check feature and provide a path that responds
-  to the health check requests.
-description: Health checks can detect problems early. Then the system can automatically
-  take corrective actions when a health check request fails.  The load balancer routes
-  traffic away from unhealthy instances, which directs users to healthy nodes.
+title: (App Service) Enable the health check feature and provide a path that responds to the health check
+  requests.
+description: Health checks can detect problems early. Then the system can automatically take corrective
+  actions when a health check request fails.  The load balancer routes traffic away from unhealthy instances,
+  which directs users to healthy nodes.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +15,22 @@ labels:
   guid: 874fa451-0ef2-4638-8cfd-c07cef131d7f
 links: []
 queries: {}
+schemaVersion: 1
+id: 874fa451-0ef2-4638-8cfd-c07cef131d7f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+  upstreamRecommendations:
+  - sourceId: advisor-reliability-catalog
+    recommendationId: 72063b96-92fa-4b74-9457-b84b662155f9
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e9207f0ef3d728d21aae44a3fbbeff591afaef553407c3d34faf7ac4e0f5f1d9
+    notes: Existing byte-unchanged health-check requirement covers path and unhealthy-instance routing;
+      it does not explicitly require the path to check every critical component. External assessment only.

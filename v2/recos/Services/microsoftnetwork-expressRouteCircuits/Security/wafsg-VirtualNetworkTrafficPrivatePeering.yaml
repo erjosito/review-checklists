@@ -14,3 +14,13 @@ labels:
   guid: 960e86aa-d918-4a37-917a-eab33a2a98fa
 links: []
 queries: {}
+schemaVersion: 1
+id: 960e86aa-d918-4a37-917a-eab33a2a98fa
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

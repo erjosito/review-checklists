@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/multi-tenant/considerations-recommendations
 queries: {}
+schemaVersion: 1
+id: 70c15989-c726-42c7-b0d3-24b7375b9201
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

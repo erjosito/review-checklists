@@ -16,3 +16,13 @@ labels:
   guid: edad73e6-11f4-4f3d-ad4d-85a803631d88
 links: []
 queries: {}
+schemaVersion: 1
+id: edad73e6-11f4-4f3d-ad4d-85a803631d88
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

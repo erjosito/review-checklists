@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/spring-apps/how-to-configure-enterprise-spring-cloud-gateway
 queries: {}
+schemaVersion: 1
+id: 1eb48d58-3eec-4ef5-80b0-d2b0dde3f0c6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

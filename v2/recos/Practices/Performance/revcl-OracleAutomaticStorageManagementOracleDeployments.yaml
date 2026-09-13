@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/paths/administer-infrastructure-resources-in-azure/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: fdafb1f5-3eee-4354-a8c9-deb8127ebc2e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

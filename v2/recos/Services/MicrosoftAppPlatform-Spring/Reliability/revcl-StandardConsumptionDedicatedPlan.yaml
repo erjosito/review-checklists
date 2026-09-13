@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/spring-apps/how-to-setup-autoscale
 queries: {}
+schemaVersion: 1
+id: 97411607-b6fd-4335-99d1-9885faf4e392
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

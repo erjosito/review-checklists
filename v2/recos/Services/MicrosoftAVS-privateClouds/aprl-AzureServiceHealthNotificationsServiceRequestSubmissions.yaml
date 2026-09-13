@@ -1,13 +1,14 @@
 name: aprl-AzureServiceHealthNotificationsServiceRequestSubmissions
 title: Configure Azure Service Health notifications and alerts for Azure VMware Solution
-description: |-
-  Ensure Azure Service Health notifications are set for Azure VMware Solution across all used regions and subscriptions. This communicates service/security issues and maintenance activities like host replacements and upgrades, reducing service request submissions.
+description: Ensure Azure Service Health notifications are set for Azure VMware Solution across all used
+  regions and subscriptions. This communicates service/security issues and maintenance activities like
+  host replacements and upgrades, reducing service request submissions.
 source:
   type: aprl
   file: azure-resources/AVS/privateClouds/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AVS/privateClouds
+- microsoft.avs/privateclouds
 severity: 0
 labels:
   guid: 74fcb9f2-9a25-49a6-8c42-d32851c4afb7
@@ -54,3 +55,34 @@ queries:
     | project subscriptionId, locale)) on subscriptionId, locale
     | where subscriptionId1 == "" or locale1 == "" or isnull(subscriptionId1) or isnull(locale1)
     | project recommendationId = "74fcb9f2-9a25-49a6-8c42-d32851c4afb7", name, id, tags, param1 = "avsServiceHealthAlertsAllIncidentTypesConfigured: False"
+schemaVersion: 1
+id: 74fcb9f2-9a25-49a6-8c42-d32851c4afb7
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    title: 'APRL 74fcb9f2-9a25-49a6-8c42-d32851c4afb7: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 74fcb9f2-9a25-49a6-8c42-d32851c4afb7
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:a2cb7747e3990c4dcba8cd560e7a9609648aa9ac65d4889ff9e514590cc3efd4
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

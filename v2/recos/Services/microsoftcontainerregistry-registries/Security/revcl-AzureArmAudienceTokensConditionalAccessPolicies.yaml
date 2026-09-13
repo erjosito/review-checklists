@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/container-registry-enable-conditional-access-policy
 queries: {}
+schemaVersion: 1
+id: 3a041fd3-2947-498b-8288-b3c6a56ceb54
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

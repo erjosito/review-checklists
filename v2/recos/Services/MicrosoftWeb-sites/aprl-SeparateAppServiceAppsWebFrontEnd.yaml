@@ -1,18 +1,49 @@
 name: aprl-SeparateAppServiceAppsWebFrontEnd
 title: Separate web apps from web APIs
-description: |-
-  If your solution includes both a web front end and a web API, decomposing them into separate App Service apps facilitates solution decomposition by workload, allowing for independent scaling. Initially, you can deploy both in the same plan and separate them for independent scaling when necessary.
+description: If your solution includes both a web front end and a web API, decomposing them into separate
+  App Service apps facilitates solution decomposition by workload, allowing for independent scaling. Initially,
+  you can deploy both in the same plan and separate them for independent scaling when necessary.
 source:
   type: aprl
   file: azure-resources/Web/sites/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/sites
+- microsoft.web/sites
 severity: 2
 labels:
   guid: 78a5c033-ff51-4332-8a71-83464c34494b
   area: Scalability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 78a5c033-ff51-4332-8a71-83464c34494b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    title: 'APRL 78a5c033-ff51-4332-8a71-83464c34494b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 78a5c033-ff51-4332-8a71-83464c34494b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:33ff1d7642125ef38330da16077f420c6400f326546c94aaff144e0c0980a1e6
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

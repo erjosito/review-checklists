@@ -1,12 +1,11 @@
 """Read-only adapter for the existing v2 recommendation corpus."""
 
-import json
 from pathlib import Path
-from uuid import UUID
-
-import yaml
 
 from scripts.modules.cl_analyze_v2 import reco_matches_criteria
+from scripts.modules.cl_corpus import (
+    CorpusError, enrich_recommendation, load_yaml_document, validate_corpus,
+)
 
 
 class ReviewError(Exception):
@@ -30,68 +29,37 @@ def has_arg_query(recommendation: dict) -> bool:
 
 def read_document(path: Path) -> dict:
     try:
-        document = yaml.load(
-            path.read_text(encoding="utf-8"),
-            Loader=getattr(yaml, "CSafeLoader", yaml.SafeLoader),
-        )
-    except (OSError, ValueError, yaml.YAMLError) as exc:
+        return load_yaml_document(path)
+    except CorpusError as exc:
         raise ReviewError(f"Cannot read {path}: {exc}") from exc
-    if not isinstance(document, dict):
-        raise ReviewError(f"{path}: expected an object")
-    return document
 
 
-def load_corpus(root: Path) -> list[dict]:
+def load_corpus(root: Path, *, require_current: bool = False) -> list[dict]:
     if not root.is_dir():
         raise ReviewError(f"Corpus directory does not exist: {root}")
     recommendations = []
-    seen_ids = set()
+    paths = []
     for path in sorted(root.rglob("*")):
         if path.suffix.lower() not in {".yaml", ".yml", ".json"}:
             continue
         reco = read_document(path)
-        for field in ("name", "title"):
-            if not isinstance(reco.get(field), str) or not reco[field].strip():
-                raise ReviewError(f"{path}: missing or invalid {field}")
-        if type(reco.get("severity")) is not int or reco["severity"] not in (0, 1, 2):
-            raise ReviewError(f"{path}: severity must be 0 (high), 1 (medium), or 2 (low)")
-        if "waf" in reco and not isinstance(reco["waf"], str):
-            raise ReviewError(f"{path}: waf must be a string")
-        if "description" in reco and not isinstance(reco["description"], str):
-            raise ReviewError(f"{path}: description must be a string")
-        for field in ("labels", "source", "queries"):
-            if field in reco and not isinstance(reco[field], dict):
-                raise ReviewError(f"{path}: {field} must be an object")
-        if "type" in reco.get("source", {}) and not isinstance(reco["source"]["type"], str):
-            raise ReviewError(f"{path}: source.type must be a string")
-        if "links" in reco and (
-            not isinstance(reco["links"], list)
-            or not all(
-                isinstance(link, dict) and isinstance(link.get("url"), str)
-                for link in reco["links"]
-            )
-        ):
-            raise ReviewError(f"{path}: links must contain objects with string URLs")
-        for field in ("services", "resourceTypes"):
-            if field in reco and (
-                not isinstance(reco[field], list)
-                or not all(isinstance(value, str) for value in reco[field])
-            ):
-                raise ReviewError(f"{path}: {field} must be a list of strings")
-        query = reco.get("queries", {}).get("arg", "")
-        if not isinstance(query, str):
-            raise ReviewError(f"{path}: queries.arg must be a string")
         try:
-            reco["id"] = str(UUID(reco.get("guid") or reco.get("labels", {}).get("guid", "")))
-        except (ValueError, AttributeError, TypeError) as exc:
-            raise ReviewError(f"{path}: missing or invalid recommendation GUID") from exc
-        if reco["id"] in seen_ids:
-            raise ReviewError(f"{path}: duplicate recommendation GUID {reco['id']}")
-        seen_ids.add(reco["id"])
-        reco["corpus_file"] = path.relative_to(root).as_posix()
-        recommendations.append(json.loads(json.dumps(reco, default=str)))
+            if "schemaVersion" not in reco:
+                if require_current:
+                    raise CorpusError("Missing schemaVersion; run 'corpus migrate' first")
+                reco = enrich_recommendation(reco)
+        except CorpusError as exc:
+            raise ReviewError(f"{path}: {exc}") from exc
+        paths.append(path.relative_to(root).as_posix())
+        recommendations.append(reco)
     if not recommendations:
         raise ReviewError(f"No recommendations found in {root}")
+    try:
+        validate_corpus(recommendations)
+    except CorpusError as exc:
+        raise ReviewError(str(exc)) from exc
+    for reco, path in zip(recommendations, paths, strict=True):
+        reco["corpus_file"] = path
     return recommendations
 
 
@@ -115,7 +83,7 @@ def selector_arguments(block: dict) -> dict:
     return arguments
 
 
-def select_checklist(recos: list[dict], checklist: dict) -> list[dict]:
+def select_checklist(recos: list[dict], checklist: dict, *, allow_empty: bool = False) -> list[dict]:
     """Union root/area/subarea selections using v2's selector matching semantics."""
     selected = {}
 
@@ -144,6 +112,6 @@ def select_checklist(recos: list[dict], checklist: dict) -> list[dict]:
                 )
 
     visit(checklist)
-    if not selected:
+    if not selected and not allow_empty:
         raise ReviewError("Checklist selection matched no recommendations")
     return list(selected.values())

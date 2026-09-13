@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-best-practices#geo-filter-traffic
 queries: {}
+schemaVersion: 1
+id: 388a3d0e-0a43-4367-90b2-3dd2aeece5ee
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

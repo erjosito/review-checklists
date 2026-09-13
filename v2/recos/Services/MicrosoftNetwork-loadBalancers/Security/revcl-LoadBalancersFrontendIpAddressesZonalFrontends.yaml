@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones
 queries: {}
+schemaVersion: 1
+id: 9432621a-8397-4654-a882-5bc856b7ef83
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

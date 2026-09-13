@@ -1,0 +1,302 @@
+{
+  "assessedAt": "2026-09-11",
+  "sources": [
+    {
+      "id": "waf-checklist",
+      "url": "https://learn.microsoft.com/azure/well-architected/performance-efficiency/checklist",
+      "title": "Design review checklist for Performance Efficiency",
+      "accessedAt": "2026-09-11",
+      "readScope": "Complete 12-row PE:01 through PE:12 checklist; linked guidance not exhaustively traversed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "waf-targets",
+      "url": "https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-targets",
+      "title": "Architecture strategies for defining performance targets",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full main article including Azure facilitation; related links not traversed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "waf-test",
+      "url": "https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-test",
+      "title": "Architecture strategies for performance testing",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full main article including Azure facilitation; related links not traversed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "waf-critical",
+      "url": "https://learn.microsoft.com/azure/well-architected/performance-efficiency/prioritize-critical-flows",
+      "title": "Architecture strategies for prioritizing the performance of critical flows",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full main article including Azure facilitation; related links not traversed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "waf-operations",
+      "url": "https://learn.microsoft.com/azure/well-architected/performance-efficiency/optimize-operational-tasks",
+      "title": "Architecture strategies for optimizing operational tasks",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full main article including Azure facilitation; related links not traversed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "waf-incident",
+      "url": "https://learn.microsoft.com/azure/well-architected/performance-efficiency/respond-live-performance-issues",
+      "title": "Architecture strategies for responding to live performance issues",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full main article including Azure facilitation; related links not traversed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "waf-scale",
+      "url": "https://learn.microsoft.com/azure/well-architected/performance-efficiency/scale-partition",
+      "title": "Architecture strategies for optimizing scaling and partitioning",
+      "accessedAt": "2026-09-11",
+      "readScope": "Introduction, definitions, Optimize scaling through meaningful metrics, buffers and flapping. Partitioning sections not read.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "aks",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service",
+      "title": "Architecture best practices for Azure Kubernetes Service (AKS)",
+      "accessedAt": "2026-09-11",
+      "readScope": "Performance Efficiency workload checklist and configuration recommendations only; other pillars not assessed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "vm",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/virtual-machines",
+      "title": "Architecture best practices for Azure Virtual Machines and scale sets",
+      "accessedAt": "2026-09-11",
+      "readScope": "Performance Efficiency workload checklist and configuration recommendations only; other pillars not assessed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "ml",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-machine-learning",
+      "title": "Architecture best practices for Azure Machine Learning",
+      "accessedAt": "2026-09-11",
+      "readScope": "Performance Efficiency workload checklist and configuration recommendations only; other pillars not assessed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "firewall",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall",
+      "title": "Architecture best practices for Azure Firewall",
+      "accessedAt": "2026-09-11",
+      "readScope": "Performance Efficiency workload checklist and configuration recommendations only; other pillars not assessed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "appgw",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-application-gateway",
+      "title": "Architecture best practices for Azure Application Gateway v2",
+      "accessedAt": "2026-09-11",
+      "readScope": "Performance Efficiency workload checklist and configuration recommendations only; other pillars not assessed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "afd",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-front-door",
+      "title": "Architecture best practices for Azure Front Door",
+      "accessedAt": "2026-09-11",
+      "readScope": "Performance Efficiency workload checklist and configuration recommendations only; other pillars not assessed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "files",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-files",
+      "title": "Architecture best practices for Azure Files",
+      "accessedAt": "2026-09-11",
+      "readScope": "Performance Efficiency workload checklist and configuration recommendations only; other pillars not assessed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "er",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-expressroute",
+      "title": "Architecture best practices for Azure ExpressRoute",
+      "accessedAt": "2026-09-11",
+      "readScope": "Performance Efficiency workload checklist and configuration recommendations only; other pillars not assessed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "appservice",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps",
+      "title": "Architecture best practices for Azure App Service (Web Apps)",
+      "accessedAt": "2026-09-11",
+      "readScope": "Performance Efficiency workload checklist and configuration recommendations only; other pillars not assessed.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "advisor",
+      "url": "https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations",
+      "title": "Performance recommendations",
+      "accessedAt": "2026-09-11",
+      "readScope": "Catalog retrieved; opening networking recommendations and IDs read, including Application Gateway, Firewall, Front Door, Traffic Manager and VPN. Remaining catalog not semantically assessed. Historical recommendations still appear.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "openai-latency",
+      "url": "https://learn.microsoft.com/azure/ai-foundry/openai/how-to/latency",
+      "title": "Performance and latency",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full main article: throughput versus quota, token-aware latency, streaming, workload separation and measurement. No adoption of content-filter relaxation.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "openai-spillover",
+      "url": "https://learn.microsoft.com/azure/ai-foundry/openai/how-to/spillover-traffic-management",
+      "title": "Manage traffic with spillover for provisioned deployments",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full main article; same-resource/model-version prerequisites, deployment/request configuration, monitoring, failure behavior and cost.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "aks-ip",
+      "url": "https://learn.microsoft.com/azure/aks/concepts-network-ip-address-planning",
+      "title": "IP address planning for your Azure Kubernetes Service (AKS) clusters",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full article; overlay versus flat networking, upgrade surge, maximum pods and CNI-specific defaults.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "aks-custom",
+      "url": "https://learn.microsoft.com/azure/aks/custom-node-configuration",
+      "title": "Customize the node configuration for Azure Kubernetes Service (AKS) node pools",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full article; OS/kubelet configuration, OS-specific support, preview distinctions and confirmation of effective settings.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "aks-autoscale",
+      "url": "https://learn.microsoft.com/azure/aks/cluster-autoscaler-overview",
+      "title": "Cluster autoscaling in Azure Kubernetes Service (AKS) overview",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full article; pending pods, per-pool enablement, cluster-wide profile, eviction blockers and scaling failures.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "aks-core",
+      "url": "https://learn.microsoft.com/azure/aks/cluster-configuration",
+      "title": "Core concepts for Azure Kubernetes Service (AKS)",
+      "accessedAt": "2026-09-11",
+      "readScope": "Node configuration and sizing, node pools and pricing tier node limits; returned page redirects from historical cluster-configuration topic.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "aks-storage",
+      "url": "https://learn.microsoft.com/azure/aks/concepts-storage",
+      "title": "Storage options for applications in Azure Kubernetes Service (AKS)",
+      "accessedAt": "2026-09-11",
+      "readScope": "Default OS sizing, ephemeral OS disks, temporary NVMe, volumes, Azure Disk/Files/NetApp/Blob sections and storage classes including ZRS defaults and WaitForFirstConsumer example.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "blob",
+      "url": "https://learn.microsoft.com/azure/storage/blobs/storage-performance-checklist",
+      "title": "Performance checklist for Blob Storage",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full checklist; premium tier, proximity, transfer tools, block sizing, small-block hash prefixes and network throughput.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "blob-dev",
+      "url": "https://learn.microsoft.com/azure/storage/blobs/storage-performance-checklist-developers",
+      "title": "Performance checklist for Blob Storage developers",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full checklist; SDKs, bounded concurrency/retries, tier-specific transfer sizes, server-side copies, cache and batching.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "load-criteria",
+      "url": "https://learn.microsoft.com/azure/app-testing/load-testing/how-to-define-test-criteria",
+      "title": "Define fail criteria for load tests by using Azure Load Testing",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full article; client percentiles and request scope, server metrics permissions, no server-side CI/CD failure criteria, auto-stop separate from pass/fail.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "vnet",
+      "url": "https://learn.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm",
+      "title": "Plan virtual networks",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full main article, with focus on segmentation/address space, capacity, non-overlap and peering.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "fastpath",
+      "url": "https://learn.microsoft.com/azure/expressroute/about-fastpath",
+      "title": "Azure ExpressRoute FastPath: Features, availability, and limitations",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full article; Direct/provider distinction, ErGwScale eligibility, IP capacity, Private Link enrollment and unsupported routes.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "appgw-retirement",
+      "url": "https://learn.microsoft.com/azure/application-gateway/v1-retirement",
+      "title": "Migrate from Application Gateway V1 to V2",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full short article; retirement on 2026-04-28 and required migration.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "arg-language",
+      "url": "https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language",
+      "title": "Understanding the Azure Resource Graph query language",
+      "accessedAt": "2026-09-11",
+      "readScope": "Resource Graph table list, Resources default table, projections/joins and extended properties. No query execution.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "arg-types",
+      "url": "https://learn.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources",
+      "title": "Azure Resource Graph table and resource type reference",
+      "accessedAt": "2026-09-11",
+      "readScope": "Focused resource/table lookup for managed clusters, virtual network gateways, virtual networks and Microsoft.Cdn. No CdnResources table or origin-group child types established.",
+      "verification": "Primary article retrieved and stated sections read; not human approval or live validation."
+    },
+    {
+      "id": "afd-probes",
+      "url": "https://learn.microsoft.com/azure/frontdoor/health-probes",
+      "title": "Health probes",
+      "accessedAt": "2026-09-11",
+      "readScope": "Full article; periodic synthetic requests, HEAD/GET, health responses, origin selection and single-origin probe disabling. Classic retirement notice read but no new migration control added.",
+      "verification": "Primary article retrieved and read to verify active probe semantics; not query or live origin validation."
+    }
+  ],
+  "failedOrMisdirected": [
+    {
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-openai",
+      "result": "Returned Foundry model catalog rather than the service architecture guide; not used as verification."
+    },
+    {
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-app-service",
+      "result": "Fetch failed; verified app-service-web-apps replacement."
+    },
+    {
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/storage-accounts",
+      "result": "Fetch failed; used current Blob checklists instead."
+    },
+    {
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/storage-accounts/blob-storage",
+      "result": "Fetch failed; used current Blob checklists instead."
+    },
+    {
+      "url": "https://learn.microsoft.com/azure/virtual-network/manage-virtual-network",
+      "result": "Fetch failed; used Plan virtual networks instead."
+    },
+    {
+      "url": "https://learn.microsoft.com/azure/ai-foundry/openai/how-to/deployment-spillover",
+      "result": "Fetch failed; searched and retrieved spillover-traffic-management."
+    }
+  ],
+  "boundaries": [
+    "Every baseline GUID accounted for does not mean every recommendation technically reverified.",
+    "Generic WAF PE control scope is not every Azure service performance best practice.",
+    "No SAP vendor notes, HCX/AVS version support matrix, dedicated APIM guide or live workload evidence was verified.",
+    "Advisor catalog retrieved but only stated networking sections read semantically; remaining IDs require explicit assessment.",
+    "Source access is neither publication time, human approval, upstream revision nor query validation."
+  ]
+}

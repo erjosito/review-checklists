@@ -1,9 +1,9 @@
 name: wafsg-ManyAdvancedDeploymentPatternsReleaseEngineeringProcess
-title: 'Workload architecture: Use platform capabilities in your release engineering
-  process.'
-description: Kubernetes and ingress controllers support many advanced deployment patterns
-  for inclusion in your release engineering process. Consider patterns like blue-green
-  deployments or canary releases.
+title: 'Workload architecture: Use platform capabilities in your release engineering process.'
+description: Use blue-green or canary deployment patterns where supported by the workload's Kubernetes
+  and ingress design. Release small changes progressively, define health/usage checks and observation
+  periods, halt on regressions, and test recovery including database and schema compatibility. Inspect
+  release pipelines and rollout evidence; ingress configuration alone does not prove safe deployment.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +15,25 @@ labels:
   guid: cb3372a2-16ef-4ebf-b7c2-b58f984ef966
 links: []
 queries: {}
+schemaVersion: 1
+id: cb3372a2-16ef-4ebf-b7c2-b58f984ef966
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    title: Architecture strategies for safe deployment practices
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:11
+    coverage: partial
+    notes: Make advanced Kubernetes rollout patterns conditional on health gates and recovery evidence.
+      Narrow control or service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a

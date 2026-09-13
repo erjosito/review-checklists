@@ -1,5 +1,5 @@
 name: revcl-LargerDisksTib
-title: Only larger disks can be reserved => 1 TiB -
+title: Match disk reservations to eligible Premium SSD SKUs and steady usage
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -12,4 +12,60 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory-domain-services/overview
-queries: {}
+queries:
+  arg: |-
+    AdvisorResources
+    | where type =~ 'microsoft.advisor/recommendations'
+    | where properties.category =~ 'Cost'
+    | where tostring(properties.recommendationTypeId) in~ ('0eb54047-acd9-4f26-8ffb-8cec713782d6')
+    | project id, subscriptionId, resourceGroup,
+        targetResourceId = tostring(properties.resourceMetadata.resourceId),
+        impactedField = tostring(properties.impactedField),
+        recommendationTypeId = tostring(properties.recommendationTypeId),
+        impact = tostring(properties.impact),
+        problem = tostring(properties.shortDescription.problem),
+        solution = tostring(properties.shortDescription.solution),
+        lastUpdated = tostring(properties.lastUpdated),
+        extendedProperties = properties.extendedProperties
+schemaVersion: 1
+id: a6bcca2b-4fea-41db-b3dd-95d48c7c891d
+services: []
+automation:
+  status: query_available
+  resultSemantics: inventory
+  validatedAt: null
+  notes: Unexecuted Advisor opportunity inventory, not compliance or realized savings. id identifies the
+    Advisor recommendation; targetResourceId identifies the affected resource. Use the intended subscriptions
+    or management-group scope with complete read permissions and paging. Empty or truncated results do
+    not establish compliance. Advisor coverage, telemetry and freshness vary; review dismissals, dependency/retention
+    requirements, actual billing and existing commitments before action. Do not sum overlapping estimates
+    or assume a common currency/time horizon in extendedProperties. No live Azure execution or compilation;
+    validatedAt remains null. Only this primary query is wired.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/virtual-machines/disks-reserved-capacity
+    title: Optimize costs for Azure Disk Storage with reservations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations - Azure Advisor
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-cost-catalog
+    recommendationId: 0eb54047-acd9-4f26-8ffb-8cec713782d6
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6bbcdcad24a574c5ceb0c0893346c3c09dd947970422db904f366e58891e1c57
+    notes: Eligible disk SKUs, one-year steady usage and unused reservation hours address the purchase
+      decision; shared/subscription benefit scope is not completely specified. Source-text assessment,
+      not independent human approval or live Azure validation.
+description: 'Evaluate one-year reservations for currently eligible Premium SSD SKUs P30 through P80,
+  subject to region and offer availability. Reservations apply per matching disk SKU, not a fungible pool
+  of GiB: one P40 reservation does not cover two P30 disks. Premium SSD v2, Ultra, Standard SSD/HDD and
+  smaller Premium SKUs are excluded by the current guidance. Right-size first and monitor unused reservation
+  hours.'

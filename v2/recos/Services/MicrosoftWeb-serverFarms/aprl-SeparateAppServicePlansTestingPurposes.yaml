@@ -1,18 +1,48 @@
 name: aprl-SeparateAppServicePlansTestingPurposes
 title: Create separate App Service plans for production and test
-description: |-
-  It is strongly recommended to create separate App Service plans for production and test environments to avoid using slots within your production deployment for testing purposes.
+description: It is strongly recommended to create separate App Service plans for production and test environments
+  to avoid using slots within your production deployment for testing purposes.
 source:
   type: aprl
   file: azure-resources/Web/serverFarms/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/serverFarms
+- microsoft.web/serverfarms
 severity: 0
 labels:
   guid: dbe3fd66-fb2a-9d46-b162-1791e21da236
   area: Governance
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: dbe3fd66-fb2a-9d46-b162-1791e21da236
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    title: 'APRL dbe3fd66-fb2a-9d46-b162-1791e21da236: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: dbe3fd66-fb2a-9d46-b162-1791e21da236
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:46315b3c00614f61d2b1b6faedcce909ce0ee06652e0b8363c1a2898d2adf574
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

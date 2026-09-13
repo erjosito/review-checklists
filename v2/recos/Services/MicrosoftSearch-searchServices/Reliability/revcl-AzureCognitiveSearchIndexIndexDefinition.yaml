@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/search/search-reliability#back-up-and-restore-alternatives
 queries: {}
+schemaVersion: 1
+id: 7be10278-57c1-4a61-8ee3-895aebfec5aa
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

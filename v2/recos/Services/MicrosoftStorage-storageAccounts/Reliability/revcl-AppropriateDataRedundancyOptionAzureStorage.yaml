@@ -1,11 +1,10 @@
 name: revcl-AppropriateDataRedundancyOptionAzureStorage
-title: Choose the most appropriate data redundancy option for Azure Storage based
-  on your requirements
-description: Use Zone-redundant Storage (ZRS) in the primary region for scenarios
-  that require high availability and for restricting replication to a particular country
-  or region. For protection against regional disasters, use Geo-zone-redundant Storage
-  (GZRS), which combines ZRS in the primary region with geo-replication to a secondary
-  region?.
+title: Select Azure Storage redundancy from availability, recovery and residency requirements
+description: Use ZRS for zone resilience in the primary region where supported and GZRS when asynchronous
+  replication to a supported secondary region is also required. Compare supported service, account type
+  and regional options with data residency and cost requirements. Geo-replication can lose recent unreplicated
+  writes; redundancy also replicates accidental deletion and overwrite, so use separate data-protection
+  and recovery controls.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -19,3 +18,16 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-redundancy
 queries: {}
+schemaVersion: 1
+id: 48c7c891-dcb1-4f7d-9769-ae568ba38d4a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy
+    title: Azure Storage redundancy
+    accessedAt: '2026-09-11'

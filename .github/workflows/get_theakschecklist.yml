@@ -1,7 +1,5 @@
-name: Get the-aks-checklist
+name: Deprecated manual AKS import
 on:
-    schedule:
-        - cron: '0 0 * * 0'  # every Sunday at midnight
     workflow_dispatch:
 jobs:
   get-theakschecklist:
@@ -9,6 +7,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v4
+    - name: Manual fallback notice
+      run: echo "::warning::Deprecated manual importer. Imported or LLM-curated recommendations require schema validation and human review before merging."
     # Get the AKS checklist
     - name: Retrieve the AKS checklist
       uses: ./.github/actions/get_the_aks_checklist

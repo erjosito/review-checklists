@@ -1,6 +1,5 @@
 name: revcl-AzureDiagnosticExtensionLogStorageSharedStorageAccounts
-title: When necessary, use shared storage accounts within the landing zone for Azure
-  diagnostic extension log storage.
+title: Migrate retired Azure Diagnostics extensions to supported monitoring collection
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -16,3 +15,24 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-monitor/agents/diagnostics-extension-overview
 queries: {}
+schemaVersion: 1
+id: 619e8a13-f988-4795-85d6-26886d70ba6c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/agents/diagnostics-extension-overview
+    title: Azure Diagnostics extension overview
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-migration
+    title: Log Analytics agent migration
+    accessedAt: '2026-09-11'
+description: Inventory Windows and Linux Azure Diagnostics extensions and their data destinations. Migrate
+  retired WAD/LAD collection to supported alternatives such as Azure Monitor Agent and data collection
+  rules, using the destination-specific migration guidance. Validate expected logs, counters, alert dependencies
+  and retention before removing the old extension, and prevent duplicate ingestion. Boot diagnostics is
+  a separate native VM feature and does not require WAD/LAD.

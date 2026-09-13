@@ -1,16 +1,10 @@
 name: wafsg-AverageCurrentComputeUnitsApplicationGatewayVSku
-title: Define the minimum instance count
-description: For Application Gateway v2 SKU, autoscaling takes some time (approximately
-  six to seven minutes) before the additional set of instances is ready to serve traffic.
-  During that time, if there are short spikes in traffic, expect transient latency
-  or loss of traffic.We recommend that you set your minimum instance count to an optimal
-  level. After you estimate the average instance count and determine your Application
-  Gateway autoscaling trends, define the minimum instance count based on your application
-  patterns. For information, see Application Gateway high traffic support.Check the
-  Current Compute Units for the past one month. This metric represents the gateway's
-  CPU utilization. To define the minimum instance count, divide the peak usage by
-  10. For example, if your average Current Compute Units in the past month is 50,
-  set the minimum instance count to five.
+title: Set Application Gateway v2 minimum capacity from observed traffic and startup delay
+description: Review compute units and traffic patterns over a representative period, including bursts.
+  The current service guide describes roughly three to five minutes for extra instances to serve traffic;
+  do not treat that estimate as a guaranteed bound. Maintain sufficient minimum capacity for demand while
+  scale-out completes, and verify with load testing rather than relying on an ambiguous average-versus-peak
+  formula.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -22,3 +16,26 @@ labels:
   guid: af6f1096-14f3-465c-8691-b15cf5361942
 links: []
 queries: {}
+schemaVersion: 1
+id: af6f1096-14f3-465c-8691-b15cf5361942
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-application-gateway
+    title: Architecture best practices for Azure Application Gateway v2
+    accessedAt: '2026-09-11'
+aliases:
+- id: 33ae0084-c64e-471f-aef1-c84a5cf77d5d
+  name: wafsg-MinimumInstanceCount
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 33ae0084-c64e-471f-aef1-c84a5cf77d5d
+  corpusFile: Services/microsoftnetwork-applicationGateways/Performance/wafsg-MinimumInstanceCount.yaml

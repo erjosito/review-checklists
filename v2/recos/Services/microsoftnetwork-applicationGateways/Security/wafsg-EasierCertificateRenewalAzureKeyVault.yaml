@@ -1,8 +1,11 @@
 name: wafsg-EasierCertificateRenewalAzureKeyVault
-title: Use Azure Key Vault to store TLS certificates
-description: Application Gateway can be integrated with Key Vault. This provides stronger
-  security, easier separation of roles and responsibilities, support for managed certificates,
-  and an easier certificate renewal and rotation process.
+title: Use Azure Key Vault certificates for Application Gateway v2 HTTPS listeners.
+description: Use an enabled software-backed PFX certificate with an exportable private key, and reference
+  its Key Vault secret through a user-assigned managed identity with the required secret-read permission.
+  Prefer a versionless secret identifier so Application Gateway can retrieve renewed versions during its
+  four-hour polling cycle. Verify Key Vault network reachability and monitor access failures, because
+  loss of certificate access can disable the listener. HSM-backed certificates are not supported by this
+  integration.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +17,27 @@ labels:
   guid: 5692cf86-c36a-4c1b-a73f-1a73f5728cd0
 links: []
 queries: {}
+schemaVersion: 1
+id: 5692cf86-c36a-4c1b-a73f-1a73f5728cd0
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/application-gateway/key-vault-certs
+    title: TLS termination with Azure Key Vault certificates
+    accessedAt: '2026-09-13'
+    revision: null
+aliases:
+- id: 2e0b6e8f-2784-4ea8-bec5-a128ddce6c98
+  name: wafsg-AzureKeyVaultTlsCertificates
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 2e0b6e8f-2784-4ea8-bec5-a128ddce6c98
+  corpusFile: Services/microsoftnetwork-applicationGateways/Security/wafsg-AzureKeyVaultTlsCertificates.yaml

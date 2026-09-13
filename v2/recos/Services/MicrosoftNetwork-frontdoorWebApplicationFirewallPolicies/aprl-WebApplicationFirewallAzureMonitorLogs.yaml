@@ -1,18 +1,49 @@
 name: aprl-WebApplicationFirewallAzureMonitorLogs
 title: Monitor Web Application Firewall
-description: |-
-  Monitoring the health of your Web Application Firewall and the applications it protects is crucial. This can be achieved through integration with Microsoft Defender for Cloud, Azure Monitor, and Azure Monitor logs, ensuring optimal performance and security.
+description: Monitoring the health of your Web Application Firewall and the applications it protects is
+  crucial. This can be achieved through integration with Microsoft Defender for Cloud, Azure Monitor,
+  and Azure Monitor logs, ensuring optimal performance and security.
 source:
   type: aprl
   file: azure-resources/Network/frontDoorWebApplicationFirewallPolicies/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/frontdoorWebApplicationFirewallPolicies
+- microsoft.network/frontdoorwebapplicationfirewallpolicies
 severity: 0
 labels:
   guid: 5357ae22-0f52-1a49-9fd4-1f00ace6add0
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 5357ae22-0f52-1a49-9fd4-1f00ace6add0
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    title: 'APRL 5357ae22-0f52-1a49-9fd4-1f00ace6add0: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 5357ae22-0f52-1a49-9fd4-1f00ace6add0
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:63c3e957593a80fba698b12ba4c9751277a60f200711b39e1640d9d9ac4a111f
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Upstream resource scope is ['Microsoft.Cdn/profiles'], while
+      the frozen corpus scope is ['Microsoft.Network/frontdoorWebApplicationFirewallPolicies']; applicability
+      is not broadened or narrowed without separate verification. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

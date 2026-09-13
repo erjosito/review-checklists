@@ -37,6 +37,7 @@ def load_json(filename):
 # Function to get list of URLs containing the objects of The-AKS-Checklist
 # The URL is https://github.com/lgmorand/the-aks-checklist/tree/master/data/en/items
 def get_theaks_recos():
+    print("WARNING: Deprecated manual import; validate and human-review curated changes before merging.")
     # Variables
     github_org = 'lgmorand'
     github_repo = 'the-aks-checklist'

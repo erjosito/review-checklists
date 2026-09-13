@@ -1,9 +1,8 @@
 name: wafsg-ExpressrouteCircuitsUnnecessaryCost
-title: Deprovision and delete ExpressRoute circuits no longer in use.
-description: ExpressRoute circuits are charged from the moment they're created. To
-  reduce unnecessary cost, deprovision the circuit with the service provider and delete
-  the ExpressRoute circuit from your subscription. For steps on how to remove an ExpressRoute
-  circuit, see Deprovisioning an ExpressRoute circuit.
+title: Retire unused ExpressRoute circuits and review residual gateway charges
+description: Investigate unprovisioned or no-longer-needed circuits with connectivity owners and the service
+  provider. Validate redundancy, migrations and recovery plans, then follow the supported provider deprovisioning
+  and Azure deletion process. Review dependent gateways and remaining provider/port charges separately.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,4 +13,43 @@ severity: 1
 labels:
   guid: c36e0c83-11b4-409a-a4a6-2118b52a380f
 links: []
-queries: {}
+queries:
+  arg: |-
+    Resources
+    | where type =~ 'microsoft.network/expressroutecircuits'
+    | where properties.serviceProviderProvisioningState == 'NotProvisioned'
+    | project id, name, subscriptionId, resourceGroup, location, sku,
+        peeringLocation = tostring(properties.serviceProviderProperties.peeringLocation),
+        bandwidthMbps = tolong(properties.serviceProviderProperties.bandwidthInMbps)
+schemaVersion: 1
+id: c36e0c83-11b4-409a-a4a6-2118b52a380f
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    NotProvisioned circuit candidates; this is not a measure of idle time or traffic.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Pending provider activation or approved standby can explain the state. Follow provider deprovisioning requirements and confirm dependent gateway/connection cleanup separately.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/expressroute/plan-manage-cost
+    title: Plan and manage costs for Azure ExpressRoute
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/networking
+    title: FinOps best practices for Networking
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'

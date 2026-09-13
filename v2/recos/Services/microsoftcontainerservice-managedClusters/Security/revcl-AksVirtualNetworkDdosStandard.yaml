@@ -20,3 +20,14 @@ queries:
     | mv-expand subnets | project id,resourceGroup,name,enableDdosProtection,subnetId=tostring(subnets.id))
     on subnetId | distinct id,resourceGroup,name,enableDdosProtection | extend compliant
     = (enableDdosProtection == 'true')
+schemaVersion: 1
+id: 9bda4776-8f24-4c11-9775-c2ea55b46a94
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/governance/policy/overview
 queries: {}
+schemaVersion: 1
+id: d8a2adb1-17d6-4326-af62-5ca44e5695f2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

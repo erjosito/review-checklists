@@ -16,3 +16,14 @@ queries:
   arg: resources | where type=='microsoft.network/routetables' | mvexpand properties.routes
     | summarize routeCount = count() by id | extend compliant = (routeCount < 360)
     | distinct id,compliant
+schemaVersion: 1
+id: 3d457936-e9b7-41eb-bdff-314b26450b12
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

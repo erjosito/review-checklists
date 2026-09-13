@@ -1,7 +1,9 @@
 name: revcl-StorageAccountKeysStoredAccessPolicies
-title: Consider linking SAS to a stored access policy
-description: 'Stored access policies give you the option to revoke permissions for
-  a service SAS without having to regenerate the storage account keys. '
+title: Use stored access policies only with service SAS and plan revocation for every SAS type.
+description: A stored access policy can centrally constrain and revoke a service SAS without rotating
+  the account key. User delegation SAS and account SAS cannot reference a stored access policy. Prefer
+  user delegation SAS where supported and use an appropriate short lifetime and revocation process rather
+  than switching to account-key credentials merely to obtain a stored policy.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +17,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/rest/api/storageservices/define-stored-access-policy
 queries: {}
+schemaVersion: 1
+id: 77036e5e-6b4b-4ed3-b503-547c1347dc56
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/common/storage-sas-overview
+    title: Grant limited access to data with shared access signatures (SAS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

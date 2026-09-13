@@ -1,6 +1,5 @@
 name: revcl-KeyVaultManagedService
-title: Key Vault is a managed service and Microsoft will handle the failover within
-  and across region. Familiarize yourself with the Key Vault's availability and redundancy.
+title: Evaluate Key Vault regional failover support against workload recovery targets
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,21 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/disaster-recovery-guidance
 queries: {}
+schemaVersion: 1
+id: 7ba4d380-7b9e-4a8b-a0c3-2d8e49c11872
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-key-vault
+    title: Reliability in Azure Key Vault
+    accessedAt: '2026-09-11'
+description: Key Vault automatically handles availability-zone failures in supported regions. Microsoft-managed
+  cross-region replication and failover are available only for supported paired regions and are best effort,
+  potentially delayed by hours. Brazil South, Brazil Southeast, West US 3 and nonpaired regions do not
+  support this managed cross-region behavior. Where this cannot meet the workload RTO/RPO, design separate
+  regional vaults, maintain recoverable objects and implement application failover.

@@ -19,3 +19,13 @@ labels:
   guid: 2de15aa6-f607-4487-8972-2267a304f313
 links: []
 queries: {}
+schemaVersion: 1
+id: 2de15aa6-f607-4487-8972-2267a304f313
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

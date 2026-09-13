@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/application-gateway/rewrite-http-headers-url
 queries: {}
+schemaVersion: 1
+id: f850d46f-f5d7-4b17-b48c-a780741402e1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/windows/scheduled-events
 queries: {}
+schemaVersion: 1
+id: 6d3b475a-5c7a-4cbe-99bb-e64dd8902e87
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1
 queries: {}
+schemaVersion: 1
+id: 844f69c3-07e5-4ec1-bff7-4be27bcf5fea
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

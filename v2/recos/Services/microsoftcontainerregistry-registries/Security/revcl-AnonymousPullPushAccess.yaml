@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/anonymous-pull-access#configure-anonymous-pull-access
 queries: {}
+schemaVersion: 1
+id: e338997e-41c7-47d7-acf6-a62a1194956d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

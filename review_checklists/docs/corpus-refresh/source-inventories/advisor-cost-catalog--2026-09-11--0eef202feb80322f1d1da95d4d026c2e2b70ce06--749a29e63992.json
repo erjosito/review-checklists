@@ -1,0 +1,748 @@
+{
+  "asOf": "2026-09-11",
+  "fingerprintScope": "canonical-json-v1 payload {id,title,content}: trimmed Markdown level-four recommendation section, excluding following headings and page/fetch metadata",
+  "inventoryStatus": "complete",
+  "items": [
+    {
+      "contentHash": "sha256:24bd464501cd9d733e1be77026db1f9be5cf0fb671b90241e79db00ac59a1a52",
+      "id": "00b1ef72-4d0f-4452-a6a8-1df5397172d6",
+      "payload": {
+        "content": "Apache Spark for Azure Synapse Analytics pool's Autoscale feature automatically scales the number of nodes in a cluster instance up and down. During the creation of a new Apache Spark for Azure Synapse Analytics pool, a minimum and maximum number of nodes can be set when Autoscale is selected. Autoscale then monitors the resource requirements of the load and scales the number of nodes up or down. There's no extra charge for this feature.\r\n\r\n**Potential benefits**: The Autoscale feature monitors resource requirements and automatically scales the number of nodes up and down to meet the compute and memory requirements, thereby optimizing costs from unused resources.\r\n\r\n**Impact:** Low\r\n\r\nFor more information, see [Automatically scale Apache Spark instances - Azure Synapse Analytics](https://aka.ms/EnableSynapseSparkComputeAutoScaleGuidance)\r\n\r\nResourceType: microsoft.synapse/workspaces Recommendation ID: 00b1ef72-4d0f-4452-a6a8-1df5397172d6",
+        "id": "00b1ef72-4d0f-4452-a6a8-1df5397172d6",
+        "title": "Consider enabling autoscale feature on spark compute"
+      },
+      "title": "Consider enabling autoscale feature on spark compute",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:c133a016e6e86e5547a2ffb9721f9465c9af41e4cddffd2359873a5f7d6d8a0b",
+      "id": "0169a2e1-c7bf-4c37-90b8-0714811c82d3",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 0169a2e1-c7bf-4c37-90b8-0714811c82d3",
+        "id": "0169a2e1-c7bf-4c37-90b8-0714811c82d3",
+        "title": "Consider Blob storage reserved instance to save on Blob v2 and Datalake storage Gen2 costs"
+      },
+      "title": "Consider Blob storage reserved instance to save on Blob v2 and Datalake storage Gen2 costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:4820afe86795042d9dd6033e5d70ddf010d916a28e7333911786a72e5bfc13dd",
+      "id": "06ad499a-0952-48d3-b061-ec81c9cabb8b",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 06ad499a-0952-48d3-b061-ec81c9cabb8b",
+        "id": "06ad499a-0952-48d3-b061-ec81c9cabb8b",
+        "title": "Consider Database for PostgreSQL reserved instance to save over the pay-as-you-go costs"
+      },
+      "title": "Consider Database for PostgreSQL reserved instance to save over the pay-as-you-go costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:be5c6d465770298fe765ce1741149ad959b1994f8f5ebabbc236734f899c1c7b",
+      "id": "0d524e8d-4cfd-4db5-9f91-8b4bb5235a8e",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 0d524e8d-4cfd-4db5-9f91-8b4bb5235a8e",
+        "id": "0d524e8d-4cfd-4db5-9f91-8b4bb5235a8e",
+        "title": "Consider Data Factory reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider Data Factory reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:6bbcdcad24a574c5ceb0c0893346c3c09dd947970422db904f366e58891e1c57",
+      "id": "0eb54047-acd9-4f26-8ffb-8cec713782d6",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 0eb54047-acd9-4f26-8ffb-8cec713782d6",
+        "id": "0eb54047-acd9-4f26-8ffb-8cec713782d6",
+        "title": "Consider Azure Managed Disk reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider Azure Managed Disk reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:a6aa8439201781c59bab9e3ae9be1153a796bf6cd38803c1c8831c5731d0978e",
+      "id": "10aedd06-621e-4b4f-a45c-5256573e0191",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 10aedd06-621e-4b4f-a45c-5256573e0191",
+        "id": "10aedd06-621e-4b4f-a45c-5256573e0191",
+        "title": "Consider Azure VMware Solution reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider Azure VMware Solution reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:bbc638af892754b97179322bd3a5467a19dac4a896921c0bcc5ae830e20ccf00",
+      "id": "148cdd60-97e8-426b-a7b9-141b7cb4bc2f",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 148cdd60-97e8-426b-a7b9-141b7cb4bc2f",
+        "id": "148cdd60-97e8-426b-a7b9-141b7cb4bc2f",
+        "title": "Consider RedHat Osa reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider RedHat Osa reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:9ee27ce536d2d1ca2c375983900bf64dcf1988698f077775cf9359e81130d4a7",
+      "id": "17f6ab99-c9b6-4800-bebd-7466699cec31",
+      "payload": {
+        "content": "Take advantage of unutilized Azure capacity at a reduced price with Spot nodes. Spot nodes are best for workloads that tolerate interruptions, early terminations, or evictions.\r\n\r\n**Potential benefits**: Use unutilized Azure capacity at a reduced price\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Add an Azure Spot node pool to an Azure Kubernetes Service (AKS) cluster - Azure Kubernetes Service](https://aka.ms/aks/docs/spot)\r\n\r\nResourceType: microsoft.containerservice/managedclusters Recommendation ID: 17f6ab99-c9b6-4800-bebd-7466699cec31",
+        "id": "17f6ab99-c9b6-4800-bebd-7466699cec31",
+        "title": "Consider Spot nodes for workloads that can handle interruptions"
+      },
+      "title": "Consider Spot nodes for workloads that can handle interruptions",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:c6cebb8a30fd7f93a8386e482fbc4a1a99f1a105b9210111a2e35c6eebb1d153",
+      "id": "1b8c5187-32a6-4a2f-8ca1-b0b7d6ce9e86",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 1b8c5187-32a6-4a2f-8ca1-b0b7d6ce9e86",
+        "id": "1b8c5187-32a6-4a2f-8ca1-b0b7d6ce9e86",
+        "title": "Consider Azure Data Explorer reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider Azure Data Explorer reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:0ec09514d3280aa28ea60eb1f81756b9454c6f328927aa2bf73f57c4cdabddfd",
+      "id": "1c7fc5ab-f776-4aee-8236-ab478519f68f",
+      "payload": {
+        "content": "We recommend having at least two origins for resiliency. However, if only a single origin is available, Azure Front Door will continue to route traffic to it regardless of the health probe status. In such cases, health probes don't influence Front Door's routing behavior and offer no benefits.\r\n\r\n**Potential benefits**: Save on bandwidth costs by disabling health probes\r\n\r\n**Impact:** Low\r\n\r\nFor more information, see [Best Practices - Azure Front Door](https://aka.ms/afd-disable-health-probes)\r\n\r\nResourceType: microsoft.network/frontdoors Recommendation ID: 1c7fc5ab-f776-4aee-8236-ab478519f68f",
+        "id": "1c7fc5ab-f776-4aee-8236-ab478519f68f",
+        "title": "Disable health probes when there's only one origin in an origin group"
+      },
+      "title": "Disable health probes when there's only one origin in an origin group",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:e6887ce5121016b9c1efbcf1648c2841bf875dcefaea42c77c2eb19c968b9a1f",
+      "id": "201fb2fe-989f-45c1-8533-785ee8a4a08f",
+      "payload": {
+        "content": "Customers running high IO workloads in Standard HDDs can upgrade to Standard SSDs and benefit from better performance and SLA and now experience a limit on the maximum number of billed transactions.\r\n\r\n**Potential benefits**: Better performance and lower costs\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Azure Disks Standard SSD billable transaction cap blog](https://techcommunity.microsoft.com/blog/azurestorageblog/cost-saving-with-standard-ssd-billing-caps/3758792)\r\n\r\nResourceType: microsoft.compute/disks Recommendation ID: 201fb2fe-989f-45c1-8533-785ee8a4a08f",
+        "id": "201fb2fe-989f-45c1-8533-785ee8a4a08f",
+        "title": "Standard SSD disks billing caps"
+      },
+      "title": "Standard SSD disks billing caps",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:cbdeb2a823e5ac071fae5e8c2d6e0756d2fb91271d10279697747babb3295808",
+      "id": "22ae3910-a9a7-4e3d-8234-6a6b9ec7275b",
+      "payload": {
+        "content": "Vertical Pod Autoscaler provides recommended CPU and memory request and limit values based on workload usage patterns to rightsize applications. Reduce over-provisioning and maximize the utilization of the Azure Kubernetes Service cluster.\r\n\r\n**Potential benefits**: Optimize requests and limits to maximize utilization\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Use the Vertical Pod Autoscaler in Azure Kubernetes Service (AKS) - Azure Kubernetes Service](https://aka.ms/aks/docs/vpa)\r\n\r\nResourceType: microsoft.containerservice/managedclusters Recommendation ID: 22ae3910-a9a7-4e3d-8234-6a6b9ec7275b",
+        "id": "22ae3910-a9a7-4e3d-8234-6a6b9ec7275b",
+        "title": "Enable Vertical Pod Autoscaler recommendation mode to rightsize resource requests and limits"
+      },
+      "title": "Enable Vertical Pod Autoscaler recommendation mode to rightsize resource requests and limits",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:0480981dc73c5e15ccc389b17bfc5b4ee05a6a04126368579d6e286d35ea1486",
+      "id": "2397042e-4064-41ca-a50e-4e845051bb0b",
+      "payload": {
+        "content": "Looks like your resource could have automatically scaled to reduce costs (based on your actual usage during the last week, cache utilization, ingestion utilization, CPU, and streaming ingests utilization). To optimize costs and performance, we recommend enabling Optimized Autoscale. You are encouraged to choose the recommended minimum and maximum instance count that we have provided.\r\n\r\n**Potential benefits**: Optimize cost\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Manage cluster horizontal scaling (scale out) to match demand in Azure Data Explorer - Azure Data Explorer](https://aka.ms/adxoptimizedautoscale)\r\n\r\nResourceType: microsoft.kusto/clusters Recommendation ID: 2397042e-4064-41ca-a50e-4e845051bb0b",
+        "id": "2397042e-4064-41ca-a50e-4e845051bb0b",
+        "title": "Enable Optimized Autoscale for Data Explorer resources"
+      },
+      "title": "Enable Optimized Autoscale for Data Explorer resources",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:151ad9142b426057dfbf2a66fd033eb2ed05533300d921cba0725b6f737cb9df",
+      "id": "24d8db35-c214-4aae-892e-531b98dea439",
+      "payload": {
+        "content": "We observed that your LUIS resource has had enough usage in the past 30 days that you might want to consider using a commitment tier.\r\n\r\n**Potential benefits**: Can help to reduce the cost on this LUIS resource\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Pricing - Language Understanding](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services)\r\n\r\nResourceType: microsoft.cognitiveservices/accounts Recommendation ID: 24d8db35-c214-4aae-892e-531b98dea439",
+        "id": "24d8db35-c214-4aae-892e-531b98dea439",
+        "title": "Potential Cost Savings on this LUIS Resource"
+      },
+      "title": "Potential Cost Savings on this LUIS Resource",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:dd0a4cf6584335129710820bbf972d94f8bf9d91b70d04d68f44d271c830dfd2",
+      "id": "2e0c70b1-f85e-4497-b492-f8fe6dc00c92",
+      "payload": {
+        "content": "We detected your subscription contains multiple Front Door Standard/Premium profiles with a small number of endpoints on them. You can save costs in base fees by using multiple endpoints within one profile. You can use a maximum of 10 endpoints with Standard tier and 25 endpoints with Premium tier.\r\n\r\n**Potential benefits**: Save costs\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Endpoints in Azure Front Door](/en-us/azure/frontdoor/endpoint?)\r\n\r\nResourceType: microsoft.cdn/profiles Recommendation ID: 2e0c70b1-f85e-4497-b492-f8fe6dc00c92",
+        "id": "2e0c70b1-f85e-4497-b492-f8fe6dc00c92",
+        "title": "Consider using multiple endpoints under one single Front Door Standard/Premium profile"
+      },
+      "title": "Consider using multiple endpoints under one single Front Door Standard/Premium profile",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:c6c5dbaffbe21e816752354f537aaa5d4a3d1685a2c0e07a883861a961868697",
+      "id": "32755df6-aa2f-48d7-9ab7-92b8a80352ea",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 32755df6-aa2f-48d7-9ab7-92b8a80352ea",
+        "id": "32755df6-aa2f-48d7-9ab7-92b8a80352ea",
+        "title": "Consider NetApp Storage reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider NetApp Storage reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:bdb48d2d45ee81daa24a642da1399ac870e665771f9041615041ef034a241f3e",
+      "id": "354D7BBB-A243-4BE1-A8B9-43DBFC05C44A",
+      "payload": {
+        "content": "This recommendation surfaces all running Data Explorer resources with no user activity. Consider stopping the resources.\r\n\r\n**Potential benefits**: Optimize Azure spend\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Use Azure Advisor recommendations to optimize your Azure Data Explorer cluster - Azure Data Explorer](/en-us/azure/data-explorer/azure-advisor#azure-data-explorer-unused-cluster)\r\n\r\nResourceType: microsoft.kusto/clusters Recommendation ID: 354D7BBB-A243-4BE1-A8B9-43DBFC05C44A",
+        "id": "354D7BBB-A243-4BE1-A8B9-43DBFC05C44A",
+        "title": "Unused running Data Explorer resources"
+      },
+      "title": "Unused running Data Explorer resources",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:12bac98e7aeeccd75cc1e24636659386ba992f27c9c618376f6d458027eeadd1",
+      "id": "37cc8f6a-8059-407e-995a-10528ee3687b",
+      "payload": {
+        "content": "We observed that your Computer Vision resource has had enough Read usage in the past 30 days that you might want to consider using a commitment tier.\r\n\r\n**Potential benefits**: Can help to reduce the cost on this Computer Vision resource\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Pricing - Computer Vision API](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision)\r\n\r\nResourceType: microsoft.cognitiveservices/accounts Recommendation ID: 37cc8f6a-8059-407e-995a-10528ee3687b",
+        "id": "37cc8f6a-8059-407e-995a-10528ee3687b",
+        "title": "Potential Cost Savings on this Computer Vision Resource"
+      },
+      "title": "Potential Cost Savings on this Computer Vision Resource",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:5324d032051b7882b6275fa87e935777d5e1731ebe78c50524837816adbc5088",
+      "id": "386452d3-8df0-4174-94cb-fee063b3084f",
+      "payload": {
+        "content": "Large classic log data is detected on your storage accounts. You are billed on capacity of data stored in storage accounts including classic logs. You are recommended to check the retention policy of classic logs and update with necessary period to retain less log data. This would reduce unnecessary classic log data and save your billing cost from less capacity.\r\n\r\n**Potential benefits**: Save cost from unneeded log data\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Enable and manage Azure Storage Analytics logs (classic)](/en-us/azure/storage/common/manage-storage-analytics-logs#modify-retention-policy)\r\n\r\nResourceType: microsoft.storage/storageaccounts Recommendation ID: 386452d3-8df0-4174-94cb-fee063b3084f",
+        "id": "386452d3-8df0-4174-94cb-fee063b3084f",
+        "title": "Revisit retention policy for classic log data in storage accounts"
+      },
+      "title": "Revisit retention policy for classic log data in storage accounts",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:e0ae8f4c130842e168a1c4a3e102c2ede9088b816db8bff32ab7e2ad59f5350b",
+      "id": "39a8510f-5bbf-4304-9bcd-4106c996473b",
+      "payload": {
+        "content": "Your App Service plan has no apps running. Consider deleting the resource to save costs.\r\n\r\n**Potential benefits**: Optimize your cost\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Plan and Manage Costs for App Service - Azure App Service](/en-us/azure/app-service/overview-manage-costs#costs-that-might-accrue-after-resource-deletion)\r\n\r\nResourceType: microsoft.web/sites Recommendation ID: 39a8510f-5bbf-4304-9bcd-4106c996473b",
+        "id": "39a8510f-5bbf-4304-9bcd-4106c996473b",
+        "title": "Unused/Empty App Service plan"
+      },
+      "title": "Unused/Empty App Service plan",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:048ae4017f383d3e1ed086e3b5190109088b09db3635af6ade90afe37fe6e62d",
+      "id": "3dfe0963-0fe5-49e0-aaaa-593b6fd4308e",
+      "payload": {
+        "content": "We have identified a much higher ingestion rate over the past week, based on your ingestion in the three previous weeks. Take note of this change and the expected change in your costs.\r\n\r\n**Potential benefits**: Avoid unexpected charges\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Analyze usage in a Log Analytics workspace in Azure Monitor - Azure Monitor](/en-us/azure/azure-monitor/logs/analyze-usage#usage-analysis-in-azure-monitor)\r\n\r\nResourceType: microsoft.operationalinsights/workspaces Recommendation ID: 3dfe0963-0fe5-49e0-aaaa-593b6fd4308e",
+        "id": "3dfe0963-0fe5-49e0-aaaa-593b6fd4308e",
+        "title": "Data ingestion anomaly was detected"
+      },
+      "title": "Data ingestion anomaly was detected",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:ff245f161f6cd94662319e4a501034d508cb3dfb13ed08b73a08efd135b91af1",
+      "id": "3f6c5689-6a05-4896-a6e0-c6f8a22a44c2",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 3f6c5689-6a05-4896-a6e0-c6f8a22a44c2",
+        "id": "3f6c5689-6a05-4896-a6e0-c6f8a22a44c2",
+        "title": "Consider Azure Dedicated Host reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider Azure Dedicated Host reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:e42b6038ac74117e129230630bf1b7d79a85d6737c8e901ce4b30aa284063505",
+      "id": "407b6ad6-8e0b-40e7-9384-643520cae0ed",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 407b6ad6-8e0b-40e7-9384-643520cae0ed",
+        "id": "407b6ad6-8e0b-40e7-9384-643520cae0ed",
+        "title": "Consider Azure Files reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider Azure Files reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:aacc7d55f6f35e2779d2297837b07597341184f485c23c63ed27a3d6b989186e",
+      "id": "48eda464-1485-4dcf-a674-d0905df5054a",
+      "payload": {
+        "content": "There are disks not attached to a VM. Evaluate if you still need them. Deleting a disk is irreversible. Create a snapshot before deletion and confirm the data is no longer needed.\r\n\r\n**Potential benefits**: Cost savings\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Identify unattached Azure disks - Azure portal - Azure Virtual Machines](https://aka.ms/unattacheddisks)\r\n\r\nResourceType: microsoft.compute/disks Recommendation ID: 48eda464-1485-4dcf-a674-d0905df5054a",
+        "id": "48eda464-1485-4dcf-a674-d0905df5054a",
+        "title": "Review disks that aren't attached to a VM and evaluate if you still need the disks"
+      },
+      "title": "Review disks that aren't attached to a VM and evaluate if you still need the disks",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:adec6deff39dd1c7005cb6e8988c8043c1c115ed33b3c556d4ce78027ed32b90",
+      "id": "4a993d7c-9d83-4d85-b5a9-7cce0b136378",
+      "payload": {
+        "content": "Your Azure Cosmos DB free tier account is currently containing resources with a total provisioned throughput exceeding 1000 Request Units per second (RU/s). Because Azure Cosmos DB's free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s is billed at the regular pricing. As a result, we anticipate that you are charged for the throughput currently provisioned on your Azure Cosmos DB account.\r\n\r\n**Potential benefits**: Confirm your expected Azure Cosmos DB costs\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Understanding your Azure Cosmos DB bill](/en-us/azure/cosmos-db/understand-your-bill#azure-free-tier)\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: 4a993d7c-9d83-4d85-b5a9-7cce0b136378",
+        "id": "4a993d7c-9d83-4d85-b5a9-7cce0b136378",
+        "title": "Review the configuration of your Azure Cosmos DB free tier account"
+      },
+      "title": "Review the configuration of your Azure Cosmos DB free tier account",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:48f124f6adde31738124a9693afd33b4f1029193b613e49cc5b356eb7abe4970",
+      "id": "4cfb349a-b25a-4bef-a7b4-ff9886dd53b6",
+      "payload": {
+        "content": "We observed that your Translator resource has had enough usage in the past 30 days that you might want to consider using a commitment tier.\r\n\r\n**Potential benefits**: Can help to reduce the cost on this Translator resource\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Pricing - Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator)\r\n\r\nResourceType: microsoft.cognitiveservices/accounts Recommendation ID: 4cfb349a-b25a-4bef-a7b4-ff9886dd53b6",
+        "id": "4cfb349a-b25a-4bef-a7b4-ff9886dd53b6",
+        "title": "Potential Cost Savings on this Translator Resource"
+      },
+      "title": "Potential Cost Savings on this Translator Resource",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:225255a8a557ec511d9e6f1858defdc208c24bb664c4bd48647f1d888d451c3d",
+      "id": "56b0837b-7d02-4ca6-859f-59dc452fd93e",
+      "payload": {
+        "content": "Get full visibility into Azure Kubernetes Service (AKS) cluster cost trends and allocate costs by Kubernetes constructs or Azure assets. AKS Cost Analysis also helps identify workload inefficiencies, such as idle resource costs, indicating opportunity to optimize and achieve cost savings.\r\n\r\n**Potential benefits**: Understand cluster cost trends and identify idle resources\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Azure Kubernetes Service (AKS) cost analysis - Azure Kubernetes Service](https://aka.ms/aks/docs/cost-analysis)\r\n\r\nResourceType: microsoft.containerservice/managedclusters Recommendation ID: 56b0837b-7d02-4ca6-859f-59dc452fd93e",
+        "id": "56b0837b-7d02-4ca6-859f-59dc452fd93e",
+        "title": "Use Azure Kubernetes Service Cost Analysis"
+      },
+      "title": "Use Azure Kubernetes Service Cost Analysis",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:56677d7c35f3b22e7fe7d42c81aa4eb7398ae5b29390b8d4a6ee64082a06d984",
+      "id": "57a36b11-140b-4276-a162-9919ca4e9462",
+      "payload": {
+        "content": "You can now enable continuous backup on the same Azure Cosmos DB accounts where Azure Synapse Link is enabled. With continuous backup, you can reduce cost with backups and enable Fabric Mirroring.\r\n\r\n**Potential benefits**: Enables better performance and cost saving\r\n\r\n**Impact:** Low\r\n\r\nFor more information, see [Microsoft Fabric Mirrored Databases From Azure Cosmos DB (Preview) - Microsoft Fabric](/en-us/fabric/database/mirrored-database/azure-cosmos-db)\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: 57a36b11-140b-4276-a162-9919ca4e9462",
+        "id": "57a36b11-140b-4276-a162-9919ca4e9462",
+        "title": "Save cost by using continuous backup with Fabric Mirroring"
+      },
+      "title": "Save cost by using continuous backup with Fabric Mirroring",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:8c6e4e749a3246f3988a62c38f4e3ec8af38cebbcd08d6579f20f9a1784fe29d",
+      "id": "5b8ddf04-be28-44ec-ab2c-a63a34d1de13",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 5b8ddf04-be28-44ec-ab2c-a63a34d1de13",
+        "id": "5b8ddf04-be28-44ec-ab2c-a63a34d1de13",
+        "title": "Consider App Service reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider App Service reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:ba8d72b3ba244572bc67ca3ad6786b2fbcce2e85e235d85d3f26bdc06e3e450f",
+      "id": "680a5388-28aa-44e8-88af-32e3598dc869",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 680a5388-28aa-44e8-88af-32e3598dc869",
+        "id": "680a5388-28aa-44e8-88af-32e3598dc869",
+        "title": "Consider Azure Synapse Analytics (formerly SQL DW) reservation to save over the pay-as-you-go costs"
+      },
+      "title": "Consider Azure Synapse Analytics (formerly SQL DW) reservation to save over the pay-as-you-go costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:346742799bd6f5085fcb85375bcef768641a64bb283d100df0b0e8d7ca7b0828",
+      "id": "6fceeb05-2cea-4774-9f6c-251964d5d5f6",
+      "payload": {
+        "content": "Commit to a reservation for Azure Cosmos DB resources using Azure Cosmos DB reserved capacity to save money. Starting with our new 100 RU/s option, you can now reduce costs using Azure Cosmos DB request units (RU/s). You can buy any quantity of the 100 RU/s reservation, at any time.\r\n\r\n**Potential benefits**: Save costs using Azure Cosmos DB reserved capacity\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Optimize Your Azure Cosmos DB Costs with New Reserved Capacity Tiers - Azure Cosmos DB Blog](https://devblogs.microsoft.com/cosmosdb/optimize-your-azure-cosmos-db-costs-with-new-reserved-capacity-tiers)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 6fceeb05-2cea-4774-9f6c-251964d5d5f6",
+        "id": "6fceeb05-2cea-4774-9f6c-251964d5d5f6",
+        "title": "Optimize Your Azure Cosmos DB Costs with New Reserved Capacity Tiers"
+      },
+      "title": "Optimize Your Azure Cosmos DB Costs with New Reserved Capacity Tiers",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:257b3ed28e789ddb4146cd7a4a82251fab23a0c88c0711dabb82700dbb6ebef5",
+      "id": "702b474d-698f-4029-9f9d-4782c626923e",
+      "payload": {
+        "content": "To save 60% of cost, we recommend storing your snapshots in Standard Storage, regardless of the storage type of the parent disk. This option is the default for Managed Disks snapshots. Migrate your snapshot from Premium to Standard Storage. Refer to Managed Disks pricing details.\r\n\r\n**Potential benefits**: 60% reduction in the snapshot cost for Managed Disks\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Pricing - Managed Disks](https://aka.ms/aa_manageddisksnapshot_learnmore)\r\n\r\nResourceType: microsoft.compute/snapshots Recommendation ID: 702b474d-698f-4029-9f9d-4782c626923e",
+        "id": "702b474d-698f-4029-9f9d-4782c626923e",
+        "title": "Use Standard Storage to store Managed Disks snapshots"
+      },
+      "title": "Use Standard Storage to store Managed Disks snapshots",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:7999e4c4ff7ffbf69dae7ed0789a01d91abd5a8e752d294721dfee884ea60b2e",
+      "id": "706d4bdc-7ee0-4d2f-a9ac-3c1f124545d1",
+      "payload": {
+        "content": "Instead of log‑based metrics in Log Analytics, which isn’t optimized for metrics, Azure Managed Prometheus offers a fully managed metrics service that can be up to 80% cheaper with native visualizations. Use the Logs and Events cost preset to avoid duplicate collection and reduce costs.\r\n\r\n**Potential benefits**: Save costs by switching to Prometheus-based metrics\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Cost optimization in Azure Monitor - Azure Monitor](/en-us/azure/azure-monitor/fundamentals/best-practices-cost#containers)\r\n\r\nResourceType: microsoft.containerservice/managedclusters Recommendation ID: 706d4bdc-7ee0-4d2f-a9ac-3c1f124545d1",
+        "id": "706d4bdc-7ee0-4d2f-a9ac-3c1f124545d1",
+        "title": "Switch to Prometheus-based Container Insights"
+      },
+      "title": "Switch to Prometheus-based Container Insights",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:7541b6f980cca10bc95966613c33d4bd4dcbad33164d0837bcd8b9984c54d0b1",
+      "id": "7e76e54f-7978-4d48-9ab9-a4da5b7c69a3",
+      "payload": {
+        "content": "Our internal telemetry shows that the MySQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.\r\n\r\n**Potential benefits**: Reduce cost by right-sizing the MySQL server\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Flexible Server Pricing - Azure Database for MySQL](https://aka.ms/mysqlpricing)\r\n\r\nResourceType: microsoft.dbformysql/servers Recommendation ID: 7e76e54f-7978-4d48-9ab9-a4da5b7c69a3",
+        "id": "7e76e54f-7978-4d48-9ab9-a4da5b7c69a3",
+        "title": "Right-size underutilized MySQL servers"
+      },
+      "title": "Right-size underutilized MySQL servers",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:1e3a6fb982683d9c1151318d95db04b698d30b0d53084ad196da9b080119e139",
+      "id": "805748e7-8764-49fe-b5b2-7fff63daaac2",
+      "payload": {
+        "content": "We have identified ingestion of more than 1 GB per month to tables that are eligible for the low cost Basic log data plan. The Basic log plan gives you search capabilities for debugging and troubleshooting at a much lower cost.\r\n\r\n**Potential benefits**: Significant savings on data ingestion and retention.\r\n\r\n**Impact:** Low\r\n\r\nFor more information, see [Select a table plan based on data usage in a Log Analytics workspace - Azure Monitor](https://aka.ms/basiclogs)\r\n\r\nResourceType: microsoft.operationalinsights/workspaces Recommendation ID: 805748e7-8764-49fe-b5b2-7fff63daaac2",
+        "id": "805748e7-8764-49fe-b5b2-7fff63daaac2",
+        "title": "Consider configuring the low-cost Basic logs plan on selected tables"
+      },
+      "title": "Consider configuring the low-cost Basic logs plan on selected tables",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:7e9f44b2da84ef8fc4090577c34d9020c631753b9d9e0062b9694ffd484129d8",
+      "id": "82d10dcf-5127-4a8c-a2b1-fd02ab46df60",
+      "payload": {
+        "content": "Configuring the cluster autoscaler profile for aggressive scale-down ensures that nodes are quickly removed when not needed. This efficient scaling minimizes idle resources, leading to significant cost savings.\r\n\r\n**Potential benefits**: Rapidly scale down nodes to minimize idle resources\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Use the cluster autoscaler in Azure Kubernetes Service (AKS) - Azure Kubernetes Service](https://aka.ms/aks.docs/cas-cost-profile)\r\n\r\nResourceType: microsoft.containerservice/managedclusters Recommendation ID: 82d10dcf-5127-4a8c-a2b1-fd02ab46df60",
+        "id": "82d10dcf-5127-4a8c-a2b1-fd02ab46df60",
+        "title": "Fine-tune the cluster autoscaler profile for rapid scale down and cost savings"
+      },
+      "title": "Fine-tune the cluster autoscaler profile for rapid scale down and cost savings",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:fcf6427099a8fdf16672efa493c95d820d4f67e87f42e33d43f458e0b722f1b4",
+      "id": "83cf9b6e-1b82-4a1d-9151-7581dda7a26e",
+      "payload": {
+        "content": "For SQL/HANA DBs in Azure VMs being backed up to Azure, using daily differential with weekly full backup is often more cost-effective than daily fully backups. For HANA, Azure Backup also supports incremental backup which is even more cost effective.\r\n\r\n**Potential benefits**: Optimize costs without impacting RPO\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [FAQ — Back up SAP HANA databases on Azure VMs - Azure Backup](https://aka.ms/DBBackupCostOptimization)\r\n\r\nResourceType: microsoft.recoveryservices/vaults Recommendation ID: 83cf9b6e-1b82-4a1d-9151-7581dda7a26e",
+        "id": "83cf9b6e-1b82-4a1d-9151-7581dda7a26e",
+        "title": "Use differential or incremental backup for database workloads"
+      },
+      "title": "Use differential or incremental backup for database workloads",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:8dcc9baf90a75973aea30c50fe884391b80dcfa8bd1197c7c350ba9e32aab856",
+      "id": "84b1a508-fc21-49da-979e-96894f1665df",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 84b1a508-fc21-49da-979e-96894f1665df",
+        "id": "84b1a508-fc21-49da-979e-96894f1665df",
+        "title": "Consider virtual machine reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider virtual machine reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:5944ccabf16b350089040ca2f7d652281651f8d116bd5941746adcc3a42712e5",
+      "id": "885cd4f5-dfa0-4d68-bbfd-00f89fc2b69c",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 885cd4f5-dfa0-4d68-bbfd-00f89fc2b69c",
+        "id": "885cd4f5-dfa0-4d68-bbfd-00f89fc2b69c",
+        "title": "Consider SQL PaaS DB reserved instance to save over the pay-as-you-go costs"
+      },
+      "title": "Consider SQL PaaS DB reserved instance to save over the pay-as-you-go costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:b8f1e9106a8bd3b93197138213dafc48f670ef06f862f3176932dbf456fa8072",
+      "id": "89515250-1243-43d1-b4e7-f9437cedffd8",
+      "payload": {
+        "content": "We analyzed your recent compute usage and recommend adding a Azure savings plan. Azure savings plans unlock lower prices on select compute services when you commit to spend a fixed hourly amount for 1 or 3 years.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure Savings Plan for Compute](https://aka.ms/savingsplan-compute)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 89515250-1243-43d1-b4e7-f9437cedffd8",
+        "id": "89515250-1243-43d1-b4e7-f9437cedffd8",
+        "title": "Consider purchasing a savings plan for compute to unlock lower prices"
+      },
+      "title": "Consider purchasing a savings plan for compute to unlock lower prices",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:0ca6708b13e6ff8e1cc023d0d7bf7ee8378b7d5587eb346dd71d8b0a2ebc8bff",
+      "id": "8bd8e2a7-0dde-409a-ae31-d4ee8bae6d87",
+      "payload": {
+        "content": "Autoscaling makes it easier to achieve high cluster utilization, because you don't need to provision the cluster to match a workload. When autoscaling is leveraged, workloads can run faster and overall costs can be reduced compared to a statically sized cluster.\r\n\r\n**Potential benefits**: Decrease costs and improve performance by enabling autoscaling.\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Compute configuration reference - Azure Databricks](/en-us/azure/databricks/clusters/configure#cluster-size-and-autoscaling)\r\n\r\nResourceType: microsoft.databricks/workspaces Recommendation ID: 8bd8e2a7-0dde-409a-ae31-d4ee8bae6d87",
+        "id": "8bd8e2a7-0dde-409a-ae31-d4ee8bae6d87",
+        "title": "Enable Autoscaling for Azure Databricks Clusters"
+      },
+      "title": "Enable Autoscaling for Azure Databricks Clusters",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:108b60d1a975b2abf343d1f586b143ebd8b798421c453f29dbdc8f3284d9b85e",
+      "id": "8ee30d6b-2c73-452a-b4ad-e4386cd6f7d0",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 8ee30d6b-2c73-452a-b4ad-e4386cd6f7d0",
+        "id": "8ee30d6b-2c73-452a-b4ad-e4386cd6f7d0",
+        "title": "Consider Cache for Redis reserved instance to save over the pay-as-you-go costs"
+      },
+      "title": "Consider Cache for Redis reserved instance to save over the pay-as-you-go costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:de3e3c5a4801359275dee2f49c1caa1b5db70e8d1d4512a9c97aa860598dd417",
+      "id": "947a627a-532d-44f8-8e23-4f365a80a2ba",
+      "payload": {
+        "content": "Based on your actual usage during the last month, update the cache policy to reduce the hot cache for the table. With autoscale enabled, the cluster can potentially scale in and thus reduce costs. Our goal is that more than 95% of the queries read data from the hot cache (\\*) The analysis is based only on user queries that scanned data.\r\n\r\n**Potential benefits**: Reduce cost\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Caching policy (hot and cold cache) - Kusto](https://aka.ms/adxcachepolicy)\r\n\r\nResourceType: microsoft.kusto/clusters Recommendation ID: 947a627a-532d-44f8-8e23-4f365a80a2ba",
+        "id": "947a627a-532d-44f8-8e23-4f365a80a2ba",
+        "title": "Reduce Data Explorer table cache policy to optimize costs"
+      },
+      "title": "Reduce Data Explorer table cache policy to optimize costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:748783c2b91bd946a4ab818e27d6646ed4e604d78115cd322c6f4d0c6185e813",
+      "id": "94aea435-ef39-493f-a547-8408092c22a7",
+      "payload": {
+        "content": "We've analyzed the usage patterns of your virtual machine scale sets over the past 7 days and identified virtual machine scale sets with low usage. While certain scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machine scale sets.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Reduce service costs using Azure Advisor - Azure Advisor](https://aka.ms/aa_lowusagerec_vmss_learnmore)\r\n\r\nResourceType: microsoft.compute/virtualmachinescalesets Recommendation ID: 94aea435-ef39-493f-a547-8408092c22a7",
+        "id": "94aea435-ef39-493f-a547-8408092c22a7",
+        "title": "Right-size or shutdown underutilized virtual machine scale sets"
+      },
+      "title": "Right-size or shutdown underutilized virtual machine scale sets",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:26d920d478b7bf450cdd38614b002a93aa28871dbe9909c0bdca819c8759e822",
+      "id": "9ed827e8-2a1c-45f3-93f0-df6962034a33",
+      "payload": {
+        "content": "Microsoft Fabric purchases are recommended based on usage over the selected term and look-back period. Purchase a reservation to save over pay-as-you-go costs, it automatically applies to matching resources. Shared scope recommendations are available in the reservation purchase experience.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: 9ed827e8-2a1c-45f3-93f0-df6962034a33",
+        "id": "9ed827e8-2a1c-45f3-93f0-df6962034a33",
+        "title": "Consider Microsoft Fabric reservations to save over your pay-as-you-go costs"
+      },
+      "title": "Consider Microsoft Fabric reservations to save over your pay-as-you-go costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:13f9bbed27e1bdcf6a8712c9a7a8936022dea893a5cbb978248db620c89f0048",
+      "id": "a205074f-8049-48b3-903f-556f5e530ae3",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: a205074f-8049-48b3-903f-556f5e530ae3",
+        "id": "a205074f-8049-48b3-903f-556f5e530ae3",
+        "title": "Consider Cosmos DB reserved instance to save over the pay-as-you-go costs"
+      },
+      "title": "Consider Cosmos DB reserved instance to save over the pay-as-you-go costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:a96ac35589c50971e7d8a781492f9d019971ba06fee810e7ce50f52a0bf0aba5",
+      "id": "a4255ba5-b07e-45ae-99ca-25e6c2079e3c",
+      "payload": {
+        "content": "We haven't detected any activity over the past 30 days on one or more of your Azure Cosmos DB containers. Consider lowering their throughput, or deleting them if you don't plan on using them.\r\n\r\n**Potential benefits**: Optimize Azure spend\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Provision Container Throughput - Azure Cosmos DB](/en-us/azure/cosmos-db/how-to-provision-container-throughput)\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: a4255ba5-b07e-45ae-99ca-25e6c2079e3c",
+        "id": "a4255ba5-b07e-45ae-99ca-25e6c2079e3c",
+        "title": "Consider taking action on the idle Azure Cosmos DB containers"
+      },
+      "title": "Consider taking action on the idle Azure Cosmos DB containers",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:170bddf2533fd3843cb686ca317485682d6e147b2171a126eeb54783683edf80",
+      "id": "a8fd63ce-4600-43eb-af33-a6d5481f5930",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: a8fd63ce-4600-43eb-af33-a6d5481f5930",
+        "id": "a8fd63ce-4600-43eb-af33-a6d5481f5930",
+        "title": "Consider Database for MySQL reserved instance to save over the pay-as-you-go costs"
+      },
+      "title": "Consider Database for MySQL reserved instance to save over the pay-as-you-go costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:1d6850be9e7fa866d06542d502a5c09d4c490029360059768a2d6b07bee4c99c",
+      "id": "abb1f687-2d58-4197-8f5b-8882f05c04b8",
+      "payload": {
+        "content": "Reservations shown below are expiring soon or recently expired. Your resources will continue to operate normally, however, you will be billed at the on-demand rates going forward. To optimize your costs, configure automatic renewal for these reservations or purchase a replacement manually.\r\n\r\n**Potential benefits**: Continue to receive discounted rates for your resources\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure Reserved Virtual Machine Instances](https://aka.ms/reservedinstances)\r\n\r\nResourceType: microsoft.capacity/reservationorders/reservations Recommendation ID: abb1f687-2d58-4197-8f5b-8882f05c04b8",
+        "id": "abb1f687-2d58-4197-8f5b-8882f05c04b8",
+        "title": "Configure automatic renewal for the expiring reservations"
+      },
+      "title": "Configure automatic renewal for the expiring reservations",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:49c05ef0d5cdb486a34142ff1ae68f43e3725ac96667a1027d46fcf3edf71aa6",
+      "id": "afdf4c1a-e46b-4817-a5d6-4b9909f58e2a",
+      "payload": {
+        "content": "Automatic pause releases and shuts down unused compute resources after a set idle period of inactivity.\r\n\r\n**Potential benefits**: Automatic pause releases and shuts down unused compute resources after a set idle period of inactivity\r\n\r\n**Impact:** Low\r\n\r\nFor more information, see [AutoPauseProperties Class (Microsoft.Azure.Management.Synapse.Models) - Azure for .NET Developers](https://aka.ms/EnableSynapseSparkComputeAutoPauseGuidance)\r\n\r\nResourceType: microsoft.synapse/workspaces Recommendation ID: afdf4c1a-e46b-4817-a5d6-4b9909f58e2a",
+        "id": "afdf4c1a-e46b-4817-a5d6-4b9909f58e2a",
+        "title": "Consider enabling automatic pause feature on spark compute"
+      },
+      "title": "Consider enabling automatic pause feature on spark compute",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:cfa1af76e215fd3f657724fdc90d232dc5c2601eb16b4595c7b708a691ed4482",
+      "id": "bce95beb-3389-4e64-8863-d196cc2f69dc",
+      "payload": {
+        "content": "You have resources operating under a nonoptimal SKU. We recommend migrating to a more cost effective and better performing SKU. This SKU should reduce your costs and improve overall performance. We have calculated the required instance count that meets both the CPU and cache of your cluster.\r\n\r\n**Potential benefits**: Optimize cost\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Select correct compute SKU for your Azure Data Explorer cluster - Azure Data Explorer](https://aka.ms/clusterChooseSku)\r\n\r\nResourceType: microsoft.kusto/clusters Recommendation ID: bce95beb-3389-4e64-8863-d196cc2f69dc",
+        "id": "bce95beb-3389-4e64-8863-d196cc2f69dc",
+        "title": "Change Data Explorer clusters to a more cost effective and better performing SKU"
+      },
+      "title": "Change Data Explorer clusters to a more cost effective and better performing SKU",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:fc4f00aea664ce742557f082d706cb0318d4d98ad85cc12d5be9c74705fb4f77",
+      "id": "c1c98b41-ddf6-4b27-988c-0e8e6359a42a",
+      "payload": {
+        "content": "We observed that your Language Service resource has had enough usage in the past 30 days that you might want to consider using a commitment tier.\r\n\r\n**Potential benefits**: Can help to reduce the cost on this Language Service resource\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Pricing - Azure Language in Foundry Tools](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)\r\n\r\nResourceType: microsoft.cognitiveservices/accounts Recommendation ID: c1c98b41-ddf6-4b27-988c-0e8e6359a42a",
+        "id": "c1c98b41-ddf6-4b27-988c-0e8e6359a42a",
+        "title": "Potential Cost Savings on this Language Service Resource"
+      },
+      "title": "Potential Cost Savings on this Language Service Resource",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:0a89a957e07ec2e2c98364439e433753e52f2dc3de518b2c756f61a35df533d3",
+      "id": "c68d7dd0-8a1c-4cc4-b52c-b7e8a072d00e",
+      "payload": {
+        "content": "Based on your current usage volume, investigate changing Pricing (Commitment) Tier to receive a discount and reduce costs.\r\n\r\n**Potential benefits**: Significant savings on data ingestion.\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Change pricing tier for Log Analytics workspace - Azure Monitor](/en-us/azure/azure-monitor/logs/change-pricing-tier)\r\n\r\nResourceType: microsoft.operationalinsights/workspaces Recommendation ID: c68d7dd0-8a1c-4cc4-b52c-b7e8a072d00e",
+        "id": "c68d7dd0-8a1c-4cc4-b52c-b7e8a072d00e",
+        "title": "Consider Changing Pricing Tier"
+      },
+      "title": "Consider Changing Pricing Tier",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:4aafc1f89265dd1e3efc5b5347d09696a0cc95d44896ef8d42c93b600517029b",
+      "id": "c81a0349-18c0-4bd2-81c7-475adde922d2",
+      "payload": {
+        "content": "The customer can lower the bill if the transactions/TB ratio is high. Exact number would depend on transaction mix and region but anywhere &gt;30 or 35 TPB/TB may be good candidates to at least evaluate a move to premium storage.\r\n\r\n**Potential benefits**: Based on your high transactions/TB ratio, there is a possibility that premium storage might be more cost effective in addition to being performant for your scenario.\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Azure Blob Storage pricing](https://aka.ms/azureblobstoragepricing)\r\n\r\nResourceType: microsoft.storage/storageaccounts Recommendation ID: c81a0349-18c0-4bd2-81c7-475adde922d2",
+        "id": "c81a0349-18c0-4bd2-81c7-475adde922d2",
+        "title": "Based on your high transactions/TB ratio, there's a possibility that premium storage might be more cost effective in addition to being performant for your scenario. More details on pricing for premium and standard accounts can be found here"
+      },
+      "title": "Based on your high transactions/TB ratio, there's a possibility that premium storage might be more cost effective in addition to being performant for your scenario. More details on pricing for premium and standard accounts can be found here",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:e7cafc21113735aa9a5749bcfded121f563fd7b16182c39d2cbcafc32e739fff",
+      "id": "cc9d34f5-f9b8-4d4f-9de7-98b45c698a49",
+      "payload": {
+        "content": "We've analyzed the usage patterns of your app service plan over the past 7 days and identified low CPU usage. While certain scenarios can result in low utilization by design, you can often save money by choosing a less expensive SKU while retaining the same features.\r\n\r\n**Potential benefits**: Optimize your cost\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Plan and Manage Costs for App Service - Azure App Service](/en-us/azure/app-service/overview-manage-costs)\r\n\r\nResourceType: microsoft.web/sites Recommendation ID: cc9d34f5-f9b8-4d4f-9de7-98b45c698a49",
+        "id": "cc9d34f5-f9b8-4d4f-9de7-98b45c698a49",
+        "title": "Right-size underutilized App Service plans"
+      },
+      "title": "Right-size underutilized App Service plans",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:3608a129055d05b4df0e88b2f8d5099c835a1df13b9e5df0d3ab49623ebfe253",
+      "id": "cdf51428-a41b-4735-ba23-39f3b7cde20c",
+      "payload": {
+        "content": "Based on your usage in the past 7 days, you can save by enabling autoscale. For each hour, we compared the RU/s provisioned to the actual utilization of the RU/s (what autoscale would have scaled to) and calculated the cost savings across the time period. Autoscale helps optimize your cost by scaling down RU/s when not in use.\r\n\r\n**Potential benefits**: Optimize Azure spend\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Create Azure Cosmos DB containers and databases in autoscale or dynamic scaling mode.](/en-us/azure/cosmos-db/provision-throughput-autoscale)\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: cdf51428-a41b-4735-ba23-39f3b7cde20c",
+        "id": "cdf51428-a41b-4735-ba23-39f3b7cde20c",
+        "title": "Enable autoscale on your Azure Cosmos DB database or container"
+      },
+      "title": "Enable autoscale on your Azure Cosmos DB database or container",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:7553344b354b1953572e4c6db19fd1514979da02230ae08581f5c6ac6b4f3b4d",
+      "id": "ceb9372d-60f6-4564-8033-a8b1ead4fa76",
+      "payload": {
+        "content": "Migrate the data in the existing database account to a new database account created using Azure Cosmos DB for MongoDB API version 4.2. It uses a new storage format to reduce storage costs up to 55% and query costs up to 45%. It provides other features including multi-document transactions.\r\n\r\n**Potential benefits**: Improved query and storage cost efficiency.\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [4.2 Supported Features and Syntax - Azure Cosmos DB for MongoDB](/en-us/azure/cosmos-db/mongodb/feature-support-42)\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: ceb9372d-60f6-4564-8033-a8b1ead4fa76",
+        "id": "ceb9372d-60f6-4564-8033-a8b1ead4fa76",
+        "title": "Upgrade the Azure Cosmos DB for MongoDB API to version 4.2 for reduced query and storage costs"
+      },
+      "title": "Upgrade the Azure Cosmos DB for MongoDB API to version 4.2 for reduced query and storage costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:8e3903908841bd065cb3303b7d9c5942ddc0cbf3ea160958d15809012f4cb429",
+      "id": "d9c2f871-904e-4907-8572-0a33b0651f01",
+      "payload": {
+        "content": "This recommendation surfaces all stopped Data Explorer resources that have been stopped for at least 60 days. Consider deleting the resources.\r\n\r\n**Potential benefits**: Optimize cost\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Use Azure Advisor recommendations to optimize your Azure Data Explorer cluster - Azure Data Explorer](https://aka.ms/adxunusedstoppedcluster)\r\n\r\nResourceType: microsoft.kusto/clusters Recommendation ID: d9c2f871-904e-4907-8572-0a33b0651f01",
+        "id": "d9c2f871-904e-4907-8572-0a33b0651f01",
+        "title": "Unused stopped Data Explorer resources"
+      },
+      "title": "Unused stopped Data Explorer resources",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:a8b64ee5341eb6ef5eb830278d3a8d55a0acb26d5d9b03149b689119c1966baa",
+      "id": "da48cdd1-0c3f-4050-b037-89ecdb2be69a",
+      "payload": {
+        "content": "We observed that your Form Recognizer resource has had enough usage in the past 30 days that you might want to consider using a commitment tier.\r\n\r\n**Potential benefits**: Can help to reduce the cost on this Form Recognizer resource\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Pricing - Azure Document Intelligence in Foundry Tools](https://azure.microsoft.com/pricing/details/form-recognizer)\r\n\r\nResourceType: microsoft.cognitiveservices/accounts Recommendation ID: da48cdd1-0c3f-4050-b037-89ecdb2be69a",
+        "id": "da48cdd1-0c3f-4050-b037-89ecdb2be69a",
+        "title": "Potential Cost Savings on this Form Recognizer Resource"
+      },
+      "title": "Potential Cost Savings on this Form Recognizer Resource",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:d8de3f8d9041065d948ab97af7b502ee6e9de069ea23408c21f079f67c50a396",
+      "id": "dadc1876-61e3-42fc-a70e-e863bbc460b6",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: dadc1876-61e3-42fc-a70e-e863bbc460b6",
+        "id": "dadc1876-61e3-42fc-a70e-e863bbc460b6",
+        "title": "Consider OpenAI Service Provisioned Throughput reservations to save over pay-as-you-go costs"
+      },
+      "title": "Consider OpenAI Service Provisioned Throughput reservations to save over pay-as-you-go costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:b80c5c376ea388d0dc96ab7dbb3c6f6f62c7ecffe651d378dee2e9b98a0d9303",
+      "id": "db621e98-4a20-4942-b174-c455dc71dbae",
+      "payload": {
+        "content": "Based on your usage over the selected term and look-back period, we recommend reservations to maximize savings. Reservations apply automatically to matching deployments. Savings are estimated per subscription. Shared scope options are available during purchase.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure reservation recommendations - Microsoft Cost Management](https://aka.ms/rirecommendations)\r\n\r\nResourceType: microsoft.subscriptions/subscriptions Recommendation ID: db621e98-4a20-4942-b174-c455dc71dbae",
+        "id": "db621e98-4a20-4942-b174-c455dc71dbae",
+        "title": "Consider SuseLinux reserved instance to save over the on-demand costs"
+      },
+      "title": "Consider SuseLinux reserved instance to save over the on-demand costs",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:dfb8eb246d5d3a67d34ce36b928bec6b45b7c0a50e5d4b4679ab50c3904036cd",
+      "id": "e10b1381-5f0a-47ff-8c7b-37bd13d7c974",
+      "payload": {
+        "content": "We've analyzed the usage patterns of your virtual machine and identified virtual machines with low usage. While certain scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines.\r\n\r\n**Potential benefits**: savings\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Reduce service costs using Azure Advisor - Azure Advisor](https://aka.ms/aa_lowusagerec_learnmore)\r\n\r\nResourceType: microsoft.compute/virtualmachines Recommendation ID: e10b1381-5f0a-47ff-8c7b-37bd13d7c974",
+        "id": "e10b1381-5f0a-47ff-8c7b-37bd13d7c974",
+        "title": "Right-size or shutdown underutilized virtual machines"
+      },
+      "title": "Right-size or shutdown underutilized virtual machines",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:d8d8aa8b591de91f3ab4a815487b2e6c77b980ffe271879e43029edc87682c31",
+      "id": "e4429ab9-f27e-4750-89a7-30bce345f7fa",
+      "payload": {
+        "content": "We observed that your Speech Service resource has had enough usage in the past 30 days that you might want to consider using a commitment tier.\r\n\r\n**Potential benefits**: Can help to reduce the cost on this Speech Service resource\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Pricing - Document Intelligence](https://azure.microsoft.com/pricing/details/form-recognizer)\r\n\r\nResourceType: microsoft.cognitiveservices/accounts Recommendation ID: e4429ab9-f27e-4750-89a7-30bce345f7fa",
+        "id": "e4429ab9-f27e-4750-89a7-30bce345f7fa",
+        "title": "Potential Cost Savings on this Speech Service Resource"
+      },
+      "title": "Potential Cost Savings on this Speech Service Resource",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:b0d7e64a3a8a607ce9abba7e6f1f5deb31b1bc808e5b7a37983474df11a92890",
+      "id": "e6744163-0be2-4c17-83da-179a0af9d14f",
+      "payload": {
+        "content": "Your Front Door Classic tier contains a large number of domains or routing rules, which adds extra charges. Front Door Standard or Premium doesn't charge per additional domain or routing rule. Consider migrating to save costs.\r\n\r\n**Potential benefits**: Save costs\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Compare pricing between Azure Front Door tiers](/en-us/azure/frontdoor/understanding-pricing)\r\n\r\nResourceType: microsoft.network/frontdoors Recommendation ID: e6744163-0be2-4c17-83da-179a0af9d14f",
+        "id": "e6744163-0be2-4c17-83da-179a0af9d14f",
+        "title": "Consider migrating to Front Door Standard/Premium"
+      },
+      "title": "Consider migrating to Front Door Standard/Premium",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:c783305470957daa1f94c6ec4c24b484e54134628986a66256d712618216884d",
+      "id": "eb22702a-5ace-416a-abee-c03c69cede34",
+      "payload": {
+        "content": "You have one or more tables with restored data active in your workspace. If you're no longer using a restored data, delete the table to avoid unnecessary charges.\r\n\r\n**Potential benefits**: Significant savings on data retention.\r\n\r\n**Impact:** Low\r\n\r\nFor more information, see [Restore logs in Azure Monitor - Azure Monitor](https://aka.ms/LogAnalyticsRestore)\r\n\r\nResourceType: microsoft.operationalinsights/workspaces Recommendation ID: eb22702a-5ace-416a-abee-c03c69cede34",
+        "id": "eb22702a-5ace-416a-abee-c03c69cede34",
+        "title": "Consider removing unused restored tables"
+      },
+      "title": "Consider removing unused restored tables",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    },
+    {
+      "contentHash": "sha256:486ee78a36eb018aba8189ae3631d0f698de3dedaf024b6d1e3d3e6f115f156a",
+      "id": "f6e3ad9c-5d58-48ba-b06b-ebffba60dd18",
+      "payload": {
+        "content": "Repeatedly failing pipelines have been detected in your Azure Data Factory resource. Know that you're being billed for them even though they aren't serving you while failing. Review them to resolve issues or delete failing pipelines that are no longer needed to save on costs.\r\n\r\n**Potential benefits**: Reduce billing costs by addressing issues with or deleting your failing Data Factory pipelines\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Pipelines and activities - Azure Data Factory & Azure Synapse](https://aka.ms/aa_advisor_adfpipeline)\r\n\r\nResourceType: microsoft.datafactory/factories/pipelines Recommendation ID: f6e3ad9c-5d58-48ba-b06b-ebffba60dd18",
+        "id": "f6e3ad9c-5d58-48ba-b06b-ebffba60dd18",
+        "title": "Delete failing ADF pipelines"
+      },
+      "title": "Delete failing ADF pipelines",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+    }
+  ],
+  "limitations": [
+    "Advisor Cost published catalog only, not all Advisor categories or customer-specific available recommendations.",
+    "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+    "No Azure login or customer resource enumeration."
+  ],
+  "retrievedAt": "2026-09-11T18:05:20.569750Z",
+  "schemaVersion": 1,
+  "scope": "All Recommendation ID sections in the English published Advisor Cost recommendations reference page",
+  "sourceId": "advisor-cost-catalog",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+  ],
+  "title": "Published Azure Advisor Cost catalog",
+  "unit": "published-advisor-recommendation-guid",
+  "upstreamRevision": "0eef202feb80322f1d1da95d4d026c2e2b70ce06"
+}

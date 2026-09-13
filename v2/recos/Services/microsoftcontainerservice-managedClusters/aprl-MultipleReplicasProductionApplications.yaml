@@ -1,19 +1,50 @@
 name: aprl-MultipleReplicasProductionApplications
-title: Use deployments with multiple replicas in production applications to guarantee
-  availability
-description: |-
-  Configuring multiple replicas in Pod or Deployment manifests stabilizes the number of replica Pods, ensuring that a specified number of identical Pods are always available, thereby guaranteeing their availability.
+title: Use deployments with multiple replicas to improve production availability
+description: 'Configure multiple replicas in production Deployment manifests and maintain the required
+  desired replica count. Replication improves availability but is not an unconditional guarantee: distribute
+  replicas across appropriate nodes or zones and account for shared dependencies and disruption conditions.'
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 0
 labels:
   guid: bcfe71f1-ebed-49e5-a84a-193b81ad5d27
   area: High Availability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: bcfe71f1-ebed-49e5-a84a-193b81ad5d27
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL bcfe71f1-ebed-49e5-a84a-193b81ad5d27: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: bcfe71f1-ebed-49e5-a84a-193b81ad5d27
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b6cb0dcf2a9ff03ca4bccbb8e4c8435af7cb70065d5661c5bdb1a34988123faa
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Removed an impossible absolute
+      availability guarantee while preserving the multiple-replica requirement; the owned topology-spread
+      recommendation supplies the complementary placement requirement. Represented comment-only/empty
+      ARG honestly as manual or candidate automation. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

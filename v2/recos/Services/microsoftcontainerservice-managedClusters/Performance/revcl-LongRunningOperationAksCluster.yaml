@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/manage-abort-operations
 queries: {}
+schemaVersion: 1
+id: c5016d8c-c6c9-4165-89ae-673ef0fff19d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

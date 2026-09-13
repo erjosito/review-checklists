@@ -15,3 +15,13 @@ labels:
   guid: ab60898d-c5ae-4087-95ce-5b55ed006972
 links: []
 queries: {}
+schemaVersion: 1
+id: ab60898d-c5ae-4087-95ce-5b55ed006972
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

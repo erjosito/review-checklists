@@ -1,7 +1,5 @@
 name: revcl-SeparateConsumptionPlanHigherPlan
-title: When using autoscale with different functions, there might be one driving all
-  the autoscale for all the resources - consider moving it to a separate consumption
-  plan (and consider higher plan for CPU)
+title: Choose Functions isolation and hosting from measured scaling economics
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +13,25 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/governance/policy/overview
 queries: {}
+schemaVersion: 1
+id: 359c363e-7dd6-4162-9a36-4a907ebae38e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload requirements, financial or operational judgment; a generic ARG property check
+    cannot establish this recommendation.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-functions/functions-scale
+    title: Azure Functions hosting options
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/cost-model
+    title: Architecture strategies for creating a cost model
+    accessedAt: '2026-09-11'
+description: Compare per-function/group scaling, concurrency, memory, minimum capacity and feature constraints
+  of the applicable hosting options. Separate a dominant workload only when tests show a net benefit;
+  do not automatically move workloads to a legacy Consumption plan or a higher tier solely because they
+  are CPU intensive.

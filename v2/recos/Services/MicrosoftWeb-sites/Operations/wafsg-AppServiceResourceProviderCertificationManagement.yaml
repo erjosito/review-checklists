@@ -1,10 +1,10 @@
 name: wafsg-AppServiceResourceProviderCertificationManagement
-title: (App Service) Take advantage of App Service managed certificates to offload
-  certification management to Azure.
-description: App Service automatically handles processes like certificate procurement,
-  certificate verification, certificate renewal, and importing certificates from Key
-  Vault. Alternatively, upload your certificate to Key Vault and authorize the App
-  Service resource provider to access it.
+title: Use eligible App Service managed certificates or explicitly operate imported certificates
+description: For eligible App Service custom domains, create and bind a free App Service managed certificate
+  and keep DNS and reachability prerequisites valid for renewal. Free managed certificates do not support
+  wildcard certificates or private DNS and are not exportable. Importing a certificate from Key Vault
+  is a separate option requiring the App Service resource provider's access and an operated renewal/synchronization
+  process. Verify the chosen option and TLS binding rather than conflating the two lifecycles.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -16,3 +16,16 @@ labels:
   guid: 471061e9-3f5f-43a3-a861-79108871cf91
 links: []
 queries: {}
+schemaVersion: 1
+id: 471061e9-3f5f-43a3-a861-79108871cf91
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate
+    title: Install a TLS/SSL certificate for your app
+    accessedAt: '2026-09-11'

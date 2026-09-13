@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/command-invoke
 queries: {}
+schemaVersion: 1
+id: d7672c26-7602-4482-85a4-14527fbe855c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

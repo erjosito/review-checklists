@@ -1,13 +1,14 @@
 name: aprl-AzureMonitorAlertWarningThresholdsVmwareVsanDatastoreSlackSpace
 title: Configure Azure Monitor Alert warning thresholds for vSAN datastore utilization
-description: |-
-  Ensure VMware vSAN datastore slack space is maintained for SLA by monitoring storage utilization and setting alerts at 70% and 75% utilization to allow for capacity planning. To expand, add hosts or external storage like Azure Elastic SAN, Azure NetApp Files, if CPU and RAM requirements are met.
+description: Ensure VMware vSAN datastore slack space is maintained for SLA by monitoring storage utilization
+  and setting alerts at 70% and 75% utilization to allow for capacity planning. To expand, add hosts or
+  external storage like Azure Elastic SAN, Azure NetApp Files, if CPU and RAM requirements are met.
 source:
   type: aprl
   file: azure-resources/AVS/privateClouds/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AVS/privateClouds
+- microsoft.avs/privateclouds
 severity: 0
 labels:
   guid: 4232eb32-3241-4049-9e14-9b8005817b56
@@ -59,3 +60,31 @@ queries:
     | where isnull(['threshold'])
     | project recommendationId = "4232eb32-3241-4049-9e14-9b8005817b56", name, id, tags, param1 = "vsanCapacityWarningAlert: isNull or threshold != 70"
     )
+schemaVersion: 1
+id: 4232eb32-3241-4049-9e14-9b8005817b56
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    title: 'APRL 4232eb32-3241-4049-9e14-9b8005817b56: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 4232eb32-3241-4049-9e14-9b8005817b56
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0af21a9bc19bde821ddb929e8440a766292f0a6804416d8705bc3f9202e729a7
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

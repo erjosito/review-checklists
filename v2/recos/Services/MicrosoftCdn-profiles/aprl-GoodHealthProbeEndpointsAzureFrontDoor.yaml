@@ -1,18 +1,49 @@
 name: aprl-GoodHealthProbeEndpointsAzureFrontDoor
 title: Select good health probe endpoints
-description: |-
-  Consider selecting a webpage or location specifically designed for health monitoring as the endpoint for Azure Front Door's health probes. This should encompass the status of critical components like application servers, databases, and caches to serve production traffic efficiently.
+description: Consider selecting a webpage or location specifically designed for health monitoring as the
+  endpoint for Azure Front Door's health probes. This should encompass the status of critical components
+  like application servers, databases, and caches to serve production traffic efficiently.
 source:
   type: aprl
   file: azure-resources/Cdn/profiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Cdn/profiles
+- microsoft.cdn/profiles
 severity: 1
 labels:
   guid: 5225bba3-28ec-1e43-8986-7eedfd466d65
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 5225bba3-28ec-1e43-8986-7eedfd466d65
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    title: 'APRL 5225bba3-28ec-1e43-8986-7eedfd466d65: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 5225bba3-28ec-1e43-8986-7eedfd466d65
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:1a851d074fd2c1bff88c241c7ce3930fb1e598bb8bfaaa75cfb75b97b2dff93f
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

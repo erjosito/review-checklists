@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-wan/scenario-secured-hub-app-gateway
 queries: {}
+schemaVersion: 1
+id: d4eb8667-f8cb-4cdd-94e6-2f967ba98f88
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

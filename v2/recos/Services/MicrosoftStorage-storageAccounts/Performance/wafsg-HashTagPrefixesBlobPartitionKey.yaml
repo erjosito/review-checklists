@@ -1,9 +1,9 @@
 name: wafsg-HashTagPrefixesBlobPartitionKey
-title: 'Choose an efficient naming scheme: Decrease the latency of listing, list,
-  query, and read operations by using hash tag prefixes nearest the beginning of the
-  blob partition key (account, container, virtual directory, or blob name). This scheme
-  benefits mostly accounts that have a flat namespace.'
-description: ''
+title: Evaluate Blob partition-key prefixes for small-block access patterns
+description: For small block sizes, a distributed hash or early varying prefix can help spread requests
+  across partitions. High-throughput block blobs use different optimizations and are not governed by the
+  same naming advice. Benchmark naming and access patterns before changing them; a prefix is not a universal
+  guarantee of faster listing or queries. Plan compatibility before renaming existing objects.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-blob-storage.md
@@ -16,3 +16,19 @@ labels:
   guid: e79e1149-9aa1-4064-8c07-52e390f99d9e
 links: []
 queries: {}
+schemaVersion: 1
+id: e79e1149-9aa1-4064-8c07-52e390f99d9e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/blobs/storage-performance-checklist
+    title: Performance checklist for Blob Storage
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/storage/blobs/storage-performance-checklist-developers
+    title: Performance checklist for Blob Storage developers
+    accessedAt: '2026-09-11'

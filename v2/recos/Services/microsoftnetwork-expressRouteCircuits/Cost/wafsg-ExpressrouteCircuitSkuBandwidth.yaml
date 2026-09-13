@@ -13,3 +13,13 @@ labels:
   guid: a3aaf86d-0531-404f-b881-78bbacd912ca
 links: []
 queries: {}
+schemaVersion: 1
+id: a3aaf86d-0531-404f-b881-78bbacd912ca
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

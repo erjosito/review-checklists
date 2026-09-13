@@ -1,16 +1,50 @@
 name: aprl-ZoneRedundancyAzurePortal
 title: Ensure zone redundancy is enabled in supported regions
-description: |-
-  When using the Azure portal, zone redundancy is automatically enabled. However, some Infrastructure as Code (IaC) tools may default this to false. To ensure replication of metadata and events across data centers in an availability zone, always verify that zone redundancy is enabled.
+description: When using the Azure portal, zone redundancy is automatically enabled. However, some Infrastructure
+  as Code (IaC) tools may default this to false. To ensure replication of metadata and events across data
+  centers in an availability zone, always verify that zone redundancy is enabled.
 source:
   type: aprl
   file: azure-resources/EventHub/namespaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.EventHub/namespaces
+- microsoft.eventhub/namespaces
 severity: 0
 labels:
   guid: 84636c6c-b317-4722-b603-7b1ffc16384b
   area: High Availability
 links: []
-queries: {}
+queries:
+  arg: ''
+schemaVersion: 1
+id: 84636c6c-b317-4722-b603-7b1ffc16384b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/EventHub/namespaces/recommendations.yaml
+    title: 'APRL 84636c6c-b317-4722-b603-7b1ffc16384b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 84636c6c-b317-4722-b603-7b1ffc16384b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/EventHub/namespaces/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:923696052195af3ed3d358611aa2041ef42bbdb24cb0e0adb43ef9391c57079a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Represented comment-only/empty
+      ARG honestly as manual or candidate automation. Current upstream ARG differs from the frozen query;
+      the old executable body is retained pending semantic/edge-case validation, not silently replaced
+      by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

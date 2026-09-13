@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/automation/how-to/region-mappings
 queries: {}
+schemaVersion: 1
+id: a2ed27b2-d186-4f1a-8252-bddde68a487c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

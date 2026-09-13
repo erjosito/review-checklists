@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/introduction-azure-virtual-wan/
 queries: {}
+schemaVersion: 1
+id: 412e7f98-3f63-4047-82dd-69c5b5c2622f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

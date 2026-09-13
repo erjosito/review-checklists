@@ -1,10 +1,9 @@
 name: wafsg-StorageInsightsUnifiedView
-title: Use Storage insights to track the health and performance of your storage accounts.
-  Storage insights provides a unified view of the failures, performance, availability,
-  and capacity for all your storage accounts.
-description: You can track the health and operation of each of your accounts. Easily
-  create dashboards and reports that stakeholders can use to track the health of your
-  storage accounts.
+title: Use Storage insights to track the health and performance of your storage accounts. Storage insights
+  provides a unified view of the failures, performance, availability, and capacity for all your storage
+  accounts.
+description: You can track the health and operation of each of your accounts. Easily create dashboards
+  and reports that stakeholders can use to track the health of your storage accounts.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -16,3 +15,22 @@ labels:
   guid: 15f258d9-8353-49ff-9eca-441c96e911be
 links: []
 queries: {}
+schemaVersion: 1
+id: 15f258d9-8353-49ff-9eca-441c96e911be
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 5fff0543-7133-4501-bd87-ea55392c6a7e
+  name: wafsg-StorageInsightsUnifiedView-1
+  source:
+    type: wafsg
+    file: ./checklists-ext/wafsg_checklist.en.json
+  labels:
+    guid: 5fff0543-7133-4501-bd87-ea55392c6a7e
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Operations/wafsg-StorageInsightsUnifiedView-1.yaml

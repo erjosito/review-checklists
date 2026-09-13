@@ -1,13 +1,14 @@
 name: aprl-HigherSingleInstanceVirtualMachineUptimeSlasHighestUptimeSla
 title: Mission Critical Workloads should consider using Premium or Ultra Disks
-description: |-
-  Compared to Standard HDD and SSD, Premium SSD, SSDv2, and Ultra SSDs offer improved performance, configurability, and higher single-instance Virtual Machine uptime SLAs. The lowest SLA of all disks on a Virtual Machine applies, so it is best to use Premium or Ultra Disks for the highest uptime SLA.
+description: Compared to Standard HDD and SSD, Premium SSD, SSD v2, and Ultra Disks offer improved performance,
+  configurability, and higher single-instance VM uptime SLAs. The lowest SLA of all disks on a VM applies,
+  so it is best to use Premium or Ultra Disks for the highest uptime SLA.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 0
 labels:
   guid: df0ff862-814d-45a3-95e4-4fad5a244ba6
@@ -29,3 +30,31 @@ queries:
         | summarize disks = make_list(name) by lname) on lname
     | where isnotnull(disks)
     | project recommendationId = "df0ff862-814d-45a3-95e4-4fad5a244ba6", name, id, tags, param1=strcat("AffectedDisks: ", disks)
+schemaVersion: 1
+id: df0ff862-814d-45a3-95e4-4fad5a244ba6
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL df0ff862-814d-45a3-95e4-4fad5a244ba6: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: df0ff862-814d-45a3-95e4-4fad5a244ba6
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5e6804f6961e3037319d163d0e8b02fbdcbb0f2fceed50f72a45dc2003cf7852
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

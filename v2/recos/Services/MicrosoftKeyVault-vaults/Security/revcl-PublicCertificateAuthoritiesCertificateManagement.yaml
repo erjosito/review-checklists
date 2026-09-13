@@ -1,6 +1,6 @@
 name: revcl-PublicCertificateAuthoritiesCertificateManagement
-title: Automate the certificate management and renewal process with public certificate
-  authorities to ease administration.
+title: Automate Key Vault certificate renewal with supported integrated certificate authorities, and define
+  renewal workflows for other issuers.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +14,22 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/best-practices
 queries: {}
+schemaVersion: 1
+id: 6d70ba6c-97be-4995-8904-83845c986cb2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/key-vault/certificates/overview-renew-certificate
+    title: About Azure Key Vault certificate renewal
+    accessedAt: '2026-09-13'
+    revision: null
+description: Configure certificate lifetime actions and renewal for the supported integrated certificate
+  authorities, DigiCert and GlobalSign. For certificates issued by nonintegrated authorities, configure
+  expiry notifications and an external or manual issuance/import workflow that creates the replacement
+  certificate version. Verify that dependent services retrieve and use the renewed version; storing a
+  certificate in Key Vault alone does not automate every issuer or consumer.

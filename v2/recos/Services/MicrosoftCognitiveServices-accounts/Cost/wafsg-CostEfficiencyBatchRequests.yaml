@@ -1,7 +1,9 @@
 name: wafsg-CostEfficiencyBatchRequests
-title: 'Cost efficiency: Batch requests where possible to minimize the per-call overhead,
-  which can reduce overall costs. Ensure that you optimize batch size.'
-description: ''
+title: Evaluate the Azure OpenAI Batch API for delay-tolerant workloads
+description: Compare supported Global or Data Zone Batch deployments with online execution when the workload
+  tolerates asynchronous processing. Check model/API availability, separate enqueued-token quota and data-processing
+  geography. The documented 24-hour completion window is a target, not a guarantee; cancelled jobs still
+  charge for completed work. Ordinary client-side batching alone does not establish a lower token price.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -14,3 +16,19 @@ labels:
   guid: 3100afcf-2db1-4f14-901c-bd5e33bc29ff
 links: []
 queries: {}
+schemaVersion: 1
+id: 3100afcf-2db1-4f14-901c-bd5e33bc29ff
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Distinguish the priced Batch deployment feature from generic grouping
+    of requests. Requires workload, billing and operational evidence; no ARG query or live validation
+    is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/foundry/openai/how-to/batch
+    title: How to use global batch processing with Azure OpenAI in Microsoft Foundry Models
+    accessedAt: '2026-09-11'

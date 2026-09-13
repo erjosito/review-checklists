@@ -14,5 +14,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.output_folder }}
+    - ${{ inputs.output_file }}
     - ${{ inputs.verbose }}

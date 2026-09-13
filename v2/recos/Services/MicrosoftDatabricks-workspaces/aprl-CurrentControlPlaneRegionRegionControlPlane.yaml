@@ -1,18 +1,49 @@
 name: aprl-CurrentControlPlaneRegionRegionControlPlane
 title: Evaluate regional isolation for workspaces
-description: |-
-  Move workspaces to in-region control plane for increased regional isolation. Identify current control plane region using the workspace URL and nslookup. When region from CNAME differs from workspace region and an in-region control is available, consider migration using tools provided below.
+description: Move workspaces to in-region control plane for increased regional isolation. Identify current
+  control plane region using the workspace URL and nslookup. When region from CNAME differs from workspace
+  region and an in-region control is available, consider migration using tools provided below.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 0
 labels:
   guid: 8aa63c34-dd9d-49bd-9582-21ec310dfbdd
   area: High Availability
 links: []
 queries:
-  arg: |-
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 8aa63c34-dd9d-49bd-9582-21ec310dfbdd
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL 8aa63c34-dd9d-49bd-9582-21ec310dfbdd: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 8aa63c34-dd9d-49bd-9582-21ec310dfbdd
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:983d2c880320bac8bd02936647213276240430534eb4de72f295266b6c4578e5
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

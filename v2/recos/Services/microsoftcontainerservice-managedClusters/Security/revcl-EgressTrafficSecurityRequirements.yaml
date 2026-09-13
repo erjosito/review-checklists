@@ -15,3 +15,14 @@ links:
 queries:
   arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
     = (properties.networkProfile.outboundType=='userDefinedRouting') | distinct id,compliant
+schemaVersion: 1
+id: 3b365a91-7ecb-4e48-bbe5-4cd7df2e8bba
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

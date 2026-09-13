@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/intro-to-azure-dns-private-resolver/
 queries: {}
+schemaVersion: 1
+id: 41049d40-3a92-43c3-974d-00018ac6a9e0
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

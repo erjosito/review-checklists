@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/sap/eslz-network-topology-and-connectivity
 queries: {}
+schemaVersion: 1
+id: 45bbe609-d8a0-43e9-9778-424d616785d6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

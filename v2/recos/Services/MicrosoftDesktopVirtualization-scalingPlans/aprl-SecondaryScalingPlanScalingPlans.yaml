@@ -1,18 +1,48 @@
 name: aprl-SecondaryScalingPlanScalingPlans
-title: Scaling plans should be created per region and not scaled across regions
-description: |-
-  Each region has its own scaling plans assigned to host pools within that region. However, these plans can become inaccessible if there's a regional failure. To mitigate this risk, it's advisable to create a secondary scaling plan in another region.
+title: Create scaling plans per region
+description: Scaling plans can only be assigned to host pools in the same region, on multi-region deployment
+  scenario each region should has its own scaling plan.
 source:
   type: aprl
   file: azure-resources/DesktopVirtualization/scalingPlans/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DesktopVirtualization/scalingPlans
+- microsoft.desktopvirtualization/scalingplans
 severity: 1
 labels:
   guid: 499769ae-67c9-492e-9ca5-cfd4cece5209
   area: Scalability
 links: []
 queries:
-  arg: |-
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 499769ae-67c9-492e-9ca5-cfd4cece5209
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DesktopVirtualization/scalingPlans/recommendations.yaml
+    title: 'APRL 499769ae-67c9-492e-9ca5-cfd4cece5209: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 499769ae-67c9-492e-9ca5-cfd4cece5209
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DesktopVirtualization/scalingPlans/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:21db7acfce64393227aff4c0dfa3aeef0bfd09efeaaa876a49b2301c8d747d5a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

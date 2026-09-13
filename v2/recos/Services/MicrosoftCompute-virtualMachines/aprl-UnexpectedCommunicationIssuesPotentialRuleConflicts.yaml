@@ -1,19 +1,23 @@
 name: aprl-UnexpectedCommunicationIssuesPotentialRuleConflicts
-title: VM network interfaces and associated subnets both have a Network Security Group
-  associated
-description: |-
-  Unless you have a specific reason, it's advised to associate a network security group to a subnet or a network interface, but not both, to avoid unexpected communication issues and troubleshooting due to potential rule conflicts between the two associations.
+title: Apply NSG policy at subnet or NIC scope and review combined rules
+description: Associate network security groups at the subnet and/or network-interface scope according
+  to the required traffic policy. An NSG is not universally required at both scopes. When both are configured,
+  traffic must be allowed by both applicable rule sets; inbound processing evaluates the subnet rules
+  before the NIC rules. Review the combined effective rules and required application flows rather than
+  assuming that dual association alone proves compliance.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 2
 labels:
   guid: 82b3cf6b-9ae2-2e44-b193-10793213f676
   area: Security
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/virtual-network/network-security-group-how-it-works
 queries:
   arg: |
     // Azure Resource Graph Query
@@ -41,3 +45,21 @@ queries:
         | extend nicId = tostring(nicId)
     ) on nicId
     | project recommendationId = "82b3cf6b-9ae2-2e44-b193-10793213f676", name=vmName, id = vmId, tags, param1 = strcat("nic-name=", nicName)
+schemaVersion: 1
+id: 82b3cf6b-9ae2-2e44-b193-10793213f676
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+  notes: Retained the legacy query as inventory only. Assess the updated guidance, eligibility, resource
+    scope, and recovery/migration policy manually; returned rows are not automatic violations and zero
+    rows do not prove compliance. Not executed against Azure.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/virtual-network/network-security-group-how-it-works
+    title: NSG subnet/NIC association and combined rule evaluation
+    accessedAt: '2026-09-11'
+waf: Security

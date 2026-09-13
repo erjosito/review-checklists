@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/bastion/bastion-overview
 queries: {}
+schemaVersion: 1
+id: ee1ac551-c4d5-46cf-b035-d0a3c50d87ad
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

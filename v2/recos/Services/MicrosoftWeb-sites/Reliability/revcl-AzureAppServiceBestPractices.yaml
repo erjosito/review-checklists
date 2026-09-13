@@ -1,5 +1,5 @@
 name: revcl-AzureAppServiceBestPractices
-title: Refer to backup and restore best practices for Azure App Service
+title: Use service-appropriate backup and restore procedures for App Service and linked databases
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,23 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/app-service/manage-backup
 queries: {}
+schemaVersion: 1
+id: 35a91c5d-4ad6-4d9b-8e0f-c47db9e6d1e7
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/disaster-recovery
+    title: Architecture strategies for disaster recovery
+    accessedAt: '2026-09-11'
+description: 'Maintain a tested recovery procedure for the web application, configuration and dependencies.
+  Do not use App Service linked-database backup functionality: it is deprecated. Use each database service''s
+  native backup and restore tooling instead, and coordinate restoration with the app''s recovery plan
+  and RTO/RPO. Confirm supported app backup scope and reconstruct omitted dependencies.'

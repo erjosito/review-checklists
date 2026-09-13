@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/container-registry-geo-replication
 queries: {}
+schemaVersion: 1
+id: 3c763963-7a55-42d5-a15e-401955387e5c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

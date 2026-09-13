@@ -1,8 +1,7 @@
 name: wafsg-OverallSecurityPostureAccessControls
-title: 'Apply access controls on identities: Restrict both inward access to the web
-  app and outward access from the web app to other resources. This configuration applies
-  access controls on identities and helps maintain the workload''s overall security
-  posture.'
+title: 'Apply access controls on identities: Restrict both inward access to the web app and outward access
+  from the web app to other resources. This configuration applies access controls on identities and helps
+  maintain the workload''s overall security posture.'
 description: ''
 source:
   type: wafsg
@@ -16,3 +15,29 @@ labels:
   guid: 5bb8daca-fde8-45bf-82f6-e55cdb28da05
 links: []
 queries: {}
+schemaVersion: 1
+id: 5bb8daca-fde8-45bf-82f6-e55cdb28da05
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/concept-best-practices-security
 queries: {}
+schemaVersion: 1
+id: 24d22678-6d20-4b56-a56a-958119bf8d8e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

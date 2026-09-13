@@ -1,5 +1,5 @@
 name: revcl-AksNonInteractiveLoginsKubelogin
-title: For AKS non-interactive logins use kubelogin (preview)
+title: Use supported kubelogin authentication methods for Microsoft Entra-integrated AKS.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/managed-aad#non-interactive-sign-in-with-kubelogin
 queries: {}
+schemaVersion: 1
+id: f4dcf690-1b30-407d-abab-6f8aa780d3a3
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/kubelogin-authentication
+    title: Use kubelogin to authenticate in Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/identity-access
+    title: Architecture strategies for identity and access management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: 'kubelogin is the supported client credential plugin, not a preview-only noninteractive feature.
+  Select a method appropriate to the caller: workload identity federation or managed identity for supported
+  automation, and an interactive method compatible with Conditional Access for people. Avoid resource-owner
+  password credentials and secrets persisted in kubeconfig. Verify the intended principal, tenant and
+  Kubernetes authorization; successful token acquisition alone does not establish least privilege.'

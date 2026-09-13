@@ -61,6 +61,21 @@ class BrowserFixture(unittest.TestCase):
 
 
 class BrowserFormTests(BrowserFixture):
+    def test_review_details_edit_preserves_file_and_assessments(self):
+        self.page.goto(self.base, wait_until="networkidle")
+        self.page.locator("#review-details summary").click()
+        self.page.get_by_label("Review name", exact=True).fill("LitwareReview01")
+        self.page.get_by_label("Description", exact=True).fill("Production review")
+        self.post_click(
+            self.page.get_by_role("button", name="Save review details", exact=True), "/metadata",
+        )
+        self.assertEqual(self.page.get_by_role("heading", level=1).inner_text(), "LitwareReview01")
+        self.assertEqual(self.review.metadata["description"], "Production review")
+        self.assertEqual(self.review.path.name, "review.sqlite3")
+        self.assertEqual(self.review.get(ID)["revision"], 0)
+        self.lookup.assert_not_called()
+        self.executor.assert_not_called()
+
     def test_preview_button_submits_in_browser_and_scrolls_to_result(self):
         self.page.goto(self.base, wait_until="networkidle")
         self.page.locator(f'input[name="selected"][value="{ID}"]').check()
@@ -102,7 +117,7 @@ class BrowserQueryAvailabilityTests(BrowserFixture):
         return cost_recommendations()
 
     def test_runnable_link_resolves_disabled_first_page_without_running_queries(self):
-        self.page.goto(self.base + "/?waf=cost", wait_until="networkidle")
+        self.page.goto(self.base + "/?waf=cost&paginate=1", wait_until="networkidle")
         self.assertTrue(self.page.get_by_role("button", name="Run selected queries", exact=True).is_disabled())
         self.assertIn("2 of 52 matching checks", self.page.locator("#query-availability").inner_text())
         self.page.get_by_role("link", name="Show only checks with ARG queries", exact=True).click()
@@ -110,6 +125,28 @@ class BrowserQueryAvailabilityTests(BrowserFixture):
         self.assertFalse(self.page.get_by_role("button", name="Run selected queries", exact=True).is_disabled())
         self.assertEqual(self.page.locator('input[name="selected"]').count(), 2)
         self.assertTrue(self.page.locator('input[name="with_arg"]').is_checked())
+        self.assertTrue(self.page.locator('input[name="waf"][value="cost"]').is_checked())
+        self.lookup.assert_not_called()
+        self.executor.assert_not_called()
+
+    def test_pagination_is_disabled_by_default_and_can_be_toggled(self):
+        self.page.goto(self.base + "/?waf=cost", wait_until="networkidle")
+        pagination = self.page.get_by_label("Paginate results (50 per page)", exact=True)
+        self.assertFalse(pagination.is_checked())
+        self.assertEqual(self.page.locator("tbody tr").count(), 52)
+        self.assertTrue(self.page.get_by_role("button", name="Run selected queries", exact=True).is_enabled())
+        pagination.check()
+        self.page.get_by_role("button", name="Filter", exact=True).click()
+        self.page.wait_for_load_state("networkidle")
+        self.assertEqual(self.page.locator("tbody tr").count(), 50)
+        self.page.get_by_role("link", name="Next", exact=True).click()
+        self.page.wait_for_load_state("networkidle")
+        self.assertEqual(self.page.locator("tbody tr").count(), 2)
+        pagination.uncheck()
+        self.page.get_by_role("button", name="Filter", exact=True).click()
+        self.page.wait_for_load_state("networkidle")
+        self.assertEqual(self.page.locator("tbody tr").count(), 52)
+        self.assertNotIn("page=", self.page.url)
         self.assertTrue(self.page.locator('input[name="waf"][value="cost"]').is_checked())
         self.lookup.assert_not_called()
         self.executor.assert_not_called()

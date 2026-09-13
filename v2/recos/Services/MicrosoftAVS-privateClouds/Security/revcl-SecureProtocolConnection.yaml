@@ -12,3 +12,13 @@ labels:
   guid: cd289ced-6b17-4db8-8554-61e2aee3553a
 links: []
 queries: {}
+schemaVersion: 1
+id: cd289ced-6b17-4db8-8554-61e2aee3553a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

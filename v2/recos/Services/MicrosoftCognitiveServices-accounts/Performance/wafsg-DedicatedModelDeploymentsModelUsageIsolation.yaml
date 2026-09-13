@@ -1,8 +1,9 @@
 name: wafsg-DedicatedModelDeploymentsModelUsageIsolation
-title: 'Achieve performance: Consider using dedicated model deployments per consumer
-  group to provide per-model usage isolation that can help prevent noisy neighbors
-  between your consumer groups.'
-description: ''
+title: Separate Azure OpenAI deployments where workload interference affects latency
+description: Benchmark consumer/workload isolation when mixing long and short requests or competing prompt-cache
+  usage degrades latency. Separate deployments can reduce interference, but do not by themselves establish
+  dedicated physical hardware or an end-to-end latency guarantee. Balance isolation against capacity utilization
+  and cost.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -15,3 +16,16 @@ labels:
   guid: 21a63a3a-9e5d-4a7d-9825-636f4012fbcf
 links: []
 queries: {}
+schemaVersion: 1
+id: 21a63a3a-9e5d-4a7d-9825-636f4012fbcf
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/ai-foundry/openai/how-to/latency
+    title: Performance and latency
+    accessedAt: '2026-09-11'

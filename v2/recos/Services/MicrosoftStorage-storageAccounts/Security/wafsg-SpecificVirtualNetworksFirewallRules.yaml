@@ -14,3 +14,13 @@ labels:
   guid: bbbb3c40-4a58-4602-87cd-5bb36d95381d
 links: []
 queries: {}
+schemaVersion: 1
+id: bbbb3c40-4a58-4602-87cd-5bb36d95381d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

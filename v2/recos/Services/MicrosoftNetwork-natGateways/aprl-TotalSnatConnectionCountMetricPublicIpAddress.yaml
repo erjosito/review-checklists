@@ -1,18 +1,32 @@
 name: aprl-TotalSnatConnectionCountMetricPublicIpAddress
 title: Scale a NAT gateway to meet the demand of a dynamic workload
-description: |-
-  NAT Gateway provides 64,512 SNAT ports per public IP address and supports up to 16 public IP addresses. Monitor "Total SNAT connection count" metric to determine if you're nearing the connection limit of NAT gateway. You can scale the NAT gateway by adding more public IP addresses.
+description: NAT Gateway provides 64,512 SNAT ports per public IP address and supports up to 16 public
+  IP addresses. Monitor "Total SNAT connection count" metric to determine if you're nearing the connection
+  limit of NAT gateway. You can scale the NAT gateway by adding more public IP addresses.
 source:
   type: aprl
   file: azure-resources/Network/natGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/natGateways
+- microsoft.network/natgateways
 severity: 1
 labels:
   guid: 4281631c-3d19-4994-8d96-084c2a51a534
   area: Scalability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 4281631c-3d19-4994-8d96-084c2a51a534
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Performance

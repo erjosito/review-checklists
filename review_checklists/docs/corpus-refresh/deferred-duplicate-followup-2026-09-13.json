@@ -1,0 +1,668 @@
+{
+  "artifactSchema": "deferred-duplicate-followup/1",
+  "status": "proposal_only_not_applied",
+  "asOf": "2026-09-13",
+  "accessDateBasis": "Calendar date in the requesting session's UTC+03:00 timezone",
+  "scope": "Exactly the 17 finalTechnicalDeferrals in the initial Cost/merge ledgers, assessed against the current source-refreshed corpus. No similarity search, uncertain-group expansion, YAML edits, source edits, test edits, commits, Azure execution or publication.",
+  "derivation": {
+    "authoritativeLists": ["duplicate-audit.json#/finalTechnicalDeferrals", "alias-migration.json#/finalTechnicalDeferrals"],
+    "listsExactlyEqual": true,
+    "confirmedAuditGroups": 71,
+    "appliedNonCostGroups": 45,
+    "appliedCostGroups": 9,
+    "remainingGroups": 17,
+    "remainingCanonicalMembers": 37,
+    "historicalCandidateRetirements": 20,
+    "method": "Match the two finalTechnicalDeferrals arrays, retain their group IDs, member IDs and explicit canonicalId (not ids[0]); verify subtraction of both applied manifests from the 71 original confirmed groups. Current YAML, not original member snapshots, determines the decisions.",
+    "historicalFileSha256": {
+      "duplicate-audit.json": "6d0809b9316657b299c364294eab31f4e385dc9036d475ff3a831ef805854daf",
+      "alias-migration.json": "7c3adc7f5cc67f8ef3aecfbf3afd88a79837e14b235a702335e624ab95d30d9f",
+      "non-cost-merge-manifest.json": "99cb1412f34625033a73eb39cd14984b71be0107c49d3fdb95941790bde8948b",
+      "post-cost-duplicate-review.json": "f95dfe4469b0139b80cb58a6d660f6d962d870971df1ff19f969601f4e8852e7",
+      "post-cost-safe-merge-manifest.json": "b6894ed3213a4f1b12e0fcbde37786895fa0a34673a37d29465c1ac81f68d231",
+      "cost-alias-migration.json": "2e0be6b8b4c96a9a83cdc1ff5bafe16bb907682da689969e1f968fc0f4158c6e"
+    }
+  },
+  "baseline": {
+    "canonicalCount": 2011,
+    "aliasCount": 55,
+    "contentHash": "sha256:1a9879553910a9fdb7271e507973d717dee75862726f23ea7ba9f0af858ffe58",
+    "hashDefinition": "review_checklists.catalog.make_bundle contentHash: canonical JSON of ID-sorted recommendations, excluding runtime corpus_file.",
+    "groupHashDefinition": "review_checklists.catalog.content_hash of complete current member dictionaries excluding corpus_file, ordered canonicalId first then the remaining ledger ids in their original order.",
+    "all37MembersStillCanonical": true,
+    "all37MembersHaveNoExistingAliases": true,
+    "commonMemberFields": {
+      "services": [],
+      "constraintsPresent": false,
+      "automatablePresent": false,
+      "automation.validatedAt": null,
+      "provenance.upstreamRevision": null,
+      "provenance.lastReviewed": null
+    },
+    "commonFieldCaveat": "Empty explicit services do not mean service-agnostic technical guidance. Resource types and prose are examined separately. All queries are {} except the three entries in queryEvidence. Automation is unknown/validatedAt:null except explicit member overrides below.",
+    "checklistCounts": {
+      "all_recos.yaml": 2011,
+      "alz.json": 0,
+      "alz.yaml": 236,
+      "app_delivery.yaml": 38,
+      "app_delivery_aprl.yaml": 33,
+      "aprl.yaml": 333,
+      "no-service.yaml": 0,
+      "waf.yaml": 1022,
+      "waf_resiliency.yaml": 299,
+      "waf_sg_security.yaml": 167
+    },
+    "checklistMethod": "Read every v2/checklists YAML/JSON document and call current select_checklist(..., allow_empty=True). Zero matches for alz.json and no-service.yaml are recorded baseline limitations, not newly successful populated selections. Placements below are the current adapter's selected area/subarea, not inferred from file paths.",
+    "checklistPathBase": "v2/checklists",
+    "membershipAbbreviations": {
+      "all": "all_recos.yaml",
+      "waf": "waf.yaml",
+      "reliability": "waf_resiliency.yaml",
+      "security-sg": "waf_sg_security.yaml",
+      "aprl": "aprl.yaml"
+    },
+    "defaultPlacement": {"area": "", "subarea": ""},
+    "legacyImportCheck": "The exact member GUIDs were also looked up in checklists/waf_checklist.en.json, checklists/alz_checklist.en.json and checklists-ext/wafsg_checklist.en.json. Their historical text is not substituted for refreshed YAML. Existing source.file values, original names and GUIDs must survive as aliases; no legacy generated file is edited."
+  },
+  "sourceOrigins": {
+    "revcl-waf": {"type": "revcl", "file": "./checklists/waf_checklist.en.json"},
+    "revcl-alz": {"type": "revcl", "file": "./checklists/alz_checklist.en.json"},
+    "wafsg-ext": {"type": "wafsg", "file": "./checklists-ext/wafsg_checklist.en.json"},
+    "wafsg-appgateway": {"type": "wafsg", "file": "well-architected/service-guides/azure-application-gateway.md", "timestamp": "July 24, 2024"},
+    "wafsg-expressroute": {"type": "wafsg", "file": "well-architected/service-guides/azure-expressroute.md", "timestamp": "July 24, 2024"},
+    "wafsg-firewall": {"type": "wafsg", "file": "well-architected/service-guides/azure-firewall.md", "timestamp": "July 24, 2024"},
+    "aprl-expressroute": {"type": "aprl", "file": "azure-resources/Network/expressRouteCircuits/recommendations.yaml", "timestamp": "July 24, 2024"}
+  },
+  "decisionCounts": {
+    "equivalent_mergeable": 2,
+    "related_distinct_reject_merge": 1,
+    "unresolved": 14,
+    "proposedRetirements": 3,
+    "appliedGroups": 0,
+    "yamlFilesEdited": 0
+  },
+  "decisionDefinitions": {
+    "equivalent_mergeable": "Equivalent requirements with a concrete proposal accepted by the existing merge engine in a read-only dry run; still requires parent approval.",
+    "related_distinct_reject_merge": "Current checks address materially different assessment scope. Reject this merge, rather than merely waiting for metadata normalization.",
+    "unresolved": "Not eligible for a current-engine merge. The specific remaining policy, classification, scope, automation, lineage or guidance conflict is stated. Semantic equivalence alone does not authorize changing source types, priority or discovery."
+  },
+  "mergeEngineAssessment": {
+    "implementation": "review_checklists/merge.py",
+    "supportedGroupFields": ["canonicalId", "retiredIds", "reason", "description", "beforeContentHash"],
+    "scopeGate": "WAF, severity, case-folded resourceTypes/services, constraints, non-guid labels and source.type must agree.",
+    "otherGates": "queries, automation, automatable, reviewedDate, duplicates and provenance upstreamRevision/lastReviewed must agree. Distinct descriptions must remain verbatim substrings of the supplied description. Conflicting source entries for the same provenance URL are rejected.",
+    "aliasBehavior": "Preserves retired id/name/source/labels/corpusFile and pre-existing aliases; unions links and provenance.sources. It does not preserve retired WAF/severity as live selector classifications.",
+    "upstreamMappingRisk": "The implementation retains only the survivor's provenance.upstreamRecommendations, not a union across members. This is safe for proposed group 050 because all three mappings are identical and for 068 because all are absent. Do not use it unchanged for a group with a distinct retired mapping.",
+    "noGateBypass": "No source.type rewriting, label fabrication, severity normalization, query donation, or unsupported manifest fields are proposed merely to make a merge pass."
+  },
+  "evidence": [
+    {"id": "asr-monitoring", "url": "https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-monitor-and-troubleshoot", "title": "Azure Site Recovery dashboard and built-in alerts", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read dashboard, replicated-item health, test failover, configuration and error monitoring sections.", "supports": "The monitoring action is common to both SAP application-server records; storage encryption/planning links on the other member do not establish a separate monitoring requirement."},
+    {"id": "virtual-wan", "url": "https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about", "title": "Azure Virtual WAN Overview", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read overview, resources and Basic/Standard capability table.", "supports": "Standard Virtual WAN provides inter-hub/global transit. Basic is site-to-site VPN only. Front Door is not a replacement for Virtual WAN private transit."},
+    {"id": "encryption", "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-atrest", "title": "Azure data encryption at rest", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read introduction and key-management options.", "supports": "Platform-managed keys are the default; customer-managed keys address additional control/compliance needs and management responsibilities."},
+    {"id": "zones", "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview", "title": "What are Azure Availability Zones?", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read zonal/zone-redundant support and configuration sections.", "supports": "A single zonal VM is not zone-resilient. Replicated arrangements across multiple supported zones and service/SKU availability matter."},
+    {"id": "aks-regions", "url": "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster", "title": "AKS baseline for multiregion clusters", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read architecture, components, alternatives and deployment-stamp considerations.", "supports": "Separate regional AKS clusters with global routing provide multiregion resilience. This is distinct from putting nodes of one cluster in multiple zones."},
+    {"id": "aks-monitoring", "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-overview", "title": "Kubernetes monitoring in Azure Monitor", "accessedAt": "2026-09-13", "verification": "Fetched and read the primary page's network/container/application layers and analysis sections.", "supports": "Managed Prometheus, containerized Azure Monitor Agent, control-plane diagnostic logs and application traces have separate roles; legacy Container insights wording is not equivalent evidence of complete layered monitoring."},
+    {"id": "finops-networking", "url": "https://learn.microsoft.com/en-us/cloud-computing/finops/best-practices/networking", "title": "FinOps best practices for Networking", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read Application Gateway empty-target and classic-upgrade sections and ExpressRoute unprovisioned-circuit section and query.", "supports": "Empty backend targets and NotProvisioned circuits are specific candidate signals, not utilization measurements or deletion authorization. Classic Application Gateway upgrade remains a separate action."},
+    {"id": "arg-language", "url": "https://learn.microsoft.com/en-us/azure/governance/resource-graph/concepts/query-language", "title": "Understand the query language - Azure Resource Graph", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read Resources table and join support, then the supported-operator limits.", "supports": "ARG supports leftouter joins; row expansion is bounded. Documentation support is not live validation of either retained query."},
+    {"id": "er-maintenance", "url": "https://learn.microsoft.com/en-us/azure/expressroute/maintenance-alerts", "title": "How to view and configure alerts for Azure ExpressRoute circuit maintenance", "accessedAt": "2026-09-13", "verification": "Fetched and read primary page including alert rule event/service/region/action-group fields.", "supports": "Configure Service Health planned-maintenance alerts for ExpressRoute circuits. This page does not promise advance notice of every unplanned event."},
+    {"id": "er-planned", "url": "https://learn.microsoft.com/en-us/azure/expressroute/planned-maintenance", "title": "Planned maintenance guidance for ExpressRoute", "accessedAt": "2026-09-13", "verification": "Fetched and read primary page.", "supports": "Service Health maintenance alerts remain supported; path redundancy and failover testing are additional concerns, not satisfied merely by subscribing to alerts."},
+    {"id": "aprl-disabled", "url": "https://raw.githubusercontent.com/Azure/Azure-Proactive-Resiliency-Library-v2/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml", "title": "APRL ExpressRoute circuit recommendations at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463", "accessedAt": "2026-09-13", "verification": "Fetched the pinned public YAML directly, parsed it and selected exactly APRL GUID 26cb547f-aabc-dc40-be02-d0a9b6b04b1a.", "supports": "The exact upstream item is Disabled with automationAvailable:false. This is pinned lineage, not a claim about a newly inventoried upstream HEAD."},
+    {"id": "firewall-dns", "url": "https://learn.microsoft.com/en-us/azure/firewall/dns-settings", "title": "Azure Firewall DNS settings", "accessedAt": "2026-09-13", "verification": "Fetched and read primary page, including DNS servers, proxy configuration, policy inheritance and client DNS settings.", "supports": "Custom upstream DNS is optional; Azure-provided DNS is a supported default. Enabling proxy does not itself update client/VNet DNS. The existing mandatory-custom-DNS sentence needs correction before consolidation."},
+    {"id": "locks", "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources", "title": "Lock your Azure resources to protect your infrastructure", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read lock inheritance, control/data-plane scope and storage-specific operational restrictions.", "supports": "All three refreshed storage-lock records now express the same control-plane protection with CanNotDelete/ReadOnly differences and explicit data-plane limitations."},
+    {"id": "blob-soft-delete", "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/soft-delete-blob-overview", "title": "Soft Delete for Blobs to Recover Data", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read recommended configuration, retention, deletion/overwrite and restore behavior.", "supports": "Blob soft delete is distinct from container soft delete and account locks. Retention and hierarchical-namespace/overwrite limitations matter."},
+    {"id": "container-soft-delete", "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/soft-delete-container-overview", "title": "Soft delete for containers", "accessedAt": "2026-09-13", "verification": "Fetched and read primary page.", "supports": "Container soft delete restores whole deleted containers, not a deleted blob in a still-existing container; it does not protect account deletion."},
+    {"id": "functions-always-on", "url": "https://learn.microsoft.com/en-us/azure/azure-functions/dedicated-plan#always-on", "title": "Azure Functions Dedicated hosting", "accessedAt": "2026-09-13", "verification": "Fetched and read primary page, including Dedicated hosting and Always On.", "supports": "Always On applies to Functions on dedicated App Service plans. Other hosting plans activate functions differently; do not broaden to Consumption/Flex/Premium or all microsoft.web/sites."},
+    {"id": "regions", "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/regions", "title": "Select Azure regions", "accessedAt": "2026-09-13", "verification": "Fetched and read primary page, particularly Validate region capabilities.", "supports": "Check required services and features, zones, quota/capacity and regional requirements; ANF and zones in one title are examples, not a different control."},
+    {"id": "er-cost", "url": "https://learn.microsoft.com/en-us/azure/expressroute/plan-manage-cost", "title": "Plan to manage costs for Azure ExpressRoute", "accessedAt": "2026-09-13", "verification": "Fetched and read primary page including full billing model and post-deletion charges.", "supports": "Gateway charges can remain after circuit deletion; ExpressRoute Direct port charges are separate. NotProvisioned is not a generic low-traffic predicate."},
+    {"id": "last-sync", "url": "https://learn.microsoft.com/en-us/azure/storage/common/last-sync-time-get", "title": "Check the Last Sync Time property for a storage account", "accessedAt": "2026-09-13", "verification": "Fetched and read primary page.", "supports": "Last Sync Time bounds guaranteed replication; later writes may or may not have reached the secondary. GRS/GZRS include read-access options."},
+    {"id": "storage-failover", "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance", "title": "Azure storage disaster recovery planning and failover", "accessedAt": "2026-09-13", "verification": "Fetched primary page; read failover types, planned/unplanned distinction and Last sync time/data-loss sections.", "supports": "Planned failover/failback does not expect data loss while both regions remain available throughout. Unplanned failover has potential loss and consistency concerns."},
+    {"id": "policy-analytics", "url": "https://learn.microsoft.com/en-us/azure/firewall/policy-analytics", "title": "Azure Firewall Policy Analytics", "accessedAt": "2026-09-13", "verification": "Fetched and read primary page.", "supports": "One dashboard supports rule/flow analysis and operational/performance optimization. It requires enabled resource-specific logging and Log Analytics; it is not retroactive and low-utilization analysis is time-bounded."}
+  ],
+  "fetchGaps": [
+    {"url": "https://learn.microsoft.com/azure/storage/common/storage-last-sync-time-get", "attemptedAt": "2026-09-13", "result": "404", "resolution": "Fetched the correct primary last-sync-time-get URL recorded as last-sync; the failed URL is not evidence."}
+  ],
+  "upstreamMappingChecks": [
+    {
+      "memberIds": ["26cb547f-aabc-dc40-be02-d0a9b6b04b1a"],
+      "sourceId": "aprl",
+      "recommendationId": "26cb547f-aabc-dc40-be02-d0a9b6b04b1a",
+      "coverage": "supporting",
+      "upstreamContentHash": "sha256:6ebf10588e53b8de8978b9e0ad3b47f343c0ebf90feb8904ef9e0d0c058ca134",
+      "inventory": "full-refresh-2026-09-11/aprl-inventory-all.json",
+      "inventoryAsOf": "2026-09-11",
+      "inventoryHashMatches": true,
+      "currentPinnedSourceFetched": true,
+      "assessment": "Preserve Disabled APRL lineage as supporting only. New Learn evidence supports a planned-maintenance alert action, not converting this disabled upstream identity into Active/full coverage."
+    },
+    {
+      "memberIds": ["bdab324d-7736-4444-a03e-a1ec180f3699"],
+      "sourceId": "waf-operations-checklist",
+      "recommendationId": "OE:07",
+      "coverage": "partial",
+      "upstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540",
+      "inventory": "full-refresh-2026-09-11/operations-waf-inventory.json",
+      "inventoryAsOf": "2026-09-11",
+      "inventoryHashMatches": true,
+      "assessment": "Current mapping matches the frozen Design a monitoring stack item; service-specific monitoring is not full workload-wide OE:07. Retiring this member into the historical survivor would lose this mapping in the current merge implementation."
+    },
+    {
+      "memberIds": ["3195423b-0513-45e2-951b-87f9c5d534b0", "5efa7ffa-1cc0-4a74-bd15-c809185ccb58", "0148ed98-3b9a-4b7f-81c2-8b550f56f793"],
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "inventory": "full-refresh-2026-09-11/security-waf-inventory.json",
+      "inventoryAsOf": "2026-09-11",
+      "inventoryHashMatches": true,
+      "allMemberMappingsExactlyEqual": true,
+      "assessment": "Retain the survivor's unchanged partial SE:08 mapping; this is one unique upstream item, not three. No new coverage percentage or reassessment date is asserted."
+    }
+  ],
+  "upstreamUnmapped": "The other 32 members have no provenance.upstreamRecommendations. Original revcl/wafsg source paths and legacy GUIDs remain source lineage, not invented remote recommendation identifiers. No new upstream mappings are proposed.",
+  "queryEvidence": [
+    {
+      "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+      "queries": {"arg": "Resources\n| where type =~ 'microsoft.network/applicationgateways'\n| project id, name, subscriptionId, resourceGroup, location, sku\n| join kind=leftouter (\n    Resources\n    | where type =~ 'microsoft.network/applicationgateways'\n    | mv-expand pool = properties.backendAddressPools limit 2000\n    | extend ipCount = array_length(pool.properties.backendIPConfigurations),\n        addressCount = array_length(pool.properties.backendAddresses)\n    | summarize backendTargets = sum(coalesce(ipCount, 0) + coalesce(addressCount, 0)) by id\n) on id\n| where coalesce(backendTargets, 0) == 0\n| project id, name, subscriptionId, resourceGroup, location, sku, backendTargets"},
+      "automationStatus": "query_available",
+      "resultSemantics": "inventory",
+      "validatedAt": null,
+      "assessment": "Retain exactly. Leftouter includes empty pool arrays; sum tests visible targets across backend IP configurations and backend addresses. Missing properties, visibility, eventual consistency and expansion/paging limits can affect interpretation. This does not assess traffic/utilization or authorize deletion."
+    },
+    {
+      "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+      "queries": {"arg": "Resources\n| where type =~ 'microsoft.network/expressroutecircuits'\n| where properties.serviceProviderProvisioningState == 'NotProvisioned'\n| project id, name, subscriptionId, resourceGroup, location, sku,\n    peeringLocation = tostring(properties.serviceProviderProperties.peeringLocation),\n    bandwidthMbps = tolong(properties.serviceProviderProperties.bandwidthInMbps)"},
+      "automationStatus": "query_available",
+      "resultSemantics": "inventory",
+      "validatedAt": null,
+      "assessment": "Retain exactly. NotProvisioned is a provider-state candidate, not idle duration, low traffic, ownership or proof of waste. Approved standby/pending provisioning and provider/circuit/gateway dependencies need separate evidence."
+    },
+    {
+      "id": "26cb547f-aabc-dc40-be02-d0a9b6b04b1a",
+      "queries": {"arg": ""},
+      "automationStatus": "candidate",
+      "resultSemantics": "unknown",
+      "validatedAt": null,
+      "assessment": "No executable KQL. Prior comment-only payload was removed by the APRL refresh. Do not resurrect a placeholder, invent ARG detection or label it validated."
+    }
+  ],
+  "decisions": [
+    {
+      "groupId": "confirmed-001",
+      "historicalCanonicalId": "d89fd98d-23e4-4b40-a92e-32db9365522c",
+      "memberIds": ["d89fd98d-23e4-4b40-a92e-32db9365522c", "07e5ed53-3d96-43d8-87ea-631b77da5aba"],
+      "beforeContentHash": "sha256:fffc2ae653b5a6341f2acae468b7a21885174dd7a1031e2c73b7b1b3c2374112",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_action",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": [],
+      "members": [
+        {"id": "d89fd98d-23e4-4b40-a92e-32db9365522c", "waf": "Operations", "severity": 0, "sourceRef": "revcl-waf", "memberships": ["all", "waf"]},
+        {"id": "07e5ed53-3d96-43d8-87ea-631b77da5aba", "waf": "Reliability", "severity": 1, "sourceRef": "revcl-waf", "memberships": ["all", "waf", "reliability"]}
+      ],
+      "guidanceAssessment": "Both verbatim titles require ASR health monitoring for SAP application-server disaster recovery, and neither has a description or executable query. The Operations member's ASR link is relevant; the Reliability member's SAP storage/training links are tangential, not separate applicability.",
+      "evidenceIds": ["asr-monitoring"],
+      "queryResolution": "No query or automation difference; retain unknown/null, not automatic compliance.",
+      "blockers": ["Operations versus Reliability changes pillar discovery and actual waf_resiliency.yaml membership.", "Severity 0 versus 1 is an unresolved priority decision; an alias does not retain the retired item's severity."],
+      "requiredNextDecision": "Preserve live Operations and Reliability discovery or explicitly approve a pillar migration with checklist compatibility; separately approve severity reconciliation. Current manifest cannot express either. Keep both GUIDs meanwhile."
+    },
+    {
+      "groupId": "confirmed-002",
+      "historicalCanonicalId": "7d4bc7d2-c34a-452e-8f1d-6ae3c8eafcc3",
+      "memberIds": ["7d4bc7d2-c34a-452e-8f1d-6ae3c8eafcc3", "e73de7d5-6f36-4217-a526-e1a621ecddde"],
+      "beforeContentHash": "sha256:fdecb873a6735eb51bf994ffd0ff61bfa8c78f23c316c95ef248c25fc2609ec4",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_action",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": [],
+      "members": [
+        {"id": "7d4bc7d2-c34a-452e-8f1d-6ae3c8eafcc3", "waf": "Operations", "severity": 1, "sourceRef": "revcl-waf", "memberships": ["all", "waf"]},
+        {"id": "e73de7d5-6f36-4217-a526-e1a621ecddde", "waf": "Performance", "severity": 1, "sourceRef": "revcl-waf", "memberships": ["all", "waf"]}
+      ],
+      "guidanceAssessment": "Identical conditional recommendation to use Virtual WAN for new/large/global networks and global transit, including SAP. Current source clarifies Standard versus Basic; the other member's Front Door links do not support private transit and must not imply the services are equivalent.",
+      "evidenceIds": ["virtual-wan"],
+      "queryResolution": "Both {} and unknown/null; no query to reconcile.",
+      "blockers": ["Operations versus Performance remains a live filter/selector conflict even though the checked file-based checklist memberships match."],
+      "requiredNextDecision": "Authorize explicit pillar/discovery reconciliation before any merge. Keep the conditional network scope; do not broaden to mandatory Virtual WAN for every SAP workload or substitute Front Door."
+    },
+    {
+      "groupId": "confirmed-003",
+      "historicalCanonicalId": "16183687-a047-47a2-8994-5bda43334f24",
+      "memberIds": ["16183687-a047-47a2-8994-5bda43334f24", "eeaa3592-829e-42ed-a217-3676aff6691b"],
+      "beforeContentHash": "sha256:eb72244f147bea9cfeca1e2151011756a640b33730cd2b0686d275b8327365fe",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_action",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": [],
+      "members": [
+        {"id": "16183687-a047-47a2-8994-5bda43334f24", "waf": "Security", "severity": 1, "sourceRef": "revcl-alz", "labelExtras": {"area": "Security", "subarea": "Encryption and keys", "id": "G02.10"}, "memberships": ["all", "waf"], "additionalPlacements": [{"checklist": "alz.yaml", "area": "Security", "subarea": "Encryption and keys"}]},
+        {"id": "eeaa3592-829e-42ed-a217-3676aff6691b", "waf": "Security", "severity": 1, "sourceRef": "revcl-waf", "labelExtras": {}, "memberships": ["all", "waf"]}
+      ],
+      "guidanceAssessment": "Both require default Microsoft/platform-managed keys with customer-managed keys when needed. Storage-specific supporting links do not narrow the identically worded generic requirement.",
+      "evidenceIds": ["encryption"],
+      "queryResolution": "Both {} and unknown/null.",
+      "blockers": ["Non-guid labels differ; current engine rejects even the apparently preservable label superset.", "G02.10 and ALZ Security / Encryption and keys must remain addressable and discoverable; do not discard labels or fabricate them on the other authored record to bypass the gate."],
+      "requiredNextDecision": "A separately reviewed label/selector compatibility mechanism could retain the historical ALZ survivor and both import origins. No such engine change or authored metadata migration is authorized here."
+    },
+    {
+      "groupId": "confirmed-006",
+      "historicalCanonicalId": "e514548d-2447-4ec6-9138-b8200f1ce16e",
+      "memberIds": ["e514548d-2447-4ec6-9138-b8200f1ce16e", "826c5c45-bb79-4951-a812-e3bfbfd7326b"],
+      "beforeContentHash": "sha256:427edef31a4472b5d3ab0f0f64eb24f53b15a423ad722363ce12e3e44c337e72",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_action",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.compute/virtualmachines"],
+      "members": [
+        {"id": "e514548d-2447-4ec6-9138-b8200f1ce16e", "waf": "Reliability", "severity": 1, "sourceRef": "revcl-waf", "memberships": ["all", "waf", "reliability"]},
+        {"id": "826c5c45-bb79-4951-a812-e3bfbfd7326b", "waf": "Reliability", "severity": 0, "sourceRef": "revcl-waf", "memberships": ["all", "waf", "reliability"], "additionalPlacements": [{"checklist": "alz.yaml", "area": "Management", "subarea": "Fault Tolerance"}]}
+      ],
+      "guidanceAssessment": "Both VM-zone recommendations are conditional on regional support. The richer member explicitly co-locates dependencies within each zone and replicates the arrangement into other zones; that qualification must survive.",
+      "evidenceIds": ["zones"],
+      "queryResolution": "Both {} and unknown/null; a zone property alone would not prove a resilient application.",
+      "blockers": ["Severity 1 versus 0; choosing the historical survivor unchanged would lower the other priority.", "The retired candidate is explicitly selected into ALZ Management / Fault Tolerance; alias resolution must retain that placement."],
+      "requiredNextDecision": "A separately authorized priority decision could choose severity 0 conservatively, retaining both originals in the migration audit, but merge.py cannot reconcile it and this proposal does not edit either record."
+    },
+    {
+      "groupId": "confirmed-008",
+      "historicalCanonicalId": "57d11e53-f830-4930-9d74-2ce5435cd971",
+      "memberIds": ["8dd12fab-e3cb-4b39-9ebf-3609a3de2e34", "57d11e53-f830-4930-9d74-2ce5435cd971"],
+      "beforeContentHash": "sha256:7321458930bff025c1462b98d2e416a1e135b06126b3a6744a5e5427692fe4ab",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_action",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.containerservice/managedclusters"],
+      "members": [
+        {"id": "8dd12fab-e3cb-4b39-9ebf-3609a3de2e34", "waf": "Operations", "severity": 1, "sourceRef": "wafsg-ext", "memberships": ["all"]},
+        {"id": "57d11e53-f830-4930-9d74-2ce5435cd971", "waf": "Reliability", "severity": 1, "sourceRef": "wafsg-ext", "memberships": ["all"]}
+      ],
+      "guidanceAssessment": "Identical AKS multiregion-cluster titles and identical Internet-facing Front Door/Traffic Manager routing descriptions. Separate regional clusters are the requirement, not availability zones or a classic/modern ingress migration.",
+      "evidenceIds": ["aks-regions"],
+      "queryResolution": "Both {} and unknown/null.",
+      "blockers": ["Operations versus Reliability cannot both survive current scalar WAF selection through aliases."],
+      "requiredNextDecision": "Explicitly reconcile pillar discovery before merging; source corroboration alone is not permission to delete an Operations view."
+    },
+    {
+      "groupId": "confirmed-009",
+      "historicalCanonicalId": "1b92e639-a727-409c-a343-17109a2861f2",
+      "memberIds": ["bdab324d-7736-4444-a03e-a1ec180f3699", "1b92e639-a727-409c-a343-17109a2861f2"],
+      "beforeContentHash": "sha256:a21b6b629070ffa19cffa139c60701b2d0835b12f73e4893dbb3b339dc60b3d5",
+      "decision": "unresolved",
+      "semanticRelation": "same_legacy_title_current_guidance_diverged",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.containerservice/managedclusters"],
+      "members": [
+        {"id": "bdab324d-7736-4444-a03e-a1ec180f3699", "waf": "Operations", "severity": 1, "sourceRef": "wafsg-ext", "automationStatus": "manual", "memberships": ["all"]},
+        {"id": "1b92e639-a727-409c-a343-17109a2861f2", "waf": "Reliability", "severity": 1, "sourceRef": "wafsg-ext", "automationStatus": "unknown", "memberships": ["all"]}
+      ],
+      "guidanceAssessment": "The refreshed Operations description now separates agent-based container logs, managed Prometheus, control-plane diagnostics and application traces, plus data-arrival/alert/dashboard verification. The Reliability description still describes older combined Container insights metrics and Prometheus integration. Same title is not evidence that their current assessment contracts are interchangeable.",
+      "evidenceIds": ["aks-monitoring"],
+      "queryResolution": "Both queries are {}; manual versus unknown automation still conflicts. Do not fabricate a metrics/ARG query or downgrade modern manual validation to unknown.",
+      "blockers": ["Modernize the legacy description deliberately rather than concatenate obsolete monitoring architecture into the new guidance.", "Operations versus Reliability discovery and manual versus unknown automation differ.", "Historical survivor has no OE:07 mapping; current engine would silently lose the refreshed member's distinct partial mapping."],
+      "requiredNextDecision": "Decide whether the older check is to become a narrower health-monitoring requirement or be deliberately superseded by layered observability; then reconcile WAF/automation and preserve the exact OE:07 source/hash. No current merge proposed."
+    },
+    {
+      "groupId": "confirmed-012",
+      "historicalCanonicalId": "7947e534-c9a8-435b-9e03-d300143b5f74",
+      "memberIds": ["7947e534-c9a8-435b-9e03-d300143b5f74", "74ad737c-cbb8-4e91-84b7-2aa937b37ede"],
+      "beforeContentHash": "sha256:1fe9b9dc217c149d675f92829b4f20fe9fbdb6772199c6b9157b18f4a31cbdfe",
+      "decision": "related_distinct_reject_merge",
+      "semanticRelation": "different_assessment_scope",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.network/applicationgateways"],
+      "members": [
+        {"id": "7947e534-c9a8-435b-9e03-d300143b5f74", "waf": "Cost", "severity": 1, "sourceRef": "wafsg-ext", "automationStatus": "query_available", "memberships": ["all"]},
+        {"id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede", "waf": "Cost", "severity": 1, "sourceRef": "wafsg-appgateway", "automationStatus": "unknown", "memberships": ["all"]}
+      ],
+      "guidanceAssessment": "Review Application Gateways with no configured backend targets is not Review underutilized resources. A populated low-traffic gateway is within utilization review but outside the empty-target detector; an intentionally staged empty gateway need not be waste. These are concrete counterexamples to equivalence.",
+      "evidenceIds": ["finops-networking", "arg-language"],
+      "queryResolution": "Keep the existing empty-target inventory query and all manual/visibility/paging/IaC/standby caveats on 7947e534 only. No query donation to the broader utilization check; zero rows establish neither utilization nor compliance.",
+      "blockers": [],
+      "requiredNextDecision": "Reject this duplicate proposal and retain both current GUIDs. A separately scoped improvement could clarify the generic utilization check with metrics and business evidence, but is not required or authorized for this duplicate review."
+    },
+    {
+      "groupId": "confirmed-034",
+      "historicalCanonicalId": "26cb547f-aabc-dc40-be02-d0a9b6b04b1a",
+      "memberIds": ["26cb547f-aabc-dc40-be02-d0a9b6b04b1a", "41687924-ef94-411f-b71a-c8ec2543dbb7"],
+      "beforeContentHash": "sha256:a1d3484c1cc78d3186e0a9d3b78896e1814ba127b3d6d323997bc0f3cfbf2fe6",
+      "decision": "unresolved",
+      "semanticRelation": "same_alert_intent_with_disabled_upstream_lineage",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.network/expressroutecircuits"],
+      "members": [
+        {"id": "26cb547f-aabc-dc40-be02-d0a9b6b04b1a", "waf": "Operations", "severity": 0, "sourceRef": "aprl-expressroute", "automationStatus": "candidate", "labelExtras": {"area": "Monitoring and Alerting"}, "memberships": ["all", "aprl"]},
+        {"id": "41687924-ef94-411f-b71a-c8ec2543dbb7", "waf": "Reliability", "severity": 1, "sourceRef": "wafsg-expressroute", "automationStatus": "unknown", "labelExtras": {}, "memberships": ["all"]}
+      ],
+      "guidanceAssessment": "Current Learn still supports ExpressRoute planned-maintenance Service Health alerts. Pinned APRL marks this precise GUID Disabled. Its old claim about both planned and unplanned notifications must not become a guarantee of advance notice of every unplanned event.",
+      "evidenceIds": ["er-maintenance", "er-planned", "aprl-disabled"],
+      "queryResolution": "APRL now has arg:'' and candidate/unknown semantics, not executable KQL. WAF member has {} and unknown automation. Do not resurrect the removed placeholder.",
+      "blockers": ["Disabled upstream identity requires an explicit supported-guidance/lineage decision, not automatic reactivation.", "WAF, severity, source.type, non-guid labels, query representation and automation all conflict.", "Preserve APRL source-selector membership and supporting-only exact upstream mapping; a citation is not active upstream coverage."],
+      "requiredNextDecision": "Author a carefully scoped planned-maintenance alert requirement or replacement proposal, explicitly retaining Disabled APRL lineage and both source memberships; reconcile metadata only with parent authorization. Current manifest cannot implement it safely."
+    },
+    {
+      "groupId": "confirmed-049",
+      "historicalCanonicalId": "35c2f653-acd6-471c-91a9-f7e4a3fcce3e",
+      "memberIds": ["94f3eede-9aa3-4088-92a3-bb9a56509fad", "eb9ee852-eda8-41a8-917d-4a5a25a6d866", "35c2f653-acd6-471c-91a9-f7e4a3fcce3e"],
+      "beforeContentHash": "sha256:ef8ed83063dc45e9574775afce9e72ea7c9359ec518fecb3d526596826b2fa57",
+      "decision": "unresolved",
+      "semanticRelation": "same_dns_proxy_intent_but_one_incorrect_constraint",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.network/azurefirewalls"],
+      "members": [
+        {"id": "94f3eede-9aa3-4088-92a3-bb9a56509fad", "waf": "Security", "severity": 1, "sourceRef": "revcl-waf", "memberships": ["all", "waf"], "additionalPlacements": [{"checklist": "alz.yaml", "area": "Network Topology and Connectivity", "subarea": "Firewall"}]},
+        {"id": "eb9ee852-eda8-41a8-917d-4a5a25a6d866", "waf": "Security", "severity": 1, "sourceRef": "wafsg-firewall", "memberships": ["all", "security-sg"]},
+        {"id": "35c2f653-acd6-471c-91a9-f7e4a3fcce3e", "waf": "Security", "severity": 1, "sourceRef": "wafsg-ext", "memberships": ["all", "security-sg"]}
+      ],
+      "guidanceAssessment": "All three enable Azure Firewall DNS proxy, but the proposed historical survivor incorrectly says Azure Firewall must use custom upstream DNS and implies enabling proxy points clients at it automatically. Current docs make upstream custom DNS optional and require separate client/VNet DNS configuration.",
+      "evidenceIds": ["firewall-dns"],
+      "queryResolution": "All {} and unknown/null; no query proves resolver alignment or private-zone reachability.",
+      "blockers": ["Correct the mandatory-custom-DNS and automatic-client-configuration implications before any merge, including a wafsg-only submerge.", "revcl versus wafsg source.type gate; changing original import type is not acceptable.", "Preserve WAF, WAF service-guide Security and ALZ Network Topology and Connectivity / Firewall memberships."],
+      "requiredNextDecision": "A source-backed correction should explicitly say upstream Azure DNS or custom DNS, enable proxy where required, and separately configure clients/VNet to use the firewall private IP. Cross-source merge support still needs review. No YAML correction or submerge is applied here."
+    },
+    {
+      "groupId": "confirmed-050",
+      "historicalCanonicalId": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+      "memberIds": ["3195423b-0513-45e2-951b-87f9c5d534b0", "5efa7ffa-1cc0-4a74-bd15-c809185ccb58", "0148ed98-3b9a-4b7f-81c2-8b550f56f793"],
+      "beforeContentHash": "sha256:3e80e71f2a74190c388ec80a9546eab29b9f497df531a2ad4fcfbaaa79e1020c",
+      "decision": "equivalent_mergeable",
+      "semanticRelation": "identical_refreshed_requirement",
+      "canonicalId": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+      "retiredIds": ["3195423b-0513-45e2-951b-87f9c5d534b0", "0148ed98-3b9a-4b7f-81c2-8b550f56f793"],
+      "resourceTypes": ["microsoft.storage/storageaccounts"],
+      "members": [
+        {"id": "3195423b-0513-45e2-951b-87f9c5d534b0", "waf": "Security", "severity": 1, "sourceRef": "wafsg-ext", "automationStatus": "manual", "memberships": ["all", "security-sg"]},
+        {"id": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58", "waf": "Security", "severity": 1, "sourceRef": "wafsg-ext", "automationStatus": "manual", "memberships": ["all", "security-sg"]},
+        {"id": "0148ed98-3b9a-4b7f-81c2-8b550f56f793", "waf": "Security", "severity": 1, "sourceRef": "wafsg-ext", "automationStatus": "manual", "memberships": ["all", "security-sg"]}
+      ],
+      "guidanceAssessment": "The later source refresh reconciled all three formerly divergent descriptions to identical control-plane lock guidance. Title, description, scope, priority, automation and provenance now agree. This is an actual removal of the original deferral, not re-running a historical manifest.",
+      "evidenceIds": ["locks"],
+      "queryResolution": "All {} and manual/validatedAt:null; preserve unchanged. No automated data-plane protection claim.",
+      "blockers": [],
+      "survivorChoice": "Keep the existing explicit historical canonical GUID/name 5efa7ffa, not the first member in the ledger. All current technical content is identical, so no source-backed reason to change the survivor.",
+      "proposalRef": "survivorProposals/confirmed-050",
+      "dryRun": {"status": "passed", "before": 2011, "after": 2009, "retired": 2, "afterContentHash": "sha256:d76fa910178f601f928fe25bdab703a0254505aaa73305aac2795c4b6ef1f90a"}
+    },
+    {
+      "groupId": "confirmed-051",
+      "historicalCanonicalId": "9ada4666-7e13-4c10-96b9-153d89f89dc7",
+      "memberIds": ["9ada4666-7e13-4c10-96b9-153d89f89dc7", "a274faa1-abfe-49d5-9d04-c3c4919cb1b3", "503547c1-447e-4c66-828a-7100f1ce16dd"],
+      "beforeContentHash": "sha256:eaca440520854d3b2050693cd63286c956057c0cd1ba1339775a450ac85ccbba",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_blob_soft_delete_action",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.storage/storageaccounts"],
+      "members": [
+        {"id": "9ada4666-7e13-4c10-96b9-153d89f89dc7", "waf": "Reliability", "severity": 2, "sourceRef": "revcl-waf", "memberships": ["all", "waf", "reliability"]},
+        {"id": "a274faa1-abfe-49d5-9d04-c3c4919cb1b3", "waf": "Reliability", "severity": 1, "sourceRef": "revcl-waf", "memberships": ["all", "waf", "reliability"]},
+        {"id": "503547c1-447e-4c66-828a-7100f1ce16dd", "waf": "Security", "severity": 1, "sourceRef": "revcl-waf", "memberships": ["all", "waf"]}
+      ],
+      "guidanceAssessment": "The generic Enable Soft Delete member links specifically to blob soft delete, so it is not a container/account recommendation. The richer description retains the retention/snapshot/version scope; the Security description emphasizes accidental recovery.",
+      "evidenceIds": ["blob-soft-delete"],
+      "queryResolution": "All {} and unknown/null; no proposed query.",
+      "blockers": ["Reliability versus Security and severity 2 versus 1 remain unresolved; even the Reliability-only pair has a severity conflict.", "Any consolidated wording must preserve retention and avoid implying blob soft delete protects account/container deletion or every metadata overwrite."],
+      "requiredNextDecision": "Approve pillar/priority and description reconciliation with live Reliability discovery preserved. Do not merge with confirmed-052 or the account-lock group: those are different controls."
+    },
+    {
+      "groupId": "confirmed-052",
+      "historicalCanonicalId": "a3992c2d-e6e2-4065-a3a7-6af4a691e893",
+      "memberIds": ["a3992c2d-e6e2-4065-a3a7-6af4a691e893", "43a58a9c-2289-4c3d-9b57-d0c655462f2a"],
+      "beforeContentHash": "sha256:24188a246a3045d95d93e415d13f8f87681e45ac0506eb1085ded01a3366bea4",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_container_soft_delete_action",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.storage/storageaccounts"],
+      "members": [
+        {"id": "a3992c2d-e6e2-4065-a3a7-6af4a691e893", "waf": "Reliability", "severity": 2, "sourceRef": "revcl-waf", "memberships": ["all", "waf", "reliability"]},
+        {"id": "43a58a9c-2289-4c3d-9b57-d0c655462f2a", "waf": "Security", "severity": 0, "sourceRef": "revcl-waf", "memberships": ["all", "waf"]}
+      ],
+      "guidanceAssessment": "Both enable recovery of whole deleted containers during a retention window. One mentions the retained period and the other accidental-delete recovery; these are compatible details of the same feature.",
+      "evidenceIds": ["container-soft-delete"],
+      "queryResolution": "Both {} and unknown/null.",
+      "blockers": ["Reliability versus Security and severity 2 versus 0 remain unresolved.", "Current engine cannot preserve retired live WAF/priority via aliases; two descriptions require explicit preservation."],
+      "requiredNextDecision": "Authorize metadata/discovery reconciliation separately. Preserve container scope and distinguish account locks and blob soft delete."
+    },
+    {
+      "groupId": "confirmed-058",
+      "historicalCanonicalId": "c7b5f3d1-0569-4fd2-9f32-c0b64e9c0c5e",
+      "memberIds": ["17232891-f89f-4eaa-90f1-3b34bf798ed5", "c7b5f3d1-0569-4fd2-9f32-c0b64e9c0c5e"],
+      "beforeContentHash": "sha256:c05c5d3f826285f80e3dcba387abc3165e022186e0052367b2fcd98f5c745a28",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_dedicated_functions_setting",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.web/sites"],
+      "members": [
+        {"id": "17232891-f89f-4eaa-90f1-3b34bf798ed5", "waf": "Reliability", "severity": 0, "sourceRef": "revcl-waf", "memberships": ["all", "waf", "reliability"]},
+        {"id": "c7b5f3d1-0569-4fd2-9f32-c0b64e9c0c5e", "waf": "Reliability", "severity": 1, "sourceRef": "revcl-waf", "memberships": ["all", "waf", "reliability"]}
+      ],
+      "guidanceAssessment": "Both titles and identical source URL require Always On for Function Apps on dedicated App Service plans. Neither means every web site or consumption-based Functions plan.",
+      "evidenceIds": ["functions-always-on"],
+      "queryResolution": "Both {} and unknown/null; do not invent broad microsoft.web/sites compliance detection.",
+      "blockers": ["Severity 0 versus 1 remains the only current engine scope conflict; unchanged historical survivor would reduce priority."],
+      "requiredNextDecision": "A parent-approved priority reconciliation (conservatively 0, if accepted) could unlock a later merge, but documentation does not assign this repository's severity policy. No silent normalization."
+    },
+    {
+      "groupId": "confirmed-066",
+      "historicalCanonicalId": "4c27d42e-8bba-4c75-9155-9ab9153e8908",
+      "memberIds": ["e6e20617-3686-4af4-9791-f8935ada4332", "4c27d42e-8bba-4c75-9155-9ab9153e8908"],
+      "beforeContentHash": "sha256:00361376fa14ee15777e8bf59258377752a560a6a15e54fa37604527fa6a82ac",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_region_capability_action",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": [],
+      "members": [
+        {"id": "e6e20617-3686-4af4-9791-f8935ada4332", "waf": "Operations", "severity": 0, "sourceRef": "revcl-waf", "labelExtras": {}, "memberships": ["all", "waf"]},
+        {"id": "4c27d42e-8bba-4c75-9155-9ab9153e8908", "waf": "Reliability", "severity": 1, "sourceRef": "revcl-alz", "labelExtras": {"area": "Resource Organization", "subarea": "Regions", "id": "C03.03"}, "memberships": ["all", "waf", "reliability"], "additionalPlacements": [{"checklist": "alz.yaml", "area": "Resource Organization", "subarea": "Regions"}]}
+      ],
+      "guidanceAssessment": "Both ensure that deployment regions have required services/features. ANF and zones in the Operations title are examples, not an ANF-only resource scope.",
+      "evidenceIds": ["regions"],
+      "queryResolution": "Both {} and unknown/null. An ARG inventory cannot establish regional entitlement/capacity and future feature availability by itself.",
+      "blockers": ["Operations versus Reliability, severity 0 versus 1 and ALZ C03.03 non-guid labels differ.", "ALZ Resource Organization / Regions and WAF Reliability discovery must survive."],
+      "requiredNextDecision": "Retain both until classification/priority and ALZ-label preservation are explicitly supported. Keeping only audit history is insufficient for live selectors."
+    },
+    {
+      "groupId": "confirmed-067",
+      "historicalCanonicalId": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+      "memberIds": ["271b6cfe-4507-4afa-a1e5-000e3be105ac", "c36e0c83-11b4-409a-a4a6-2118b52a380f"],
+      "beforeContentHash": "sha256:cf9fd203f8ec89cfe8db81adb75dcddcbda1c7aa003bf68853653df0a67a0ac7",
+      "decision": "unresolved",
+      "semanticRelation": "overlapping_retirement_intent_expanded_scope_and_partial_detector",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.network/expressroutecircuits"],
+      "members": [
+        {"id": "271b6cfe-4507-4afa-a1e5-000e3be105ac", "waf": "Cost", "severity": 1, "sourceRef": "wafsg-expressroute", "automationStatus": "unknown", "memberships": ["all"]},
+        {"id": "c36e0c83-11b4-409a-a4a6-2118b52a380f", "waf": "Cost", "severity": 1, "sourceRef": "wafsg-ext", "automationStatus": "query_available", "memberships": ["all"]}
+      ],
+      "guidanceAssessment": "Both share unused-circuit retirement intent, but the refreshed survivor adds provider coordination, redundancy/migration/recovery checks and residual gateway/provider/port charges. Its query finds only NotProvisioned, not all unused circuits. Unlike group 012, the broad unused-circuit intent remains in the refreshed text, so the group is not conclusively rejected as a different requirement.",
+      "evidenceIds": ["er-cost", "finops-networking", "arg-language"],
+      "queryResolution": "Keep refreshed query and inventory semantics unchanged; retain all manual business/traffic/provider/dependency checks. The no-query member cannot be silently reclassified as automated or treated as fully covered by the state predicate.",
+      "blockers": ["Current engine rejects {} versus executable ARG and unknown versus query_available/inventory automation.", "An explicit decision is needed whether one manual retirement requirement with a partial inventory aid legitimately supersedes the broader original check."],
+      "requiredNextDecision": "Parent may commission deliberate guidance/automation reconciliation preserving both import origins and a partial-detector warning. Do not infer idle traffic from provider state or collapse circuit, Direct port and gateway charges."
+    },
+    {
+      "groupId": "confirmed-068",
+      "historicalCanonicalId": "af07c8fb-ba63-41e5-b924-3bc6759ad671",
+      "memberIds": ["f436bbde-bfd0-4be2-85a6-c13f0d79cee1", "af07c8fb-ba63-41e5-b924-3bc6759ad671"],
+      "beforeContentHash": "sha256:91fc0bfa4c44ad400a31e51e41d19fe7327959999b422f2b27b732c388527e46",
+      "decision": "equivalent_mergeable",
+      "semanticRelation": "equivalent_last_sync_assessment",
+      "canonicalId": "af07c8fb-ba63-41e5-b924-3bc6759ad671",
+      "retiredIds": ["f436bbde-bfd0-4be2-85a6-c13f0d79cee1"],
+      "resourceTypes": ["microsoft.storage/storageaccounts"],
+      "members": [
+        {"id": "f436bbde-bfd0-4be2-85a6-c13f0d79cee1", "waf": "Reliability", "severity": 1, "sourceRef": "wafsg-ext", "memberships": ["all"]},
+        {"id": "af07c8fb-ba63-41e5-b924-3bc6759ad671", "waf": "Reliability", "severity": 1, "sourceRef": "wafsg-ext", "memberships": ["all"]}
+      ],
+      "guidanceAssessment": "The two descriptions are paraphrases of the same Last Sync Time data-loss assessment for geo-redundant storage. Preserve both verbatim to satisfy current merge semantics, then clarify that later writes are not guaranteed lost and planned/unplanned failover have different loss expectations.",
+      "evidenceIds": ["last-sync", "storage-failover"],
+      "queryResolution": "Both {} and unknown/validatedAt:null, retained unchanged. Source pages show management API retrieval, not an authored ARG query or a live validation performed here.",
+      "blockers": [],
+      "survivorChoice": "Keep explicit historical survivor af07c8fb and its unsuffixed existing name. No GUID or name regeneration.",
+      "proposalRef": "survivorProposals/confirmed-068",
+      "dryRun": {"status": "passed", "before": 2011, "after": 2010, "retired": 1, "afterContentHash": "sha256:fb440fb7f74ada861d4b98289710aa4a363b9d6a7e291fde172349366b5d8bfc"}
+    },
+    {
+      "groupId": "confirmed-071",
+      "historicalCanonicalId": "8ad68872-c312-4c23-9f23-be376493dfdb",
+      "memberIds": ["8ad68872-c312-4c23-9f23-be376493dfdb", "e104f2f7-c376-4ed8-b536-a10a16be484d"],
+      "beforeContentHash": "sha256:42bee91ce6f763843b1b566a419cf6be150a7c27f1e934a0cd0b1060f9d1923d",
+      "decision": "unresolved",
+      "semanticRelation": "equivalent_dashboard_review_action",
+      "canonicalId": null,
+      "retiredIds": [],
+      "resourceTypes": ["microsoft.network/azurefirewalls"],
+      "members": [
+        {"id": "8ad68872-c312-4c23-9f23-be376493dfdb", "waf": "Operations", "severity": 1, "sourceRef": "wafsg-ext", "memberships": ["all"]},
+        {"id": "e104f2f7-c376-4ed8-b536-a10a16be484d", "waf": "Performance", "severity": 1, "sourceRef": "wafsg-ext", "memberships": ["all"]}
+      ],
+      "guidanceAssessment": "Both review the same Azure Firewall Policy Analytics dashboard and have identical descriptions covering low utilization, policy limits, redundant/generic rules and rule-processing performance. Regular operational review versus optimization wording does not establish separate technical requirements.",
+      "evidenceIds": ["policy-analytics"],
+      "queryResolution": "Both {} and unknown/null. Portal/log analysis is not ARG compliance; historical data before feature enablement is unavailable.",
+      "blockers": ["Operations versus Performance remains a live scalar WAF discovery conflict."],
+      "requiredNextDecision": "Explicitly reconcile WAF discovery before consolidating. Keep the dashboard/logging prerequisites visible in any later content edit, without turning this into an automatic rule-deletion recommendation."
+    }
+  ],
+  "survivorProposals": {
+    "confirmed-050": {
+      "before": {
+        "name": "wafsg-AzureResourceManagerLockMaliciousDeletion",
+        "title": "Use an appropriate resource lock to protect the storage account's control plane.",
+        "description": "A CanNotDelete lock helps prevent deletion of the storage account through Azure Resource Manager while allowing normal configuration changes. ReadOnly is more restrictive and can interfere with operations such as key listing and role assignment. Neither lock prevents data-plane deletion or modification of blobs, files, queues or tables. Combine locks with least-privilege access, service-level protection and recovery controls, and restrict who can remove a lock.",
+        "source": {"type": "wafsg", "file": "./checklists-ext/wafsg_checklist.en.json"},
+        "resourceTypes": ["microsoft.storage/storageaccounts"],
+        "waf": "Security",
+        "severity": 1,
+        "labels": {"guid": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58"},
+        "links": [],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+        "services": [],
+        "automation": {"status": "manual", "validatedAt": null},
+        "provenance": {
+          "upstreamRevision": null,
+          "lastReviewed": null,
+          "sources": [
+            {"url": "https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources", "title": "Lock your Azure resources to protect your infrastructure", "accessedAt": "2026-09-11"},
+            {"url": "https://learn.microsoft.com/azure/well-architected/security/checklist", "title": "Design review checklist for Security", "accessedAt": "2026-09-11"}
+          ],
+          "upstreamRecommendations": [
+            {"sourceId": "waf-security-checklist", "recommendationId": "SE:08", "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources", "coverage": "partial", "assessedAt": "2026-09-11", "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8", "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."}
+          ]
+        }
+      },
+      "afterDefinition": "Deep-copy before and set only the exact afterChanges fields below. No implicit changes.",
+      "afterChanges": {
+        "aliases": [
+          {"id": "3195423b-0513-45e2-951b-87f9c5d534b0", "name": "wafsg-AzureResourceManagerLockDataLoss", "source": {"type": "wafsg", "file": "./checklists-ext/wafsg_checklist.en.json"}, "labels": {"guid": "3195423b-0513-45e2-951b-87f9c5d534b0"}, "corpusFile": "Services/MicrosoftStorage-storageAccounts/Security/wafsg-AzureResourceManagerLockDataLoss.yaml"},
+          {"id": "0148ed98-3b9a-4b7f-81c2-8b550f56f793", "name": "wafsg-ResourceManagerLockMaliciousDeletion", "source": {"type": "wafsg", "file": "./checklists-ext/wafsg_checklist.en.json"}, "labels": {"guid": "0148ed98-3b9a-4b7f-81c2-8b550f56f793"}, "corpusFile": "Services/MicrosoftStorage-storageAccounts/Security/wafsg-ResourceManagerLockMaliciousDeletion.yaml"}
+        ]
+      },
+      "afterContentHash": "sha256:d76fa910178f601f928fe25bdab703a0254505aaa73305aac2795c4b6ef1f90a",
+      "preservation": "Title, description, canonical GUID/name, classification, source, all links, manual automation and exact partial SE:08 mapping remain unchanged. All three original member snapshots must also be retained in the eventual merge result audit."
+    },
+    "confirmed-068": {
+      "before": {
+        "name": "wafsg-LastSynchronizationTimePropertyGzrsConfigurations",
+        "title": "Before initiating a failover or failback, evaluate the potential for data loss by checking the value of the last synchronization time property. This recommendation applies only to GRS and GZRS configurations.",
+        "description": "This property helps you estimate how much data you might lose by initiating an account failover. All data and metadata written before the last synchronization time is available on the secondary region, but data and metadata written after the last synchronization time might be lost because it's not written to the secondary region.",
+        "source": {"type": "wafsg", "file": "./checklists-ext/wafsg_checklist.en.json"},
+        "resourceTypes": ["microsoft.storage/storageaccounts"],
+        "waf": "Reliability",
+        "severity": 1,
+        "labels": {"guid": "af07c8fb-ba63-41e5-b924-3bc6759ad671"},
+        "links": [],
+        "queries": {},
+        "schemaVersion": 1,
+        "id": "af07c8fb-ba63-41e5-b924-3bc6759ad671",
+        "services": [],
+        "automation": {"status": "unknown", "validatedAt": null},
+        "provenance": {"upstreamRevision": null, "lastReviewed": null, "sources": []}
+      },
+      "afterDefinition": "Deep-copy before and set only the exact afterChanges fields below. No implicit changes.",
+      "afterChanges": {
+        "description": "This property helps you estimate how much data you might lose by initiating an account failover. All data and metadata written before the last synchronization time is available on the secondary region, but data and metadata written after the last synchronization time might be lost because it's not written to the secondary region.\n\nThis property helps you estimate how much data you might lose if you initiate an account failover. All data and metadata that's written before the last synchronization time is available on the secondary region, but you might lose data and metadata that's written after the last synchronization time because it's not written to the secondary region.\n\nInterpret these statements as potential loss: writes after Last Sync Time might already have replicated, but are not guaranteed. Assess customer-managed unplanned failover separately from planned failover and failback, for which data loss is not expected while both regions remain available throughout the operation. GRS and GZRS here include their read-access variants; this guidance does not apply to LRS or ZRS alone.",
+        "aliases": [
+          {"id": "f436bbde-bfd0-4be2-85a6-c13f0d79cee1", "name": "wafsg-LastSynchronizationTimePropertyGzrsConfigurations-1", "source": {"type": "wafsg", "file": "./checklists-ext/wafsg_checklist.en.json"}, "labels": {"guid": "f436bbde-bfd0-4be2-85a6-c13f0d79cee1"}, "corpusFile": "Services/MicrosoftStorage-storageAccounts/Reliability/wafsg-LastSynchronizationTimePropertyGzrsConfigurations-1.yaml"}
+        ]
+      },
+      "afterContentHash": "sha256:fb440fb7f74ada861d4b98289710aa4a363b9d6a7e291fde172349366b5d8bfc",
+      "preservation": "Both original description paragraphs remain verbatim as required by merge.py; the extra paragraph reconciles current documented failover semantics. Other fields remain unchanged. Newly fetched evidence is retained in this proposal rather than inventing source approval/query timestamps or unsupported manifest fields."
+    }
+  },
+  "proposedMergeManifest": {
+    "groups": [
+      {
+        "canonicalId": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+        "retiredIds": ["3195423b-0513-45e2-951b-87f9c5d534b0", "0148ed98-3b9a-4b7f-81c2-8b550f56f793"],
+        "reason": "confirmed-050: all three current refreshed storage-account lock requirements have identical guidance, scope, priority, manual automation and exact partial SE:08 mapping. Preserve the existing historical survivor and both retired identities.",
+        "beforeContentHash": "sha256:3e80e71f2a74190c388ec80a9546eab29b9f497df531a2ad4fcfbaaa79e1020c"
+      },
+      {
+        "canonicalId": "af07c8fb-ba63-41e5-b924-3bc6759ad671",
+        "retiredIds": ["f436bbde-bfd0-4be2-85a6-c13f0d79cee1"],
+        "reason": "confirmed-068: the same geo-redundant-storage Last Sync Time assessment, with identical scope and automation. Preserve both descriptions and clarify potential loss and planned versus unplanned failover using current primary documentation.",
+        "beforeContentHash": "sha256:91fc0bfa4c44ad400a31e51e41d19fe7327959999b422f2b27b732c388527e46",
+        "description": "This property helps you estimate how much data you might lose by initiating an account failover. All data and metadata written before the last synchronization time is available on the secondary region, but data and metadata written after the last synchronization time might be lost because it's not written to the secondary region.\n\nThis property helps you estimate how much data you might lose if you initiate an account failover. All data and metadata that's written before the last synchronization time is available on the secondary region, but you might lose data and metadata that's written after the last synchronization time because it's not written to the secondary region.\n\nInterpret these statements as potential loss: writes after Last Sync Time might already have replicated, but are not guaranteed. Assess customer-managed unplanned failover separately from planned failover and failback, for which data loss is not expected while both regions remain available throughout the operation. GRS and GZRS here include their read-access variants; this guidance does not apply to LRS or ZRS alone."
+      }
+    ]
+  },
+  "applicationBoundary": {
+    "approvalRequired": true,
+    "manifestExtraction": "Only proposedMergeManifest is a merge.py manifest; the complete report intentionally is not. Extract it to a NEW parent-owned proposal file if approved; never overwrite or rerun historical manifests.",
+    "expectedCombinedCanonicalCount": 2008,
+    "expectedCombinedAliasCount": 58,
+    "expectedRetiredToCanonical": {
+      "3195423b-0513-45e2-951b-87f9c5d534b0": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+      "0148ed98-3b9a-4b7f-81c2-8b550f56f793": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+      "f436bbde-bfd0-4be2-85a6-c13f0d79cee1": "af07c8fb-ba63-41e5-b924-3bc6759ad671"
+    },
+    "expectedChecklistCountChanges": {"all_recos.yaml": {"before": 2011, "after": 2008}, "waf_sg_security.yaml": {"before": 167, "after": 165}},
+    "expectedOtherChecklistChanges": "None after mapping retired identities to their survivor. In particular ALZ stays 236, application delivery stays 38, APRL stays 333 and WAF Reliability stays 299.",
+    "reviewSafety": "No saved review, assessment, evidence, status, comment or pinned recommendation snapshot is read or altered. Future saved-review refresh remains explicit and must keep retired assessments separate.",
+    "serviceAgentOverlap": "No member is a Data Factory, Front Door WAF ARM-type spelling, or Photon/Spark record; no overlapping corpus ownership or coordination is required.",
+    "validationBoundary": "Read-only corpus validation and merge dry runs are permitted; parent owns actual stage application, common history-chain integration, full regression tests and deterministic output bundle."
+  },
+  "validation": {
+    "status": "passed_read_only",
+    "checkedAt": "2026-09-13",
+    "dateMeaning": "Report/merge-proposal validation date only; not recommendation automation.validatedAt or human lastReviewed.",
+    "strictJson": "Parsed with the repository's duplicate-key and invalid-constant rejection helpers.",
+    "scopeAndHistory": "Verified exact final-ledger equality, original-minus-applied group subtraction, all 17 current group hashes, all 37 GUIDs and all six historical file byte hashes.",
+    "memberMetadata": "Verified current WAF, severity, source origin, resource types, services, constraints/automatable absence, labels, automation statuses, null review/validation metadata, queries, absence of aliases and recorded checklist placements.",
+    "upstreamMappings": "Verified the five existing member mappings against their exact sourceId/recommendationId/hash/coverage and frozen inventory items.",
+    "combinedDryRun": {"mode": "dry-run", "before": 2011, "after": 2008, "retired": 3, "groups": 2},
+    "survivorSnapshots": "Both complete before snapshots equal current authored records; reconstructed after snapshots match the exact current-engine afterContentHash and aliases.",
+    "simulatedCorpus": "Validated the entire in-memory proposed corpus against the authoritative schema and identities, without writing it.",
+    "simulatedAfterCanonicalCount": 2008,
+    "simulatedAfterAliasCount": 58,
+    "simulatedAfterContentHash": "sha256:dbb6bdefea44f401fbb85005698847d462e091b7f1b4a29d2cc7c677250996a4",
+    "allTenChecklistPlacements": "Passed: each post-proposal selected (canonical ID, area, subarea) set equals the baseline with only the three proposed retired IDs resolved to their survivor.",
+    "legacySelectors": "Passed GUID, original-name and guid-label selectors for each of the three proposed retired identities.",
+    "validationHarnessCorrection": "The first in-memory simulation incorrectly retained loader-only corpus_file on unaffected records and was rejected by strict validation. The read-only validation script was corrected to strip that runtime field, matching make_bundle/merge.py; the full check then passed. No corpus or application edit was involved.",
+    "filesystemWritesDuringValidation": 0,
+    "liveAzureQueries": 0,
+    "fullApplicationTests": "Not run for this documentation/proposal-only task; parent owns stage application and regression tests."
+  },
+  "limitations": [
+    "Seventeen historical groups and 37 current members only. This does not resolve the 22 uncertain groups or 393 unadjudicated candidate pairs.",
+    "Public primary-source sections were fetched and read as described, not every linked page or every paragraph. A successful fetch is not human approval.",
+    "No live Azure/ARG execution, subscription changes, deployment, paid AI or customer data access. All validatedAt and lastReviewed values remain null.",
+    "Frozen upstream inventories remain dated 2026-09-11. Exact recorded item hashes were checked; no new full upstream inventory or percentage coverage claim is made.",
+    "Most semantic duplicates still cannot merge under current scalar WAF/severity/source-type/label semantics without explicitly authorized reconciliation. They remain visible rather than forcing count reduction.",
+    "A beforeContentHash is order-sensitive. Use explicit canonicalId first, not the first ID printed in the historical member array.",
+    "If parent changes involved records before application, the approved hashes must fail and the proposal must be reassessed, not silently rehashed."
+  ]
+}

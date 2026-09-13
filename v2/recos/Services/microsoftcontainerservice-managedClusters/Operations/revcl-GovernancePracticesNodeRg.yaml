@@ -1,6 +1,6 @@
 name: revcl-GovernancePracticesNodeRg
-title: Develop own governance practices to make sure no changes are performed by operators
-  in the node RG (aka 'infra RG')
+title: Develop own governance practices to make sure no changes are performed by operators in the node
+  RG (aka 'infra RG')
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +14,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/faq
 queries: {}
+schemaVersion: 1
+id: ed0fda7f-211b-47c7-8b6e-c18873fb473c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/aks/faq
+    title: AKS frequently asked questions
+    accessedAt: '2026-09-11'
+description: Prevent operators from modifying AKS-managed infrastructure directly in the node resource
+  group. Use supported cluster and node-pool operations for changes and consider node resource group lockdown.
+  Preserve Azure-created tags and document permitted custom-tag operations. Verify the access model and
+  change history; naming conventions alone are not a governance control.

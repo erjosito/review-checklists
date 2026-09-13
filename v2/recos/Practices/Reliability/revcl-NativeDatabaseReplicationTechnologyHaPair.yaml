@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/implement-disaster-recovery-for-sap-workloads-azure/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 726a1d3e-5508-4a06-9d54-93f4b50040c1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

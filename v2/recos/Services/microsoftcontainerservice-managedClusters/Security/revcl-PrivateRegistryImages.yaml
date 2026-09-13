@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/
 queries: {}
+schemaVersion: 1
+id: 55b46a94-8008-4ae7-b7e4-b475b6c8bdbf
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

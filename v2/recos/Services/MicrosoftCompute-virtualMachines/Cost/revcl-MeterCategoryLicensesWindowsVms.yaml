@@ -1,12 +1,15 @@
 name: revcl-MeterCategoryLicensesWindowsVms
-title: run the script on all windows VMs https://learn.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing?ref=andrewmatveychuk.com#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server-
-  consider implementing a policy if windows VMs are created frequently
-description: check by searching the Meter Category Licenses in the Cost analysys
+title: Reconcile Windows Azure Hybrid Benefit flags with eligible license entitlements
+description: Inventory Windows VM/VMSS license settings and reconcile them with qualifying Windows Server
+  licenses, Software Assurance/subscription expiry and required core allocations. Review Dev/Test and
+  Windows client licensing separately. Enable Azure Hybrid Benefit only for approved entitlement-backed
+  resources; monitor continued eligibility.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
 - microsoft.compute/virtualmachines
+- microsoft.compute/virtualmachinescalesets
 waf: Cost
 severity: 1
 labels:
@@ -14,4 +17,48 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/manage/centralize-operations
-queries: {}
+queries:
+  arg: |-
+    Resources
+    | where type in~ ('microsoft.compute/virtualmachines', 'microsoft.compute/virtualmachinescalesets')
+    | extend osType = iff(type =~ 'microsoft.compute/virtualmachines',
+        tostring(properties.storageProfile.osDisk.osType),
+        tostring(properties.virtualMachineProfile.storageProfile.osDisk.osType))
+    | where osType =~ 'Windows'
+    | extend licenseType = iff(type =~ 'microsoft.compute/virtualmachines',
+        tostring(properties.licenseType), tostring(properties.virtualMachineProfile.licenseType))
+    | project id, name, type, subscriptionId, resourceGroup, location, osType, licenseType
+schemaVersion: 1
+id: 59ae568b-a38d-4498-9e22-13dbd7bb012f
+services:
+- Azure Virtual Machines
+- Virtual Machine Scale Sets
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Windows license flags for entitlement reconciliation; neither a missing nor present flag proves license eligibility or compliance.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Review qualifying Software Assurance/subscriptions, expiry, core allocations, client Windows rights and Dev/Test offer before any change. Includes Dev/Test rather than trusting a single quotaId heuristic to exclude all discounted offers. VMSS instance upgrade state can differ from the model.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing
+    title: Explore Azure Hybrid Benefit for Windows VMs
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/compute
+    title: FinOps best practices for compute
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'

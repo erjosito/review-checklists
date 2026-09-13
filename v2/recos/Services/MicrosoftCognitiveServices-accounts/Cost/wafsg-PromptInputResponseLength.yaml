@@ -1,10 +1,9 @@
 name: wafsg-PromptInputResponseLength
-title: 'Adjust usage: Optimize prompt input and response length. Longer prompts raise
-  costs by consuming more tokens. However, prompts that are missing sufficient context
-  don''t help the models yield good results. Create concise prompts that provide enough
-  context for the model to generate a useful response. Also ensure that you optimize
-  the limit of the response length.'
-description: ''
+title: Optimize Azure OpenAI context and generated-token budgets against task quality
+description: Reduce unnecessary prompt/context growth while retaining the evidence needed for a useful
+  answer. Budget both visible output and reasoning tokens with the parameter supported by the API. Measure
+  task quality, token use and incomplete responses before reducing limits; a smaller visible answer does
+  not necessarily imply a smaller reasoning bill.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -17,3 +16,19 @@ labels:
   guid: 9e2fb33a-0e01-43c6-9de0-2409778ad08d
 links: []
 queries: {}
+schemaVersion: 1
+id: 9e2fb33a-0e01-43c6-9de0-2409778ad08d
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Account for hidden reasoning and incomplete results instead of visible
+    output alone. Requires workload, billing and operational evidence; no ARG query or live validation
+    is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/foundry/openai/how-to/reasoning
+    title: Azure OpenAI reasoning models
+    accessedAt: '2026-09-11'

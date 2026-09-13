@@ -1,6 +1,5 @@
 name: revcl-CustomMicrosoftEntraIdRolesPrivilegeModel
-title: Follow a least privilege model by limiting authorization to permanently delete
-  keys, secrets, and certificates to specialized custom Microsoft Entra ID roles.
+title: Restrict Key Vault purge permissions using the appropriate Azure data-plane and management roles.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/best-practices
 queries: {}
+schemaVersion: 1
+id: dc055bcf-619e-48a1-9f98-879525d62688
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/key-vault/general/rbac-guide
+    title: Grant permission to applications to access an Azure key vault using Azure RBAC
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/key-vault/general/soft-delete-overview
+    title: Azure Key Vault soft-delete
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Separate routine secret, key and certificate use from destructive administration. Azure RBAC
+  roles for Key Vault are distinct from Microsoft Entra directory roles. Key Vault Purge Operator permits
+  purging soft-deleted vaults; evaluate object-level purge data actions separately rather than assuming
+  this role covers every object. Use least-privilege built-in or justified custom roles, auditable privileged
+  activation, and purge protection so authorized deletion cannot bypass the retention period.

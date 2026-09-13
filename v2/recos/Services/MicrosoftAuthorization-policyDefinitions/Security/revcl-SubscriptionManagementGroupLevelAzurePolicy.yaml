@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/security/benchmark/azure/mcsb-asset-management#am-2-use-only-approved-services
 queries: {}
+schemaVersion: 1
+id: 43334f24-9116-4341-a2ba-527526944008
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,10 +1,10 @@
 name: wafsg-AppServicePlanZoneRedundancy
-title: (App Service plan) Enable zone redundancy. Consider provisioning more than
-  three instances to enhance fault tolerance.  Check regional support for zone redundancy
-  because not all regions offer this feature.
-description: Your application can withstand failures in a single zone when multiple
-  instances are spread across zones. Traffic automatically shifts to healthy instances
-  in other zones and maintains application reliability if one zone is unavailable.
+title: Enable App Service plan zone redundancy and size for surviving-zone capacity
+description: Enable zone redundancy on a supported Premium v2-v4 plan and scale unit in a supported region,
+  with at least two instances. Confirm Premium v4 regional availability separately. Consider additional
+  instances based on the capacity required after losing a zone; the platform only attempts best-effort
+  replacement capacity. All apps sharing the plan inherit its zone configuration, but dependencies need
+  their own resilience design.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -16,3 +16,39 @@ labels:
   guid: f6d4a1ff-bf30-4477-823d-b2163667a87d
 links: []
 queries: {}
+schemaVersion: 1
+id: f6d4a1ff-bf30-4477-823d-b2163667a87d
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service
+    title: Reliability in Azure App Service
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/advisor/advisor-high-availability-recommendations
+    title: Reliability recommendations
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/redundancy
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:50c6b1c6d6320778e60597bd97c85a26ce97ed8f828173db803889f93c25209c
+    notes: App Service plan zone/instance redundancy and dependency resilience are covered; not all levels
+      of every critical flow or other compute/network services.
+  - sourceId: advisor-reliability-catalog
+    recommendationId: fac3022a-eda5-44b9-b54d-cb500d1d01dd
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:02cbd27cca0e5c7c204f396a0611c08c468b5fdd523223181245ba3d4ca242f1
+    notes: The updated App Service plan requirement explicitly enables supported plan-level zone redundancy
+      with prerequisites and surviving-zone capacity.

@@ -1,13 +1,14 @@
 name: aprl-DifferentFaultDomainsAvailabilitySets
 title: Migrate VMs using availability sets to VMSS Flex
-description: |-
-  While availability sets are not scheduled for immediate deprecation, they are planned to be deprecated in the future. Migrate workloads from VMs to VMSS Flex for deployment across zones or within the same zone across different fault domains (FDs) and update domains (UDs) for better reliability.
+description: While availability sets are not scheduled for immediate deprecation, they are planned to
+  be deprecated in the future. Migrate workloads from VMs to VMSS Flex for deployment across zones or
+  within the same zone across different fault domains (FDs) and update domains (UDs) for better reliability.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 0
 labels:
   guid: a8d25876-7951-b646-b4e8-880c9031596b
@@ -21,3 +22,34 @@ queries:
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where isnotnull(properties.availabilitySet)
     | project recommendationId = "a8d25876-7951-b646-b4e8-880c9031596b", name, id, tags, param1=strcat("availabilitySet: ",properties.availabilitySet.id)
+schemaVersion: 1
+id: a8d25876-7951-b646-b4e8-880c9031596b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: APRL asserts planned availability-set deprecation without
+    verified retirement evidence; do not republish that claim as current fact. Existing ARG is retained,
+    not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL a8d25876-7951-b646-b4e8-880c9031596b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: a8d25876-7951-b646-b4e8-880c9031596b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:413015905117e00751fe5199969ae5869cd4545fcdc519d6ed480f2f969bc480
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. APRL asserts planned availability-set
+      deprecation without verified retirement evidence; do not republish that claim as current fact. Coverage
+      concerns the inventory's explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt
+      remain unchanged.
+waf: Reliability

@@ -1,13 +1,14 @@
 name: aprl-VariousAzureServicesAzurePolicies
 title: Ensure that your VMs are compliant with Azure Policies
-description: |-
-  Keeping your virtual machine (VM) secure is crucial for the applications you run. This involves using various Azure services and features to ensure secure access to your VMs and the secure storage of your data, aiming for overall security of your VM and applications.
+description: Keeping your virtual machine (VM) secure is crucial for the applications you run. This involves
+  using various Azure services and features to ensure secure access to your VMs and the secure storage
+  of your data, aiming for overall security of your VM and applications.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 2
 labels:
   guid: c42343ae-2712-2843-a285-3437eb0b28a1
@@ -55,3 +56,18 @@ queries:
         param2 = strcat("DefinitionID: ", policyDefinitionId),
         param3 = strcat("AssignmentName: ", policyAssignmentDisplayName),
         param4 = strcat("AssignmentID: ", policyAssignmentId)
+schemaVersion: 1
+id: c42343ae-2712-2843-a285-3437eb0b28a1
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The frozen GUID is absent from the complete pinned upstream
+    repository inventory; historical source identity does not prove a current recommendation or replacement
+    ID. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Operations

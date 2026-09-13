@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/nat-gateway
 queries: {}
+schemaVersion: 1
+id: ccb534e7-416e-4a1d-8e93-533b53199085
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

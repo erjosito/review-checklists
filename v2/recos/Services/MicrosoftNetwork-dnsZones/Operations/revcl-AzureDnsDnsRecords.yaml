@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/az-104-manage-virtual-networks/
 queries: {}
+schemaVersion: 1
+id: 614658d3-558f-4d77-849b-821112df27ee
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

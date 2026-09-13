@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance#microsoft-managed-failover
 queries: {}
+schemaVersion: 1
+id: dc0590cf-65de-48e1-909c-cbd579266bcc
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

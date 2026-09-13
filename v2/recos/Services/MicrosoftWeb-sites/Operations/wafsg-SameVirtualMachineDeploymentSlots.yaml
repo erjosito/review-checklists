@@ -1,10 +1,13 @@
 name: wafsg-SameVirtualMachineDeploymentSlots
-title: 'Manage releases: Use deployment slots to manage releases effectively. You
-  can deploy your application to a slot, perform testing, and validate its functionality.
-  After verification, you can seamlessly move the app to production. This process
-  doesn''t incur extra costs because the slot runs in the same virtual machine (VM)
-  environment as the production instance.'
-description: ''
+title: 'Manage releases: Use deployment slots to manage releases effectively. You can deploy your application
+  to a slot, perform testing, and validate its functionality. After verification, you can seamlessly move
+  the app to production. This process doesn''t incur extra costs because the slot runs in the same virtual
+  machine (VM) environment as the production instance.'
+description: Use deployment slots on a supported App Service plan tier to validate releases before a controlled
+  swap. Slots have no separate slot fee but consume the plan's shared capacity, so size and isolate preproduction
+  activity to avoid affecting production. Review slot-specific settings, identity and network configuration,
+  and rehearse application and data recovery. A slot swap is not an independent environment boundary or
+  a guarantee of zero application downtime.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -17,3 +20,28 @@ labels:
   guid: d4909fdf-867b-43b7-828d-197247a83530
 links: []
 queries: {}
+schemaVersion: 1
+id: d4909fdf-867b-43b7-828d-197247a83530
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots
+    title: Set up staging environments
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    title: Architecture strategies for safe deployment practices
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:11
+    coverage: partial
+    notes: Qualify no-extra-charge claim and slot isolation/recovery assumptions. Narrow control or service
+      scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a

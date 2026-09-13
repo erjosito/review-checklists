@@ -18,3 +18,14 @@ links:
 queries:
   arg: resources | where type=='microsoft.network/virtualhubs' | extend compliant
     = isnotnull(properties.azureFirewall.id) | project id, compliant
+schemaVersion: 1
+id: 7d5d1e4e-6146-458d-9558-fd77249b8211
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

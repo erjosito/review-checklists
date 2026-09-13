@@ -1,18 +1,9 @@
 name: wafsg-CostEffectiveAccessTierTotalOverallCost
-title: 'After you migrate your workload, if you use standard file shares, carefully
-  choose the most cost effective access tier for your file share: hot, cool, or transaction
-  optimized. After you operate for a few days or weeks with regular usage, you can
-  insert your transaction counts in the pricing calculator to figure out which tier
-  best suits your workload. Most customers should choose cool even if they actively
-  use the share. But you should examine each share and compare the balance of storage
-  capacity to transactions to determine your tier. If transaction costs make up a
-  significant percentage of your bill, the savings from using the cool access tier
-  often offsets this cost and minimizes the total overall cost. We recommend that
-  you move standard file shares between access tiers only when necessary to optimize
-  for changes in your workload pattern. Each move incurs transactions. For more information,
-  see Switching between standard tiers.'
-description: Select the appropriate access tier for standard file shares to considerably
-  reduce your costs.
+title: Choose Azure Files PAYG access tiers from measured capacity and transactions
+description: 'For existing PAYG HDD classic shares, compare transaction-optimized, hot and cool tiers
+  using representative operation counts and stored capacity. Cool is not universally cheapest: higher
+  transaction charges can outweigh lower capacity prices. Include tier-switch transactions. Evaluate the
+  recommended provisioned v2 model separately rather than assuming every HDD share uses PAYG.'
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -24,3 +15,19 @@ labels:
   guid: 9dd18ccf-33eb-4da0-9710-7b3d64290faa
 links: []
 queries: {}
+schemaVersion: 1
+id: 9dd18ccf-33eb-4da0-9710-7b3d64290faa
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Remove the unsupported majority-should-use-cool assumption and distinguish
+    the billing model. Requires workload, billing and operational evidence; no ARG query or live validation
+    is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/files/understanding-billing
+    title: Understand Azure Files Billing
+    accessedAt: '2026-09-11'

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/use-byo-cni
 queries: {}
+schemaVersion: 1
+id: 57bf217f-6dc8-481c-81e2-785773e9c00f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

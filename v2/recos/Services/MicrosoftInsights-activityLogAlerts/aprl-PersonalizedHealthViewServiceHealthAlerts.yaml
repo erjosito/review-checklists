@@ -1,13 +1,14 @@
 name: aprl-PersonalizedHealthViewServiceHealthAlerts
 title: Configure Service Health Alerts
-description: |-
-  Service health gives a personalized health view of Azure services and regions used, offering the best place for notifications on outages, planned maintenance, and health advisories by knowing the services used.
+description: Service health gives a personalized health view of Azure services and regions used, offering
+  the best place for notifications on outages, planned maintenance, and health advisories by knowing the
+  services used.
 source:
   type: aprl
   file: azure-resources/Insights/activityLogAlerts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Insights/activityLogAlerts
+- microsoft.insights/activitylogalerts
 severity: 0
 labels:
   guid: 9729c89d-8118-41b4-a39b-e12468fa872b
@@ -32,3 +33,38 @@ queries:
     | where isempty(subscriptionAlerts1)
     | project-away subscriptionAlerts1
     | project recommendationId = "9729c89d-8118-41b4-a39b-e12468fa872b",id=subscriptionAlerts,name,tags
+schemaVersion: 1
+id: 9729c89d-8118-41b4-a39b-e12468fa872b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.Subscription/Subscriptions''],
+    while the frozen corpus scope is [''Microsoft.Insights/activityLogAlerts'']; applicability is not
+    broadened or narrowed without separate verification. Current upstream ARG differs from the frozen
+    query; the old executable body is retained pending semantic/edge-case validation, not silently replaced
+    by unreviewed KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Subscription/subscriptions/recommendations.yaml
+    title: 'APRL 9729c89d-8118-41b4-a39b-e12468fa872b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 9729c89d-8118-41b4-a39b-e12468fa872b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Subscription/subscriptions/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d64d87f090737b21201a5c3f0301de3d370c73b101e88e19a7ac51f1aefed871
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.Subscription/Subscriptions'],
+      while the frozen corpus scope is ['Microsoft.Insights/activityLogAlerts']; applicability is not
+      broadened or narrowed without separate verification. Current upstream ARG differs from the frozen
+      query; the old executable body is retained pending semantic/edge-case validation, not silently replaced
+      by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

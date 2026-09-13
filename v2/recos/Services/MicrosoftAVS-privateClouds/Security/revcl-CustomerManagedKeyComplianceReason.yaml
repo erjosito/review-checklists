@@ -12,3 +12,13 @@ labels:
   guid: 547c1747-dc56-4068-a714-435cd19dd244
 links: []
 queries: {}
+schemaVersion: 1
+id: 547c1747-dc56-4068-a714-435cd19dd244
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

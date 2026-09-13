@@ -1,7 +1,5 @@
 name: revcl-CustomizedAzurePoliciesAzureResources
-title: It is recommended to LOCK the Azure Resources post successful deployment to
-  safeguard against unauthorized changes. You can also enforce LOCK constraints and
-  rules on your per-subscription basis using customized Azure policies(Custome role).
+title: Use resource locks for accidental control-plane changes, alongside least-privilege authorization.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +14,34 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/use-azure-resource-manager/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 829e2edb-2173-4676-aff6-691b4935ada4
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources
+    title: Lock your Azure resources to protect your infrastructure
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:08
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Choose CanNotDelete or ReadOnly according to the operations that must remain available, and
+  test deployment, scaling and recovery workflows before applying inherited locks. Locks are control-plane
+  safeguards, not an authorization boundary or a way to prevent data-plane reads, changes or deletion.
+  Limit permission to remove locks and use service-level retention, backup and access controls for the
+  underlying data.

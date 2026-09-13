@@ -1,13 +1,13 @@
 name: aprl-VirtualNetworkLevelCustomerDnsServers
 title: Customer DNS Servers should be configured in the Virtual Network level
-description: |-
-  Configure the DNS Server at the Virtual Network level to prevent any inconsistency across the environment.
+description: Configure the DNS Server at the Virtual Network level to prevent any inconsistency across
+  the environment.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 2
 labels:
   guid: 1cf8fe21-9593-1e4e-966b-779a294c0d30
@@ -33,3 +33,18 @@ queries:
     ) on nicId
     | project recommendationId = "1cf8fe21-9593-1e4e-966b-779a294c0d30", name, id, tags
     | order by id asc
+schemaVersion: 1
+id: 1cf8fe21-9593-1e4e-966b-779a294c0d30
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The frozen GUID is absent from the complete pinned upstream
+    repository inventory; historical source identity does not prove a current recommendation or replacement
+    ID. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Operations

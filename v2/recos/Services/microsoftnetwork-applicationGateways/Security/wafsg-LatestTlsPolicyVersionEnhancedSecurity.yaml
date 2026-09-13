@@ -1,7 +1,7 @@
 name: wafsg-LatestTlsPolicyVersionEnhancedSecurity
 title: Set up a TLS policy for enhanced security
-description: Set up a TLS policy for extra security. Ensure you're always using the
-  latest TLS policy version available. This enforces TLS 1.2 and stronger ciphers.
+description: Set up a TLS policy for extra security. Ensure you're always using the latest TLS policy
+  version available. This enforces TLS 1.2 and stronger ciphers.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,3 +13,23 @@ labels:
   guid: 7547ed98-86fb-4a8f-94d8-162c5d6fd39d
 links: []
 queries: {}
+schemaVersion: 1
+id: 7547ed98-86fb-4a8f-94d8-162c5d6fd39d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 297b842f-979b-474d-aa48-b6799a76c083
+  name: wafsg-TlsPolicyEnhancedSecurity
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 297b842f-979b-474d-aa48-b6799a76c083
+  corpusFile: Services/microsoftnetwork-applicationGateways/Security/wafsg-TlsPolicyEnhancedSecurity.yaml

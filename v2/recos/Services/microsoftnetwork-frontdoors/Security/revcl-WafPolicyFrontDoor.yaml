@@ -20,3 +20,14 @@ queries:
     '/') | extend profileId=strcat_array(array_slice(securityPolicyParts, 0, -3),
     '/') | project id=profileId, compliant=((enabledState=='Enabled') and (mode=='Prevention')),
     enabledState, mode
+schemaVersion: 1
+id: ae248989-b306-4591-9186-de482e3f0f0e
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

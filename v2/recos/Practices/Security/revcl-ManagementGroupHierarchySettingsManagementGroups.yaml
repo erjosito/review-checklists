@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/governance/management-groups/how-to/protect-resource-hierarchy#setting---require-authorization
 queries: {}
+schemaVersion: 1
+id: 74d00018-ac6a-49e0-8e6a-83de5de32c19
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -16,3 +16,13 @@ labels:
   guid: 544e8c7d-450b-4e55-aaec-1a75f667db90
 links: []
 queries: {}
+schemaVersion: 1
+id: 544e8c7d-450b-4e55-aaec-1a75f667db90
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

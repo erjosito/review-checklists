@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/expressroute/expressroute-howto-macsec
 queries: {}
+schemaVersion: 1
+id: de0d5973-cd4c-4d21-a088-137f5e6c4cfd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

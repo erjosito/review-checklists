@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/use-azure-dedicated-hosts
 queries: {}
+schemaVersion: 1
+id: c4e37133-f186-4ce1-aed9-9f1b32f6e021
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

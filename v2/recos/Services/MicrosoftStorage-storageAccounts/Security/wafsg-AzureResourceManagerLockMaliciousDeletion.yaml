@@ -1,7 +1,10 @@
 name: wafsg-AzureResourceManagerLockMaliciousDeletion
-title: Apply an Azure Resource Manager lock  on the storage account.
-description: Lock the account to prevent accidental or malicious deletion of the storage
-  account, which can cause data loss.
+title: Use an appropriate resource lock to protect the storage account's control plane.
+description: A CanNotDelete lock helps prevent deletion of the storage account through Azure Resource
+  Manager while allowing normal configuration changes. ReadOnly is more restrictive and can interfere
+  with operations such as key listing and role assignment. Neither lock prevents data-plane deletion or
+  modification of blobs, files, queues or tables. Combine locks with least-privilege access, service-level
+  protection and recovery controls, and restrict who can remove a lock.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,3 +16,46 @@ labels:
   guid: 5efa7ffa-1cc0-4a74-bd15-c809185ccb58
 links: []
 queries: {}
+schemaVersion: 1
+id: 5efa7ffa-1cc0-4a74-bd15-c809185ccb58
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources
+    title: Lock your Azure resources to protect your infrastructure
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:08
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+aliases:
+- id: 3195423b-0513-45e2-951b-87f9c5d534b0
+  name: wafsg-AzureResourceManagerLockDataLoss
+  source:
+    type: wafsg
+    file: ./checklists-ext/wafsg_checklist.en.json
+  labels:
+    guid: 3195423b-0513-45e2-951b-87f9c5d534b0
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Security/wafsg-AzureResourceManagerLockDataLoss.yaml
+- id: 0148ed98-3b9a-4b7f-81c2-8b550f56f793
+  name: wafsg-ResourceManagerLockMaliciousDeletion
+  source:
+    type: wafsg
+    file: ./checklists-ext/wafsg_checklist.en.json
+  labels:
+    guid: 0148ed98-3b9a-4b7f-81c2-8b550f56f793
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Security/wafsg-ResourceManagerLockMaliciousDeletion.yaml

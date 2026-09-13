@@ -1,21 +1,49 @@
 name: aprl-DiversePeeringLocationsDifferentPeeringLocation
-title: Connect v-Hub's ExpressRoute gateway to circuits from diverse peering locations
-  for resilience
-description: To increase reliability, it's advised that each v-Hub's ExpressRoute
-  gateway connects to at least two circuits, with each circuit originating from a
-  different peering location than the other, ensuring diverse connectivity paths for
-  enhanced resilience.|
+title: Connect ExpressRoute gateway with circuits from diverse peering locations
+description: For improved reliability, each ExpressRoute gateway should connect to at least two circuits,
+  with each circuit sourced from a different peering location. This setup ensures diverse connectivity
+  paths, enhancing resilience and minimizing service disruption risks.
 source:
   type: aprl
   file: azure-resources/Network/expressRouteGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/expressRouteGateways
+- microsoft.network/expressroutegateways
 severity: 0
 labels:
   guid: 9987c813-d687-4163-a511-95f31bc5e536
   area: High Availability
 links: []
 queries:
-  arg: |-
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 9987c813-d687-4163-a511-95f31bc5e536
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteGateways/recommendations.yaml
+    title: 'APRL 9987c813-d687-4163-a511-95f31bc5e536: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 9987c813-d687-4163-a511-95f31bc5e536
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteGateways/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:7c98912fbc142435202b67c81102ffba3caa8a031c2803b11d7917053ce2fe75
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

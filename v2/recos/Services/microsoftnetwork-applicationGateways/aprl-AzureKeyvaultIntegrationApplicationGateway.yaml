@@ -1,18 +1,22 @@
 name: aprl-AzureKeyvaultIntegrationApplicationGateway
-title: Migrate to Application Gateway v2
-description: |-
-  Use Application Gateway v2 for built-in features like autoscaling, static VIPs, Azure KeyVault integration for better traffic management and performance, unless v1 is necessary.
+title: Migrate any remaining Application Gateway v1 deployments to v2
+description: Application Gateway v1 retired on April 28, 2026 and no longer has support or an SLA. Migrate
+  any remaining v1 deployment to v2 immediately, validating configuration, backend connectivity, and traffic
+  cutover. Continued v1 traffic is not guaranteed during retirement decommissioning; do not retain an
+  exception that treats v1 as a supported choice when v1-specific functionality is desired.
 source:
   type: aprl
   file: azure-resources/Network/applicationGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/applicationGateways
+- microsoft.network/applicationgateways
 severity: 0
 labels:
   guid: 7893f0b3-8622-1d47-beed-4b50a19f7895
   area: Scalability
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/application-gateway/v1-retirement
 queries:
   arg: |
     // Azure Resource Graph Query
@@ -22,3 +26,35 @@ queries:
     | extend tier = properties.sku.tier
     | where tier == 'Standard' or tier == 'WAF'
     | project recommendationId = "7893f0b3-8622-1d47-beed-4b50a19f7895", name, id, tags
+schemaVersion: 1
+id: 7893f0b3-8622-1d47-beed-4b50a19f7895
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/application-gateway/v1-retirement
+    title: Completed Application Gateway v1 retirement and migration urgency
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    title: 'APRL 7893f0b3-8622-1d47-beed-4b50a19f7895: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 7893f0b3-8622-1d47-beed-4b50a19f7895
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:808834750deb092559cad572e7c3a8b9121d01db54e9cc8a14a6bf41ba43826f
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Completed Application Gateway v1 retirement and
+      migration urgency. Coverage concerns the inventory''s explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.'
+waf: Operations

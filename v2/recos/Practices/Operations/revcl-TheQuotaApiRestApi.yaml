@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/rest/api/reserved-vm-instances/quotaapi?branch=capacity
 queries: {}
+schemaVersion: 1
+id: ce4fab2f-433a-4d59-a5a9-3d1032e03ebc
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

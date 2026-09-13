@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/configure-ssl-certificate
 queries: {}
+schemaVersion: 1
+id: f8d39fda-4776-4831-9c11-5775c2ea55b4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

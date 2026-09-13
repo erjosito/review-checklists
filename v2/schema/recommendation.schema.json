@@ -1,9 +1,94 @@
 {
-    "$schema": "https://json-schema.org/2020-12/schema#",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://github.com/Azure/review-checklists/v2/recommendation.schema.json",
     "title": "Recommendation",
     "type": "object",
+    "additionalProperties": false,
     "properties": {
+        "schemaVersion": {"type": "integer", "const": 1},
+        "id": {"type": "string", "format": "uuid"},
+        "guid": {"type": "string", "format": "uuid", "deprecated": true},
+        "services": {
+            "type": "array",
+            "description": "Explicit service classification. Empty means not curated; resourceTypes remain available for compatibility.",
+            "items": {"type": "string", "minLength": 1},
+            "uniqueItems": true
+        },
+        "automation": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "validatedAt"],
+            "properties": {
+                "status": {"enum": ["unknown", "manual", "candidate", "query_available"]},
+                "resultSemantics": {"enum": ["unknown", "violations", "inventory", "compliance"]},
+                "complianceColumn": {"type": "string", "minLength": 1},
+                "validatedAt": {"type": ["string", "null"], "format": "date"},
+                "notes": {"type": "string", "minLength": 1}
+            }
+        },
+        "provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["upstreamRevision", "lastReviewed", "sources"],
+            "properties": {
+                "upstreamRevision": {"type": ["string", "null"], "minLength": 1},
+                "lastReviewed": {"type": ["string", "null"], "format": "date"},
+                "upstreamRecommendations": {
+                    "type": "array",
+                    "description": "Explicit mappings to identified upstream recommendations, independent of original import source.",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["sourceId", "recommendationId", "url", "coverage", "assessedAt", "notes"],
+                        "properties": {
+                            "sourceId": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+                            "recommendationId": {"type": "string", "pattern": "\\S"},
+                            "url": {"type": "string", "format": "uri"},
+                            "coverage": {"enum": ["full", "partial", "supporting"]},
+                            "assessedAt": {"type": "string", "format": "date"},
+                            "upstreamContentHash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+                            "notes": {"type": "string", "pattern": "\\S"}
+                        },
+                        "allOf": [
+                            {
+                                "if": {"properties": {"coverage": {"enum": ["full", "partial"]}}},
+                                "then": {"required": ["upstreamContentHash"]}
+                            }
+                        ]
+                    }
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["url"],
+                        "properties": {
+                            "url": {"type": "string", "format": "uri"},
+                            "title": {"type": "string", "minLength": 1},
+                            "accessedAt": {"type": ["string", "null"], "format": "date"},
+                            "revision": {"type": ["string", "null"], "minLength": 1}
+                        }
+                    }
+                }
+            }
+        },
+        "aliases": {
+            "type": "array",
+            "description": "Retired recommendation identities retained after confirmed duplicate merges.",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "name"],
+                "properties": {
+                    "id": {"type": "string", "format": "uuid"},
+                    "name": {"type": "string", "minLength": 1, "maxLength": 100},
+                    "source": {"$ref": "#/properties/source"},
+                    "labels": {"$ref": "#/properties/labels"},
+                    "corpusFile": {"type": "string", "minLength": 1}
+                }
+            }
+        },
         "name": {
             "type": "string",
             "description": "Unique identifier for the recommendation, human readable.",
@@ -36,22 +121,28 @@
         },
         "source": {
             "type": "object",
+            "additionalProperties": false,
+            "required": ["type"],
+            "anyOf": [{"required": ["file"]}, {"required": ["url"]}],
             "description": "Source of the recommendation.",
             "properties": {
                 "type": {
                     "type": "string",
                     "description": "Type of the source.",
-                    "enum": ["revcl", "aprl", "wafsg"]
+                    "enum": ["revcl", "aprl", "wafsg", "curated"]
                 },
+                "file": {"type": "string", "minLength": 1},
+                "timestamp": {"type": "string", "minLength": 1},
                 "url": {
                     "type": "string",
-                    "description": "ID of the source."
+                    "format": "uri",
+                    "description": "Public source URL."
                 }
             }
         },
         "reviewedDate": {
             "type": "string",
-            "description": "WAF pillar.",
+            "description": "Legacy recorded review date, not the upstream ingestion timestamp.",
             "format": "date"
         },
         "resourceTypes": {
@@ -65,10 +156,12 @@
         },
         "automatable": {
             "type": "boolean",
+            "deprecated": true,
             "description": "Whether this check can be automated via some kind of query, such as Azure Resource Graph."
         },
         "queries": {
             "type": "object",
+            "additionalProperties": false,
             "description": "Query to find the resources that this recommendation applies to.",
             "properties": {
                 "arg": {
@@ -82,6 +175,8 @@
             "description": "List of links to documentation or other resources.",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
+                "required": ["type", "url"],
                 "properties": {
                     "type": {
                         "type": "string",
@@ -90,6 +185,7 @@
                     },
                     "url": {
                         "type": "string",
+                        "format": "uri",
                         "description": "Link URL."
                     }
                 }
@@ -97,6 +193,7 @@
         },
         "labels": {
             "type": "object",
+            "properties": {"guid": {"type": "string", "format": "uuid"}},
             "description": "Optional labels for the recommendation."
         },
         "constraints": {
@@ -137,5 +234,27 @@
             }
         }
     },
-    "required": ["name", "title", "severity"]
+    "required": ["schemaVersion", "id", "name", "title", "severity", "source", "resourceTypes", "services", "automation", "provenance"],
+    "allOf": [
+        {
+            "if": {"properties": {"automation": {"properties": {"status": {"const": "query_available"}}}}},
+            "then": {
+                "required": ["queries"],
+                "properties": {
+                    "queries": {"required": ["arg"], "properties": {"arg": {"pattern": "\\S"}}},
+                    "automation": {"required": ["resultSemantics"]}
+                }
+            },
+            "else": {
+                "properties": {
+                    "queries": {"properties": {"arg": {"pattern": "^\\s*$"}}},
+                    "automation": {"properties": {"resultSemantics": {"const": "unknown"}}}
+                }
+            }
+        },
+        {
+            "if": {"properties": {"automation": {"required": ["resultSemantics"], "properties": {"resultSemantics": {"const": "compliance"}}}}},
+            "then": {"properties": {"automation": {"required": ["complianceColumn"]}}}
+        }
+    ]
 }

@@ -1,18 +1,51 @@
 name: aprl-AzureSqlDatabaseDatabaseLayerConfiguration
 title: Implement Retry Logic
-description: |-
-  During transient failures, the application should handle connection retries effectively with Azure SQL Database. No Database layer configuration is needed; instead, the application must be set up for graceful retrying.
+description: During transient failures, the application should handle connection retries effectively with
+  Azure SQL Database. No Database layer configuration is needed; instead, the application must be set
+  up for graceful retrying.
 source:
   type: aprl
   file: azure-resources/Sql/servers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Sql/servers
+- microsoft.sql/servers
 severity: 0
 labels:
   guid: cbb17a29-64fb-c943-95d0-8df814a37c40
   area: High Availability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: cbb17a29-64fb-c943-95d0-8df814a37c40
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Sql/servers/recommendations.yaml
+    title: 'APRL cbb17a29-64fb-c943-95d0-8df814a37c40: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: cbb17a29-64fb-c943-95d0-8df814a37c40
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Sql/servers/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:110717793132a5b2d9efd1755cc4b226af50ac513f29c95bb6987d04c4904dd2
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Upstream resource scope is ['Microsoft.Sql/servers/databases'], while the
+      frozen corpus scope is ['Microsoft.Sql/servers']; applicability is not broadened or narrowed without
+      separate verification. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

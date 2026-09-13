@@ -19,3 +19,13 @@ labels:
   guid: cfcbe692-8d95-414c-855a-2af8530bbee7
 links: []
 queries: {}
+schemaVersion: 1
+id: cfcbe692-8d95-414c-855a-2af8530bbee7
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

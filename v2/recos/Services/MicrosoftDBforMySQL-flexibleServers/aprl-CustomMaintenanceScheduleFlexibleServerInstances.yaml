@@ -1,13 +1,13 @@
 name: aprl-CustomMaintenanceScheduleFlexibleServerInstances
 title: Enable custom maintenance schedule
-description: |-
-  Use custom maintenance schedule on flexible server instances to select a preferred time for service updates to be applied.
+description: Use custom maintenance schedule on flexible server instances to select a preferred time for
+  service updates to be applied.
 source:
   type: aprl
   file: azure-resources/DBforMySQL/flexibleServers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DBforMySQL/flexibleServers
+- microsoft.dbformysql/flexibleservers
 severity: 0
 labels:
   guid: 82a9a0f2-24ee-496f-9ad2-25f81710942d
@@ -21,3 +21,34 @@ queries:
     | where type =~ "microsoft.dbformysql/flexibleservers"
     | where properties.maintenanceWindow.customWindow != "Enabled"
     | project recommendationId = "82a9a0f2-24ee-496f-9ad2-25f81710942d", name, id, tags, param1 = strcat("customWindow:", properties['maintenanceWindow']['customWindow'])
+schemaVersion: 1
+id: 82a9a0f2-24ee-496f-9ad2-25f81710942d
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforMySQL/flexibleServers/recommendations.yaml
+    title: 'APRL 82a9a0f2-24ee-496f-9ad2-25f81710942d: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 82a9a0f2-24ee-496f-9ad2-25f81710942d
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforMySQL/flexibleServers/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:8a896ea625a641cd936ae6efeac132e99cc3e22a8a5dab2d8a1abd21fb0685b9
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/concept-best-practices-lineage-azure-data-factory
 queries: {}
+schemaVersion: 1
+id: 5c586b7d-8cdc-415a-ac07-5ee9b130a888
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

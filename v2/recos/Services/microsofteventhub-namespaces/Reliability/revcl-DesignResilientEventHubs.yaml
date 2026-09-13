@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/serverless/event-hubs-functions/resilient-design
 queries: {}
+schemaVersion: 1
+id: 9ced16ad-d186-4f0a-a241-a999a68af77c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -8,7 +8,7 @@ source:
   file: azure-resources/AAD/domainServices/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AAD/domainServices
+- microsoft.aad/domainservices
 severity: 0
 labels:
   guid: a3058909-fcf8-4450-88b5-499f57449178
@@ -23,3 +23,31 @@ queries:
     | extend replicaSets = properties.replicaSets
     | where array_length(replicaSets) < 2
     | project recommendationId='a3058909-fcf8-4450-88b5-499f57449178', name=name, id=id, tags=tags, param1=strcat('replicaSetLocation:', replicaSets[0].location)
+schemaVersion: 1
+id: a3058909-fcf8-4450-88b5-499f57449178
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AAD/domainServices/recommendations.yaml
+    title: 'APRL a3058909-fcf8-4450-88b5-499f57449178: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: a3058909-fcf8-4450-88b5-499f57449178
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AAD/domainServices/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:7d355a02546591e0865475228a8258e770a5d9c05a05e24a9a8fee41e1fc92c5
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

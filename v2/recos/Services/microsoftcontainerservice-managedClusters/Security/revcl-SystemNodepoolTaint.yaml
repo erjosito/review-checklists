@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/use-system-pools
 queries: {}
+schemaVersion: 1
+id: a7a1f893-9bda-4477-98f2-4c116775c2ea
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

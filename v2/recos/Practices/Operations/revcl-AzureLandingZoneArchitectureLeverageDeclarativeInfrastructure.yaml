@@ -1,7 +1,7 @@
 name: revcl-AzureLandingZoneArchitectureLeverageDeclarativeInfrastructure
-title: Leverage Declarative Infrastructure as Code Tools such as Azure Bicep, ARM
-  Templates or Terraform to build and maintain your Azure Landing Zone architecture.
-  Both from a Platform and Application workload perspective.
+title: Leverage Declarative Infrastructure as Code Tools such as Azure Bicep, ARM Templates or Terraform
+  to build and maintain your Azure Landing Zone architecture. Both from a Platform and Application workload
+  perspective.
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -17,3 +17,30 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/considerations/infrastructure-as-code
 queries: {}
+schemaVersion: 1
+id: 2cdc9d99-dbcc-4ad4-97f5-e7d358bdfa73
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/infrastructure-as-code-design
+    title: Architecture strategies for using infrastructure as code
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:05
+    coverage: partial
+    notes: Make landing-zone IaC repeatability and change control explicit without claiming deployed configuration
+      proves process quality. Narrow control or service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/infrastructure-as-code-design
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:762fec3a61c5c118a1f9173f89173d01b5a11f0c841007fec34a88ee57e3e092
+description: Use declarative, version-controlled Bicep, ARM templates or Terraform for platform and workload
+  landing-zone resources. Standardize modules, parameters, style and tested tool/API versions; promote
+  the same assets across environments through reviewed pipelines. Test deployment, configuration changes
+  and recovery, document unavoidable manual steps and reconcile drift. Inspect repositories and pipeline
+  evidence rather than inferring IaC use from resource names.

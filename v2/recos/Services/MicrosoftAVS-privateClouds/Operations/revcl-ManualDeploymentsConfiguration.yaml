@@ -11,3 +11,13 @@ labels:
   guid: 4604489a-8f42-4d78-b78c-b7a33bd2a0a1
 links: []
 queries: {}
+schemaVersion: 1
+id: 4604489a-8f42-4d78-b78c-b7a33bd2a0a1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

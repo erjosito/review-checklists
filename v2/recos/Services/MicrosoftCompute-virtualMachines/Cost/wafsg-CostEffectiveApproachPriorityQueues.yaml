@@ -1,9 +1,8 @@
 name: wafsg-CostEffectiveApproachPriorityQueues
-title: Look for ways to optimize. Some strategies include choosing the most cost-effective
-  approach between increasing resources in an existing system, or scaling up, and
-  adding more instances of that system, or scaling out. You can offload demand by
-  distributing it to other resources, or you can reduce demand by implementing priority
-  queues, gateway offloading, buffering, and rate limiting. For more information,
+title: Look for ways to optimize. Some strategies include choosing the most cost-effective approach between
+  increasing resources in an existing system, or scaling up, and adding more instances of that system,
+  or scaling out. You can offload demand by distributing it to other resources, or you can reduce demand
+  by implementing priority queues, gateway offloading, buffering, and rate limiting. For more information,
   see the recommendations in Performance Efficiency.
 description: ''
 source:
@@ -18,3 +17,26 @@ labels:
   guid: f7fc4792-bc2c-4a9d-98dc-ee637e18badd
 links: []
 queries: {}
+schemaVersion: 1
+id: f7fc4792-bc2c-4a9d-98dc-ee637e18badd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:12
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-scaling-costs
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:3ead080c63305aad1b830ff7020097e2bd9efbe726f494f5cac97f8e1a804ec6
+    notes: Scale-up/out and queues, buffering and rate limiting cover demand/supply alternatives; explicit
+      cost-model and every scale-unit limit analysis remain broader requirements. Source-text assessment,
+      not independent human approval or live Azure validation.

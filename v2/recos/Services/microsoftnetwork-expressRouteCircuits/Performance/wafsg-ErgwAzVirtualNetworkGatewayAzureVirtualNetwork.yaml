@@ -1,8 +1,10 @@
 name: wafsg-ErgwAzVirtualNetworkGatewayAzureVirtualNetwork
-title: Enable ExpressRoute FastPath for higher throughput
-description: If you're using an Ultra performance or an ErGW3AZ virtual network gateway,
-  you can enable FastPath to improve the data path performance between your on-premises
-  network and Azure virtual network.
+title: Check current ExpressRoute FastPath eligibility before enabling it
+description: Supported gateway options include Ultra Performance, ErGw3AZ, and ErGwScale with at least
+  10 scale units. Virtual WAN uses separate eligibility rules. Direct and provider circuits support different
+  FastPath features; verify same-region peering, Private Link enrollment/service support, IP capacity
+  and fallback paths. Measure performance after changes rather than promising throughput from enablement
+  alone.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +16,26 @@ labels:
   guid: a5327e51-9367-4f91-bca2-71b5724e6acb
 links: []
 queries: {}
+schemaVersion: 1
+id: a5327e51-9367-4f91-bca2-71b5724e6acb
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/expressroute/about-fastpath
+    title: 'Azure ExpressRoute FastPath: Features, availability, and limitations'
+    accessedAt: '2026-09-11'
+aliases:
+- id: 21303a27-77fc-4cd0-afab-0080bbbf6501
+  name: wafsg-ExpressrouteFastpathHigherThroughput
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 21303a27-77fc-4cd0-afab-0080bbbf6501
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Performance/wafsg-ExpressrouteFastpathHigherThroughput.yaml

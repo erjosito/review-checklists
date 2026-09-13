@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-howto-properties?tabs=azure-portal
 queries: {}
+schemaVersion: 1
+id: 03b125d5-b69b-4739-b7fd-84b86da4933e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,18 +1,48 @@
 name: aprl-ExpressrouteCircuitMaintenanceNotificationUnplannedMaintenance
 title: Configure service health to receive ExpressRoute circuit maintenance notification
-description: |-
-  ExpressRoute leverages service health for notifications on both planned and unplanned maintenance, ensuring users are informed about any changes to their ExpressRoute circuits.
+description: ExpressRoute leverages service health for notifications on both planned and unplanned maintenance,
+  ensuring users are informed about any changes to their ExpressRoute circuits.
 source:
   type: aprl
   file: azure-resources/Network/expressRouteCircuits/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/expressRouteCircuits
+- microsoft.network/expressroutecircuits
 severity: 0
 labels:
   guid: 26cb547f-aabc-dc40-be02-d0a9b6b04b1a
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 26cb547f-aabc-dc40-be02-d0a9b6b04b1a
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    title: 'APRL 26cb547f-aabc-dc40-be02-d0a9b6b04b1a: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 26cb547f-aabc-dc40-be02-d0a9b6b04b1a
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6ebf10588e53b8de8978b9e0ad3b47f343c0ebf90feb8904ef9e0d0c058ca134
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

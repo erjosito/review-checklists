@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/azure-administrator-manage-compute-resources/
 queries: {}
+schemaVersion: 1
+id: 27139b82-1102-4dbd-9eaf-11e6f843e52f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

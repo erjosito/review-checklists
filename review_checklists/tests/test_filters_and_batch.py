@@ -61,13 +61,14 @@ class FilterTests(FilterFixture):
         self.assertEqual(self.ids(self.review.items(severity="low")), {MANUAL, UNKNOWN})
 
     def test_service_aliases_multiple_services_and_unknown_arm_types(self):
-        for service in ("aks", "Azure Kubernetes Service", "Microsoft.ContainerService/managedClusters"):
+        for service in ("aks", "Azure Kubernetes Service"):
             self.assertEqual(self.ids(self.review.items(service=service)), {ID, MULTI})
+        self.assertEqual(self.ids(self.review.items(service="Microsoft.ContainerService/managedClusters")), {ID})
         self.assertEqual(self.ids(self.review.items(service="Storage")), {MULTI})
         self.assertEqual(self.ids(self.review.items(service="AppGW")), {SECOND})
         self.assertEqual(self.ids(self.review.items(service="none")), {MANUAL})
         self.assertEqual(self.ids(self.review.items(service="microsoft.custom/widgets")), {UNKNOWN})
-        self.assertEqual(services_for(self.review.get(MULTI)["recommendation"]), ["AKS", "Storage"])
+        self.assertEqual(services_for(self.review.get(MULTI)["recommendation"]), ["Azure Kubernetes Service", "Azure Storage"])
 
     def test_all_filters_intersect_without_changing_state(self):
         self.review.update(ID, "Non-compliant", "Evidence needed", 0)
@@ -96,8 +97,8 @@ class FilterTests(FilterFixture):
 
     def test_options_are_deduplicated_and_show_services_not_raw_aliases(self):
         options = filter_options(self.review.items())
-        self.assertEqual(options["services"]["aks"], "AKS")
-        self.assertEqual(options["services"]["appgw"], "AppGW")
+        self.assertEqual(options["services"]["azure kubernetes service"], "Azure Kubernetes Service")
+        self.assertEqual(options["services"]["application gateway"], "Application Gateway")
         self.assertEqual(options["services"]["none"], "Not service-specific")
         self.assertEqual(options["services"]["microsoft.custom/widgets"], "microsoft.custom/widgets")
         self.assertNotIn("microsoft.containerservice/managedclusters", options["services"])
@@ -183,7 +184,7 @@ class FeatureWebTests(FilterFixture):
         self.assertIn(b'name="with_arg" value="1" checked', response.data)
         self.assertIn(b'name="severity" value="high" checked', response.data)
         self.assertIn(b'name="waf" value="security" checked', response.data)
-        self.assertIn(b'name="service" value="aks" checked', response.data)
+        self.assertIn(b'name="service" value="azure kubernetes service" checked', response.data)
         selected = re.findall(r'name="selected" value="([^"]+)"', response.text)
         self.assertEqual(selected, [ID])
         self.assertIn(b"Clear filters", response.data)
@@ -215,7 +216,7 @@ class FeatureWebTests(FilterFixture):
         recos = [dict(RECO, id=str(index)) for index in range(51)]
         review = Review.create(self.root / "many.sqlite3", "Many", recos, self.root)
         client = create_app(review).test_client()
-        query = "severity=medium&waf=security&service=microsoft.test%2Fresources&with_arg=1"
+        query = "severity=medium&waf=security&service=microsoft.test%2Fresources&with_arg=1&paginate=1"
         first = client.get("/?" + query)
         next_url = html.unescape(re.search(r'<a href="([^"]+)">Next</a>', first.text).group(1))
         self.assertEqual(parse_qs(urlsplit(next_url).query), dict(parse_qs(query), page=["2"]))
@@ -234,7 +235,13 @@ class FeatureWebTests(FilterFixture):
         self.assertIn(b"50.0%", response.data)
         self.assertIn(b"60.0%", response.data)
         self.assertIn(b"Not reviewed: 2", response.data)
-        self.assertNotIn(b"<script", response.data)
+        self.assertEqual(
+            re.findall(r'<script[^>]*src="([^"]+)"[^>]*></script>', response.text),
+            ["/static/assessment-forms.js", "/static/autosave.js"],
+        )
+        self.assertNotIn(b"<script>", response.data)
+        self.assertIn("script-src 'self'", response.headers["Content-Security-Policy"])
+        self.assertNotIn("'unsafe-inline'", response.headers["Content-Security-Policy"])
         self.assertNotIn(b"style=", response.data)
         empty = self.client.get("/?severity=high&waf=reliability")
         self.assertIn(b"0 matching recommendations", empty.data)

@@ -1,21 +1,9 @@
 name: wafsg-VeryLargeMachinesSpecializedCoreInstructions
-title: "Optimize compute resources: Optimize your compute resources based on the requirements\
-  \ of your workload. Choose the SKU that best suits your workload:<ul><li>General\
-  \ Purpose \u2013 Balanced CPU to memory ratio, good for all purposes.</li><li>Compute\
-  \ Optimized \u2013 High CPU to memory ratio, good for math-heavy computations.</li><li>Memory\
-  \ Optimized \u2013 High memory to CPU, good for in-memory computations or database\
-  \ applications.</li><li>M Series \u2013 Very large machines that have huge amounts\
-  \ of memory and CPU. </li><li> GPU \u2013 Better for models with a high number of\
-  \ variables that can benefit from higher parallelism and specialized core instructions.\
-  \ Typical applications are deep learning, image or video processing, scientific\
-  \ simulations, data mining, and taking advantage of GPU development frameworks.\
-  \ Test with multiple families and document the results as your baseline. As your\
-  \ model and data evolve, the most adequate compute resource might change. Monitor\
-  \ execution times and reevaluate as needed."
-description: Selecting the right compute is critical as it directly impacts the cost
-  of running your workload. Choosing a GPU or a high-performance SKU without proper
-  usage can lead to wasteful spending, while choosing undersized compute can lead
-  to prohibitively long training times and performance problems.
+title: Benchmark Azure Machine Learning compute families against training requirements
+description: Choose CPU, GPU, memory and other compute capabilities from the training workload rather
+  than family names alone. Benchmark suitable sizes against completion time, resource utilization and
+  total run cost. Repeat the comparison as data or models change; both oversized resources and undersized,
+  slow-running resources can increase cost.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -27,3 +15,19 @@ labels:
   guid: 1d3deb66-a7cf-4c9e-8071-3b3e3d60c478
 links: []
 queries: {}
+schemaVersion: 1
+id: 1d3deb66-a7cf-4c9e-8071-3b3e3d60c478
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Replace malformed HTML/encoding and an overly prescriptive static
+    family list with the documented benchmark approach. Requires workload, billing and operational evidence;
+    no ARG query or live validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-machine-learning
+    title: Architecture best practices for Azure Machine Learning
+    accessedAt: '2026-09-11'

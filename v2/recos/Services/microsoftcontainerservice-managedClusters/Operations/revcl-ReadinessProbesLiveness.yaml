@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 queries: {}
+schemaVersion: 1
+id: f4fd0602-7ab5-46f1-b66a-e9dea9654a65
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

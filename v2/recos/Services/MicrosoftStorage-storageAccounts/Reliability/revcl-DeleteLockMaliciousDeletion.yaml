@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/lock-account-resource
 queries: {}
+schemaVersion: 1
+id: 85e2213d-bd7b-4b01-8f7b-95e06e158e3e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

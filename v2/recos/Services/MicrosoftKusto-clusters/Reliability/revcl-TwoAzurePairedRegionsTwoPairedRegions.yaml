@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/data-explorer/business-continuity-overview#active-active-configuration
 queries: {}
+schemaVersion: 1
+id: 563a4dc7-4a74-48b6-922a-d190916a6649
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

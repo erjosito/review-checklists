@@ -1,25 +1,62 @@
 name: aprl-AzureNetappFilesVolumesDifferentAvailabilityZones
 title: Enable Cross-zone replication of Azure NetApp Files volumes
-description: |-
-  The cross-zone replication (CZR) feature enables asynchronous data replication between Azure NetApp Files volumes across different availability zones, ensuring data protection and critical application failover in case of zone-wide disasters. Note that failover is a manual process.
+description: The cross-zone replication (CZR) feature enables asynchronous data replication between Azure
+  NetApp Files volumes across different availability zones, ensuring data protection and critical application
+  failover in case of zone-wide disasters. Note that failover is a manual process.
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 0
 labels:
   guid: e3d742e1-dacd-9b48-b6b1-510ec9f87c96
   area: Disaster Recovery
 links: []
 queries:
-  arg: "// Azure Resource Graph Query\n// This Resource Graph query will return all\
-    \ Azure NetApp Files volumes without cross-zone replication.\nresources\n|\_where\_\
-    type\_==\_\"microsoft.netapp/netappaccounts/capacitypools/volumes\"\n|\_extend\_\
-    remoteVolumeRegion\_=\_properties.dataProtection.replication.remoteVolumeRegion\n\
-    |\_extend\_volumeType\_=\_properties.volumeType\n|\_extend\_replicationType\_\
-    =\_iff((remoteVolumeRegion\_==\_location),\_\"CZR\",\_iff((remoteVolumeRegion\_\
-    ==\_\"\"),\"n/a\",\"CRR\"))\n| where replicationType != \"CZR\" and volumeType\
-    \ != \"DataProtection\"\n| project recommendationId = \"e3d742e1-dacd-9b48-b6b1-510ec9f87c96\"\
-    , name, id, tags\n"
+  arg: |
+    // Azure Resource Graph Query
+    // This Resource Graph query will return all Azure NetApp Files volumes without cross-zone replication.
+    resources
+    | where type == "microsoft.netapp/netappaccounts/capacitypools/volumes"
+    | extend remoteVolumeRegion = properties.dataProtection.replication.remoteVolumeRegion
+    | extend volumeType = properties.volumeType
+    | extend replicationType = iff((remoteVolumeRegion == location), "CZR", iff((remoteVolumeRegion == ""),"n/a","CRR"))
+    | where replicationType != "CZR" and volumeType != "DataProtection"
+    | project recommendationId = "e3d742e1-dacd-9b48-b6b1-510ec9f87c96", name, id, tags
+schemaVersion: 1
+id: e3d742e1-dacd-9b48-b6b1-510ec9f87c96
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.NetApp/netAppAccounts/capacityPools/volumes''],
+    while the frozen corpus scope is [''Microsoft.NetApp/netAppAccounts'']; applicability is not broadened
+    or narrowed without separate verification. Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL e3d742e1-dacd-9b48-b6b1-510ec9f87c96: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: e3d742e1-dacd-9b48-b6b1-510ec9f87c96
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:4e404554fa95934f572dc6746f8d03e5148bd69cd0b0f3e73ae223e7837bb5e8
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.NetApp/netAppAccounts/capacityPools/volumes'],
+      while the frozen corpus scope is ['Microsoft.NetApp/netAppAccounts']; applicability is not broadened
+      or narrowed without separate verification. Current upstream ARG differs from the frozen query; the
+      old executable body is retained pending semantic/edge-case validation, not silently replaced by
+      unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were not
+      executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

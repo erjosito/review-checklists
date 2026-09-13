@@ -15,3 +15,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/considerations/devops-teams-topologies#design-recommendations
 queries: {}
+schemaVersion: 1
+id: 634146bf-7085-4419-a7b5-f96d2726f6da
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture
+    title: Architecture strategies for fostering DevOps culture
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:01
+    coverage: partial
+    notes: Clarify platform-team ownership and decision authority. Narrow control or service scope; not
+      all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f1dbf331239efc9b9df3daf6677ba4a519d908ecfd85a0d5a48c9de27a866e6f
+description: Document the landing-zone platform team's responsibilities for design, deployment, operations
+  and escalation, and agree the interfaces with application teams. Name decision owners, share standards
+  and knowledge, and review responsibilities as workloads evolve. Assess the operating model with the
+  teams; RBAC assignments alone do not prove accountability.

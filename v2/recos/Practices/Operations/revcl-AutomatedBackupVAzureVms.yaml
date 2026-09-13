@@ -12,3 +12,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/automated-backup?view=azuresql
 queries: {}
+schemaVersion: 1
+id: b82e650f-676d-417d-994d-fc33ca54ec14
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

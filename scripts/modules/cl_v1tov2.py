@@ -10,8 +10,11 @@ import sys
 import yaml
 import json
 import os
+import tempfile
+from copy import deepcopy
 from pathlib import Path
 from . import cl_analyze_v2
+from .cl_corpus import CorpusError, enrich_recommendation, validate_recommendation, validate_corpus
 
 # Get the standard service name from the service dictionary
 def get_standard_service_name(service_name, service_dictionary=None):
@@ -48,7 +51,6 @@ def get_resource_type_name(service_name, service_dictionary=None):
 # Function to modify yaml.dump for multiline strings, see https://github.com/yaml/pyyaml/issues/240
 def str_presenter(dumper, data):
     if data.count('\n') > 0:
-        data = "\n".join([line.rstrip() for line in data.splitlines()])  # Remove any trailing spaces, then put it back together again
         return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
     return dumper.represent_scalar('tag:yaml.org,2002:str', data)
 
@@ -63,13 +65,13 @@ def generate_v2(input_file, text_analytics_endpoint=None, text_analytics_key=Non
     # If existing v2 reco folder specified, load them up (will be used to prevent duplicate names)
     if not existing_v2recos:
         print("WARNING: No existing v2 recos provided, duplicate reco names might be generated.")
+    existing_v2recos = list(existing_v2recos or [])
     # Load v1 recos
     try:
-        with open(input_file) as f:
+        with open(input_file, encoding='utf-8') as f:
             checklist = json.load(f)
-    except Exception as e:
-        print("ERROR: Error when processing JSON file, nothing changed", input_file, ":", str(e))
-        return None
+    except (OSError, UnicodeError, json.JSONDecodeError) as e:
+        raise CorpusError(f"{input_file}: {e}") from e
     # Process the v1 recos
     if 'items' in checklist:
         if verbose: print("DEBUG: {0} items found in JSON file {1}".format(len(checklist['items']), input_file))
@@ -85,7 +87,9 @@ def generate_v2(input_file, text_analytics_endpoint=None, text_analytics_key=Non
             # Note that the order in which items are added to the dictionary is important, since yaml.dump is configured to not sort the keys
             v2reco = {}
             # Source (subfields file, type and timestamp). First we add the information to the original v1 reco, later we will add it to the new v2 reco
-            if 'source' in item:
+            if isinstance(item.get('source'), dict):
+                item['source'] = deepcopy(item['source'])
+            elif 'source' in item:
                 if item['source'].lower() == 'aprl' or item['source'].lower() == 'wafsg':
                     item['source'] = {'type': item['source'].lower()}
                 elif '.yaml' in item['source']:   # If it was imported from YAML it is coming from APRL
@@ -108,7 +112,9 @@ def generate_v2(input_file, text_analytics_endpoint=None, text_analytics_key=Non
             if text_analytics_endpoint and text_analytics_key:
                 v2reco['name'] = guess_reco_name(item, text_analytics_endpoint, text_analytics_key, version=1, key_phrase_no=2, verbose=verbose)
             else:
-                v2reco['name'] = ''
+                previous = next((reco for reco in existing_v2recos
+                                 if item.get('guid', '').lower() in cl_analyze_v2.recommendation_ids(reco)), None)
+                v2reco['name'] = previous['name'] if previous else item.get('guid', '')
             # If we have existing v2 recos, append an integer identifier until the name is unique
             if v2reco['name'] and existing_v2recos:
                 i = 0
@@ -192,19 +198,25 @@ def generate_v2(input_file, text_analytics_endpoint=None, text_analytics_key=Non
             # If additional labels were specified as parameter, add them to the object
             if labels:
                 for key in labels.keys():
+                    if key == 'guid' and labels[key] != item.get('guid'):
+                        raise CorpusError("Additional labels cannot replace the source GUID")
                     v2reco['labels'][key] = labels[key]
             # Queries
             v2reco['queries'] = {}
             if 'graph' in item:
                 v2reco['queries'] = {}
                 v2reco['queries']['arg'] = item['graph']
+            for field in ('services', 'automation', 'automatable', 'provenance', 'aliases', 'reviewedDate'):
+                if field in item:
+                    v2reco[field] = deepcopy(item[field])
+            v2reco = enrich_recommendation(v2reco)
+            validate_recommendation(v2reco)
             # Add to the list of v2 objects
             v2recos.append(v2reco)
             existing_v2recos.append(v2reco)     # Add to the list of existing v2 recos to prevent duplicate names
         return v2recos
     else:
-        print("ERROR: No items found in JSON file", input_file)
-        return None
+        raise CorpusError(f"No items found in JSON file: {input_file}")
 
 # Function that removes empty directories
 def remove_empty_dirs(path):
@@ -214,6 +226,28 @@ def remove_empty_dirs(path):
 
 # Function that stores an object generated by generate_v2 in files in the output folder
 def store_v2(output_folder, checklist, output_format='yaml', existing_v2recos=None, overwrite=False, verbose=False):
+    if output_format not in ('yaml', 'yml', 'json'):
+        raise CorpusError(f"Unsupported output format: {output_format}")
+    if Path(output_folder).is_dir():
+        existing_v2recos = cl_analyze_v2.load_v2_files(
+            output_folder, format=output_format, import_filepaths=True,
+        )
+    existing_v2recos = list(existing_v2recos or [])
+    checklist = [enrich_recommendation(item) for item in checklist]
+    validate_corpus(checklist)
+    incoming_ids = {item['id'] for item in checklist}
+    existing_documents = [enrich_recommendation(item) for item in existing_v2recos]
+    for item in checklist:
+        previous = next((old for old in existing_documents if old['id'] == item['id']), None)
+        if previous:
+            if not overwrite:
+                raise CorpusError(f"Recommendation {item['id']} exists; use --overwrite after review")
+            for field in ('aliases', 'services', 'automation', 'provenance'):
+                if previous.get(field) and item.get(field) != previous[field]:
+                    raise CorpusError(
+                        f"{item['id']}: refusing to replace curated {field}; reconcile explicitly before importing"
+                    )
+    validate_corpus([old for old in existing_documents if old['id'] not in incoming_ids] + checklist)
     # If parameter existing_v2recos is not provided, show warning
     if not existing_v2recos:
         print("WARNING: No existing v2 recos provided, duplicate reco names might be generated.")
@@ -224,11 +258,13 @@ def store_v2(output_folder, checklist, output_format='yaml', existing_v2recos=No
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
     # Add representer to yaml for multiline strings, see https://github.com/yaml/pyyaml/issues/240
-    yaml.add_representer(str, str_presenter)
-    yaml.representer.SafeRepresenter.add_representer(str, str_presenter) # to use with safe_dum
+    class RecommendationDumper(yaml.SafeDumper):
+        pass
+    RecommendationDumper.add_representer(str, str_presenter)
     # Store each object in a separate YAML file
     item_count = 0
     for item in checklist:
+        obsolete_files = set()
         # Use the reco's name as the file name, otherwise the guid
         item_count += 1
         if 'name' in item:
@@ -275,7 +311,7 @@ def store_v2(output_folder, checklist, output_format='yaml', existing_v2recos=No
                         if os.path.exists(existing_reco['filepath']):
                             if verbose:
                                 print("DEBUG: Deleting existing reco at", existing_reco['filepath'])
-                            os.remove(existing_reco['filepath'])
+                            obsolete_files.add(Path(existing_reco['filepath']).resolve())
                         else:
                             print("WARNING: reco not found at", existing_reco['filepath'])
             # Delete any existing file for the same name (it might be in a different folder)
@@ -291,46 +327,55 @@ def store_v2(output_folder, checklist, output_format='yaml', existing_v2recos=No
                         if os.path.exists(existing_reco['filepath']):
                             if verbose:
                                 print("DEBUG: Deleting existing reco at", existing_reco['filepath'])
-                            os.remove(existing_reco['filepath'])
+                            obsolete_files.add(Path(existing_reco['filepath']).resolve())
             # Export JSON or YAML, depending on the output format
             if output_format in ['yaml', 'yml']:
                 output_file = os.path.join(this_output_folder, file_name + ".yaml")
                 # If the new file exists, append a number to the name
                 i = 1
-                while os.path.exists(output_file):
+                while os.path.exists(output_file) and Path(output_file).resolve() not in obsolete_files:
                     output_file = os.path.join(this_output_folder, file_name + "-" + str(i) + ".yaml")
                     i += 1
                 # Create the new file
-                try:
-                    with open(output_file, 'w') as f:
-                        yaml.dump(item, f, sort_keys=False)
-                    if verbose: print("DEBUG: Stored YAML recommendation {0}/{1} in file {2}.".format(item_count, len(checklist), output_file))
-                except Exception as e:
-                    print("ERROR: Error when writing YAML file", output_file, ":", str(e))
+                serialized = yaml.dump(item, Dumper=RecommendationDumper, sort_keys=False, allow_unicode=True)
             # JSON not finished (not using JSON for now)
             elif output_format == 'json':
                 output_file = os.path.join(this_output_folder, file_name + ".json")
                 # If the new file exists, append a number to the name
                 i = 1
-                while os.path.exists(output_file):
+                while os.path.exists(output_file) and Path(output_file).resolve() not in obsolete_files:
                     output_file = os.path.join(this_output_folder, file_name + "-" + str(i) + ".json")
                     i += 1
                 # Create the new file
-                with open(output_file, 'w') as f:
-                    json.dump(item, f, sort_keys=False)
+                serialized = json.dumps(item, ensure_ascii=False, indent=2) + '\n'
             else:
                 print("ERROR: Unsupported output format", output_format)
                 sys.exit(1)
+            temporary_path = None
+            try:
+                with tempfile.NamedTemporaryFile(
+                    mode='w', encoding='utf-8', newline='\n', dir=this_output_folder,
+                    prefix='.recommendation-', suffix='.tmp', delete=False,
+                ) as stream:
+                    temporary_path = Path(stream.name)
+                    stream.write(serialized)
+                os.replace(temporary_path, output_file)
+                for obsolete in obsolete_files:
+                    if obsolete != Path(output_file).resolve():
+                        obsolete.unlink()
+            finally:
+                if temporary_path is not None and temporary_path.exists():
+                    temporary_path.unlink()
+            if verbose:
+                print(f"DEBUG: Stored recommendation {item_count}/{len(checklist)} in {output_file}")
         else:
             print("ERROR: No file name could be derived for recommendation '{0}' (missing name and GUID), skipping. Full reco object: '{1}'".format(item['title'], str(item)))
             continue
     # Clean up all empty folders that might exist in the output folder, recursively
     if overwrite:
-        try:
-            if verbose: print("DEBUG: Removing empty directories in output folder", output_folder)
-            [os.removedirs(p) for p in Path(output_folder).glob('**/*') if p.is_dir() and len(list(p.iterdir())) == 0]
-        except Exception as e:
-            print("ERROR: Error when removing empty directories in output folder", output_folder, ":", str(e))
+        for directory in sorted(Path(output_folder).rglob('*'), reverse=True):
+            if directory.is_dir() and not any(directory.iterdir()):
+                directory.rmdir()
 
 # Function that guesses a reco name from a reco v2 object by querying Azure Cognitive Services for key phrases
 # The guessed name will be a concatenation of key phrases. The parameter key_phrase_no specifies how many key phrases to use (default is 1)
@@ -466,4 +511,3 @@ def checklist_v1_to_v2(input_file, output_file, use_names=False, v2recos_folder=
     with open(output_file, 'w') as f:
         yaml.dump(checklist_v2, f, indent=4, sort_keys=False)
     return checklist_v2
-

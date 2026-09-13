@@ -1,18 +1,49 @@
 name: aprl-MaintenanceSensitiveWorkloadVmsAzureMetadataService
 title: Enable Scheduled Events for Maintenance sensitive workload VMs
-description: |-
-  If your workload is Maintenance sensitive, enable Scheduled Events. This Azure Metadata Service lets your app prepare for virtual machine maintenance by providing information on upcoming events like reboots, reducing disruptions.
+description: If your workload is Maintenance sensitive, enable Scheduled Events. This Azure Metadata Service
+  lets your app prepare for virtual machine maintenance by providing information on upcoming events like
+  reboots, reducing disruptions.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 1
 labels:
   guid: 2de8fa5e-14f4-4c4c-857f-1520f87a629f
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 2de8fa5e-14f4-4c4c-857f-1520f87a629f
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL 2de8fa5e-14f4-4c4c-857f-1520f87a629f: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 2de8fa5e-14f4-4c4c-857f-1520f87a629f
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e80a0347ce2ebadc34148c8424b2090a8ab1195834ccf11776b43ed78e956322
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

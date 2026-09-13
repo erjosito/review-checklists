@@ -1,14 +1,14 @@
 name: aprl-ExpressrouteDirectCircuitsNetworkFlow
-title: Implement rate-limiting across ExpressRoute Direct Circuits to optimize network
-  flow
-description: |-
-  Rate limiting controls traffic volume between on-premises networks and Azure via ExpressRoute Direct, applying to private or Microsoft peering. It distributes port bandwidth, ensures stability, and prevents congestion, with steps outlined for enabling on circuits.
+title: Implement rate-limiting across ExpressRoute Direct Circuits to optimize network flow
+description: Rate limiting controls traffic volume between on-premises networks and Azure via ExpressRoute
+  Direct, applying to private or Microsoft peering. It distributes port bandwidth, ensures stability,
+  and prevents congestion, with steps outlined for enabling on circuits.
 source:
   type: aprl
   file: azure-resources/Network/expressRouteCircuits/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/expressRouteCircuits
+- microsoft.network/expressroutecircuits
 severity: 1
 labels:
   guid: d40c769d-2f08-4980-8d8f-a386946276e6
@@ -23,3 +23,31 @@ queries:
     | where properties.expressRoutePort != "" or isnotnull(properties.expressRoutePort)
     | where properties.enableDirectPortRateLimit == false
     | project recommendationId = "d40c769d-2f08-4980-8d8f-a386946276e6", name, id, tags, param1=strcat("enableDirectPortRateLimit: ",properties.enableDirectPortRateLimit)
+schemaVersion: 1
+id: d40c769d-2f08-4980-8d8f-a386946276e6
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    title: 'APRL d40c769d-2f08-4980-8d8f-a386946276e6: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: d40c769d-2f08-4980-8d8f-a386946276e6
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f415b2beba44fd4ebf522063b3a39c83fe4169575078d446039224ed5219061e
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

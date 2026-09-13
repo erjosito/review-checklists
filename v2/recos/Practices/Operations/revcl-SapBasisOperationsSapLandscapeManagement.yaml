@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/explore-azure-remote-management/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 76c8bcbf-45bb-4e60-ad8a-03e97778424d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

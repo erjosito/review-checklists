@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/dns/tutorial-dns-private-resolver-failover
 queries: {}
+schemaVersion: 1
+id: 43da1dae-2cc8-4814-9060-7c1cca0e6146
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

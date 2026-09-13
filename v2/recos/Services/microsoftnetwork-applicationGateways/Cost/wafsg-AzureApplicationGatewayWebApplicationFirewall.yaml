@@ -1,9 +1,8 @@
 name: wafsg-AzureApplicationGatewayWebApplicationFirewall
 title: Familiarize yourself with Application Gateway pricing
-description: For information about Application Gateway pricing, see Understanding
-  Pricing for Azure Application Gateway and Web Application Firewall. You can also
-  leverage the Pricing calculator.Ensure that the options are adequately sized to
-  meet the capacity demand and deliver expected performance without wasting resources.
+description: For information about Application Gateway pricing, see Understanding Pricing for Azure Application
+  Gateway and Web Application Firewall. You can also leverage the Pricing calculator.Ensure that the options
+  are adequately sized to meet the capacity demand and deliver expected performance without wasting resources.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +14,23 @@ labels:
   guid: 6f1432ef-61d2-4037-8f85-58e005d16b8c
 links: []
 queries: {}
+schemaVersion: 1
+id: 6f1432ef-61d2-4037-8f85-58e005d16b8c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 30cbe437-b17d-45ad-a42e-a26bef6f4b77
+  name: wafsg-ApplicationGatewayPricing
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 30cbe437-b17d-45ad-a42e-a26bef6f4b77
+  corpusFile: Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayPricing.yaml

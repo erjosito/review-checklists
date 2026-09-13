@@ -1,6 +1,5 @@
 name: revcl-ClusterLogsContainerInsights
-title: Store and analyze your cluster logs with Container Insights (or other tools
-  like Telegraf/ElasticSearch)
+title: Store and analyze your cluster logs with Container Insights (or other tools like Telegraf/ElasticSearch)
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,6 +13,50 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview
 queries:
-  arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
-    = (isnotnull(properties.addonProfiles.omsagent) and properties.addonProfiles.omsagent.enabled==true)
-    | distinct id,compliant
+  arg: |
+    Resources
+    | where type =~ 'microsoft.containerservice/managedclusters'
+    | project id, name, resourceGroup, subscriptionId, monitoringEnabled = properties.addonProfiles.omsagent.enabled, workspaceResourceId = properties.addonProfiles.omsagent.config.logAnalyticsWorkspaceResourceID, useManagedIdentity = properties.addonProfiles.omsagent.config.useAADAuth
+schemaVersion: 1
+id: eaa8dc4a-2436-47b3-9697-15b1752beee0
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-overview
+    title: Kubernetes monitoring in Azure Monitor
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-authentication
+    title: Legacy authentication for Container insights
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/governance/resource-graph/concepts/query-language
+    title: Understand the query language - Azure Resource Graph
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:07
+    coverage: partial
+    notes: Replace add-on-enabled compliance with documented configuration inventory and distinguish actual
+      log delivery. Narrow control or service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540
+  - sourceId: advisor-operations-catalog
+    recommendationId: d1e9f4a0-926e-4480-a4e4-3ea94877370c
+    coverage: partial
+    notes: AKS container log monitoring is represented; this record does not require all Prometheus metrics
+      in the published Advisor requirement.
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e23b510bdef8cbffe1a32e0a19bef61b614a90bce89594a30b88e34a1c98d762
+description: Collect and analyze AKS container stdout/stderr and Kubernetes events with Container insights
+  or an approved alternative. Configure control-plane resource logs separately using diagnostic settings.
+  If Container insights is used, migrate legacy authentication to managed identity before the September
+  30, 2026 support cutoff and verify new data, dashboards and alerts after migration. The query inventories
+  the documented monitoring add-on configuration only; it does not inspect log delivery, alternate tools,
+  retention or observability quality. Missing fields and zero rows are not a pass.

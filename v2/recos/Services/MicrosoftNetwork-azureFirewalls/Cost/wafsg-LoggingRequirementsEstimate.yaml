@@ -13,3 +13,13 @@ labels:
   guid: ed8185a5-8f3a-402b-bd40-a3db15b390fd
 links: []
 queries: {}
+schemaVersion: 1
+id: ed8185a5-8f3a-402b-bd40-a3db15b390fd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

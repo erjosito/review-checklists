@@ -1,7 +1,5 @@
 name: revcl-DefaultHomepageinApplicationSettings
-title: Frontdoor - Turn off the default homepageIn the application settings of your
-  App, set AzureWebJobsDisableHomepage to true. This will return a 204 (No Content)
-  to the PoP so only header data is returned.
+title: Use a valid lightweight Front Door probe rather than a 204 homepage response
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +13,23 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-monitor/logs/design-logs-deployment
 queries: {}
+schemaVersion: 1
+id: 3da1dae2-cc88-4147-8607-c1cca0e61465
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Correct an unsafe 204-as-healthy cost shortcut against the current
+    service contract. Requires workload, billing and operational evidence; no ARG query or live validation
+    is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/frontdoor/health-probes
+    title: Health Probes - Azure Front Door
+    accessedAt: '2026-09-11'
+description: Front Door treats only HTTP 200 as healthy; HTTP 204 is a failed health probe. Configure
+  an appropriate health endpoint and use HEAD where supported to avoid a response body. Ensure the endpoint
+  reflects the origin's ability to serve its intended workload. Do not disable the Functions homepage
+  to manufacture a 204 probe response; verify routing and failover after any probe change.

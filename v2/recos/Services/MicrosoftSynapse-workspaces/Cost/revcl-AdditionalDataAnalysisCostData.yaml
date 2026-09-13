@@ -1,10 +1,9 @@
 name: revcl-AdditionalDataAnalysisCostData
-title: Export cost data to a storage account for additional data analysis.
+title: Automate reliable cost exports and evaluate FOCUS for standardized analysis
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
-resourceTypes:
-- microsoft.synapse/workspaces
+resourceTypes: []
 waf: Cost
 severity: 1
 labels:
@@ -13,3 +12,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/availability
 queries: {}
+schemaVersion: 1
+id: 35e33789-7e31-4c67-b68c-f6a62a119495
+services:
+- Microsoft Cost Management
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Exports, storage ingestion and billing reconciliation are automatable outside ARG; no supported
+    ARG query proves export delivery or financial completeness.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data
+    title: 'Tutorial: Create and manage Cost Management exports'
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/focus/what-is-focus
+    title: FinOps Open Cost and Usage Specification
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/toolkit/finops-toolkit-overview
+    title: FinOps toolkit overview
+    accessedAt: '2026-09-11'
+description: Schedule supported Cost Management exports with an explicit dataset/version, billing scope
+  and retention policy. Where appropriate, use FOCUS to retain BilledCost and EffectiveCost together,
+  preserving currency, charge-period and commitment semantics. Monitor run history and data completeness,
+  reconcile totals to the billing view and account for export storage/processing cost.

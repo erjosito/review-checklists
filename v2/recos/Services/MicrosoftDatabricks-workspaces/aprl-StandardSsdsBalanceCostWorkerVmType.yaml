@@ -1,18 +1,48 @@
 name: aprl-StandardSsdsBalanceCostWorkerVmType
 title: Use SSD backed VMs for Worker VM Type and Driver type
-description: |-
-  Upgrade HDDs in premium VMs to SSDs for better speed and reliability. Premium SSDs boost IO-heavy apps; Standard SSDs balance cost and performance. Ideal for critical workloads, upgrading improves connectivity with brief reboot. Consider for vital VMs
+description: Upgrade HDDs in premium VMs to SSDs for better speed and reliability. Premium SSDs boost
+  IO-heavy apps; Standard SSDs balance cost and performance. Ideal for critical workloads, upgrading improves
+  connectivity with brief reboot. Consider for vital VMs
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 1
 labels:
   guid: 5877a510-8444-7a4c-8412-a8dab8662f7e
   area: Scalability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 5877a510-8444-7a4c-8412-a8dab8662f7e
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL 5877a510-8444-7a4c-8412-a8dab8662f7e: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 5877a510-8444-7a4c-8412-a8dab8662f7e
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac8abecb6750fcfe4ad142e70dc91b99f962f6417e0d0daba6b2c79b4b37971b
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. The worker-disk narrative conflates premium VM sizing with HDD-to-SSD
+      migration; deployment and disk eligibility require verification. Coverage concerns the inventory's
+      explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

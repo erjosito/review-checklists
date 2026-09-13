@@ -15,3 +15,13 @@ labels:
   guid: 80a4d735-cacb-456d-a188-ebf3e6610e6b
 links: []
 queries: {}
+schemaVersion: 1
+id: 80a4d735-cacb-456d-a188-ebf3e6610e6b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

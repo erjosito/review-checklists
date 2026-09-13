@@ -1,5 +1,5 @@
 name: revcl-MultipleReplicasDatabase
-title: Run multiple replicas of the database (>1 ) in Prod
+title: Understand service-managed Cosmos DB replicas and choose zone and region redundancy
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cosmos-db/high-availability#replica-outages
 queries: {}
+schemaVersion: 1
+id: 0d934a34-8b26-43e7-bd60-513a3649906e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-cosmos-db-nosql
+    title: Reliability in Azure Cosmos DB
+    accessedAt: '2026-09-11'
+description: Azure Cosmos DB automatically maintains multiple data replicas and handles replica outages
+  through quorum; customers do not set a generic database replica count greater than one. Configure supported
+  zone redundancy and account regions according to workload requirements, and test client retry and recovery
+  behavior for the chosen topology.

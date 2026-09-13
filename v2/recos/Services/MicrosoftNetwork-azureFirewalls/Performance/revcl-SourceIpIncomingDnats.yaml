@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/firewall/tutorial-firewall-dnat
 queries: {}
+schemaVersion: 1
+id: c44c6f0e-1642-4a61-a17b-0922f835c93a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

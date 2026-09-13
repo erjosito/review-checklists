@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-howto-app-insights
 queries: {}
+schemaVersion: 1
+id: 8691fa38-45ed-4299-a247-fecd98d35deb
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

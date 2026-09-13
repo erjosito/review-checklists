@@ -1,18 +1,9 @@
 name: wafsg-OtherApplicationGatewayResourcesOnePrivateIpAddress
-title: Define Application Gateway subnet size
-description: Application Gateway needs a dedicated subnet within a virtual network.
-  The subnet can have multiple instances of the deployed Application Gateway resource.
-  You can also deploy other Application Gateway resources in that subnet, v1 or v2
-  SKU.Here are some considerations for defining the subnet size:- Application Gateway
-  uses one private IP address per instance and another private IP address if a private
-  front-end IP is configured.- Azure reserves five IP addresses in each subnet for
-  internal use.- Application Gateway (Standard or WAF SKU) can support up to 32 instances.
-  Taking 32 instance IP addresses + 1 private front-end IP + 5 Azure reserved, a minimum
-  subnet size of /26 is recommended. Because the Standard_v2 or WAF_v2 SKU can support
-  up to 125 instances, using the same calculation, a subnet size of /24 is recommended.-
-  If you want to deploy additional Application Gateway resources in the same subnet,
-  consider the additional IP addresses that will be required for their maximum instance
-  count for both, Standard and Standard v2.
+title: Size the Application Gateway v2 subnet for peak instance capacity
+description: A /24 is the documented recommendation for v2 deployments. Account for one private IP per
+  instance, a private frontend if configured, five Azure-reserved addresses, and every other gateway sharing
+  the subnet at maximum scale. Application Gateway v1 retired on 2026-04-28; do not plan new capacity
+  around its historical limits or assume mixed-version deployment is supported.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -24,3 +15,29 @@ labels:
   guid: 6d9985b2-103c-4b47-82b9-148e22af311b
 links: []
 queries: {}
+schemaVersion: 1
+id: 6d9985b2-103c-4b47-82b9-148e22af311b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-application-gateway
+    title: Architecture best practices for Azure Application Gateway v2
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/application-gateway/v1-retirement
+    title: Migrate from Application Gateway V1 to V2
+    accessedAt: '2026-09-11'
+aliases:
+- id: 0e38111f-c642-46ca-a2a0-72d5eb520cab
+  name: wafsg-ApplicationGatewaySubnetSize
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 0e38111f-c642-46ca-a2a0-72d5eb520cab
+  corpusFile: Services/microsoftnetwork-applicationGateways/Performance/wafsg-ApplicationGatewaySubnetSize.yaml

@@ -24,3 +24,13 @@ labels:
   guid: 8c75d7e5-34e6-4a55-85a1-db4c26eb15f2
 links: []
 queries: {}
+schemaVersion: 1
+id: 8c75d7e5-34e6-4a55-85a1-db4c26eb15f2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

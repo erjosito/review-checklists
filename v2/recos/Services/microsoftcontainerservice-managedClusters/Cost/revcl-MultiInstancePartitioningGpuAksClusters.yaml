@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/gpu-multi-instance
 queries: {}
+schemaVersion: 1
+id: 87e651ea-bc4a-4a87-a6df-c06a4b570ebc
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

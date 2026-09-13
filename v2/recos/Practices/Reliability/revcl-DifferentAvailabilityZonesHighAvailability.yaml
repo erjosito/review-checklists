@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://azure.microsoft.com/blog/setting-up-active-directory-for-a-disaster-recovery-environment-2/
 queries: {}
+schemaVersion: 1
+id: 604489a8-f42d-478e-98c0-7a73b22a4a57
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

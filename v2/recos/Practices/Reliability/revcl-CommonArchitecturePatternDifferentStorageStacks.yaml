@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/paths/ensure-business-continuity-implement-disaster-recovery/?source=recommendationshttps%3A%2F%2Flearn.microsoft.com%2Fja-jp%2Ftraining%2Fpaths%2Fensure-business-continuity-implement-disaster-recovery%2F%3Fsource%3Drecommendations
 queries: {}
+schemaVersion: 1
+id: afae6bec-2671-49ae-bc69-140b8ec8d320
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

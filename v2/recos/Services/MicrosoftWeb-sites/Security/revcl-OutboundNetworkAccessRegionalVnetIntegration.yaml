@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/overview-vnet-integration
 queries: {}
+schemaVersion: 1
+id: c12159e1-14b9-433d-b574-ecccd9bd3baf
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

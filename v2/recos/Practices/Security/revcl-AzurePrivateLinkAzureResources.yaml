@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
 queries: {}
+schemaVersion: 1
+id: 56ad4840-8fe7-4273-9c48-6ba280dc0591
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

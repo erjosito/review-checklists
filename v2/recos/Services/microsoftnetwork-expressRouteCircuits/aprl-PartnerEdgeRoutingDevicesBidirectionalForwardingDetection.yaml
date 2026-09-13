@@ -1,18 +1,49 @@
 name: aprl-PartnerEdgeRoutingDevicesBidirectionalForwardingDetection
 title: Activate Bidirectional Forwarding Detection on edge devices for faster failover
-description: |-
-  Enabling BFD over ExpressRoute speeds up link failure detection between MSEE devices and routers configured for ExpressRoute (CE/PE), applicable over both customer and Partner Edge routing devices with managed Layer 3 service.
+description: Enabling BFD over ExpressRoute speeds up link failure detection between MSEE devices and
+  routers configured for ExpressRoute (CE/PE), applicable over both customer and Partner Edge routing
+  devices with managed Layer 3 service.
 source:
   type: aprl
   file: azure-resources/Network/expressRouteCircuits/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/expressRouteCircuits
+- microsoft.network/expressroutecircuits
 severity: 0
 labels:
   guid: 2a5bf650-586d-db4c-a292-d922be7d3e0e
   area: High Availability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 2a5bf650-586d-db4c-a292-d922be7d3e0e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    title: 'APRL 2a5bf650-586d-db4c-a292-d922be7d3e0e: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 2a5bf650-586d-db4c-a292-d922be7d3e0e
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:88dc28d72cae86f4c5666cfa2b8e310b6d1483ac7c882242362409e369a01a87
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

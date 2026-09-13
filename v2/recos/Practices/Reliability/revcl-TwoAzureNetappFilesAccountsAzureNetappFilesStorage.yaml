@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/choose-service-level-azure-netapp-files-hpc-applications/2-identify-decision-criteria
 queries: {}
+schemaVersion: 1
+id: d3351bf7-628a-46de-917d-dfc11d3b6b40
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

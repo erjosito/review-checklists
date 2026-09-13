@@ -1,6 +1,5 @@
 name: revcl-PremiumSsdDisksStandardSsd
-title: 'Disks - validate use of Premium SSD disks everywhere: for example, non-prod
-  could swap to Standard SSD or on-demand Premium SSD  '
+title: Choose managed disk tiers from measured capacity and performance needs
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,28 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/backup/backup-center-overview
 queries: {}
+schemaVersion: 1
+id: 92d34429-3c76-4286-97a5-51c5b04e4f18
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  notes: ARG can inventory disk SKUs, but this optimization requires utilization/performance metrics and
+    workload testing.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-data-costs
+    title: Architecture strategies for optimizing data costs
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations
+    accessedAt: '2026-09-11'
+description: Compare Standard SSD, Premium SSD and eligible alternatives using IOPS, throughput, latency,
+  capacity and transaction/bursting charges. Include Premium SSD v2 where independent performance provisioning
+  is suitable. Test lower-cost tiers under peak workload and preserve availability/recovery requirements;
+  nonproduction does not automatically imply Standard SSD.

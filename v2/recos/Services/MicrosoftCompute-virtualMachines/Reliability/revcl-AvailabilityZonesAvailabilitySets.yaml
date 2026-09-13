@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/availability-set-overview
 queries: {}
+schemaVersion: 1
+id: 5a785d6f-e96c-496a-b884-4cf3b2b38c88
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

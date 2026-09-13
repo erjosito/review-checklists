@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-netapp-files/azacsnap-introduction
 queries: {}
+schemaVersion: 1
+id: 302a2fbf-3745-4a5f-a365-c9d1a16ca22c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/devops-api-development-templates
 queries: {}
+schemaVersion: 1
+id: 354f1c03-8112-4965-85ad-c0074bddf231
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,13 +1,13 @@
 name: aprl-MultipleAvailabilityZonesZoneRedundancy
 title: Enable zone redundancy for Azure Cache for Redis
-description: |-
-  Azure Cache for Redis offers zone redundancy in Premium and Enterprise tiers, using VMs across multiple Availability Zones to ensure greater resilience and availability.
+description: Azure Cache for Redis offers zone redundancy in Premium and Enterprise tiers, using VMs across
+  multiple Availability Zones to ensure greater resilience and availability.
 source:
   type: aprl
   file: azure-resources/Cache/Redis/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Cache/Redis
+- microsoft.cache/redis
 severity: 0
 labels:
   guid: 5a44bd30-ae6a-4b81-9b68-dc3a8ffca4d8
@@ -22,3 +22,35 @@ queries:
     | where array_length(zones) <= 1 or isnull(zones)
     | project recommendationId = "5a44bd30-ae6a-4b81-9b68-dc3a8ffca4d8", name, id, tags, param1 = "AvailabilityZones: Single Zone"
     | order by id asc
+schemaVersion: 1
+id: 5a44bd30-ae6a-4b81-9b68-dc3a8ffca4d8
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cache/Redis/recommendations.yaml
+    title: 'APRL 5a44bd30-ae6a-4b81-9b68-dc3a8ffca4d8: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 5a44bd30-ae6a-4b81-9b68-dc3a8ffca4d8
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cache/Redis/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5dc845d21f1c2f0ef8397058c670c25fe04759304791a56000132ca04eaef882
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

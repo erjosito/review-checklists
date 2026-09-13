@@ -1,13 +1,14 @@
 name: aprl-StandardPublicLoadBalancerManualPortAllocation
 title: Use NAT Gateway instead of Outbound Rules for Production Workloads
-description: |-
-  Outbound rules for Standard Public Load Balancer involve manual port allocation for backend pools, limiting scalability and risk of SNAT port exhaustion. NAT Gateway is recommended for its dynamic scaling and secure internet connectivity.
+description: Outbound rules for Standard Public Load Balancer involve manual port allocation for backend
+  pools, limiting scalability and risk of SNAT port exhaustion. NAT Gateway is recommended for its dynamic
+  scaling and secure internet connectivity.
 source:
   type: aprl
   file: azure-resources/Network/loadBalancers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/loadBalancers
+- microsoft.network/loadbalancers
 severity: 1
 labels:
   guid: 8d319a05-677b-944f-b9b4-ca0fb42e883c
@@ -22,3 +23,31 @@ queries:
     | extend outboundRules = array_length(properties.outboundRules)
     | where outboundRules > 0
     | project recommendationId = "8d319a05-677b-944f-b9b4-ca0fb42e883c", name, id, tags, Param1 = "outboundRules: >=1"
+schemaVersion: 1
+id: 8d319a05-677b-944f-b9b4-ca0fb42e883c
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/loadBalancers/recommendations.yaml
+    title: 'APRL 8d319a05-677b-944f-b9b4-ca0fb42e883c: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 8d319a05-677b-944f-b9b4-ca0fb42e883c
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/loadBalancers/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:556d90ccf58ac57011b5892c1c0a0a5e1e4e932e68841b883612df87467a815a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

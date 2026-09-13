@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/operator-best-practices-identity
 queries: {}
+schemaVersion: 1
+id: d4f3537c-1346-4dc5-9027-a71ffe1bd05d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

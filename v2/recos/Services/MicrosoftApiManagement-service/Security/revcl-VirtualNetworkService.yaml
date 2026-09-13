@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#virtual-network-integration
 queries: {}
+schemaVersion: 1
+id: cd45c90e-7690-4753-930b-bf290c69c074
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

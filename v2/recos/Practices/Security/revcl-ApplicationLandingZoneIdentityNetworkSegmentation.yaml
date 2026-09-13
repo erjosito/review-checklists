@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/example-scenario/identity/adds-extend-domain
 queries: {}
+schemaVersion: 1
+id: 9cf5418b-1520-4b7b-add7-88eb28f833e8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

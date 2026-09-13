@@ -1,5 +1,5 @@
 name: revcl-SetupCostReportingAzureCostManagement
-title: Setup Cost Reporting and Views with Azure Cost Management
+title: Review actual and effective costs with owners, forecasts and allocation
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -15,3 +15,38 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-microsoft-customer-agreement#design-recommendations
 queries: {}
+schemaVersion: 1
+id: 32952499-58c8-4e6f-ada5-972e67893d55
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Reporting and anomaly detection can be automated from Cost Management/FOCUS datasets; ARG cannot
+    supply financial truth.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/collect-review-cost-data
+    title: Architecture strategies for collecting and reviewing cost data
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/focus/what-is-focus
+    title: FinOps Open Cost and Usage Specification
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:03
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/collect-review-cost-data
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:c4a9ad40ca790b63fc31d3c3f429316576a093dbef493a49874e2125740e0e00
+    notes: Daily actual/amortized cost, forecasts and stakeholder reviews are explicit; the separate automated
+      threshold-alert requirement is not entirely implemented by this control. Source-text assessment,
+      not independent human approval or live Azure validation.
+description: Review workload cost daily and hold regular owner-led reviews of actual/billed and amortized/effective
+  cost, budget variance, forecasts and anomalies. Allocate shared and unassigned costs explicitly; reconcile
+  scope, currency and commitment charges before reporting savings. Track actions and confirm net savings
+  after changes.

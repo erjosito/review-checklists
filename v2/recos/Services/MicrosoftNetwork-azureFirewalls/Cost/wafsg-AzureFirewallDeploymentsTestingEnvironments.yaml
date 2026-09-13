@@ -13,3 +13,13 @@ labels:
   guid: e3cd59af-4664-4d35-b291-45076f5452bd
 links: []
 queries: {}
+schemaVersion: 1
+id: e3cd59af-4664-4d35-b291-45076f5452bd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

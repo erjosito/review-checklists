@@ -1,8 +1,9 @@
 name: wafsg-HealthProbesHealthInformation
-title: Optimize the use of health probes. Get health information from health probes
-  only when the state of the origins change. Strike a balance between monitoring accuracy
-  and minimizing unnecessary traffic.
-description: ''
+title: Balance Front Door probe frequency with health detection and origin load
+description: Review probe interval, method, endpoint behavior and the number of origins. Probes are periodic
+  active requests, not a change-only subscription. For a single-origin group, consider disabling redundant
+  probes while retaining independent monitoring. For multiple origins, test failure detection and recovery
+  and balance probe traffic with the required responsiveness.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-front-door.md
@@ -15,3 +16,19 @@ labels:
   guid: fa0e75e6-5669-406a-8155-44e8d40ae935
 links: []
 queries: {}
+schemaVersion: 1
+id: fa0e75e6-5669-406a-8155-44e8d40ae935
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-front-door
+    title: Architecture best practices for Azure Front Door
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/frontdoor/health-probes
+    title: Health probes
+    accessedAt: '2026-09-11'

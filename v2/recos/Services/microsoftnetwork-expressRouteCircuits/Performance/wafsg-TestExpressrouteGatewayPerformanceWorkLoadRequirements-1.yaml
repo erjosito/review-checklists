@@ -1,7 +1,10 @@
 name: wafsg-TestExpressrouteGatewayPerformanceWorkLoadRequirements-1
-title: Test ExpressRoute gateway performance to meet work load requirements.
-description: Use Azure Connectivity Toolkit to test performance across your ExpressRoute
-  circuit to understand bandwidth capacity and latency of your network connection.
+title: Test ExpressRoute end-to-end performance against workload requirements
+description: Measure throughput and latency with representative clients, destinations, flow counts and
+  payloads across the ExpressRoute path. The service guide references Azure Connectivity Toolkit as one
+  option. Schedule bandwidth-intensive tests outside peak production periods or use an approved isolated
+  test scope. Record circuit and gateway telemetry together; configured bandwidth is not an achieved-performance
+  result.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,3 +16,29 @@ labels:
   guid: 71513d98-78dc-49ad-ba19-3d769b03c9bb
 links: []
 queries: {}
+schemaVersion: 1
+id: 71513d98-78dc-49ad-ba19-3d769b03c9bb
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-expressroute
+    title: Architecture best practices for Azure ExpressRoute
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-test
+    title: Architecture strategies for performance testing
+    accessedAt: '2026-09-11'
+aliases:
+- id: 986e4310-6a7c-469e-bd94-8b8d1c388f51
+  name: wafsg-TestExpressrouteGatewayPerformanceWorkLoadRequirements
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 986e4310-6a7c-469e-bd94-8b8d1c388f51
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Performance/wafsg-TestExpressrouteGatewayPerformanceWorkLoadRequirements.yaml

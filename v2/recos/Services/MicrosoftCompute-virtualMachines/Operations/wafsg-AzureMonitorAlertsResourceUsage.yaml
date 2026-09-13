@@ -16,3 +16,13 @@ labels:
   guid: 7fabd21e-bee0-4264-a4c0-666cb66e9deb
 links: []
 queries: {}
+schemaVersion: 1
+id: 7fabd21e-bee0-4264-a4c0-666cb66e9deb
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

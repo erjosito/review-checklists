@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/configure-network-security-groups/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 6791f893-5ada-4433-84e1-3811523181aa
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

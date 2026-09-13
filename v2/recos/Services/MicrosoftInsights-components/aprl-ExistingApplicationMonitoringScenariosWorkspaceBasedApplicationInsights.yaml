@@ -1,21 +1,61 @@
 name: aprl-ExistingApplicationMonitoringScenariosWorkspaceBasedApplicationInsights
-title: Convert Classic Deployments
-description: |-
-  Classic Application Insights retires in February 2024. To minimize disruption to existing application monitoring scenarios, transition to workspace-based Application Insights before 29 February 2024.
+title: Verify Application Insights uses a workspace-based resource
+description: Verify the Application Insights resource is workspace-based and linked to the intended Log
+  Analytics workspace. For any remaining classic migration, review retention, permissions, data-export
+  integrations, and the documented irreversible migration behavior. New telemetry is written to the workspace
+  after migration; classic historical data is not copied into it. The linked migration article is archived
+  historical guidance, not proof that an old retirement deadline is still in the future.
 source:
   type: aprl
   file: azure-resources/Insights/components/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Insights/components
+- microsoft.insights/components
 severity: 1
 labels:
   guid: dac421ec-2832-4c37-839e-b6dc5a38f2fa
   area: Service Upgrade and Retirement
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/previous-versions/azure/azure-monitor/app/convert-classic-resource
 queries:
-  arg: "// Azure Resource Graph query\n// Filters Application Insights resources with\
-    \ \u2018Classic\u2019 deployment type\nresources\n| where type =~ \"microsoft.insights/components\"\
-    \n| extend IngestionMode = properties.IngestionMode\n| where IngestionMode =~\
-    \ 'ApplicationInsights'\n| project recommendationId= \"dac421ec-2832-4c37-839e-b6dc5a38f2fa\"\
-    , name, id, tags, param1=\"ApplicationInsightsDeploymentType: Classic\"\n"
+  arg: |
+    // Azure Resource Graph query
+    // Filters Application Insights resources with ‘Classic’ deployment type
+    resources
+    | where type =~ "microsoft.insights/components"
+    | extend IngestionMode = properties.IngestionMode
+    | where IngestionMode =~ 'ApplicationInsights'
+    | project recommendationId= "dac421ec-2832-4c37-839e-b6dc5a38f2fa", name, id, tags, param1="ApplicationInsightsDeploymentType: Classic"
+schemaVersion: 1
+id: dac421ec-2832-4c37-839e-b6dc5a38f2fa
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/previous-versions/azure/azure-monitor/app/convert-classic-resource
+    title: Archived Application Insights migration behavior and prerequisites
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Insights/components/recommendations.yaml
+    title: 'APRL dac421ec-2832-4c37-839e-b6dc5a38f2fa: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: dac421ec-2832-4c37-839e-b6dc5a38f2fa
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Insights/components/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:14909ec6fc35342e45cb732f35cf586ac581e113ead0485326bc6b36e88c861a
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Archived Application Insights migration behavior
+      and prerequisites. Coverage concerns the inventory''s explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.'
+waf: Operations

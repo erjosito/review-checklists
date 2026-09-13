@@ -1,13 +1,14 @@
 name: aprl-ProductionImageVersionsProductionImages
 title: A minimum of three replicas should be kept for production image versions
-description: |-
-  Keeping a minimum of 3 replicas for production images in Azure's Compute Gallery ensures scalability and prevents throttling in multi-VM deployments by distributing VM deployments across different replicas. This reduces the risk of overloading a single replica.
+description: Keeping a minimum of 3 replicas for production images in Azure's Compute Gallery ensures
+  scalability and prevents throttling in multi-VM deployments by distributing VM deployments across different
+  replicas. This reduces the risk of overloading a single replica.
 source:
   type: aprl
   file: azure-resources/Compute/galleries/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/galleries
+- microsoft.compute/galleries
 severity: 1
 labels:
   guid: b49a39fd-f431-4b61-9062-f2157849d845
@@ -24,3 +25,34 @@ queries:
     | project RecommendationId="b49a39fd-f431-4b61-9062-f2157849d845",name,id,tags,param1=strcat("GalleryName: ",GalleryName),param2=strcat("ImageName: ",ImageName),param3=strcat("VersionReplicaRegionName: ",VersionReplicas.name),param4=strcat("VersionReplicationCount: ",VersionReplicas.regionalReplicaCount),rc=toint(VersionReplicas.regionalReplicaCount)
     | where rc < 3
     | project-away rc
+schemaVersion: 1
+id: b49a39fd-f431-4b61-9062-f2157849d845
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.Compute/galleries/images/versions''],
+    while the frozen corpus scope is [''Microsoft.Compute/galleries'']; applicability is not broadened
+    or narrowed without separate verification. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/galleries/recommendations.yaml
+    title: 'APRL b49a39fd-f431-4b61-9062-f2157849d845: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b49a39fd-f431-4b61-9062-f2157849d845
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/galleries/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:69f52c6884e9524b7227978b8b8a518d7bd817c2e92c6d7f46737093da5c8557
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.Compute/galleries/images/versions'],
+      while the frozen corpus scope is ['Microsoft.Compute/galleries']; applicability is not broadened
+      or narrowed without separate verification. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/configure-virtual-machine-availability/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 9674e7c7-7796-4181-8920-09f4429543ba
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

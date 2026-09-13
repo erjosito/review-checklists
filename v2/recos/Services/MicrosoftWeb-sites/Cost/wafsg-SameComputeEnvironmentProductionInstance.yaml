@@ -16,3 +16,13 @@ labels:
   guid: 41026085-4728-4bff-abbe-be08a46e4735
 links: []
 queries: {}
+schemaVersion: 1
+id: 41026085-4728-4bff-abbe-be08a46e4735
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

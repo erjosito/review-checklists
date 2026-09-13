@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/guide/sap/sap-s4hana
 queries: {}
+schemaVersion: 1
+id: 05f1101d-250f-40e7-b2a1-b674ab50edbd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

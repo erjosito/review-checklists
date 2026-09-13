@@ -1,6 +1,5 @@
 name: revcl-MicrosoftEntraIdConditionalAccessPoliciesAzureEnvironments
-title: Enforce Microsoft Entra ID conditional-access policies for any user with rights
-  to Azure environments
+title: Apply Conditional Access to Azure administrators while preserving protected emergency access.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +15,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/plan-implement-administer-conditional-access/
 queries: {}
+schemaVersion: 1
+id: 53e8908a-e28c-484c-93b6-b7808b9fe5c4
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/entra/identity/role-based-access-control/security-emergency-access
+    title: Manage emergency access admin accounts
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/identity-access
+    title: Architecture strategies for identity and access management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Define Conditional Access policies based on identity, risk and device requirements, and test
+  their effect before enforcement. Exclude documented emergency access accounts from policies that block
+  or restrict sign-in, as required by the emergency-access design; report-only policies do not require
+  an exclusion. Protect those accounts with independent phishing-resistant authentication, monitoring
+  and regular drills. Do not interpret an exclusion as permission to use password-only emergency access.

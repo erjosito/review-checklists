@@ -1,5 +1,5 @@
 name: revcl-AutomatedProcessCertificateRotation
-title: Establish an automated process for key and certificate rotation.
+title: Automate routine key, secret and certificate rotation and rehearse emergency revocation.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/best-practices
 queries: {}
+schemaVersion: 1
+id: 913156a1-2476-4e49-b541-acdce979377b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/security/application-secrets
+    title: Architecture strategies for protecting application secrets
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/app-service/app-service-key-vault-references
+    title: Use Key Vault references as app settings
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Assign ownership and lifetimes to credentials, use native rotation capabilities where available,
+  and automate the remaining rotation workflow. Coordinate secret producers and consumers so replacement
+  credentials are available before old ones are retired. Test renewal, propagation, rollback and emergency
+  revocation without logging secret values. A secret-store reference or refresh mechanism does not itself
+  rotate the source credential.

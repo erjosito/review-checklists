@@ -1,0 +1,43 @@
+schemaVersion: 1
+id: 482a84af-0360-55ab-be33-6d8e4706b580
+name: operations-VersionedOperationalRunbooks
+title: Maintain and exercise versioned operational runbooks
+description: Standardize routine, ad-hoc and emergency operations with actionable, version-controlled
+  procedures. Define owners, prerequisites, permissions, steps, expected results, stop conditions, escalation
+  and recovery. Minimize and document manual steps, use shared organizational standards, and record approved
+  emergency deviations. Review procedures on a schedule and after changes or incidents, and rehearse representative
+  operations with the people who will perform them. Retain review and exercise evidence; an Azure Automation
+  account, script or resource inventory cannot prove runbook quality or operational readiness.
+severity: 1
+waf: Operations
+source:
+  type: curated
+  url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/formalize-operations-tasks
+resourceTypes: []
+services: []
+queries: {}
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/formalize-operations-tasks
+    title: Architecture strategies for standardizing operations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/incident-response
+    title: Architecture strategies for designing an incident management process
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/checklist
+    title: Design review checklist for Operational Excellence
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:02
+    coverage: full
+    notes: Workload-wide requirement includes each clause of the checklist control; supporting guide reading
+      limits remain explicit.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/formalize-operations-tasks
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:c7130262beee1291b3c3e0ea3b7d554ddc251cbb77f12a80deffc8424915677b

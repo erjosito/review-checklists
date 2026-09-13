@@ -1,13 +1,13 @@
 name: aprl-TrafficManagerProfilesAzureTrafficManager
 title: Traffic manager profiles should have more than one endpoint
-description: |-
-  When configuring the Azure traffic manager, provision at least two endpoints to ensure workloads can fail-over to another instance, enhancing reliability and availability.
+description: When configuring the Azure traffic manager, provision at least two endpoints to ensure workloads
+  can fail-over to another instance, enhancing reliability and availability.
 source:
   type: aprl
   file: azure-resources/Network/trafficManagerProfiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/trafficManagerProfiles
+- microsoft.network/trafficmanagerprofiles
 severity: 1
 labels:
   guid: 5b422a7f-8caa-3d48-becb-511599e5bba9
@@ -21,3 +21,31 @@ queries:
     | where type == "microsoft.network/trafficmanagerprofiles"
     | where array_length(properties.endpoints) < 2
     | project recommendationId = "5b422a7f-8caa-3d48-becb-511599e5bba9", name, id, tags, param1 = strcat('EndpointCount: ', array_length(properties.endpoints))
+schemaVersion: 1
+id: 5b422a7f-8caa-3d48-becb-511599e5bba9
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/trafficManagerProfiles/recommendations.yaml
+    title: 'APRL 5b422a7f-8caa-3d48-becb-511599e5bba9: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 5b422a7f-8caa-3d48-becb-511599e5bba9
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/trafficManagerProfiles/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:335380239b3df1dc15f2e989868f68eea5796b2edcb1a45bf67a1b54b54adf2c
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

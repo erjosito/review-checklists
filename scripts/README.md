@@ -1,24 +1,95 @@
-# Review Checklist Scripts (preview)
+# Review checklist authoring tools and legacy adapters
 
-In this folder you can find scripts supporting the review process.
+For current reviews, use the [local-first Python CLI and localhost UI](../review_checklists/README.md),
+not the spreadsheet-oriented Bash adapter below. This directory contains shared
+corpus validation/authoring tools as well as retained legacy scripts; their
+commands are not interchangeable with `python -m review_checklists`.
+See [Contributing](../CONTRIBUTING.md) and [AGENTS.md](../AGENTS.md) before changing
+recommendations or pipeline behavior.
 
-## Azure Resource Graph reviews
+## Versioned recommendation authoring
 
-The script [checklist_graph.sh](./checklist_graph.sh) can do the automated graph queries associated to checklist items in the checklists in the [../checklists](../checklists) folder. It has multiple modes of operations, the following sections show some examples of how to use it.
+Use Python 3.11 or newer and an activated virtual environment. For these authoring
+tools, install `python -m pip install -r scripts\requirements.txt`. From the
+repository root, `python -m scripts.cl` and `python scripts\cl.py` are supported
+without modifying `PYTHONPATH`. Read-only legacy v1 commands remain available.
 
-### Installation
+Automatic APRL, AKS, and WAF service-guide imports are disabled. The importers
+are deprecated manual fallbacks; their workflow-dispatch runs stage legacy
+JSON in review PRs. Prefer LLM-assisted curation with source references.
+Both approaches require validation and human review, not automatic ingestion.
+
+The old Azure Translator and Text Analytics endpoints are decommissioned.
+Do not provision these cloud services as a prerequisite for local review or
+assume archived translation/enrichment workflows are operational. The fallback
+name behavior below does not require Text Analytics.
+
+`v1tov2` enriches and validates recommendations before writing individual YAML
+files. Existing GUIDs are retained; new metadata remains unknown unless
+explicitly supplied. Without text analytics, an existing name is retained or
+the source GUID becomes the name. `store_v2` preflights the full resulting
+corpus, rejects retired-ID/name collisions and loss of curated metadata, and
+replaces individual files atomically. Updating existing recommendations requires
+`--overwrite`; reconcile curated metadata and aliases explicitly first.
+Bulk `update-recos --reviewed` date stamping is no longer supported: record
+`provenance.lastReviewed` only after human review.
+
+Author canonical YAML under `v2/recos`, not generated JSON or translations.
+The single recommendation schema is `v2/schema/recommendation.schema.json`;
+shared parsing and validation live in `scripts/modules/cl_corpus.py`.
+Validation is strict and does not fill missing metadata. Partial validation and
+alternate recommendation schemas are not supported. Preserve canonical IDs,
+explicit service classification, automation semantics, provenance and aliases
+according to the [corpus contract](../review_checklists/docs/corpus-contract.md).
+
+```powershell
+python -m scripts.cl validate-recos --input-folder v2\recos
+python -m scripts.validate_corpus --root v2
+python -m unittest discover -s scripts\tests -v
+```
+
+Legacy GUID/name selectors also resolve retired identities from `aliases`,
+returning the canonical survivor. `labelSelector` with a `guid` also recognizes
+retired IDs; `sourceSelector` matches either the canonical source or an explicitly
+preserved alias source, so cross-source merges retain checklist membership.
+Empty `services` matches `serviceSelector: ['none']` and means not explicitly curated,
+not a guessed service classification. Versioned JSON releases are built by
+`python -m review_checklists corpus build`; CI compares repeated builds and
+uploads the catalog artifact without running importers or cloud queries.
+
+See the [bundle build instructions](../review_checklists/docs/corpus-contract.md#distribution)
+and [source-backed refresh records](../review_checklists/docs/corpus-refresh/cost-sources.md).
+Passing deterministic checks does not prove query validity or human approval.
+
+## Legacy Azure Resource Graph reviews
+
+**Historical v1 Bash/spreadsheet workflow, not the current review CLI.** The
+script [checklist_graph.sh](./checklist_graph.sh) runs queries from legacy JSON
+in the [checklists directory](../checklists/README.md). The following examples
+preserve its old usage; they do not query the current pinned YAML/JSON-bundle
+snapshot or store evidence in SQLite. Query results require human interpretation:
+even a legacy `compliant` field or empty result is not proof of compliance.
+
+Use the [current ARG guide](../review_checklists/README.md#running-arg) for local
+reviews. Run legacy queries only with explicitly authorized Azure scope.
+
+### Legacy installation
 
 > :warning: ***The `checklist_graph.sh` script must be run from a Bash environment shell. If you are using Azure Cloud Shell be sure to select the correct environment.***
 
-> Note: In case you are in the context of a private AKS cluster (API server is private), there is no restriction to use Azure Cloud Shell to run the `checklist_graph.sh` script. 
-> Make sure that the identity (the one Azure Cloud Shell uses) used to execute the checklist_graph script, [has appropriate rights in Azure RBAC with at least read access to the resources you want to query](https://learn.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph) (in this case AKS cluster(s)). 
+> Note: In case you are in the context of a private AKS cluster (API server is private), there is no restriction to use Azure Cloud Shell to run the `checklist_graph.sh` script.
+> Make sure that the identity (the one Azure Cloud Shell uses) used to execute the checklist_graph script, [has appropriate rights in Azure RBAC with at least read access to the resources you want to query](https://learn.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph) (in this case AKS cluster(s)).
 > Without at least read permissions to the Azure object or object group, results won't be returned.
 > The script just queries the Azure Resource Graph API and does not communicate with the API Server(s) of your clusters(s).
-	
-You can download the script in any environment that supports Azure CLI, such as the [Azure Cloud Shell](https://shell.azure.com). In order to download the script and prepare it for execution you can run this command:
 
-```Shell
-wget –quiet –output-document ./checklist_graph.sh https://raw.githubusercontent.com/Azure/review-checklists/main/scripts/checklist_graph.sh
+The old instructions downloaded the script into an Azure CLI-capable Bash
+environment such as [Azure Cloud Shell](https://shell.azure.com). This URL targets
+the upstream `main` branch, **not this checkout**; inspect that version before
+using it. No download or Azure operation is needed for the current local app.
+Historical download commands (Bash, not PowerShell):
+
+```bash
+wget --quiet --output-document ./checklist_graph.sh https://raw.githubusercontent.com/Azure/review-checklists/main/scripts/checklist_graph.sh
 chmod +xr ./checklist_graph.sh
 ```
 
@@ -34,7 +105,9 @@ The previous command will generate a JSON file `./graph_results.json`. You can g
 
 ![Advanced buttons](../pictures/advanced_buttons.png)
 
-The "Comments" column of the spreadsheet will fill in with the results of the Azure Graph Queries, and display resource IDs that are compliant or non-compliant with the recommendation, as the following picture shows (in this case, after importing the results of the Azure Resource Graph checks on a subscription with a single AKS cluster):
+The spreadsheet's "Comments" column receives query output, including any
+resource IDs and compliance labels supplied by the legacy query. The screenshot
+shows a historical AKS import, not a validated assessment of current guidance:
 
 ![Advanced ](../pictures/graph_import_result.png)
 
@@ -53,7 +126,7 @@ You can run the script to find out which checklists are available. Note that not
 You can run the script as well to generate a more human-readable output. For example, run this in order to execute analysis scoped to a single category. Command:
 
 ```
-./checklist_graph.sh --techonology=aks --list-categories
+./checklist_graph.sh --technology=aks --list-categories
 ```
 
 Output:
@@ -76,15 +149,17 @@ This example shows how to run this for analysis on all categories in a single su
 ./checklist_graph.sh --technology=aks --format=text
 ```
 
-Output (truncated for brevity). Note that the resources are formatted with the syntax `<resource-group>/<resource-name>`:
+Illustrative historical output (truncated, with placeholder resource IDs).
+The old recommendation wording and computed labels below are not current
+technical guidance or independently verified compliance:
 
 ```
 CHECKLIST ITEM: Use Availability Zones if supported in your Azure region:
-/subscriptions/e7da9914-9b05-4891-893c-546cb7b0422e/resourceGroups/akstest/providers/Microsoft.ContainerService/managedClusters/checklist: non-compliant
+/subscriptions/<subscription-guid>/resourceGroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<cluster>: non-compliant
 CHECKLIST ITEM: Use the SLA-backed AKS offering:
-/subscriptions/e7da9914-9b05-4891-893c-546cb7b0422e/resourceGroups/akstest/providers/Microsoft.ContainerService/managedClusters/checklist: non-compliant
+/subscriptions/<subscription-guid>/resourceGroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<cluster>: non-compliant
 CHECKLIST ITEM: Use managed identities instead of Service Principals:
-/subscriptions/e7da9914-9b05-4891-893c-546cb7b0422e/resourceGroups/akstest/providers/Microsoft.ContainerService/managedClusters/checklist: compliant
+/subscriptions/<subscription-guid>/resourceGroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<cluster>: compliant
 ...
 ```
 

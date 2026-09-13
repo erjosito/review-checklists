@@ -1,0 +1,154 @@
+{
+  "asOf": "2026-09-11",
+  "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+  "inventoryStatus": "complete",
+  "items": [
+    {
+      "contentHash": "sha256:928240eef3091d4b3d3756ff803c7d5aa7a8580d7d1d023dedf1d2a885640b85",
+      "id": "SE:01",
+      "payload": {
+        "code": "[SE:01](establish-baseline)",
+        "id": "SE:01",
+        "recommendation": "**Establish a security baseline** that's aligned to compliance requirements, industry standards, and platform recommendations. Regularly measure your workload architecture and operations against the baseline to sustain or improve your security posture over time."
+      },
+      "title": "Establish a security baseline",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/establish-baseline"
+    },
+    {
+      "contentHash": "sha256:88eebece884c081cecd9b710b3d6b968654182381206b94c62f8bc9059ac42cb",
+      "id": "SE:02",
+      "payload": {
+        "code": "[SE:02](secure-development-lifecycle)",
+        "id": "SE:02",
+        "recommendation": "**Align secure development lifecycle (SDL) throughout the software development lifecycle** to ensure confidentiality, integrity, and availability of software and adopt a security-first mindset."
+      },
+      "title": "Align secure development lifecycle (SDL) throughout the software development lifecycle",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/secure-development-lifecycle"
+    },
+    {
+      "contentHash": "sha256:398cf0318d0f06b70e58e14d9020d8195052bcd16ccc394b5120d922decff7fb",
+      "id": "SE:03",
+      "payload": {
+        "code": "[SE:03](data-classification)",
+        "id": "SE:03",
+        "recommendation": "**Classify and consistently apply sensitivity and information type labels** on all workload data and systems involved in data processing. Use classification to influence workload design, implementation, and security prioritization."
+      },
+      "title": "Classify and consistently apply sensitivity and information type labels",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/data-classification"
+    },
+    {
+      "contentHash": "sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788",
+      "id": "SE:04",
+      "payload": {
+        "code": "[SE:04](segmentation)",
+        "id": "SE:04",
+        "recommendation": "**Create intentional segmentation and perimeters** in your architecture design and in the workload's footprint on the platform. The segmentation strategy must include networks, roles and responsibilities, workload identities, and resource organization."
+      },
+      "title": "Create intentional segmentation and perimeters",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation"
+    },
+    {
+      "contentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "id": "SE:05",
+      "payload": {
+        "code": "[SE:05](identity-access)",
+        "id": "SE:05",
+        "recommendation": "**Implement strict, conditional, and auditable identity and access management (IAM)** across all workload users, team members, and system components. Limit access exclusively to *as necessary*. Use modern industry standards for all authentication and authorization implementations. Restrict and rigorously audit access that's not based on identity."
+      },
+      "title": "Implement strict, conditional, and auditable identity and access management (IAM)",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access"
+    },
+    {
+      "contentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "id": "SE:06",
+      "payload": {
+        "code": "[SE:06](networking)",
+        "id": "SE:06",
+        "recommendation": "**Isolate, filter, and control network traffic** across both ingress and egress flows. Apply defense-in-depth principles by using localized network controls at all available network boundaries across both east-west and north-south traffic."
+      },
+      "title": "Isolate, filter, and control network traffic",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking"
+    },
+    {
+      "contentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+      "id": "SE:07",
+      "payload": {
+        "code": "[SE:07](encryption)",
+        "id": "SE:07",
+        "recommendation": "**Encrypt data by using modern, industry-standard methods** to guard confidentiality and integrity. Align the encryption scope with data classifications, and prioritize native platform encryption methods."
+      },
+      "title": "Encrypt data by using modern, industry-standard methods",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption"
+    },
+    {
+      "contentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "id": "SE:08",
+      "payload": {
+        "code": "[SE:08](harden-resources)",
+        "id": "SE:08",
+        "recommendation": "**Harden all workload components** by reducing extraneous surface area and tightening configurations to increase attacker cost."
+      },
+      "title": "Harden all workload components",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources"
+    },
+    {
+      "contentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "id": "SE:09",
+      "payload": {
+        "code": "[SE:09](application-secrets)",
+        "id": "SE:09",
+        "recommendation": "**Protect application secrets** by hardening their storage and restricting access and manipulation and by auditing those actions. Run a reliable and regular rotation process that can improvise rotations for emergencies."
+      },
+      "title": "Protect application secrets",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets"
+    },
+    {
+      "contentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+      "id": "SE:10",
+      "payload": {
+        "code": "[SE:10](monitor-threats)",
+        "id": "SE:10",
+        "recommendation": "**Implement a holistic monitoring strategy** that relies on modern threat detection mechanisms that can be integrated with the platform. Mechanisms should reliably alert for triage and send signals into existing SecOps processes."
+      },
+      "title": "Implement a holistic monitoring strategy",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats"
+    },
+    {
+      "contentHash": "sha256:56032a34dbdb70e37543fced61b3650916bd286d6d6f8930d5ef3aca09b86f33",
+      "id": "SE:11",
+      "payload": {
+        "code": "[SE:11](test)",
+        "id": "SE:11",
+        "recommendation": "**Establish a comprehensive testing regimen** that combines approaches to prevent security issues, validate threat prevention implementations, and test threat detection mechanisms."
+      },
+      "title": "Establish a comprehensive testing regimen",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/test"
+    },
+    {
+      "contentHash": "sha256:0a63290261c2ee8eef765125524a8205d249ab001156046c2878467b57900c49",
+      "id": "SE:12",
+      "payload": {
+        "code": "[SE:12](incident-response)",
+        "id": "SE:12",
+        "recommendation": "**Define and test effective incident response procedures** that cover a spectrum of incidents, from localized issues to disaster recovery. Clearly define which team or individual runs a procedure."
+      },
+      "title": "Define and test effective incident response procedures",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/incident-response"
+    }
+  ],
+  "limitations": [
+    "Checklist rows only, not all Security guidance paragraphs or service guides.",
+    "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+    "Explicit ID mapping is not human semantic review."
+  ],
+  "retrievedAt": "2026-09-11T18:04:59.700641Z",
+  "schemaVersion": 1,
+  "scope": "All numbered rows in the English WAF Security design review checklist",
+  "sourceId": "waf-security-checklist",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/well-architected/security/checklist"
+  ],
+  "title": "WAF Security checklist",
+  "unit": "published-checklist-row",
+  "upstreamRevision": "1df1c6023e01032c7be0013b086379c176827b1c"
+}

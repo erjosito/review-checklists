@@ -1,18 +1,24 @@
 name: aprl-AzureVmDisksAzureDiskEncryption
-title: Virtual Machines should have Azure Disk Encryption or EncryptionAtHost enabled
-description: |-
-  Consider enabling Azure Disk Encryption (ADE) for encrypting Azure VM disks using DM-Crypt (Linux) or BitLocker (Windows). Additionally, consider Encryption at host and Confidential disk encryption for enhanced data security.
+title: Protect VM disks and verify encryption-at-host eligibility
+description: Use Azure Disk Encryption or encryption at host only where supported by the VM and disk configuration.
+  Encryption at host also protects temporary disks, ephemeral OS disks, and OS/data disk caches. Verify
+  supported VM sizes and subscription prerequisites. Do not enable encryption at host on VMs that currently
+  or previously used Azure Disk Encryption, and do not combine both mechanisms. Existing VMs require deallocation
+  and reallocation when enabling encryption at host; plan the supported migration and outage rather than
+  treating the settings as interchangeable switches.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 0
 labels:
   guid: f0a97179-133a-6e4f-8a49-8a44da73ffce
   area: Security
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal
 queries:
   arg: |-
     // Azure Resource Graph Query
@@ -25,3 +31,21 @@ queries:
     | project vmId = tolower(id), vmName = name, encryptionAtHost = iff(properties.securityProfile.encryptionAtHost == true, true, false)) on vmId
     | where not(encryptionAtHost) and not(azureDiskEncryption)
     | project recommendationId = 'f0a97179-133a-6e4f-8a49-8a44da73ffce', name = vmName, id =vmId, param1 = strcat('diskName:',diskName), param2 = strcat('azureDiskEncryption:',iff(azureDiskEncryption, "Enabled", "Disabled")), param3 = strcat('encryptionAtHost:',iff(encryptionAtHost, "Enabled", "Disabled"))
+schemaVersion: 1
+id: f0a97179-133a-6e4f-8a49-8a44da73ffce
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+  notes: Retained the legacy query as inventory only. Assess the updated guidance, eligibility, resource
+    scope, and recovery/migration policy manually; returned rows are not automatic violations and zero
+    rows do not prove compliance. Not executed against Azure.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal
+    title: Encryption at host eligibility, exclusions, and existing-VM prerequisites
+    accessedAt: '2026-09-11'
+waf: Security

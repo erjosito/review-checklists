@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/security/benchmark/azure/baselines/storage-security-baseline
 queries: {}
+schemaVersion: 1
+id: d237de14-3b16-4c21-b7aa-9b64604489a8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

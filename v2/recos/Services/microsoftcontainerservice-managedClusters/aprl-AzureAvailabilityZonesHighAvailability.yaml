@@ -1,13 +1,14 @@
 name: aprl-AzureAvailabilityZonesHighAvailability
 title: Deploy AKS cluster across availability zones
-description: |-
-  Azure Availability Zones ensure high availability by offering independent locations within regions, equipped with their own power, cooling, and networking to ensure applications and data are protected from datacenter-level failures.
+description: Azure Availability Zones ensure high availability by offering independent locations within
+  regions, equipped with their own power, cooling, and networking to ensure applications and data are
+  protected from datacenter-level failures.
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 0
 labels:
   guid: 4f63619f-5001-439c-bacb-8de891287727
@@ -33,3 +34,35 @@ queries:
         param2 = strcat("Mode: ", pool.mode),
         param3 = strcat("AvailabilityZones: ", iif(numOfAvailabilityZones == 0, "None", strcat("Zone ", strcat_array(pool.availabilityZones, ", ")))),
         param4 = strcat("Location: ", location)
+schemaVersion: 1
+id: 4f63619f-5001-439c-bacb-8de891287727
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL 4f63619f-5001-439c-bacb-8de891287727: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 4f63619f-5001-439c-bacb-8de891287727
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:2663eca9940b6a45ecfff14a16a209f6c60e9ac5e155453dfe1fcca2ff51cdee
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

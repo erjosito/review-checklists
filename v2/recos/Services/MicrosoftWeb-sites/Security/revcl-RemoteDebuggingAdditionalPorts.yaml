@@ -1,8 +1,9 @@
 name: revcl-RemoteDebuggingAdditionalPorts
-title: Turn off remote debugging
-description: Remote debugging must not be turned on in production as this opens additional
-  ports on the service which increases the attack surface. Note that the service does
-  turn of remote debugging automatically after 48 hours.
+title: Disable remote debugging for production App Service applications.
+description: Confirm remote debugging is disabled on the production app and relevant slots. Although App
+  Service automatically turns it off after 48 hours, that timeout is not a substitute for production hardening.
+  Review operational access and troubleshooting alternatives. The inherited ARG property/table representation
+  was not verified; use explicit configuration review until supported query evidence is established.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,6 +16,33 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/configure-common#configure-general-settings
-queries:
-  arg: appserviceresources | where type =~ 'microsoft.web/sites/config' | extend compliant
-    = (properties.RemoteDebuggingEnabled == false) | distinct id,compliant
+queries: {}
+schemaVersion: 1
+id: d9bd3baf-cda3-4b54-bb2e-b03dd9a25827
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/app-service/configure-common
+    title: Configure an App Service app
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:08
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

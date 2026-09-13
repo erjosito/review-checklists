@@ -20,3 +20,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/data-explorer/follower?tabs=csharp
 queries: {}
+schemaVersion: 1
+id: 56a22586-f490-4641-addd-ea8a377cdeb3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/intro-to-azure-vpn-gateway/
 queries: {}
+schemaVersion: 1
+id: 45866df8-cf85-4ca9-bbe2-65ec1478919e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

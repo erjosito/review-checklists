@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/paths/describe-azure-management-governance/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: e3c2df74-3165-4c3a-abe0-5bbe209d490d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -12,3 +12,13 @@ labels:
   guid: 9659e396-80e7-4828-ac93-5657d02bff45
 links: []
 queries: {}
+schemaVersion: 1
+id: 9659e396-80e7-4828-ac93-5657d02bff45
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

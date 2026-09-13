@@ -1,7 +1,6 @@
 name: revcl-QuickFixesTechnicalDebt
-title: Establish a process for using code to implement quick fixes. Always register
-  quick fixes in your team's backlog so each fix can be reworked at a later point,
-  and you can limit technical debt.
+title: Establish a process for using code to implement quick fixes. Always register quick fixes in your
+  team's backlog so each fix can be reworked at a later point, and you can limit technical debt.
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -17,3 +16,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-platform
 queries: {}
+schemaVersion: 1
+id: 2676ae46-65ca-444e-8695-fdddeace4cb1
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    title: Architecture strategies for safe deployment practices
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/formalize-operations-tasks
+    title: Architecture strategies for standardizing operations
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:11
+    coverage: partial
+    notes: Clarify emergency change authorization and follow-up instead of treating all quick fixes as
+      acceptable debt. Narrow control or service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a
+description: Implement emergency fixes through the defined deployment process. Document who may approve
+  accelerated gates and under which conditions, retain the tests and health checks that can run safely,
+  and complete deferred checks promptly. Record the change, owner and follow-up work in the backlog; review
+  incidents without blame and reconcile any temporary configuration with version-controlled code.

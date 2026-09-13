@@ -1,10 +1,9 @@
 name: wafsg-LeastPrivilegeAccessZeroTrustPrincipleLeastPrivilegeAccessCriteria
 title: Create rules for Firewall Policies based on least privilege access criteria.
-description: Azure Firewall Policies can be arranged in an hierarchical structure
-  to overlay a central base policy. Allow for granular policies to meet the requirements
-  of specific regions. Each policy can contains different sets of DNAT, Network and
-  Application rules with specific priority, action and processing order. Create your
-  rules based on least privilege access Zero Trust principle . How rules are processed
+description: Azure Firewall Policies can be arranged in an hierarchical structure to overlay a central
+  base policy. Allow for granular policies to meet the requirements of specific regions. Each policy can
+  contains different sets of DNAT, Network and Application rules with specific priority, action and processing
+  order. Create your rules based on least privilege access Zero Trust principle . How rules are processed
   is explained in this article.
 source:
   type: wafsg
@@ -17,3 +16,23 @@ labels:
   guid: eea03b99-3b97-4c7a-b1ab-76404535a87f
 links: []
 queries: {}
+schemaVersion: 1
+id: eea03b99-3b97-4c7a-b1ab-76404535a87f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: a8db6917-b19a-4e97-a797-97a3cc882b45
+  name: wafsg-LeastPrivilegeAccessCriteriaRules
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-firewall.md
+    timestamp: July 24, 2024
+  labels:
+    guid: a8db6917-b19a-4e97-a797-97a3cc882b45
+  corpusFile: Services/MicrosoftNetwork-azureFirewalls/Security/wafsg-LeastPrivilegeAccessCriteriaRules.yaml

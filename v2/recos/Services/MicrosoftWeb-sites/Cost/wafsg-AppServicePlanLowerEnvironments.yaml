@@ -15,3 +15,13 @@ labels:
   guid: dc84dbbc-6816-48ae-9926-e52e68d4273e
 links: []
 queries: {}
+schemaVersion: 1
+id: dc84dbbc-6816-48ae-9926-e52e68d4273e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

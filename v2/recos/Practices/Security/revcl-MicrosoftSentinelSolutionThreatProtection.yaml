@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/plan-microsoft-sentinel-deployment-sap/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 86ba2802-1459-4114-95e3-9e5309cccd97
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

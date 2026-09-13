@@ -1,7 +1,9 @@
 name: wafsg-UnusedFineTunedModelsOngoingHostingFee
-title: 'Usage optimization: Remove unused fine-tuned models when they''re no longer
-  being consumed to avoid incurring an ongoing hosting fee.'
-description: ''
+title: Retire unused fine-tuned deployments while preserving required model assets
+description: Review deployed fine-tuned endpoints and their owners before cleanup. Deployed models can
+  incur hosting charges while unused; removing an unneeded deployment can stop its hosting charge. Distinguish
+  the deployed endpoint from retained training/model assets, preserve reproducibility and recovery requirements,
+  and verify the resulting billing change.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -14,3 +16,19 @@ labels:
   guid: a1abac7c-cce9-4443-97e8-2faf150559d4
 links: []
 queries: {}
+schemaVersion: 1
+id: a1abac7c-cce9-4443-97e8-2faf150559d4
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Target the charged deployment lifecycle rather than indiscriminately
+    deleting model assets. Requires workload, billing and operational evidence; no ARG query or live validation
+    is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/foundry/concepts/manage-costs
+    title: Plan and Manage Costs - Microsoft Foundry
+    accessedAt: '2026-09-11'

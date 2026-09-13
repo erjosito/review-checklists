@@ -21,3 +21,14 @@ queries:
     ManagementGroup = tostring(tags),mgmtChain = properties.managementGroupAncestorsChain|
     extend compliant =( array_length(mgmtChain) <= 4 and array_length(mgmtChain) >
     1)
+schemaVersion: 1
+id: 2df27ee4-12e7-4f98-9f63-04722dd69c5b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

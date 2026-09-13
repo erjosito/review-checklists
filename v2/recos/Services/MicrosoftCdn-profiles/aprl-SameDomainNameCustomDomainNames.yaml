@@ -1,18 +1,48 @@
 name: aprl-SameDomainNameCustomDomainNames
 title: Use the same domain name on Front Door and your origin
-description: |-
-  Front Door can rewrite Host headers for custom domain names routing to a single origin, useful for avoiding custom domain configuration at both Front Door and the origin.
+description: Front Door can rewrite Host headers for custom domain names routing to a single origin, useful
+  for avoiding custom domain configuration at both Front Door and the origin.
 source:
   type: aprl
   file: azure-resources/Cdn/profiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Cdn/profiles
+- microsoft.cdn/profiles
 severity: 1
 labels:
   guid: cd6a32af-747a-e649-82a7-a98f528ca842
   area: Governance
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: cd6a32af-747a-e649-82a7-a98f528ca842
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    title: 'APRL cd6a32af-747a-e649-82a7-a98f528ca842: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: cd6a32af-747a-e649-82a7-a98f528ca842
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:9361116fb943402b112b5db3f158883d86b787bf0d441c4229cab5d5b6d7d69e
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

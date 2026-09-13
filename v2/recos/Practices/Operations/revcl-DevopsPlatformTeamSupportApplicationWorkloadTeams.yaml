@@ -1,7 +1,6 @@
 name: revcl-DevopsPlatformTeamSupportApplicationWorkloadTeams
-title: Aim to define functions for application workload teams to be self-sufficient
-  and not require DevOps Platform Team support. Achieve this through the use of custom
-  RBAC role.
+title: Aim to define functions for application workload teams to be self-sufficient and not require DevOps
+  Platform Team support. Achieve this through the use of custom RBAC role.
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -17,3 +16,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/considerations/devops-teams-topologies#design-recommendations
 queries: {}
+schemaVersion: 1
+id: a9e65070-c59e-4112-8bf6-c11364d4a2a5
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture
+    title: Architecture strategies for fostering DevOps culture
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/governance/policy/overview
+    title: Overview of Azure Policy
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:01
+    coverage: partial
+    notes: Custom RBAC roles alone cannot establish workload-team self-sufficiency. Narrow control or
+      service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f1dbf331239efc9b9df3daf6677ba4a519d908ecfd85a0d5a48c9de27a866e6f
+description: Agree the workload and platform teams' responsibilities, support boundaries and escalation
+  paths. Provide documented self-service workflows and reusable platform standards, with least-privilege
+  Azure RBAC appropriate to each task; use custom roles only when built-in roles do not meet the requirement.
+  Verify onboarding and support exercises rather than equating a custom role with operational independence.

@@ -1,8 +1,11 @@
 name: revcl-PotentialRansomwareEncryptionRansomwareAttacks
-title: Enable Azure Backup enhanced soft delete for improved data protection and recovery
-description: Azure Backup enhanced soft delete provides critical protection against
-  ransomware attacks by retaining deleted backups, enabling recovery from potential
-  ransomware encryption or deletion.
+title: Verify Azure Backup soft-delete retention and recovery support for the vault and workload
+description: Keep soft-delete protection in place and choose a retention period from 14 to 180 days based
+  on recovery needs. The default is 14 days; longer retention can incur charges. Verify current secure-by-default
+  rollout and API behavior for the vault type and region instead of assuming every deployment has identical
+  enforcement. Operational backups and log recovery points have documented exclusions; directly accessible
+  operational snapshots can still be deleted. Recovering a soft-deleted backup item returns it to stopped
+  protection with retained data; explicitly restore data or resume backups as needed.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +19,16 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/backup/backup-azure-enhanced-soft-delete-about
 queries: {}
+schemaVersion: 1
+id: b44be3b1-a27f-48b9-b91b-e1038df03a82
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/backup/backup-azure-enhanced-soft-delete-about
+    title: Secure by default with soft delete for Azure Backup
+    accessedAt: '2026-09-11'

@@ -19,3 +19,14 @@ links:
 queries:
   arg: where (type=='microsoft.web/sites' and (kind == 'app' or kind == 'app,linux'
     )) | extend compliant = (properties.httpsOnly==true) | distinct id,compliant
+schemaVersion: 1
+id: 475ba18f-dbf5-490c-b65d-e8e03f9bcbd4
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

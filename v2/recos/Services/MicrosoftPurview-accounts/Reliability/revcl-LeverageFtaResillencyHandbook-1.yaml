@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://polite-sea-0995b240f.2.azurestaticapps.net/technical-delivery-playbook/azure-services/analytics/purview/
 queries: {}
+schemaVersion: 1
+id: 1fc2fc14-eea6-4e69-b8d9-a3edc218e687
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

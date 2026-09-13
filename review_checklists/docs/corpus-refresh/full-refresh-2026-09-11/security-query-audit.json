@@ -1,0 +1,707 @@
+{
+  "artifactSchema": "security-query-audit/1",
+  "date": "2026-09-11",
+  "scope": "All 39 ARG texts in the frozen 565-record Security non-APRL baseline",
+  "counts": {
+    "baseline": 39,
+    "withdrawn": 7,
+    "retainedInheritedUnverified": 32,
+    "new": 0,
+    "liveValidated": 0
+  },
+  "semantics": "The 32 retained queries have inherited resultSemantics unknown and explicit unresolved property/scope/heuristic gaps. No compliance verdict or zero-row pass is endorsed. Exact query preservation is not correctness validation.",
+  "records": [
+    {
+      "id": "5de32c19-9248-4160-9d5d-1e4e614658d3",
+      "path": "v2/recos/Practices/Security/revcl-CostManagementTags.yaml",
+      "title": "Ensure tags are used for billing and cost management",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Non-null tags do not establish required billing allocation tags, allowed values or business ownership. This Cost-themed requirement also needs classification review.",
+      "beforeArg": "resources | extend compliant = isnotnull(['tags']) | project name, id, subscriptionId, resourceGroup, tags, compliant",
+      "afterArg": "resources | extend compliant = isnotnull(['tags']) | project name, id, subscriptionId, resourceGroup, tags, compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "2df27ee4-12e7-4f98-9f63-04722dd69c5b",
+      "path": "v2/recos/Practices/Security/revcl-FlatManagementGroupHierarchyFourLevels.yaml",
+      "title": "Enforce reasonably flat management group hierarchy with no more than four levels.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Management-group ancestor length requires an explicitly agreed root-counting convention; hierarchy depth alone cannot validate the operating model.",
+      "beforeArg": "resourcecontainers| where type == 'microsoft.resources/subscriptions'| extend ManagementGroup = tostring(tags),mgmtChain = properties.managementGroupAncestorsChain| extend compliant =( array_length(mgmtChain) <= 4 and array_length(mgmtChain) > 1)",
+      "afterArg": "resourcecontainers| where type == 'microsoft.resources/subscriptions'| extend ManagementGroup = tostring(tags),mgmtChain = properties.managementGroupAncestorsChain| extend compliant =( array_length(mgmtChain) <= 4 and array_length(mgmtChain) > 1)",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "33b6b780-8b9f-4e5c-9104-9d403a923c34",
+      "path": "v2/recos/Practices/Security/revcl-RootManagementGroupSubscriptions.yaml",
+      "title": "Enforce no subscriptions are placed under the root management group",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Ancestor-chain presence/length needs supported property evidence and an agreed tenant/root scope before assigning compliance.",
+      "beforeArg": "resourcecontainers| where type == 'microsoft.resources/subscriptions'| extend ManagementGroup = tostring(tags),mgmtChain = properties.managementGroupAncestorsChain| extend compliant = (array_length(mgmtChain) > 1)",
+      "afterArg": "resourcecontainers| where type == 'microsoft.resources/subscriptions'| extend ManagementGroup = tostring(tags),mgmtChain = properties.managementGroupAncestorsChain| extend compliant = (array_length(mgmtChain) > 1)",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "b085b1f2-3119-4771-8c9a-bbf4411810ec",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-AksLocalAccounts.yaml",
+      "title": "Disable AKS local accounts",
+      "disposition": "retained-inherited-unverified",
+      "reason": "The inherited query lacks an explicit source table; disableLocalAccounts is a configuration indicator, not proof that all credentials and effective administrative access have been reviewed.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = (properties.disableLocalAccounts==true) | distinct id,compliant",
+      "afterArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = (properties.disableLocalAccounts==true) | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "9bda4776-8f24-4c11-9775-c2ea55b46a94",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-AksVirtualNetworkDdosStandard.yaml",
+      "title": "Use DDoS Standard in the AKS Virtual Network",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Inner joins discard clusters without subnet IDs or matching VNets. A VNet DDoS flag does not establish protection of every applicable public endpoint.",
+      "beforeArg": "Resources | where type=~'microsoft.containerservice/managedclusters' | project resourceGroup,name,pools=properties.agentPoolProfiles | mv-expand pools | project subnetId=tostring(pools.vnetSubnetID) | where isnotempty(subnetId) | join (Resources | where type=='microsoft.network/virtualnetworks' | project id,resourceGroup,name,enableDdosProtection=tostring(properties.enableDdosProtection),subnets=properties.subnets | mv-expand subnets | project id,resourceGroup,name,enableDdosProtection,subnetId=tostring(subnets.id)) on subnetId | distinct id,resourceGroup,name,enableDdosProtection | extend compliant = (enableDdosProtection == 'true')",
+      "afterArg": "Resources | where type=~'microsoft.containerservice/managedclusters' | project resourceGroup,name,pools=properties.agentPoolProfiles | mv-expand pools | project subnetId=tostring(pools.vnetSubnetID) | where isnotempty(subnetId) | join (Resources | where type=='microsoft.network/virtualnetworks' | project id,resourceGroup,name,enableDdosProtection=tostring(properties.enableDdosProtection),subnets=properties.subnets | mv-expand subnets | project id,resourceGroup,name,enableDdosProtection,subnetId=tostring(subnets.id)) on subnetId | distinct id,resourceGroup,name,enableDdosProtection | extend compliant = (enableDdosProtection == 'true')",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "9ca48e4a-85e2-4223-bce8-bb12307ca5f1",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-AzurePolicyClusterCompliance.yaml",
+      "title": "Use Azure Policy for Kubernetes to ensure cluster compliance",
+      "disposition": "retained-inherited-unverified",
+      "reason": "An enabled Azure Policy add-on does not prove policy assignment, enforcement or cluster compliance; exact ARG property representation remains unverified.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = (isnotnull(properties.addonProfiles.azurepolicy) and properties.addonProfiles.azurepolicy.enabled==true) | distinct id,compliant",
+      "afterArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = (isnotnull(properties.addonProfiles.azurepolicy) and properties.addonProfiles.azurepolicy.enabled==true) | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "ce7f2a7c-297c-47c6-adea-a6ff838db665",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-CalicoNetworkPoliciesAksNodes.yaml",
+      "title": "For Windows 2019 and 2022 AKS nodes Calico Network Policies can be used ",
+      "disposition": "withdrawn",
+      "reason": "Remove the unrelated private-cluster compliance query and include the impending Windows NPM retirement.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | where isnotnull(properties.apiServerAccessProfile.enablePrivateCluster) | extend compliant = (properties.apiServerAccessProfile.enablePrivateCluster==true) | distinct id, compliant",
+      "afterArg": "",
+      "afterAutomation": {
+        "status": "manual",
+        "validatedAt": null
+      },
+      "evidence": [
+        {
+          "sourceRef": "aks-network-policy",
+          "supports": "Remove the unrelated private-cluster compliance query and include the impending Windows NPM retirement."
+        },
+        {
+          "sourceRef": "waf-checklist",
+          "supports": "Published SE control identity and scope for the explicit draft mapping; not standalone verification of the detailed service guidance."
+        }
+      ],
+      "liveValidation": false
+    },
+    {
+      "id": "3b365a91-7ecb-4e48-bbe5-4cd7df2e8bba",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-EgressTrafficSecurityRequirements.yaml",
+      "title": "Filter egress traffic with AzFW/NVA if your security requirements mandate it",
+      "disposition": "retained-inherited-unverified",
+      "reason": "userDefinedRouting alone does not prove routing through a firewall, the actual next hop, or egress policy enforcement.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = (properties.networkProfile.outboundType=='userDefinedRouting') | distinct id,compliant",
+      "afterArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = (properties.networkProfile.outboundType=='userDefinedRouting') | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "6c46b91a-1107-4485-ad66-3183e2a8c266",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-HttpProxyCompany.yaml",
+      "title": "If required add company HTTP Proxy",
+      "disposition": "withdrawn",
+      "reason": "Remove a copied DDoS query that cannot assess the HTTP proxy requirement.",
+      "beforeArg": "Resources | where type=~'microsoft.containerservice/managedclusters' | project resourceGroup,name,pools=properties.agentPoolProfiles | mv-expand pools | project subnetId=tostring(pools.vnetSubnetID) | where isnotempty(subnetId) | join (Resources | where type=='microsoft.network/virtualnetworks' | project id,resourceGroup,name,enableDdosProtection=tostring(properties.enableDdosProtection),subnets=properties.subnets | mv-expand subnets | project id,resourceGroup,name,enableDdosProtection,subnetId=tostring(subnets.id)) on subnetId | distinct id,resourceGroup,name,enableDdosProtection | extend compliant = (enableDdosProtection == 'true')",
+      "afterArg": "",
+      "afterAutomation": {
+        "status": "candidate",
+        "validatedAt": null
+      },
+      "evidence": [
+        {
+          "sourceRef": "aks-proxy",
+          "supports": "Remove a copied DDoS query that cannot assess the HTTP proxy requirement."
+        },
+        {
+          "sourceRef": "waf-checklist",
+          "supports": "Published SE control identity and scope for the explicit draft mapping; not standalone verification of the detailed service guidance."
+        }
+      ],
+      "liveValidation": false
+    },
+    {
+      "id": "58d7c892-ddb1-407d-9769-ae669ca48e4a",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-KubernetesNetworkPolicyOptionCalicoAzure.yaml",
+      "title": "Enable a Kubernetes Network Policy option (Calico/Azure)",
+      "disposition": "withdrawn",
+      "reason": "Refresh engine choices and retirement dates; remove the engine-present-equals-compliant shortcut where present.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = isnotnull(properties.networkProfile.networkPolicy) | distinct id,compliant",
+      "afterArg": "",
+      "afterAutomation": {
+        "status": "manual",
+        "validatedAt": null
+      },
+      "evidence": [
+        {
+          "sourceRef": "aks-network-policy",
+          "supports": "Refresh engine choices and retirement dates; remove the engine-present-equals-compliant shortcut where present."
+        },
+        {
+          "sourceRef": "waf-checklist",
+          "supports": "Published SE control identity and scope for the explicit draft mapping; not standalone verification of the detailed service guidance."
+        }
+      ],
+      "liveValidation": false
+    },
+    {
+      "id": "ed127dd1-42b0-46b2-8c69-99a646f3389a",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-ManagedIdentitiesServicePrincipals.yaml",
+      "title": "Use managed identities instead of Service Principals",
+      "disposition": "retained-inherited-unverified",
+      "reason": "The msi marker is not an assessment of identity permissions, workload federation or all cluster identities; exact table/property contract remains unverified.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = (properties.servicePrincipalProfile.clientId=='msi') | distinct id,compliant",
+      "afterArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = (properties.servicePrincipalProfile.clientId=='msi') | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "7e42c78e-78c0-46a6-8a21-94956e698dc4",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-ManagedIntegrationAuthentication.yaml",
+      "title": "Integrate authentication with AAD (using the managed integration)",
+      "disposition": "retained-inherited-unverified",
+      "reason": "A non-null aadProfile does not prove managed integration is enabled or effective least-privilege authorization.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = isnotnull(properties.aadProfile) | distinct id,compliant",
+      "afterArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = isnotnull(properties.aadProfile) | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "ecccd979-3b6b-4cda-9b50-eb2eb03dda6d",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-PrivateClustersRequirements.yaml",
+      "title": "Use private clusters if your requirements mandate it",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Filtering missing private-cluster fields drops unresolved resources. Private API access is not an assessment of workload ingress or egress.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | where isnotnull(properties.apiServerAccessProfile.enablePrivateCluster) | extend compliant = (properties.apiServerAccessProfile.enablePrivateCluster==true) | distinct id, compliant",
+      "afterArg": "where type=='microsoft.containerservice/managedclusters' | where isnotnull(properties.apiServerAccessProfile.enablePrivateCluster) | extend compliant = (properties.apiServerAccessProfile.enablePrivateCluster==true) | distinct id, compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "c4581559-bb91-463e-a908-aed8c44ce3b2",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-PublicApiEndpointIpAddresses.yaml",
+      "title": "If using a public API endpoint, restrict the IP addresses that can access it",
+      "disposition": "retained-inherited-unverified",
+      "reason": "A non-null authorizedIPRanges array can be empty or overly broad; the expression also reports private clusters as false instead of treating conditional applicability separately.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = ((isnull(properties.apiServerAccessProfile.enablePrivateCluster) or properties.apiServerAccessProfile.enablePrivateCluster==false) and isnotnull(properties.apiServerAccessProfile.authorizedIPRanges)) | distinct id,compliant",
+      "afterArg": "where type=='microsoft.containerservice/managedclusters' | extend compliant = ((isnull(properties.apiServerAccessProfile.enablePrivateCluster) or properties.apiServerAccessProfile.enablePrivateCluster==false) and isnotnull(properties.apiServerAccessProfile.authorizedIPRanges)) | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "6f158e3e-a3a9-42c2-be7e-2165c3a87af4",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-UserSystemNodePoolsControlPlane.yaml",
+      "title": "Separate applications from the control plane with user/system node pools",
+      "disposition": "retained-inherited-unverified",
+      "reason": "More than one pool does not establish user/system pool modes, dedicated scheduling or separation from the managed control plane.",
+      "beforeArg": "where type=='microsoft.containerservice/managedclusters' | project id,resourceGroup,name,pools=properties.agentPoolProfiles | project id,name,resourceGroup,poolcount=array_length(pools) | extend compliant = (poolcount > 1)",
+      "afterArg": "where type=='microsoft.containerservice/managedclusters' | project id,resourceGroup,name,pools=properties.agentPoolProfiles | project id,name,resourceGroup,poolcount=array_length(pools) | extend compliant = (poolcount > 1)",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "a0477a20-9945-4bda-9333-4f2491163418",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-DifferentAzureKeyVaultsTransactionScaleLimits.yaml",
+      "title": "Use different Azure Key Vaults for different applications and regions to avoid transaction scale limits and restrict access to secrets.",
+      "disposition": "withdrawn",
+      "reason": "Remove the false-compliance heuristic that treated any vault count other than one as compliant.",
+      "beforeArg": "ResourceContainers | where type=='microsoft.resources/subscriptions'| parse id with '/subscriptions/' SubscriptionID| project subscriptionId, SubscriptionName = name| join kind=leftouter (Resources| where type == 'microsoft.keyvault/vaults'| project id, name, subscriptionId) on subscriptionId| join kind= leftouter (Resources| where type == 'microsoft.keyvault/vaults'| summarize ResourceCount = count() by subscriptionId) on subscriptionId| extend RCount = iff(isnull(ResourceCount), 0, ResourceCount)| project-away ResourceCount| extend compliant = (RCount <> 1)",
+      "afterArg": "",
+      "afterAutomation": {
+        "status": "manual",
+        "validatedAt": null
+      },
+      "evidence": [
+        {
+          "sourceRef": "kv-secure",
+          "supports": "Remove the false-compliance heuristic that treated any vault count other than one as compliant."
+        },
+        {
+          "sourceRef": "waf-checklist",
+          "supports": "Published SE control identity and scope for the explicit draft mapping; not standalone verification of the detailed service guidance."
+        }
+      ],
+      "liveValidation": false
+    },
+    {
+      "id": "dfc50f87-3800-424c-937b-ed5f186e7c15",
+      "path": "v2/recos/Services/microsoftnetwork-applicationGateways/Security/revcl-ApplicationGatewaysIpPrefixes.yaml",
+      "title": "Your Application Gateways v2 should be deployed in subnets with IP prefixes equal or larger than /24",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Subnet join/expansion can discard configurations and missing values. Prefix length alone does not establish address capacity, free IPs or supported dual-stack configuration.",
+      "beforeArg": "resources | where type=='microsoft.network/applicationgateways' | extend subnetId = tostring(properties.gatewayIPConfigurations[0].properties.subnet.id) | project id, subnetId | join (resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | mv-expand subnets.properties.addressPrefixes | project id, subnetId = tostring(subnets.id), prefix1 = subnets.properties.addressPrefix, prefix2 = subnets.properties.addressPrefixes | mv-expand prefix2 | extend prefix = iff(isnotnull(prefix1), prefix1, prefix2) | extend subnetPrefixLength = split(prefix, '/')[1])on subnetId | extend compliant = (subnetPrefixLength <= 24 or subnetPrefixLength == 64) | distinct id,compliant",
+      "afterArg": "resources | where type=='microsoft.network/applicationgateways' | extend subnetId = tostring(properties.gatewayIPConfigurations[0].properties.subnet.id) | project id, subnetId | join (resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | mv-expand subnets.properties.addressPrefixes | project id, subnetId = tostring(subnets.id), prefix1 = subnets.properties.addressPrefix, prefix2 = subnets.properties.addressPrefixes | mv-expand prefix2 | extend prefix = iff(isnotnull(prefix1), prefix1, prefix2) | extend subnetPrefixLength = split(prefix, '/')[1])on subnetId | extend compliant = (subnetPrefixLength <= 24 or subnetPrefixLength == 64) | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "553585a6-abe0-11ed-afa1-0242ac120002",
+      "path": "v2/recos/Services/microsoftnetwork-applicationGateways/Security/revcl-ApplicationGatewayVSku.yaml",
+      "title": "Ensure you are using Application Gateway v2 SKU",
+      "disposition": "retained-inherited-unverified",
+      "reason": "SKU inventory can identify a generation but does not establish migration readiness or feature/security parity; exact supported ARG property semantics remain unverified.",
+      "beforeArg": "resources | where type == 'microsoft.network/applicationgateways' | project id, compliant = properties.sku.name in ('Standard_v2', 'WAF_v2') | project id,compliant",
+      "afterArg": "resources | where type == 'microsoft.network/applicationgateways' | project id, compliant = properties.sku.name in ('Standard_v2', 'WAF_v2') | project id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "2f8e81eb-8e68-4026-8b1f-70f9b05f7cf9",
+      "path": "v2/recos/Services/microsoftnetwork-applicationGateways/Security/revcl-AzureApplicationGatewayWafBotProtectionRuleBotRules.yaml",
+      "title": "Enable the Azure Application Gateway WAF bot protection rule set The bot rules detect good and bad bots.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Array expansion can omit policies without rule sets. Rule-set presence alone does not prove enablement, association, actions or traffic coverage.",
+      "beforeArg": "resources | where type == 'microsoft.network/applicationgatewaywebapplicationfirewallpolicies' | mv-expand properties.managedRules.managedRuleSets | project id, rulesettype = properties_managedRules_managedRuleSets.ruleSetType | extend compliant1 = (rulesettype == 'Microsoft_BotManagerRuleSet') | project id, compliant1 | summarize compliant = max(compliant1) by id",
+      "afterArg": "resources | where type == 'microsoft.network/applicationgatewaywebapplicationfirewallpolicies' | mv-expand properties.managedRules.managedRuleSets | project id, rulesettype = properties_managedRules_managedRuleSets.ruleSetType | extend compliant1 = (rulesettype == 'Microsoft_BotManagerRuleSet') | project id, compliant1 | summarize compliant = max(compliant1) by id",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "baf8e317-2397-4d49-b3d1-0dcc16d8778d",
+      "path": "v2/recos/Services/microsoftnetwork-applicationGateways/Security/revcl-WafPolicyApplicationGateway.yaml",
+      "title": "Deploy your WAF policy for Application Gateway in 'Prevention' mode.",
+      "disposition": "withdrawn",
+      "reason": "Remove the copied Front Door query and document Application Gateway policy scope and enforcement caveats.",
+      "beforeArg": "resources | where type == 'microsoft.network/frontdoorwebapplicationfirewallpolicies' | project policyName=name, policyId=id,policySku=sku.name, links=properties.securityPolicyLinks, enabledState=properties.policySettings.enabledState, mode=properties.policySettings.mode | mvexpand links | extend securityPolicy=links.id | extend securityPolicyParts=split(securityPolicy, '/') | extend profileId=strcat_array(array_slice(securityPolicyParts, 0, -3), '/') | project id=profileId, compliant=((enabledState=='Enabled') and (mode=='Prevention')), enabledState, mode",
+      "afterArg": "",
+      "afterAutomation": {
+        "status": "candidate",
+        "validatedAt": null
+      },
+      "evidence": [
+        {
+          "sourceRef": "appgateway-waf",
+          "supports": "Remove the copied Front Door query and document Application Gateway policy scope and enforcement caveats."
+        },
+        {
+          "sourceRef": "waf-checklist",
+          "supports": "Published SE control identity and scope for the explicit draft mapping; not standalone verification of the detailed service guidance."
+        }
+      ],
+      "liveValidation": false
+    },
+    {
+      "id": "b9d0dff5-bdd4-4cd8-88ed-5811610b2b2c",
+      "path": "v2/recos/Services/MicrosoftNetwork-azureFirewalls/Security/revcl-AzureFirewallIdpsModeAdditionalProtection.yaml",
+      "title": "Configure Azure Firewall IDPS mode to Deny for additional protection.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Policy IDPS mode alone does not establish attachment, exceptions, traffic traversal or effective intrusion prevention.",
+      "beforeArg": "resources | where type=='microsoft.network/firewallpolicies' | extend compliant = (properties.intrusionDetection.mode == 'Deny') | project id, compliant",
+      "afterArg": "resources | where type=='microsoft.network/firewallpolicies' | extend compliant = (properties.intrusionDetection.mode == 'Deny') | project id, compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "c10d51ef-f999-455d-bba0-5c90ece07447",
+      "path": "v2/recos/Services/MicrosoftNetwork-azureFirewalls/Security/revcl-AzureFirewallPremiumAdditionalSecurity.yaml",
+      "title": "Use Azure Firewall Premium for additional security and protection.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "A policy tier alone does not establish the actual firewall tier, policy attachment or enabled security features.",
+      "beforeArg": "resources | where type=='microsoft.network/firewallpolicies' | extend compliant = (properties.sku.tier == 'Premium') | distinct id,compliant",
+      "afterArg": "resources | where type=='microsoft.network/firewallpolicies' | extend compliant = (properties.sku.tier == 'Premium') | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "22d6419e-b627-4d95-9e7d-019fa759387f",
+      "path": "v2/recos/Services/MicrosoftNetwork-azureFirewalls/Security/revcl-AzureFirewallSubnets.yaml",
+      "title": "Use a /26 prefix for your Azure Firewall subnets.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "The equality test rejects subnets larger than /26 and only inspects addressPrefix, not all address representations. Source-supported size requirements and missing-row handling need review.",
+      "beforeArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | project id, subnetName = subnets.name, subnetPrefix = subnets.properties.addressPrefix | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName == 'AzureFirewallSubnet' | extend compliant = (subnetPrefixLength == 26) | distinct id, compliant",
+      "afterArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | project id, subnetName = subnets.name, subnetPrefix = subnets.properties.addressPrefix | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName == 'AzureFirewallSubnet' | extend compliant = (subnetPrefixLength == 26) | distinct id, compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "e9c8f584-6d5e-473b-8dc5-acc9fbaab4e3",
+      "path": "v2/recos/Services/MicrosoftNetwork-azureFirewalls/Security/revcl-AzureFirewallThreatIntelligenceModeAdditionalProtection.yaml",
+      "title": "Configure Azure Firewall Threat Intelligence mode to Alert and Deny for additional protection.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Threat-intelligence mode alone does not establish traffic traversal, allow-list exceptions or effective enforcement.",
+      "beforeArg": "resources | where type=='microsoft.network/firewallpolicies' | extend compliant = (properties.threatIntelMode == 'Deny') | distinct id,compliant",
+      "afterArg": "resources | where type=='microsoft.network/firewallpolicies' | extend compliant = (properties.threatIntelMode == 'Deny') | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "14d99880-2f88-47e8-a134-62a7d85c94af",
+      "path": "v2/recos/Services/MicrosoftNetwork-azureFirewalls/Security/revcl-FqdnBasedNetworkRulesApplicationRules.yaml",
+      "title": "Use FQDN-based network rules and Azure Firewall with DNS proxy to filter egress traffic to the Internet over protocols not supported by application rules.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "DNS proxy enablement alone does not prove FQDN network rules exist or that clients use the intended DNS resolution path.",
+      "beforeArg": "resources | where type=='microsoft.network/firewallpolicies' | extend compliant = (properties.dnsSettings.enableProxy == true) | distinct id,compliant",
+      "afterArg": "resources | where type=='microsoft.network/firewallpolicies' | extend compliant = (properties.dnsSettings.enableProxy == true) | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "a3784907-9836-4271-aafc-93535f8ec08b",
+      "path": "v2/recos/Services/MicrosoftNetwork-azureFirewalls/Security/revcl-NetworkVirtualApplianceVirtualWan.yaml",
+      "title": "For subnets in VNets not connected to Virtual WAN, attach a route table so that Internet traffic is redirected to Azure Firewall or a Network Virtual Appliance",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Route-table presence does not establish a default route to the correct firewall. Peering-name inference is not authoritative evidence that a VNet uses Virtual WAN.",
+      "beforeArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,resourceGroup,name,subnets=properties.subnets | mv-expand subnets | project id,name,subnetId=tostring(subnets.id), subnetName=tostring(subnets.name),subnetRT=subnets.properties.routeTable.id | where not (subnetName in ('GatewaySubnet', 'AzureFirewallSubnet', 'RouteServerSubnet', 'AzureBastionSubnet')) | extend hasRT = isnotnull(subnetRT) | distinct id, hasRT, subnetId | join kind=fullouter (resources | where type == 'microsoft.network/virtualnetworks' | mvexpand properties.virtualNetworkPeerings | extend isVWAN=(tolower(split(properties_virtualNetworkPeerings.name, '_')[0]) == 'remotevnettohubpeering') | mv-expand properties.subnets | project id, isVWAN, name, subnetId=tostring(properties_subnets.id), subnetName=tostring(properties_subnets.name) | summarize PeeredToVWAN=max(isVWAN) by id, subnetId | project id, subnetId, isVWANpeer = (PeeredToVWAN == true)) on subnetId | project id=iff(isnotempty(id), id, id1), subnetId=iff(isnotempty(subnetId), subnetId, subnetId1), hasRT, isVWANpeer | extend compliant = (hasRT==true or isVWANpeer==true) | distinct id, subnetId, compliant",
+      "afterArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,resourceGroup,name,subnets=properties.subnets | mv-expand subnets | project id,name,subnetId=tostring(subnets.id), subnetName=tostring(subnets.name),subnetRT=subnets.properties.routeTable.id | where not (subnetName in ('GatewaySubnet', 'AzureFirewallSubnet', 'RouteServerSubnet', 'AzureBastionSubnet')) | extend hasRT = isnotnull(subnetRT) | distinct id, hasRT, subnetId | join kind=fullouter (resources | where type == 'microsoft.network/virtualnetworks' | mvexpand properties.virtualNetworkPeerings | extend isVWAN=(tolower(split(properties_virtualNetworkPeerings.name, '_')[0]) == 'remotevnettohubpeering') | mv-expand properties.subnets | project id, isVWAN, name, subnetId=tostring(properties_subnets.id), subnetName=tostring(properties_subnets.name) | summarize PeeredToVWAN=max(isVWAN) by id, subnetId | project id, subnetId, isVWANpeer = (PeeredToVWAN == true)) on subnetId | project id=iff(isnotempty(id), id, id1), subnetId=iff(isnotempty(subnetId), subnetId, subnetId1), hasRT, isVWANpeer | extend compliant = (hasRT==true or isVWANpeer==true) | distinct id, subnetId, compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "6eab9eb6-762b-485e-8ea8-15aa5dba0bd0",
+      "path": "v2/recos/Services/microsoftnetwork-bastionHosts/Security/revcl-AzureBastionSubnet.yaml",
+      "title": "Use Azure Bastion in a subnet /26 or larger.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "The query only sees existing named subnets and one prefix representation; Bastion SKU and deployment-specific requirements and absent subnets need independent applicability review.",
+      "beforeArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | project id, subnetName = subnets.name, subnetPrefix = subnets.properties.addressPrefix | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName == 'AzureBastionSubnet' | extend compliant = (subnetPrefixLength <= 26) | distinct id, compliant",
+      "afterArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | project id, subnetName = subnets.name, subnetPrefix = subnets.properties.addressPrefix | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName == 'AzureBastionSubnet' | extend compliant = (subnetPrefixLength <= 26) | distinct id, compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "f2aad7e3-bb03-4adc-8606-4123d342a917",
+      "path": "v2/recos/Services/microsoftnetwork-expressRouteCircuits/Security/revcl-GatewaySubnets.yaml",
+      "title": "Use at least a /27 prefix for your Gateway subnets",
+      "disposition": "retained-inherited-unverified",
+      "reason": "The query only sees existing GatewaySubnet entries and one prefix representation; gateway SKU/deployment-specific sizing and missing subnets remain unverified.",
+      "beforeArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | project id, subnetName = subnets.name, subnetPrefix = subnets.properties.addressPrefix | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName == 'GatewaySubnet' | extend compliant = (subnetPrefixLength <= 27) | distinct id, compliant",
+      "afterArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | project id, subnetName = subnets.name, subnetPrefix = subnets.properties.addressPrefix | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName == 'GatewaySubnet' | extend compliant = (subnetPrefixLength <= 27) | distinct id, compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "ae248989-b306-4591-9186-de482e3f0f0e",
+      "path": "v2/recos/Services/microsoftnetwork-frontdoors/Security/revcl-WafPolicyFrontDoor.yaml",
+      "title": "Deploy your WAF policy for Front Door in 'Prevention' mode.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Expansion can drop unassociated policies; derived profile IDs and links need validation for the deployed Front Door generation. Mode flags alone do not prove traffic protection.",
+      "beforeArg": "resources | where type == 'microsoft.network/frontdoorwebapplicationfirewallpolicies' | project policyName=name, policyId=id,policySku=sku.name, links=properties.securityPolicyLinks, enabledState=properties.policySettings.enabledState, mode=properties.policySettings.mode | mvexpand links | extend securityPolicy=links.id | extend securityPolicyParts=split(securityPolicy, '/') | extend profileId=strcat_array(array_slice(securityPolicyParts, 0, -3), '/') | project id=profileId, compliant=((enabledState=='Enabled') and (mode=='Prevention')), enabledState, mode",
+      "afterArg": "resources | where type == 'microsoft.network/frontdoorwebapplicationfirewallpolicies' | project policyName=name, policyId=id,policySku=sku.name, links=properties.securityPolicyLinks, enabledState=properties.policySettings.enabledState, mode=properties.policySettings.mode | mvexpand links | extend securityPolicy=links.id | extend securityPolicyParts=split(securityPolicy, '/') | extend profileId=strcat_array(array_slice(securityPolicyParts, 0, -3), '/') | project id=profileId, compliant=((enabledState=='Enabled') and (mode=='Prevention')), enabledState, mode",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "4e35fbf5-0ae2-48b2-97ce-753353edbd1a",
+      "path": "v2/recos/Services/MicrosoftNetwork-loadBalancers/Security/revcl-AzureLoadBalancersStandardSku.yaml",
+      "title": "Ensure you are using the Standard SKU for your Azure Load Balancers",
+      "disposition": "retained-inherited-unverified",
+      "reason": "A SKU field alone does not assess migration readiness, endpoint protection or policy configuration; current source applicability has not been verified.",
+      "beforeArg": "resources | where type == 'microsoft.network/loadbalancers' | project id, compliant=(tolower(sku.name) == 'standard')",
+      "afterArg": "resources | where type == 'microsoft.network/loadbalancers' | project id, compliant=(tolower(sku.name) == 'standard')",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "9c2299c4-d7b5-47d0-a655-562f2b3e4563",
+      "path": "v2/recos/Services/MicrosoftNetwork-networkSecurityGroups/Security/revcl-ApplicationSecurityGroupsApplicationTeam.yaml",
+      "title": "The application team should use application security groups at the subnet-level NSGs to help protect multi-tier VMs within the landing zone.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "An attached NSG does not establish that application security groups exist, that rules reference them or that segmentation works.",
+      "beforeArg": "Resources | where type=='microsoft.network/virtualnetworks' | project id,resourceGroup,name,subnets=properties.subnets | mv-expand subnets | project id,name,subnetName=subnets.name,subnetNsg=subnets.properties.networkSecurityGroup | where not (subnetName in ('GatewaySubnet', 'AzureFirewallSubnet', 'RouteServerSubnet', 'AzureBastionSubnet')) | extend compliant = isnotnull(subnetNsg)",
+      "afterArg": "Resources | where type=='microsoft.network/virtualnetworks' | project id,resourceGroup,name,subnets=properties.subnets | mv-expand subnets | project id,name,subnetName=subnets.name,subnetNsg=subnets.properties.networkSecurityGroup | where not (subnetName in ('GatewaySubnet', 'AzureFirewallSubnet', 'RouteServerSubnet', 'AzureBastionSubnet')) | extend compliant = isnotnull(subnetNsg)",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "11deb39d-8299-4e47-bbe0-0fb5a36318a8",
+      "path": "v2/recos/Services/MicrosoftNetwork-networkSecurityGroups/Security/revcl-NsgInboundDefaultRulesVirtualnetworkServiceTag.yaml",
+      "title": "Don't rely on the NSG inbound default rules using the VirtualNetwork service tag to limit connectivity.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "Counting wildcard deny rules ignores effective priority, scope and higher-priority allows; it cannot establish the intended VirtualNetwork boundary.",
+      "beforeArg": "resources | where type=='microsoft.network/networksecuritygroups' | mvexpand properties.securityRules | project id,name,ruleAction=properties_securityRules.properties.access,rulePriority=properties_securityRules.properties.priority,ruleDst=properties_securityRules.properties.destinationAddressPrefix,ruleSrc=properties_securityRules.properties.sourceAddressPrefix,ruleProt=properties_securityRules.properties.protocol,ruleDirection=properties_securityRules.properties.direction,rulePort=properties_securityRules.properties.destinationPortRange | summarize StarDenies=countif(ruleAction=='Deny' and ruleDst=='*' and ruleSrc=='*' and ruleProt=='*' and rulePort=='*') by id,tostring(ruleDirection) | where ruleDirection == 'Inbound' | project id,compliant=(StarDenies>0) | union (resources | where type=='microsoft.network/networksecuritygroups' | where array_length(properties.securityRules)==0 | extend compliant=false | project id,compliant)",
+      "afterArg": "resources | where type=='microsoft.network/networksecuritygroups' | mvexpand properties.securityRules | project id,name,ruleAction=properties_securityRules.properties.access,rulePriority=properties_securityRules.properties.priority,ruleDst=properties_securityRules.properties.destinationAddressPrefix,ruleSrc=properties_securityRules.properties.sourceAddressPrefix,ruleProt=properties_securityRules.properties.protocol,ruleDirection=properties_securityRules.properties.direction,rulePort=properties_securityRules.properties.destinationPortRange | summarize StarDenies=countif(ruleAction=='Deny' and ruleDst=='*' and ruleSrc=='*' and ruleProt=='*' and rulePort=='*') by id,tostring(ruleDirection) | where ruleDirection == 'Inbound' | project id,compliant=(StarDenies>0) | union (resources | where type=='microsoft.network/networksecuritygroups' | where array_length(properties.securityRules)==0 | extend compliant=false | project id,compliant)",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "91b9d7d5-91e1-4dcb-8f1f-fa7e465646cc",
+      "path": "v2/recos/Services/MicrosoftNetwork-virtualHubs/Security/revcl-RouteServerSubnet.yaml",
+      "title": "If using Route Server, use a /27 prefix for the Route Server subnet.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "The inherited /27 minimum requires current Route Server documentation review; the query checks only existing named subnets and one address representation.",
+      "beforeArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | project id, subnetName = subnets.name, subnetPrefix = subnets.properties.addressPrefix | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName == 'RouteServerSubnet' | extend compliant = (subnetPrefixLength <= 27) | distinct id, compliant",
+      "afterArg": "resources | where type=='microsoft.network/virtualnetworks' | project id,subnets=properties.subnets | mv-expand subnets | project id, subnetName = subnets.name, subnetPrefix = subnets.properties.addressPrefix | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName == 'RouteServerSubnet' | extend compliant = (subnetPrefixLength <= 27) | distinct id, compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "3f630472-2dd6-49c5-a5c2-622f54b69bad",
+      "path": "v2/recos/Services/MicrosoftNetwork-virtualNetworks/Security/revcl-AddressAllocationRangesIpAddresses.yaml",
+      "title": "Use IP addresses from the address allocation ranges for private internets (RFC 1918).",
+      "disposition": "retained-inherited-unverified",
+      "reason": "The regular expression does not establish valid complete CIDRs, nonoverlap, routing or approved address plans; literal escaping and array expansion require KQL review.",
+      "beforeArg": "resources | where type == 'microsoft.network/virtualnetworks' | extend addressSpace = todynamic(properties.addressSpace) | extend addressPrefix = todynamic(properties.addressSpace.addressPrefixes) | mvexpand addressSpace | mvexpand addressPrefix | project name, id, location, resourceGroup, subscriptionId, cidr = addressPrefix | extend compliant = (cidr matches regex @'^(10\\\\.|172\\\\.(1[6-9]|2[0-9]|3[01])\\\\.|192\\\\.168\\\\.)')  | project id, compliant, cidr",
+      "afterArg": "resources | where type == 'microsoft.network/virtualnetworks' | extend addressSpace = todynamic(properties.addressSpace) | extend addressPrefix = todynamic(properties.addressSpace.addressPrefixes) | mvexpand addressSpace | mvexpand addressPrefix | project name, id, location, resourceGroup, subscriptionId, cidr = addressPrefix | extend compliant = (cidr matches regex @'^(10\\\\.|172\\\\.(1[6-9]|2[0-9]|3[01])\\\\.|192\\\\.168\\\\.)')  | project id, compliant, cidr",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "4704489a-8042-4d88-b79d-17b73b22a5a6",
+      "path": "v2/recos/Services/MicrosoftNetwork-virtualNetworks/Security/revcl-VirtualNetworkServiceEndpointsDefault.yaml",
+      "title": "Don't enable virtual network service endpoints by default on all subnets.",
+      "disposition": "retained-inherited-unverified",
+      "reason": "No service endpoints is not universally compliant: applicability depends on an approved service/network design. Existing endpoints require intent-based review.",
+      "beforeArg": "resources | where type =~ 'microsoft.network/virtualnetworks' | project id,resourceGroup,name,subnets = properties.subnets | mv-expand subnets | project id = subnets.id, resourceGroup, VNet = name, serviceEndpoints = subnets.properties.serviceEndpoints, compliant = (isnull(subnets.properties.serviceEndpoints) or array_length(subnets.properties.serviceEndpoints) == 0) | order by compliant asc",
+      "afterArg": "resources | where type =~ 'microsoft.network/virtualnetworks' | project id,resourceGroup,name,subnets = properties.subnets | mv-expand subnets | project id = subnets.id, resourceGroup, VNet = name, serviceEndpoints = subnets.properties.serviceEndpoints, compliant = (isnull(subnets.properties.serviceEndpoints) or array_length(subnets.properties.serviceEndpoints) == 0) | order by compliant asc",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "7d5d1e4e-6146-458d-9558-fd77249b8211",
+      "path": "v2/recos/Services/microsoftnetwork-virtualWans/Security/revcl-OutboundInternetTrafficProtectionAzureFirewall.yaml",
+      "title": "For outbound Internet traffic protection and filtering, deploy Azure Firewall in secured hubs",
+      "disposition": "retained-inherited-unverified",
+      "reason": "A non-null azureFirewall reference does not prove a secured hub's effective routing, firewall attachment or egress enforcement.",
+      "beforeArg": "resources | where type=='microsoft.network/virtualhubs' | extend compliant = isnotnull(properties.azureFirewall.id) | project id, compliant",
+      "afterArg": "resources | where type=='microsoft.network/virtualhubs' | extend compliant = isnotnull(properties.azureFirewall.id) | project id, compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "475ba18f-dbf5-490c-b65d-e8e03f9bcbd4",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-HttpStrictTransportSecurityAppService.yaml",
+      "title": "Use HTTPS only",
+      "disposition": "retained-inherited-unverified",
+      "reason": "The kind filter excludes other App Service kinds/slots; the inherited expression lacks an explicit table and httpsOnly is a redirect indicator, not full TLS validation.",
+      "beforeArg": "where (type=='microsoft.web/sites' and (kind == 'app' or kind == 'app,linux' )) | extend compliant = (properties.httpsOnly==true) | distinct id,compliant",
+      "afterArg": "where (type=='microsoft.web/sites' and (kind == 'app' or kind == 'app,linux' )) | extend compliant = (properties.httpsOnly==true) | distinct id,compliant",
+      "afterAutomation": {
+        "status": "query_available",
+        "validatedAt": null,
+        "resultSemantics": "unknown"
+      },
+      "evidence": [],
+      "liveValidation": false
+    },
+    {
+      "id": "c115775c-2ea5-45b4-9ad4-8408ee72734b",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-MinimumTlsPolicyAppServiceConfiguration.yaml",
+      "title": "Set minimum TLS policy to 1.2",
+      "disposition": "withdrawn",
+      "reason": "Remove unverified numeric TLS comparison rather than fabricating a replacement query.",
+      "beforeArg": "appserviceresources | where type =~ 'microsoft.web/sites/config' | extend compliant = (properties.MinTlsVersion>=1.2) | distinct id,compliant",
+      "afterArg": "",
+      "afterAutomation": {
+        "status": "candidate",
+        "validatedAt": null
+      },
+      "evidence": [
+        {
+          "sourceRef": "app-waf-guide",
+          "supports": "Remove unverified numeric TLS comparison rather than fabricating a replacement query."
+        },
+        {
+          "sourceRef": "app-settings",
+          "supports": "Remove unverified numeric TLS comparison rather than fabricating a replacement query."
+        },
+        {
+          "sourceRef": "app-tls",
+          "supports": "Remove unverified numeric TLS comparison rather than fabricating a replacement query."
+        },
+        {
+          "sourceRef": "waf-checklist",
+          "supports": "Published SE control identity and scope for the explicit draft mapping; not standalone verification of the detailed service guidance."
+        }
+      ],
+      "liveValidation": false
+    },
+    {
+      "id": "d9bd3baf-cda3-4b54-bb2e-b03dd9a25827",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-RemoteDebuggingAdditionalPorts.yaml",
+      "title": "Turn off remote debugging",
+      "disposition": "withdrawn",
+      "reason": "Retain the documented timeout but remove the unverified field-casing compliance query.",
+      "beforeArg": "appserviceresources | where type =~ 'microsoft.web/sites/config' | extend compliant = (properties.RemoteDebuggingEnabled == false) | distinct id,compliant",
+      "afterArg": "",
+      "afterAutomation": {
+        "status": "candidate",
+        "validatedAt": null
+      },
+      "evidence": [
+        {
+          "sourceRef": "app-waf-guide",
+          "supports": "Retain the documented timeout but remove the unverified field-casing compliance query."
+        },
+        {
+          "sourceRef": "app-settings",
+          "supports": "Retain the documented timeout but remove the unverified field-casing compliance query."
+        },
+        {
+          "sourceRef": "waf-checklist",
+          "supports": "Published SE control identity and scope for the explicit draft mapping; not standalone verification of the detailed service guidance."
+        }
+      ],
+      "liveValidation": false
+    }
+  ]
+}

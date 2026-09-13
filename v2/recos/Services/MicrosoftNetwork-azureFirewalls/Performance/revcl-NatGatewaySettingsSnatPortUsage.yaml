@@ -1,7 +1,5 @@
 name: revcl-NatGatewaySettingsSnatPortUsage
-title: "Prevent SNAT Port exhaustion by monitoring SNAT port usage, evaluating NAT\
-  \ Gateway settings, and ensuring seamless failover. If the port count approaches\
-  \ the limit, it\xE2\u20AC\u2122s a sign that SNAT exhaustion might be imminent."
+title: Monitor Azure Firewall SNAT demand and assess supported mitigation
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +13,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/nat-gateway/tutorial-hub-spoke-nat-firewall
 queries: {}
+schemaVersion: 1
+id: 7371dc21-251a-47a3-af14-6e01b9da4757
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall
+    title: Architecture best practices for Azure Firewall
+    accessedAt: '2026-09-11'
+description: Use connection and SNAT telemetry to identify exhaustion risks for the actual destination/port/protocol
+  mix. Review the public-IP configuration and supported NAT Gateway integration where applicable. Confirm
+  routing, connection behavior and failure handling in tests; additional addresses or NAT configuration
+  do not guarantee seamless failover.

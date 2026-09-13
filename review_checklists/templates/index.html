@@ -1,9 +1,31 @@
 {% extends "base.html" %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='assessment-forms.js') }}"></script>
+<script src="{{ url_for('static', filename='autosave.js') }}" defer></script>
+{% endblock %}
 {% block content %}
 <h1>{{ metadata.name }}</h1>
+{% if metadata.description %}<p class="text">{{ metadata.description }}</p>{% endif %}
+<p>Review file: <code>{{ review_file }}</code>. The display name is independent of this filename.</p>
+<details id="review-details">
+  <summary>Edit review details</summary>
+  <form method="post" action="{{ url_for('update_metadata', **listing_args) }}">
+    <input type="hidden" name="csrf" value="{{ session.csrf }}">
+    <input type="hidden" name="revision" value="{{ metadata.metadata_revision }}">
+    <label>Review name <input name="name" value="{{ metadata.name }}" required></label>
+    <label>Description <textarea name="description" rows="4" maxlength="20000">{{ metadata.description }}</textarea></label>
+    <button type="submit">Save review details</button>
+  </form>
+</details>
 <p>Local review with a pinned recommendation snapshot. No AI provider is required or enabled.</p>
+{% if metadata.get('corpus_version') %}<p>Original source corpus release: {{ metadata.corpus_version }}.</p>{% endif %}
+{% if metadata.get('last_applied_source') %}
+<p>Latest applied source (not every item's origin): <code>{{ metadata.last_applied_source }}</code>.</p>
+{% endif %}
 <nav><a href="{{ url_for('export', format='json') }}">Export full review as JSON</a> |
-<a href="{{ url_for('export', format='html') }}">Export full review as HTML</a></nav>
+<a href="{{ url_for('export', format='html') }}">Export full review as HTML</a> |
+<a href="{{ url_for('review_refresh', **listing_args) }}">Refresh saved review guidance</a> |
+<a href="{{ url_for('review_refresh_history', **listing_args) }}">Review refresh history</a></nav>
 <p id="filter-help">Choose any values in each group, then click Filter. Values within a group match
 any selection; different groups must all match. No selection means all values.</p>
 <form method="get" action="{{ url_for('index') }}" class="filters" aria-describedby="filter-help">
@@ -26,11 +48,25 @@ any selection; different groups must all match. No selection means all values.</
   {% endfor %}
   <label><input type="checkbox" name="with_arg" value="1" {% if filters.with_arg %}checked{% endif %}>
     Only checks with ARG queries</label>
+  <label><input type="checkbox" name="paginate" value="1" {% if pagination_enabled %}checked{% endif %}>
+    Paginate results (50 per page)</label>
   <button type="submit">Filter</button>
   <a href="{{ url_for('index') }}">Clear filters</a>
 </form>
 <section aria-labelledby="overview-title">
   <h2 id="overview-title">Assessment overview (current filters)</h2>
+  {% if reassessment_count or retained_count %}
+  <p id="guidance-assessment-warning" class="warning" role="status">
+    <strong>Historical saved assessments:</strong> {{ reassessment_count }} matching checks need reassessment;
+    {{ retained_count }} retain removed or superseded guidance. The counts below preserve saved reviewer decisions,
+    not certification against the latest bundle. Guidance flags reflect this page-load snapshot.
+  </p>
+  {% endif %}
+  <p id="overview-stale" class="warning" role="status" hidden>
+    Overview, matching counts, and filter membership need refresh after row edits.
+    The chart and list membership still reflect the page-load snapshot, not your current assessments.
+    <a href="{{ refresh_url }}">Refresh overview and list</a> after all edits are saved.
+  </p>
   <div class="overview">
     <svg class="donut" viewBox="0 0 120 120" role="img" aria-labelledby="donut-title donut-description">
       <title id="donut-title">Assessment status for {{ summary.total }} matching checks</title>
@@ -64,13 +100,17 @@ any selection; different groups must all match. No selection means all values.</
   </div>
   <p>Based on reviewer-assigned statuses across all matching pages. Running ARG queries does not change these assessments.</p>
 </section>
-<p>{{ total }} matching recommendations. Page {{ page }} of {{ pages }}.</p>
-<form method="post" action="{{ url_for('run_selection', **listing_args) }}">
+<p>{{ total }} matching recommendations.
+{% if pagination_enabled %}Page {{ page }} of {{ pages }}.{% else %}Showing all results. Pagination is disabled.{% endif %}</p>
+<p id="autosave-mode" role="status">Autosave is not enabled. Use each row's Save assessment button.
+  Save before filtering, navigating, or running queries.</p>
+<form id="run-selection" method="post" action="{{ url_for('run_selection', **listing_args) }}">
 <input type="hidden" name="csrf" value="{{ session.csrf }}">
 <fieldset id="query-controls">
   <legend>Run selected ARG queries</legend>
   <p>Tick the checks to run on this page (up to 50). Filters do not select checks.
   Only ticked checks will run, sequentially, using your existing Azure CLI login.</p>
+  <p>The limit is 50 selected checks per run, even when pagination is disabled.</p>
   <p id="query-availability">{{ query_ids | length }} runnable ARG checks on this page;
     {{ matching_query_count }} of {{ total }} matching checks have ARG queries.</p>
   {% if not query_ids %}
@@ -93,26 +133,53 @@ any selection; different groups must all match. No selection means all values.</
   <button type="submit" aria-describedby="query-availability" {% if not query_ids %}disabled{% endif %}>Run selected queries</button>
   <p>Wait for the results before submitting again. Evidence is saved per check; compliance statuses remain unchanged.</p>
 </fieldset>
+</form>
 <table>
   <thead><tr><th>Select</th><th>Recommendation</th><th>Severity</th><th>WAF</th><th>Azure service</th><th>Status</th><th>ARG</th></tr></thead>
   <tbody>{% for item in items %}
     <tr>
       <td>{% if item.id in query_ids %}
-        <input type="checkbox" name="selected" value="{{ item.id }}" {% if item.id in selected_ids %}checked{% endif %}
+        <input type="checkbox" form="run-selection" name="selected" value="{{ item.id }}" {% if item.id in selected_ids %}checked{% endif %}
           aria-label="Run query for {{ item.recommendation.title }}">
       {% else %}Manual{% endif %}</td>
-      <td><a href="{{ url_for('detail', item_id=item.id, **listing_args) }}">{{ item.recommendation.title }}</a></td>
+      <td><a href="{{ url_for('detail', item_id=item.id, **listing_args) }}">{{ item.recommendation.title }}</a>
+        <p>{{ {'current': 'Current', 'superseded': 'Superseded - retained guidance', 'no-longer-current': 'No longer current - retained guidance'}.get(item.refresh_state.currency, item.refresh_state.currency) }}
+        {% if item.refresh_state.needs_reassessment %}<strong class="warning">Needs reassessment</strong>{% endif %}</p>
+        <p>Snapshot source: {{ item.refresh_state.source.get('version') or 'Original unversioned snapshot' }}.</p>
+      </td>
       <td>{{ {0: 'High', 1: 'Medium', 2: 'Low'}.get(item.recommendation.severity, 'Unknown') }}</td>
       <td>{{ item.recommendation.get('waf', 'Not specified') }}</td>
       <td>{{ item_services[item.id] | join(', ') if item_services[item.id] else 'Not service-specific' }}</td>
-      <td>{{ item.status }}</td>
+      <td class="assessment-cell">
+        <form id="assessment-{{ item.id }}" class="assessment assessment-form" method="post" autocomplete="off"
+          data-assessment="assessment-{{ item.id }}"
+          action="{{ url_for('update_row', item_id=item.id, **listing_args) }}">
+        <input type="hidden" name="csrf" value="{{ session.csrf }}">
+        <input type="hidden" name="revision" value="{{ item.revision }}">
+        <select name="status" aria-label="Status for {{ item.recommendation.title }}">
+          {% for status in options.statuses %}
+          <option {% if status == item.status %}selected{% endif %}>{{ status }}</option>
+          {% endfor %}
+        </select>
+        <details class="comments-editor">
+          <summary>Comments: <span class="comments-preview">{{ item.comments[:100] if item.comments else 'No comments' }}</span></summary>
+          <label>Comments for {{ item.recommendation.title }}
+            <textarea name="comments" rows="4" maxlength="20000">{{ item.comments }}</textarea>
+          </label>
+          <p>Recommendation notes only, not the review description. Up to 20,000 characters.</p>
+        </details>
+        <p class="save-state"><span class="manual-save-note">Use Save assessment to save changes.</span><span class="autosave-clean-note">No unsaved changes</span></p>
+        <button type="submit" class="save-assessment">Save assessment</button>
+        <a class="conflict-help" href="{{ url_for('detail', item_id=item.id, **listing_args) }}"
+          target="_blank" rel="noopener" hidden>Open saved assessment in a new tab to compare</a>
+        </form>
+      </td>
       <td>{{ 'Available' if item.id in query_ids else 'Manual' }}</td>
     </tr>
   {% endfor %}</tbody>
 </table>
-</form>
 <nav>
-{% if page > 1 %}<a href="{{ url_for('index', page=page-1, **filters) }}">Previous</a>{% endif %}
-{% if page < pages %}<a href="{{ url_for('index', page=page+1, **filters) }}">Next</a>{% endif %}
+{% if page > 1 %}<a href="{{ url_for('index', page=page-1, **navigation_filters) }}">Previous</a>{% endif %}
+{% if page < pages %}<a href="{{ url_for('index', page=page+1, **navigation_filters) }}">Next</a>{% endif %}
 </nav>
 {% endblock %}

@@ -1,0 +1,22 @@
+{
+  "asOf": "2026-09-11",
+  "fingerprintScope": "No recommendation payload fingerprint established: no complete Security type-ID catalog verified.",
+  "inventoryStatus": "unknown",
+  "items": [],
+  "limitations": [
+    "The Advisor Security reference URL could not be retrieved.",
+    "The Advisor security guidance URL redirects to Defender for Cloud review guidance, not a complete Advisor type-ID catalog.",
+    "An empty inventory records an evidence gap; it is not a zero-recommendation denominator, a zero-percent coverage score or a compliance pass.",
+    "Defender assessment keys, Azure Policy IDs, local GUIDs and Advisor recommendation-type IDs cannot be silently equated."
+  ],
+  "retrievedAt": "2026-09-11T18:16:24.425965Z",
+  "schemaVersion": 1,
+  "scope": "Published Azure Advisor Security recommendation type IDs",
+  "sourceId": "advisor-security-catalog",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/defender-for-cloud/review-security-recommendations"
+  ],
+  "title": "Azure Advisor Security recommendation-ID inventory gap",
+  "unit": "published-advisor-recommendation-guid",
+  "upstreamRevision": null
+}

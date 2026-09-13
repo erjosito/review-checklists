@@ -1,21 +1,59 @@
 name: aprl-AzureNetappFilesSnapshotTechnologyAzureNetappFilesData
 title: Use snapshots for data protection in Azure NetApp Files
-description: |-
-  Azure NetApp Files snapshot technology ensures stability, scalability, and swift data recoverability without affecting performance. It supports automatic snapshot creation via policies for Azure NetApp Files data.
+description: Azure NetApp Files snapshot technology ensures stability, scalability, and swift data recoverability
+  without affecting performance. It supports automatic snapshot creation via policies for Azure NetApp
+  Files data.
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 0
 labels:
   guid: 72827434-c773-4345-9493-34848ddf5803
   area: High Availability
 links: []
 queries:
-  arg: "// Azure Resource Graph Query\n// This Resource Graph query will return all\
-    \ Azure NetApp Files volumes without a snapshot policy defined.\nresources\n|\_\
-    where\_type\_==\_\"microsoft.netapp/netappaccounts/capacitypools/volumes\"\n|\
-    \ where properties.dataProtection.snapshot.snapshotPolicyId == \"\"\n| project\
-    \ recommendationId = \"72827434-c773-4345-9493-34848ddf5803\", name, id, tags\n"
+  arg: |
+    // Azure Resource Graph Query
+    // This Resource Graph query will return all Azure NetApp Files volumes without a snapshot policy defined.
+    resources
+    | where type == "microsoft.netapp/netappaccounts/capacitypools/volumes"
+    | where properties.dataProtection.snapshot.snapshotPolicyId == ""
+    | project recommendationId = "72827434-c773-4345-9493-34848ddf5803", name, id, tags
+schemaVersion: 1
+id: 72827434-c773-4345-9493-34848ddf5803
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.NetApp/netAppAccounts/capacityPools/volumes''],
+    while the frozen corpus scope is [''Microsoft.NetApp/netAppAccounts'']; applicability is not broadened
+    or narrowed without separate verification. Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL 72827434-c773-4345-9493-34848ddf5803: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 72827434-c773-4345-9493-34848ddf5803
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d967b99bd8341090b97f5dfd7185e1126683a518aa2330b9e0bcb868a2068998
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.NetApp/netAppAccounts/capacityPools/volumes'],
+      while the frozen corpus scope is ['Microsoft.NetApp/netAppAccounts']; applicability is not broadened
+      or narrowed without separate verification. Current upstream ARG differs from the frozen query; the
+      old executable body is retained pending semantic/edge-case validation, not silently replaced by
+      unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were not
+      executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

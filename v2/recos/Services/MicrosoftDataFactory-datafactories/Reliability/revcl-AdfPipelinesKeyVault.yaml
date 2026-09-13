@@ -1,13 +1,16 @@
 name: revcl-AdfPipelinesKeyVault
-title: If using Keyvault integration, use SLA of Keyvault to understand your availablity
-description: If your ADF Pipelines use Key Vault you don't have to do anything to
-  replicate Key Vault. Key Vault is a managed service and Microsoft takes care of
-  it for you
+title: Include Key Vault dependencies in the availability and recovery design for Data Factory v2 pipelines
+description: For Data Factory v2 pipelines that retrieve linked-service credentials from Key Vault, assess
+  vault availability, regional recovery behavior, identity permissions and network reachability against
+  the pipeline's recovery objectives. Key Vault provides managed redundancy, but cross-region replication
+  and Microsoft-managed failover have regional exceptions and can be delayed; they do not guarantee coordinated
+  recovery with Data Factory. Document and test the required secret-access and dependency recovery approach
+  instead of assuming no customer action is needed.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.datafactory/datafactories
+- microsoft.datafactory/factories
 waf: Reliability
 severity: 2
 labels:
@@ -16,3 +19,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/disaster-recovery-guidance
 queries: {}
+schemaVersion: 1
+id: 25498f6d-bad3-47da-a43b-c6ce1d7aa9b2
+services:
+- Data Factory
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/analytics#microsoftdatafactory
+    title: Azure permissions for Analytics - Azure RBAC
+    accessedAt: '2026-09-13'
+  - url: https://raw.githubusercontent.com/Azure/Azure-DataFactory/ce4c9cab41e5e4fa66f4bddd042cab649c36a4ca/V1-V2Migration/ADFV1toV2Conversion.md
+    title: 'Tutorial: Migrate your V1 Azure Data Factory to V2'
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.datafactory/factories
+    title: Microsoft.DataFactory/factories - Bicep, ARM template & Terraform AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/data-factory/store-credentials-in-key-vault
+    title: Store credentials in Azure Key Vault - Azure Data Factory
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-key-vault
+    title: Reliability in Azure Key Vault
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-data-factory
+    title: Reliability in Azure Data Factory
+    accessedAt: '2026-09-13'

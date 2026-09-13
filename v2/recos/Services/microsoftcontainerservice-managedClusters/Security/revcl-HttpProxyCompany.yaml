@@ -1,5 +1,5 @@
 name: revcl-HttpProxyCompany
-title: If required add company HTTP Proxy
+title: Configure and verify AKS HTTP proxy integration when required by the egress design.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -12,11 +12,35 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/http-proxy
-queries:
-  arg: Resources | where type=~'microsoft.containerservice/managedclusters' | project
-    resourceGroup,name,pools=properties.agentPoolProfiles | mv-expand pools | project
-    subnetId=tostring(pools.vnetSubnetID) | where isnotempty(subnetId) | join (Resources
-    | where type=='microsoft.network/virtualnetworks' | project id,resourceGroup,name,enableDdosProtection=tostring(properties.enableDdosProtection),subnets=properties.subnets
-    | mv-expand subnets | project id,resourceGroup,name,enableDdosProtection,subnetId=tostring(subnets.id))
-    on subnetId | distinct id,resourceGroup,name,enableDdosProtection | extend compliant
-    = (enableDdosProtection == 'true')
+queries: {}
+schemaVersion: 1
+id: 6c46b91a-1107-4485-ad66-3183e2a8c266
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/http-proxy
+    title: Configure Azure Kubernetes Service (AKS) nodes with an HTTP proxy
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/networking
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Review proxy endpoints, bypass destinations and trusted CA requirements for both nodes and
+  pods. The documented integration does not support Windows node pools, per-node-pool proxy configurations
+  or username/password proxy authentication. Confirm actual proxy variables and application behavior,
+  including noProxy handling and required AKS dependencies. DDoS protection on a virtual network is not
+  evidence of HTTP proxy configuration.

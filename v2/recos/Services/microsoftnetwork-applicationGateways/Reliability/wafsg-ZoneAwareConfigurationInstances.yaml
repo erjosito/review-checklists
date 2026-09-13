@@ -1,6 +1,9 @@
 name: wafsg-ZoneAwareConfigurationInstances
-title: Deploy the instances in a zone-aware configuration, where available.
-description: ''
+title: Verify Application Gateway v2 zone redundancy rather than assuming an explicit zone list is required
+description: In supported regions, Standard_v2 and WAF_v2 gateways are zone redundant by default unless
+  configured as single-zone deployments. Prefer the default zone-redundant configuration; a single-zone
+  deployment requires separate gateways and failover to survive a zone outage. Review backend redundancy
+  and spare capacity as part of the end-to-end design.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-application-gateway.md
@@ -13,3 +16,16 @@ labels:
   guid: dc6efb36-f70f-41ed-aaf2-f8667781c123
 links: []
 queries: {}
+schemaVersion: 1
+id: dc6efb36-f70f-41ed-aaf2-f8667781c123
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-application-gateway-v2
+    title: Reliability in Azure Application Gateway v2
+    accessedAt: '2026-09-11'

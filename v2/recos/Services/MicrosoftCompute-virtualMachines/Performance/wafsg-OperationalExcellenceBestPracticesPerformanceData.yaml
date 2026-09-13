@@ -15,3 +15,13 @@ labels:
   guid: fd304fa2-0694-4952-b53a-6161a4e21099
 links: []
 queries: {}
+schemaVersion: 1
+id: fd304fa2-0694-4952-b53a-6161a4e21099
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

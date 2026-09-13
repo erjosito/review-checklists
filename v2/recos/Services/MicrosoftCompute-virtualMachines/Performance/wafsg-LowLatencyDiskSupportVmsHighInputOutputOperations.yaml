@@ -1,13 +1,9 @@
 name: wafsg-LowLatencyDiskSupportVmsHighInputOutputOperations
-title: (VMs, scale set)  Set the storage profile by analyzing the disk performance
-  of existing workloads and the VM SKU.  Use Premium SSDs for production VMs. Adjust
-  the performance of disks with Premium SSD v2. Use locally attached NVMe devices.
-description: Premium SSDs deliver high-performance and low-latency disk support VMs
-  with I/O-intensive workloads.  Premium SSD v2 doesn't require disk resizing, which
-  enables high performance without excessive over-provisioning and minimizes the cost
-  of unused capacity.  When available on VM SKUs, locally attached NVMe or similar
-  devices can offer high performance, especially for use cases that require high input/output
-  operations per second (IOPS) and low latency.
+title: Select VM storage from measured IOPS, throughput, latency and durability needs
+description: Match the VM and disk performance profiles to the workload; consider Premium SSD v2 where
+  its supported capabilities fit. Benchmark both VM-level and disk-level constraints. Locally attached
+  NVMe is temporary storage and must not be the only copy of durable application data. Avoid treating
+  one disk tier as mandatory for every production VM.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -19,3 +15,28 @@ labels:
   guid: 633df150-cf95-4992-853f-72b1d599395b
 links: []
 queries: {}
+schemaVersion: 1
+id: 633df150-cf95-4992-853f-72b1d599395b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/virtual-machines
+    title: Architecture best practices for Azure Virtual Machines and scale sets
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/aks/concepts-storage
+    title: Storage options for applications in Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:03
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/select-services
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0bd2d517f44eb97ad2c3cf654a65fd75ce3f487dd2b8d6a5a3db73ba8a0d6dd2
+    notes: VM/disk selection addresses workload performance profiles and durability. It does not cover
+      every workload service choice or platform-versus-custom implementation.

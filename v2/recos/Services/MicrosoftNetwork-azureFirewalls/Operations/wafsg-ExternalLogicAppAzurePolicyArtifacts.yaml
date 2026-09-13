@@ -1,9 +1,9 @@
 name: wafsg-ExternalLogicAppAzurePolicyArtifacts
-title: Maintain regular backups of Azure Policy artifacts.
-description: If Infrastructure-as-Code (IaC) approach is used to maintain Azure Firewall
-  and all dependencies then backup and versioning of Azure Firewall Policies should
-  be already in place. If not, a companion mechanism based on external Logic App can
-  be deployed to automate and provide an effective solution.
+title: Maintain recoverable backups of Azure Firewall configuration and Firewall Policy
+description: Keep Azure Firewall configuration, Firewall Policy and dependencies under version control
+  with a recoverable backup. Prefer maintained IaC artifacts; otherwise use a documented export/backup
+  process and test restoration. This control concerns Azure Firewall policies, not merely Azure Policy
+  governance definitions.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +15,19 @@ labels:
   guid: 1fe21c62-7800-4bd8-b1ed-b13c020a0759
 links: []
 queries: {}
+schemaVersion: 1
+id: 1fe21c62-7800-4bd8-b1ed-b13c020a0759
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-firewall
+    title: Architecture best practices for Azure Firewall
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/infrastructure-as-code-design
+    title: Architecture strategies for using infrastructure as code
+    accessedAt: '2026-09-11'

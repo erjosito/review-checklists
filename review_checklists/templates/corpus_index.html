@@ -1,0 +1,58 @@
+{% extends "corpus_base.html" %}
+{% block content %}
+<h1>Source corpus overview</h1>
+<p>Strictly validated working YAML, not a tagged release or a pinned customer review.
+  Recommendation schema: {{ summary.schema_versions | join(", ") }}.</p>
+<p>Deterministic content identity: <code class="hash">{{ summary.hash }}</code></p>
+<div class="metrics">
+  <section><h2>Canonical recommendations</h2><p class="number">{{ summary.total }}</p></section>
+  <section><h2>Retired aliases</h2><p class="number">{{ summary.aliases }}</p>
+    <a href="{{ url_for('corpus_admin.recommendations', quality='aliases') }}">Canonical survivors</a></section>
+  <section><h2>Primary ARG available</h2><p class="number">{{ summary.arg_available }}</p>
+    <a href="{{ url_for('corpus_admin.recommendations', arg='available') }}">Query-bearing recommendations</a></section>
+  <section><h2>ARG validation date recorded</h2><p class="number">{{ summary.arg_validated }}</p>
+    <a href="{{ url_for('corpus_admin.recommendations', arg='validated') }}">Recorded validation metadata</a></section>
+</div>
+<p>Aliases are not additional recommendations. Query availability is not validity.
+  A recorded validation date is not a live check performed by this dashboard.</p>
+<h2>Service metadata</h2>
+<table><thead><tr><th>Classification</th><th>Canonical records</th></tr></thead><tbody>
+{% for mode, count in summary.service_modes.items() %}
+<tr><td>{{ mode | title }}</td><td>{{ count }}</td></tr>
+{% endfor %}
+</tbody></table>
+<p>Explicit means author-curated service metadata. Inferred means only a resource-type
+  fallback using the existing service dictionary. Missing can include general guidance;
+  no service specialization is invented.</p>
+<h2>Services by WAF pillar</h2>
+<p>Each cell counts distinct canonical records. A multi-service recommendation contributes
+  to each applicable row, so service rows must not be summed as a corpus total.</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Service</th>{% for pillar in pillars %}<th>{{ pillar }}</th>{% endfor %}</tr></thead>
+<tbody>{% for service, counts in summary.matrix.items() %}
+<tr><th scope="row">{{ service }}</th>{% for pillar in pillars %}
+<td><a href="{{ url_for('corpus_admin.recommendations', service='none' if service == 'Not service-specific' else service, waf=pillar) }}">{{ counts.get(pillar, 0) }}</a></td>
+{% endfor %}</tr>{% endfor %}</tbody></table></div>
+<h2>Automation and query meaning</h2>
+<div class="columns">
+<table><thead><tr><th>Recorded automation status</th><th>Records</th></tr></thead><tbody>
+{% for status, count in summary.automation.items() %}<tr><td>{{ status }}</td><td>{{ count }}</td></tr>{% endfor %}
+</tbody></table>
+<table><thead><tr><th>Available ARG result semantics</th><th>Records</th></tr></thead><tbody>
+{% for semantics, count in summary.semantics.items() %}<tr><td>{{ semantics }}</td><td>{{ count }}</td></tr>{% endfor %}
+</tbody></table></div>
+<p>Inventory, Advisor findings, optimization candidates and empty results do not establish
+  compliance or realized savings. Only one primary ARG query is counted per recommendation.</p>
+<h2>Freshness and missing metadata</h2>
+<p>Recorded human-review date range:
+  {{ summary.oldest_review or 'Not recorded' }} to {{ summary.latest_review or 'Not recorded' }}.
+  Source access dates and upstream import timestamps are not human review dates.
+  No synthetic quality grade or freshness threshold is applied.</p>
+<table><thead><tr><th>Condition</th><th>Canonical records</th></tr></thead><tbody>
+{% for key, count in summary.quality.items() %}
+<tr><td><a href="{{ url_for('corpus_admin.recommendations', quality=key) }}">{{ quality_labels[key] }}</a></td><td>{{ count }}</td></tr>
+{% endfor %}
+</tbody></table>
+<p><a href="{{ url_for('corpus_admin.sources') }}">Original sources, supporting references and dated upstream inventory coverage</a></p>
+<p><a href="{{ url_for('corpus_admin.history') }}">Recorded maintenance events and technical deferrals</a></p>
+{% endblock %}

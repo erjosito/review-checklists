@@ -11,3 +11,13 @@ labels:
   guid: db611712-6904-40b4-aa3d-3e0803276d4b
 links: []
 queries: {}
+schemaVersion: 1
+id: db611712-6904-40b4-aa3d-3e0803276d4b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

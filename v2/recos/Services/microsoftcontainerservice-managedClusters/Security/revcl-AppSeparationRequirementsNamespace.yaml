@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/operator-best-practices-cluster-isolation
 queries: {}
+schemaVersion: 1
+id: d167dd18-2b0a-4c24-8b99-9a646f8389a7
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

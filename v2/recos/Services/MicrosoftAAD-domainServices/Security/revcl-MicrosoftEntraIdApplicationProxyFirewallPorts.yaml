@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/implement-applications-external-access-azure-ad/
 queries: {}
+schemaVersion: 1
+id: 01ca7cf1-5754-442d-babb-8ba6772e5c30
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

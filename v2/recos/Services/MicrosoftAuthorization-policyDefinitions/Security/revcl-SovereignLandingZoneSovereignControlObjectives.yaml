@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/industry/sovereignty/policy-portfolio-baseline
 queries: {}
+schemaVersion: 1
+id: caeea0e9-1024-41df-a52e-d99c3f22a6f4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

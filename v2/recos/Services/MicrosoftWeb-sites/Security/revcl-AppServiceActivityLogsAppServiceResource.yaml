@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log
 queries: {}
+schemaVersion: 1
+id: ee72734b-475b-4a18-bdbf-590ce65de8e0
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

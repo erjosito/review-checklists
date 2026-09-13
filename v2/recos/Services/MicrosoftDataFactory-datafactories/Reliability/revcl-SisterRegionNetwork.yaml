@@ -1,11 +1,10 @@
 name: revcl-SisterRegionNetwork
-title: Make sure you replicate or duplicate your network in the sister region. You
-  have to make a copy of your Vnet in another region
+title: Recreate required Data Factory v2 connectivity in the selected recovery region
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.datafactory/datafactories
+- microsoft.datafactory/factories
 waf: Reliability
 severity: 1
 labels:
@@ -14,3 +13,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery
 queries: {}
+schemaVersion: 1
+id: aee4563a-fd83-4393-98b2-62d6dc5f512a
+services:
+- Data Factory
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/analytics#microsoftdatafactory
+    title: Azure permissions for Analytics - Azure RBAC
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.datafactory/factories
+    title: Microsoft.DataFactory/factories - Bicep, ARM template & Terraform AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-data-factory
+    title: Reliability in Azure Data Factory
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/data-factory/secure-your-azure-data-factory
+    title: Secure your Azure Data Factory deployment - Azure Data Factory
+    accessedAt: '2026-09-13'
+description: For a Data Factory v2 regional recovery design, document and recreate the networking needed
+  by the selected integration runtimes and data dependencies, including applicable virtual networks, routes,
+  name resolution and private connectivity. Validate connectivity to recovered data stores, Key Vault
+  and SHIR hosts. Select the recovery region according to recovery objectives, service support and data-residency
+  constraints; do not assume every factory has an appropriate paired region or that duplicating a virtual
+  network alone restores pipeline operation.

@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "canonicalId": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+      "retiredIds": [
+        "3195423b-0513-45e2-951b-87f9c5d534b0",
+        "0148ed98-3b9a-4b7f-81c2-8b550f56f793"
+      ],
+      "reason": "confirmed-050: all three current refreshed storage-account lock requirements have identical guidance, scope, priority, manual automation and exact partial SE:08 mapping. Preserve the existing historical survivor and both retired identities.",
+      "beforeContentHash": "sha256:3e80e71f2a74190c388ec80a9546eab29b9f497df531a2ad4fcfbaaa79e1020c"
+    },
+    {
+      "canonicalId": "af07c8fb-ba63-41e5-b924-3bc6759ad671",
+      "retiredIds": [
+        "f436bbde-bfd0-4be2-85a6-c13f0d79cee1"
+      ],
+      "reason": "confirmed-068: the same geo-redundant-storage Last Sync Time assessment, with identical scope and automation. Preserve both descriptions and clarify potential loss and planned versus unplanned failover using current primary documentation.",
+      "beforeContentHash": "sha256:91fc0bfa4c44ad400a31e51e41d19fe7327959999b422f2b27b732c388527e46",
+      "description": "This property helps you estimate how much data you might lose by initiating an account failover. All data and metadata written before the last synchronization time is available on the secondary region, but data and metadata written after the last synchronization time might be lost because it's not written to the secondary region.\n\nThis property helps you estimate how much data you might lose if you initiate an account failover. All data and metadata that's written before the last synchronization time is available on the secondary region, but you might lose data and metadata that's written after the last synchronization time because it's not written to the secondary region.\n\nInterpret these statements as potential loss: writes after Last Sync Time might already have replicated, but are not guaranteed. Assess customer-managed unplanned failover separately from planned failover and failback, for which data loss is not expected while both regions remain available throughout the operation. GRS and GZRS here include their read-access variants; this guidance does not apply to LRS or ZRS alone."
+    }
+  ]
+}

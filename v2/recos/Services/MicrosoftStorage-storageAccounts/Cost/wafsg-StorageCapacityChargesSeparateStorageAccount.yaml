@@ -1,9 +1,8 @@
 name: wafsg-StorageCapacityChargesSeparateStorageAccount
-title: If you enable versioning, then place blobs that are frequently overwritten
-  into an account that doesn't have versioning enabled.
-description: Every time a blob is overwritten, a new version is added which leads
-  to increased storage capacity charges. To reduce capacity charges, store frequently
-  overwritten data in a separate storage account with versioning disabled.
+title: Control Blob version growth while preserving required recovery history
+description: Measure version growth and access/restore needs, and apply approved version-retention/lifecycle
+  rules. Consider separate policies for transient versus durable data only when requirements differ. Preserve
+  needed historical versions and compliance controls rather than disabling versioning by default.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +14,18 @@ labels:
   guid: 4fb53237-e44f-4292-a7a5-f8e79d55fc4e
 links: []
 queries: {}
+schemaVersion: 1
+id: 4fb53237-e44f-4292-a7a5-f8e79d55fc4e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload requirements, financial or operational judgment; a generic ARG property check
+    cannot establish this recommendation.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-data-costs
+    title: Architecture strategies for optimizing data costs
+    accessedAt: '2026-09-11'

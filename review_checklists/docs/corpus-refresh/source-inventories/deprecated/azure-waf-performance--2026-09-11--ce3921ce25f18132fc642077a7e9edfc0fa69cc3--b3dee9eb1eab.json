@@ -1,0 +1,155 @@
+{
+  "asOf": "2026-09-11",
+  "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+  "inventoryStatus": "complete",
+  "items": [
+    {
+      "contentHash": "sha256:6ab7cdb514ef235477c40c3cb1a5886b0e820083a9bdb01277bc40c88c9796c4",
+      "id": "PE:01",
+      "payload": {
+        "code": "[PE:01](performance-targets)",
+        "id": "PE:01",
+        "recommendation": "**Define performance targets.** Performance targets should be numerical values that are tied to workload requirements. You should implement performance targets for all workload flows."
+      },
+      "title": "Define performance targets.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/performance-targets"
+    },
+    {
+      "contentHash": "sha256:49ffb1f01ca9fc6666a61f1d6000628b4b4323f3f20274bb6110c2ad0a1e6840",
+      "id": "PE:02",
+      "payload": {
+        "code": "[PE:02](capacity-planning)",
+        "id": "PE:02",
+        "recommendation": "**Conduct capacity planning.** Capacity planning should be done before there are predicted changes in usage patterns, such as seasonal variations, product updates, marketing campaigns, special events, or regulatory changes."
+      },
+      "title": "Conduct capacity planning.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/capacity-planning"
+    },
+    {
+      "contentHash": "sha256:0bd2d517f44eb97ad2c3cf654a65fd75ce3f487dd2b8d6a5a3db73ba8a0d6dd2",
+      "id": "PE:03",
+      "payload": {
+        "code": "[PE:03](select-services)",
+        "id": "PE:03",
+        "recommendation": "**Select the right services.** The services, infrastructure, and tier selections must support your ability to reach the workload's performance targets and accommodate expected capacity changes. The selections should also weigh the benefits of using platform features or building a custom implementation."
+      },
+      "title": "Select the right services.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/select-services"
+    },
+    {
+      "contentHash": "sha256:1a53bbb6c0c0a4f1964ff103d0bbfacec82fcfe0a203c1643253f3e509500af6",
+      "id": "PE:04",
+      "payload": {
+        "code": "[PE:04](monitoring)",
+        "id": "PE:04",
+        "recommendation": "**Establish consistent performance measurement** so behavior can be analyzed over time, compared against baselines, and used to detect degradation, inefficiency, and scaling gaps."
+      },
+      "title": "Establish consistent performance measurement",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/monitoring"
+    },
+    {
+      "contentHash": "sha256:e8f21b18c1cdfe5dcf9305911484e8623626e30fe27b8f3812b66bafe91af90e",
+      "id": "PE:05",
+      "payload": {
+        "code": "[PE:05](scale-partition)",
+        "id": "PE:05",
+        "recommendation": "**Optimize scaling and partitioning.** Incorporate reliable and controlled scaling and partitioning. The scale unit design of the workload is the basis of the scaling and partitioning strategy."
+      },
+      "title": "Optimize scaling and partitioning.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/scale-partition"
+    },
+    {
+      "contentHash": "sha256:eca3f58d9203e53c5c2e5acfb1ce8bf679abbf130ad6863c72a400be27bad783",
+      "id": "PE:06",
+      "payload": {
+        "code": "[PE:06](performance-test)",
+        "id": "PE:06",
+        "recommendation": "**Optimize your workload's performance by regularly testing in a production-like environment** to ensure your workload reaches the desired performance targets and achieves your business objectives."
+      },
+      "title": "Optimize your workload's performance by regularly testing in a production-like environment",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/performance-test"
+    },
+    {
+      "contentHash": "sha256:5e901d67902505c3ed187e6b0beeb318f277d1deab669a6c343f919dd3491701",
+      "id": "PE:07",
+      "payload": {
+        "code": "[PE:07](optimize-code-infrastructure)",
+        "id": "PE:07",
+        "recommendation": "**Optimize code and infrastructure.** Use code that's performant, and ensure that it offloads responsibilities to the platform. Use code and infrastructure only for their core purpose and only when necessary."
+      },
+      "title": "Optimize code and infrastructure.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-code-infrastructure"
+    },
+    {
+      "contentHash": "sha256:a5328043fbb2ecf2981a270ff0c84d2660f8e991b5832095d0a93d726ec6eb2e",
+      "id": "PE:08",
+      "payload": {
+        "code": "[PE:08](optimize-data-performance)",
+        "id": "PE:08",
+        "recommendation": "**Optimize data usage.** Optimize data stores, partitions, and indexes for their intended and actual use in the workload."
+      },
+      "title": "Optimize data usage.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-data-performance"
+    },
+    {
+      "contentHash": "sha256:ecdba59beb49bb7d3934048f0ff0946bc0b3bf87d04cff1f7f92554e67e2326a",
+      "id": "PE:09",
+      "payload": {
+        "code": "[PE:09](prioritize-critical-flows)",
+        "id": "PE:09",
+        "recommendation": "**Prioritize the performance of critical flows.** The allocation of workload resources and performance optimization efforts should prioritize the flows that support the most important business processes, users, and operations."
+      },
+      "title": "Prioritize the performance of critical flows.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/prioritize-critical-flows"
+    },
+    {
+      "contentHash": "sha256:7bd0f084b1c7f304041aab7cc53b7c5e6e01ed8aa09e42ff047c913afd94318b",
+      "id": "PE:10",
+      "payload": {
+        "code": "[PE:10](optimize-operational-tasks)",
+        "id": "PE:10",
+        "recommendation": "**Optimize operational tasks.** Monitor and minimize the effects of the software development lifecycle and other routine operations on workload performance. These operations include virus scans, secret rotations, backups, reindexing databases, and deployments."
+      },
+      "title": "Optimize operational tasks.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-operational-tasks"
+    },
+    {
+      "contentHash": "sha256:0f42f6eef0605342c081d14232a863186da9b9724c8a4112525b0f648a942711",
+      "id": "PE:11",
+      "payload": {
+        "code": "[PE:11](respond-live-performance-issues)",
+        "id": "PE:11",
+        "recommendation": "**Respond to live performance issues.** Plan how to address performance problems by incorporating clear lines of communication and responsibilities. When a problematic situation occurs, use what you learn to identify preventive measures and incorporate them in your workload. Implement methods to return to normal operations faster when similar situations occur."
+      },
+      "title": "Respond to live performance issues.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/respond-live-performance-issues"
+    },
+    {
+      "contentHash": "sha256:0d5a6b438ff19206a68777245013cca005e74e519959a8beaee2ac5b311a510d",
+      "id": "PE:12",
+      "payload": {
+        "code": "[PE:12](continuous-performance-optimize)",
+        "id": "PE:12",
+        "recommendation": "**Continuously optimize performance.** Focus on components that show deteriorating performance over time, such as databases and networking features."
+      },
+      "title": "Continuously optimize performance.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/continuous-performance-optimize"
+    }
+  ],
+  "limitations": [
+    "Checklist rows only, not all Performance guidance paragraphs or service guides.",
+    "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+    "Explicit ID mapping is not human semantic review.",
+    "Source identifier aligned from draft waf-performance-checklist; original capture dates, revision, item IDs and hashes unchanged."
+  ],
+  "retrievedAt": "2026-09-11T18:05:21.871251Z",
+  "schemaVersion": 1,
+  "scope": "All numbered rows in the English WAF Performance Efficiency design review checklist",
+  "sourceId": "azure-waf-performance",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/checklist"
+  ],
+  "title": "WAF Performance Efficiency checklist",
+  "unit": "published-checklist-row",
+  "upstreamRevision": "ce3921ce25f18132fc642077a7e9edfc0fa69cc3"
+}

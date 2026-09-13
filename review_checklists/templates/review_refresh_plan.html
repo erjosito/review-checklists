@@ -1,0 +1,37 @@
+<p>Source: {{ plan.source.get('version') or 'Unversioned snapshot' }}
+<code>{{ plan.source.get('content_hash') or plan.source.get('snapshot_hash') or 'Hash not recorded' }}</code></p>
+<p>Target: <strong>{{ plan.target.version }}</strong> <code>{{ plan.target.content_hash }}</code></p>
+<table aria-label="Refresh change counts">
+  <thead><tr><th>Change</th><th>Count</th></tr></thead>
+  <tbody>{% for kind, count in plan.counts.items() %}
+    <tr><td>{{ kind.replace('_', ' ') }}</td><td>{{ count }}</td></tr>
+  {% endfor %}</tbody>
+</table>
+<p>Add new checks: <strong>{{ 'Yes' if plan.scope.add_new else 'No (existing only)' }}</strong>.
+Effective scope: {{ plan.scope.effective.kind }}.
+{{ plan.scope.skipped_new }} selected new checks excluded by the addition opt-in.</p>
+{% if plan.scope.effective.kind == 'checklist' %}
+<details><summary>Selected checklist definition</summary><pre>{{ plan.scope.effective.definition | tojson(indent=2) }}</pre></details>
+{% endif %}
+<h2>Consolidation groups</h2>
+{% for group in plan.consolidations %}
+<p>Canonical <code>{{ group.canonical_id }}</code>:
+{{ group.item_ids | join(', ') }}.
+These review records remain separate; statuses, comments, and evidence are never merged.</p>
+{% else %}<p>No many-to-one groups in this review.</p>{% endfor %}
+<h2>Per-item changes</h2>
+{% for change in plan.changes %}
+<details class="refresh-change">
+  <summary>{{ change.action }}: {{ change.after.title }} ({{ change.id }})
+  {% if change.needs_reassessment %} - Needs reassessment{% endif %}</summary>
+  <p>Changed guidance fields: {{ change.changed_fields | join(', ') or 'No guidance fields; relationship/state changed' }}.
+  Assessment-relevant change: {{ 'Yes' if change.assessment_relevant else 'No' }}.</p>
+  <p>Currency: {{ change.state.currency }}. Canonical ID: {{ change.canonical_id or 'No longer present' }}.</p>
+  <p>{% if change.action == 'added' %}New assessment: Not reviewed.
+  {% else %}Existing assessment, comments, and evidence are retained unchanged.{% endif %}</p>
+  <h3>Previous recommendation snapshot</h3>
+  <pre>{{ change.before | tojson(indent=2) }}</pre>
+  <h3>Resulting recommendation snapshot</h3>
+  <pre>{{ change.after | tojson(indent=2) }}</pre>
+</details>
+{% else %}<p>No item changes. Source identity or scope may still change as shown above.</p>{% endfor %}

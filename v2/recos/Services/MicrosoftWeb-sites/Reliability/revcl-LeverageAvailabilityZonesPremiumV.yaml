@@ -1,6 +1,5 @@
 name: revcl-LeverageAvailabilityZonesPremiumV
-title: Leverage Availability Zones where regionally applicable (requires Premium v2
-  or v3 tier)
+title: Enable supported App Service zone redundancy, including eligible Premium v4 plans
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/reliability/migrate-app-service
 queries: {}
+schemaVersion: 1
+id: a7e2e6c2-491f-4fa4-a82b-521d0bc3b202
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service
+    title: Reliability in Azure App Service
+    accessedAt: '2026-09-11'
+description: Premium v2 through v4 plans support zone redundancy subject to regional and scale-unit support.
+  For Premium v4, confirm both v4 availability and zone support in the target region. Use at least two
+  instances and verify that the plan's scale unit supports zones; unsupported scale units require redeployment.
+  Plan spare capacity for zone loss because replacement capacity is best effort.

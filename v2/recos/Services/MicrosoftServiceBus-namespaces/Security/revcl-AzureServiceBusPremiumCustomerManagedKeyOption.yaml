@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/plan-implement-administer-conditional-access/
 queries: {}
+schemaVersion: 1
+id: 87af4a79-1f89-439b-ba47-768e14c11567
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

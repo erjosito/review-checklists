@@ -1,9 +1,8 @@
 name: wafsg-NfsAzureFileSharesNetworkLevelSecurity
-title: 'Use network-level security and controls to restrict ingress and egress traffic:
-  Identity-based authentication isn''t available for NFS Azure file shares, so you
-  must use network-level security and controls to grant the minimum required level
-  of access to users and applications. For more information, see How to approach network
-  security for your storage account.'
+title: 'Use network-level security and controls to restrict ingress and egress traffic: Identity-based
+  authentication isn''t available for NFS Azure file shares, so you must use network-level security and
+  controls to grant the minimum required level of access to users and applications. For more information,
+  see How to approach network security for your storage account.'
 description: ''
 source:
   type: wafsg
@@ -17,3 +16,29 @@ labels:
   guid: b3a2f115-8ee1-401e-a939-f4406b43b460
 links: []
 queries: {}
+schemaVersion: 1
+id: b3a2f115-8ee1-401e-a939-f4406b43b460
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/files/files-nfs-protocol
+    title: NFS file shares in Azure Files
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/networking
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

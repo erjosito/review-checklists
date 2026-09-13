@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-policy-settings
 queries: {}
+schemaVersion: 1
+id: e54a29a9-de39-4ac0-b7c2-8dc935657202
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

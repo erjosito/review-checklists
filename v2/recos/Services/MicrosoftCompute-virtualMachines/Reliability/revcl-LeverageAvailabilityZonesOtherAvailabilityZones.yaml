@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/reliability/availability-zones-overview
 queries: {}
+schemaVersion: 1
+id: e514548d-2447-4ec6-9138-b8200f1ce16e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -20,3 +20,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/manage-identity-and-access/
 queries: {}
+schemaVersion: 1
+id: af12e7f9-43f6-4304-922d-929c2b1cd622
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

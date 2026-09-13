@@ -1,13 +1,13 @@
 name: aprl-MaximumAutoScaleSettingsMaxAutoScaleSettings
 title: Nodepool subnet size needs to accommodate maximum auto-scale settings
-description: |-
-  Nodepool subnets sized for max auto-scale settings enable AKS to efficiently scale out nodes, meeting increased demand while reducing resource constraints and potential service disruptions.
+description: Nodepool subnets sized for max auto-scale settings enable AKS to efficiently scale out nodes,
+  meeting increased demand while reducing resource constraints and potential service disruptions.
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 0
 labels:
   guid: e620fa98-7a40-41a0-bfc9-b4407297fb58
@@ -40,3 +40,34 @@ queries:
     | extend param1 = strcat(nodePoolName, " autoscaler upper limit: ", maxNodes)
     | extend param2 = strcat("ip addresses on subnet: ", possibleMaxNodeCount)
     | project recommendationId="e620fa98-7a40-41a0-bfc9-b4407297fb58", name=clusterName, id=clusterId, param1, param2
+schemaVersion: 1
+id: e620fa98-7a40-41a0-bfc9-b4407297fb58
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL e620fa98-7a40-41a0-bfc9-b4407297fb58: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: e620fa98-7a40-41a0-bfc9-b4407297fb58
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:c22368784b2e7255ff7438f97757c69c11fd0649081ebfeac6e0adc3aa969ca4
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

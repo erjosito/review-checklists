@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal
 queries: {}
+schemaVersion: 1
+id: a274faa1-abfe-49d5-9d04-c3c4919cb1b3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

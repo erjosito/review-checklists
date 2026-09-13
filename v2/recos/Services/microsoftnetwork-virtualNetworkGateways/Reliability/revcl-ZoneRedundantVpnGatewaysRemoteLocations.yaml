@@ -19,3 +19,14 @@ queries:
   arg: resources | where type=='microsoft.network/virtualnetworkgateways' | where
     properties.gatewayType == 'Vpn' | extend compliant = (tolower(properties.sku.name)
     contains 'az') | distinct id, compliant
+schemaVersion: 1
+id: 4d873974-8b66-42d6-b15f-512a65498f6d
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

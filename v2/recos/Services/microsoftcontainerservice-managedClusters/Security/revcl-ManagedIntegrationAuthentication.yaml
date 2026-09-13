@@ -15,3 +15,14 @@ links:
 queries:
   arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
     = isnotnull(properties.aadProfile) | distinct id,compliant
+schemaVersion: 1
+id: 7e42c78e-78c0-46a6-8a21-94956e698dc4
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

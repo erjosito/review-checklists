@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/spring-apps/concepts-blue-green-deployment-strategies
 queries: {}
+schemaVersion: 1
+id: 6d8e32a8-3892-479d-a40b-10f6b4f6f298
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

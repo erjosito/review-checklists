@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/configure-vnet-peering/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: a3592829-e6e2-4061-9368-6af46791f893
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

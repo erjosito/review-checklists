@@ -4,10 +4,13 @@ Status: **design only**, 2026-09-11. The local CLI/web prototype is implemented;
 no provider adapters, embedding index, agent tool execution, or MCP transport is
 implemented by this document.
 
-The confirmed first milestone is a Python CLI plus localhost UI, SQLite working
-state and JSON/HTML export. Corpus API/package publication, schema convergence,
-freshness automation and customer-hosted collaboration are deferred. v2 remains
-the source corpus; the hybrid, human-reviewed PR policy remains unchanged.
+The implemented core is a Python CLI plus localhost UI, SQLite working state,
+JSON/HTML export, and the shared schema/versioned JSON bundle described in the
+[corpus contract](corpus-contract.md). Individual YAML files under `v2/recos`
+remain the authoring source; the directory name is historical. Corpus API/package
+publication, provider-backed freshness automation and customer-hosted
+collaboration remain deferred. Source-backed proposals still require
+deterministic validation and human review.
 
 ## 1. Optional provider boundary
 

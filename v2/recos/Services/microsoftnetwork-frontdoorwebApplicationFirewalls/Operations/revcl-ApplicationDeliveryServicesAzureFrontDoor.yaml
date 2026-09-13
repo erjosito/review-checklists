@@ -1,12 +1,12 @@
 name: revcl-ApplicationDeliveryServicesAzureFrontDoor
-title: Add diagnostic settings to save WAF logs from application delivery services
-  like Azure Front Door and Azure Application Gateway. Regularly review the logs to
-  check for attacks and for false positive detections.
+title: Enable and review WAF diagnostic logs on application delivery resources
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.network/frontdoorwebapplicationfirewalls
+- microsoft.cdn/profiles
+- microsoft.network/applicationgateways
+- microsoft.network/frontdoors
 waf: Operations
 severity: 0
 labels:
@@ -15,3 +15,40 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-best-practices#add-diagnostic-settings-to-save-your-wafs-logs
 queries: {}
+schemaVersion: 1
+id: 89cc5e11-aa4d-4c3b-893d-feb99215266a
+services:
+- Application Gateway
+- Azure Front Door
+- Web Application Firewall
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/frontdoorwebapplicationfirewallpolicies
+    title: Microsoft.Network/FrontDoorWebApplicationFirewallPolicies - Bicep, ARM template & Terraform
+      AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/2018-08-01/frontdoorwebapplicationfirewallpolicies
+    title: Microsoft.Network/FrontDoorWebApplicationFirewallPolicies 2018-08-01 - Bicep, ARM template
+      & Terraform AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-monitor
+    title: Monitoring and Logging - Azure Web Application Firewall
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-best-practices
+    title: Best practices for Azure Web Application Firewall in Azure Front Door
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview
+    title: What Is Azure Web Application Firewall on Azure Application Gateway?
+    accessedAt: '2026-09-13'
+description: For WAF-enabled Front Door and Application Gateway deployments, configure diagnostic settings
+  on the application delivery resource to retain the appropriate WAF logs and regularly review them for
+  attacks and false positives. WAF logging is not established merely by the existence of a policy. Front
+  Door Standard/Premium diagnostics use Azure Front Door SKU Microsoft.Cdn/profiles resources; classic
+  diagnostics use Microsoft.Network/frontdoors. Application Gateway diagnostics use Microsoft.Network/applicationGateways.
+  Select the categories available for the actual service/tier and do not include unrelated CDN profiles
+  solely because their ARM type matches.

@@ -1,11 +1,8 @@
 name: wafsg-FasterResponseTimesPerformanceRequirements
-title: 'Capacity: Select a model that aligns with your performance requirements, considering
-  the tradeoff between speed and output complexity. Model performance can vary significantly
-  based on the chosen model type. Models designed for speed offer faster response
-  times, which can be beneficial for applications that require quick interactions.
-  Conversely, more sophisticated models might deliver higher-quality outputs at the
-  expense of increased response time.'
-description: ''
+title: Select an Azure OpenAI model using measured latency and output-quality targets
+description: Compare eligible models and versions with representative prompts, output lengths and concurrent
+  traffic. Measure first-token and completion latency together with quality. Do not assume a model name
+  or quota alone proves the workload meets its performance targets.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -18,3 +15,16 @@ labels:
   guid: 6fd43871-d247-42ea-b468-dcf25d2d4e68
 links: []
 queries: {}
+schemaVersion: 1
+id: 6fd43871-d247-42ea-b468-dcf25d2d4e68
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/ai-foundry/openai/how-to/latency
+    title: Performance and latency
+    accessedAt: '2026-09-11'

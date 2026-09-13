@@ -1,18 +1,49 @@
 name: aprl-MissionCriticalWorkloadsFailoverRegionIotHub
 title: Device Identities are exported to a secondary region
-description: |-
-  Device Identities should be copied to the failover region IoT-Hub for all IoT devices to ensure connectivity in case of a failover. Manual Failover to another region is quicker (RTO), suitable for mission critical workloads.
+description: Device Identities should be copied to the failover region IoT Hub for all IoT devices to
+  ensure connectivity in case of a failover. Manual Failover to another region is quicker (RTO), suitable
+  for mission critical workloads.
 source:
   type: aprl
   file: azure-resources/Devices/iotHubs/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Devices/IotHubs
+- microsoft.devices/iothubs
 severity: 0
 labels:
   guid: 783c6c18-760b-4867-9ced-3010a0bc5aa3
   area: Disaster Recovery
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 783c6c18-760b-4867-9ced-3010a0bc5aa3
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Devices/iotHubs/recommendations.yaml
+    title: 'APRL 783c6c18-760b-4867-9ced-3010a0bc5aa3: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 783c6c18-760b-4867-9ced-3010a0bc5aa3
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Devices/iotHubs/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:56abfea62883319c8b428973c088e4fa5126952b16abf964275a67ef31be5eb2
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

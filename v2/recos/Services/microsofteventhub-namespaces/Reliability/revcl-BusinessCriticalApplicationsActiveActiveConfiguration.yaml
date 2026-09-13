@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/event-hubs/event-hubs-federation-overview
 queries: {}
+schemaVersion: 1
+id: 6e31b67d-67ba-4591-89c0-9e805d597c7e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

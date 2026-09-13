@@ -1,18 +1,23 @@
 name: aprl-StandardLoadBalancerSkuStandardSkuLoadBalancer
-title: Use Standard Load Balancer SKU
-description: |-
-  Selecting Standard SKU Load Balancer enhances reliability through availability zones and zone resiliency, ensuring deployments withstand zone and region failures. Unlike Basic, it supports global load balancing and offers an SLA.
+title: Use Standard Load Balancer and design its frontend and backend resilience
+description: Use Standard Load Balancer with zone-redundant frontend IP configurations where available
+  and distribute backend instances across availability zones. Frontend redundancy does not make single-zone
+  backends resilient, and a regional load balancer does not itself protect against a region-wide outage.
+  Design separate regional deployments and an appropriate global traffic-routing or global load-balancer
+  solution when regional failover is required.
 source:
   type: aprl
   file: azure-resources/Network/loadBalancers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/loadBalancers
+- microsoft.network/loadbalancers
 severity: 0
 labels:
   guid: 38c3bca1-97a1-eb42-8cd3-838b243f35ba
   area: High Availability
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/reliability/reliability-load-balancer
 queries:
   arg: |
     // Azure Resource Graph Query
@@ -21,3 +26,35 @@ queries:
     | where type =~ 'Microsoft.Network/loadBalancers'
     | where sku.name == 'Basic'
     | project recommendationId = "38c3bca1-97a1-eb42-8cd3-838b243f35ba", name, id, tags, Param1=strcat("sku-tier: basic")
+schemaVersion: 1
+id: 38c3bca1-97a1-eb42-8cd3-838b243f35ba
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/reliability/reliability-load-balancer
+    title: Load Balancer frontend/backend zone independence and regional scope
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/loadBalancers/recommendations.yaml
+    title: 'APRL 38c3bca1-97a1-eb42-8cd3-838b243f35ba: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 38c3bca1-97a1-eb42-8cd3-838b243f35ba
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/loadBalancers/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:78e3b4b0223860389ba55f67bc1d9696362e38ac172cab955bc5093b9febeb3b
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Load Balancer frontend/backend zone independence
+      and regional scope. Coverage concerns the inventory''s explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.'
+waf: Reliability

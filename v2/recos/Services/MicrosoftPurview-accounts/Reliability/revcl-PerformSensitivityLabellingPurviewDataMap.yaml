@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/sensitivity-labels-frequently-asked-questions
 queries: {}
+schemaVersion: 1
+id: ddea8a4b-7cde-4b3c-91fc-2fc14eea6e69
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

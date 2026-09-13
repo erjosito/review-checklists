@@ -1,5 +1,5 @@
 name: revcl-EphemeralOsDisks
-title: Use ephemeral OS disks
+title: Use ephemeral AKS OS disks where the node configuration supports them
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,6 +13,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/cluster-configuration
 queries:
-  arg: where type=='microsoft.containerservice/managedclusters' | project id,resourceGroup,name,pools=properties.agentPoolProfiles
-    | mvexpand pools | extend compliant = (pools.osDiskType=='Ephemeral') | project
-    id,name=strcat(name,'-',pools.name), resourceGroup, compliant
+  arg: |
+    Resources
+    | where type =~ 'microsoft.containerservice/managedclusters'
+    | mv-expand pool = properties.agentPoolProfiles
+    | project id, name, resourceGroup, subscriptionId, poolName = tostring(pool.name),
+        vmSize = tostring(pool.vmSize), enableAutoScaling = pool.enableAutoScaling,
+        minCount = pool.minCount, maxCount = pool.maxCount, osDiskType = tostring(pool.osDiskType),
+        kubeletConfig = pool.kubeletConfig, linuxOSConfig = pool.linuxOSConfig
+schemaVersion: 1
+id: 24367b33-6971-45b1-952b-eee0b9b588de
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/concepts-storage
+    title: Storage options for applications in Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+description: |-
+  Prefer ephemeral OS disks for eligible node pools to reduce OS I/O latency and speed node lifecycle operations. Verify the selected VM's cache/temporary-storage capacity and OS-disk size. Keep durable application data on appropriate persistent storage; managed OS disks remain valid when ephemeral disks are unsuitable.
+
+  ARG returns configuration inventory only, not utilization, latency, capacity sufficiency or a compliance verdict. Missing properties, limited permissions, truncation and zero rows do not establish a pass. Compare with workload telemetry and requirements; this query has not been executed or validated against Azure.

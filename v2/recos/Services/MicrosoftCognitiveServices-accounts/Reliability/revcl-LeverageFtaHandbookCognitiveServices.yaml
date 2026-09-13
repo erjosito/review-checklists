@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://github.com/Azure/fta-resiliencyplaybooks/blob/main/paas-foundations-playbooks-cog_svcs_v1.docx
 queries: {}
+schemaVersion: 1
+id: 21c30d25-ffb7-4f6a-b9ea-b3fec328f787
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

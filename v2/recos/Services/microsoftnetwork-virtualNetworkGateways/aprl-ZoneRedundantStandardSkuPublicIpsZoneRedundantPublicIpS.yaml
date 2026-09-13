@@ -1,13 +1,14 @@
 name: aprl-ZoneRedundantStandardSkuPublicIpsZoneRedundantPublicIpS
-title: Deploy zone-redundant VPN gateways with zone-redundant Public IP(s)
-description: |-
-  For zone-redundant VPN gateways, always use zone-redundant Standard SKU public IPs to avoid deploying all instances in one zone. This ensures the gateway's reliability, applying to both active-passive (single IP) and active-active (dual IP) setups.
+title: Deploy VPN gateways with zone-redundant Public IPs
+description: For zone-redundant VPN gateways, always use zone-redundant Standard SKU public IPs to avoid
+  deploying all instances in one zone. This ensures the gateway's reliability. Mission Critical workloads
+  should use dual ExpressRoutes instead of VPN.
 source:
   type: aprl
   file: azure-resources/Network/virtualNetworkGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/virtualNetworkGateways
+- microsoft.network/virtualnetworkgateways
 severity: 0
 labels:
   guid: 4bae5a28-5cf4-40d9-bcf1-623d28f6d917
@@ -29,3 +30,35 @@ queries:
         | where isnull(zones) or array_length(zones) < 3   )
         on $left.pipId == $right.id
     | project recommendationId = "4bae5a28-5cf4-40d9-bcf1-623d28f6d917", name, id, tags, param1 = strcat("PublicIpAddressName: ", name1), param2 = strcat ("PublicIpAddressId: ",id1), param3 = strcat ("PublicIpAddressTags: ",tags1)
+schemaVersion: 1
+id: 4bae5a28-5cf4-40d9-bcf1-623d28f6d917
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworkGateways/recommendations.yaml
+    title: 'APRL 4bae5a28-5cf4-40d9-bcf1-623d28f6d917: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 4bae5a28-5cf4-40d9-bcf1-623d28f6d917
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworkGateways/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:161ded7b312d9d92736c928b77ee5c708d8d0480f2d3c5abdb845352e99930c4
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

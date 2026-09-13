@@ -1,0 +1,89 @@
+{% extends "corpus_base.html" %}
+{% block title %}Recorded source coverage{% endblock %}
+{% block content %}
+<h1>{{ source.title }}</h1><p><code>{{ source.sourceId }}</code></p>
+{% if source.get('error') %}
+<p class="error" role="alert">{{ source.error }}</p>
+<p>Not measured. Invalid recorded inventories are not replaced by empty statistics.</p>
+{% else %}
+<dl><dt>Source scope</dt><dd>{{ source.scope or 'Not recorded' }}</dd>
+<dt>Denominator unit</dt><dd>{{ source.unit or 'Not recorded' }}</dd>
+<dt>Inventory as of</dt><dd>{{ source.asOf or 'Not recorded' }}</dd>
+<dt>Retrieved at</dt><dd>{{ source.retrievedAt or 'Not recorded' }}</dd>
+<dt>Upstream revision</dt><dd>{{ source.upstreamRevision or 'Not recorded' }}</dd>
+<dt>Selected local inventory</dt><dd><code>{{ source.get('inventoryFile') or 'Not recorded' }}</code></dd>
+<dt>Inventory status</dt><dd>{{ source.inventoryStatus }}</dd>
+<dt>Fingerprint scope</dt><dd>{{ source.get('fingerprintScope') or 'Not recorded' }}</dd>
+<dt>Observed inventory entries</dt><dd>{{ source.observedCount if source.observedCount is not none else 'Not recorded' }}</dd>
+<dt>Established denominator</dt><dd>{{ source.denominator if source.denominator is not none else 'Not measured' }}</dd></dl>
+{% if source.get('coverageSelection') %}
+<p>{{ source.inventoryCount }} total inventoried; {{ source.excludedCount }} excluded from this coverage scope.
+Excluded entries remain in the inventory for identity and upstream-change tracking, but do not contribute
+to the numerator or denominator above.</p>
+<p>Full inventory scope: {{ source.inventoryScope }}</p>
+<details><summary>Entries excluded from coverage ({{ source.excludedCount }})</summary>
+<ul>{% for item in source.excludedItems %}<li><code>{{ item.id }}</code> - {{ item.title }}
+(recorded reconciliation: {{ item.state }})</li>{% endfor %}</ul></details>
+{% endif %}
+{% if source.coveragePercent is none %}
+<p class="notice"><strong>Not measured.</strong> {{ source.reason }}</p>
+{% else %}
+<p><strong>{{ source.counts.full }} / {{ source.denominator }}</strong> upstream recommendations
+  fully covered ({{ source.coveragePercent }}%) as of {{ source.asOf }} for the scope and unit above.</p>
+<p>Partial: {{ source.counts.partial }} / {{ source.denominator }} ({{ source.partialPercent }}%).
+  Partial, stale, supporting and unknown entries are not included in full coverage.</p>
+{% endif %}
+<p>{{ source.get('assessmentBasis', 'Explicit mappings need a dated inventory before they can be reconciled.') }}</p>
+<ul>{% for limitation in source.limitations %}<li>{{ limitation }}</li>{% endfor %}</ul>
+<ul>{% for url in source.sourceUrls %}<li>{% if safe_external_url(url) %}<a href="{{ safe_external_url(url) }}" rel="noreferrer noopener">{{ url }}</a>{% else %}{{ url }}{% endif %}</li>{% endfor %}</ul>
+<h2>Recorded upstream changes</h2>
+<p>The newest recorded observation date and retrieval time are selected, not the
+  snapshot with the highest coverage. Identical copied artifacts count once.
+  Undated observations sort before dated ones; no current completeness is inferred from them.</p>
+{% if source.get('historyFiles') %}<details><summary>Local inventory history</summary>
+<ul>{% for filename in source.historyFiles %}<li><code>{{ filename }}</code></li>{% endfor %}</ul></details>{% endif %}
+{% if source.comparison %}
+<p>Compared {{ source.comparison.previousAsOf or 'undated baseline' }} to
+  {{ source.comparison.asOf or 'undated current snapshot' }}.
+  Complete comparison: {{ 'yes' if source.comparison.completeComparison else 'no' }}.</p>
+<dl>{% for key, label in [('newIds', 'New upstream IDs'), ('changedIds', 'Changed upstream IDs'), ('removedIds', 'Removed upstream IDs')] %}
+<dt>{{ label }}</dt><dd>{% if source.comparison[key] is none %}Not established from an incomplete/undated snapshot.
+{% else %}{{ source.comparison[key] | join(", ") or 'None recorded' }}{% endif %}</dd>{% endfor %}</dl>
+<ul>{% for limitation in source.comparison.limitations %}<li>{{ limitation }}</li>{% endfor %}</ul>
+{% for item in source.get('removedItems', []) %}
+<details><summary>Removed upstream ID {{ item.id }} - {{ item.title }}</summary>
+<p>Absent from the complete current scope; preserved here from the previous inventory,
+  not counted in the current denominator.</p>
+<code>{{ item.contentHash }}</code>
+{% if safe_external_url(item.url) %}<p><a href="{{ safe_external_url(item.url) }}" rel="noreferrer noopener">Historical upstream link</a></p>{% endif %}
+</details>{% endfor %}
+{% else %}<p>No comparable previous inventory recorded. New/removed status is not inferred from absent mappings.</p>{% endif %}
+{% if source.referencesOutsideInventory %}
+<h3>Mapped IDs outside the current inventory</h3><p>{{ source.referencesOutsideInventory | join(", ") }}</p>
+<p>These references do not establish removal; they may refer to a different or incomplete scope.</p>
+{% endif %}
+<h2>Upstream recommendation reconciliation</h2>
+<p>Each inventory ID is counted once, regardless of the number of canonical or alias-derived
+  mappings. The evidence below distinguishes partial scope, stale hashes and supporting citations.</p>
+<form method="get" class="filters">
+<label>Recorded state<select name="state"><option value="">All states</option>
+{% for value in ['full', 'partial', 'stale', 'supporting', 'unknown'] %}
+<option value="{{ value }}" {% if state == value %}selected{% endif %}>{{ value }}</option>
+{% endfor %}</select></label><button type="submit">Filter upstream entries</button>
+</form>
+<p>Filtering the drilldown does not change the source-wide numerator or denominator.</p>
+{% include "corpus_pagination.html" %}
+{% for item in items %}
+<details><summary>{{ item.id }} - {{ item.state }} - {{ item.title }}</summary>
+{% if safe_external_url(item.url) %}<p><a href="{{ safe_external_url(item.url) }}" rel="noreferrer noopener">Upstream requirement</a></p>{% endif %}
+<p>Recorded upstream content hash: <code>{{ item.contentHash }}</code></p>
+{% for assessment in item.assessments %}
+<section><h3><a href="{{ url_for('corpus_admin.recommendation', identity=assessment.corpusId) }}">{{ assessment.corpusId }}</a></h3>
+<p>Declared {{ assessment.coverage }}; reconciled state {{ assessment.state }};
+  hash matches: {{ 'yes' if assessment.hashMatches else 'no' }}; assessed {{ assessment.assessedAt }}.</p>
+<p>{{ assessment.notes }}</p>
+{% if safe_external_url(assessment.url) %}<a href="{{ safe_external_url(assessment.url) }}" rel="noreferrer noopener">Assessment source link</a>{% endif %}
+</section>{% else %}<p>No explicit corpus assessment for this upstream recommendation.</p>{% endfor %}
+</details>{% else %}<p>No upstream entries available for reconciliation.</p>{% endfor %}
+{% endif %}
+{% endblock %}

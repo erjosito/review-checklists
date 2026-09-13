@@ -1,18 +1,49 @@
 name: aprl-LayeredStorageArchitectureLayeredArchitecture
 title: Use a layered storage architecture
-description: |-
-  Curate data by creating a layered architecture to increase data quality across layers. Start with a raw layer for ingested source data, continue with a curated layer for cleansed and refined data, and finish with a final layer catered to business needs, focusing on security and performance.
+description: Curate data by creating a layered architecture to increase data quality across layers. Start
+  with a raw layer for ingested source data, continue with a curated layer for cleansed and refined data,
+  and finish with a final layer catered to business needs, focusing on security and performance.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 1
 labels:
   guid: 1b0d0893-bf0e-8f4c-9dc6-f18f145c1ecf
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 1b0d0893-bf0e-8f4c-9dc6-f18f145c1ecf
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL 1b0d0893-bf0e-8f4c-9dc6-f18f145c1ecf: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1b0d0893-bf0e-8f4c-9dc6-f18f145c1ecf
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:96030b5dd68564a7b51315ac743583f81483c03b318edc8763070b11d4f68419
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

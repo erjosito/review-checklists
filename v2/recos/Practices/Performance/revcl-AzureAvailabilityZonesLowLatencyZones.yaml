@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/AvZone-Latency-Test
 queries: {}
+schemaVersion: 1
+id: 616785d6-fa96-4c96-ad88-518f482734c8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,13 +1,14 @@
 name: aprl-ContinuousBackupModeContinuousMode
 title: Configure continuous backup mode
-description: |-
-  Cosmos DB's backup is always on, offering protection against data mishaps. Continuous mode allows for self-serve restoration to a pre-mishap point, unlike periodic mode which requires contacting Microsoft support, leading to longer restore times.
+description: Cosmos DB's backup is always on, offering protection against data mishaps. Continuous mode
+  allows for self-serve restoration to a pre-mishap point, unlike periodic mode which requires contacting
+  Microsoft support, leading to longer restore times.
 source:
   type: aprl
   file: azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DocumentDB/databaseAccounts
+- microsoft.documentdb/databaseaccounts
 severity: 0
 labels:
   guid: e544520b-8505-7841-9e77-1f1974ee86ec
@@ -24,3 +25,31 @@ queries:
         properties.enableMultipleWriteLocations == false and
         properties.enableAnalyticalStorage == false
     | project recommendationId='e544520b-8505-7841-9e77-1f1974ee86ec', name, id, tags
+schemaVersion: 1
+id: e544520b-8505-7841-9e77-1f1974ee86ec
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
+    title: 'APRL e544520b-8505-7841-9e77-1f1974ee86ec: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: e544520b-8505-7841-9e77-1f1974ee86ec
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:9b07e6fc2b11ab1d3fbad65db4f75a89e0d5741c34b1a239cb94c28d40965f7a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

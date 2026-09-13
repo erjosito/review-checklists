@@ -14,3 +14,13 @@ labels:
   guid: 99910102-9fb9-4526-ad60-f0ef309b0230
 links: []
 queries: {}
+schemaVersion: 1
+id: 99910102-9fb9-4526-ad60-f0ef309b0230
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

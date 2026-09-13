@@ -12,3 +12,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial
 queries: {}
+schemaVersion: 1
+id: a709c664-317e-41e4-9e34-67d9016a86f4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

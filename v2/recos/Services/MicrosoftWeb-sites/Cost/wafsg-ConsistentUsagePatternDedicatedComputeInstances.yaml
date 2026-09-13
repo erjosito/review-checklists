@@ -1,9 +1,8 @@
 name: wafsg-ConsistentUsagePatternDedicatedComputeInstances
-title: 'Evaluate the discounted options: Higher tiers include dedicated compute instances.
-  You can apply a reservation discount if your workload has a predictable and consistent
-  usage pattern. Make sure that you analyze usage data to determine the type of reservation
-  that suits your workload. For more information, see Save costs with App Service
-  reserved instances.'
+title: 'Evaluate the discounted options: Higher tiers include dedicated compute instances. You can apply
+  a reservation discount if your workload has a predictable and consistent usage pattern. Make sure that
+  you analyze usage data to determine the type of reservation that suits your workload. For more information,
+  see Save costs with App Service reserved instances.'
 description: ''
 source:
   type: wafsg
@@ -17,3 +16,26 @@ labels:
   guid: 692ab2db-ff92-44e9-ae54-910c66389e0d
 links: []
 queries: {}
+schemaVersion: 1
+id: 692ab2db-ff92-44e9-ae54-910c66389e0d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations - Azure Advisor
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-cost-catalog
+    recommendationId: 5b8ddf04-be28-44ec-ab2c-a63a34d1de13
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:8c6e4e749a3246f3988a62c38f4e3ec8af38cebbcd08d6579f20f9a1784fe29d
+    notes: Predictable App Service usage and dedicated-compute reservations cover rate optimization; the
+      full benefit-scope and term/lookback decision are not described. Source-text assessment, not independent
+      human approval or live Azure validation.

@@ -15,3 +15,13 @@ labels:
   guid: 0b153016-434a-419e-8114-530956194357
 links: []
 queries: {}
+schemaVersion: 1
+id: 0b153016-434a-419e-8114-530956194357
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -3,3 +3,4 @@ PyYAML>=6.0,<7
 azure-identity>=1.19,<2
 azure-mgmt-resourcegraph>=8.0,<9
 waitress>=3.0.2,<4
+jsonschema>=4.23,<5

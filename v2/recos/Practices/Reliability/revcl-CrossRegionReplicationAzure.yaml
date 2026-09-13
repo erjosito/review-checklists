@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/reliability/cross-region-replication-azure
 queries: {}
+schemaVersion: 1
+id: 7ea02e1c-7166-45a3-bdf5-098891367fcb
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

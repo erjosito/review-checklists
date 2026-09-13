@@ -1,12 +1,15 @@
 name: revcl-AzureFrontDoorAzureApplicationGateway
-title: When using Azure Front Door and Azure Application Gateway to help protect HTTP/S
-  apps, use WAF policies in Azure Front Door. Lock down Azure Application Gateway
-  to receive traffic only from Azure Front Door.
+title: When using Azure Front Door and Azure Application Gateway to help protect HTTP/S apps, use WAF
+  policies in Azure Front Door. Lock down Azure Application Gateway to receive traffic only from Azure
+  Front Door.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.network/frontdoorwebapplicationfirewalls
+- microsoft.cdn/profiles
+- microsoft.network/applicationgateways
+- microsoft.network/frontdoors
+- microsoft.network/frontdoorwebapplicationfirewallpolicies
 waf: Security
 severity: 2
 labels:
@@ -17,3 +20,40 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/secure-application-delivery/
 queries: {}
+schemaVersion: 1
+id: 3b22a5a6-7e7a-48ed-9b30-e38c3f29812b
+services:
+- Application Gateway
+- Azure Front Door
+- Web Application Firewall
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/frontdoorwebapplicationfirewallpolicies
+    title: Microsoft.Network/FrontDoorWebApplicationFirewallPolicies - Bicep, ARM template & Terraform
+      AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/2018-08-01/frontdoorwebapplicationfirewallpolicies
+    title: Microsoft.Network/FrontDoorWebApplicationFirewallPolicies 2018-08-01 - Bicep, ARM template
+      & Terraform AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/afds-overview
+    title: What Is Azure Web Application Firewall on Azure Front Door?
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/frontdoor/origin-security
+    title: Secure traffic to origins - Azure Front Door
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-inbound-and-outbound-internet-connectivity
+    title: Plan for inbound and outbound internet connectivity - Cloud Adoption Framework
+    accessedAt: '2026-09-13'
+description: 'When Application Gateway is an origin behind Front Door, apply the intended WAF policy at
+  Front Door and prevent direct public traffic from bypassing that path. For a public Application Gateway
+  origin, combine network filtering using AzureFrontDoor.Backend with validation of the expected X-Azure-FDID
+  value; the shared service tag alone does not identify your Front Door instance. Review the actual Front
+  Door tier and applicable policy capabilities: Standard supports custom rules, Premium supports managed
+  rules, and existing classic deployments require their own configuration and migration planning. Private
+  Link is a Premium-specific option for supported origins, not a universal prerequisite.'

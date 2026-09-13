@@ -1,10 +1,10 @@
 name: wafsg-ApplicationGatewayInstancesExtraneousCosts
 title: Stop Application Gateway instances when not in use
-description: You aren't billed when Application Gateway is in the stopped state. Continuously
-  running Application Gateway instances can incur extraneous costs. Evaluate usage
-  patterns and stop instances when you don't need them. For example, usage after business
-  hours in Dev/Test environments is expected to be low.See these articles for information
-  about how to stop and start instances.- Stop-AzApplicationGateway- Start-AzApplicationGateway
+description: You aren't billed when Application Gateway is in the stopped state. Continuously running
+  Application Gateway instances can incur extraneous costs. Evaluate usage patterns and stop instances
+  when you don't need them. For example, usage after business hours in Dev/Test environments is expected
+  to be low.See these articles for information about how to stop and start instances.- Stop-AzApplicationGateway-
+  Start-AzApplicationGateway
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -16,3 +16,23 @@ labels:
   guid: 3c5f0966-3c57-4e15-a6b0-6cb73405bbf1
 links: []
 queries: {}
+schemaVersion: 1
+id: 3c5f0966-3c57-4e15-a6b0-6cb73405bbf1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: a36bac4f-bf10-44c6-a51e-0d845162b3af
+  name: wafsg-ApplicationGatewayInstancesUse
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: a36bac4f-bf10-44c6-a51e-0d845162b3af
+  corpusFile: Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayInstancesUse.yaml

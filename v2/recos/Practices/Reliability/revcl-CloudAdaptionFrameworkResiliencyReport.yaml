@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/paths/azure-well-architected-framework/
 queries: {}
+schemaVersion: 1
+id: 410adcba-db46-424f-a6c4-05ecde75c52e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

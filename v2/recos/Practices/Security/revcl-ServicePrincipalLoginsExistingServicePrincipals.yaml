@@ -1,7 +1,5 @@
 name: revcl-ServicePrincipalLoginsExistingServicePrincipals
-title: Use managed identities instead of service principals for authentication to
-  Azure services. You can check for existing service principals via Entra ID > Sign
-  in Logs > Service principal logins.
+title: Prefer managed identities or workload federation over application-managed credentials where supported.
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -19,3 +17,41 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview
 queries: {}
+schemaVersion: 1
+id: 4348bf81-7573-4512-8f46-9061cc198fea
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/security/identity-access
+    title: Architecture strategies for identity and access management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/application-secrets
+    title: Architecture strategies for protecting application secrets
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/aks/workload-identity-overview
+    title: Use Microsoft Entra Workload ID with Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Use managed identities for supported Azure service-to-service access and grant only the required
+  data-plane permissions. A managed identity is represented by a service principal; the security benefit
+  is avoiding application-managed credentials, not eliminating service principals. Where managed identities
+  are unsuitable, evaluate federated workload identities and protect any remaining credentials with a
+  managed secret store, rotation and access auditing. Review identity use and permissions, not only the
+  existence of an identity object.

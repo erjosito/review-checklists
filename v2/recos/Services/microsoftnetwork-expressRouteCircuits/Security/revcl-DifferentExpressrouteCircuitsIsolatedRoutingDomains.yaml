@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/design-implement-azure-expressroute/
 queries: {}
+schemaVersion: 1
+id: 8042d88e-79d1-47b7-9b22-a5a67e7a8ed4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,13 +1,12 @@
 name: aprl-EnterpriseSkuManagedDomain
 title: Use at least the Enterprise SKU
-description: |-
-  You need to use a minimum of Enterprise SKU for your managed domain to support replica sets.
+description: You need to use a minimum of Enterprise SKU for your managed domain to support replica sets.
 source:
   type: aprl
   file: azure-resources/AAD/domainServices/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AAD/domainServices
+- microsoft.aad/domainservices
 severity: 0
 labels:
   guid: bb6deb9d-24fa-4ee8-bc23-ac3ebc7fdf8e
@@ -22,3 +21,31 @@ queries:
     | extend sku = properties.sku
     | where sku =~ 'Standard'
     | project recommendationId='bb6deb9d-24fa-4ee8-bc23-ac3ebc7fdf8e', name=name, id=id, tags=tags, param1=strcat('SKU:', sku)
+schemaVersion: 1
+id: bb6deb9d-24fa-4ee8-bc23-ac3ebc7fdf8e
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AAD/domainServices/recommendations.yaml
+    title: 'APRL bb6deb9d-24fa-4ee8-bc23-ac3ebc7fdf8e: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: bb6deb9d-24fa-4ee8-bc23-ac3ebc7fdf8e
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AAD/domainServices/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:648e2f5a801a1fe8d7faeb8c150159aa8b230f3b90440c785f21e4d989a04fe6
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

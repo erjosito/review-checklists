@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/configure-azure-cni
 queries: {}
+schemaVersion: 1
+id: 1a4835ac-9422-423e-ae80-b123081a5417
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

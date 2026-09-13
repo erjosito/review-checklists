@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/availability-zones#azure-disk-availability-zone-support
 queries: {}
+schemaVersion: 1
+id: 83958a8c-2689-4b32-ab57-cfc64546135a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

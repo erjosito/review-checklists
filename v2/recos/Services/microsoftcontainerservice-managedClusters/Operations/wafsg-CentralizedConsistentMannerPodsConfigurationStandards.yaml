@@ -15,3 +15,13 @@ labels:
   guid: 3dc59879-d877-4719-84d1-8262c08c7081
 links: []
 queries: {}
+schemaVersion: 1
+id: 3dc59879-d877-4719-84d1-8262c08c7081
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

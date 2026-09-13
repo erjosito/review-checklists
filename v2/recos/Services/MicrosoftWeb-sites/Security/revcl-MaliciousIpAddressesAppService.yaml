@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/defender-for-cloud/defender-for-app-service-introduction
 queries: {}
+schemaVersion: 1
+id: 18d2ddb1-0725-4769-be66-91a4834ac932
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

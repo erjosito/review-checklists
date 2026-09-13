@@ -15,3 +15,13 @@ labels:
   guid: c5db7b18-fa0c-48be-a754-ddb21f1acdcb
 links: []
 queries: {}
+schemaVersion: 1
+id: c5db7b18-fa0c-48be-a754-ddb21f1acdcb
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

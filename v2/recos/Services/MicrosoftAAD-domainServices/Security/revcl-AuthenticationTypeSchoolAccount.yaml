@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/explore-basic-services-identity-types/
 queries: {}
+schemaVersion: 1
+id: 12e7f983-f630-4472-8dd6-9c5b5c2622f5
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

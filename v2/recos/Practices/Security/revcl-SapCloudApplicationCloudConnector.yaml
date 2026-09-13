@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/explore-identity-services/2-explore-azure-virtual-machine-auth-access-control
 queries: {}
+schemaVersion: 1
+id: 45911475-e39e-4530-accc-d979366bcda2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

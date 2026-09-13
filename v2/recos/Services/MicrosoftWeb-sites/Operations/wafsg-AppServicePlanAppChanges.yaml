@@ -1,8 +1,11 @@
 name: wafsg-AppServicePlanAppChanges
-title: (App Service plan) Validate app changes in the staging slot before you swap
-  it with the production slot.
-description: Avoid downtime and errors.  Quickly revert to the last-known good state
-  if you detect a problem after a swap.
+title: (App Service plan) Validate app changes in the staging slot before you swap it with the production
+  slot.
+description: On App Service tiers that support deployment slots, validate the staging app, warm-up behavior,
+  slot-specific settings, identities and network dependencies before swapping into production. Use production
+  as the target and monitor health after the swap. Rehearse swap-back or roll-forward, including compatible
+  database changes; swapping code cannot undo external data changes or guarantee that every application
+  request succeeds.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +17,28 @@ labels:
   guid: 02d5a8b1-6038-49c3-96b1-87ac56064269
 links: []
 queries: {}
+schemaVersion: 1
+id: 02d5a8b1-6038-49c3-96b1-87ac56064269
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots
+    title: Set up staging environments
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    title: Architecture strategies for safe deployment practices
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:11
+    coverage: partial
+    notes: Slot swap is not universal stateful rollback or guaranteed application correctness. Narrow
+      control or service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a

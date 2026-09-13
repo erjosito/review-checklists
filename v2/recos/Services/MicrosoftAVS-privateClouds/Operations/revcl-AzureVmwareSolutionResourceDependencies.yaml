@@ -13,3 +13,13 @@ labels:
   guid: cc5f5129-2539-48e6-bb9d-37dac43bc6cd
 links: []
 queries: {}
+schemaVersion: 1
+id: cc5f5129-2539-48e6-bb9d-37dac43bc6cd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

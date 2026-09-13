@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://github.com/Azure/sovereign-landing-zone/blob/main/docs/02-Architecture.md
 queries: {}
+schemaVersion: 1
+id: 6cc0ea22-42bb-441e-a345-804ab0a09666
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -53,7 +53,7 @@
 # python3 ./scripts/cl.py rename-reco --input-folder ./v2/recos --guid 1b1b1b1b-1b1b-1b1b-1b1b-1b1b1b1b1b1b
 #
 # Usage examples for updating recos:
-# python3 ./scripts/cl.py update-recos --input-folder ./v2/recos --reviewed --verbose
+# Review dates must be recorded explicitly in provenance.lastReviewed after human review.
 # python3 ./scripts/cl.py update-recos --input-folder ./v2/recos --default-severity 1 --verbose
 #
 # Create a v2 checklist file out of a v1 checklist file:
@@ -83,11 +83,12 @@ import sys
 import glob
 import os
 import jsonschema
-from modules import cl_analyze_v1
-from modules import cl_v1tov2
-from modules import cl_analyze_v2
-from modules import cl_arg
-from modules import cl_v2tov1
+if __package__:
+    from .modules import cl_analyze_v1, cl_v1tov2, cl_analyze_v2, cl_v2tov1
+    from .modules.cl_corpus import CorpusError, validate_corpus
+else:
+    from modules import cl_analyze_v1, cl_v1tov2, cl_analyze_v2, cl_v2tov1
+    from modules.cl_corpus import CorpusError, validate_corpus
 
 # Get input arguments
 parser = argparse.ArgumentParser(description='Checklists CLI', prog='checklists')
@@ -181,16 +182,16 @@ updaterecos_parser.add_argument('--format', dest='updaterecos_format', metavar='
                     default='yaml',
                     help='format of the v2 checklist items (default: yaml)')
 updaterecos_parser.add_argument('--reviewed', dest='updaterecos_reviewed', action='store_true',
-                    default=False, help='Set the reviewed field to the current date (default: False)')
+                    default=False, help='Deprecated: bulk review-date stamping is not supported')
 updaterecos_parser.add_argument('--default-severity', dest='updaterecos_default_severity', metavar='DEFAULT_SEVERITY', action='store',
-                    default='yaml', type=int,
+                    default=None, type=int, choices=(0, 1, 2),
                     help='Set any missing severity to the default value (default: None)')
 # Create the 'validate-recos' command
 validaterecos_parser = subparsers.add_parser('validate-recos', help='Validate recommendations to the reco schema', parents=[base_subparser])
 validaterecos_parser.add_argument('--input-folder', dest='validaterecos_input_folder', metavar='INPUT_FOLDER', action='store',
                     help='folder where the recommendations to update are stored')
 validaterecos_parser.add_argument('--schema', dest='validaterecos_schema_file', metavar='SCHEMA_FILE', action='store',
-                    help='file with validation schema')
+                    help='Deprecated: only v2/schema/recommendation.schema.json is supported')
 validaterecos_parser.add_argument('--max-items', dest='validaterecos_max_items', metavar='MAX_ITEMS', action='store',
                     default=0, type=int,
                     help='Maximum number of items to validate, default is 0 (all items)')
@@ -379,7 +380,10 @@ elif args.command == 'v1tov2':
         else:
             labels = None
         # Create an array with the existing recos in the output folder
-        existing_v2recos = cl_analyze_v2.load_v2_files(args.v12_output_folder, import_filepaths=True, verbose=False)
+        existing_v2recos = (
+            cl_analyze_v2.load_v2_files(args.v12_output_folder, import_filepaths=True, verbose=False)
+            if os.path.isdir(args.v12_output_folder) else []
+        )
         if args.verbose: print("DEBUG: Found {0} existing v2 objects in folder {1}".format(len(existing_v2recos), args.v12_output_folder))
         # Generate v2 objects and store them in the output folder
         new_v2recos = cl_v1tov2.generate_v2(args.v12_input_file, service_dictionary=service_dictionary,
@@ -532,6 +536,8 @@ elif args.command == 'list-recos':
     else:
         print("ERROR: you need to use the parameter `--input-folder` to specify the folder to analyze")
 elif args.command == 'update-recos':
+    if args.updaterecos_reviewed:
+        parser.error('Bulk review-date stamping is not supported; record provenance.lastReviewed only after human review')
     # We need an input folder
     if args.updaterecos_input_folder:
         # Retrieve recos
@@ -539,11 +545,7 @@ elif args.command == 'update-recos':
         v2recos = cl_analyze_v2.get_recos(args.updaterecos_input_folder, format=args.updaterecos_format, import_filepaths=True, verbose=False)
         if v2recos and len(v2recos) > 0:
             updated_v2recos = []
-            if args.updaterecos_reviewed:
-                answer = input("\nDo you want to refresh the reviewed field in {0} recommendations? (Y/n) ".format(len(v2recos)))
-                if (answer == "") or (answer.lower() == "y"):
-                    updated_v2recos = cl_analyze_v2.refresh_reviewed(v2recos, verbose=args.verbose)
-            if args.updaterecos_default_severity:
+            if args.updaterecos_default_severity is not None:
                 for reco in v2recos:
                     if 'severity' not in reco:
                         if args.verbose: print("DEBUG: Setting default severity to {0} for reco {1}".format(args.updaterecos_default_severity, reco['name']))
@@ -559,47 +561,21 @@ elif args.command == 'update-recos':
     else:
         print("ERROR: you need to use the parameter `--input-folder` to specify the folder to analyze")
 elif args.command == 'validate-recos':
-    # We need an input folder and a schema file
-    if args.validaterecos_input_folder and args.validaterecos_schema_file:
-        # Retrieve recos and schema
-        if args.verbose: print("DEBUG: Loading schema from", args.validaterecos_schema_file)
-        with open(args.validaterecos_schema_file, 'r') as stream:
-            try:
-                reco_schema = json.load(stream)
-            except:
-                print("ERROR: Error loading JSON schema from", args.validaterecos_schema_file)
-                sys.exit(1)
-        # To Do: validate that the schema is valid
-        if reco_schema:
-            if args.verbose: print("DEBUG: Retrieving recos from", args.validaterecos_input_folder)
-            v2recos = cl_analyze_v2.get_recos(args.validaterecos_input_folder, verbose=False)
-            if args.verbose: print("DEBUG: Starting validation with schema {0}...".format(args.validaterecos_schema_file))
-            reco_counter = 0
-            finding_counter = 0
-            for reco in v2recos:
-                reco_counter +=1
-                if (args.validaterecos_max_items == 0) or (reco_counter <= args.validaterecos_max_items):
-                    try:
-                        jsonschema.validate(reco, reco_schema)
-                        if args.verbose: print("INFO: Reco", reco['name'], "validates correctly against the schema.")
-                    except jsonschema.exceptions.ValidationError as e:
-                        print("ERROR: Reco", reco['name'], "does not validate against the schema.")
-                        if args.verbose: print("DEBUG: -", str(e))
-                        finding_counter += 1
-                        if (args.validaterecos_max_findings > 0) and (finding_counter >= args.validaterecos_max_findings):
-                            print("INFO: Maximum number of non-compliances reached, stopping validation.")
-                            break
-                    except jsonschema.exceptions.SchemaError as e:
-                        print("ERROR: Schema", args.validaterecos_schema_file, "does not seem to be valid.")
-                        if args.verbose: print("DEBUG: -", str(e))
-                        sys.exit(1)
-                    except Exception as e:
-                        print("ERROR: Unknown error validating reco", reco['name'], "against the schema", args.validaterecos_schema_file, "-", str(e))
-            print("INFO: {0} recos validated, {1} non-compliances found.".format(reco_counter, finding_counter))
-        else:
-            print("ERROR: Schema could not be loaded.")
-    else:
-        print("ERROR: you need to use the parameters `--input-folder` and `--schema` to specify the recos folder and their schema")
+    from pathlib import Path
+    if not args.validaterecos_input_folder:
+        parser.error('--input-folder is required')
+    authoritative_schema = Path(__file__).resolve().parents[1] / 'v2' / 'schema' / 'recommendation.schema.json'
+    if args.validaterecos_schema_file and Path(args.validaterecos_schema_file).resolve() != authoritative_schema:
+        parser.error('Only the authoritative v2/schema/recommendation.schema.json is supported')
+    if args.validaterecos_max_items or args.validaterecos_max_findings:
+        parser.error('Partial validation is not supported; the full corpus is checked for identity collisions')
+    try:
+        recos = cl_analyze_v2.load_v2_files(args.validaterecos_input_folder)
+        validate_corpus(recos or [])
+    except (CorpusError, OSError, ValueError) as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        sys.exit(1)
+    print(f"INFO: {len(recos)} recommendations validated.")
 elif args.command == 'validate-checklists':
     # We need an input folder and a schema file
     if args.validatechecklists_input_folder and args.validatechecklists_schema_file:
@@ -661,7 +637,7 @@ elif args.command == 'show-reco':
 elif args.command == 'rename-reco':
     # We need an input folder and a GUID
     if args.renamereco_input_folder and args.renamereco_guid:
-        recos = cl_analyze_v2.get_reco(args.renamereco_input_folder, args.renamereco_guid, verbose=args.verbose)
+        recos = cl_analyze_v2.get_reco_from_guid(args.renamereco_input_folder, args.renamereco_guid, verbose=args.verbose)
         if recos:
             if len(recos) > 1:
                 print("ERROR: {0} recos found with GUID {1}".format(len(recos), args.showreco_guid))
@@ -673,7 +649,7 @@ elif args.command == 'rename-reco':
                     else:
                         new_name = cl_v1tov2.guess_reco_name(reco, cognitive_services_endpoint=args.renamereco_endpoint, cognitive_services_key=args.renamereco_key , verbose=args.verbose)
                     reco['name'] = new_name
-                    cl_v1tov2.store_v2(args.renamereco_input_folder, [reco], output_format='yaml', verbose=args.verbose)
+                    cl_v1tov2.store_v2(args.renamereco_input_folder, [reco], output_format='yaml', overwrite=True, verbose=args.verbose)
                     print("---")
         else:
             print("ERROR: No reco found with GUID", args.showreco_guid)
@@ -688,6 +664,10 @@ elif args.command == 'open-reco':
     else:
         print("ERROR: you need to use the parameters `--input-folder` and `--guid` to specify the folder and GUID to open")
 elif args.command == 'run-arg':
+    if __package__:
+        from .modules import cl_arg
+    else:
+        from modules import cl_arg
     if args.runarg_input_folder:
         # Convert label selectors argument to an object if specified
         if args.runarg_labels:

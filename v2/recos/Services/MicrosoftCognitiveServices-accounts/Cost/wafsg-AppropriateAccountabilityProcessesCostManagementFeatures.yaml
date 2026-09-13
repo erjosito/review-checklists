@@ -15,3 +15,13 @@ labels:
   guid: 0c5365cb-838b-4dfb-9608-0bcfabe98460
 links: []
 queries: {}
+schemaVersion: 1
+id: 0c5365cb-838b-4dfb-9608-0bcfabe98460
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

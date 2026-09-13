@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/iot-hub/iot-hub-ha-dr#failback
 queries: {}
+schemaVersion: 1
+id: f9db8dfb-1194-460b-aedd-34dd6a69db22
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

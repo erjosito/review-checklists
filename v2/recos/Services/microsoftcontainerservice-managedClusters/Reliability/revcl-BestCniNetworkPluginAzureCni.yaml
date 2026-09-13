@@ -15,3 +15,14 @@ links:
 queries:
   arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
     = (properties.networkProfile.networkPlugin=='azure') | distinct id,compliant
+schemaVersion: 1
+id: a0f61565-9de5-458f-a372-49c831112dbd
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

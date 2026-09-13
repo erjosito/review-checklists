@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/best-practices
 queries: {}
+schemaVersion: 1
+id: 6d37a33b-531c-4a91-871a-b69d8044f04e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/concept-best-practices-classification
 queries: {}
+schemaVersion: 1
+id: c49d997c-b3d1-4325-aa22-5c6f4e0685ed
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/concept-workflow
 queries: {}
+schemaVersion: 1
+id: f3176c4b-97b1-45b8-a219-a4abeb578790
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

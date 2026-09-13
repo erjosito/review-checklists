@@ -1,7 +1,5 @@
 name: revcl-AccessPolicyKeyVault
-title: During failover, access policy or firewall configurations and settings can't
-  be changed. The key vault will be in read-only mode during failover. Familiarize
-  yourself with the Key Vault's failover guidance.
+title: Plan for limited read-only Key Vault operations after Microsoft-managed regional failover
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +13,21 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/disaster-recovery-guidance#failover-across-regions
 queries: {}
+schemaVersion: 1
+id: 614682ca-6e0c-4f34-9f03-c6d3f2b99a32
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-key-vault
+    title: Reliability in Azure Key Vault
+    accessedAt: '2026-09-11'
+description: For supported paired regions, Microsoft-managed failover can be delayed and is best effort.
+  After failover, the vault supports only documented read and cryptographic operations; access policies,
+  firewall rules and vault properties cannot be changed in the secondary region. Include these restrictions
+  and client retries in the recovery plan. Use a custom multiregion design if business recovery targets
+  cannot tolerate this behavior.

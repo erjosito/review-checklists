@@ -19,3 +19,14 @@ links:
 queries:
   arg: resources | extend compliant = isnotnull(['tags']) | project name, id, subscriptionId,
     resourceGroup, tags, compliant
+schemaVersion: 1
+id: 5de32c19-9248-4160-9d5d-1e4e614658d3
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

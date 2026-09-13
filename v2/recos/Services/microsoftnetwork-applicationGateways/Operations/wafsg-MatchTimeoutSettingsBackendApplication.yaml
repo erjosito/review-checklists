@@ -13,3 +13,13 @@ labels:
   guid: 02610076-047b-4f48-9c50-0172c4bac957
 links: []
 queries: {}
+schemaVersion: 1
+id: 02610076-047b-4f48-9c50-0172c4bac957
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

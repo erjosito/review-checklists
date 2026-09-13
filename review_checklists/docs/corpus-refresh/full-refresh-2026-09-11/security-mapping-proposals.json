@@ -1,0 +1,1227 @@
+{
+  "artifactSchema": "security-mapping-proposals/1",
+  "date": "2026-09-11",
+  "scope": "WAF SE checklist controls only; not all Security guidance",
+  "status": "Applied as explicit draft semantic provenance, using the dated canonical adapter inventory. Full/partial describe scope, not human approval.",
+  "advisorGap": "No complete nonempty published Advisor Security recommendation-type-ID inventory verified. Do not infer IDs from local GUIDs, query contents or the redirected Defender article.",
+  "proposals": [
+    {
+      "localId": "4935ada4-2223-4ece-a1b1-23181a541741",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-secure",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "ce9bd3bb-0cdb-43b5-9eb2-ec14eeaa3592",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-overview",
+        "waf-secrets",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "2223ece8-1b12-4318-8a54-17415833fb4a",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-soft-delete",
+        "kv-rbac",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "829e2edb-2173-4676-aff6-691b4935ada4",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "arm-locks",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "d4d1ad54-1abc-4919-b267-3f342d3b49e4",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-identity",
+        "kv-rbac",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "09945bda-4333-44f2-9911-634182ba5275",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:10",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "defender-cspm",
+        "advisor-security-redirect",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "b86ad884-08e3-4727-94b8-75ba18f20459",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:12",
+      "coverage": "full",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "Workload-wide owned incident response covers localized through disaster-recovery scenarios and procedure testing.",
+      "sourceRefs": [
+        "waf-incident",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:0a63290261c2ee8eef765125524a8205d249ab001156046c2878467b57900c49",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/incident-response",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "d505ebcb-79b1-4274-9c0d-a27c8bea489c",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "4348bf81-7573-4512-8f46-9061cc198fea",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-identity",
+        "waf-secrets",
+        "aks-workload",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "01365d38-e43f-49cc-ad86-8266abca264f",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "53e8908a-e28c-484c-93b6-b7808b9fe5c4",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "entra-emergency",
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "14658d35-58fd-4772-99b8-21112df27ee4",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "entra-emergency",
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "35037e68-9349-4c15-b371-228514f4cdff",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "1049d403-a923-4c34-94d0-0018ac6a9e01",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "entra-emergency",
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "984a859c-773e-47d2-9162-3a765a917e1f",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "entra-emergency",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "387e5ced-126c-4d13-8af5-b20c6998a646",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "acr-abac",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "f4dcf690-1b30-407d-abab-6f8aa780d3a3",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "aks-kubelogin",
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "ce7f2a7c-297c-47c6-adea-a6ff838db665",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:06",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "aks-network-policy",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "6c46b91a-1107-4485-ad66-3183e2a8c266",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:06",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "aks-proxy",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "85e2223e-ce8b-4b12-907c-a5f16f158e3e",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:06",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "aks-network-policy",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "58d7c892-ddb1-407d-9769-ae669ca48e4a",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:06",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "aks-network-policy",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "d2e0d5d7-71d4-41e3-910c-c57b4a4b1410",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "aks-workload",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "d1008f3b-5c0d-42ff-8513-fcd6b064fc5d",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:06",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "aks-network-policy",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "913156a1-2476-4e49-b541-acdce979377b",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-secrets",
+        "app-kv",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "91163418-2ba5-4275-8694-4008be7d7e48",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-secure",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "5017f154-e3ab-4369-9829-e7e316183687",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-overview",
+        "waf-secrets",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "2ba52752-6944-4008-ae7d-7e4843276d8b",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-soft-delete",
+        "kv-rbac",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "dc055bcf-619e-48a1-9f98-879525d62688",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-rbac",
+        "kv-soft-delete",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "a0477a20-9945-4bda-9333-4f2491163418",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-secure",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "4ac6b67c-b3a4-4ff9-8e87-b07a7ce7bbdb",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-hsm",
+        "kv-overview",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "cdb3751a-b2ab-413a-ba6e-55d7d8a2adb1",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:06",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "kv-secure",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "baf8e317-2397-4d49-b3d1-0dcc16d8778d",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:06",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "appgateway-waf",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "fd7f29a7-ae31-4983-8510-e219a25cfdfc",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "44059f81-2473-4325-ad67-70df146e1f5d",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "27138b82-1102-4cac-9eae-01e6e842e52f",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-sas",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "352beee0-79b5-488d-bfc4-972cd3cd21bf",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "sas-expiration",
+        "storage-sas",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "55461e1a-3e34-453a-9c86-39648b652d6c",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-sas",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "4721d928-c1b1-4cd5-81e5-4a29a9de399c",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-sas",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "5398e6de-d227-4dd1-92b0-6c21d7999a64",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "arm-locks",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "b03ed428-4617-4067-a787-85468b9ccf3f",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:07",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-transfer",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "9f89dc7b-33be-42a1-a27f-7b9e91be1f38",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-sftp",
+        "storage-sftp-entra",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "6b4bed3d-5035-447c-8347-dc56028a71ff",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-sas",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "028a71ff-e1ce-415d-b3f0-d5e772d41e36",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-secrets",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "11cc57b4-a4b1-4410-b439-58a8c2289b3d",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-secrets",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "77036e5e-6b4b-4ed3-b503-547c1347dc56",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-sas",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "e7a8dc4a-20e2-47c3-b297-11b1352beee0",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:07",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-transfer",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "ad53cc7c-e1d7-4aaa-a357-1449ab8053d8",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-sftp",
+        "storage-sftp-entra",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "a07d96be-b231-444c-8b2e-3123950de82f",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:07",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "files-nfs",
+        "storage-transfer",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "3195423b-0513-45e2-951b-87f9c5d534b0",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "arm-locks",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "arm-locks",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "02be562a-9a28-4e56-94a3-a3671dd382fc",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-identity",
+        "storage-sas",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "b3a2f115-8ee1-401e-a939-f4406b43b460",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:06",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "files-nfs",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "0148ed98-3b9a-4b7f-81c2-8b550f56f793",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "arm-locks",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "b174e3db-c952-4b33-a72e-874f60a0f671",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:07",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-transfer",
+        "files-nfs",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "b9cbb598-dcaa-431a-bae0-f8a7909f577b",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:07",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "storage-transfer",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "834ac932-223e-4ce8-8b12-3071a5416415",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-kv",
+        "waf-secrets",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "833ea3ad-2c2d-4e73-8165-c3acbef4abe1",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-kv",
+        "waf-secrets",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "d9a25827-18d2-4ddb-8072-5769ee6691a4",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "68266abc-a264-4f9a-89ae-d9c55d04c2c3",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "114b933d-f574-4ecc-ad9b-d3bafcda3b54",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "f574eccc-d9bd-43ba-bcda-3b54eb2eb03d",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-secrets",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "c115775c-2ea5-45b4-9ad4-8408ee72734b",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:07",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "app-settings",
+        "app-tls",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "eb2eb03d-d9a2-4582-918d-2ddb10725769",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:11",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "waf-test",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:56032a34dbdb70e37543fced61b3650916bd286d6d6f8930d5ef3aca09b86f33",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/test",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "d9bd3baf-cda3-4b54-bb2e-b03dd9a25827",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "app-settings",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "6ad48408-ee72-4734-a475-ba18fdbf590c",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:04",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "dbeebd4f-c94a-4060-a2ac-c523b3e64a3d",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:04",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "44ba257f-d6b6-4eed-b5a1-eff3dcb027e8",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:01",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:928240eef3091d4b3d3756ff803c7d5aa7a8580d7d1d023dedf1d2a885640b85",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/establish-baseline",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "14bc5ea3-400b-4bbf-9187-f0b21505173d",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "0545fb6c-0662-4ffd-8834-7d4d4ac7f2bb",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-kv",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "603bf106-42e6-43d3-a8e0-4470d05093b9",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:10",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "1c90ec2a-85e3-400e-8937-22686ac115b8",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:10",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "59402f53-7298-4295-b919-609d8fc73876",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:09",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-kv",
+        "waf-secrets",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "4133fafa-441c-4d27-bfd1-f76a58ab6620",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "78fd4f02-98f6-459c-882c-5f0d659a2251",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-identity",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "5bb8daca-fde8-45bf-82f6-e55cdb28da05",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:05",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "def198c3-8a34-4d8f-8e46-91b6f36064ab",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:10",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "d63a7c58-a495-4ff3-a164-88e8eac4febf",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:08",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "ef64b1c3-a41f-4913-8ac4-27be04d96d10",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:07",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-tls",
+        "app-settings",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+      "assessedAt": "2026-09-11"
+    },
+    {
+      "localId": "703d13a6-d768-443b-b9f9-4e31d74767f9",
+      "sourceId": "waf-security-checklist",
+      "recommendationId": "SE:06",
+      "coverage": "partial",
+      "status": "applied-draft-semantic-mapping",
+      "reason": "This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage.",
+      "sourceRefs": [
+        "app-waf-guide",
+        "app-kv",
+        "waf-checklist"
+      ],
+      "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "assessedAt": "2026-09-11"
+    }
+  ],
+  "inventoryArtifact": "security-waf-inventory.json"
+}

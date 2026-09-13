@@ -1,7 +1,9 @@
 name: wafsg-AzureFrontDoorForwardCompatibility
-title: Use HTTP to HTTPS redirection to support forward compatibility.
-description: When redirection is enabled, Azure Front Door automatically redirects
-  clients that are using older protocol to use HTTPS for a secure experience.
+title: Redirect supported HTTP requests to HTTPS with Azure Front Door
+description: Configure HTTP-to-HTTPS redirection for clients that can follow redirects, choose a redirect
+  status appropriate to request-method handling, and test client compatibility. The redirect changes the
+  URL protocol; it does not make a client support a newer TLS version. For Standard/Premium, configure
+  the rule-set redirect and validate the resulting behavior.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,3 +15,16 @@ labels:
   guid: 1e9aecf0-747c-47c6-936e-a0c404ae8e21
 links: []
 queries: {}
+schemaVersion: 1
+id: 1e9aecf0-747c-47c6-936e-a0c404ae8e21
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/frontdoor/front-door-url-redirect
+    title: URL redirect - Azure Front Door
+    accessedAt: '2026-09-11'

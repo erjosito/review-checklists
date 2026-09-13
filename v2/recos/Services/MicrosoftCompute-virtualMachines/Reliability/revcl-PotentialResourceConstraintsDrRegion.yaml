@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/quotas/per-vm-quota-requests
 queries: {}
+schemaVersion: 1
+id: e6e2065b-3a76-4af4-a691-e8939ada4666
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

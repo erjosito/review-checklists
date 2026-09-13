@@ -1,6 +1,5 @@
 name: revcl-GatewayManagedCookiesUserSession
-title: Use gateway-managed cookies to direct traffic from a user session to the same
-  server for processing
+title: Use Application Gateway cookie affinity when the application requires session stickiness
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request
 queries: {}
+schemaVersion: 1
+id: bb697864-1b4c-43af-8667-90cc69aaed5f
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/application-gateway/configuration-http-settings
+    title: Azure Application Gateway backend settings configuration
+    accessedAt: '2026-09-11'
+description: Enable gateway-managed cookie affinity only when the application requires session stickiness
+  and clients support cookies. Test cross-origin HTTPS behavior and the impact on traffic distribution
+  and connection draining. Affinity is routing behavior, not a substitute for application recovery or
+  durable session-state design.

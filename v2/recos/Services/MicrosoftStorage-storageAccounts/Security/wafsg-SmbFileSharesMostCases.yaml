@@ -1,11 +1,10 @@
 name: wafsg-SmbFileSharesMostCases
-title: In most cases, you should enable the Secure transfer required option on all
-  your storage accounts to enable encryption in transit for SMB file shares. Don't
-  enable this option if you need to allow very old clients to access the share. If
-  you disable secure transfer, be sure to use network controls to restrict traffic.
-description: This setting ensures that all requests that are made against the storage
-  account take place over secure connections (HTTPS). Any requests made over HTTP
-  will fail.
+title: Require encryption for SMB Azure Files and retire clients that cannot meet the security baseline.
+description: Assess the dedicated SMB Require encryption in transit setting together with Secure transfer
+  required for REST access. Defaults can differ between portal and programmatic provisioning, so inspect
+  the effective configuration. Upgrade incompatible clients rather than routinely weakening transport
+  protection. Any temporary exception requires an approved risk decision, constrained network access and
+  a migration plan; network isolation alone is not transport encryption.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -17,3 +16,29 @@ labels:
   guid: b9cbb598-dcaa-431a-bae0-f8a7909f577b
 links: []
 queries: {}
+schemaVersion: 1
+id: b9cbb598-dcaa-431a-bae0-f8a7909f577b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/common/storage-require-secure-transfer
+    title: Require secure transfer to ensure secure connections
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:07
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/encryption
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

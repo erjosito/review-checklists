@@ -1,19 +1,49 @@
 name: aprl-AzureAppServiceServiceRequests
-title: Enable Autoscale/Automatic scaling to ensure adequate resources are available
-  to service requests
-description: |-
-  Enabling Autoscale/Automatic Scaling for your Azure App Service ensures sufficient resources for incoming requests. Autoscaling is rule-based, whereas Automatic Scaling, a newer feature, automatically adjusts resources based on HTTP traffic.
+title: Enable Autoscale/Automatic scaling to ensure adequate resources are available to service requests
+description: Enabling Autoscale/Automatic Scaling for your Azure App Service ensures sufficient resources
+  for incoming requests. Autoscaling is rule-based, whereas Automatic Scaling, a newer feature, automatically
+  adjusts resources based on HTTP traffic.
 source:
   type: aprl
   file: azure-resources/Web/serverFarms/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/serverFarms
+- microsoft.web/serverfarms
 severity: 1
 labels:
   guid: 6320abf6-f917-1843-b2ae-4779c35985ae
   area: Scalability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 6320abf6-f917-1843-b2ae-4779c35985ae
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    title: 'APRL 6320abf6-f917-1843-b2ae-4779c35985ae: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 6320abf6-f917-1843-b2ae-4779c35985ae
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:61dea576ac95071bbcac61b15fb4153694177fa6f391c4bee922d92bc1bec3c3
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

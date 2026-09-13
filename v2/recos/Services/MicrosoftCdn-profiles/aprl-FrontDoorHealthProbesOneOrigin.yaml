@@ -1,13 +1,13 @@
 name: aprl-FrontDoorHealthProbesOneOrigin
 title: Disable health probes when there is only one origin in an origin group
-description: |-
-  Front Door health probes help detect unavailable or unhealthy origins, directing traffic to alternate origins if needed.
+description: Front Door health probes help detect unavailable or unhealthy origins, directing traffic
+  to alternate origins if needed.
 source:
   type: aprl
   file: azure-resources/Cdn/profiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Cdn/profiles
+- microsoft.cdn/profiles
 severity: 2
 labels:
   guid: 38f3d542-6de6-a44b-86c6-97e3be690281
@@ -36,3 +36,34 @@ queries:
         todynamic(tags),
         param1 = strcat("origincount:", origincount),
         param2 = strcat("enabledhealthprobecount:", enabledhealthprobecount)
+schemaVersion: 1
+id: 38f3d542-6de6-a44b-86c6-97e3be690281
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.Cdn/profiles/originGroups''],
+    while the frozen corpus scope is [''Microsoft.Cdn/profiles'']; applicability is not broadened or narrowed
+    without separate verification. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    title: 'APRL 38f3d542-6de6-a44b-86c6-97e3be690281: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 38f3d542-6de6-a44b-86c6-97e3be690281
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e621ba091baaf79b00b4accc75d9ec80f371d6935b55b829b67cdd74a80c1d79
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.Cdn/profiles/originGroups'],
+      while the frozen corpus scope is ['Microsoft.Cdn/profiles']; applicability is not broadened or narrowed
+      without separate verification. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

@@ -1,13 +1,14 @@
 name: aprl-ApiManagementInstanceApiManagementServices
 title: Migrate API Management services to Premium SKU to support Availability Zones
-description: |-
-  Upgrading the API Management instance to the Premium SKU adds support for Availability Zones, enhancing availability and resilience by distributing services across physically separate locations within Azure regions.
+description: Upgrading the API Management instance to the Premium SKU adds support for Availability Zones,
+  enhancing availability and resilience by distributing services across physically separate locations
+  within Azure regions.
 source:
   type: aprl
   file: azure-resources/ApiManagement/service/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ApiManagement/service
+- microsoft.apimanagement/service
 severity: 0
 labels:
   guid: baf3bfc0-32a2-4c0c-926d-c9bf0b49808e
@@ -22,3 +23,31 @@ queries:
     | extend skuName = sku.name
     | where tolower(skuName) != tolower('premium')
     | project recommendationId = "baf3bfc0-32a2-4c0c-926d-c9bf0b49808e", name, id, tags, param1=strcat("SKU: ", skuName)
+schemaVersion: 1
+id: baf3bfc0-32a2-4c0c-926d-c9bf0b49808e
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ApiManagement/service/recommendations.yaml
+    title: 'APRL baf3bfc0-32a2-4c0c-926d-c9bf0b49808e: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: baf3bfc0-32a2-4c0c-926d-c9bf0b49808e
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ApiManagement/service/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:3d2a5abe47cf898ec9977748385ce3919b4fa9a2ad1897e24fab8885f65bedcb
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

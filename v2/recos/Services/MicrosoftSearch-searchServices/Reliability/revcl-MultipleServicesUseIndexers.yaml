@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/search/search-reliability#synchronize-data-across-multiple-services
 queries: {}
+schemaVersion: 1
+id: 3c964882-aec9-4d44-9f68-4b5f2efbbdb6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

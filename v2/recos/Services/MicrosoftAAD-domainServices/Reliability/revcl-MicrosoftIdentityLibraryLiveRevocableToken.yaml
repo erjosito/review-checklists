@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/entra/identity-platform/msal-acquire-cache-tokens
 queries: {}
+schemaVersion: 1
+id: bb235c70-5e17-496f-bedf-a8a4c8cdec4c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

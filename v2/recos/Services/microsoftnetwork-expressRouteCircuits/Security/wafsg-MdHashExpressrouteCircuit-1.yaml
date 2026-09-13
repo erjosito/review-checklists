@@ -1,7 +1,7 @@
 name: wafsg-MdHashExpressrouteCircuit-1
 title: Configure MD5 hash on ExpressRoute circuit
-description: During configuration of private peering or Microsoft peering, apply an
-  MD5 hash to secure messages between the on-premises route and the MSEE routers.
+description: During configuration of private peering or Microsoft peering, apply an MD5 hash to secure
+  messages between the on-premises route and the MSEE routers.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,3 +13,23 @@ labels:
   guid: 0d7a206c-e977-4c39-9379-766f5f20365b
 links: []
 queries: {}
+schemaVersion: 1
+id: 0d7a206c-e977-4c39-9379-766f5f20365b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 5f06f160-46b8-48b3-ab94-89da0ff37c56
+  name: wafsg-MdHashExpressrouteCircuit
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 5f06f160-46b8-48b3-ab94-89da0ff37c56
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Security/wafsg-MdHashExpressrouteCircuit.yaml

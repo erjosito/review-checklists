@@ -1,14 +1,9 @@
 name: wafsg-MinimumRecommendedRetentionPeriodPremiumFileShares
-title: Set retention periods for the soft-delete feature, especially when you first
-  start using it. Consider starting with a short retention period to better understand
-  how the feature affects your bill. The minimum recommended retention period is seven
-  days. When you soft delete standard and premium file shares, they're billed as used
-  capacity rather than provisioned capacity. And premium file shares are billed at
-  the snapshot rate while in the soft-delete state. Standard file shares are billed
-  at the regular rate while in the soft-delete state.
-description: Set a retention period so that soft-deleted files don't pile up and increase
-  the cost of capacity. After the configured retention period, permanently deleted
-  data doesn't incur cost.
+title: Set Azure Files soft-delete retention from recovery needs and the billing model
+description: Choose retention that meets recovery and data-governance requirements, then estimate retained
+  used-capacity cost. Provisioned v2 uses a Soft-Deleted Usage meter; provisioned v1 uses the snapshot
+  storage meter. Confirm the applicable model and resource support instead of applying one premium/standard
+  snapshot-rate rule to every share. Do not shorten retention solely to minimize cost.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -20,3 +15,19 @@ labels:
   guid: bb6048c7-29fd-4388-aa22-de89fdbb39ea
 links: []
 queries: {}
+schemaVersion: 1
+id: bb6048c7-29fd-4388-aa22-de89fdbb39ea
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Correct the inherited model-independent rate description and preserve
+    recovery requirements. Requires workload, billing and operational evidence; no ARG query or live validation
+    is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/files/understanding-billing
+    title: Understand Azure Files Billing
+    accessedAt: '2026-09-11'

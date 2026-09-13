@@ -17,3 +17,14 @@ queries:
     = ((isnull(properties.apiServerAccessProfile.enablePrivateCluster) or properties.apiServerAccessProfile.enablePrivateCluster==false)
     and isnotnull(properties.apiServerAccessProfile.authorizedIPRanges)) | distinct
     id,compliant
+schemaVersion: 1
+id: c4581559-bb91-463e-a908-aed8c44ce3b2
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

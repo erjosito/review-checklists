@@ -1,13 +1,13 @@
 name: aprl-DevopsFrameworksOperatingModel
 title: Enable GitOps when using DevOps frameworks
-description: |-
-  GitOps, an operating model for cloud-native apps, uses Git for storing application and infrastructure code as a source of truth for continuous delivery.
+description: GitOps, an operating model for cloud-native apps, uses Git for storing application and infrastructure
+  code as a source of truth for continuous delivery.
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 2
 labels:
   guid: 5f3cbd68-692a-4121-988c-9770914859a9
@@ -22,3 +22,34 @@ queries:
     |  extend gitops = tostring (parse_json(properties.addOnProfiles.gitops.enabled))
     |  where isempty(gitops)
     |  project recommendationId="5f3cbd68-692a-4121-988c-9770914859a9", id, name, tags, param1=strcat("gitopsEnabled: ", "false")
+schemaVersion: 1
+id: 5f3cbd68-692a-4121-988c-9770914859a9
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL 5f3cbd68-692a-4121-988c-9770914859a9: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 5f3cbd68-692a-4121-988c-9770914859a9
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0b7098f0c209e484b43314d560aeb5bcb1a506621e1ac14582e0afc84b8a5eae
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

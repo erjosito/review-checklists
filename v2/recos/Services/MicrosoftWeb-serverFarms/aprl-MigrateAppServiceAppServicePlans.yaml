@@ -1,13 +1,14 @@
 name: aprl-MigrateAppServiceAppServicePlans
 title: Migrate App Service to availability Zone Support
-description: |-
-  Azure's feature of deploying App Service plans across availability zones enhances resiliency and reliability by ensuring operation during datacenter failures, providing redundancy without needing different regions, thus minimizing downtime and maintaining uninterrupted services.
+description: Azure's feature of deploying App Service plans across availability zones enhances resiliency
+  and reliability by ensuring operation during datacenter failures, providing redundancy without needing
+  different regions, thus minimizing downtime and maintaining uninterrupted services.
 source:
   type: aprl
   file: azure-resources/Web/serverFarms/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/serverFarms
+- microsoft.web/serverfarms
 severity: 0
 labels:
   guid: 88cb90c2-3b99-814b-9820-821a63f600dd
@@ -25,3 +26,35 @@ queries:
     | extend sku_tier = tostring(sku.tier)
     | where (tolower(sku_tier) contains "isolated" or tolower(sku_tier) contains "premium") and zoneRedundant == false
     | project recommendationId="88cb90c2-3b99-814b-9820-821a63f600dd", name, id, tags, param1=sku_tier, param2="Not Zone Redundant"
+schemaVersion: 1
+id: 88cb90c2-3b99-814b-9820-821a63f600dd
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    title: 'APRL 88cb90c2-3b99-814b-9820-821a63f600dd: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 88cb90c2-3b99-814b-9820-821a63f600dd
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:cb45d92a0eb63f7eae312e114db93653837aad61b990eed4d960e237ade9d530
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

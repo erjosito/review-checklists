@@ -21,3 +21,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups
 queries: {}
+schemaVersion: 1
+id: 9f89dc7b-44be-43b1-a27f-8b9e91be1f38
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

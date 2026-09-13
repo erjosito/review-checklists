@@ -13,3 +13,13 @@ labels:
   guid: f3ff369e-56ed-45da-ad6a-c135803249ba
 links: []
 queries: {}
+schemaVersion: 1
+id: f3ff369e-56ed-45da-ad6a-c135803249ba
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

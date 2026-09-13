@@ -1,8 +1,8 @@
 name: wafsg-AzureResourceManagerTemplatesExistingDevopsProcesses
-title: Use infrastructure as code (IaC) to define the details of your storage accounts
-  in Azure Resource Manager templates (ARM templates), Bicep, or Terraform.
-description: You can use your existing DevOps processes to deploy new storage accounts,
-  and use Azure Policy to enforce their configuration.
+title: Use infrastructure as code (IaC) to define the details of your storage accounts in Azure Resource
+  Manager templates (ARM templates), Bicep, or Terraform.
+description: You can use your existing DevOps processes to deploy new storage accounts, and use Azure
+  Policy to enforce their configuration.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +14,22 @@ labels:
   guid: 1c680237-1240-4015-b028-1e1525ac1a41
 links: []
 queries: {}
+schemaVersion: 1
+id: 1c680237-1240-4015-b028-1e1525ac1a41
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 6a7d5ccf-3cbf-468c-84cb-d5bdee7c7f3d
+  name: wafsg-AzureResourceManagerTemplatesExistingDevopsProcesses-1
+  source:
+    type: wafsg
+    file: ./checklists-ext/wafsg_checklist.en.json
+  labels:
+    guid: 6a7d5ccf-3cbf-468c-84cb-d5bdee7c7f3d
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Operations/wafsg-AzureResourceManagerTemplatesExistingDevopsProcesses-1.yaml

@@ -1,8 +1,9 @@
 name: wafsg-ThroughputPricingModelRateOptimization
-title: 'Rate optimization: When your token usage is sufficiently high and predictable
-  over a period of time, use the provisioned throughput pricing model for better cost
-  optimization.'
-description: ''
+title: Compare provisioned Azure OpenAI capacity with observed usage and commitments
+description: Evaluate provisioned throughput only after measuring sustained demand, model/deployment eligibility
+  and required latency. Include reserved-capacity utilization and idle capacity in the comparison with
+  usage-based billing. Review Advisor opportunities as estimates, not proof that provisioned capacity
+  is always cheaper for a predictable workload.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -15,3 +16,22 @@ labels:
   guid: 8c51bdd3-d4cb-4742-a323-89917c6ac87e
 links: []
 queries: {}
+schemaVersion: 1
+id: 8c51bdd3-d4cb-4742-a323-89917c6ac87e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Qualify a universal lower-cost assertion with utilization and actual
+    meter evidence. Requires workload, billing and operational evidence; no ARG query or live validation
+    is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/foundry/concepts/manage-costs
+    title: Plan and Manage Costs - Microsoft Foundry
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations - Azure Advisor
+    accessedAt: '2026-09-11'

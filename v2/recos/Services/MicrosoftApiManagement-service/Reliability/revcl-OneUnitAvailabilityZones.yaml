@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/high-availability
 queries: {}
+schemaVersion: 1
+id: 9c8d1664-dd9a-49d4-bd83-950af0af4044
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

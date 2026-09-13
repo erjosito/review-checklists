@@ -1,6 +1,5 @@
 name: revcl-ExistingUpdateManagementToolingAzureUpdateManagement
-title: Include workloads running on Azure VMware Solution in existing update management
-  tooling or in Azure Update Management
+title: Use supported guest patch management, including Azure Update Manager where applicable
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -12,3 +11,20 @@ labels:
   guid: 24604489-a8f4-42d7-ae78-cb6a33bd2a09
 links: []
 queries: {}
+schemaVersion: 1
+id: 24604489-a8f4-42d7-ae78-cb6a33bd2a09
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-migration
+    title: Log Analytics agent migration
+    accessedAt: '2026-09-11'
+description: Include AVS guest workloads in a supported patch-management process. Where Azure management
+  is selected, assess Azure Update Manager and its Azure Arc prerequisites for the guest OS, schedule
+  patching, verify assessment and installation results, and define emergency patch handling. Azure Update
+  Manager is separate from Azure Monitor Agent; migrating monitoring does not migrate patch management.

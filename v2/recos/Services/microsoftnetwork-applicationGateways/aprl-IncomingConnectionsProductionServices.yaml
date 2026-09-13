@@ -1,13 +1,14 @@
 name: aprl-IncomingConnectionsProductionServices
 title: Secure all incoming connections with SSL
-description: |-
-  Secure all incoming connections using HTTPS for production services with end-to-end SSL/TLS or SSL/TLS termination at the Application Gateway to protect against attacks and ensure data remains private and encrypted between the web server and browsers.
+description: Secure all incoming connections using HTTPS for production services with end-to-end SSL/TLS
+  or SSL/TLS termination at the Application Gateway to protect against attacks and ensure data remains
+  private and encrypted between the web server and browsers.
 source:
   type: aprl
   file: azure-resources/Network/applicationGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/applicationGateways
+- microsoft.network/applicationgateways
 severity: 0
 labels:
   guid: 233a7008-71e9-e745-923e-1a1c7a0b92f3
@@ -23,3 +24,34 @@ queries:
     | mv-expand httpListeners = properties.httpListeners
     | where isnull(parse_json(httpListeners.properties.sslCertificate))
     | project recommendationId="233a7008-71e9-e745-923e-1a1c7a0b92f3", name, id, tags, param1=strcat("frontendPort: ", frontendPorts.properties.port), param2="tls: false"
+schemaVersion: 1
+id: 233a7008-71e9-e745-923e-1a1c7a0b92f3
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    title: 'APRL 233a7008-71e9-e745-923e-1a1c7a0b92f3: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 233a7008-71e9-e745-923e-1a1c7a0b92f3
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b766d423efe0fffcc8d59182e78e90263be50d3f1fed88035d91b107de185627
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

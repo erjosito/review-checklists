@@ -1,8 +1,9 @@
 name: revcl-UnprotectedHttpAccessStorageAccount
-title: Require HTTPS, i.e. disable port 80 on the storage account
-description: 'Consider disabling unprotected HTTP/80 access to the storage account,
-  so that all data transfers are encrypted, integrity protected, and the server is
-  authenticated. '
+title: Require secure transfer for Storage REST requests rather than assuming port 80 is closed.
+description: Enable Secure transfer required so REST requests made over HTTP are rejected and clients
+  use HTTPS. This is an application protocol requirement, not a firewall rule that closes a shared service
+  port. Review Azure Files SMB and NFS per-protocol encryption settings separately and verify actual client
+  behavior. Configuration alone is not proof that every workload data path is encrypted.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +17,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-require-secure-transfer
 queries: {}
+schemaVersion: 1
+id: e7a8dc4a-20e2-47c3-b297-11b1352beee0
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/common/storage-require-secure-transfer
+    title: Require secure transfer to ensure secure connections
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:07
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/encryption
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

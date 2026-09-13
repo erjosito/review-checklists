@@ -1,7 +1,10 @@
 name: revcl-PenetrationTestingRulesWebApplication
-title: Conduct a penetration test
-description: Conduct a penetration test on the web application following the penetration
-  testing rules of engagement.
+title: Perform authorized, risk-driven security testing of the App Service application and its controls.
+description: Agree the scope and rules of engagement with the workload owner and security team. Use the
+  current threat model and critical flows to prioritize penetration testing and other security tests;
+  test identity, network and application controls and the ability to detect attacks. Protect test credentials,
+  evidence and synthetic data, schedule recurring and change-triggered tests, track remediation and retest
+  fixes. A single penetration test or vulnerability scan is not proof of complete security.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +18,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/security/fundamentals/pen-testing
 queries: {}
+schemaVersion: 1
+id: eb2eb03d-d9a2-4582-918d-2ddb10725769
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/security/test
+    title: Architecture strategies for security testing
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:11
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/test
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:56032a34dbdb70e37543fced61b3650916bd286d6d6f8930d5ef3aca09b86f33
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

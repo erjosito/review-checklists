@@ -1,11 +1,10 @@
 name: wafsg-AzureOpenaiPriceBreakpointsNextBillingPeriod
-title: 'Usage optimization: Maximize Azure OpenAI price breakpoints, for example,
-  fine-tuning and model breakpoints like image generation. Because fine-tuning is
-  charged per hour, use as much time as you have available per hour to improve fine-tuning
-  results while avoiding slipping into the next billing period. Similarly, the cost
-  for generating 100 images is the same as the cost for 1 image. Maximize price breakpoints
-  to your advantage.'
-description: ''
+title: Model Azure OpenAI charges by the actual deployment and usage meters
+description: Identify the model, deployment type and billing units for training, hosting and inference.
+  Training can be token-based or time-based depending on the model; deployed fine-tuned models can incur
+  hosting cost even when idle. Reconcile text, image and audio usage with current pricing and Cost Management
+  meters. Do not assume generating 100 images costs the same as generating one, or that every fine-tuning
+  job is rounded to an hourly block.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -18,3 +17,31 @@ labels:
   guid: 73965cc9-1763-43c1-82aa-549b3ea75f4e
 links: []
 queries: {}
+schemaVersion: 1
+id: 73965cc9-1763-43c1-82aa-549b3ea75f4e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Remove unsupported equal-cost image-count and universal hourly fine-tuning
+    claims. Requires workload, billing and operational evidence; no ARG query or live validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/foundry/concepts/manage-costs
+    title: Plan and Manage Costs - Microsoft Foundry
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/align-usage-to-billing-increments
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:bd67e2510e17ee3884b480d63697b60417b5aa86190d148caa6108c36c42b021
+    notes: The refreshed Foundry control identifies actual billing meters and deployment costs; it does
+      not cover every service's usage alignment or the checklist's proof-of-concept recommendation. Source-text
+      assessment, not independent human approval or live Azure validation.

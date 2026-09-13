@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/deployment-best-practices
 queries: {}
+schemaVersion: 1
+id: 8cdc15ac-c075-4ee9-a130-a8889579e76b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

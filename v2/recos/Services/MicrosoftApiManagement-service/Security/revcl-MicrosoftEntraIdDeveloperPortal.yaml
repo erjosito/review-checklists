@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-howto-aad
 queries: {}
+schemaVersion: 1
+id: 5e5f64ba-c90e-480e-8888-398d96cf0bfb
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

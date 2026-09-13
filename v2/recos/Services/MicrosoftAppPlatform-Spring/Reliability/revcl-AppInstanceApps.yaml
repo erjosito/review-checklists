@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/spring-apps/concept-understand-app-and-deployment
 queries: {}
+schemaVersion: 1
+id: ffc735ad-fbb1-4802-b43f-ad6387c4c066
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

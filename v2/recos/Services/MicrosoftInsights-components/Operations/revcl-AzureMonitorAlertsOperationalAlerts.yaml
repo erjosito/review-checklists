@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-overview
 queries: {}
+schemaVersion: 1
+id: 97be9951-9048-4384-9c98-6cb2913156a1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

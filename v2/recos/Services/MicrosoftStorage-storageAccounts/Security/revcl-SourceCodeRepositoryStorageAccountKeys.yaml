@@ -1,6 +1,6 @@
 name: revcl-SourceCodeRepositoryStorageAccountKeys
-title: Consider configuring your application's source code repository to detect checked-in
-  connection strings and storage account keys.
+title: Detect exposed storage credentials in source, build artifacts and logs, and revoke any discovered
+  secrets.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +14,34 @@ links:
 - type: docs
   url: https://microsoft.github.io/code-with-engineering-playbook/continuous-integration/dev-sec-ops/secret-management/recipes/detect-secrets-ado/
 queries: {}
+schemaVersion: 1
+id: 028a71ff-e1ce-415d-b3f0-d5e772d41e36
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/security/application-secrets
+    title: Architecture strategies for protecting application secrets
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: 'Use secret scanning in development and deployment workflows to detect connection strings,
+  account keys and SAS tokens before distribution. Include existing history and generated artifacts in
+  the review, restrict access to findings, and avoid recording secret values in evidence. Treat an exposed
+  credential as compromised: revoke or rotate it and update consumers rather than only deleting its text
+  from the repository. Prefer managed identities where supported.'

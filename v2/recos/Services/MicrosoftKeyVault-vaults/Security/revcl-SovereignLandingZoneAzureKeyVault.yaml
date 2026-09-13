@@ -1,6 +1,5 @@
 name: revcl-SovereignLandingZoneAzureKeyVault
-title: For Sovereign Landing Zone, use Azure Key Vault managed HSM to store your secrets
-  and credentials.
+title: Use Managed HSM for cryptographic keys when required; use Key Vault for application secrets.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/industry/sovereignty/key-management
 queries: {}
+schemaVersion: 1
+id: 4ac6b67c-b3a4-4ff9-8e87-b07a7ce7bbdb
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/key-vault/managed-hsm/overview
+    title: Azure Key Vault Managed HSM overview
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/key-vault/general/overview
+    title: Azure Key Vault overview
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Choose the key-management service according to sovereignty, isolation and cryptographic requirements.
+  Managed HSM safeguards cryptographic keys and uses its own local RBAC model; it is not the general store
+  for passwords, connection strings or arbitrary credentials. Store application secrets and certificates
+  in the appropriate Key Vault object types, enforce least privilege, and verify that dependent services
+  support the chosen key store.

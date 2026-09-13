@@ -16,3 +16,13 @@ labels:
   guid: 3fff9526-ef3a-487b-b89e-cb04d344c691
 links: []
 queries: {}
+schemaVersion: 1
+id: 3fff9526-ef3a-487b-b89e-cb04d344c691
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

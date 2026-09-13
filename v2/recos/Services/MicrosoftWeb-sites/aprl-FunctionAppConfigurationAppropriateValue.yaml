@@ -1,18 +1,48 @@
 name: aprl-FunctionAppConfigurationAppropriateValue
 title: Ensure FUNCTIONS_WORKER_RUNTIME is set properly
-description: |-
-  The FUNCTIONS_WORKER_RUNTIME setting in the Function App configuration should be set to the appropriate value based on the language you are using. This setting is used to determine the language worker that will be used to execute your functions.
+description: The FUNCTIONS_WORKER_RUNTIME setting in the Function App configuration should be set to the
+  appropriate value based on the language you are using. This setting is used to determine the language
+  worker that will be used to execute your functions.
 source:
   type: aprl
   file: azure-resources/Web/sites/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/sites
+- microsoft.web/sites
 severity: 1
 labels:
   guid: 7c608f46-46b2-4cc0-bbd6-1d457c16671c
   area: Governance
 links: []
 queries:
-  arg: |-
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 7c608f46-46b2-4cc0-bbd6-1d457c16671c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    title: 'APRL 7c608f46-46b2-4cc0-bbd6-1d457c16671c: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 7c608f46-46b2-4cc0-bbd6-1d457c16671c
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:64bdffe39a6143adec384d7fb226335e93de05941b9cb1d7dcb327d5a63b9b56
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. FUNCTIONS_WORKER_RUNTIME guidance needs hosting-plan qualification,
+      including Flex Consumption configuration; do not apply it universally. Coverage concerns the inventory's
+      explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

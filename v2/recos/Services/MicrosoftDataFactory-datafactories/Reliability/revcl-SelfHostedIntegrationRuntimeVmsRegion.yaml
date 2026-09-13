@@ -1,11 +1,10 @@
 name: revcl-SelfHostedIntegrationRuntimeVmsRegion
-title: 'Make sure you replicate the Self-Hosted Integration Runtime VMs in another
-  region '
+title: Provide a tested regional recovery path for Data Factory v2 self-hosted integration runtimes
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.datafactory/datafactories
+- microsoft.datafactory/factories
 waf: Reliability
 severity: 1
 labels:
@@ -14,3 +13,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery
 queries: {}
+schemaVersion: 1
+id: e43a18a9-cd29-49cf-b7b1-7db8255562f2
+services:
+- Data Factory
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/analytics#microsoftdatafactory
+    title: Azure permissions for Analytics - Azure RBAC
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.datafactory/factories
+    title: Microsoft.DataFactory/factories - Bicep, ARM template & Terraform AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-data-factory
+    title: Reliability in Azure Data Factory
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/data-factory/secure-your-azure-data-factory
+    title: Secure your Azure Data Factory deployment - Azure Data Factory
+    accessedAt: '2026-09-13'
+description: When pipeline recovery objectives require surviving a regional outage, prepare replacement
+  or recoverable self-hosted integration runtime compute and its network, identity and data-source dependencies
+  in the recovery region. Microsoft-managed Data Factory failover does not recover customer-managed SHIR
+  hosts. For SHIR hosted on Azure VMs, evaluate Azure Site Recovery or a tested redeployment approach;
+  VM replication is an option, not a universal requirement. Verify host registration, connectivity and
+  capacity before relying on the recovery path.

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/application-gateway/multiple-site-overview
 queries: {}
+schemaVersion: 1
+id: 276898c1-af5e-4819-9e8e-049c7801ab9d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

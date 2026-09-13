@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/concepts-network
 queries: {}
+schemaVersion: 1
+id: b3808b9f-a1cf-4204-ad01-3a923ce474db
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

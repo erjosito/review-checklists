@@ -1,19 +1,49 @@
 name: aprl-AzureNetappFilesAvailabilityZoneAzVolumePlacementFeature
-title: Deploy ANF volumes in the same availability zone with Azure compute and other
-  services
-description: |-
-  Azure NetApp Files' availability zone (AZ) volume placement feature lets you deploy volumes in the same AZ with Azure compute and other services to have within AZ latency and share the same AZ failure domain.
+title: Deploy ANF volumes in the same availability zone with Azure compute and other services
+description: Azure NetApp Files' availability zone (AZ) volume placement feature lets you deploy volumes
+  in the same AZ with Azure compute and other services to have within AZ latency and share the same AZ
+  failure domain.
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 0
 labels:
   guid: 8bb690e8-64d5-4838-8703-9ee3dbac688f
   area: Other Best Practices
 links: []
 queries:
-  arg: |-
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 8bb690e8-64d5-4838-8703-9ee3dbac688f
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL 8bb690e8-64d5-4838-8703-9ee3dbac688f: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 8bb690e8-64d5-4838-8703-9ee3dbac688f
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5a48fe6a166fb7f9d391a2667dc824f040ea2b515dff5676072ae64d539ae4eb
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Upstream resource scope is ['Microsoft.NetApp/netAppAccounts/capacityPools/volumes'],
+      while the frozen corpus scope is ['Microsoft.NetApp/netAppAccounts']; applicability is not broadened
+      or narrowed without separate verification. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

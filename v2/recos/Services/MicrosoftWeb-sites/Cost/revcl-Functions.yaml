@@ -1,5 +1,5 @@
 name: revcl-Functions
-title: Functions - Keep your functions warm
+title: Use always-ready Functions capacity only for justified latency needs
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +15,22 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/implement-resource-mgmt-security/
 queries: {}
+schemaVersion: 1
+id: 0e7c28dc-9366-4572-82bf-f4564b0d934a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload requirements, financial or operational judgment; a generic ARG property check
+    cannot establish this recommendation.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-functions/functions-scale
+    title: Azure Functions hosting options
+    accessedAt: '2026-09-11'
+description: Measure cold-start effects against service objectives. Compare scale-to-zero/on-demand execution
+  with supported always-ready or minimum-instance options for the selected plan. Budget for continuously
+  allocated capacity and tune only what is needed; keeping every function warm is not a cost optimization
+  by default.

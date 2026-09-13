@@ -1,0 +1,44 @@
+id: 4f3e4c7b-78e3-5170-8ef9-903de93cd563
+name: cost-SqlDatabaseComputeModel
+source:
+  type: curated
+  url: https://learn.microsoft.com/azure/azure-sql/database/serverless-tier-overview
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/azure-sql/database/serverless-tier-overview
+- type: docs
+  url: https://learn.microsoft.com/azure/azure-sql/azure-hybrid-benefit
+- type: docs
+  url: https://learn.microsoft.com/azure/well-architected/cost-optimization/cost-model
+title: Compare Azure SQL serverless, provisioned compute and elastic pooling
+description: Use representative demand and latency requirements to compare serverless single databases,
+  provisioned compute and elastic pools. Include minimum billed compute, storage, resume delay and features
+  that prevent auto-pause. General Purpose serverless supports auto-pause; do not assume Hyperscale pauses.
+  Recheck discount/licensing applicability and test connection retry behavior.
+waf: Cost
+severity: 1
+services:
+- Azure SQL Database
+resourceTypes:
+- microsoft.sql/servers/databases
+- microsoft.sql/servers/elasticpools
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Requires Azure SQL utilization/billing and workload tests. Static SKU/auto-pause flags cannot
+    determine cheapest or acceptable model.
+queries: {}
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-sql/database/serverless-tier-overview
+    title: Serverless compute tier for Azure SQL Database
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/azure-sql/azure-hybrid-benefit
+    title: Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/cost-model
+    title: Architecture strategies for creating a cost model
+    accessedAt: '2026-09-11'
+schemaVersion: 1

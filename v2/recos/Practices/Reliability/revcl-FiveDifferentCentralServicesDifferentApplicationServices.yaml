@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/implement-ha-sap-netweaver-anydb/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: c3c7abc0-716c-4486-893c-40e181d65539
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

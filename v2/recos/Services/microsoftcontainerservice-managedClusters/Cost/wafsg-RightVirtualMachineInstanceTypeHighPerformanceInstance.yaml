@@ -1,11 +1,9 @@
 name: wafsg-RightVirtualMachineInstanceTypeHighPerformanceInstance
-title: 'Cluster architecture: Select the right virtual machine instance type.'
-description: Selecting the right virtual machine instance type is critical as it directly
-  impacts the cost of running applications on AKS. Choosing a high-performance instance
-  without proper utilization can lead to wasteful spending, while choosing a powerful
-  instance can lead to performance issues and increased downtime. To determine the
-  right virtual machine instance type, consider workload characteristics, resource
-  requirements, and availability needs.
+title: Select AKS node VM types from measured workload and availability requirements
+description: Compare node VM types using pod requests, utilization, performance and availability requirements.
+  Oversized nodes waste capacity; undersized nodes can increase contention, execution time and disruption.
+  Test the selected type and account for autoscaling behavior rather than assuming a powerful instance
+  itself causes performance problems.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -17,3 +15,19 @@ labels:
   guid: 45c1b3bf-8e01-4337-984d-e8b03a969e4c
 links: []
 queries: {}
+schemaVersion: 1
+id: 45c1b3bf-8e01-4337-984d-e8b03a969e4c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Correct the inherited reversal that blamed powerful instances for
+    undersizing problems. Requires workload, billing and operational evidence; no ARG query or live validation
+    is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service
+    title: Architecture best practices for Azure Kubernetes Service
+    accessedAt: '2026-09-11'

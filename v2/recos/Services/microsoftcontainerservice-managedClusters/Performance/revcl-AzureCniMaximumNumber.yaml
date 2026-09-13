@@ -1,6 +1,5 @@
 name: revcl-AzureCniMaximumNumber
-title: If using Azure CNI, size your subnet accordingly considering the maximum number
-  of pods per node
+title: Size AKS node and pod address ranges for the selected CNI model
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/configure-azure-cni
 queries: {}
+schemaVersion: 1
+id: 7faf12e7-0943-4f63-8472-2da29c2b1cd6
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/concepts-network-ip-address-planning
+    title: IP address planning for your Azure Kubernetes Service (AKS) clusters
+    accessedAt: '2026-09-11'
+description: For Azure CNI Overlay, reserve node subnet space separately from the pod CIDR, which allocates
+  a /24 pod block per node. For flat pod networking, plan both node and pod subnet consumption according
+  to its allocation mode. Include maximum node growth, upgrade surge, internal service addresses and temporary
+  allocation overhead. A formula for legacy Azure CNI is not universal across CNI modes.

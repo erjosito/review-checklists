@@ -1,13 +1,14 @@
 name: aprl-SpecificIotHubInstancesUseDeviceProvisioningService
 title: Use Device Provisioning Service
-description: |-
-  Device Provisioning Service (DPS) enables easy redistribution of IoT devices for scaling and availability, allowing devices to be reassigned and not bound to specific IoT Hub instances. Devices in IoT Hubs using DPS should be verified for DPS utilization.
+description: Device Provisioning Service (DPS) enables easy redistribution of IoT devices for scaling
+  and availability, allowing devices to be reassigned and not bound to specific IoT Hub instances. Devices
+  in IoT Hubs using DPS should be verified for DPS utilization.
 source:
   type: aprl
   file: azure-resources/Devices/iotHubs/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Devices/IotHubs
+- microsoft.devices/iothubs
 severity: 0
 labels:
   guid: b1e1378d-4572-4414-bebd-b8872a6d4d1c
@@ -28,3 +29,31 @@ queries:
     ) on iotHubName
     | where dpsName == ''
     | project recommendationId="b1e1378d-4572-4414-bebd-b8872a6d4d1c", name=iotHubName, id, tags, param1='DPS:none'
+schemaVersion: 1
+id: b1e1378d-4572-4414-bebd-b8872a6d4d1c
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Devices/iotHubs/recommendations.yaml
+    title: 'APRL b1e1378d-4572-4414-bebd-b8872a6d4d1c: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b1e1378d-4572-4414-bebd-b8872a6d4d1c
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Devices/iotHubs/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:bddaba007f4f467a5557aab1c36c0aa4ecc3645025d648a929c1d25aef87be1e
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

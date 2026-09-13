@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/backup/backup-azure-vms-introduction
 queries: {}
+schemaVersion: 1
+id: 4d874a74-8b66-42d6-b150-512a66498f6d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

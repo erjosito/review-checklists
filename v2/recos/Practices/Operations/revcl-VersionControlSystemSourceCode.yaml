@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/considerations/infrastructure-as-code
 queries: {}
+schemaVersion: 1
+id: cfe363b5-f579-4284-bc56-a42153e4c10b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

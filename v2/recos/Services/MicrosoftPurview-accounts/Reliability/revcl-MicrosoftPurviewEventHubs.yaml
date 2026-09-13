@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/manage-kafka-dotnet
 queries: {}
+schemaVersion: 1
+id: 6d20b56c-56a9-4581-89bf-8d8e5c586b7d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

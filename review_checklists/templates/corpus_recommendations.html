@@ -1,0 +1,41 @@
+{% extends "corpus_base.html" %}
+{% block title %}Corpus recommendations{% endblock %}
+{% block content %}
+<h1>Canonical recommendation drilldown</h1>
+<p>Filters combine with AND. Search includes retired alias IDs/names. These are corpus
+  records, not review assessments.</p>
+<form method="get" class="filters">
+  <label>Search<input name="search" value="{{ filters.get('search', '') }}"></label>
+  <label>Service<select name="service"><option value="">All services</option>
+    {% for service in summary.matrix %}
+    {% set value = 'none' if service == 'Not service-specific' else service %}
+    <option value="{{ value }}" {% if filters.get('service') == value %}selected{% endif %}>{{ service }}</option>
+    {% endfor %}</select></label>
+  <label>WAF pillar<select name="waf"><option value="">All pillars</option>
+    {% for pillar in pillars %}<option {% if filters.get('waf') == pillar %}selected{% endif %}>{{ pillar }}</option>{% endfor %}
+  </select></label>
+  <label>Original source family<select name="origin"><option value="">All families</option>
+    {% for origin in summary.origins %}<option {% if filters.get('origin') == origin %}selected{% endif %}>{{ origin }}</option>{% endfor %}
+  </select></label>
+  <label>Data quality<select name="quality"><option value="">All conditions</option>
+    {% for key, label in quality_labels.items() %}<option value="{{ key }}" {% if filters.get('quality') == key %}selected{% endif %}>{{ label }}</option>{% endfor %}
+  </select></label>
+  <label>ARG<select name="arg"><option value="">All records</option>
+    {% for value, label in [('available', 'Available'), ('validated', 'Validation date recorded'), ('unvalidated', 'No validation date'), ('missing', 'No primary query')] %}
+    <option value="{{ value }}" {% if filters.get('arg') == value %}selected{% endif %}>{{ label }}</option>
+    {% endfor %}</select></label>
+  {% if filters.get('reference') %}<input type="hidden" name="reference" value="{{ filters.reference }}">{% endif %}
+  <button type="submit">Filter</button><a href="{{ url_for('corpus_admin.recommendations') }}">Clear filters</a>
+</form>
+{% if filters.get('reference') %}<p>Supporting reference: {{ filters.reference }}</p>{% endif %}
+{% include "corpus_pagination.html" %}
+<div class="table-scroll"><table><thead><tr><th>Recommendation</th><th>Service metadata</th><th>WAF</th><th>ARG</th><th>Original source</th></tr></thead><tbody>
+{% for row in items %}
+<tr><td><a href="{{ url_for('corpus_admin.recommendation', identity=row.id) }}">{{ row.recommendation.title }}</a><br><code>{{ row.id }}</code></td>
+<td>{{ row.services | join(", ") or 'Not service-specific' }}<br>{{ row.service_mode }}</td>
+<td>{{ row.pillar }}</td><td>{{ row.recommendation.automation.status }}<br>
+{% if row.arg_available %}{{ row.recommendation.automation.resultSemantics }}; validation date {{ row.recommendation.automation.validatedAt or 'not recorded' }}{% endif %}</td>
+<td>{{ row.recommendation.source.type }}</td></tr>
+{% else %}<tr><td colspan="5">No canonical records match these filters.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

@@ -1,13 +1,13 @@
 name: aprl-NewAzureResourceManagerResourcesClassicStorageAccounts
 title: Classic Storage Accounts must be migrated to new Azure Resource Manager resources
-description: |-
-  Classic storage accounts will be fully retired on August 31, 2024. If you have classic storage accounts, start planning your migration now.
+description: Classic storage accounts will be fully retired on August 31, 2024. If you have classic storage
+  accounts, start planning your migration now.
 source:
   type: aprl
   file: azure-resources/Storage/storageAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Storage/storageAccounts
+- microsoft.storage/storageaccounts
 severity: 0
 labels:
   guid: 63ad027e-611c-294b-acc5-8e3234db9a40
@@ -20,3 +20,18 @@ queries:
     resources
     | where type =~ 'microsoft.classicstorage/storageaccounts'
     | project recommendationId = '63ad027e-611c-294b-acc5-8e3234db9a40', name, id, tags, param1=type
+schemaVersion: 1
+id: 63ad027e-611c-294b-acc5-8e3234db9a40
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The frozen GUID is absent from the complete pinned upstream
+    repository inventory; historical source identity does not prove a current recommendation or replacement
+    ID. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Operations

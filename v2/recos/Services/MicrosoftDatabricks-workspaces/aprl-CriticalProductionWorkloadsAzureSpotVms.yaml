@@ -1,18 +1,49 @@
 name: aprl-CriticalProductionWorkloadsAzureSpotVms
 title: Do not use Azure Spot VMs for critical Production workloads
-description: |-
-  Azure Spot VMs are not suitable for critical production workloads needing high availability and reliability. They are meant for fault-tolerant tasks and can be evicted with 30-seconds notice if Azure needs the capacity, with no SLA guarantees.
+description: Azure Spot VMs are not suitable for critical production workloads needing high availability
+  and reliability. They are meant for fault-tolerant tasks and can be evicted with 30-seconds notice if
+  Azure needs the capacity, with no SLA guarantees.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 0
 labels:
   guid: b5af7e26-3939-1b48-8fba-f8d4a475c67a
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: b5af7e26-3939-1b48-8fba-f8d4a475c67a
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL b5af7e26-3939-1b48-8fba-f8d4a475c67a: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b5af7e26-3939-1b48-8fba-f8d4a475c67a
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0bbefceddd5d70f8d1c85a074a4a00bbfa008b7b2ce6d5a9109d2a76197a0ee9
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

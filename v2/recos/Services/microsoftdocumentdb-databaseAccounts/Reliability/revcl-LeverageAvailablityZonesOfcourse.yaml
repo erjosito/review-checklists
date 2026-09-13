@@ -1,6 +1,5 @@
 name: revcl-LeverageAvailablityZonesOfcourse
-title: Leverage Availablity Zones where regionally applicable and ofcourse if the
-  service offers it
+title: Enable Cosmos DB zone redundancy in each supported account region
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,41 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cosmos-db/high-availability#slas
 queries: {}
+schemaVersion: 1
+id: de39ac0e-7c28-4dc9-9565-7202bff4564b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-cosmos-db-nosql
+    title: Reliability in Azure Cosmos DB
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/advisor/advisor-high-availability-recommendations
+    title: Reliability recommendations
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-reliability-catalog
+    recommendationId: 8034b205-167a-4fd5-a133-0c8cb166103c
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:289541adf313970f61eb56da7d1c96257c8741d7890a62fc626db5718ca6a7a2
+    notes: 'Per-region zone redundancy includes multiregion accounts. Catalog regional-outage protection
+      wording is qualified: zone redundancy does not replace region resilience.'
+  - sourceId: advisor-reliability-catalog
+    recommendationId: 687f83d3-db01-4ab1-a77b-b31e99f16d33
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:1cc551f14316782e7e38d8aa1f022bcb8454cbf697c13a2262faee9aaab68750
+    notes: Same current per-region zone requirement supports this separately published GUID, without treating
+      zone redundancy as region-failure protection.
+description: Zone redundancy is configured per account region, not as a single account-wide switch. Enable
+  it where supported, especially for single-region accounts and single-write/multiple-read-region accounts.
+  The service distributes replicas across zones. Serverless accounts require zone redundancy at creation;
+  existing serverless accounts cannot be converted. Zone redundancy does not replace a multiregion strategy
+  for region-wide loss.

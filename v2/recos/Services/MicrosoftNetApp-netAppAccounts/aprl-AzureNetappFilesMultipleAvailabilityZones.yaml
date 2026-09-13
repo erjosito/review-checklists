@@ -1,13 +1,14 @@
 name: aprl-AzureNetappFilesMultipleAvailabilityZones
 title: Use availability zones for high availability in Azure NetApp Files
-description: |-
-  Availability zones are distinct locations within an Azure region to withstand local failures. Deploy your workload in multiple availability zones and use application-based replication or Azure NetApp Files cross-zone replication to achieve high availability. Note that failover is a manual process.
+description: Availability zones are distinct locations within an Azure region to withstand local failures.
+  Deploy your workload in multiple availability zones and use application-based replication or Azure NetApp
+  Files cross-zone replication to achieve high availability. Note that failover is a manual process.
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 0
 labels:
   guid: 47d100a5-7f85-5742-967a-67eb5081240a
@@ -21,3 +22,38 @@ queries:
     | where type =~ "Microsoft.NetApp/netAppAccounts/capacityPools/volumes"
     | where array_length(zones) == 0 or isnull(zones)
     | project recommendationId = "47d100a5-7f85-5742-967a-67eb5081240a", name, id, tags
+schemaVersion: 1
+id: 47d100a5-7f85-5742-967a-67eb5081240a
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.NetApp/netAppAccounts/capacityPools/volumes''],
+    while the frozen corpus scope is [''Microsoft.NetApp/netAppAccounts'']; applicability is not broadened
+    or narrowed without separate verification. Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL 47d100a5-7f85-5742-967a-67eb5081240a: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 47d100a5-7f85-5742-967a-67eb5081240a
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:afdb60a8eeba2446e3af65f9656f8177cfd5f3c8f9c8feb8800aeffc236bdd3d
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.NetApp/netAppAccounts/capacityPools/volumes'],
+      while the frozen corpus scope is ['Microsoft.NetApp/netAppAccounts']; applicability is not broadened
+      or narrowed without separate verification. Current upstream ARG differs from the frozen query; the
+      old executable body is retained pending semantic/edge-case validation, not silently replaced by
+      unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were not
+      executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

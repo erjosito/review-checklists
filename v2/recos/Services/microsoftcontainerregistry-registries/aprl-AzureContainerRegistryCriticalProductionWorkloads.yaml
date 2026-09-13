@@ -1,13 +1,14 @@
 name: aprl-AzureContainerRegistryCriticalProductionWorkloads
 title: Use Premium tier for critical production workloads
-description: |-
-  Choose a service tier of Azure Container Registry to meet your performance needs. Premium offers the most bandwidth and highest rate of read and write operations for high-volume deployments. Use Basic to start, Standard for production, and Premium for hyper-scale performance and geo-replication.
+description: Choose a service tier of Azure Container Registry to meet your performance needs. Premium
+  offers the most bandwidth and highest rate of read and write operations for high-volume deployments.
+  Use Basic to start, Standard for production, and Premium for hyper-scale performance and geo-replication.
 source:
   type: aprl
   file: azure-resources/ContainerRegistry/registries/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerRegistry/registries
+- microsoft.containerregistry/registries
 severity: 0
 labels:
   guid: eb005943-40a8-194b-9db2-474d430046b7
@@ -22,3 +23,31 @@ queries:
     | where sku.name != "Premium"
     | project recommendationId = "eb005943-40a8-194b-9db2-474d430046b7", name, id, tags, param1=strcat("SkuName: ", tostring(sku.name))
     | order by id asc
+schemaVersion: 1
+id: eb005943-40a8-194b-9db2-474d430046b7
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    title: 'APRL eb005943-40a8-194b-9db2-474d430046b7: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: eb005943-40a8-194b-9db2-474d430046b7
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6871a47cba311ebaf13a847bc4e9a33370ba869748c086570358066c4b6259c0
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

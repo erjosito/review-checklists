@@ -1,12 +1,9 @@
 name: wafsg-FastDataTransferSpeedsAzureStandardHddStorage
-title: 'Decide whether your workload requires the performance of premium file shares
-  (Azure Premium SSD) or if Azure Standard HDD storage is sufficient: Determine your
-  storage account type and billing model based on the type of storage that you need.
-  If you require large amounts of input/output operations per second (IOPS), extremely
-  fast data transfer speeds, or very low latency, then you should choose premium Azure
-  file shares. NFS Azure file shares are only available on the premium tier. NFS and
-  SMB file shares are the same price on the premium tier.'
-description: ''
+title: Choose Azure Files media and provisioning from measured performance requirements
+description: Compare SSD and HDD using required latency, IOPS, throughput, capacity and protocol support.
+  Separately compare provisioned v2, provisioned v1 and PAYG where supported; HDD does not imply PAYG.
+  Validate the current resource-model/protocol matrix and actual rates instead of assuming NFS and SMB
+  always have identical pricing.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-files.md
@@ -19,3 +16,18 @@ labels:
   guid: 54bceac0-695d-4d3a-9e50-91fdb4c9f51a
 links: []
 queries: {}
+schemaVersion: 1
+id: 54bceac0-695d-4d3a-9e50-91fdb4c9f51a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Separate media, protocol, resource model and billing dimensions.
+    Requires workload, billing and operational evidence; no ARG query or live validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/files/understanding-billing
+    title: Understand Azure Files Billing
+    accessedAt: '2026-09-11'

@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/data-explorer/kusto/management/data-export/continuous-data-export
 queries: {}
+schemaVersion: 1
+id: ba7da7be-9951-4914-a384-5d997cb39132
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

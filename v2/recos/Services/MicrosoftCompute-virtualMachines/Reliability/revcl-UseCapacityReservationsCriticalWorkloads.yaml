@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview
 queries: {}
+schemaVersion: 1
+id: bd7bb012-f7b9-45e0-9e15-8e3ea3992c2d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

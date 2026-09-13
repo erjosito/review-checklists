@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services
 queries: {}
+schemaVersion: 1
+id: cef39812-bd46-43cb-aac8-ac199ebb91a3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,5 +1,5 @@
 name: revcl-ApplicationGatewayAvailabilityZones
-title: Deploy Application Gateway across Availability Zones
+title: Use zone-redundant Application Gateway v2 and verify backend resilience
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,5 +15,49 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/secure-application-delivery/
 queries:
-  arg: resources | where type =~ 'microsoft.network/applicationGateways' | extend
-    compliant = (isnotnull(zones) and array_length(zones) > 1) | distinct id,compliant
+  arg: |
+    Resources
+    | where type =~ 'microsoft.network/applicationgateways'
+    | project id, name, resourceGroup, subscriptionId, location, zones,
+        skuName = tostring(properties.sku.name), skuTier = tostring(properties.sku.tier),
+        configuredCapacity = properties.sku.capacity,
+        autoscaleMinCapacity = properties.autoscaleConfiguration.minCapacity,
+        autoscaleMaxCapacity = properties.autoscaleConfiguration.maxCapacity
+schemaVersion: 1
+id: 060c6964-52b5-48db-af8b-83e4b2d85349
+services: []
+automation:
+  status: query_available
+  resultSemantics: inventory
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-application-gateway-v2
+    title: Reliability in Azure Application Gateway v2
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/applicationgateways
+    title: Microsoft.Network applicationGateways
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/advisor/advisor-high-availability-recommendations
+    title: Reliability recommendations
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-reliability-catalog
+    recommendationId: 5c488377-be3e-4365-92e8-09d1e8d9038c
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:a40fbf7e154f73f8fe8987c4c1993dbbf2af9cea2ccb306ceab38d5926ca2f84
+    notes: The updated gateway requirement explicitly requires zone redundancy, including default-zone
+      and single-zone distinctions. Full applies to this zone-redundancy catalog item, not observed deployment
+      compliance.
+description: 'Use Standard_v2 or WAF_v2 in a supported region. New gateways are zone redundant by default;
+  omit the zone list to allow all zones unless a specific exclusion is required. Pinning to one zone does
+  not protect against that zone failing; if required for latency, deploy separate gateways and tested
+  routing across zones. Ensure backend services are also resilient. The ARG query inventories reported
+  configuration only. An omitted zone list is not evidence of nonredundancy: current v2 gateways default
+  to zone redundancy in supported regions unless pinned to one zone. Null/missing properties, incomplete
+  scope or zero rows do not establish compliance. Verify deployment behavior, capacity under failure and
+  backend health separately; no live query validation is recorded.'

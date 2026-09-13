@@ -1,10 +1,9 @@
 name: wafsg-MediaAccessControlSecurityDataLinkLayer
 title: Configure MACSec for ExpressRoute Direct resources
-description: Media Access Control security is a point-to-point security at the data
-  link layer. ExpressRoute Direct supports configuring MACSec to prevent security
-  threats to protocols such as ARP, DHCP, LACP not normally secured on the Ethernet
-  link. For more information on how to configure MACSec, see MACSec for ExpressRoute
-  Direct ports.
+description: Media Access Control security is a point-to-point security at the data link layer. ExpressRoute
+  Direct supports configuring MACSec to prevent security threats to protocols such as ARP, DHCP, LACP
+  not normally secured on the Ethernet link. For more information on how to configure MACSec, see MACSec
+  for ExpressRoute Direct ports.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -16,3 +15,23 @@ labels:
   guid: 02e71cb8-379a-45ef-8daa-e4bfa3fa7237
 links: []
 queries: {}
+schemaVersion: 1
+id: 02e71cb8-379a-45ef-8daa-e4bfa3fa7237
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: e09a0328-3f6e-4ab5-9856-581a76090453
+  name: wafsg-ExpressrouteDirectResourcesMacsec
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: e09a0328-3f6e-4ab5-9856-581a76090453
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Security/wafsg-ExpressrouteDirectResourcesMacsec.yaml

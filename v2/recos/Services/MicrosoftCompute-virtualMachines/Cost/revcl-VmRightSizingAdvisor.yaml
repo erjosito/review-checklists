@@ -1,10 +1,11 @@
 name: revcl-VmRightSizingAdvisor
-title: 'Make sure advisor is configured for VM right sizing '
+title: Configure and review Advisor VM rightsizing evidence
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
 - microsoft.compute/virtualmachines
+- microsoft.compute/virtualmachinescalesets
 waf: Cost
 severity: 1
 labels:
@@ -12,4 +13,61 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/governance/policy/overview
-queries: {}
+queries:
+  arg: |-
+    AdvisorResources
+    | where type =~ 'microsoft.advisor/recommendations'
+    | where properties.category =~ 'Cost'
+    | where tostring(properties.recommendationTypeId) in~ ('e10b1381-5f0a-47ff-8c7b-37bd13d7c974', '94aea435-ef39-493f-a547-8408092c22a7')
+    | project id, subscriptionId, resourceGroup,
+        targetResourceId = tostring(properties.resourceMetadata.resourceId),
+        impactedField = tostring(properties.impactedField),
+        recommendationTypeId = tostring(properties.recommendationTypeId),
+        impact = tostring(properties.impact),
+        problem = tostring(properties.shortDescription.problem),
+        solution = tostring(properties.shortDescription.solution),
+        lastUpdated = tostring(properties.lastUpdated),
+        extendedProperties = properties.extendedProperties
+schemaVersion: 1
+id: d0102cac-6aae-401e-9a84-de5de36d1d92
+services:
+- Azure Advisor
+- Azure Virtual Machines
+- Virtual Machine Scale Sets
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Inventory of Advisor-issued cost opportunities. The recommendation ID is id; the affected resource is targetResourceId. A row is not a policy violation and absence is not a pass.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Advisor recommendations depend on service coverage, telemetry, configured lookback and recommendation freshness; review dismissals/postponements in Advisor. Published recommendationTypeId values are used verbatim; no inferred IDs or text matching. IDs and coverage can evolve. Savings fields vary by recommendation. Preserve extendedProperties rather than assume a universal monthly/annual field; do not sum overlapping opportunities or mixed currencies/time horizons. Advisor estimates may not reflect existing reservations, savings plans, negotiated rates or operational constraints. Do not inner-join to Resources: subscription-level commitments and some affected child resources would be lost.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/advisor/advisor-cost-recommendations
+    title: Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resizing or shutting
+      down underutilized instances
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+description: Choose an Advisor lookback that represents workload cycles and review recommendation freshness
+  after configuration changes. Distinguish display filters from generation criteria. Check shutdown and
+  resize recommendations against seasonality, memory and I/O requirements, standby capacity and purchased
+  commitments rather than accepting estimated savings blindly.

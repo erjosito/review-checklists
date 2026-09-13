@@ -1,13 +1,13 @@
 name: aprl-OtherEssentialDataHostDatabaseData
 title: Host database data on a data disk
-description: |-
-  A data disk is a managed disk attached to a virtual machine for storing database or other essential data. These disks are SCSI drives labeled as per choice.
+description: A data disk is a managed disk attached to a virtual machine for storing database or other
+  essential data. These disks are SCSI drives labeled as per choice.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 2
 labels:
   guid: 4ea2878f-0d69-8d4a-b715-afc10d1e538e
@@ -21,3 +21,34 @@ queries:
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where array_length(properties.storageProfile.dataDisks) < 1
     | project recommendationId = "4ea2878f-0d69-8d4a-b715-afc10d1e538e", name, id, tags
+schemaVersion: 1
+id: 4ea2878f-0d69-8d4a-b715-afc10d1e538e
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL 4ea2878f-0d69-8d4a-b715-afc10d1e538e: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 4ea2878f-0d69-8d4a-b715-afc10d1e538e
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:92a163ac6ac0a0a22416033ff790610384dfbcfcc87af4acc16db18f6a65bcb3
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

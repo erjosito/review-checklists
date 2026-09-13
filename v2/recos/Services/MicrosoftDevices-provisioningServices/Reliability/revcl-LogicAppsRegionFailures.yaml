@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard#next-steps
 queries: {}
+schemaVersion: 1
+id: f6dd7977-1123-4f39-b488-f91415a8430a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

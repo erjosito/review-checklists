@@ -1,13 +1,13 @@
 name: aprl-SingleAvailabilityZoneMultipleAvailabilityZones
 title: Deploy Azure Firewall across multiple availability zones
-description: |-
-  Azure Firewall offers different SLAs depending on its deployment; in a single availability zone or across multiple, potentially improving reliability and performance.
+description: Azure Firewall offers different SLAs depending on its deployment; in a single availability
+  zone or across multiple, potentially improving reliability and performance.
 source:
   type: aprl
   file: azure-resources/Network/azureFirewalls/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/azureFirewalls
+- microsoft.network/azurefirewalls
 severity: 0
 labels:
   guid: c72b7fee-1fa0-5b4b-98e5-54bcae95bb74
@@ -22,3 +22,35 @@ queries:
     | where array_length(zones) <= 1 or isnull(zones)
     | where isempty(properties.virtualHub.id) or isnull(properties.virtualHub.id)
     | project recommendationId = "c72b7fee-1fa0-5b4b-98e5-54bcae95bb74", name, id, tags, param1="multipleZones:false"
+schemaVersion: 1
+id: c72b7fee-1fa0-5b4b-98e5-54bcae95bb74
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/azureFirewalls/recommendations.yaml
+    title: 'APRL c72b7fee-1fa0-5b4b-98e5-54bcae95bb74: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: c72b7fee-1fa0-5b4b-98e5-54bcae95bb74
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/azureFirewalls/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:c6080629eb38afd795e834626c0be773c6c600da3633ed73248f808d37d8e88a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

@@ -1,19 +1,49 @@
 name: aprl-CapacityPoolAttributesAzureNetappFiles
-title: Use the correct service level and volume quota size for the expected performance
-  level
-description: |-
-  Service levels, part of capacity pool attributes, determine the maximum throughput per volume quota in Azure NetApp Files. It combines read and write speed, offering three levels: Standard (16 MiB/s per 1TiB), Premium (64 MiB/s per 1TiB), and Ultra (128 MiB/s per 1TiB) throughput.
+title: Use the correct service level and volume quota size for the expected performance level
+description: 'Service levels, part of capacity pool attributes, determine the maximum throughput per volume
+  quota in Azure NetApp Files. It combines read and write speed, offering three levels: Standard (16 MiB/s
+  per 1TiB), Premium (64 MiB/s per 1TiB), and Ultra (128 MiB/s per 1TiB) throughput.'
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 1
 labels:
   guid: af426a99-62a6-6b4c-9662-42d220b413b8
   area: Scalability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: af426a99-62a6-6b4c-9662-42d220b413b8
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL af426a99-62a6-6b4c-9662-42d220b413b8: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: af426a99-62a6-6b4c-9662-42d220b413b8
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:cd53c0f98f201472fe8f3f0a52d47445464fc25180a4686253aba2cc88427dcd
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

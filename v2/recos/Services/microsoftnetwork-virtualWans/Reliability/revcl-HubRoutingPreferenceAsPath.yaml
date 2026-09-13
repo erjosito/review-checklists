@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-wan/about-virtual-hub-routing-preference
 queries: {}
+schemaVersion: 1
+id: d49ac006-6670-4bc9-9948-d3e0a3a94f4d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

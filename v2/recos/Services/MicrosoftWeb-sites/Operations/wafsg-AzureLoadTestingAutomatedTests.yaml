@@ -1,10 +1,10 @@
 name: wafsg-AzureLoadTestingAutomatedTests
-title: 'Run automated tests: Before you promote a release of your web app, thoroughly
-  test its performance, functionality, and integration with other components. Use
-  Azure Load Testing, which integrates with Apache JMeter, a popular tool for performance
-  testing. Explore automated tools for other types of testing, such as Phantom for
-  functional testing.'
-description: ''
+title: Gate App Service releases on workload-specific automated test evidence
+description: Define a workload-specific test strategy and a release test plan aligned with business objectives.
+  Test functionality, integration and performance before promotion, with explicit entry and exit criteria.
+  Include end-to-end checks across application and infrastructure, keep pipeline feedback timely, and
+  run production experiments only with isolation, monitoring and stop/recovery safeguards. Tool installation
+  or resource presence is not evidence that these tests passed.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -17,3 +17,28 @@ labels:
   guid: a4224cce-1a82-4c9e-a488-86bb6b215a39
 links: []
 queries: {}
+schemaVersion: 1
+id: a4224cce-1a82-4c9e-a488-86bb6b215a39
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/testing
+    title: Architecture strategies for testing
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    title: Architecture strategies for safe deployment practices
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:09
+    coverage: partial
+    notes: Remove unsupported functional-tool example and define test evidence instead. Narrow control
+      or service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/testing
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:05eb3f80be3d468f7cbf3190526aafaf9272e148edbcc8357b6bbd515d6b0e07

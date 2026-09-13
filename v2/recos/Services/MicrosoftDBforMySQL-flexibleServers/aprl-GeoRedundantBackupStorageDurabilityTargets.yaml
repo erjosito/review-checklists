@@ -1,13 +1,13 @@
 name: aprl-GeoRedundantBackupStorageDurabilityTargets
 title: Configure geo redundant backup storage
-description: |-
-  Configure GRS to ensure that your database meets its availability and durability targets even in the face of failures or disasters.
+description: Configure GRS to ensure that your database meets its availability and durability targets
+  even in the face of failures or disasters.
 source:
   type: aprl
   file: azure-resources/DBforMySQL/flexibleServers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DBforMySQL/flexibleServers
+- microsoft.dbformysql/flexibleservers
 severity: 0
 labels:
   guid: 5c96afc3-7d2e-46ff-a4c7-9c32850c441b
@@ -21,3 +21,31 @@ queries:
     | where type =~ "microsoft.dbformysql/flexibleservers"
     | where properties.backup.geoRedundantBackup != "Enabled"
     | project recommendationId = "5c96afc3-7d2e-46ff-a4c7-9c32850c441b", name, id, tags, param1 = strcat("geoRedundantBackup:", properties['backup']['geoRedundantBackup'])
+schemaVersion: 1
+id: 5c96afc3-7d2e-46ff-a4c7-9c32850c441b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforMySQL/flexibleServers/recommendations.yaml
+    title: 'APRL 5c96afc3-7d2e-46ff-a4c7-9c32850c441b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 5c96afc3-7d2e-46ff-a4c7-9c32850c441b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforMySQL/flexibleServers/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:28c7e03ff65ceccf4d05fabf74b514c6147933b21b76da91c31d7c32ded34cd4
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

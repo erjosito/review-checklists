@@ -1,13 +1,14 @@
 name: aprl-NetworkSecurityGroupRulesNetworkSecurityGroups
 title: Monitor changes in Network Security Groups with Azure Monitor
-description: |-
-  Create Alerts with Azure Monitor for operations like creating or updating Network Security Group rules to catch unauthorized/undesired changes to resources and spot attempts to bypass firewalls or access resources from the outside.
+description: Create Alerts with Azure Monitor for operations like creating or updating Network Security
+  Group rules to catch unauthorized/undesired changes to resources and spot attempts to bypass firewalls
+  or access resources from the outside.
 source:
   type: aprl
   file: azure-resources/Network/networkSecurityGroups/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/networkSecurityGroups
+- microsoft.network/networksecuritygroups
 severity: 2
 labels:
   guid: 8bb4a57b-55e4-d24e-9c19-2679d8bc779f
@@ -37,3 +38,31 @@ queries:
         on $left.lowerCaseNsgId == $right.lowerCaseNsgIdOfScope
     | where isempty(lowerCaseNsgIdOfScope)
     | project recommendationId = "8bb4a57b-55e4-d24e-9c19-2679d8bc779f", name, id, tags, param1 = "ModificationAlert: Not configured/Disabled"
+schemaVersion: 1
+id: 8bb4a57b-55e4-d24e-9c19-2679d8bc779f
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/networkSecurityGroups/recommendations.yaml
+    title: 'APRL 8bb4a57b-55e4-d24e-9c19-2679d8bc779f: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 8bb4a57b-55e4-d24e-9c19-2679d8bc779f
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/networkSecurityGroups/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:37e589d83f297d4005a7dfec5436a9b3c57dc25eef7481d8d547c2451fa13c3a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

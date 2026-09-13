@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/entra/identity/domain-services/tutorial-perform-disaster-recovery-drill
 queries: {}
+schemaVersion: 1
+id: f1ce16dd-3f1d-45e8-92e4-2e3611cc58b4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

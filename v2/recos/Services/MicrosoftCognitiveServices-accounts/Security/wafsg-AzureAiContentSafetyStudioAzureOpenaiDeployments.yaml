@@ -14,3 +14,13 @@ labels:
   guid: 47f53122-cc5c-4172-901a-cd3cf6d5085f
 links: []
 queries: {}
+schemaVersion: 1
+id: 47f53122-cc5c-4172-901a-cd3cf6d5085f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

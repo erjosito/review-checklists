@@ -1,7 +1,7 @@
 name: wafsg-AzureServiceHealthDashboardPotentialAvailabilityProblems
-title: 'Monitor potential availability problems: Subscribe to the Azure Service Health
-  dashboard to monitor potential availability problems. Use storage metrics in Azure
-  Monitor and diagnostic logs to investigate alerts.'
+title: 'Monitor potential availability problems: Subscribe to the Azure Service Health dashboard to monitor
+  potential availability problems. Use storage metrics in Azure Monitor and diagnostic logs to investigate
+  alerts.'
 description: ''
 source:
   type: wafsg
@@ -15,3 +15,23 @@ labels:
   guid: 778ba0b4-9f48-4fd5-a788-949f2f2ea331
 links: []
 queries: {}
+schemaVersion: 1
+id: 778ba0b4-9f48-4fd5-a788-949f2f2ea331
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 58746f78-dba5-4a3a-b4a5-bdbcb9a00a28
+  name: wafsg-AzureServiceHealthDashboardPotentialAvailabilityProblems-1
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-files.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 58746f78-dba5-4a3a-b4a5-bdbcb9a00a28
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Reliability/wafsg-AzureServiceHealthDashboardPotentialAvailabilityProblems-1.yaml

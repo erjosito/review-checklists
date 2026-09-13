@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-redundancy
 queries: {}
+schemaVersion: 1
+id: eba8cf22-45c6-4dc1-9b57-2cceb3b97ce5
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

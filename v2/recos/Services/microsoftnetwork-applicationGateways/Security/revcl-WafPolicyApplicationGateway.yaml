@@ -1,5 +1,5 @@
 name: revcl-WafPolicyApplicationGateway
-title: Deploy your WAF policy for Application Gateway in 'Prevention' mode.
+title: Tune Application Gateway WAF policies and enforce Prevention mode on the intended traffic paths.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -12,11 +12,35 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-policy-settings
-queries:
-  arg: resources | where type == 'microsoft.network/frontdoorwebapplicationfirewallpolicies'
-    | project policyName=name, policyId=id,policySku=sku.name, links=properties.securityPolicyLinks,
-    enabledState=properties.policySettings.enabledState, mode=properties.policySettings.mode
-    | mvexpand links | extend securityPolicy=links.id | extend securityPolicyParts=split(securityPolicy,
-    '/') | extend profileId=strcat_array(array_slice(securityPolicyParts, 0, -3),
-    '/') | project id=profileId, compliant=((enabledState=='Enabled') and (mode=='Prevention')),
-    enabledState, mode
+queries: {}
+schemaVersion: 1
+id: baf8e317-2397-4d49-b3d1-0dcc16d8778d
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/web-application-firewall/ag/ag-overview
+    title: What is Azure Web Application Firewall on Azure Application Gateway?
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/networking
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Use a short, controlled Detection period with diagnostic logs to identify false positives,
+  then enable Prevention and review exclusions and custom-rule actions. Verify effective policy associations
+  at gateway, listener and path scope, and test that protected requests traverse the WAF. Detection mode
+  logs without blocking. A query over Front Door WAF resources cannot assess Application Gateway WAF,
+  and a mode flag alone cannot prove effective protection.

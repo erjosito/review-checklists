@@ -1,8 +1,8 @@
 name: wafsg-MultipleBackendInstancesBackendUnavailability
 title: Use health probes to detect backend unavailability
-description: If Application Gateway is used to load balance incoming traffic over
-  multiple backend instances, we recommend the use of health probes. These will ensure
-  that traffic is not routed to backends that are unable to handle the traffic.
+description: If Application Gateway is used to load balance incoming traffic over multiple backend instances,
+  we recommend the use of health probes. These will ensure that traffic is not routed to backends that
+  are unable to handle the traffic.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +14,23 @@ labels:
   guid: 6dcb1632-2ca3-411f-8555-69d689b8054f
 links: []
 queries: {}
+schemaVersion: 1
+id: 6dcb1632-2ca3-411f-8555-69d689b8054f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: ca9df7df-8e89-4216-b9a2-0384af19938d
+  name: wafsg-HealthProbesBackendUnavailability
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: ca9df7df-8e89-4216-b9a2-0384af19938d
+  corpusFile: Services/microsoftnetwork-applicationGateways/Reliability/wafsg-HealthProbesBackendUnavailability.yaml

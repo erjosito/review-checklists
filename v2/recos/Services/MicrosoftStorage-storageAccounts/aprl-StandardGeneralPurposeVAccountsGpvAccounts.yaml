@@ -1,18 +1,49 @@
 name: aprl-StandardGeneralPurposeVAccountsGpvAccounts
 title: Enable point-in-time restore for GPv2 accounts to safeguard against data loss
-description: |-
-  Consider enabling point-in-time restore for standard general purpose v2 accounts with flat namespace to protect against accidental deletion or corruption by restoring block blob data to an earlier state.
+description: Consider enabling point-in-time restore for standard general purpose v2 accounts with flat
+  namespace to protect against accidental deletion or corruption by restoring block blob data to an earlier
+  state.
 source:
   type: aprl
   file: azure-resources/Storage/storageAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Storage/storageAccounts
+- microsoft.storage/storageaccounts
 severity: 2
 labels:
   guid: 1b965cb9-7629-214e-b682-6bf6e450a100
   area: Disaster Recovery
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 1b965cb9-7629-214e-b682-6bf6e450a100
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    title: 'APRL 1b965cb9-7629-214e-b682-6bf6e450a100: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1b965cb9-7629-214e-b682-6bf6e450a100
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0f9f08b5cbe69b4ad9074bc1331d18a6f80cad5b82117d1312e14f40d2add96a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

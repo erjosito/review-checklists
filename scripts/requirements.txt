@@ -1,7 +1,7 @@
-pyyaml
+PyYAML>=6.0,<7
 requests
 azure-identity
 azure-mgmt-resource
 azure-mgmt-resourcegraph
 azure-ai-textanalytics
-jsonschema
+jsonschema>=4.23,<5

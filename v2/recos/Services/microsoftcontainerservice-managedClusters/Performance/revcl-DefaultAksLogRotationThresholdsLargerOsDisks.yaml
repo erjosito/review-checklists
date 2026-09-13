@@ -1,7 +1,5 @@
 name: revcl-DefaultAksLogRotationThresholdsLargerOsDisks
-title: For non-ephemeral disks, use high IOPS and larger OS disks for the nodes when
-  running many pods/node since it requires high performance for running multiple pods
-  and will generate huge logs with default AKS log rotation thresholds
+title: Plan AKS OS-disk capacity and log rotation for measured pod density
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +13,23 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/disks-types
 queries: {}
+schemaVersion: 1
+id: f0ce315f-1120-4166-8206-94f2cf3a4d07
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/concepts-storage
+    title: Storage options for applications in Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/aks/custom-node-configuration
+    title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools
+    accessedAt: '2026-09-11'
+description: For managed OS disks, evaluate documented default sizing and measure image, log and I/O needs
+  for the expected number of pods. Configure supported kubelet log rotation where necessary. Larger disks
+  can change IOPS but must not substitute for workload measurement. For ephemeral disks, check available
+  host storage and supported placement.

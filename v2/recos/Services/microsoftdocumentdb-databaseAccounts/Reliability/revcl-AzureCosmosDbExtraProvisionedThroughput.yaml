@@ -1,9 +1,12 @@
 name: revcl-AzureCosmosDbExtraProvisionedThroughput
-title: Continous Backup with point-in-time restore in Azure Cosmos DB
-description: Continous 7 day retention and 30 day retention backups. Azure Cosmos
-  DB performs data backup in the background without consuming any extra provisioned
-  throughput (RUs) or affecting the performance and availability of your database.
-  Continuous backups are taken in every region where the account exists.
+title: Configure and test Cosmos DB continuous point-in-time recovery
+description: 'Select a supported continuous-backup tier and retention window for business recovery needs;
+  current documentation lists 7, 30 and 35 days. Verify API support, the latest restorable timestamp and
+  the available backup region before restoration. Backups run without consuming additional provisioned
+  RUs, but backups are not automatically geo-disaster resistant: add a region explicitly where needed.
+  Recreate excluded networking, private endpoints, RBAC and other account configuration after restore
+  and test recovery against RTO/RPO. Restore target options depend on the scenario; do not assume every
+  restore supports an existing account.'
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -19,3 +22,28 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/create-custom-azure-roles-with-rbac/
 queries: {}
+schemaVersion: 1
+id: d43918a8-cd28-49be-b6b1-7cb8245461e1
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-restore-introduction
+    title: Continuous backup with point-in-time restore in Azure Cosmos DB
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/advisor/advisor-high-availability-recommendations
+    title: Reliability recommendations
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-reliability-catalog
+    recommendationId: 52fef986-5897-4359-8b92-0f22749f0d73
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:00d5e7e3b5b8fd588b23ce901819b39ed8659a2a56715b730535fe0e51fefd6f
+    notes: Continuous backup and recoverability are covered with current 7/30/35-day tiers. Catalog's
+      blanket 30-day wording and suggested cost effectiveness are not adopted.

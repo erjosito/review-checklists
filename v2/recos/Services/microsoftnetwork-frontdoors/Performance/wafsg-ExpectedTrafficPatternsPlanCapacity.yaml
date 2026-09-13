@@ -15,3 +15,13 @@ labels:
   guid: 231e1a74-b2af-4061-8703-c1bc0c84ad7c
 links: []
 queries: {}
+schemaVersion: 1
+id: 231e1a74-b2af-4061-8703-c1bc0c84ad7c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

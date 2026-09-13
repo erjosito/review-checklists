@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-monitor/logs/design-logs-deployment
 queries: {}
+schemaVersion: 1
+id: 67e7a8ed-4b30-4e38-a3f2-9812b2363cef
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

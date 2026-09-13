@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/deploy-best-practices
 queries: {}
+schemaVersion: 1
+id: 3f9bcbd4-6826-46ab-aa26-4f9a19aed9c5
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

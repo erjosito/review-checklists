@@ -1,7 +1,5 @@
 name: revcl-KeyVaultSameGeography
-title: The contents of your key vault are replicated within the region and to a secondary
-  region at least 150 miles away, but within the same geography to maintain high durability
-  of your keys and secrets. Familiarize yourself with the Key Vault's data replication.
+title: Verify the actual regional replication model for each Key Vault
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +13,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/disaster-recovery-guidance#data-replication
 queries: {}
+schemaVersion: 1
+id: 17fb86a2-eb45-42a4-9c34-52b92a2a1842
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-key-vault
+    title: Reliability in Azure Key Vault
+    accessedAt: '2026-09-11'
+description: Key Vault replicates contents within its region and synchronously across availability zones
+  where supported. Cross-region replication is asynchronous and depends on a supported paired region in
+  the same geography; it is not universal. Check regional exceptions and accept potential unreplicated
+  changes during regional loss. Do not use an assumed fixed geographic distance as recovery assurance.

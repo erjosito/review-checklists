@@ -1,13 +1,14 @@
 name: aprl-ZoneRedundantStorageAzureComputeGallery
 title: Zone redundant storage should be used for image versions
-description: |-
-  Use ZRS for high availability when creating image/VM versions in Azure Compute Gallery, offering resilience against Availability Zone failures. ZRS accounts are advisable in regions with Availability Zones, with the choice of Standard_ZRS recommended over Standard_LRS for these regions.
+description: Use ZRS for high availability when creating image/VM versions in Azure Compute Gallery, offering
+  resilience against Availability Zone failures. ZRS accounts are advisable in regions with Availability
+  Zones, with the choice of Standard_ZRS recommended over Standard_LRS for these regions.
 source:
   type: aprl
   file: azure-resources/Compute/galleries/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/galleries
+- microsoft.compute/galleries
 severity: 1
 labels:
   guid: 488dcc8b-f2e3-40ce-bf95-73deb2db095f
@@ -23,3 +24,38 @@ queries:
     | extend StorageAccountType = tostring(properties.publishingProfile.storageAccountType)
     | where StorageAccountType !has "ZRS"
     | project RecommendationId="488dcc8b-f2e3-40ce-bf95-73deb2db095f",name,id,tags,param1=strcat("GalleryName: ",GalleryName),param2=strcat("ImageName: ",ImageName),param3=strcat("StorageAccountType: ",StorageAccountType)
+schemaVersion: 1
+id: 488dcc8b-f2e3-40ce-bf95-73deb2db095f
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.Compute/galleries/images/versions''],
+    while the frozen corpus scope is [''Microsoft.Compute/galleries'']; applicability is not broadened
+    or narrowed without separate verification. Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/galleries/recommendations.yaml
+    title: 'APRL 488dcc8b-f2e3-40ce-bf95-73deb2db095f: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 488dcc8b-f2e3-40ce-bf95-73deb2db095f
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/galleries/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:71983cb35e3103f84a67d5fbf62fb925c700d4974f489694e510e64ef5ec4963
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.Compute/galleries/images/versions'],
+      while the frozen corpus scope is ['Microsoft.Compute/galleries']; applicability is not broadened
+      or narrowed without separate verification. Current upstream ARG differs from the frozen query; the
+      old executable body is retained pending semantic/edge-case validation, not silently replaced by
+      unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were not
+      executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

@@ -1,5 +1,5 @@
 name: revcl-LowerTierCustomizedRule
-title: 'Consider moving unused storage to lower tier, with customized rule - https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-policy-configure  '
+title: Apply Blob lifecycle tiering only when retention and access economics fit
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +15,35 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cost-management-billing/costs/enable-tag-inheritance
 queries: {}
+schemaVersion: 1
+id: d1e44a19-659d-4395-afd7-7289b835556d
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Requires blob inventory/access/usage data and lifecycle rules; ARG account properties cannot
+    prove per-blob suitability.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-data-costs
+    title: Architecture strategies for optimizing data costs
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:10
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-data-costs
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:66171ee3412ee4ec228e7a6512ba0754b379fc7858c88f77c7697b87132e7f45
+    notes: Blob tiering/retention and access/restore economics cover data lifecycle, not all volume, replication,
+      backup and file-format decisions. Source-text assessment, not independent human approval or live
+      Azure validation.
+description: Classify data using access frequency, restore latency and retention needs, then choose tiering/expiry
+  rules. Model transaction, retrieval, rehydration and early-deletion effects before large transitions.
+  Test the selected population and preserve legal holds and recovery requirements; account-level tier
+  alone does not describe all blobs.

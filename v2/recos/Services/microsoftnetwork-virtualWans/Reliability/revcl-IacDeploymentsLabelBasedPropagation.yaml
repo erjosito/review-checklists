@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-wan/about-virtual-hub-routing#labels
 queries: {}
+schemaVersion: 1
+id: 2586b854-237e-47f1-84a1-d45d4cd2310d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -20,3 +20,13 @@ labels:
   guid: 056cff2c-647d-41c8-82b0-f3ce60d82973
 links: []
 queries: {}
+schemaVersion: 1
+id: 056cff2c-647d-41c8-82b0-f3ce60d82973
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

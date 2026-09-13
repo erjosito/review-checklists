@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/ag/policy-overview
 queries: {}
+schemaVersion: 1
+id: f17ec301-8470-4afd-aabc-c1fdfe47dcc0
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

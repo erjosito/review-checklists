@@ -1,7 +1,10 @@
 name: wafsg-OngoingLoadTestingActivitiesWorkloadArchitectures
-title: 'Cluster and workload architectures: Perform ongoing load testing activities
-  that exercise both the pod and cluster autoscaler.'
-description: ''
+title: Continuously load test AKS pod and node autoscaling against performance targets
+description: Use production-like workload mixes and infrastructure. Test normal, peak, spike and sustained
+  load as appropriate, including pod scaling, node provisioning delay, resource requests, subnet/quota
+  headroom and safe scale-in. Compare latency percentiles, throughput and errors against documented targets
+  and previous baselines. Keep test scripts and results, and use approved exposure limits and rollback
+  procedures. Configuration inventory cannot replace these tests.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-kubernetes-service.md
@@ -14,3 +17,31 @@ labels:
   guid: a805eb93-ffa7-4fc8-a8ce-7481da64aa1e
 links: []
 queries: {}
+schemaVersion: 1
+id: a805eb93-ffa7-4fc8-a8ce-7481da64aa1e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service
+    title: Architecture best practices for Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-test
+    title: Architecture strategies for performance testing
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/app-testing/load-testing/how-to-define-test-criteria
+    title: Define fail criteria for load tests by using Azure Load Testing
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/performance-test
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:eca3f58d9203e53c5c2e5acfb1ce8bf679abbf130ad6863c72a400be27bad783
+    notes: Recurring production-like AKS tests exercise pod/node scale with measurable targets. Other
+      workload components and full end-to-end business objectives remain outside this service control.

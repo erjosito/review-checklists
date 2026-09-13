@@ -14,3 +14,13 @@ labels:
   guid: feac1256-41f0-435e-8d6c-c66c264deb5b
 links: []
 queries: {}
+schemaVersion: 1
+id: feac1256-41f0-435e-8d6c-c66c264deb5b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

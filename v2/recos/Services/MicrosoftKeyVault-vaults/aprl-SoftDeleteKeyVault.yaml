@@ -1,18 +1,23 @@
 name: aprl-SoftDeleteKeyVault
-title: Key vaults should have soft delete enabled
-description: |-
-  Key Vault's soft-delete feature enables recovery of deleted vaults and objects like keys, secrets, and certificates. When enabled, marked resources are retained for 90 days, allowing for their recovery, essentially undoing deletion.
+title: Verify Key Vault soft delete and choose the required recovery retention
+description: Keep Key Vault soft delete enabled and choose a recovery period that meets the recovery policy.
+  The configurable period is 7-90 days, with 90 days as the default, rather than an invariant 90-day retention.
+  Rehearse recovery and recreate associated RBAC assignments and Event Grid subscriptions when needed,
+  because vault recovery does not restore those deleted integrations automatically. Purge protection is
+  a separate control against early permanent deletion.
 source:
   type: aprl
   file: azure-resources/KeyVault/vaults/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.KeyVault/vaults
+- microsoft.keyvault/vaults
 severity: 0
 labels:
   guid: 1cca00d2-d9ab-8e42-a788-5d40f49405cb
   area: Disaster Recovery
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/key-vault/general/soft-delete-overview
 queries:
   arg: |
     // Azure Resource Graph Query
@@ -21,3 +26,38 @@ queries:
     | where type == "microsoft.keyvault/vaults"
     | where isnull(properties.enableSoftDelete) or properties.enableSoftDelete != "true"
     | project recommendationId = "1cca00d2-d9ab-8e42-a788-5d40f49405cb", name, id, tags, param1 = "EnableSoftDelete: Disabled"
+schemaVersion: 1
+id: 1cca00d2-d9ab-8e42-a788-5d40f49405cb
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+  notes: Retained the legacy query as inventory only. Assess the updated guidance, eligibility, resource
+    scope, and recovery/migration policy manually; returned rows are not automatic violations and zero
+    rows do not prove compliance. Not executed against Azure.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/key-vault/general/soft-delete-overview
+    title: Key Vault configurable retention and recovery limitations
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    title: 'APRL 1cca00d2-d9ab-8e42-a788-5d40f49405cb: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1cca00d2-d9ab-8e42-a788-5d40f49405cb
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:008089f870aef5cf28529b24c0ebb11b87ea168f23ee6099921804fd81f255f4
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Key Vault configurable retention and recovery limitations.
+      Coverage concerns the inventory''s explicit metadata fingerprint; queries were not executed and
+      lastReviewed/validatedAt remain unchanged.'
+waf: Reliability

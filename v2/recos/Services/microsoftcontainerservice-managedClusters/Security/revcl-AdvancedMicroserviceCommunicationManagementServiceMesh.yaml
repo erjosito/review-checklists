@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/servicemesh-about
 queries: {}
+schemaVersion: 1
+id: e9855d04-c3c3-49c9-a6bb-2c12159a114b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

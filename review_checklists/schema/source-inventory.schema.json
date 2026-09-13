@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Read-only upstream recommendation inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "sourceId", "title", "scope", "unit", "asOf", "retrievedAt", "upstreamRevision", "inventoryStatus", "sourceUrls", "fingerprintScope", "items", "limitations"],
+  "properties": {
+    "schemaVersion": {"const": 1, "type": "integer"},
+    "sourceId": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "title": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "unit": {"type": "string", "minLength": 1},
+    "asOf": {"type": ["string", "null"], "format": "date"},
+    "retrievedAt": {"type": ["string", "null"], "format": "date-time"},
+    "upstreamRevision": {"type": ["string", "null"], "minLength": 1},
+    "inventoryStatus": {"enum": ["complete", "partial", "unknown"]},
+    "sourceUrls": {"type": "array", "items": {"$ref": "#/$defs/httpsUrl"}, "uniqueItems": true},
+    "fingerprintScope": {"type": "string", "minLength": 1},
+    "coverageSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["payloadField", "includedValues", "knownValues", "scope", "reason"],
+      "properties": {
+        "payloadField": {"type": "string", "minLength": 1},
+        "includedValues": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "knownValues": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "scope": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "url", "contentHash", "payload"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "url": {"$ref": "#/$defs/httpsUrl"},
+          "contentHash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "payload": {"type": "object"}
+        }
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "httpsUrl": {"type": "string", "format": "uri", "pattern": "^https://"}
+  }
+}

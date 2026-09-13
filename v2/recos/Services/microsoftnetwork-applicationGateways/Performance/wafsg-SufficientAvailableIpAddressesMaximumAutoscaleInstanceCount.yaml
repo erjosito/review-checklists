@@ -1,9 +1,9 @@
 name: wafsg-SufficientAvailableIpAddressesMaximumAutoscaleInstanceCount
-title: Define the maximum instance count
-description: We recommend 125 as the maximum autoscale instance count. Make sure the
-  subnet that has the Application Gateway has sufficient available IP addresses to
-  support the scale-up set of instances.Setting the maximum instance count to 125
-  has no cost implications because you're billed only for the consumed capacity.
+title: Set Application Gateway v2 maximum capacity with subnet and budget headroom
+description: The service guide recommends allowing scale-out up to the supported maximum of 125 instances,
+  with sufficient subnet IPs. Check current service limits and workload needs. Raising a configured maximum
+  does not itself allocate all instances, but capacity actually consumed is billable; review cost and
+  service limits before permitting large scale-out.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +15,35 @@ labels:
   guid: e1a91738-8def-4c1e-83ce-cd7dac9c986a
 links: []
 queries: {}
+schemaVersion: 1
+id: e1a91738-8def-4c1e-83ce-cd7dac9c986a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-application-gateway
+    title: Architecture best practices for Azure Application Gateway v2
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-performance-catalog
+    recommendationId: 2ee9f31e-df58-4893-b3e7-66c0cd74183a
+    url: https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e263ff86d51fd522b9dbac902d5dc9b9f3113a809de2d81079763b4f8775b95b
+    notes: v2 maximum capacity/subnet headroom addresses the autoscaling branch; the catalog also describes
+      high utilization and v1 manual scaling. No live Advisor finding or utilization is inferred.
+aliases:
+- id: adb085fc-433d-4bde-815d-77486524d8a3
+  name: wafsg-MaximumInstanceCount
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: adb085fc-433d-4bde-815d-77486524d8a3
+  corpusFile: Services/microsoftnetwork-applicationGateways/Performance/wafsg-MaximumInstanceCount.yaml

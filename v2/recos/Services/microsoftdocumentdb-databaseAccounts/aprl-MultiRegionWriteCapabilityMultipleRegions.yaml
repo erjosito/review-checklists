@@ -1,13 +1,14 @@
 name: aprl-MultiRegionWriteCapabilityMultipleRegions
 title: Evaluate multi-region write capability
-description: |-
-  Multi-region write capability allows for designing applications that are highly available across multiple regions, though it demands careful attention to consistency requirements and conflict resolution. Improper setup may decrease availability and cause data corruption due to unhandled conflicts.
+description: Multi-region writes enable high availability but require careful consistency and conflict
+  resolution. Using Bounded Staleness is an anti-pattern, as replication lag increases latency and coordination
+  overhead. This setup undermines scalability, impacting performance and availability.
 source:
   type: aprl
   file: azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DocumentDB/databaseAccounts
+- microsoft.documentdb/databaseaccounts
 severity: 0
 labels:
   guid: 9ce78192-74a0-104c-b5bb-9a443f941649
@@ -23,3 +24,31 @@ queries:
         array_length(properties.locations) > 1 and
         properties.enableMultipleWriteLocations == false
     | project recommendationId='9ce78192-74a0-104c-b5bb-9a443f941649', name, id, tags
+schemaVersion: 1
+id: 9ce78192-74a0-104c-b5bb-9a443f941649
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
+    title: 'APRL 9ce78192-74a0-104c-b5bb-9a443f941649: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 9ce78192-74a0-104c-b5bb-9a443f941649
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:28b9c2c94e883538d7d978f51b410c7c2ef8f584d48c0ea7b5af16ca5633a838
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

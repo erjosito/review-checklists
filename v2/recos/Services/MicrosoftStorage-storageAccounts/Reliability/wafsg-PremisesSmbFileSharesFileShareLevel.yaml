@@ -24,3 +24,13 @@ labels:
   guid: 0bcee250-521d-467f-94d6-ddeeb20844af
 links: []
 queries: {}
+schemaVersion: 1
+id: 0bcee250-521d-467f-94d6-ddeeb20844af
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/sap/sap-lza-database-security
 queries: {}
+schemaVersion: 1
+id: 1b8b394e-ae64-4a74-8933-357b523ea0a0
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

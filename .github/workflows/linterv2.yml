@@ -1,10 +1,13 @@
 ---
 name: Lint v2 recommendations and checklists
 on:
-  # push:
-  #  branches-ignore: [main]
+  push:
+    branches: [v2, v3]
   pull_request:
-    branches: [v2]
+    branches: [v2, v3]
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -12,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Check unique names and schema conformity
         id: checklistlint
         uses: ./.github/actions/recov2lint

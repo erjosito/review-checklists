@@ -1,7 +1,8 @@
 name: wafsg-HigherGatewaySkuExpressrouteGateway
-title: Increase the size of the ExpressRoute gateway.
-description: Upgrade to a higher gateway SKU for improved throughput performance between
-  on-premises and Azure environment.
+title: Scale ExpressRoute gateway capacity when measurements justify it
+description: Compare measured gateway throughput, flows and routes with the selected SKU's current capacity.
+  Evaluate higher or scalable gateway SKUs and test the end-to-end path. Gateway scaling does not remove
+  circuit, provider, client or destination limits; do not upgrade solely because a larger tier exists.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,3 +14,29 @@ labels:
   guid: caa42667-014b-4fb2-9e0a-954e05385785
 links: []
 queries: {}
+schemaVersion: 1
+id: caa42667-014b-4fb2-9e0a-954e05385785
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-expressroute
+    title: Architecture best practices for Azure ExpressRoute
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/expressroute/about-fastpath
+    title: 'Azure ExpressRoute FastPath: Features, availability, and limitations'
+    accessedAt: '2026-09-11'
+aliases:
+- id: 68ebf30c-d5f8-4e5a-bafa-9b8ff5aea0cc
+  name: wafsg-ExpressrouteGatewaySize
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 68ebf30c-d5f8-4e5a-bafa-9b8ff5aea0cc
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Performance/wafsg-ExpressrouteGatewaySize.yaml

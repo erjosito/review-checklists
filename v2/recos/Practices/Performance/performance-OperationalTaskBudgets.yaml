@@ -1,0 +1,41 @@
+schemaVersion: 1
+id: 0f62530d-f4e5-5687-bba9-8da9e63af7cd
+name: performance-OperationalTaskBudgets
+title: Budget and measure the performance impact of routine operational tasks
+description: Inventory deployments, patching, security scans, secret/certificate rotation, backups and
+  database maintenance that share workload resources. Include their overhead in performance budgets and
+  test overlap with user traffic. Schedule or throttle work where possible, prewarm deployment capacity
+  and preserve required security and recovery controls. Keep current serving capacity during rollout,
+  define rollback and compare latency/throughput before and after changes. Record the measurement and
+  owner; configuration inventory cannot establish the operational performance impact.
+severity: 1
+waf: Performance
+source:
+  type: curated
+  url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/optimize-operational-tasks
+resourceTypes: []
+services: []
+queries: {}
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/optimize-operational-tasks
+    title: Architecture strategies for optimizing operational tasks
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/checklist
+    title: Design review checklist for Performance Efficiency
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:10
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-operational-tasks
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:7bd0f084b1c7f304041aab7cc53b7c5e6e01ed8aa09e42ff047c913afd94318b
+    notes: New operational-task budget explicitly covers lifecycle and routine scans, rotation, backups,
+      database maintenance and deployments, with measurement and minimization of performance overhead.
+      Full applies only to the checklist statement.

@@ -23,3 +23,13 @@ labels:
   guid: ff1f7368-9980-4cf5-bfe0-31ebae0ebc7e
 links: []
 queries: {}
+schemaVersion: 1
+id: ff1f7368-9980-4cf5-bfe0-31ebae0ebc7e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

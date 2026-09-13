@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/event-hubs/event-hubs-geo-dr?tabs=portal
 queries: {}
+schemaVersion: 1
+id: dc15a1c0-75ee-49f1-90ac-ccd579376bcd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

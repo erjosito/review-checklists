@@ -12,3 +12,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/sap/large-instances/hana-monitor-troubleshoot
 queries: {}
+schemaVersion: 1
+id: 9e9bb4c8-e934-4e4b-a13c-6f7c7c38eb43
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

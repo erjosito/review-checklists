@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
 queries: {}
+schemaVersion: 1
+id: cacf55bc-e4e4-46be-96bc-57a5f23a269a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,13 +1,14 @@
 name: aprl-AzureKubernetesServiceAzureBackup
 title: Back up Azure Kubernetes Service
-description: |-
-  AKS, popular for stateful apps needing backups, can now use Azure Backup to secure clusters and attached volumes through an installed Backup Extension, enabling backup and restore operations via a Backup Vault.
+description: AKS, popular for stateful apps needing backups, can now use Azure Backup to secure clusters
+  and attached volumes through an installed Backup Extension, enabling backup and restore operations via
+  a Backup Vault.
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 2
 labels:
   guid: 269a9f1a-6675-460a-831e-b05a887a8c4b
@@ -29,3 +30,31 @@ queries:
     | where protectionState != 'ProtectionConfigured'
     | extend param1 = iif(isnull(protectionState), 'Protection Not Configured', strcat('Protection State: ', protectionState))
     | project recommendationId = "269a9f1a-6675-460a-831e-b05a887a8c4b", name, id, tags, param1
+schemaVersion: 1
+id: 269a9f1a-6675-460a-831e-b05a887a8c4b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL 269a9f1a-6675-460a-831e-b05a887a8c4b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 269a9f1a-6675-460a-831e-b05a887a8c4b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:46b423cda16c47ba7eb744847423d4cb7c9fef741d0ad68fa3dd73be4df2fcd7
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

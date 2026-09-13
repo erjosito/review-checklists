@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/example-scenario/bedrock/bedrock-automated-deployments
 queries: {}
+schemaVersion: 1
+id: 0102ce16-ee30-41e6-b882-e52e4621dd68
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

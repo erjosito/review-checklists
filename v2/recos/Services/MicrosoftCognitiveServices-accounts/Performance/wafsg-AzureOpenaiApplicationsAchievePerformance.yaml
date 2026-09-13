@@ -1,9 +1,9 @@
 name: wafsg-AzureOpenaiApplicationsAchievePerformance
-title: 'Achieve performance: For applications like chatbots or conversational interfaces,
-  consider implementing streaming. Streaming can enhance the perceived performance
-  of Azure OpenAI applications by delivering responses to users in an incremental
-  manner, improving the user experience.'
-description: ''
+title: Use streaming when incremental Azure OpenAI responses improve user experience
+description: For interactive applications, measure time to first token, time between tokens and total
+  response time. Streaming exposes tokens as they become available; it does not guarantee a shorter time
+  to generate the complete answer. Check intermediary buffering and client timeouts using representative
+  requests.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -16,3 +16,16 @@ labels:
   guid: 3bbf1b68-e6d6-475b-9406-9271cdee6454
 links: []
 queries: {}
+schemaVersion: 1
+id: 3bbf1b68-e6d6-475b-9406-9271cdee6454
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/ai-foundry/openai/how-to/latency
+    title: Performance and latency
+    accessedAt: '2026-09-11'

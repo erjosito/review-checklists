@@ -1,10 +1,10 @@
 name: revcl-GithubAzureDevopsIntegrationArmTemplates
-title: 'Use DevOps to Backup the ARM templates with Github/Azure DevOps integration '
+title: Version and test redeployment of Data Factory v2 configuration with Git and CI/CD
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.datafactory/datafactories
+- microsoft.datafactory/factories
 waf: Reliability
 severity: 1
 labels:
@@ -13,3 +13,38 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/data-factory/source-control
 queries: {}
+schemaVersion: 1
+id: 9ef1d6e8-32e5-42e3-911c-818b1a0bc511
+services:
+- Data Factory
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/analytics#microsoftdatafactory
+    title: Azure permissions for Analytics - Azure RBAC
+    accessedAt: '2026-09-13'
+  - url: https://raw.githubusercontent.com/Azure/Azure-DataFactory/ce4c9cab41e5e4fa66f4bddd042cab649c36a4ca/V1-V2Migration/ADFV1toV2Conversion.md
+    title: 'Tutorial: Migrate your V1 Azure Data Factory to V2'
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.datafactory/factories
+    title: Microsoft.DataFactory/factories - Bicep, ARM template & Terraform AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/data-factory/source-control
+    title: Source control - Azure Data Factory
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/data-factory/secure-your-azure-data-factory
+    title: Secure your Azure Data Factory deployment - Azure Data Factory
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-data-factory
+    title: Reliability in Azure Data Factory
+    accessedAt: '2026-09-13'
+description: Use Azure Repos or GitHub integration on the development data factory to retain reviewed
+  pipeline, dataset, linked-service and trigger definitions, and use CI/CD to deploy tested artifacts
+  to recovery, test and production factories. Retain the factory infrastructure definition and account
+  for deployment parameters, secrets and dependencies separately. Verify that the recorded artifacts can
+  restore the intended configuration; Git integration is not a backup of the data being processed or of
+  changes made directly outside Git.

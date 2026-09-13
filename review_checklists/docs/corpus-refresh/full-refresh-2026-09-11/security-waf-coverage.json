@@ -1,0 +1,955 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "waf-security-checklist",
+  "title": "WAF Security checklist",
+  "scope": "All numbered rows in the English WAF Security design review checklist",
+  "unit": "published-checklist-row",
+  "asOf": "2026-09-11",
+  "retrievedAt": "2026-09-11T18:16:24.425965Z",
+  "upstreamRevision": "1df1c6023e01032c7be0013b086379c176827b1c",
+  "inventoryStatus": "complete",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/well-architected/security/checklist"
+  ],
+  "observedCount": 12,
+  "denominator": 12,
+  "counts": {
+    "full": 1,
+    "partial": 9,
+    "stale": 0,
+    "supporting": 0,
+    "unknown": 2
+  },
+  "coveragePercent": 8.33,
+  "partialPercent": 75.0,
+  "reason": null,
+  "assessmentBasis": "Recorded explicit ID mappings with matching content hashes; not independent human semantic review.",
+  "limitations": [
+    "Checklist rows only, not all Security guidance paragraphs or service guides.",
+    "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+    "Explicit ID mapping is not human semantic review."
+  ],
+  "items": [
+    {
+      "id": "SE:01",
+      "title": "Establish a security baseline",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/establish-baseline",
+      "contentHash": "sha256:928240eef3091d4b3d3756ff803c7d5aa7a8580d7d1d023dedf1d2a885640b85",
+      "state": "partial",
+      "corpusIds": [
+        "44ba257f-d6b6-4eed-b5a1-eff3dcb027e8"
+      ],
+      "assessments": [
+        {
+          "corpusId": "44ba257f-d6b6-4eed-b5a1-eff3dcb027e8",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/establish-baseline",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        }
+      ]
+    },
+    {
+      "id": "SE:02",
+      "title": "Align secure development lifecycle (SDL) throughout the software development lifecycle",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/secure-development-lifecycle",
+      "contentHash": "sha256:88eebece884c081cecd9b710b3d6b968654182381206b94c62f8bc9059ac42cb",
+      "state": "unknown",
+      "corpusIds": [],
+      "assessments": []
+    },
+    {
+      "id": "SE:03",
+      "title": "Classify and consistently apply sensitivity and information type labels",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/data-classification",
+      "contentHash": "sha256:398cf0318d0f06b70e58e14d9020d8195052bcd16ccc394b5120d922decff7fb",
+      "state": "unknown",
+      "corpusIds": [],
+      "assessments": []
+    },
+    {
+      "id": "SE:04",
+      "title": "Create intentional segmentation and perimeters",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation",
+      "contentHash": "sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788",
+      "state": "partial",
+      "corpusIds": [
+        "6ad48408-ee72-4734-a475-ba18fdbf590c",
+        "dbeebd4f-c94a-4060-a2ac-c523b3e64a3d"
+      ],
+      "assessments": [
+        {
+          "corpusId": "6ad48408-ee72-4734-a475-ba18fdbf590c",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "dbeebd4f-c94a-4060-a2ac-c523b3e64a3d",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        }
+      ]
+    },
+    {
+      "id": "SE:05",
+      "title": "Implement strict, conditional, and auditable identity and access management (IAM)",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+      "contentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+      "state": "partial",
+      "corpusIds": [
+        "01365d38-e43f-49cc-ad86-8266abca264f",
+        "02be562a-9a28-4e56-94a3-a3671dd382fc",
+        "1049d403-a923-4c34-94d0-0018ac6a9e01",
+        "14658d35-58fd-4772-99b8-21112df27ee4",
+        "14bc5ea3-400b-4bbf-9187-f0b21505173d",
+        "35037e68-9349-4c15-b371-228514f4cdff",
+        "387e5ced-126c-4d13-8af5-b20c6998a646",
+        "4348bf81-7573-4512-8f46-9061cc198fea",
+        "44059f81-2473-4325-ad67-70df146e1f5d",
+        "53e8908a-e28c-484c-93b6-b7808b9fe5c4",
+        "5bb8daca-fde8-45bf-82f6-e55cdb28da05",
+        "984a859c-773e-47d2-9162-3a765a917e1f",
+        "9f89dc7b-33be-42a1-a27f-7b9e91be1f38",
+        "ad53cc7c-e1d7-4aaa-a357-1449ab8053d8",
+        "d2e0d5d7-71d4-41e3-910c-c57b4a4b1410",
+        "d4d1ad54-1abc-4919-b267-3f342d3b49e4",
+        "d505ebcb-79b1-4274-9c0d-a27c8bea489c",
+        "d9a25827-18d2-4ddb-8072-5769ee6691a4",
+        "f4dcf690-1b30-407d-abab-6f8aa780d3a3",
+        "f574eccc-d9bd-43ba-bcda-3b54eb2eb03d",
+        "fd7f29a7-ae31-4983-8510-e219a25cfdfc"
+      ],
+      "assessments": [
+        {
+          "corpusId": "01365d38-e43f-49cc-ad86-8266abca264f",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "02be562a-9a28-4e56-94a3-a3671dd382fc",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "1049d403-a923-4c34-94d0-0018ac6a9e01",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "14658d35-58fd-4772-99b8-21112df27ee4",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "14bc5ea3-400b-4bbf-9187-f0b21505173d",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "35037e68-9349-4c15-b371-228514f4cdff",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "387e5ced-126c-4d13-8af5-b20c6998a646",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "4348bf81-7573-4512-8f46-9061cc198fea",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "44059f81-2473-4325-ad67-70df146e1f5d",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "53e8908a-e28c-484c-93b6-b7808b9fe5c4",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "5bb8daca-fde8-45bf-82f6-e55cdb28da05",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "984a859c-773e-47d2-9162-3a765a917e1f",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "9f89dc7b-33be-42a1-a27f-7b9e91be1f38",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "ad53cc7c-e1d7-4aaa-a357-1449ab8053d8",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "d2e0d5d7-71d4-41e3-910c-c57b4a4b1410",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "d4d1ad54-1abc-4919-b267-3f342d3b49e4",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "d505ebcb-79b1-4274-9c0d-a27c8bea489c",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "d9a25827-18d2-4ddb-8072-5769ee6691a4",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "f4dcf690-1b30-407d-abab-6f8aa780d3a3",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "f574eccc-d9bd-43ba-bcda-3b54eb2eb03d",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "fd7f29a7-ae31-4983-8510-e219a25cfdfc",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        }
+      ]
+    },
+    {
+      "id": "SE:06",
+      "title": "Isolate, filter, and control network traffic",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+      "contentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+      "state": "partial",
+      "corpusIds": [
+        "58d7c892-ddb1-407d-9769-ae669ca48e4a",
+        "6c46b91a-1107-4485-ad66-3183e2a8c266",
+        "703d13a6-d768-443b-b9f9-4e31d74767f9",
+        "85e2223e-ce8b-4b12-907c-a5f16f158e3e",
+        "b3a2f115-8ee1-401e-a939-f4406b43b460",
+        "baf8e317-2397-4d49-b3d1-0dcc16d8778d",
+        "cdb3751a-b2ab-413a-ba6e-55d7d8a2adb1",
+        "ce7f2a7c-297c-47c6-adea-a6ff838db665",
+        "d1008f3b-5c0d-42ff-8513-fcd6b064fc5d"
+      ],
+      "assessments": [
+        {
+          "corpusId": "58d7c892-ddb1-407d-9769-ae669ca48e4a",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "6c46b91a-1107-4485-ad66-3183e2a8c266",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "703d13a6-d768-443b-b9f9-4e31d74767f9",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "85e2223e-ce8b-4b12-907c-a5f16f158e3e",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "b3a2f115-8ee1-401e-a939-f4406b43b460",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "baf8e317-2397-4d49-b3d1-0dcc16d8778d",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "cdb3751a-b2ab-413a-ba6e-55d7d8a2adb1",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "ce7f2a7c-297c-47c6-adea-a6ff838db665",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "d1008f3b-5c0d-42ff-8513-fcd6b064fc5d",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        }
+      ]
+    },
+    {
+      "id": "SE:07",
+      "title": "Encrypt data by using modern, industry-standard methods",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+      "contentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+      "state": "partial",
+      "corpusIds": [
+        "a07d96be-b231-444c-8b2e-3123950de82f",
+        "b03ed428-4617-4067-a787-85468b9ccf3f",
+        "b174e3db-c952-4b33-a72e-874f60a0f671",
+        "b9cbb598-dcaa-431a-bae0-f8a7909f577b",
+        "c115775c-2ea5-45b4-9ad4-8408ee72734b",
+        "e7a8dc4a-20e2-47c3-b297-11b1352beee0",
+        "ef64b1c3-a41f-4913-8ac4-27be04d96d10"
+      ],
+      "assessments": [
+        {
+          "corpusId": "a07d96be-b231-444c-8b2e-3123950de82f",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "b03ed428-4617-4067-a787-85468b9ccf3f",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "b174e3db-c952-4b33-a72e-874f60a0f671",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "b9cbb598-dcaa-431a-bae0-f8a7909f577b",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "c115775c-2ea5-45b4-9ad4-8408ee72734b",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "e7a8dc4a-20e2-47c3-b297-11b1352beee0",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "ef64b1c3-a41f-4913-8ac4-27be04d96d10",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        }
+      ]
+    },
+    {
+      "id": "SE:08",
+      "title": "Harden all workload components",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+      "contentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+      "state": "partial",
+      "corpusIds": [
+        "0148ed98-3b9a-4b7f-81c2-8b550f56f793",
+        "114b933d-f574-4ecc-ad9b-d3bafcda3b54",
+        "3195423b-0513-45e2-951b-87f9c5d534b0",
+        "4133fafa-441c-4d27-bfd1-f76a58ab6620",
+        "5398e6de-d227-4dd1-92b0-6c21d7999a64",
+        "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+        "68266abc-a264-4f9a-89ae-d9c55d04c2c3",
+        "78fd4f02-98f6-459c-882c-5f0d659a2251",
+        "829e2edb-2173-4676-aff6-691b4935ada4",
+        "d63a7c58-a495-4ff3-a164-88e8eac4febf",
+        "d9bd3baf-cda3-4b54-bb2e-b03dd9a25827"
+      ],
+      "assessments": [
+        {
+          "corpusId": "0148ed98-3b9a-4b7f-81c2-8b550f56f793",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "114b933d-f574-4ecc-ad9b-d3bafcda3b54",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "3195423b-0513-45e2-951b-87f9c5d534b0",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "4133fafa-441c-4d27-bfd1-f76a58ab6620",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "5398e6de-d227-4dd1-92b0-6c21d7999a64",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "68266abc-a264-4f9a-89ae-d9c55d04c2c3",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "78fd4f02-98f6-459c-882c-5f0d659a2251",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "829e2edb-2173-4676-aff6-691b4935ada4",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "d63a7c58-a495-4ff3-a164-88e8eac4febf",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "d9bd3baf-cda3-4b54-bb2e-b03dd9a25827",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        }
+      ]
+    },
+    {
+      "id": "SE:09",
+      "title": "Protect application secrets",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+      "contentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+      "state": "partial",
+      "corpusIds": [
+        "028a71ff-e1ce-415d-b3f0-d5e772d41e36",
+        "0545fb6c-0662-4ffd-8834-7d4d4ac7f2bb",
+        "11cc57b4-a4b1-4410-b439-58a8c2289b3d",
+        "2223ece8-1b12-4318-8a54-17415833fb4a",
+        "27138b82-1102-4cac-9eae-01e6e842e52f",
+        "2ba52752-6944-4008-ae7d-7e4843276d8b",
+        "352beee0-79b5-488d-bfc4-972cd3cd21bf",
+        "4721d928-c1b1-4cd5-81e5-4a29a9de399c",
+        "4935ada4-2223-4ece-a1b1-23181a541741",
+        "4ac6b67c-b3a4-4ff9-8e87-b07a7ce7bbdb",
+        "5017f154-e3ab-4369-9829-e7e316183687",
+        "55461e1a-3e34-453a-9c86-39648b652d6c",
+        "59402f53-7298-4295-b919-609d8fc73876",
+        "6b4bed3d-5035-447c-8347-dc56028a71ff",
+        "77036e5e-6b4b-4ed3-b503-547c1347dc56",
+        "833ea3ad-2c2d-4e73-8165-c3acbef4abe1",
+        "834ac932-223e-4ce8-8b12-3071a5416415",
+        "91163418-2ba5-4275-8694-4008be7d7e48",
+        "913156a1-2476-4e49-b541-acdce979377b",
+        "a0477a20-9945-4bda-9333-4f2491163418",
+        "ce9bd3bb-0cdb-43b5-9eb2-ec14eeaa3592",
+        "dc055bcf-619e-48a1-9f98-879525d62688"
+      ],
+      "assessments": [
+        {
+          "corpusId": "028a71ff-e1ce-415d-b3f0-d5e772d41e36",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "0545fb6c-0662-4ffd-8834-7d4d4ac7f2bb",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "11cc57b4-a4b1-4410-b439-58a8c2289b3d",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "2223ece8-1b12-4318-8a54-17415833fb4a",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "27138b82-1102-4cac-9eae-01e6e842e52f",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "2ba52752-6944-4008-ae7d-7e4843276d8b",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "352beee0-79b5-488d-bfc4-972cd3cd21bf",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "4721d928-c1b1-4cd5-81e5-4a29a9de399c",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "4935ada4-2223-4ece-a1b1-23181a541741",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "4ac6b67c-b3a4-4ff9-8e87-b07a7ce7bbdb",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "5017f154-e3ab-4369-9829-e7e316183687",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "55461e1a-3e34-453a-9c86-39648b652d6c",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "59402f53-7298-4295-b919-609d8fc73876",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "6b4bed3d-5035-447c-8347-dc56028a71ff",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "77036e5e-6b4b-4ed3-b503-547c1347dc56",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "833ea3ad-2c2d-4e73-8165-c3acbef4abe1",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "834ac932-223e-4ce8-8b12-3071a5416415",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "91163418-2ba5-4275-8694-4008be7d7e48",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "913156a1-2476-4e49-b541-acdce979377b",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "a0477a20-9945-4bda-9333-4f2491163418",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "ce9bd3bb-0cdb-43b5-9eb2-ec14eeaa3592",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "dc055bcf-619e-48a1-9f98-879525d62688",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        }
+      ]
+    },
+    {
+      "id": "SE:10",
+      "title": "Implement a holistic monitoring strategy",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+      "contentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+      "state": "partial",
+      "corpusIds": [
+        "09945bda-4333-44f2-9911-634182ba5275",
+        "1c90ec2a-85e3-400e-8937-22686ac115b8",
+        "603bf106-42e6-43d3-a8e0-4470d05093b9",
+        "def198c3-8a34-4d8f-8e46-91b6f36064ab"
+      ],
+      "assessments": [
+        {
+          "corpusId": "09945bda-4333-44f2-9911-634182ba5275",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "1c90ec2a-85e3-400e-8937-22686ac115b8",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "603bf106-42e6-43d3-a8e0-4470d05093b9",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        },
+        {
+          "corpusId": "def198c3-8a34-4d8f-8e46-91b6f36064ab",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        }
+      ]
+    },
+    {
+      "id": "SE:11",
+      "title": "Establish a comprehensive testing regimen",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/test",
+      "contentHash": "sha256:56032a34dbdb70e37543fced61b3650916bd286d6d6f8930d5ef3aca09b86f33",
+      "state": "partial",
+      "corpusIds": [
+        "eb2eb03d-d9a2-4582-918d-2ddb10725769"
+      ],
+      "assessments": [
+        {
+          "corpusId": "eb2eb03d-d9a2-4582-918d-2ddb10725769",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/test",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+        }
+      ]
+    },
+    {
+      "id": "SE:12",
+      "title": "Define and test effective incident response procedures",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/incident-response",
+      "contentHash": "sha256:0a63290261c2ee8eef765125524a8205d249ab001156046c2878467b57900c49",
+      "state": "full",
+      "corpusIds": [
+        "b86ad884-08e3-4727-94b8-75ba18f20459"
+      ],
+      "assessments": [
+        {
+          "corpusId": "b86ad884-08e3-4727-94b8-75ba18f20459",
+          "coverage": "full",
+          "state": "full",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/incident-response",
+          "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. Workload-wide owned incident response covers localized through disaster-recovery scenarios and procedure testing."
+        }
+      ]
+    }
+  ],
+  "referencesOutsideInventory": [],
+  "reviewStatus": "LLM-assisted draft semantic mappings; not independent human review or live compliance.",
+  "corpusScope": "565 frozen Security non-APRL records only; unmapped means no verified mapping in this slice, not no coverage anywhere in the corpus."
+}

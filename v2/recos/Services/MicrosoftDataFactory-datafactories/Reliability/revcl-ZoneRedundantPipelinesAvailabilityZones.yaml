@@ -1,10 +1,10 @@
 name: revcl-ZoneRedundantPipelinesAvailabilityZones
-title: Use zone redundant pipelines in regions that support Availability Zones
+title: Verify component-specific zone resilience for Data Factory v2 pipelines and integration runtimes
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.datafactory/datafactories
+- microsoft.datafactory/factories
 waf: Reliability
 severity: 0
 labels:
@@ -13,3 +13,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery
 queries: {}
+schemaVersion: 1
+id: e503547c-d447-4e82-9138-a7200f1cac6d
+services:
+- Data Factory
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/analytics#microsoftdatafactory
+    title: Azure permissions for Analytics - Azure RBAC
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.datafactory/factories
+    title: Microsoft.DataFactory/factories - Bicep, ARM template & Terraform AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-data-factory
+    title: Reliability in Azure Data Factory
+    accessedAt: '2026-09-13'
+description: In regions that support availability zones, the Data Factory core service and Azure integration
+  runtime provide Microsoft-managed zone redundancy without a pipeline setting. For Azure-SSIS IR, use
+  at least two nodes for automatic distribution across zones; for SHIR, provide customer-managed resilient
+  compute across zones. Account for dependent data stores and the documented tumbling-window trigger-state
+  caveat, and design retried activities to be idempotent. Do not interpret a factory's region alone as
+  proof that every pipeline dependency is zone-resilient.

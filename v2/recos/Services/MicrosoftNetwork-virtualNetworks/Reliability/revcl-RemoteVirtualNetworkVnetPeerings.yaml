@@ -17,3 +17,14 @@ queries:
   arg: resources | where type == 'microsoft.network/virtualnetworks' | mvexpand properties.virtualNetworkPeerings
     | project id, peeringName=properties_virtualNetworkPeerings.name, compliant =
     (properties_virtualNetworkPeerings.properties.allowVirtualNetworkAccess == True)
+schemaVersion: 1
+id: c76cb5a2-abe2-11ed-afa1-0242ac120002
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

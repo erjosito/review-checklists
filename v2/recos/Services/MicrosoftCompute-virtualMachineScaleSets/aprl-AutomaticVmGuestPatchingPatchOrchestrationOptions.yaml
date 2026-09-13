@@ -1,13 +1,14 @@
 name: aprl-AutomaticVmGuestPatchingPatchOrchestrationOptions
 title: Set Patch orchestration options to Azure-orchestrated
-description: |-
-  Enabling automatic VM guest patching eases update management by safely, automatically patching virtual machines to maintain security compliance, while limiting blast radius of VMs. Note, the KQL will not return sets using Uniform orchestration.
+description: Enabling automatic VM guest patching eases update management by safely, automatically patching
+  virtual machines to maintain security compliance, while limiting blast radius of VMs. Note, the KQL
+  will not return sets using Uniform orchestration.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachineScaleSets
+- microsoft.compute/virtualmachinescalesets
 severity: 2
 labels:
   guid: e4ffd7b0-ba24-c84e-9352-ba4819f908c0
@@ -37,3 +38,34 @@ queries:
     | extend recommendationId = "e4ffd7b0-ba24-c84e-9352-ba4819f908c0", param1 = "patchMode: Manual", vmproperties.osProfile.windowsConfiguration.patchSettings.patchMode
     | where isnotnull(vmproperties.osProfile.windowsConfiguration) and vmproperties.osProfile.windowsConfiguration.patchSettings.patchMode !in ("AutomaticByPlatform", "AutomaticByOS")
     | distinct recommendationId, name, id, param1)
+schemaVersion: 1
+id: e4ffd7b0-ba24-c84e-9352-ba4819f908c0
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    title: 'APRL e4ffd7b0-ba24-c84e-9352-ba4819f908c0: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: e4ffd7b0-ba24-c84e-9352-ba4819f908c0
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:a7f07afca9d6ec40ccc213d7355f40d548d31d7e1ed29647858e1ce8265423df
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

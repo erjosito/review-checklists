@@ -1,13 +1,13 @@
 name: aprl-SecureInternetConnectionsSnatPortExhaustion
 title: Use NAT gateway for outbound connectivity to avoid SNAT Exhaustion
-description: |-
-  Prevent connectivity failures due to SNAT port exhaustion by employing NAT gateway for outbound traffic from virtual networks, ensuring dynamic scaling and secure internet connections.
+description: Prevent connectivity failures due to SNAT port exhaustion by employing NAT gateway for outbound
+  traffic from virtual networks, ensuring dynamic scaling and secure internet connections.
 source:
   type: aprl
   file: azure-resources/Network/publicIPAddresses/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/publicIPAddresses
+- microsoft.network/publicipaddresses
 severity: 1
 labels:
   guid: 1adba190-5c4c-e646-8527-dd1b2a6d8b15
@@ -21,3 +21,31 @@ queries:
     | where type =~ 'Microsoft.Network/publicIPAddresses'
     | where tostring(properties.ipConfiguration.id) contains "microsoft.network/networkinterfaces"
     | project recommendationId="1adba190-5c4c-e646-8527-dd1b2a6d8b15", name, id, tags, param1=strcat("Migrate from instance IP to NAT Gateway")
+schemaVersion: 1
+id: 1adba190-5c4c-e646-8527-dd1b2a6d8b15
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/publicIPAddresses/recommendations.yaml
+    title: 'APRL 1adba190-5c4c-e646-8527-dd1b2a6d8b15: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1adba190-5c4c-e646-8527-dd1b2a6d8b15
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/publicIPAddresses/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:8142a70a31fe968aba825cdb78bb63f0cb0569b4f035dacdaa56496ff6816868
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

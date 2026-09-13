@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/sap/workloads/hana-vm-premium-ssd-v1
 queries: {}
+schemaVersion: 1
+id: 71dc00cd-4392-4262-8949-20c05e6c0333
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

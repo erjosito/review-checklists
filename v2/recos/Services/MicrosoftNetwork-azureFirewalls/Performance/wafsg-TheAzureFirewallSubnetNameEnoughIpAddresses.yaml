@@ -1,12 +1,8 @@
 name: wafsg-TheAzureFirewallSubnetNameEnoughIpAddresses
-title: Configure an Azure Firewall subnet (AzureFirewallSubnet) with a /26 address
-  space.
-description: Azure Firewall is a dedicated deployment in your virtual network. Within
-  your virtual network, a dedicated subnet is required for the instance of Azure Firewall.
-  Azure Firewall provisions more capacity as it scales.A /26 address space for its
-  subnets ensures that the firewall has enough IP addresses available to accommodate
-  the scaling. Azure Firewall doesn't need a subnet bigger than /26. The Azure Firewall
-  subnet name must be AzureFirewallSubnet.
+title: Reserve at least a /26 AzureFirewallSubnet for Azure Firewall scaling
+description: Use the required AzureFirewallSubnet name and reserve enough usable addresses for the deployment
+  and scaling. The service guide recommends /26; this is a sizing baseline, not an instruction to shrink
+  a larger existing subnet. Review current deployment and any management-subnet requirements before changes.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -18,3 +14,16 @@ labels:
   guid: d1510802-2f00-4995-8a04-fbebce7fe966
 links: []
 queries: {}
+schemaVersion: 1
+id: d1510802-2f00-4995-8a04-fbebce7fe966
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall
+    title: Architecture best practices for Azure Firewall
+    accessedAt: '2026-09-11'

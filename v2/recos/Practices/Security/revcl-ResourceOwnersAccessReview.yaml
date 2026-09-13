@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/governance/management-groups/overview
 queries: {}
+schemaVersion: 1
+id: 49b82111-2df2-47ee-912e-7f983f630472
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

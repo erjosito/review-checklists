@@ -1,11 +1,9 @@
 name: wafsg-BlobRestOperationsBlobStorage
-title: 'Optimize the performance of custom code: Consider using Storage SDKs instead
-  of creating your own wrappers for blob REST operations. Azure SDKs are optimized
-  for performance and provide mechanisms to fine-tune performance. Before creating
-  an application, review the performance and scalability checklist for Blob Storage.
-  Consider using query acceleration to filter out unwanted data during the storage
-  request and keep clients from needlessly transferring data across the network.'
-description: ''
+title: Use current Azure Storage SDKs and bounded transfer concurrency
+description: Prefer maintained Storage client libraries and tune parallel transfers to client/network
+  capability and storage performance targets. Use bounded exponential backoff for transient failures and
+  server-side copy APIs where suitable. Test throughput, latency and throttling. Do not assume an old
+  query-acceleration feature is universally available or appropriate.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-blob-storage.md
@@ -18,3 +16,25 @@ labels:
   guid: faea0cea-49d5-462b-bece-94cca446b10a
 links: []
 queries: {}
+schemaVersion: 1
+id: faea0cea-49d5-462b-bece-94cca446b10a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/blobs/storage-performance-checklist-developers
+    title: Performance checklist for Blob Storage developers
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:07
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-code-infrastructure
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5e901d67902505c3ed187e6b0beeb318f277d1deab669a6c343f919dd3491701
+    notes: Blob SDKs, bounded concurrency and server-side copies address efficient code/platform use for
+      storage clients, not all code and infrastructure.

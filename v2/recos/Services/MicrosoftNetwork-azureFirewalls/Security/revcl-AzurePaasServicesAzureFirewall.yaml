@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/implement-network-security/?source=learn
 queries: {}
+schemaVersion: 1
+id: 7e7a8ed4-b30e-438c-9f29-812b2363cefe
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

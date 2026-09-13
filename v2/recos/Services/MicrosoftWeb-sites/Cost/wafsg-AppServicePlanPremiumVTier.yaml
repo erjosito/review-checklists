@@ -1,20 +1,70 @@
 name: wafsg-AppServicePlanPremiumVTier
-title: '(App Service plan) Take advantage of discounts and explore preferred pricing
-  for:  - Lower environments with dev/test plans.  - Azure reservations and Azure
-  savings plans for dedicated compute that you provision in the Premium V3 tier and
-  App Service Environment.  Use reserved instances for stable workloads that have
-  predictable usage patterns.'
-description: Dev/test plans provide reduced rates for Azure services, which makes
-  them cost-effective for nonproduction environments.  Use reserved instances to prepay
-  for compute resources and get significant discounts.
+title: Review eligible App Service commitment and Dev/Test pricing
+description: After sizing and consolidating plans where appropriate, compare current eligible App Service
+  reservations, compute savings plans and Dev/Test terms. Use representative usage, actual prices and
+  current SKU eligibility; avoid assuming only Premium v3 supports relevant discounts. Review utilization,
+  benefit scope and future demand before committing.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
 resourceTypes:
-- microsoft.web/sites
+- microsoft.web/serverfarms
 waf: Cost
 severity: 1
 labels:
   guid: 1572941a-e08a-4d0c-bae6-5af048bbcc2a
 links: []
-queries: {}
+queries:
+  arg: |-
+    AdvisorResources
+    | where type =~ 'microsoft.advisor/recommendations'
+    | where properties.category =~ 'Cost'
+    | where tostring(properties.recommendationTypeId) in~ ('5b8ddf04-be28-44ec-ab2c-a63a34d1de13')
+    | project id, subscriptionId, resourceGroup,
+        targetResourceId = tostring(properties.resourceMetadata.resourceId),
+        impactedField = tostring(properties.impactedField),
+        recommendationTypeId = tostring(properties.recommendationTypeId),
+        impact = tostring(properties.impact),
+        problem = tostring(properties.shortDescription.problem),
+        solution = tostring(properties.shortDescription.solution),
+        lastUpdated = tostring(properties.lastUpdated),
+        extendedProperties = properties.extendedProperties
+schemaVersion: 1
+id: 1572941a-e08a-4d0c-bae6-5af048bbcc2a
+services:
+- Azure App Service
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Inventory of Advisor-issued cost opportunities. The recommendation ID is id; the affected resource is targetResourceId. A row is not a policy violation and absence is not a pass.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Advisor recommendations depend on service coverage, telemetry, configured lookback and recommendation freshness; review dismissals/postponements in Advisor. Published recommendationTypeId values are used verbatim; no inferred IDs or text matching. IDs and coverage can evolve. Savings fields vary by recommendation. Preserve extendedProperties rather than assume a universal monthly/annual field; do not sum overlapping opportunities or mixed currencies/time horizons. Advisor estimates may not reflect existing reservations, savings plans, negotiated rates or operational constraints. Do not inner-join to Resources: subscription-level commitments and some affected child resources would be lost.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation
+    title: Decide between a savings plan and a reservation
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'

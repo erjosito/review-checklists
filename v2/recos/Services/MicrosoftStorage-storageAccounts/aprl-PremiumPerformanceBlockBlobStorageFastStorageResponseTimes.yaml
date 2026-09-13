@@ -1,18 +1,48 @@
 name: aprl-PremiumPerformanceBlockBlobStorageFastStorageResponseTimes
 title: Use premium performance block blob storage for high performance workloads
-description: |-
-  Use premium performance block blob storage instead of standard performance storage for workloads that require fast storage response times and/or high transaction rates.
+description: Use premium performance block blob storage instead of standard performance storage for workloads
+  that require fast storage response times and/or high transaction rates.
 source:
   type: aprl
   file: azure-resources/Storage/storageAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Storage/storageAccounts
+- microsoft.storage/storageaccounts
 severity: 1
 labels:
   guid: 5587ef77-7a05-a74d-9c6e-449547a12f27
   area: Scalability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 5587ef77-7a05-a74d-9c6e-449547a12f27
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    title: 'APRL 5587ef77-7a05-a74d-9c6e-449547a12f27: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 5587ef77-7a05-a74d-9c6e-449547a12f27
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:387336918b50717678f9426c82a0274294c9d702b077822537bb2bbea34f32fb
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

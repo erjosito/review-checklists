@@ -1,8 +1,9 @@
 name: wafsg-SecureTransferStorageAccounts
-title: 'Enable the secure transfer required option: Enabling this setting for all
-  your storage accounts ensures that all requests made against the storage account
-  must take place over secure connections. Any requests made over HTTP fail.'
-description: ''
+title: Require HTTPS for Storage REST access and assess file-protocol encryption independently.
+description: Enable Secure transfer required to reject unencrypted REST requests. For Azure Files, review
+  the separate SMB and NFS Require encryption in transit controls and the creation-tool-dependent defaults.
+  Do not infer protection of every protocol solely from the storage-account setting; verify each enabled
+  protocol and its clients.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-blob-storage.md
@@ -15,3 +16,32 @@ labels:
   guid: b174e3db-c952-4b33-a72e-874f60a0f671
 links: []
 queries: {}
+schemaVersion: 1
+id: b174e3db-c952-4b33-a72e-874f60a0f671
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/common/storage-require-secure-transfer
+    title: Require secure transfer to ensure secure connections
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/storage/files/files-nfs-protocol
+    title: NFS file shares in Azure Files
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:07
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/encryption
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

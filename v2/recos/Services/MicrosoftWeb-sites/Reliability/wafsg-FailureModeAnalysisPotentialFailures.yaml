@@ -1,7 +1,9 @@
 name: wafsg-FailureModeAnalysisPotentialFailures
-title: 'Anticipate potential failures: Plan mitigation strategies for potential failures.
-  The following table shows examples of failure mode analysis.'
-description: ''
+title: Perform failure mode analysis for App Service and its dependencies
+description: Identify failure points in hosting instances, external services, networking and storage,
+  and document detection and mitigation for each critical flow. Include timeouts, retries and circuit
+  breakers for dependencies, component redundancy and health-based routing. Keep the analysis current
+  as deployment topology and dependencies change.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -14,3 +16,28 @@ labels:
   guid: f5e1c56f-e3a8-4dbd-b235-fdb88c41216d
 links: []
 queries: {}
+schemaVersion: 1
+id: f5e1c56f-e3a8-4dbd-b235-fdb88c41216d
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist
+    title: Design review checklist for Reliability
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:03
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:84b3ed7c3450a92120b7957150c542cd05597415cabaccedf367fe8b94c42eb9
+    notes: Failure points, dependencies, critical-flow detection and mitigation are explicit, but only
+      for App Service workloads.

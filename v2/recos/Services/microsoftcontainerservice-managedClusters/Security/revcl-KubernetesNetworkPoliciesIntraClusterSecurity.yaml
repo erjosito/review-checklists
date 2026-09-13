@@ -1,5 +1,5 @@
 name: revcl-KubernetesNetworkPoliciesIntraClusterSecurity
-title: Use Kubernetes network policies to increase intra-cluster security
+title: Use supported AKS network policies and test the intended pod-traffic boundaries.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,35 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/operator-best-practices-network
 queries: {}
+schemaVersion: 1
+id: 85e2223e-ce8b-4b12-907c-a5f16f158e3e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/use-network-policies
+    title: Secure traffic between pods with network policies in Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/networking
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Define policies for the required ingress and egress flows and test both allowed and denied
+  communication. Prefer Azure CNI Powered by Cilium for supported Linux deployments; choose an engine
+  compatible with the node operating system and network model. Plan migration before Azure NPM support
+  ends on September 30, 2026 for Windows or September 30, 2028 for Linux. Engine presence alone does not
+  prove policies exist or enforce the intended boundaries, and service address translation can affect
+  observed source and destination addresses.

@@ -1,0 +1,31 @@
+{
+  "asOf": "2026-09-11",
+  "bundleVersion": "performance-lineage-2026.09.11",
+  "bundleContentHash": "sha256:fb986eb8a0e301d970bf3d47a083723437ab695621dbb8236ed4813de38d4d2c",
+  "bundleRecommendationCount": 2011,
+  "ownedRecommendationCount": 178,
+  "embeddedMappingCount": 16,
+  "externalMappingsArgumentUsed": false,
+  "coverage": {
+    "waf-performance-checklist": {
+      "denominator": 12,
+      "counts": {
+        "full": 3,
+        "partial": 9,
+        "stale": 0,
+        "supporting": 0,
+        "unknown": 0
+      }
+    },
+    "advisor-performance-catalog": {
+      "denominator": 150,
+      "counts": {
+        "full": 0,
+        "partial": 2,
+        "stale": 0,
+        "supporting": 1,
+        "unknown": 147
+      }
+    }
+  }
+}

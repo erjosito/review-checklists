@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/secure-application-delivery/
 queries: {}
+schemaVersion: 1
+id: e43a58a9-c229-49c4-b7b5-7d0c655562f2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,18 +1,49 @@
 name: aprl-SameExpressrouteGatewayAzureRouteServer
 title: Avoid using ExpressRoute circuits for VNet to VNet communication
-description: |-
-  While multiple VNets can connect via the same ExpressRoute gateway, Microsoft recommends using alternatives like VNet peering, Azure Firewall, NVA, Azure Route Server, site-to-site VPN, virtual WAN, or SD-WAN for VNet-to-VNet communication to optimize network performance and management.
+description: While multiple VNets can connect via the same ExpressRoute gateway, Microsoft recommends
+  using alternatives like VNet peering, Azure Firewall, NVA, Azure Route Server, site-to-site VPN, virtual
+  WAN, or SD-WAN for VNet-to-VNet communication to optimize network performance and management.
 source:
   type: aprl
   file: azure-resources/Network/virtualNetworkGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/virtualNetworkGateways
+- microsoft.network/virtualnetworkgateways
 severity: 1
 labels:
   guid: 194c14ac-0d7a-5a48-ae32-75fa450ee564
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 194c14ac-0d7a-5a48-ae32-75fa450ee564
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworkGateways/recommendations.yaml
+    title: 'APRL 194c14ac-0d7a-5a48-ae32-75fa450ee564: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 194c14ac-0d7a-5a48-ae32-75fa450ee564
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworkGateways/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d143d9d615aafd00b3a69dd60933df0041ad27002ae4925b6442a7718d8a4527
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

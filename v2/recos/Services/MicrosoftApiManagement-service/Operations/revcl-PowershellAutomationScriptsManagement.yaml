@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/automation-manage-api-management
 queries: {}
+schemaVersion: 1
+id: 0674d750-0c6f-4ac0-8717-ceec04d0bdbd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

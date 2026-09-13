@@ -1,7 +1,10 @@
 name: wafsg-CertificateManagementOperationalBurden
-title: Offload certificate management to Azure. Ease the operational burden associated
-  with certification rotation and renewals.
-description: ''
+title: Offload certificate management to Azure. Ease the operational burden associated with certification
+  rotation and renewals.
+description: Offload certificate issuance and renewal to Azure for eligible Front Door Standard/Premium
+  domains. Confirm domain ownership, association and renewal conditions and monitor certificate state.
+  Where customer-managed certificates are needed, maintain supported Key Vault access and a tested rotation
+  process. Do not treat managed certificates as proof that outages cannot occur.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-front-door.md
@@ -14,3 +17,19 @@ labels:
   guid: 29049b7b-7468-4852-895e-f33d1fb0c7fb
 links: []
 queries: {}
+schemaVersion: 1
+id: 29049b7b-7468-4852-895e-f33d1fb0c7fb
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain
+    title: Configure HTTPS for your custom domain
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/frontdoor/front-door-url-redirect
+    title: URL redirect - Azure Front Door
+    accessedAt: '2026-09-11'

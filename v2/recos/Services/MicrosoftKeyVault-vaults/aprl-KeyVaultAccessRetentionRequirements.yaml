@@ -1,18 +1,48 @@
 name: aprl-KeyVaultAccessRetentionRequirements
 title: Diagnostic logs in Key Vault should be enabled
-description: |-
-  Enable logs, set up alerts, and adhere to retention requirements for improved monitoring and security of Key Vault access, detailing the frequency and identity of users.
+description: Enable logs, set up alerts, and adhere to retention requirements for improved monitoring
+  and security of Key Vault access, detailing the frequency and identity of users.
 source:
   type: aprl
   file: azure-resources/KeyVault/vaults/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.KeyVault/vaults
+- microsoft.keyvault/vaults
 severity: 2
 labels:
   guid: 1dc0821d-4f14-7644-bab4-ba208ff5f7fa
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |-
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 1dc0821d-4f14-7644-bab4-ba208ff5f7fa
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    title: 'APRL 1dc0821d-4f14-7644-bab4-ba208ff5f7fa: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1dc0821d-4f14-7644-bab4-ba208ff5f7fa
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5fa78be42364136982429bace4bfd1e2340b8fc4b57cb7733814a6e0a4624820
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

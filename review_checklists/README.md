@@ -1,7 +1,8 @@
 # Azure Review Checklists local prototype
 
 The first v3 milestone replaces the macro-based review workflow with a Python CLI
-and a localhost web UI. It reads the existing v2 corpus without modifying it.
+and a localhost web UI. Reviews read the YAML corpus or a versioned JSON bundle
+and keep their own pinned snapshot; opening a review does not modify the corpus.
 No hosted backend, database service, LLM entitlement, or AI endpoint is needed.
 
 The application package and command are named `review_checklists`, independently
@@ -9,8 +10,9 @@ of the development branch or release version. Moving to `main` or a future relea
 does not change the command or existing `.reviews` data.
 
 **Prototype, not a production/team release.** Provider adapters and an MCP server
-are designed but not implemented. Content modernization and cloud deployment are
-out of scope for this milestone.
+are designed but not implemented. The bounded September 2026 corpus refresh and
+confirmed duplicate merges are complete; this does not establish exhaustive
+coverage or live query validity. Cloud deployment remains out of scope.
 
 ## Quick start (PowerShell)
 
@@ -30,7 +32,123 @@ loopback, uses Waitress (not Flask debug mode), and never starts Azure login.
 Browse/search recommendations, edit status/comments, and download reports from
 the UI. There are no AI controls in this milestone.
 
+### Recommendation autosave
+
+On the main list, choose a manual **Status** and expand **Comments** for notes on
+that recommendation. Collapsed editors show a short preview, so the complete list
+stays compact. These comments are separate from the review-wide description in
+**Edit review details**. Assessments work without Azure access; ARG never assigns
+or overwrites a status.
+The full list retains every native editor, but supported browsers defer rendering
+offscreen editors until scrolling or focusing them. Print layout renders all
+editors. This is not pagination or removal of offscreen controls. Large lists can
+still take longer on a busy machine; use optional 50-row pagination when needed.
+
+**Autosave enabled** appears only after the local enhancement initializes.
+Status changes save immediately; comments save after **700 ms** without typing,
+or when the field loses focus. Each row shows **Unsaved**, **Saving**, **Saved**,
+or an explicit **Error**. **Saved** means the server acknowledged the write, not
+merely that a request was sent. Saves are serialized per recommendation, using
+the last acknowledged revision; typing during a save is retained and saved next.
+Different recommendations can save independently. Comments allow up to 20,000
+characters.
+
+Failures retain the editable draft **in the current page**, with **Retry save**;
+there is no indefinite automatic retry. Validation, session/CSRF, storage,
+network, and stale-revision failures are distinguished. A request times out after
+15 seconds. After a network failure or timeout the write may already have reached
+SQLite: retry still uses the old revision, so it cannot silently overwrite a
+concurrent edit. A conflict stops autosave for that row. Copy the draft, use
+**Open saved assessment in a new tab to compare**, and reload/reconcile against
+the saved version before saving again. Session failures can require reloading
+after copying the draft; storage failures also have details in the server terminal.
+
+Wait for every edited row to show **Saved** before leaving. While drafts, errors,
+or in-flight requests remain, navigation links and other forms (filters, query
+runs, subscription previews, and review details) are blocked with a warning.
+Browser reload/close uses a native unsaved-changes warning where supported.
+Drafts are not stored in browser storage and cannot survive a forced close,
+crash, or deliberately accepted discard warning; copy important failed drafts
+before reloading. Saved assessments remain in SQLite.
+
+Status edits visibly mark the overview, counts, and filter membership as a
+**page-load snapshot needing refresh**. Rows are not silently removed from an
+active status filter while being edited. After saving, use **Refresh overview
+and list**; filters and pagination choice are preserved, and a page emptied by
+status changes is clamped to the last available page.
+
+Without JavaScript, or if the asset cannot load, autosave remains explicitly
+disabled and each row has a **Save assessment** button. Save one row at a time
+before navigating or submitting another form; no-JavaScript mode cannot guard
+unsaved edits in other rows. Manual saves retain the filtered list and pagination.
+The detail page continues to use its explicit **Save assessment** button, and
+review-wide metadata retains its separate **Save review details** action.
+Row forms are independent, not nested in the query form: the batch form ends
+before the table and only ARG selection checkboxes link back to it. Assessment
+fields are never submitted as part of a query run.
+
+### Refresh a saved review from a new bundle
+
+Use **Refresh saved review guidance** on the assessment list to open
+`/review-refresh`. The existing `/refresh` URL still reloads the assessment list;
+it does not change recommendation guidance.
+
+Upload a versioned JSON bundle and choose **Preview review refresh**. Preview is
+read-only and runs no Azure queries or source downloads. Inspect changed fields,
+before/after guidance, additions, removed/superseded checks, and consolidation
+groups before selecting **Apply this review refresh**. Existing statuses, comments,
+evidence, and area/subarea placements are retained. Removed or aliased IDs remain
+separate review records; their assessments are never merged.
+
+New checks are excluded unless **Add new checks within the selected scope** is
+checked. Saved scope comes from new CLI `init` operations; older reviews and
+directly created reviews can have unknown scope. Unknown scope requires an
+explicit all-corpus choice or uploaded YAML/JSON checklist before adding checks.
+Checklist uploads capture the definition, not a changeable local filename.
+
+Semantic guidance changes mark reviewed checks **Needs reassessment** without
+changing their saved status. The list, detail, and HTML/JSON reports distinguish
+current, superseded, and no-longer-current guidance. Dashboard counts remain
+historical saved assessments, not certification against the latest bundle.
+Comment-only autosave does not clear the flag. Change status deliberately, or
+open the detail page, check **I reviewed the refreshed guidance and confirm the
+current assessment**, and choose **Save assessment** to retain the existing status.
+
+Apply creates a consistent, sensitive SQLite backup alongside the review, then
+commits all changes atomically. **Review refresh history** shows source identities,
+before/after snapshots, relevance flags, and backup paths. The latest applied
+source is distinct from each item's guidance origin and the actual reviewed
+snapshot hash. A no-change apply creates no backup or history.
+
+Browser uploads are limited to 12 MiB per bundle and 256 KiB per checklist,
+within a 16 MiB preview-request cap. Ordinary forms retain their existing 256 KiB
+limit. YAML aliases are rejected. Previews are stored only in local server memory,
+bound to the browser session: at most two per session, eight per server, with a
+64 MiB serialized bundle/plan budget and 15-minute expiry. Restarting the server
+discards them. Apply consumes its opaque handle once; double clicks, expired
+handles, intervening review edits, and changed targets cannot replay or silently
+alter the approved operation. Errors require a fresh preview; failed applies do
+not partially commit. Capacity errors are explicit rather than silently evicting
+another browser's preview.
+
+Wait for inline edits to save before following refresh/history links. Existing
+draft-navigation protection blocks these links while inline edits are unsaved,
+in flight, or failed. Without JavaScript, save each row explicitly first.
+New reviews and changed refreshes use schema 2; schema-1 reviews remain readable
+without migration on open or preview. Restart older running application versions
+before applying a refresh.
+
+For CLI commands and the shared planner/apply API, see
+[Review refresh](docs/review-refresh.md).
+
 ### Filters and assessment overview
+
+All matching recommendations are shown by default. To split the list into pages,
+tick **Paginate results (50 per page)** and click **Filter**. Untick it and apply
+the filter again to show everything. The choice follows links, detail edits,
+metadata saves, and subscription previews; **Clear filters** restores the
+unpaginated default. Existing bookmarked URLs containing `page` still enable
+pagination. Exports always include the full review, irrespective of this setting.
 
 Expand **Status**, **Severity**, **WAF pillar**, or **Azure service** to tick any
 number of values, then click **Filter**. Values within a group use **OR**; different
@@ -80,7 +198,41 @@ For a smaller checklist or a separate engagement:
 ```
 
 `--review` is a global argument and goes **before** the command. Available
-commands: `init`, `list`, `show`, `update`, `run`, `export`, `serve`.
+commands: `init`, `metadata`, `list`, `show`, `update`, `run`, `export`, `serve`, `corpus`.
+
+### Review filename, name, and description
+
+The database filename is explicitly chosen with `--review`; `--name` is the
+friendly name stored **inside** that database, not a filename. For example:
+
+```powershell
+.\.venv\Scripts\python.exe -m review_checklists --review .reviews\LitwareReview01.sqlite3 init `
+    --name "LitwareReview01" --description "Azure architecture review for Litware."
+.\.venv\Scripts\python.exe -m review_checklists --review .reviews\LitwareReview01.sqlite3 serve
+.\.venv\Scripts\python.exe -m review_checklists --review .reviews\LitwareReview01.sqlite3 metadata
+.\.venv\Scripts\python.exe -m review_checklists --review .reviews\LitwareReview01.sqlite3 metadata `
+    --description "Scope: production subscriptions."
+```
+
+Use the same `--review` path when reopening, editing, querying, or exporting.
+Without it, commands continue to use `.reviews\review.sqlite3`. To rename an
+existing database, stop its server and other writers first, move the file with
+your file manager, and reopen it with the new `--review` path. Do not initialize
+over it or create a fresh review to resume existing assessments.
+
+**Edit review details** in the UI changes the stored name and description without
+renaming the file. The `metadata` command displays details as JSON; `--name` and
+`--description` edit only supplied fields, and `--description ""` clears it.
+Descriptions allow up to 20,000 characters. Web forms reject stale metadata edits;
+CLI callers can supply `--revision` using the displayed `metadata_revision`.
+
+New reviews store a stable `review_id`, name, description, creation timestamp,
+metadata-update timestamp, and metadata revision alongside corpus provenance.
+The extensible SQLite key/value metadata table preserves unknown fields. Metadata
+edits never change the pinned checks, assessments, evidence, or creation timestamp.
+Name and description appear in both exports. Existing reviews remain readable
+without modification: missing descriptions display as empty, and a stable ID and
+revision fields are saved on their first explicit metadata edit.
 
 ## CLI review and reports
 
@@ -168,8 +320,9 @@ assessment edits before refreshing context on a recommendation page.
 4. Review the per-check outcome table; open a check to inspect its saved evidence
    and record your assessment.
 
-Only explicitly ticked checks run, not all filtered checks. Selection applies to
-the current page (at most 50 checks); it is not carried across pages. Scope and
+Only explicitly ticked checks run, not all filtered checks. Select at most 50
+checks per run, even when all results are displayed without pagination. With
+pagination enabled, selection is not carried across pages. Scope and
 the entire selection are validated before any Azure request. Queries run
 sequentially; wait for the response rather than resubmitting. Individual Azure
 failures are saved and displayed, while remaining selected queries continue.
@@ -202,8 +355,10 @@ smoke test with explicit subscription scope.
 - Recommendations are copied into each review, keyed by their GUID. Duplicate or
   invalid GUIDs fail initialization rather than merging unrelated items.
 - The snapshot preserves the recommendation contents and source-relative filename.
-  Corpus changes do not silently alter an ongoing review. There is no refresh,
-  migration, or JSON import workflow yet.
+  Corpus changes do not silently alter an ongoing review. The explicit
+  [review-refresh workflow](docs/review-refresh.md) previews a versioned JSON
+  bundle and backs up the review before applying guidance changes, preserving
+  assessments and evidence. This is not an import of assessment data from JSON.
 - v2 root/area/subarea include/exclude selectors are supported. Matching reuses
   v2's existing helper: name/GUID matches explicitly include an item; label matches
   are OR; other populated selector categories intersect. Selections from sections
@@ -217,17 +372,52 @@ smoke test with explicit subscription scope.
   to Azure, and documentation links open external sites. "Local-first" does not mean
   those operations are offline.
 - Loopback binding, trusted-host checks, CSRF tokens, strict same-site cookies,
-  escaped templates, and a no-script content policy protect the browser surface.
+  and escaped templates protect the browser surface. The restrictive content
+  policy intentionally permits only same-origin external scripts (`script-src
+  'self'`) and same-origin connections (`connect-src 'self'`) for local progressive
+  enhancement. There are no inline handlers, inline scripts, `eval`, external JS
+  dependencies, or third-party autosave services. Autosave uses form-encoded
+  same-origin POSTs with the same CSRF/origin checks as manual saves.
   This is not a multi-user authentication boundary against other local OS users.
   Do not proxy or expose the port to a network.
 
+## Corpus authoring and distribution
+
+YAML remains the authoring format under `v2\recos`; generated versioned JSON
+bundles are the distribution format, and SQLite holds review state. See the
+[corpus contract](docs/corpus-contract.md) for required IDs, automation semantics,
+service classifications, provenance, alias handling, and migration/build commands.
+Strict validation does not establish technical correctness or live query validity.
+
+The initial bounded Cost refresh updated 48 existing recommendations and added
+eight. Its corpus-wide duplicate reconciliation retired 55 identities across 54
+confirmed groups into aliases, leaving 2,005 canonical recommendations at that
+stage. The later [all-pillar refresh](docs/corpus-refresh/full-refresh-2026-09-11/README.md)
+resulted in 2,011 canonical recommendations. The subsequent
+[September 13 follow-up](docs/corpus-refresh/followup-2026-09-13.md) applies 19 source
+amendments and retires three storage duplicates, leaving 2,008 canonicals and 58
+aliases. None of these bounded stages establishes exhaustive coverage. See the
+[refresh summary](docs/corpus-refresh/README.md),
+[Cost sources and coverage](docs/corpus-refresh/cost-sources.md), and
+[Cost refresh report](docs/corpus-refresh/cost-refresh-report.md) for evidence,
+scope, and remaining gaps. The Cost queries remain unvalidated inventory, not
+verified savings or automatic compliance verdicts.
+
+Scheduled upstream imports are deprecated; the remaining import paths are
+deprecated manual fallbacks that still require validation and human review.
+LLM-assisted refreshes propose source-backed edits, not autonomous publication.
+Deterministic validation and bundle assembly remain required. Existing saved
+reviews never silently adopt refreshed guidance or merged identities.
+
 ## Code layout and validation
 
-`corpus.py` is the read-only v2 adapter; `review.py` owns SQLite state and reports;
+`corpus.py` is the read-only corpus adapter; `review.py` owns SQLite state and reports;
 `filters.py` derives filter options and matches review items; `arg.py` owns explicit
 single/selected-query Azure execution; `azure_context.py` performs optional,
 bounded CLI subscription lookup. `__main__.py` and `web.py` are thin surfaces
-over those operations. The old Flask/MySQL app and legacy scripts remain unchanged.
+over those operations. `catalog.py` handles versioned bundles and metadata migration;
+`scripts\modules\cl_corpus.py` owns shared schema and identity validation. The old
+Flask/MySQL app remains unchanged.
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s review_checklists\tests -v
@@ -252,6 +442,7 @@ lookup/query functions; it never runs queries against your subscriptions.
 .\.venv\Scripts\python.exe -m pip install -r review_checklists\requirements-browser.txt
 .\.venv\Scripts\python.exe -m playwright install chromium
 .\.venv\Scripts\python.exe -m review_checklists.tests.browser_forms -v
+.\.venv\Scripts\python.exe -m review_checklists.tests.browser_autosave -v
 ```
 
 Alternatively, set `$env:REVIEW_TEST_BROWSER_CHANNEL = "chrome"` to use an installed
@@ -262,6 +453,10 @@ suppressing referrers to other origins; `no-referrer` would cause legitimate for
 requests to send `Origin: null` and be rejected. CSRF and origin checks remain enforced.
 Browser coverage also exercises the disabled first-page case, the link to runnable
 checks elsewhere, and the single CLI subscription option after preview.
+Autosave coverage exercises debounce/blur, edits during delayed saves, concurrent
+editor conflicts, network failure/retry and lost acknowledgements, no-script
+fallback, independent form ownership, navigation warnings, and honest dashboard
+refresh. All browser saves use temporary reviews, not the user's active database.
 
 See [provider and MCP contracts](docs/integration-design.md) for the next integration
 milestone and the [decision log](../v2/docs/next-generation-design.md) for context.

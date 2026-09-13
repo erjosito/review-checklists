@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/azure-administrator-manage-identities-governance/
 queries: {}
+schemaVersion: 1
+id: e6a83de5-de32-4c19-a248-1607d5d1e4e6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

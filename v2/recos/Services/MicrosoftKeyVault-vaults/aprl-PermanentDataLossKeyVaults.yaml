@@ -1,13 +1,14 @@
 name: aprl-PermanentDataLossKeyVaults
 title: Key vaults should have purge protection enabled
-description: |-
-  Purge protection secures against malicious deletions by enforcing a retention period for soft deleted key vaults, ensuring no one, not even insiders or Microsoft, can purge your key vaults during this period, preventing permanent data loss.
+description: Purge protection secures against malicious deletions by enforcing a retention period for
+  soft deleted key vaults, ensuring no one, not even insiders or Microsoft, can purge your key vaults
+  during this period, preventing permanent data loss.
 source:
   type: aprl
   file: azure-resources/KeyVault/vaults/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.KeyVault/vaults
+- microsoft.keyvault/vaults
 severity: 1
 labels:
   guid: 70fcfe6d-00e9-5544-a63a-fff42b9f2edb
@@ -21,3 +22,31 @@ queries:
     | where type == "microsoft.keyvault/vaults"
     | where isnull(properties.enablePurgeProtection) or properties.enablePurgeProtection != "true"
     | project recommendationId = "70fcfe6d-00e9-5544-a63a-fff42b9f2edb", name, id, tags, param1 = "EnablePurgeProtection: Disabled"
+schemaVersion: 1
+id: 70fcfe6d-00e9-5544-a63a-fff42b9f2edb
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    title: 'APRL 70fcfe6d-00e9-5544-a63a-fff42b9f2edb: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 70fcfe6d-00e9-5544-a63a-fff42b9f2edb
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:eeda454cf6c9287cb28ce1ff8ead32d0dd2ba2a381e8eae4623393606116ed3a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

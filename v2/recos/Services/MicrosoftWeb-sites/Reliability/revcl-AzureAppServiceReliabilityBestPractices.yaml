@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/architecture/framework/services/compute/azure-app-service/reliability
 queries: {}
+schemaVersion: 1
+id: e68cd0ec-afc6-4bd8-a27f-7860ad9a0db2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

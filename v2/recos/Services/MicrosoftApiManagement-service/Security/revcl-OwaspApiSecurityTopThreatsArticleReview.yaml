@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/mitigate-owasp-api-threats
 queries: {}
+schemaVersion: 1
+id: 074435f5-4a46-41ac-b521-d6114cb5d845
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

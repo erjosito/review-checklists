@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-introduction
 queries: {}
+schemaVersion: 1
+id: bad37dac-43bc-46ce-8d7a-a9b24604489a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

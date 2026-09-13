@@ -15,3 +15,13 @@ labels:
   guid: bad5ff5c-bdeb-4648-b667-1ea0a76266dc
 links: []
 queries: {}
+schemaVersion: 1
+id: bad5ff5c-bdeb-4648-b667-1ea0a76266dc
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

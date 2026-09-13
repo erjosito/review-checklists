@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/frontdoor/best-practices#use-end-to-end-tls
 queries: {}
+schemaVersion: 1
+id: 2e30abab-5478-417c-81bf-bf1ad4ed1ed4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

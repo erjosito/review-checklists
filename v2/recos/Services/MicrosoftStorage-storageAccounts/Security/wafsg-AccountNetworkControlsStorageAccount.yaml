@@ -16,3 +16,13 @@ labels:
   guid: 345a1c5e-8ca7-41e1-9acc-702b9684df71
 links: []
 queries: {}
+schemaVersion: 1
+id: 345a1c5e-8ca7-41e1-9acc-702b9684df71
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

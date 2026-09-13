@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery
 queries: {}
+schemaVersion: 1
+id: b2ab13ad-a6e5-45d7-b8a2-adb117d6326a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

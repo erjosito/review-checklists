@@ -13,3 +13,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview
 queries: {}
+schemaVersion: 1
+id: 6f8389a7-f82c-4b8e-a8c0-aa63a25a4956
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-overview
+    title: Kubernetes monitoring in Azure Monitor
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:07
+    coverage: partial
+    notes: Separate Prometheus metrics from container-log collection. Narrow control or service scope;
+      not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540
+description: Monitor cluster, node and workload metrics with Azure Monitor managed service for Prometheus
+  or an approved metrics solution. Configure appropriate scraping and alerts and validate metrics arrival
+  and dashboard usefulness. Container log collection and application distributed tracing are separate
+  capabilities; enabling one monitoring add-on does not demonstrate coverage of all layers.

@@ -1,0 +1,365 @@
+{
+  "groups": [
+    {
+      "canonicalId": "325ae525-ba34-4d46-a5e2-213ace7bb122",
+      "retiredIds": [
+        "9eb54dad-7861-4e1c-973a-f3bb003fc9c1"
+      ],
+      "reason": "Identical SAML SSO requirement for SAP NetWeaver web applications, including Fiori and Web GUI. Different tutorial links are complementary implementation evidence.",
+      "beforeContentHash": "sha256:559e53fa016b94b534b5ba2f92facdf204aa6e97c2de5512e566f399b3fbd87f"
+    },
+    {
+      "canonicalId": "23181aa4-1742-4694-9ff8-ae7d7d474317",
+      "retiredIds": [
+        "6c8bcbf4-5bbe-4609-b8a0-3e97778424d6"
+      ],
+      "reason": "Identical SAP GUI/browser SSO recommendation with the same SNC/Kerberos/SPNEGO preference and X.509/Secure Login Server alternative.",
+      "beforeContentHash": "sha256:456178e842c3f8b2727ba03871e4c877b97c81740791268382c02f332795bb45"
+    },
+    {
+      "canonicalId": "6ba2c021-4991-414a-9d3c-e574dccbd979",
+      "retiredIds": [
+        "7ccb7c06-5511-42df-8177-d97f08d0337d"
+      ],
+      "reason": "Both prohibit a single-VM production deployment; the richer source lists compatible VM redundancy options without changing applicability.",
+      "beforeContentHash": "sha256:9d368b41296e8adcccc74a180a0f5a145f3e62003e82c6f3f2bcf28296c26127"
+    },
+    {
+      "canonicalId": "dc2dfc11-1574-4228-88d9-50e077b7d8d3",
+      "retiredIds": [
+        "80693bc5-79bf-4928-8887-1a77544d3bad"
+      ],
+      "reason": "Same AKS workload HTTP(S) WAF requirement. Detailed member supplies Application Gateway/Front Door implementation examples; title-only member adds no different scope.",
+      "beforeContentHash": "sha256:c8c75a2429cdff07cd15872dca6aacace3c37773b969473a766a6d56a9b54f96"
+    },
+    {
+      "canonicalId": "14cdf40e-36a1-4947-90a3-3b833e2df9d3",
+      "retiredIds": [
+        "188b768d-c65f-46c8-b0a7-e7b288b0c15d"
+      ],
+      "reason": "Same Application Gateway capacity monitoring requirement; keep the explicit recommendation to alert on capacity.",
+      "beforeContentHash": "sha256:0c2cf7d9af28c8da02f4c61f35de900fd55c8c37794888459046974267c43ad3"
+    },
+    {
+      "canonicalId": "98530e65-c941-48d2-8ce7-55649e17a701",
+      "retiredIds": [
+        "3b24c03f-1fab-436e-b45c-4b4838f9f01a"
+      ],
+      "reason": "Same Application Gateway Azure Monitor Network Insights adoption; descriptive member supplies capability context only.",
+      "beforeContentHash": "sha256:15b22fe20e1e43df2917be7df7ce1c46cfadd41975f38d48139d4b9a494ba2d6"
+    },
+    {
+      "canonicalId": "91366299-47be-4ee6-a9c1-adfa6b11beff",
+      "retiredIds": [
+        "b53da374-3be5-405b-b543-b104491fc2e5"
+      ],
+      "reason": "Same Application Gateway Key Vault configuration-error monitoring through Advisor; preserve polling interval, alert configuration and immediate remediation detail.",
+      "beforeContentHash": "sha256:6c163816de2ab534f40b8742aedff445191bfc742b92da156853f38b2551a2f7"
+    },
+    {
+      "canonicalId": "9bb30e02-43fd-4ed2-9189-c9a23ae9933f",
+      "retiredIds": [
+        "fa9b6a56-3144-4d79-b409-8fc896c4ba76"
+      ],
+      "reason": "Same Application Gateway SNAT-limit design requirement; preserve the public-backend condition, mitigations and request-failure impact.",
+      "beforeContentHash": "sha256:c9d3821905c3fab96a56067f827d6843fddcdfc2dca5c071ca45af7c000a504e"
+    },
+    {
+      "canonicalId": "ee3b1f28-7d23-484a-a721-a0e0da65aed8",
+      "retiredIds": [
+        "63eb295f-ef20-4749-a576-fbbdd528d093"
+      ],
+      "reason": "Same Application Gateway/WAF diagnostics requirement; preserve firewall, performance and access-log evidence.",
+      "beforeContentHash": "sha256:4b7728d8b5276f0e2cb3f4b679cfb3baecdc2a696504c19638939b4e1a1b2d17"
+    },
+    {
+      "canonicalId": "6d9985b2-103c-4b47-82b9-148e22af311b",
+      "retiredIds": [
+        "0e38111f-c642-46ca-a2a0-72d5eb520cab"
+      ],
+      "reason": "Same Application Gateway subnet-sizing requirement; detailed member supplies SKU-specific arithmetic and capacity planning.",
+      "beforeContentHash": "sha256:a155e2ef0e39a656ec997e5b2639062c9074a154f557f56112e192844b9fd1e9"
+    },
+    {
+      "canonicalId": "af6f1096-14f3-465c-8691-b15cf5361942",
+      "retiredIds": [
+        "33ae0084-c64e-471f-aef1-c84a5cf77d5d"
+      ],
+      "reason": "Same Application Gateway minimum-instance-count requirement; retain autoscale-delay, spike and compute-unit sizing details. Do not merge with maximum-instance-count controls.",
+      "beforeContentHash": "sha256:dd9c4e14bec3d8f3021f2fb11f59e6c5a9ad4e36d1b4bbdfbde5b3b637b12e47"
+    },
+    {
+      "canonicalId": "e1a91738-8def-4c1e-83ce-cd7dac9c986a",
+      "retiredIds": [
+        "adb085fc-433d-4bde-815d-77486524d8a3"
+      ],
+      "reason": "Same Application Gateway maximum-autoscale-count requirement; retain 125-instance guidance and subnet-capacity prerequisite. It is distinct from setting the minimum.",
+      "beforeContentHash": "sha256:d0d61f075f73177f642da23c08efb9b858d0a0959503bf83a762230f8b6fd577"
+    },
+    {
+      "canonicalId": "67b006ed-a8b2-4f66-806b-ed9d83f94982",
+      "retiredIds": [
+        "174a65f5-51ca-483e-937f-9096d4468afa"
+      ],
+      "reason": "Same Application Gateway update planning requirement; backend connection draining is compatible explanation, not a separate control.",
+      "beforeContentHash": "sha256:f26b8f45d583b2e9be5ef95a674fe8e2a65505591ab0afada3954bae1111db2b"
+    },
+    {
+      "canonicalId": "f5d846c8-9341-4a57-a77e-ccf4e9818c7f",
+      "retiredIds": [
+        "cdc7160c-bc9d-40d9-ba43-bc9fa804c8c6"
+      ],
+      "reason": "Same backend dependency validation via health endpoints; preserve dependency isolation and caching to avoid excessive probe load.",
+      "beforeContentHash": "sha256:10790049389ce76d9102aab7d849d5051c0a82fc91b9c3fe7e9aa584259b41ac"
+    },
+    {
+      "canonicalId": "6dcb1632-2ca3-411f-8555-69d689b8054f",
+      "retiredIds": [
+        "ca9df7df-8e89-4216-b9a2-0384af19938d"
+      ],
+      "reason": "Same Application Gateway backend health-probe routing requirement. Neither WAFSG member explicitly demands custom probes; exclude the stricter APRL custom-probe candidate.",
+      "beforeContentHash": "sha256:85fc6acc8c166957713b6c00d8a0d76062b149719a898e2d564e67e65cc3aa02"
+    },
+    {
+      "canonicalId": "fb24f724-e47b-46ec-a3cb-426fe159fdbf",
+      "retiredIds": [
+        "1c10e986-48da-4cf8-acd6-2a7f7c940735"
+      ],
+      "reason": "Same WAF enablement capacity/latency assessment on Application Gateway; retain upload-size example and testing prerequisite.",
+      "beforeContentHash": "sha256:add42197cebac7cffcf759f0eee15c25893bc1fdca25d379569af98ea143532f"
+    },
+    {
+      "canonicalId": "9ba32fa7-9880-47f8-aaed-93097fe35c99",
+      "retiredIds": [
+        "4890a129-6456-48e0-843c-195848a1eeea"
+      ],
+      "reason": "Same Application Gateway subnet UDR caution. Detailed member retains a supported-scenario exception, so it must not become a universal UDR ban.",
+      "beforeContentHash": "sha256:116534244bf565849fa9d263565c655c4b95dbc5d3e5d335a84e13d5df0ae365"
+    },
+    {
+      "canonicalId": "694b80a2-72fb-4d42-a249-e9c86fb4d00a",
+      "retiredIds": [
+        "24847b21-1c0f-4ac9-9c00-f116155257b3"
+      ],
+      "reason": "Same Application Gateway backend DNS selection requirement; retain FQDN, private/custom DNS and Azure-provided DNS conditions.",
+      "beforeContentHash": "sha256:8a39c47af8aba7f381f4f63d159e829fdedf8ecd921283ecda5fe1775d671e22"
+    },
+    {
+      "canonicalId": "5692cf86-c36a-4c1b-a73f-1a73f5728cd0",
+      "retiredIds": [
+        "2e0b6e8f-2784-4ea8-bec5-a128ddce6c98"
+      ],
+      "reason": "Same Application Gateway TLS certificate storage in Key Vault; keep rotation/renewal and separation-of-responsibilities rationale.",
+      "beforeContentHash": "sha256:bea4c27e81b7a7daefadd57aaa64cacffd6facab440a91acc0f820483f1ad033"
+    },
+    {
+      "canonicalId": "726e1bc8-2b65-4393-a9a5-1b73976c89ef",
+      "retiredIds": [
+        "61aac352-64e1-4351-8bc5-7dd84996adc6"
+      ],
+      "reason": "Same Application Gateway TLS termination architecture; detailed member provides compatible performance/routing/certificate-management rationale.",
+      "beforeContentHash": "sha256:d4b1ccced660ac064d35c20dc23ec0cabe472551a57636fdce551283af1fbc6e"
+    },
+    {
+      "canonicalId": "08b9ecd4-7e8b-40a1-803b-bad57bec80ea",
+      "retiredIds": [
+        "d3ed4722-efc4-4567-b9fe-e4254225913e"
+      ],
+      "reason": "Same backend re-encryption certificate-chain requirement and applicability; descriptive member supplies CA trust and unhealthy-backend explanation.",
+      "beforeContentHash": "sha256:3934c1fb087b2a8de01b8212974b63d3cec15d809364ef1f3732e24fb375c229"
+    },
+    {
+      "canonicalId": "7547ed98-86fb-4a8f-94d8-162c5d6fd39d",
+      "retiredIds": [
+        "297b842f-979b-474d-aa48-b6799a76c083"
+      ],
+      "reason": "Same Application Gateway TLS-policy configuration requirement; preserve latest-policy guidance, TLS 1.2 and stronger ciphers.",
+      "beforeContentHash": "sha256:1f7ad52f79e2f37850ae14bb7664109d031dd6589c6a503284af94f39ecf0bb4"
+    },
+    {
+      "canonicalId": "fc06eb7c-1989-4048-9c2f-6fc6e48fc334",
+      "retiredIds": [
+        "12e359f5-1252-4fdf-83e8-542e5d5d34d8"
+      ],
+      "reason": "Same Application Gateway NSG restrictions compliance requirement; keep explicit subnet/port-range caveats.",
+      "beforeContentHash": "sha256:7122e4174fee99986e0602f2a10b0d5fc6b6f546729d75eef0487e59c659fbd8"
+    },
+    {
+      "canonicalId": "e2ca25a4-7d0d-49f8-8618-f81f0f3ff3e0",
+      "retiredIds": [
+        "8c22c571-98a1-4d91-94b7-efb58db4763e"
+      ],
+      "reason": "Same ExpressRoute resource metrics review; retain coverage of circuits, gateways, gateway connections and Direct, plus alerting and troubleshooting context.",
+      "beforeContentHash": "sha256:af493f8418895c95a2eadd2edef29170c21296a71f809c878d1a9d7a8cbd66b9"
+    },
+    {
+      "canonicalId": "a5327e51-9367-4f91-bca2-71b5724e6acb",
+      "retiredIds": [
+        "21303a27-77fc-4cd0-afab-0080bbbf6501"
+      ],
+      "reason": "Same ExpressRoute FastPath throughput recommendation; retain its explicit supported-gateway-SKU prerequisite rather than generalizing to all gateways.",
+      "beforeContentHash": "sha256:8afbc37c53edd94291d103b11876899ee1127384ba3971dec71b7fe580894d97"
+    },
+    {
+      "canonicalId": "caa42667-014b-4fb2-9e0a-954e05385785",
+      "retiredIds": [
+        "68ebf30c-d5f8-4e5a-bafa-9b8ff5aea0cc"
+      ],
+      "reason": "Same ExpressRoute gateway SKU increase for throughput; detailed member supplies rationale without a different condition.",
+      "beforeContentHash": "sha256:9a9184e0e95cf2e4943d7be9e538e03b98eb3331ac8c35a4e6b4be1250ee9e29"
+    },
+    {
+      "canonicalId": "71513d98-78dc-49ad-ba19-3d769b03c9bb",
+      "retiredIds": [
+        "986e4310-6a7c-469e-bd94-8b8d1c388f51"
+      ],
+      "reason": "Same ExpressRoute performance verification; preserve Azure Connectivity Toolkit, bandwidth and latency detail.",
+      "beforeContentHash": "sha256:d6d97bf9512d8f36be8e1d228df940d25617013ae93aafe5e6a0fa12332890fe"
+    },
+    {
+      "canonicalId": "b893441c-5f7c-44fe-bfa2-457af4ae1cb8",
+      "retiredIds": [
+        "dbcfcfa3-dcb3-43f7-8e98-a9d6d44ab3ae"
+      ],
+      "reason": "Same ExpressRoute activity-log archival requirement; preserve subscription control-plane scope, 90-day retention and alternative archival destinations.",
+      "beforeContentHash": "sha256:b880e187090c1b2115ab3ab58d83714987e8d510c97abe8ddd139a817695a7c7"
+    },
+    {
+      "canonicalId": "02e71cb8-379a-45ef-8daa-e4bfa3fa7237",
+      "retiredIds": [
+        "e09a0328-3f6e-4ab5-9856-581a76090453"
+      ],
+      "reason": "Same MACsec requirement restricted to ExpressRoute Direct, not ordinary circuits; preserve Direct applicability even though both resourceTypes identify circuits.",
+      "beforeContentHash": "sha256:ad85f3ff9fb918dd4dc43bcdde6a5a276b828344eecd1f72c85d6fb70882865d"
+    },
+    {
+      "canonicalId": "0d7a206c-e977-4c39-9379-766f5f20365b",
+      "retiredIds": [
+        "5f06f160-46b8-48b3-ab94-89da0ff37c56"
+      ],
+      "reason": "Same ExpressRoute BGP MD5-message authentication requirement on private/Microsoft peering. No divergent protocol or query.",
+      "beforeContentHash": "sha256:4643880770fc0017c6428aa85a9ec281f0dd0253b0aacf1a9f43ea6a76fd35f0"
+    },
+    {
+      "canonicalId": "1c680237-1240-4015-b028-1e1525ac1a41",
+      "retiredIds": [
+        "6a7d5ccf-3cbf-468c-84cb-d5bdee7c7f3d"
+      ],
+      "reason": "Identical storage-account IaC requirement and identical DevOps/Azure Policy description. Applies to the account regardless of Files or Blob workload.",
+      "beforeContentHash": "sha256:bed5a7d2bb55959c2fdcc9c4adcd6661995f64628130a7e88e7cd79770ca57ee"
+    },
+    {
+      "canonicalId": "2f429983-43fe-4e9a-a0f7-ec3328270b5c",
+      "retiredIds": [
+        "7de2699b-2c67-4b05-90a4-45d6c9d6693a"
+      ],
+      "reason": "Identical account-level maintenance/emergency-recovery planning requirement reused by Files and Blob guides; neither has service-specific implementation constraints.",
+      "beforeContentHash": "sha256:6992416bd2bb6bc2f6a68a3c2ac4ea208b58dda827f2228f2c1cb359762985e1"
+    },
+    {
+      "canonicalId": "15f258d9-8353-49ff-9eca-441c96e911be",
+      "retiredIds": [
+        "5fff0543-7133-4501-bd87-ea55392c6a7e"
+      ],
+      "reason": "Identical account-level Storage insights requirement and dashboard/reporting description, not a service-specific telemetry difference.",
+      "beforeContentHash": "sha256:0fb53a152c6981ba35568227755a9a64de7dc019cf92807fd626551e2f3e12af"
+    },
+    {
+      "canonicalId": "d93ddbcf-8760-4b99-8fdc-4f31268e76f7",
+      "retiredIds": [
+        "02300e9f-94e9-4cbd-b3ca-5c6cf17f2833"
+      ],
+      "reason": "Identical generic recovery-plan requirement in Files/Blob guides. Preserve both service-guide provenances; unlike redundancy-feature guidance this does not assert service-specific capabilities.",
+      "beforeContentHash": "sha256:d163b27fd07f48bdac28223c76d4cee3512531a3fc3d367dab67e4b7de29e3f6"
+    },
+    {
+      "canonicalId": "47a0aae0-d8a0-43b1-9791-e934dee3754c",
+      "retiredIds": [
+        "82118ec5-ed6f-4c68-9471-eb0da98a1b34"
+      ],
+      "reason": "Same conditional ASE v3 migration requirement on Microsoft.Web/sites and same ASE introduction evidence. Exclude the IoT-typed copies pending applicability repair.",
+      "beforeContentHash": "sha256:1f36aafc3e8de511ddd0b911b1ca2e3c834a4b8a09adbd834d0e3dac16030687"
+    },
+    {
+      "canonicalId": "778ba0b4-9f48-4fd5-a788-949f2f2ea331",
+      "retiredIds": [
+        "58746f78-dba5-4a3a-b4a5-bdbcb9a00a28"
+      ],
+      "reason": "Equivalent storage availability monitoring through Service Health plus Azure Monitor metrics and diagnostic logs; only word order changes across guides.",
+      "beforeContentHash": "sha256:ca0b695e9c8de2ce4375cf93b1defc52fda8613bacef521074b7f757ef36c05d"
+    },
+    {
+      "canonicalId": "a7cd3662-4984-4a5a-8ed7-95c707f19c25",
+      "retiredIds": [
+        "486329dd-f6a9-4714-bab2-0c7da68e2473",
+        "c5f40aec-9c2c-4c16-8ae9-f9fdd4733804"
+      ],
+      "reason": "All require reviewing the same Azure Storage security baseline; Azure/first wording does not change scope or action.",
+      "beforeContentHash": "sha256:382714549f1f82dea2d7205ef3ac40f2a9efe6054af7e5207461ae796d921431"
+    },
+    {
+      "canonicalId": "42a36eba-778e-437d-9750-4002823c8835",
+      "retiredIds": [
+        "e780c530-cf9a-42d2-8ccc-b32e44ab73cd"
+      ],
+      "reason": "Same minimum TLS 1.2 storage-account policy with an identical algorithm/cipher rationale.",
+      "beforeContentHash": "sha256:2beb9f678853a0fe25a4e010b85242e3590ff4170cf605caa3118e3e4a2b0491"
+    },
+    {
+      "canonicalId": "16a0b5cc-d1a3-430b-a8d1-141a721f4e76",
+      "retiredIds": [
+        "b860ac4e-04bd-4fca-bbe3-b6d4659a3a62"
+      ],
+      "reason": "Same storage-account Storage insights dashboards, alerting, diagnostic settings and Log Analytics investigation requirement. Only resilience/resiliency wording differs.",
+      "beforeContentHash": "sha256:4d3a89b9a1d2f15aa053c2b7bd92474e5a0bbae09ec7786caec307d65ffc4f1b"
+    },
+    {
+      "canonicalId": "3e5d89cf-a4b0-4624-8a74-c086ce3665ac",
+      "retiredIds": [
+        "a77220d0-45e2-4ac9-9f8e-352f4e4848d8"
+      ],
+      "reason": "Same ExpressRoute circuit/gateway metrics monitoring; richer description adds alert thresholds and outage/maintenance anomaly investigation.",
+      "beforeContentHash": "sha256:ad7ac5746ed1cc08879d1e2cf32b80b021dd8f681e5fb5490390059b2d45e24e"
+    },
+    {
+      "canonicalId": "ce838d0f-8069-420d-9adb-5c508c091e3f",
+      "retiredIds": [
+        "76ae68b8-d5dd-44a0-a0e0-9abec3695316"
+      ],
+      "reason": "Equivalent account-level SLA/SLO and recovery-target assessment with the same redundancy, outage, loss, recovery time and dependency considerations.",
+      "beforeContentHash": "sha256:c66b0bffd649605e190c55876b7de95ff3571acb6d17887ee155302b08926d13"
+    },
+    {
+      "canonicalId": "be5fc5f6-92bd-4239-87a0-275d786b8d68",
+      "retiredIds": [
+        "124c88c4-391e-41fc-be92-f8efd3ae6b71"
+      ],
+      "reason": "Same ExpressRoute circuit bandwidth increase to meet workload demand; preserve the shared-bandwidth-across-connected-VNets explanation.",
+      "beforeContentHash": "sha256:ede8321721b7bf91f1e502b9384a703d084a67a27bcd0b9ccbc95c85a1f49516"
+    },
+    {
+      "canonicalId": "eea03b99-3b97-4c7a-b1ab-76404535a87f",
+      "retiredIds": [
+        "a8db6917-b19a-4e97-a797-97a3cc882b45"
+      ],
+      "reason": "Same Azure Firewall least-privilege policy-rule requirement; richer description supplies hierarchy, regional policies, DNAT/network/application rules and priority/action/processing detail.",
+      "beforeContentHash": "sha256:17f5eed25026888824ff903ef4da310816ff48107c928e47ffe449b4badf1992"
+    },
+    {
+      "canonicalId": "22740e5f-f63b-4b82-8629-fb9d4fd74c36",
+      "retiredIds": [
+        "66695955-0890-4f69-ab88-292a6c641558"
+      ],
+      "reason": "Same Application Gateway v2 autoscaling/performance adoption; descriptive member explicitly identifies v2 and preserves v1 migration context.",
+      "beforeContentHash": "sha256:1248d15af9859ebb07dfcda35e44d00528b35509caeae6eb7f097aac025be4a2"
+    },
+    {
+      "canonicalId": "c108c3a4-1cb0-4b5f-84dc-060e313574c4",
+      "retiredIds": [
+        "35c3a850-dd12-46fc-8748-d8e549a9b70e"
+      ],
+      "reason": "Same Azure Firewall Monitoring Workbook adoption; richer record explains built-in portal availability and rule/event statistics.",
+      "beforeContentHash": "sha256:1e249c131748ef16bfb76e0103ab5de429b8eb316c0cbbd86e10263028fff1d8"
+    }
+  ]
+}

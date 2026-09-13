@@ -1,6 +1,6 @@
 name: revcl-CrossFunctionalDevopsPlatformTeamAzureLandingZoneArchitecture
-title: Ensure you have a cross functional DevOps Platform Team to build, manage and
-  maintain your Azure Landing Zone architecture.
+title: Ensure you have a cross functional DevOps Platform Team to build, manage and maintain your Azure
+  Landing Zone architecture.
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -16,3 +16,30 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/platform-automation-devops
 queries: {}
+schemaVersion: 1
+id: e85f4226-bf06-4e35-8a8b-7aee4d2d633a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture
+    title: Architecture strategies for fostering DevOps culture
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:01
+    coverage: partial
+    notes: Make the existing cross-functional team control assessable. Narrow control or service scope;
+      not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f1dbf331239efc9b9df3daf6677ba4a519d908ecfd85a0d5a48c9de27a866e6f
+description: Establish a cross-functional team with shared end-to-end responsibility for building and
+  operating the landing zone. Define roles, decision authority, collaboration with workload teams and
+  escalation. Reserve time for learning and safe experimentation, and use blameless reviews to turn operational
+  findings into owned improvements. Team names and permissions are not evidence that these practices are
+  followed.

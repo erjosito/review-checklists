@@ -1,18 +1,48 @@
 name: aprl-NetworkSecurityGroupsDiagnosticSettings
 title: Configure Diagnostic Settings for all network security groups
-description: |-
-  Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+description: Resource Logs are not collected and stored until you create a diagnostic setting and route
+  them to one or more locations.
 source:
   type: aprl
   file: azure-resources/Network/networkSecurityGroups/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/networkSecurityGroups
+- microsoft.network/networksecuritygroups
 severity: 1
 labels:
   guid: d2976d3e-294b-4b49-a1f0-c42566a3758f
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: d2976d3e-294b-4b49-a1f0-c42566a3758f
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/networkSecurityGroups/recommendations.yaml
+    title: 'APRL d2976d3e-294b-4b49-a1f0-c42566a3758f: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: d2976d3e-294b-4b49-a1f0-c42566a3758f
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/networkSecurityGroups/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:8d1d7f075aefb5b533e85a502b729b3ebf8168a37fc30834fac4ba6764e690c1
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

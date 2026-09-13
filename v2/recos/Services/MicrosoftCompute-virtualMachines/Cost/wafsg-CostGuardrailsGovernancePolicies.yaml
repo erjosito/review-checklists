@@ -1,7 +1,9 @@
 name: wafsg-CostGuardrailsGovernancePolicies
-title: Implement cost guardrails. Use governance policies to restrict resource types,
-  configurations, and locations. Use RBAC to block actions that can lead to overspending.
-description: ''
+title: Enforce spending guardrails in policies and deployment reviews
+description: Define allowed resource types, SKUs, regions, scale limits and allocation metadata with exception
+  ownership. Apply least-privilege provisioning and cost-estimate approval gates before expensive changes.
+  Use monitoring and budget alerts as complementary detective controls, not substitutes for preventive
+  limits or proof that spend cannot exceed budget.
 source:
   type: wafsg
   file: well-architected/service-guides/virtual-machines.md
@@ -14,3 +16,34 @@ labels:
   guid: 389aca19-a7d5-4abb-82f6-66716e25023a
 links: []
 queries: {}
+schemaVersion: 1
+id: 389aca19-a7d5-4abb-82f6-66716e25023a
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Individual approved policy assignments and pipeline checks are automatable, but no universal
+    ARG query can determine organization-specific guardrail correctness.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/set-spending-guardrails
+    title: Architecture strategies for setting spending guardrails
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets
+    title: 'Tutorial: Create and manage budgets'
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:04
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/set-spending-guardrails
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:25e4f4e0a19e53216a81f36ac11568aae0384447399781a7ba46dfce822a9952
+    notes: Policies, allowed resources, limits, provisioning access and approval gates match the guardrail
+      mechanisms; explicit preference for platform automation over manual processes remains a gap. Source-text
+      assessment, not independent human approval or live Azure validation.

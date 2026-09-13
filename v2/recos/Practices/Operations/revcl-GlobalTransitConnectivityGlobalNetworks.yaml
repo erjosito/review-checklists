@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-wan/virtual-wan-about
 queries: {}
+schemaVersion: 1
+id: 7d4bc7d2-c34a-452e-8f1d-6ae3c8eafcc3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

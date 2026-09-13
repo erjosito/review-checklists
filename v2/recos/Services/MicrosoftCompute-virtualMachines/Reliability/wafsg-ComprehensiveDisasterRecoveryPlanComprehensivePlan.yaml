@@ -1,7 +1,11 @@
 name: wafsg-ComprehensiveDisasterRecoveryPlanComprehensivePlan
-title: Create a comprehensive disaster recovery plan. Disaster preparedness involves
-  creating a comprehensive plan and deciding on a technology for recovery.
-description: ''
+title: Maintain and exercise a documented disaster recovery plan for VM-based workloads
+description: Document activation criteria, accountable operators, communication paths, recovery sequencing,
+  data protection, network and identity prerequisites, and a separate failback procedure. Include VMs
+  and their dependencies, not only replication settings. Keep plans and recovery assets accessible during
+  outages. Test safe non-production recovery first, then use appropriately authorized realistic drills
+  to measure component and end-to-end RTO/RPO and update the plan from results. Configuration inventory
+  alone cannot prove recovery readiness.
 source:
   type: wafsg
   file: well-architected/service-guides/virtual-machines.md
@@ -14,3 +18,28 @@ labels:
   guid: dcaadec2-8bc9-43ce-b13d-51aa5c4db90e
 links: []
 queries: {}
+schemaVersion: 1
+id: dcaadec2-8bc9-43ce-b13d-51aa5c4db90e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist
+    title: Design review checklist for Reliability
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/disaster-recovery
+    title: Architecture strategies for disaster recovery
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/disaster-recovery
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:09dbccbd1f7b794892baa92a8fcc48ab69e7619b7909e2426d7cd39001e3d293
+    notes: Structured plans, dependencies, authorization, drills and RTO/RPO measurement cover VM workloads;
+      not a workload-independent all-estate DR control.

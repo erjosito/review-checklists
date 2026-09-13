@@ -16,3 +16,13 @@ labels:
   guid: f169dfc7-70ef-478d-a483-12f396742584
 links: []
 queries: {}
+schemaVersion: 1
+id: f169dfc7-70ef-478d-a483-12f396742584
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

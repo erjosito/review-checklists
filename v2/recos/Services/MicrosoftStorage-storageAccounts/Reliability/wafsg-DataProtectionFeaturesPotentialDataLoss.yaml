@@ -1,9 +1,10 @@
 name: wafsg-DataProtectionFeaturesPotentialDataLoss
-title: 'Create a recovery plan: Consider data protection features, backup and restore
-  operations, or failover procedures. Prepare for potential data loss and data inconsistencies
-  and the time and cost of failing over. For more information, see Recommendations
-  for designing a disaster recovery strategy.'
-description: ''
+title: Test a Storage recovery plan covering backups, failover, data loss and application dependencies
+description: Set RTO/RPO, choose service-appropriate protection and document restore/failover sequencing,
+  permissions, application reconnection and failback. Account for asynchronous replication loss, integrity
+  checks, time and cost of recovery, and limitations of Blob and Files configurations. Keep plans accessible
+  during outages and use authorized recovery exercises to measure results. Neither a redundancy setting
+  nor existence of a backup proves recoverability.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-blob-storage.md
@@ -16,3 +17,29 @@ labels:
   guid: d93ddbcf-8760-4b99-8fdc-4f31268e76f7
 links: []
 queries: {}
+schemaVersion: 1
+id: d93ddbcf-8760-4b99-8fdc-4f31268e76f7
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/disaster-recovery
+    title: Architecture strategies for disaster recovery
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy
+    title: Azure Storage redundancy
+    accessedAt: '2026-09-11'
+aliases:
+- id: 02300e9f-94e9-4cbd-b3ca-5c6cf17f2833
+  name: wafsg-DataProtectionFeaturesPotentialDataLoss-1
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-files.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 02300e9f-94e9-4cbd-b3ca-5c6cf17f2833
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Reliability/wafsg-DataProtectionFeaturesPotentialDataLoss-1.yaml

@@ -18,3 +18,13 @@ labels:
   guid: 306767a6-b162-4b64-91a0-091a3d3b37cb
 links: []
 queries: {}
+schemaVersion: 1
+id: 306767a6-b162-4b64-91a0-091a3d3b37cb
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

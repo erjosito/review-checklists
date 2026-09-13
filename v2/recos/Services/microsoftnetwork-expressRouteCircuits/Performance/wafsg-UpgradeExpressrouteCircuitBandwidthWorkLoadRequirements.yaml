@@ -1,9 +1,8 @@
 name: wafsg-UpgradeExpressrouteCircuitBandwidthWorkLoadRequirements
 title: Upgrade ExpressRoute circuit bandwidth
-description: Upgrade your circuit bandwidth to meet your work load requirements. Circuit
-  bandwidth is shared between all virtual networks connected to the ExpressRoute circuit.
-  Depending on your work load, one or more virtual networks can use up all the bandwidth
-  on the circuit.
+description: Upgrade your circuit bandwidth to meet your work load requirements. Circuit bandwidth is
+  shared between all virtual networks connected to the ExpressRoute circuit. Depending on your work load,
+  one or more virtual networks can use up all the bandwidth on the circuit.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +14,23 @@ labels:
   guid: be5fc5f6-92bd-4239-87a0-275d786b8d68
 links: []
 queries: {}
+schemaVersion: 1
+id: be5fc5f6-92bd-4239-87a0-275d786b8d68
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 124c88c4-391e-41fc-be92-f8efd3ae6b71
+  name: wafsg-ExpressrouteCircuitBandwidth
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 124c88c4-391e-41fc-be92-f8efd3ae6b71
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Performance/wafsg-ExpressrouteCircuitBandwidth.yaml

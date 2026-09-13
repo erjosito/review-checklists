@@ -1,18 +1,22 @@
 name: aprl-ManagedDisksVmDisks
-title: Use Managed Disks for VM disks
-description: |-
-  Azure is retiring unmanaged disks on September 30, 2025. Users should plan the migration to avoid disruptions and maintain service reliability.
+title: Migrate any remaining unmanaged VM disks to managed disks
+description: Azure unmanaged disks were fully retired on March 31, 2026, an extension of the earlier September
+  30, 2025 date. IaaS VMs using unmanaged disks cannot be started after retirement. Identify remaining
+  affected VMs and migrate to managed disks immediately, following the documented migration and recovery
+  process. The old future-tense September 2025 deadline is no longer current.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 0
 labels:
   guid: 122d11d7-b91f-8747-a562-f56b79bcfbdc
   area: High Availability
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/virtual-machines/unmanaged-disks-deprecation
 queries:
   arg: |
     // Azure Resource Graph Query
@@ -21,3 +25,35 @@ queries:
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where isnull(properties.storageProfile.osDisk.managedDisk)
     | project recommendationId = "122d11d7-b91f-8747-a562-f56b79bcfbdc", name, id, tags
+schemaVersion: 1
+id: 122d11d7-b91f-8747-a562-f56b79bcfbdc
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/virtual-machines/unmanaged-disks-deprecation
+    title: Unmanaged disks final retirement date and operational impact
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL 122d11d7-b91f-8747-a562-f56b79bcfbdc: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 122d11d7-b91f-8747-a562-f56b79bcfbdc
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:94ace26cec0f502d8812bc5e0417038d1a4cedde600fe8d7177f621f1955f8ff
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Unmanaged disks final retirement date and operational
+      impact. Coverage concerns the inventory''s explicit metadata fingerprint; queries were not executed
+      and lastReviewed/validatedAt remain unchanged.'
+waf: Operations

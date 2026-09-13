@@ -1,18 +1,49 @@
 name: aprl-SingletonPatternSingleInstance
 title: Maintain singleton pattern in your client
-description: |-
-  Using a single instance of the SDK client for each account and application is crucial as connections are tied to the client. Compute environments have a limit on open connections, affecting connectivity when exceeded.
+description: Using a single instance of the SDK client for each account and application is crucial as
+  connections are tied to the client. Compute environments have a limit on open connections, affecting
+  connectivity when exceeded.
 source:
   type: aprl
   file: azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DocumentDB/databaseAccounts
+- microsoft.documentdb/databaseaccounts
 severity: 1
 labels:
   guid: 7eb32cf9-9a42-1540-acf8-597cbba8a418
   area: Scalability
 links: []
 queries:
-  arg: |-
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 7eb32cf9-9a42-1540-acf8-597cbba8a418
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
+    title: 'APRL 7eb32cf9-9a42-1540-acf8-597cbba8a418: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 7eb32cf9-9a42-1540-acf8-597cbba8a418
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6b05d2bf24acb263c07880f1142fa3646bba409bb880506248938426aaf58f96
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/spring-apps/diagnostic-services
 queries: {}
+schemaVersion: 1
+id: 7504c230-6035-4183-95a5-85762acc6075
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

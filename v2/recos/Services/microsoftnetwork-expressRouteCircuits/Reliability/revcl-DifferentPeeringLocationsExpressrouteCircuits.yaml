@@ -21,3 +21,14 @@ queries:
     | project circuitId=tostring(id), circuitLocation=tostring(properties.serviceProviderProperties.peeringLocation))
     on circuitId | distinct gwId, circuitLocation | summarize countErLocations=count()
     by id=gwId | extend compliant = (countErLocations >= 2)
+schemaVersion: 1
+id: e0d5973c-d4cd-421b-8881-37f5e6c4cfd3
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/ag/best-practices#use-the-latest-ruleset-versions
 queries: {}
+schemaVersion: 1
+id: 6c19dfd5-a61c-436c-9001-491b9b3d0228
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -18,3 +18,13 @@ labels:
   guid: c5c27eb1-6f1c-4b97-a216-0cbdc31a3c98
 links: []
 queries: {}
+schemaVersion: 1
+id: c5c27eb1-6f1c-4b97-a216-0cbdc31a3c98
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

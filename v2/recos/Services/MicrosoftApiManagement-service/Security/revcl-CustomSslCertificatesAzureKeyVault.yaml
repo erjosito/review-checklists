@@ -1,6 +1,6 @@
 name: revcl-CustomSslCertificatesAzureKeyVault
-title: Ensure that custom SSL certificates are stored an Azure Key Vault so they can
-  be securely accessed and updated
+title: Use Azure Key Vault to manage customer-provided TLS certificates for API Management where Key Vault
+  integration is supported.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +14,31 @@ links:
 - type: docs
   url: https://learn.microsoft.com/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#certificate-management-in-azure-key-vault
 queries: {}
+schemaVersion: 1
+id: 39460bdb-156f-4dc2-a87f-1e8c11ab0998
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/api-management/configure-custom-domain
+    title: Configure custom domain name for Azure API Management instance
+    accessedAt: '2026-09-13'
+    revision: null
+  - url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates
+    title: Secure API Management Backend Using Client Certificate Authentication
+    accessedAt: '2026-09-13'
+    revision: null
+  - url: https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide
+    title: Grant permission to applications to access an Azure key vault using Azure RBAC
+    accessedAt: '2026-09-13'
+    revision: null
+description: Use Key Vault certificate objects and grant the API Management managed identity the required
+  access to their secret material. For custom-domain certificates, verify certificate synchronization
+  and monitor access failures rather than assuming that renewal in Key Vault immediately updates the gateway.
+  For backend-client certificate references, use a versionless identifier for automatic rotation; that
+  integration is unavailable in workspaces. Apply the synchronization and support requirements for the
+  specific certificate scenario.

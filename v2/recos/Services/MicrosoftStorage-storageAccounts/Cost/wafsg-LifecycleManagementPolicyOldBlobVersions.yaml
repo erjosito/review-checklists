@@ -1,9 +1,9 @@
 name: wafsg-LifecycleManagementPolicyOldBlobVersions
-title: If you enable versioning, use a lifecycle management policy to automatically
-  delete old blob versions.
-description: Every write operation to a blob creates a new version. This increases
-  capacity costs. You can keep costs in check by removing versions that you no longer
-  need.
+title: Expire obsolete Blob versions with approved lifecycle and recovery safeguards
+description: Use version-age and lifecycle rules to control growth only after establishing recovery, audit
+  and retention requirements. Test the selected version population and protect legal holds and required
+  history. Review capacity effects after rollout; enabling versioning is not permission to automatically
+  erase all older versions.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +15,21 @@ labels:
   guid: 72af3409-f6b8-43b7-b254-31990577bb73
 links: []
 queries: {}
+schemaVersion: 1
+id: 72af3409-f6b8-43b7-b254-31990577bb73
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Preserve cost intent while making deletion prerequisites explicit.
+    Requires workload, billing and operational evidence; no ARG query or live validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-blob-storage
+    title: Architecture best practices for Azure Blob Storage
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'

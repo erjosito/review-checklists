@@ -1,6 +1,6 @@
 name: revcl-DelegateKeyVaultInstantiationPrivilegedAccess
-title: Delegate Key Vault instantiation and privileged access and use Azure Policy
-  to enforce a consistent compliant configuration.
+title: Delegate Key Vault provisioning and privileged access through least-privilege Azure RBAC, and enforce
+  vault configuration with Azure Policy.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +14,25 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/best-practices
 queries: {}
+schemaVersion: 1
+id: b12308ca-5017-4f15-9e3a-b3693829e7e3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/key-vault/general/secure-key-vault
+    title: Secure your Azure Key Vault
+    accessedAt: '2026-09-13'
+    revision: null
+  - url: https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide
+    title: Grant permission to applications to access an Azure key vault using Azure RBAC
+    accessedAt: '2026-09-13'
+    revision: null
+description: Separate control-plane vault provisioning from data-plane access to keys, secrets and certificates.
+  Delegate only the roles and scope required by each team, use eligible just-in-time privileged roles
+  through Microsoft Entra Privileged Identity Management where applicable, and audit or enforce the required
+  vault configuration with Azure Policy. A configuration policy does not replace authorization review.

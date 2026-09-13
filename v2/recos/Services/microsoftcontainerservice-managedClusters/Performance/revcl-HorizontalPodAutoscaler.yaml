@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/concepts-scale
 queries: {}
+schemaVersion: 1
+id: faa19bfe-9d55-4d04-a3c4-919ca1b2d121
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

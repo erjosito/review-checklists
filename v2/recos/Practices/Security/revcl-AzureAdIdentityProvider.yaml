@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/sap/workloads/rise-integration#connectivity-with-sap-rise
 queries: {}
+schemaVersion: 1
+id: c7bae5bf-daf9-4761-9c56-f92891890aa4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

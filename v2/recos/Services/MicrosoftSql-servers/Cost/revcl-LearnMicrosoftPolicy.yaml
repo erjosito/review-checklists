@@ -1,10 +1,11 @@
 name: revcl-LearnMicrosoftPolicy
-title: Check if applicable and enforce policy/change https://learn.microsoft.com/azure/azure-sql/azure-hybrid-benefit?view=azuresql&tabs=azure-portalhttps://learn.microsoft.com/azure/cost-management-billing/scope-level/create-sql-license-assignments?source=recommendations
+title: Apply Azure SQL Hybrid Benefit only to eligible licensed configurations
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.sql/servers
+- microsoft.sql/managedinstances
+- microsoft.sql/servers/databases
 waf: Cost
 severity: 1
 labels:
@@ -13,3 +14,24 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/app-proxy/application-proxy
 queries: {}
+schemaVersion: 1
+id: d7bb012f-7b95-4e06-b158-e2ea3992c2de
+services:
+- Azure SQL Database
+- Azure SQL Managed Instance
+automation:
+  status: candidate
+  validatedAt: null
+  notes: License configuration is programmatically inspectable, but supported ARG coverage for all PaaS/license-assignment
+    surfaces was not established here and eligibility needs an external entitlement ledger.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-sql/azure-hybrid-benefit
+    title: Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
+    accessedAt: '2026-09-11'
+description: Reconcile SQL Server entitlements with Azure SQL Database and SQL Managed Instance license
+  assignments. For SQL Database, distinguish provisioned vCore from ineligible DTU and serverless compute.
+  Verify edition/core conversion, Software Assurance/subscription terms and migration allowance before
+  changing license settings or enforcing policy.

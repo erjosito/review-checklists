@@ -1,18 +1,49 @@
 name: aprl-PrivateDnsZonesHealthDnsRecords
 title: Monitor Private DNS Zones health and set up alerts
-description: |-
-  The records in a private DNS zone are only resolvable from linked virtual networks. You can link a private DNS zone to multiple networks and enable autoregistration to manage DNS records for virtual machines automatically.
+description: Use Azure Monitor to monitor Private DNS Zone query volume, record set count, and capacity
+  metrics for Record Set, Virtual Network Link, and Virtual Network Link with auto-registration. Create
+  alerts based on Azure Monitor Baseline Alerts for these metrics that exceed specific thresholds.
 source:
   type: aprl
   file: azure-resources/Network/privateDnsZones/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/privateDnsZones
-severity: 0
+- microsoft.network/privatednszones
+severity: 1
 labels:
   guid: ab896e8c-49b9-2c44-adec-98339aff7821
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: ab896e8c-49b9-2c44-adec-98339aff7821
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/privateDnsZones/recommendations.yaml
+    title: 'APRL ab896e8c-49b9-2c44-adec-98339aff7821: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: ab896e8c-49b9-2c44-adec-98339aff7821
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/privateDnsZones/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6c70a55983e36bc363a195ce7cbb4d3c93a70575cc5a232e246d21585517bb09
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

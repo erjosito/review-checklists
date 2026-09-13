@@ -1,7 +1,5 @@
 name: revcl-LowLatencyExpressrouteGateway
-title: When low latency is required, or throughput from on-premises to Azure must
-  be greater than 10 Gbps, enable FastPath to bypass the ExpressRoute gateway from
-  the data path.
+title: Evaluate ExpressRoute FastPath for eligible low-latency or high-throughput paths
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -17,3 +15,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/design-implement-azure-expressroute/
 queries: {}
+schemaVersion: 1
+id: c2299c4d-7b57-4d0c-9555-62f2b3e4563a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/expressroute/about-fastpath
+    title: 'Azure ExpressRoute FastPath: Features, availability, and limitations'
+    accessedAt: '2026-09-11'
+description: Check circuit type, gateway SKU, scale units and destination topology against current FastPath
+  support. FastPath bypasses the gateway for eligible data paths but does not remove the need for a gateway
+  to exchange routes. Unsupported routes and capacity overflow can still use the gateway. Benchmark end-to-end
+  latency and throughput; exceeding 10 Gbps is not itself an eligibility test.

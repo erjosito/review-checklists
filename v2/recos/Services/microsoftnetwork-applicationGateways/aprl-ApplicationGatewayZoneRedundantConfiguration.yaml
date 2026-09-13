@@ -1,13 +1,13 @@
 name: aprl-ApplicationGatewayZoneRedundantConfiguration
 title: Deploy Application Gateway in a zone-redundant configuration
-description: |-
-  Deploying Application Gateway in a zone-aware configuration ensures continued customer access to services even if a specific zone goes down, as services in other zones remain available.
+description: Deploying Application Gateway in a zone-aware configuration ensures continued customer access
+  to services even if a specific zone goes down, as services in other zones remain available.
 source:
   type: aprl
   file: azure-resources/Network/applicationGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/applicationGateways
+- microsoft.network/applicationgateways
 severity: 0
 labels:
   guid: c9c00f2a-3888-714b-a72b-b4c9e8fcffb2
@@ -22,3 +22,35 @@ queries:
     | where isnull(zones) or array_length(zones) < 2
     | extend zoneValue = iff((isnull(zones)), "null", zones)
     | project recommendationId = "c9c00f2a-3888-714b-a72b-b4c9e8fcffb2", name, id, tags, param1="Zones: No Zone or Zonal", param2=strcat("Zones value: ", zoneValue )
+schemaVersion: 1
+id: c9c00f2a-3888-714b-a72b-b4c9e8fcffb2
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    title: 'APRL c9c00f2a-3888-714b-a72b-b4c9e8fcffb2: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: c9c00f2a-3888-714b-a72b-b4c9e8fcffb2
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:615961da111174da97d0ea28fde196edd43eac58e3356889a1359fb556445fa0
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

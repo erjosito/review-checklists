@@ -1,0 +1,85 @@
+id: fe224a34-ae94-57de-8570-e8bae87812f7
+name: cost-AppServiceEmptyPlans
+source:
+  type: curated
+  url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+title: Review empty App Service plans for approved retirement
+description: Use Advisor to identify plans that no longer host applications. Verify current app and slot
+  inventory, plan sharing, deployment automation and standby intent before deleting a plan. Confirm the
+  billing effect separately; deleting an application does not necessarily remove its billed plan.
+waf: Cost
+severity: 1
+services:
+- Azure App Service
+resourceTypes:
+- microsoft.web/serverfarms
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG inventory/Advisor query available but unvalidated; financial and operational judgment remains mandatory.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Inventory of Advisor-issued cost opportunities. The recommendation ID is id; the affected resource is targetResourceId. A row is not a policy violation and absence is not a pass.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Advisor recommendations depend on service coverage, telemetry, configured lookback and recommendation freshness; review dismissals/postponements in Advisor. Published recommendationTypeId values are used verbatim; no inferred IDs or text matching. IDs and coverage can evolve. Savings fields vary by recommendation. Preserve extendedProperties rather than assume a universal monthly/annual field; do not sum overlapping opportunities or mixed currencies/time horizons. Advisor estimates may not reflect existing reservations, savings plans, negotiated rates or operational constraints. Do not inner-join to Resources: subscription-level commitments and some affected child resources would be lost.
+  resultSemantics: inventory
+queries:
+  arg: |-
+    AdvisorResources
+    | where type =~ 'microsoft.advisor/recommendations'
+    | where properties.category =~ 'Cost'
+    | where tostring(properties.recommendationTypeId) in~ ('39a8510f-5bbf-4304-9bcd-4106c996473b')
+    | project id, subscriptionId, resourceGroup,
+        targetResourceId = tostring(properties.resourceMetadata.resourceId),
+        impactedField = tostring(properties.impactedField),
+        recommendationTypeId = tostring(properties.recommendationTypeId),
+        impact = tostring(properties.impact),
+        problem = tostring(properties.shortDescription.problem),
+        solution = tostring(properties.shortDescription.solution),
+        lastUpdated = tostring(properties.lastUpdated),
+        extendedProperties = properties.extendedProperties
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:07
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-component-costs
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:1096633c915c6d22f515418bcbf78f8a9e8200889e1d5de0f3a7f45cd3a52262
+    notes: Owner-reviewed removal of unused App Service plans is one component-cost case, not all legacy
+      application/platform features and resources. Source-text assessment, not independent human approval
+      or live Azure validation.
+  - sourceId: advisor-cost-catalog
+    recommendationId: 39a8510f-5bbf-4304-9bcd-4106c996473b
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e0ae8f4c130842e168a1c4a3e102c2ede9088b816db8bff32ab7e2ad59f5350b
+    notes: The local control identifies plans without apps and evaluates their approved deletion, with
+      extra slot/standby/dependency safeguards; it covers the entire published empty-plan action. Source-text
+      assessment, not independent human approval or live Azure validation.
+schemaVersion: 1

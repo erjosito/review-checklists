@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/use-group-managed-service-accounts
 queries: {}
+schemaVersion: 1
+id: e1123a7c-a333-4eb4-a120-4ee3f293c9f3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

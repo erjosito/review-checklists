@@ -1,13 +1,14 @@
 name: aprl-ProductionAksClustersAksTier
-title: Update AKS tier to Standard
-description: |-
-  Production AKS clusters require the Standard tier for a financially backed SLA and enhanced node scalability, as the free service lacks these features.
+title: Update AKS tier to Standard or Premium
+description: Production AKS clusters require the Standard or Premium tier for a financially backed SLA
+  and enhanced node scalability, as the free service lacks these features. Use the Premium tier for mission-critical
+  workloads.
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 0
 labels:
   guid: 0611251f-e70f-4243-8ddd-cfe894bec2e7
@@ -16,8 +17,40 @@ links: []
 queries:
   arg: |
     // Azure Resource Graph Query
-    // Returns all AKS clusters not running on the Standard tier
+    // Returns all AKS clusters not running on the Standard tier or the Premium tier.
     resources
-    | where type == "microsoft.containerservice/managedclusters"
-    | where sku.tier != "Standard"
-    | project recommendationId="0611251f-e70f-4243-8ddd-cfe894bec2e7", id, name, tags, param1=strcat("skuName: ", sku.name), param2=strcat("skuTier: ", sku.tier)
+    | where type =~ "Microsoft.ContainerService/managedClusters"
+    | where sku.tier !in~ ("Standard", "Premium")
+    | project recommendationId = "0611251f-e70f-4243-8ddd-cfe894bec2e7", name,id, tags, param1 = strcat("skuName: ", sku.name), param2 = strcat("skuTier: ", sku.tier)
+schemaVersion: 1
+id: 0611251f-e70f-4243-8ddd-cfe894bec2e7
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+  notes: The current predicate excludes both Standard and Premium, fixing the old false positive for Premium
+    AKS clusters. Static source review only; not executed against Azure. Returned rows require applicability
+    review, and zero rows do not prove compliance.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL 0611251f-e70f-4243-8ddd-cfe894bec2e7: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 0611251f-e70f-4243-8ddd-cfe894bec2e7
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:70972af5886a97d0d478e7a976f4e63419338408f56a953864df0811afd5ab43
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. The current predicate excludes both Standard and
+      Premium, fixing the old false positive for Premium AKS clusters. Coverage concerns the inventory's
+      explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

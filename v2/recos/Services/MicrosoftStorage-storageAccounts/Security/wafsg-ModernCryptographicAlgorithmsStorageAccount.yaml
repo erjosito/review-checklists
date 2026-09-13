@@ -1,8 +1,8 @@
 name: wafsg-ModernCryptographicAlgorithmsStorageAccount
-title: Configure your storage account so clients can send and receive data by using
-  the minimum version of TLS 1.2.
-description: TLS 1.2 is more secure and faster than TLS 1.0 and 1.1, which don't support
-  modern cryptographic algorithms and cipher suites.
+title: Configure your storage account so clients can send and receive data by using the minimum version
+  of TLS 1.2.
+description: TLS 1.2 is more secure and faster than TLS 1.0 and 1.1, which don't support modern cryptographic
+  algorithms and cipher suites.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +14,22 @@ labels:
   guid: 42a36eba-778e-437d-9750-4002823c8835
 links: []
 queries: {}
+schemaVersion: 1
+id: 42a36eba-778e-437d-9750-4002823c8835
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: e780c530-cf9a-42d2-8ccc-b32e44ab73cd
+  name: wafsg-ModernCryptographicAlgorithmsStorageAccount-1
+  source:
+    type: wafsg
+    file: ./checklists-ext/wafsg_checklist.en.json
+  labels:
+    guid: e780c530-cf9a-42d2-8ccc-b32e44ab73cd
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Security/wafsg-ModernCryptographicAlgorithmsStorageAccount-1.yaml

@@ -1,11 +1,10 @@
 name: revcl-LowerStorageTiersDisks
-title: 'Check that the disks are really needed, if not: delete. If they are needed,
-  find lower storage tiers or use backup -'
+title: Review unattached managed disks before retiring or retiering them
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.compute/virtualmachines
+- microsoft.compute/disks
 waf: Cost
 severity: 1
 labels:
@@ -15,4 +14,57 @@ links:
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-enterprise-agreement#design-considerations
 - type: docs
   url: https://learn.microsoft.com/azure/cost-management-billing/costs/manage-automation
-queries: {}
+queries:
+  arg: |-
+    Resources
+    | where type =~ 'microsoft.compute/disks'
+    | where isempty(managedBy)
+    | extend diskState = tostring(properties.diskState)
+    | where diskState == 'Unattached'
+    | where tags !contains 'ASR-ReplicaDisk' and tags !contains 'asrseeddisk'
+    | project id, name, subscriptionId, resourceGroup, location, diskState,
+        skuName = tostring(sku.name), diskSizeGB = tolong(properties.diskSizeGB),
+        timeCreated = todatetime(properties.timeCreated)
+schemaVersion: 1
+id: 6aae01e6-a84d-4e5d-b36d-1d92881a1bd5
+services:
+- Azure Managed Disks
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Known-unattached disks, narrowed to explicit Unattached state and excluding known ASR tags.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Detached disks can be intentionally retained, staged, shared or needed for recovery. ASR tag exclusions are heuristics, not complete dependency detection. Require owner and data-retention approval; do not delete automatically or take a chargeable snapshot as an unconditional step. Creation time is not detachment time.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/storage
+    title: FinOps best practices for Storage
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-data-costs
+    title: Architecture strategies for optimizing data costs
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/rest/api/compute/disks/get#diskstate
+    title: Disks - Get
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+description: Find unattached disks, identify their owner and detachment context, and exclude active transfer,
+  Site Recovery and approved recovery/retention uses. Delete or retier only after data-retention, recovery
+  and change approval. Evaluate continuing snapshot/backup costs and never treat an unattached state as
+  permission to erase data.

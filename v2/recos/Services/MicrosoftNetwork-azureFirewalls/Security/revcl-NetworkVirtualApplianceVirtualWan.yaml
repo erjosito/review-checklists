@@ -26,3 +26,14 @@ queries:
     = (PeeredToVWAN == true)) on subnetId | project id=iff(isnotempty(id), id, id1),
     subnetId=iff(isnotempty(subnetId), subnetId, subnetId1), hasRT, isVWANpeer | extend
     compliant = (hasRT==true or isVWANpeer==true) | distinct id, subnetId, compliant
+schemaVersion: 1
+id: a3784907-9836-4271-aafc-93535f8ec08b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

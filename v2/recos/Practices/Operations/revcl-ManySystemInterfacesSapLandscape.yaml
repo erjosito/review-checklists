@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/explore-azure-networking/4-explore-name-resolution
 queries: {}
+schemaVersion: 1
+id: fa9d30bc-1b82-4e4b-bfdf-6b017938b9e6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

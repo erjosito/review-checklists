@@ -105,7 +105,7 @@
                     "description": "List of reco sources that will be matched by the selector.",
                     "items": {
                         "type": "string",
-                        "enum": ["revcl", "aprl", "wafsg"]
+                        "enum": ["revcl", "aprl", "wafsg", "curated"]
                     }
                 }
             }

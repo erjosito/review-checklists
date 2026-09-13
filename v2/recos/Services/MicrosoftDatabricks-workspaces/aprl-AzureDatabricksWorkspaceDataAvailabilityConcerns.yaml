@@ -1,18 +1,49 @@
 name: aprl-AzureDatabricksWorkspaceDataAvailabilityConcerns
 title: Do not Store any Production Data in Default DBFS Folders
-description: |-
-  Driven by security and data availability concerns, each Azure Databricks Workspace comes with a default DBFS designed for system-level artifacts like libraries and Init scripts, not for production data.
+description: Driven by security and data availability concerns, each Azure Databricks Workspace comes
+  with a default DBFS designed for system-level artifacts like libraries and Init scripts, not for production
+  data.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 0
 labels:
   guid: 14310ba6-77ad-3641-a2db-57a2218b9bc7
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 14310ba6-77ad-3641-a2db-57a2218b9bc7
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL 14310ba6-77ad-3641-a2db-57a2218b9bc7: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 14310ba6-77ad-3641-a2db-57a2218b9bc7
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6effe0fb6c48a996bd53afe2e8ec0ec835d425c0e3aaf4ac5e2969b4057e6452
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

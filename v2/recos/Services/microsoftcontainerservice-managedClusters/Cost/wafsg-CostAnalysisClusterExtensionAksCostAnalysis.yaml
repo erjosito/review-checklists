@@ -1,7 +1,9 @@
 name: wafsg-CostAnalysisClusterExtensionAksCostAnalysis
-title: 'Cluster architecture: Configure the AKS Cost Analysis add-on.'
-description: The cost analysis cluster extension enables you to obtain granular insight
-  into costs associated with various Kubernetes resources in your clusters or namespaces.
+title: Enable eligible AKS cost analysis and reconcile namespace allocation
+description: For supported AKS tiers and Azure offers, enable native cost analysis and review namespace/asset
+  cost, idle, system, service and unallocated charges. Confirm managed identity, CSI, networking and region
+  prerequisites; budget for the add-on's resource use and data latency. Use an appropriate alternative
+  when native views are unavailable.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -12,4 +14,53 @@ severity: 1
 labels:
   guid: 1104dc91-14f0-4330-ac7d-fa85039a0802
 links: []
-queries: {}
+queries:
+  arg: |-
+    AdvisorResources
+    | where type =~ 'microsoft.advisor/recommendations'
+    | where properties.category =~ 'Cost'
+    | where tostring(properties.recommendationTypeId) in~ ('56b0837b-7d02-4ca6-859f-59dc452fd93e')
+    | project id, subscriptionId, resourceGroup,
+        targetResourceId = tostring(properties.resourceMetadata.resourceId),
+        impactedField = tostring(properties.impactedField),
+        recommendationTypeId = tostring(properties.recommendationTypeId),
+        impact = tostring(properties.impact),
+        problem = tostring(properties.shortDescription.problem),
+        solution = tostring(properties.shortDescription.solution),
+        lastUpdated = tostring(properties.lastUpdated),
+        extendedProperties = properties.extendedProperties
+schemaVersion: 1
+id: 1104dc91-14f0-4330-ac7d-fa85039a0802
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Inventory of Advisor-issued cost opportunities. The recommendation ID is id; the affected resource is targetResourceId. A row is not a policy violation and absence is not a pass.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Advisor recommendations depend on service coverage, telemetry, configured lookback and recommendation freshness; review dismissals/postponements in Advisor. Published recommendationTypeId values are used verbatim; no inferred IDs or text matching. IDs and coverage can evolve. Savings fields vary by recommendation. Preserve extendedProperties rather than assume a universal monthly/annual field; do not sum overlapping opportunities or mixed currencies/time horizons. Advisor estimates may not reflect existing reservations, savings plans, negotiated rates or operational constraints. Do not inner-join to Resources: subscription-level commitments and some affected child resources would be lost.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/cost-analysis
+    title: Azure Kubernetes Service (AKS) cost analysis
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'

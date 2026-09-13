@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/networking-features#access-restrictions
 queries: {}
+schemaVersion: 1
+id: 165c3acb-ef4a-4be1-b8d3-9fda47768314
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

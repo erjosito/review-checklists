@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://github.com/Azure/fta-resiliencyplaybooks/blob/main/paas-foundations-playbooks-AEH_v1.docx
 queries: {}
+schemaVersion: 1
+id: 31d41e36-11c8-417b-8afb-c410d4391898
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

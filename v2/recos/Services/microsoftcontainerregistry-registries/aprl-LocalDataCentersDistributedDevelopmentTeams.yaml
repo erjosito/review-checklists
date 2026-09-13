@@ -1,13 +1,14 @@
 name: aprl-LocalDataCentersDistributedDevelopmentTeams
-title: Enable geo-replication
-description: |-
-  Use Azure Container Registry's geo-replication for multi-region deployments to simplify registry management and minimize latency. It enables serving global customers from local data centers and supports distributed development teams. Regional webhooks can notify of events in replicas.
+title: Create container registries with geo-replication enabled
+description: Use Azure Container Registry's geo-replication for multi-region deployments to simplify registry
+  management and minimize latency. It enables serving global customers from local data centers and supports
+  distributed development teams. Regional webhooks can notify of events in replicas.
 source:
   type: aprl
   file: azure-resources/ContainerRegistry/registries/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerRegistry/registries
+- microsoft.containerregistry/registries
 severity: 0
 labels:
   guid: 36ea6c09-ef6e-d743-9cfb-bd0c928a430b
@@ -30,3 +31,31 @@ queries:
     | where isempty(replicationRegion)
     | project recommendationId = "36ea6c09-ef6e-d743-9cfb-bd0c928a430b", name=registryName, id=registryId, tags
     | order by id asc
+schemaVersion: 1
+id: 36ea6c09-ef6e-d743-9cfb-bd0c928a430b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    title: 'APRL 36ea6c09-ef6e-d743-9cfb-bd0c928a430b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 36ea6c09-ef6e-d743-9cfb-bd0c928a430b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0f1fe2a60707439a3fea63a2b6ce93355f5653fd1be23296b9a14bf825389f94
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

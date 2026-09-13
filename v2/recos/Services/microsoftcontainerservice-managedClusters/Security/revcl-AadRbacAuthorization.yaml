@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/manage-azure-rbac
 queries: {}
+schemaVersion: 1
+id: eec4962c-c3bd-421b-b77f-26e5e6b3bec3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

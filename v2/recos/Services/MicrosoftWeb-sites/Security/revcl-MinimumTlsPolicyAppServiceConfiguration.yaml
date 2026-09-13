@@ -1,6 +1,10 @@
 name: revcl-MinimumTlsPolicyAppServiceConfiguration
-title: Set minimum TLS policy to 1.2
-description: Set minimum TLS policy to 1.2 in App Service configuration.
+title: Enforce TLS 1.2 or higher for App Service and verify the relevant endpoints.
+description: Set an appropriate minimum TLS version, require HTTPS and test the client-facing and deployment
+  endpoints that the workload uses. Validate certificate names, trust and renewal as well as negotiated
+  protocol versions. The inherited ARG expression compared a property to a numeric literal without verified
+  table/property semantics; it is not retained as a compliance test. Configuration assessment remains
+  a candidate for automation pending exact supported ARG evidence.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,6 +17,36 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/configure-ssl-bindings#enforce-tls-versions
-queries:
-  arg: appserviceresources | where type =~ 'microsoft.web/sites/config' | extend compliant
-    = (properties.MinTlsVersion>=1.2) | distinct id,compliant
+queries: {}
+schemaVersion: 1
+id: c115775c-2ea5-45b4-9ad4-8408ee72734b
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/app-service/configure-common
+    title: Configure an App Service app
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/app-service/configure-ssl-bindings
+    title: Secure your domain with TLS/SSL
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:07
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/encryption
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

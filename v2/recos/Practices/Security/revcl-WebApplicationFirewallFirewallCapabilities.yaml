@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/introduction-azure-web-application-firewall/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 5ada4332-4e13-4811-9231-81aa41742694
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

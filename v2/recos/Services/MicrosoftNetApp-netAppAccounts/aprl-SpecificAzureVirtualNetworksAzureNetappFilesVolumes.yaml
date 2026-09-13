@@ -1,18 +1,49 @@
 name: aprl-SpecificAzureVirtualNetworksAzureNetappFilesVolumes
 title: Restrict default access to Azure NetApp Files volumes
-description: |-
-  Access to the delegated subnet should be limited to specific Azure Virtual Networks. SMB-enabled volumes' share permissions should move away from 'Everyone/Full control'. NFS-enabled volumes' access needs to be controlled via export policies and/or NFSv4.1 ACLs.
+description: Access to the delegated subnet should be limited to specific Azure Virtual Networks. SMB-enabled
+  volumes' share permissions should move away from 'Everyone/Full control'. NFS-enabled volumes' access
+  needs to be controlled via export policies and/or NFSv4.1 ACLs.
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 1
 labels:
   guid: cfa2244b-5436-47de-8287-b217875d3b0a
   area: Security
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: cfa2244b-5436-47de-8287-b217875d3b0a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL cfa2244b-5436-47de-8287-b217875d3b0a: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: cfa2244b-5436-47de-8287-b217875d3b0a
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:65eaddaf281de967f0db525cddb677681a3f83c9e67b0cf7b36f83f3615d1603
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

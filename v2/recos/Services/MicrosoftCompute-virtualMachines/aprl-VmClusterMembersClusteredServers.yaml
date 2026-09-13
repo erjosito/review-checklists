@@ -1,13 +1,13 @@
 name: aprl-VmClusterMembersClusteredServers
 title: Shared disks should only be enabled in clustered servers
-description: |-
-  Azure shared disks let you attach a disk to multiple VMs at once for deploying or migrating clustered applications, suitable only when a disk is shared among VM cluster members.
+description: Azure shared disks let you attach a disk to multiple VMs at once for deploying or migrating
+  clustered applications, suitable only when a disk is shared among VM cluster members.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 1
 labels:
   guid: 3263a64a-c256-de48-9818-afd3cbc55c2a
@@ -39,3 +39,34 @@ queries:
     | extend param1 = strcat("DiskState: ", diskState), param2 = iif(isempty(vmNames[0]), "VMName: n/a", strcat("VMName: ", strcat_array(vmNames, ", ")))
     | project recommendationId = "3263a64a-c256-de48-9818-afd3cbc55c2a", name, id, tags, param1, param2
     | order by id asc
+schemaVersion: 1
+id: 3263a64a-c256-de48-9818-afd3cbc55c2a
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.Compute/disks''],
+    while the frozen corpus scope is [''Microsoft.Compute/virtualMachines'']; applicability is not broadened
+    or narrowed without separate verification. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/disks/recommendations.yaml
+    title: 'APRL 3263a64a-c256-de48-9818-afd3cbc55c2a: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 3263a64a-c256-de48-9818-afd3cbc55c2a
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/disks/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f02ed73551cca0976e37f6775a69c1cbb53cf98d423e7155dbdac972bdac4573
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.Compute/disks'],
+      while the frozen corpus scope is ['Microsoft.Compute/virtualMachines']; applicability is not broadened
+      or narrowed without separate verification. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

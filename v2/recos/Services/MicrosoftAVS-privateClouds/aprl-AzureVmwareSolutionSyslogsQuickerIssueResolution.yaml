@@ -1,18 +1,49 @@
 name: aprl-AzureVmwareSolutionSyslogsQuickerIssueResolution
 title: Configure Syslog in Diagnostic Settings for Azure VMware Solution
-description: |-
-  Ensure Diagnostic Settings are configured for each private cloud to send syslogs to external sources for analysis and/or archiving. Azure VMware Solution Syslogs contain data for troubleshooting and performance, aiding quicker issue resolution and early detection of issues.
+description: Ensure Diagnostic Settings are configured for each private cloud to send syslogs to external
+  sources for analysis and/or archiving. Azure VMware Solution Syslogs contain data for troubleshooting
+  and performance, aiding quicker issue resolution and early detection of issues.
 source:
   type: aprl
   file: azure-resources/AVS/privateClouds/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AVS/privateClouds
+- microsoft.avs/privateclouds
 severity: 0
 labels:
   guid: fa4ab927-bced-429a-971a-53350de7f14b
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |-
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: fa4ab927-bced-429a-971a-53350de7f14b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    title: 'APRL fa4ab927-bced-429a-971a-53350de7f14b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: fa4ab927-bced-429a-971a-53350de7f14b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5fbc75fbffeecfce3c78bd184e862d39e4df094a4130218544c9b2b0f524b70d
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

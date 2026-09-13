@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/data-loss-prevention
 queries: {}
+schemaVersion: 1
+id: ab91932c-9fc9-4d1b-a880-37f5e6bfcb9e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

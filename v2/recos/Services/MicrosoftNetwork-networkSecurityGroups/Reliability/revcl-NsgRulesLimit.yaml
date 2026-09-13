@@ -18,3 +18,14 @@ queries:
   arg: resources | where type == 'microsoft.network/networksecuritygroups' | project
     id, rules = array_length(properties.securityRules) | project id, compliant = (rules
     < 900)
+schemaVersion: 1
+id: 0390417d-53dc-44d9-b3f4-c8832f359b41
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

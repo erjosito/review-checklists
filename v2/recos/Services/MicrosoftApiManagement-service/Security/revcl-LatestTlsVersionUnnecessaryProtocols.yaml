@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-howto-manage-protocols-ciphers
 queries: {}
+schemaVersion: 1
+id: 2deee033-b906-4bc2-9f26-c8d3699fe091
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

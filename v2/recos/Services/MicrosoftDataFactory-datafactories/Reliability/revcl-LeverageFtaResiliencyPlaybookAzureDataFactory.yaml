@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://github.com/Azure/fta-resiliencyplaybooks/blob/main/paas-foundations-playbooks-ADF_v1.docx
 queries: {}
+schemaVersion: 1
+id: ab91932c-9fc9-4d1b-a881-37f5e6c0cb9e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

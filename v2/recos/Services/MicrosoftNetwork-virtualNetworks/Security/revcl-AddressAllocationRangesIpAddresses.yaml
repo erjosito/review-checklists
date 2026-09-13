@@ -22,3 +22,14 @@ queries:
     resourceGroup, subscriptionId, cidr = addressPrefix | extend compliant = (cidr
     matches regex @'^(10\\.|172\\.(1[6-9]|2[0-9]|3[01])\\.|192\\.168\\.)')  | project
     id, compliant, cidr
+schemaVersion: 1
+id: 3f630472-2dd6-49c5-a5c2-622f54b69bad
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

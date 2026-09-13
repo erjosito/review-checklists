@@ -19,3 +19,14 @@ queries:
     = properties_managedRules_managedRuleSets.ruleSetType | extend compliant1 = (rulesettype
     == 'Microsoft_BotManagerRuleSet') | project id, compliant1 | summarize compliant
     = max(compliant1) by id
+schemaVersion: 1
+id: 2f8e81eb-8e68-4026-8b1f-70f9b05f7cf9
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

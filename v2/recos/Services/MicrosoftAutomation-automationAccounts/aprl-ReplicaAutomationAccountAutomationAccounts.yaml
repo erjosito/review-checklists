@@ -1,18 +1,49 @@
 name: aprl-ReplicaAutomationAccountAutomationAccounts
 title: Set up disaster recovery of Automation accounts and its dependent resources
-description: |-
-  Set up disaster recovery for Automation accounts and resources like Modules, Connections, Credentials, Certificates, Variables, and Schedules to deal with region or zone failures. A replica Automation account should be ready in a secondary region for failover.
+description: Set up disaster recovery for Automation accounts and resources like Modules, Connections,
+  Credentials, Certificates, Variables, and Schedules to deal with region or zone failures. A replica
+  Automation account should be ready in a secondary region for failover.
 source:
   type: aprl
   file: azure-resources/Automation/automationAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Automation/automationAccounts
+- microsoft.automation/automationaccounts
 severity: 0
 labels:
   guid: 67205887-0733-466e-b50e-b1cd7316c514
   area: High Availability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 67205887-0733-466e-b50e-b1cd7316c514
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Automation/automationAccounts/recommendations.yaml
+    title: 'APRL 67205887-0733-466e-b50e-b1cd7316c514: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 67205887-0733-466e-b50e-b1cd7316c514
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Automation/automationAccounts/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:441f86778e6e75653c34fb8a750ce10fb11df9631d3da098ec3b6707969642c3
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

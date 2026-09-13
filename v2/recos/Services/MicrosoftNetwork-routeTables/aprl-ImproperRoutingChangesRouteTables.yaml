@@ -1,14 +1,15 @@
 name: aprl-ImproperRoutingChangesRouteTables
 title: Monitor changes in Route Tables with Azure Monitor
-description: |-
-  Create Alerts with Azure Monitor for operations like Create or Update Route Table to spot unauthorized/undesired changes in production resources. This setup aids in identifying improper routing changes, including efforts to evade firewalls or access resources from outside.
+description: Create Alerts with Azure Monitor for operations like Create or Update Route Table to spot
+  unauthorized/undesired changes in production resources. This setup aids in identifying improper routing
+  changes, including efforts to evade firewalls or access resources from outside.
 source:
   type: aprl
   file: azure-resources/Network/routeTables/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/routeTables
-severity: 0
+- microsoft.network/routetables
+severity: 1
 labels:
   guid: 23b2dfc7-7e5d-9443-9f62-980ca621b561
   area: Monitoring and Alerting
@@ -37,3 +38,31 @@ queries:
         on $left.lowerCaseRouteTableId == $right.lowerCaseRouteTableIdOfScope
     | where isempty(lowerCaseRouteTableIdOfScope)
     | project recommendationId = "23b2dfc7-7e5d-9443-9f62-980ca621b561", name, id, tags, param1 = "ModificationAlert: Not configured/Disabled"
+schemaVersion: 1
+id: 23b2dfc7-7e5d-9443-9f62-980ca621b561
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/routeTables/recommendations.yaml
+    title: 'APRL 23b2dfc7-7e5d-9443-9f62-980ca621b561: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 23b2dfc7-7e5d-9443-9f62-980ca621b561
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/routeTables/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e88a40e7229a2f8694fc1f2bea7c8904dd6d1fc4e18e57ba9288e9b1b3c85703
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

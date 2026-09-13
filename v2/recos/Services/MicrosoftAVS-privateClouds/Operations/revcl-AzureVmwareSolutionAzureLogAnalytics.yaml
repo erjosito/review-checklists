@@ -12,3 +12,13 @@ labels:
   guid: 925398e6-da9d-437d-ac43-bc6cd1d79a9b
 links: []
 queries: {}
+schemaVersion: 1
+id: 925398e6-da9d-437d-ac43-bc6cd1d79a9b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

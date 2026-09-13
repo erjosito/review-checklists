@@ -1,13 +1,9 @@
 name: wafsg-SameStorageAccountUpperPerformanceLimits
-title: 'Understand your application and usage patterns to achieve predictable performance:
-  Determine latency sensitivity, IOPS and throughput requirements, workload duration
-  and frequency, and workload parallelization. Use Azure Files for multi-threaded
-  applications to help you achieve the upper performance limits of a service. If most
-  of your requests are metadata-centric, such as createfile, openfile, closefile,
-  queryinfo, or querydirectory, the requests create poor latency that''s higher than
-  the read and write operations. If you have this problem, consider separating the
-  file share into multiple file shares within the same storage account.'
-description: ''
+title: Optimize Azure Files for measured data and metadata access patterns
+description: Measure latency, IOPS, throughput, parallelism and the mix of metadata versus data operations.
+  For metadata-heavy SSD SMB workloads, evaluate supported metadata caching to reduce metadata latency
+  and increase scale. Test before partitioning a share into multiple shares, and retain access/namespace
+  compatibility. Share inventory cannot establish metadata performance.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-files.md
@@ -20,3 +16,25 @@ labels:
   guid: de7e1635-911b-43e8-a887-95b8e13778d1
 links: []
 queries: {}
+schemaVersion: 1
+id: de7e1635-911b-43e8-a887-95b8e13778d1
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-files
+    title: Architecture best practices for Azure Files
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:08
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-data-performance
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:a5328043fbb2ecf2981a270ff0c84d2660f8e991b5832095d0a93d726ec6eb2e
+    notes: Files access-pattern and metadata optimization addresses one data service; broader store, partition
+      and index design remains uncovered.

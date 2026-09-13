@@ -1,13 +1,14 @@
 name: aprl-LowerReadWriteLatencyEphemeralOsDisks
 title: Use Ephemeral OS disks on AKS clusters
-description: |-
-  Ephemeral OS disks on AKS offer lower read/write latency due to local attachment, eliminating the need for replication seen with managed disks. This enhances performance and speeds up cluster operations such as scaling or upgrading due to quicker re-imaging and boot times.
+description: Ephemeral OS disks on AKS offer lower read/write latency due to local attachment, eliminating
+  the need for replication seen with managed disks. This enhances performance and speeds up cluster operations
+  such as scaling or upgrading due to quicker re-imaging and boot times.
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 1
 labels:
   guid: a7bfcc18-b0d8-4d37-81f3-8131ed8bead5
@@ -23,3 +24,38 @@ queries:
     | extend type = tostring(agentPoolProfile.osDiskType)
     | where type != 'Ephemeral'
     | project recommendationId="a7bfcc18-b0d8-4d37-81f3-8131ed8bead5", name, id, param1=strcat("osDiskType: ", type)
+schemaVersion: 1
+id: a7bfcc18-b0d8-4d37-81f3-8131ed8bead5
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.Compute/virtualMachineScaleSets''],
+    while the frozen corpus scope is [''Microsoft.ContainerService/managedClusters'']; applicability is
+    not broadened or narrowed without separate verification. Current upstream ARG differs from the frozen
+    query; the old executable body is retained pending semantic/edge-case validation, not silently replaced
+    by unreviewed KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    title: 'APRL a7bfcc18-b0d8-4d37-81f3-8131ed8bead5: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: a7bfcc18-b0d8-4d37-81f3-8131ed8bead5
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f1898781c21192b4ee974af19df37dcfb2a9a6665c67ed400c822455ce6db99e
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.Compute/virtualMachineScaleSets'],
+      while the frozen corpus scope is ['Microsoft.ContainerService/managedClusters']; applicability is
+      not broadened or narrowed without separate verification. Current upstream ARG differs from the frozen
+      query; the old executable body is retained pending semantic/edge-case validation, not silently replaced
+      by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

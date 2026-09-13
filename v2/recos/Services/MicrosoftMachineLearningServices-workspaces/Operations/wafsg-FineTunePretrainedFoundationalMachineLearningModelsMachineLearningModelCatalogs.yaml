@@ -20,3 +20,13 @@ labels:
   guid: 53e64198-939d-4710-bb60-78240890442a
 links: []
 queries: {}
+schemaVersion: 1
+id: 53e64198-939d-4710-bb60-78240890442a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,13 +1,14 @@
 name: aprl-AzureAppServiceInstancesServiceDisruptions
 title: Avoid scaling up or down
-description: |-
-  Avoid frequent scaling up/down of Azure App Service instances to prevent service disruptions. Choose the right tier and size for the workload and scale out for traffic changes, as scaling adjustments can trigger application restarts.
+description: Avoid frequent scaling up/down of Azure App Service instances to prevent service disruptions.
+  Choose the right tier and size for the workload and scale out for traffic changes, as scaling adjustments
+  can trigger application restarts.
 source:
   type: aprl
   file: azure-resources/Web/serverFarms/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/serverFarms
+- microsoft.web/serverfarms
 severity: 1
 labels:
   guid: 07243659-4643-d44c-a1c6-07ac21635072
@@ -28,3 +29,34 @@ queries:
     | where changedProperties['sku.name'].propertyChangeType == 'Update' or changedProperties['sku.tier'].propertyChangeType == 'Update'
     | summarize count() by targetResourceId, resources_Name  ,tostring(changedProperties['sku.name'].previousValue), tostring(changedProperties['sku.tier'].newValue)
     | project recommendationId="07243659-4643-d44c-a1c6-07ac21635072", name=resources_Name, id=targetResourceId, tags="", param1=['changedProperties_sku.name_previousValue'], param2=['changedProperties_sku.tier_newValue'], param3=count_
+schemaVersion: 1
+id: 07243659-4643-d44c-a1c6-07ac21635072
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    title: 'APRL 07243659-4643-d44c-a1c6-07ac21635072: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 07243659-4643-d44c-a1c6-07ac21635072
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5129861e7535e8c3aa6c85467373d3647e54f76e5d99db2c16f55093577e2800
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

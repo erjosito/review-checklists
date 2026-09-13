@@ -19,3 +19,13 @@ labels:
   guid: f91761cf-5135-4dc1-bebc-0f25ebd32c55
 links: []
 queries: {}
+schemaVersion: 1
+id: f91761cf-5135-4dc1-bebc-0f25ebd32c55
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

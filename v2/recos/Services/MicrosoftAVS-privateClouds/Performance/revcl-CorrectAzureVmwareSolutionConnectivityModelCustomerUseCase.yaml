@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://github.com/Azure/AzureCAT-AVS/tree/main/networking
 queries: {}
+schemaVersion: 1
+id: 9ef1d5e8-32e4-42e3-911c-818b0a0bc510
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/analyze-costs-create-budgets-azure-cost-management/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 579266bc-ca27-45fa-a1ab-fe9d55d04c3c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

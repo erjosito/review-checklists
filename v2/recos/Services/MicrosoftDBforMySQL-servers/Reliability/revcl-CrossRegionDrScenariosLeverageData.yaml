@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/mysql/flexible-server/overview#setup-hybrid-or-multi-cloud-data-synchronization-with-data-in-replication
 queries: {}
+schemaVersion: 1
+id: 1e944a45-9c37-43e7-bd61-623b365a917e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

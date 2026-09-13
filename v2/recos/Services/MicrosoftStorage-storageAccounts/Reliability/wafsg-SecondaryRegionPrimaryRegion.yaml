@@ -1,10 +1,9 @@
 name: wafsg-SecondaryRegionPrimaryRegion
-title: 'Design applications: Design applications to seamlessly shift to reading data
-  from the secondary region if the primary region becomes unavailable for any reason.
-  This only applies to geo-redundant storage (GRS) and geo-zone-redundant storage
-  (GZRS) configurations. Designing applications to handle outages reduces downtime
-  for end users.'
-description: ''
+title: Use RA-GRS or RA-GZRS for Blob secondary reads before account failover
+description: Applications needing read access to Blob data in the secondary region before failover must
+  use RA-GRS or RA-GZRS and explicitly support the secondary endpoint. Plain GRS/GZRS does not expose
+  secondary data until failover completes. Test read-only degraded operation, stale data handling and
+  client retries; asynchronous replication means the secondary can lag behind the primary.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-blob-storage.md
@@ -17,3 +16,16 @@ labels:
   guid: b819c0de-783e-4b18-8232-416710492029
 links: []
 queries: {}
+schemaVersion: 1
+id: b819c0de-783e-4b18-8232-416710492029
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy
+    title: Azure Storage redundancy
+    accessedAt: '2026-09-11'

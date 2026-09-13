@@ -14,3 +14,13 @@ labels:
   guid: 97507b95-fd6d-4784-a678-0327e5427f31
 links: []
 queries: {}
+schemaVersion: 1
+id: 97507b95-fd6d-4784-a678-0327e5427f31
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

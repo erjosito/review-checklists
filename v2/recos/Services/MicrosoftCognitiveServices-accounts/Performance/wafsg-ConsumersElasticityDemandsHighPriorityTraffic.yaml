@@ -1,7 +1,6 @@
 name: wafsg-ConsumersElasticityDemandsHighPriorityTraffic
-title: 'Capacity: Estimate consumers'' elasticity demands. Identify high-priority
-  traffic that requires synchronous responses and low-priority traffic that can be
-  asynchronous and batched.'
+title: 'Capacity: Estimate consumers'' elasticity demands. Identify high-priority traffic that requires
+  synchronous responses and low-priority traffic that can be asynchronous and batched.'
 description: ''
 source:
   type: wafsg
@@ -15,3 +14,22 @@ labels:
   guid: c8f369bf-bb71-4c71-bec6-a9806f071d66
 links: []
 queries: {}
+schemaVersion: 1
+id: c8f369bf-bb71-4c71-bec6-a9806f071d66
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/prioritize-critical-flows
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ecdba59beb49bb7d3934048f0ff0946bc0b3bf87d04cff1f7f92554e67e2326a
+    notes: OpenAI traffic prioritization distinguishes synchronous high-priority and asynchronous lower-priority
+      work, but not an all-flow business-criticality and capacity-allocation process.

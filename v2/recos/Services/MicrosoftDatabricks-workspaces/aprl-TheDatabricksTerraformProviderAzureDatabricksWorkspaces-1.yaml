@@ -1,18 +1,48 @@
 name: aprl-TheDatabricksTerraformProviderAzureDatabricksWorkspaces-1
 title: Set up monitoring, alerting, and logging
-description: |-
-  The Databricks Terraform provider is a flexible, powerful tool for managing Azure Databricks workspaces and cloud infrastructure.
+description: The Databricks Terraform provider is a flexible, powerful tool for managing Azure Databricks
+  workspaces and cloud infrastructure.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 0
 labels:
   guid: 20193ff9-dbcd-a74e-b197-71d7d9d3c1e6
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 20193ff9-dbcd-a74e-b197-71d7d9d3c1e6
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL 20193ff9-dbcd-a74e-b197-71d7d9d3c1e6: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 20193ff9-dbcd-a74e-b197-71d7d9d3c1e6
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:fb2471b03f60e56472d85b8f6edb94760d64eb6f1aca517c6df7e6ae6c464629
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Monitoring/alerting/logging title has a Terraform-provider description
+      duplicated from deployment automation; source intent needs reconciliation. Coverage concerns the
+      inventory's explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt
+      remain unchanged.
+waf: Operations

@@ -1,0 +1,749 @@
+{
+  "schemaVersion": 1,
+  "stage": "classification-followup-2026-09-13",
+  "status": "proposed-not-applied",
+  "assessedAt": "2026-09-13",
+  "scope": "Exactly six legacy Data Factory resource-type records, five imported Front Door WAF resource-type records, and one unclassified APRL Photon/Spark record.",
+  "authorizationBoundary": "Research and these two proposal reports only. No YAML, helpers, catalogue, schema, tests, historical manifests, reviews, or queries were modified by this follow-up.",
+  "summary": {
+    "assessedRecords": 12,
+    "proposedAmendments": 11,
+    "deferredRecords": 1,
+    "dataFactoryExplicitV2ScopeAmendments": 5,
+    "dataFactoryLegacyTypeRetainedPendingEvidence": 1,
+    "frontDoorApplicabilityAmendments": 5,
+    "photonSparkGuidanceReconciliations": 1,
+    "additions": 0,
+    "deletions": 0,
+    "merges": 0,
+    "queryChanges": 0,
+    "liveAzureValidations": 0
+  },
+  "applicationContract": {
+    "approvalRequired": true,
+    "patchFormat": "Each before/after object contains exact top-level values for fields listed in changedFields. A field in absentBefore must be absent, not null. All unlisted fields remain byte/semantic-preserved as appropriate to the separate approved amendment writer.",
+    "sourceEvidenceRule": "sourceRefs refer to fetched documents below, not upstream recommendation coverage. If approved, append their url/title/accessedAt tuples to provenance.sources without deleting prior entries. This append is an additional, explicitly recorded provenance change in the parent amendment stage; it is not silently included in changedFields here.",
+    "identityRule": "Preserve canonical id, name, aliases, labels and original source. In particular do not rename the Photon-named canonical record after changing its display title.",
+    "reviewDateRule": "provenance.lastReviewed, provenance.upstreamRevision and automation.validatedAt remain unchanged/null. Source document revisions below are not a human review or an upstream recommendation mapping.",
+    "hashRule": "beforeFileSha256 fingerprints actual UTF-8 file bytes; beforeDocumentSha256 and proposedFieldsDocumentSha256 use canonical JSON sorted keys, compact separators, ensure_ascii=false, UTF-8. proposedFieldsDocumentSha256 includes only the exact listed field replacements, before the separately required provenance.sources append. These are local document/precondition hashes, not hashes of upstream recommendations.",
+    "historyRule": "Apply only through a new semantic amendment stage after the completed service-normalization stage. Existing pillar and normalization reports must remain historical; test replay must verify/reverse the new stage before earlier-stage replay. Do not weaken original guidance/identity/query assertions.",
+    "reviewImpact": "Every proposed applied change is semantic guidance and/or applicability curation, not an alias/case normalization. Pinned review snapshots remain unchanged until an explicit review refresh.",
+    "catalogueFollowupProposal": "Microsoft.DataFactory/datafactories is positively documented, not a typo. A later approved catalogue change should recognize it as a legacy Data Factory type alongside factories without making the types semantic aliases. Do not silently change the existing normalization audit. WAF policy, Front Door host and regional proxy applicability must remain many-to-many and SKU-qualified.",
+    "cataloguePrerequisiteForWafHostProposals": "Before applying the logging/ingress proposals, extend Web Application Firewall applicability to the documented host types microsoft.network/applicationgateways, microsoft.network/frontdoors and microsoft.cdn/profiles as well as policy resources. The current policy-only mapping would otherwise report a false contradiction for explicit WAF service classifications on logging hosts. Preserve SKU and WAF-enabled caveats; do not infer every CDN profile is a Front Door WAF."
+  },
+  "sources": [
+    {
+      "id": "adf-legacy-permissions",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/analytics#microsoftdatafactory",
+      "title": "Azure permissions for Analytics - Azure RBAC",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "1b4e136a1da731e1ed16444eb6ce5701bcd8c0f4",
+      "readingScope": "Microsoft.DataFactory table, including parent datafactories operations and legacy slices/gateways versus factories and integrationruntimes.",
+      "findings": [
+        "The current Microsoft-generated permissions reference explicitly lists Microsoft.DataFactory/datafactories/read, write and delete; the spelling therefore cannot be dismissed as a nonexistent typo.",
+        "The same table separately lists factories and its integrationruntimes, triggers and managedVirtualNetworks. These are different resource scopes, not casing variants.",
+        "A current permissions listing alone does not establish current provisioning availability, support lifecycle, or that a v2-specific recommendation applies to v1."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "adf-v1-v2-migration",
+      "url": "https://raw.githubusercontent.com/Azure/Azure-DataFactory/ce4c9cab41e5e4fa66f4bddd042cab649c36a4ca/V1-V2Migration/ADFV1toV2Conversion.md",
+      "title": "Tutorial: Migrate your V1 Azure Data Factory to V2",
+      "accessedAt": "2026-09-13",
+      "repositoryTree": "ce4c9cab41e5e4fa66f4bddd042cab649c36a4ca",
+      "readingScope": "Complete Microsoft-owned migration tutorial; explicit v1/v2 distinction and preview/manual conversion of datasets, linked services and pipelines.",
+      "findings": [
+        "The official sample repository treats v1-to-v2 as a migration that can require manual conversion, not a resource-type spelling fix.",
+        "The tree identifier pins the fetched file; it is not asserted to be a recommendation identity or a commit ID."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "adf-v2-resource",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.datafactory/factories",
+      "title": "Microsoft.DataFactory/factories - Bicep, ARM template & Terraform AzAPI reference",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "9a8f8820ebf02dc4524627037dcf7fa736fe7337",
+      "readingScope": "V2-labelled Bicep sample, factories@2018-06-01 resource format, identity and repoConfiguration properties.",
+      "findings": ["The reference explicitly labels the factories@2018-06-01 example as Data Factory Version 2 and includes Git repository configuration."],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "adf-source-control",
+      "url": "https://learn.microsoft.com/en-us/azure/data-factory/source-control",
+      "title": "Source control - Azure Data Factory",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "8fc2021f00d19d23f19082283aa3be5afd93c199",
+      "readingScope": "Introduction, Git integration benefits, repository configuration and explicit warning about changes made outside Git.",
+      "findings": [
+        "Git stores factory entity JSON and supports versioning, collaboration and deployment workflows; direct PowerShell/SDK changes are not automatically entered into Git.",
+        "The service authoring experience is not a backup of all dependencies or moved data. An ARM template for the factory itself needs separate attention."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "adf-reliability",
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/reliability-data-factory",
+      "title": "Reliability in Azure Data Factory",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "705f712732a67844046a6be3e5084b2662128d53",
+      "readingScope": "Complete article: architecture, IR-specific zone redundancy, trigger-state caveats, region failover, SHIR responsibilities, custom recovery, backup and SLA.",
+      "findings": [
+        "The core service and Azure IR have Microsoft-managed zone redundancy. Azure-SSIS requires two or more nodes; SHIR compute resilience is customer-managed.",
+        "Tumbling-window trigger state has a zone-failure caveat. Pipelines/activities should support safe retries; zone redundancy is not a single customer pipeline switch.",
+        "Microsoft-managed regional failover is conditional, best effort and potentially delayed, with region exceptions. Custom recovery and restored networking can be necessary.",
+        "SHIR compute recovery remains the customer's responsibility; Azure Site Recovery is one documented option for an SHIR on Azure VMs.",
+        "CI/CD and source control protect deployable factory metadata, not the complete workload's data and dependencies."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "adf-secure-deployment",
+      "requestedUrl": "https://learn.microsoft.com/en-us/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery",
+      "url": "https://learn.microsoft.com/en-us/azure/data-factory/secure-your-azure-data-factory",
+      "title": "Secure your Azure Data Factory deployment - Azure Data Factory",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "ee2fdd0f669a42d9a6fee0dd032f1daab2f750e6",
+      "readingScope": "Redirect destination; network/identity dependencies and Backup and recovery section.",
+      "findings": [
+        "The old architecture link now redirects; it must not be cited as though the historical article was retrieved unchanged.",
+        "Current guidance places Git integration on development factories and uses CI/CD to promote to test/production.",
+        "Network, secret and identity dependencies need explicit treatment; deployment templates provide a deployable configuration backup."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "adf-key-vault",
+      "url": "https://learn.microsoft.com/en-us/azure/data-factory/store-credentials-in-key-vault",
+      "title": "Store credentials in Azure Key Vault - Azure Data Factory",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "8fc2021f00d19d23f19082283aa3be5afd93c199",
+      "readingScope": "Complete article: runtime credential retrieval, managed identity prerequisite, linked service and secret version references.",
+      "findings": [
+        "The documented integration retrieves referenced credentials at activity execution and depends on factory identity, vault access and reachable endpoints.",
+        "This supports a dependency-specific availability review; it does not prove an SLA for the combined pipeline or remove customer recovery responsibilities."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "key-vault-reliability",
+      "requestedUrl": "https://learn.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance",
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/reliability-key-vault",
+      "title": "Reliability in Azure Key Vault",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "e136e6fa8f22e50ff323739fc1c5475270c3fc86",
+      "readingScope": "Architecture, regional pairing exceptions, transient fault handling, automatic zonal redundancy and managed regional failover limitations.",
+      "findings": [
+        "Zone redundancy is automatic where supported, but cross-region replication/failover has regional exceptions.",
+        "Microsoft-managed regional failover can be delayed, is best effort and can leave the vault read-only. Critical workloads may need custom multiregion recovery.",
+        "The legacy statement that an ADF user need do nothing about Key Vault replication/recovery is too unconditional."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "waf-policy-current",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/frontdoorwebapplicationfirewallpolicies",
+      "title": "Microsoft.Network/FrontDoorWebApplicationFirewallPolicies - Bicep, ARM template & Terraform AzAPI reference",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "9a8f8820ebf02dc4524627037dcf7fa736fe7337",
+      "readingScope": "Resource format, resource type, SKU description and tier-specific usage examples.",
+      "findings": [
+        "The documented policy resource is Microsoft.Network/FrontDoorWebApplicationFirewallPolicies.",
+        "The current reference describes Classic as the default policy SKU when none is specified and includes Standard/Premium examples; the type alone does not identify a Front Door tier.",
+        "Do not substitute this policy type for every logging host or every regional reverse proxy."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "waf-policy-2018",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/2018-08-01/frontdoorwebapplicationfirewallpolicies",
+      "title": "Microsoft.Network/FrontDoorWebApplicationFirewallPolicies 2018-08-01 - Bicep, ARM template & Terraform AzAPI reference",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "9a8f8820ebf02dc4524627037dcf7fa736fe7337",
+      "readingScope": "Version-specific 2018-08-01 Resource format, not the generic modern sample reused above it.",
+      "findings": [
+        "The oldest version linked by the current reference also uses FrontDoorWebApplicationFirewallPolicies.",
+        "No fetched primary source establishes frontdoorwebapplicationfirewalls as an older equivalent resource type. Absence from this bounded evidence is not proof that it never existed."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "waf-logging",
+      "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-monitor",
+      "title": "Monitoring and Logging - Azure Web Application Firewall",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "06d56036f1be30f98cc5642d4c33b2946bbf7785",
+      "readingScope": "Complete article including distinct Standard/Premium and classic diagnostic examples.",
+      "findings": [
+        "WAF logs are not enabled by default; diagnostic settings are configured on the Front Door resource.",
+        "Standard/Premium examples identify Microsoft.Cdn/Profiles while classic examples identify FRONTDOORS under Microsoft.Network.",
+        "The rule log categories differ in capitalization by tier. No proposed KQL is generated from these examples."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "waf-best-practices",
+      "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-best-practices",
+      "title": "Best practices for Azure Web Application Firewall in Azure Front Door",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "1461daf6ad37b89e5894c02d6430fbae2ba56daf",
+      "readingScope": "Complete article, especially logging and Microsoft Sentinel sections; current Applies to label.",
+      "findings": [
+        "The current best-practices article is labelled Front Door Premium; it cannot alone justify identical capabilities on Standard or classic.",
+        "It recommends retained logs for false-positive/attack review and importing WAF telemetry into Sentinel or another SIEM."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "waf-sentinel",
+      "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/waf-sentinel",
+      "title": "Using Microsoft Sentinel with Azure Web Application Firewall",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "82b8e4f803342c1a495447ec5f161ceec8e33ea1",
+      "readingScope": "Complete article: resource-specific diagnostics, WAF solution/connector and detection rules.",
+      "findings": [
+        "Front Door and Application Gateway diagnostic data can be sent to the Log Analytics workspace used by the Sentinel WAF solution/connector.",
+        "The article covers distinct classic and Standard/Premium hosts. Exact category labels differ from the dedicated current WAF logging article; choose categories exposed by the actual resource rather than copying conflicting snippets."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "waf-overview",
+      "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/afds-overview",
+      "title": "What Is Azure Web Application Firewall on Azure Front Door?",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "0704569806f4b8f70e792e688d465b34f10410bf",
+      "readingScope": "Global edge architecture, applicability labels and tier capabilities; no proposal relies on newly described attachment-scope behavior.",
+      "findings": [
+        "Front Door WAF is a global edge service, not a proxy deployed inside a customer's landing-zone virtual network.",
+        "Front Door Standard supports custom rules; Premium has managed-rule capabilities. Policy type and generic CDN profile type alone do not encode this distinction."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "frontdoor-origin",
+      "url": "https://learn.microsoft.com/en-us/azure/frontdoor/origin-security",
+      "title": "Secure traffic to origins - Azure Front Door",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "5c413010f321bfa6758b7c00157c61c6622a1a98",
+      "readingScope": "Tier support table, public origin IP/header combination, Application Gateway example and classic retirement notice.",
+      "findings": [
+        "Public origins should combine AzureFrontDoor.Backend source filtering with validation of their own Front Door identifier; shared source IPs alone are insufficient.",
+        "Application Gateway guidance uses NSG filtering and a WAF custom rule for the X-Azure-FDID header.",
+        "Private Link is a Premium-specific option, not a requirement universally applicable to Standard/classic or every origin.",
+        "Classic retires March 31, 2027; existing classic deployments are not silently omitted by the proposals."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "application-gateway-waf",
+      "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview",
+      "title": "What Is Azure Web Application Firewall on Azure Application Gateway?",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "3018333ed1a03524e2f765eeaba9278da829d48e",
+      "readingScope": "Application Gateway-specific WAF architecture, monitoring, policy associations and logging.",
+      "findings": [
+        "Application Gateway WAF is a distinct regional application-delivery surface, with diagnostic logs on Application Gateway.",
+        "The article distinguishes WAF_v1/WAF_v2 and states policy associations are supported only for WAF_v2; blanket conversion to a Front Door policy type is incorrect."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "caf-internet",
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-inbound-and-outbound-internet-connectivity",
+      "title": "Plan for inbound and outbound internet connectivity - Cloud Adoption Framework",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "9921a4fede93d5f1728fb4dfe372d655969a5a77",
+      "readingScope": "Inbound HTTP/S design recommendations only; unrelated outbound/firewall recommendations were not imported.",
+      "findings": [
+        "The page separately recommends regional WAF/partner NVAs in the application landing-zone network and global protection using Front Door WAF.",
+        "It explicitly recommends origin restriction when Front Door and Application Gateway are combined.",
+        "The distinction resolves the imported landing-zone proxy record's incorrect Front Door-type association without asserting that every partner proxy runs on a particular ARM compute type."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "databricks-reliability",
+      "url": "https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices#use-a-resilient-distributed-data-engine-for-all-workloads",
+      "title": "Best practices for reliability - Azure Databricks",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "276403b28e7dbb9a17877d26563507d28270bf56",
+      "readingScope": "Design for failure / resilient distributed engine; compared separate job-retry and Structured Streaming recovery sections.",
+      "findings": [
+        "The imported description matches the resilient distributed-engine section: Spark reschedules missing/failed tasks after some infrastructure faults, including brief network interruptions or a revoked Spot VM.",
+        "The section separately describes Photon as a high-performance Spark-API-compatible engine; it does not prescribe Photon as the switch enabling Spark fault recovery.",
+        "Job retry/termination and streaming checkpoint recovery are separate recommendations, not equivalent requirements.",
+        "Other unreviewed sections on this long page are not adopted or treated as independently verified; this pass does not validate all Databricks availability claims."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "databricks-photon",
+      "url": "https://learn.microsoft.com/en-us/azure/databricks/compute/photon",
+      "title": "What is Photon? - Azure Databricks",
+      "accessedAt": "2026-09-13",
+      "documentRevision": "276403b28e7dbb9a17877d26563507d28270bf56",
+      "readingScope": "Complete article: execution model, enablement and limitations.",
+      "findings": [
+        "Photon accelerates supported SQL/DataFrame execution and falls back for unsupported operations; this is a performance capability, not the source of Spark task-recovery semantics.",
+        "Not all APIs/workloads benefit or are supported. The reconciliation does not convert this reliability requirement into a blanket Photon enablement recommendation."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null
+    },
+    {
+      "id": "aprl-current-databricks",
+      "url": "https://raw.githubusercontent.com/Azure/Azure-Proactive-Resiliency-Library-v2/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml",
+      "title": "APRL Databricks workspace recommendations at verified current main",
+      "accessedAt": "2026-09-13",
+      "upstreamRevision": "4ed61607223b49e3d0bdd9ce3127ef6e842b5463",
+      "headVerificationUrl": "https://api.github.com/repos/Azure/Azure-Proactive-Resiliency-Library-v2/commits/main",
+      "fileSha256": "1c09b7fd5f65edc29e89dd8c2e97922c3d306284d34d7ed41a4d10f2bdb02786",
+      "parsedRecommendationCount": 29,
+      "readingScope": "Complete current Databricks recommendations file; exact-GUID lookup against the existing complete dated APRL inventory at the same repository revision.",
+      "findings": [
+        "The current main revision equals the previously dated 2026-09-11 inventory revision.",
+        "892ca809-e2b5-9a47-924a-71132bf6f902 is absent from the current Databricks file and existing complete same-revision inventory. There is no current upstream item hash to invent.",
+        "The original import GUID remains the local canonical identity. A source-backed local reconciliation is not represented as an upstream update."
+      ],
+      "upstreamRecommendationId": null,
+      "upstreamItemHash": null,
+      "relatedItemsNotProposedMappings": [
+        {
+          "sourceId": "aprl",
+          "recommendationId": "84e44da6-8cd7-b349-b02c-c8bf72cf587c",
+          "upstreamContentHash": "sha256:df36d17a32edd179b72771d30b7e2ede83a70c782d9c5b960fbf2fb6c53fe3b5",
+          "relationship": "Job retry/termination title with its own unresolved model-serving description; not equivalent to engine-level task rescheduling."
+        },
+        {
+          "sourceId": "aprl",
+          "recommendationId": "12e9d852-5cdc-2743-bffe-ee21f2ef7781",
+          "upstreamContentHash": "sha256:0788ce45945f0d729aced97b3b91a29822d66d90417b346737eae45645f4fc89",
+          "relationship": "Structured Streaming query recovery/checkpoint requirement; not a replacement for general SQL/DataFrame engine resiliency."
+        }
+      ]
+    }
+  ],
+  "failedOrRedirectedEvidence": [
+    {
+      "url": "https://github.com/Azure/fta-resiliencyplaybooks/blob/main/paas-foundations-playbooks-ADF_v1.docx",
+      "accessedAt": "2026-09-13",
+      "outcome": "HTTP 404",
+      "effect": "The sole linked FTA playbook was not read. Its filename suffix v1 must not be assumed to mean Data Factory v1 rather than document revision."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.datafactory/2015-10-01/datafactories",
+      "accessedAt": "2026-09-13",
+      "outcome": "HTTP 404",
+      "effect": "Does not refute the positive legacy-type evidence in the current RBAC operations reference."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/data-factory/v1/data-factory-introduction",
+      "accessedAt": "2026-09-13",
+      "outcome": "Redirected to current Data Factory documentation landing page",
+      "effect": "Not used as evidence for the historical v1 feature set or support lifecycle."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/data-factory/v1/data-factory-build-your-first-pipeline-using-resource-manager-template",
+      "accessedAt": "2026-09-13",
+      "outcome": "HTTP 404",
+      "effect": "No historical template payload obtained; API version and historical feature support are not asserted from this failed fetch."
+    }
+  ],
+  "records": [
+    {
+      "id": "25498f6d-bad3-47da-a43b-c6ce1d7aa9b2",
+      "name": "revcl-AdfPipelinesKeyVault",
+      "path": "v2/recos/Services/MicrosoftDataFactory-datafactories/Reliability/revcl-AdfPipelinesKeyVault.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "ea7e1d648190a9b2650bae0724359a466ad42d1109a78281678b8493bed80507",
+      "beforeDocumentSha256": "6288477add2695c6f6014b25791d0d9b9ecb97ed02b54974d990a5bb463c10c0",
+      "proposedFieldsDocumentSha256": "c4f526ad7a91b26b640f82c8610c2e4a42d231d1a65c2338bf1d47b89ef28d70",
+      "changedFields": ["title", "description", "resourceTypes", "services"],
+      "absentBefore": [],
+      "before": {
+        "title": "If using Keyvault integration, use SLA of Keyvault to understand your availablity",
+        "description": "If your ADF Pipelines use Key Vault you don't have to do anything to replicate Key Vault. Key Vault is a managed service and Microsoft takes care of it for you",
+        "resourceTypes": ["microsoft.datafactory/datafactories"],
+        "services": []
+      },
+      "after": {
+        "title": "Include Key Vault dependencies in the availability and recovery design for Data Factory v2 pipelines",
+        "description": "For Data Factory v2 pipelines that retrieve linked-service credentials from Key Vault, assess vault availability, regional recovery behavior, identity permissions and network reachability against the pipeline's recovery objectives. Key Vault provides managed redundancy, but cross-region replication and Microsoft-managed failover have regional exceptions and can be delayed; they do not guarantee coordinated recovery with Data Factory. Document and test the required secret-access and dependency recovery approach instead of assuming no customer action is needed.",
+        "resourceTypes": ["microsoft.datafactory/factories"],
+        "services": ["Data Factory"]
+      },
+      "sourceRefs": ["adf-legacy-permissions", "adf-v1-v2-migration", "adf-v2-resource", "adf-key-vault", "key-vault-reliability", "adf-reliability"],
+      "reason": "Replace an unconditional managed-replication claim and explicitly scope the maintained requirement to the documented current v2 linked-service model. This is an approved-version applicability amendment, not correction of an invalid legacy spelling.",
+      "limitations": ["The original author's intended Data Factory version is not independently established.", "Do not automatically apply this changed requirement to a retained v1 assessment.", "No combined workload SLA or live secret access was validated."],
+      "overlap": [],
+      "overlapAssessment": "No equivalent Data Factory-specific Key Vault availability record was found in the bounded nearby-title/description scan; general Key Vault reliability guidance is dependency-level, not a confirmed duplicate."
+    },
+    {
+      "id": "9ef1d6e8-32e5-42e3-911c-818b1a0bc511",
+      "name": "revcl-GithubAzureDevopsIntegrationArmTemplates",
+      "path": "v2/recos/Services/MicrosoftDataFactory-datafactories/Reliability/revcl-GithubAzureDevopsIntegrationArmTemplates.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "269a74cf5752fc577019afa64c6a58256870a205c5c37266f7f80091db116a47",
+      "beforeDocumentSha256": "8ad9c0b81f17361d5988ac39e8cc77c4afcc60b8387105ee86e4ec074bb6b94f",
+      "proposedFieldsDocumentSha256": "845f672aae55afe5cc24e5beba5ef6bc7c21367e0f3227b7c4b9088275836986",
+      "changedFields": ["title", "description", "resourceTypes", "services"],
+      "absentBefore": ["description"],
+      "before": {
+        "title": "Use DevOps to Backup the ARM templates with Github/Azure DevOps integration ",
+        "resourceTypes": ["microsoft.datafactory/datafactories"],
+        "services": []
+      },
+      "after": {
+        "title": "Version and test redeployment of Data Factory v2 configuration with Git and CI/CD",
+        "description": "Use Azure Repos or GitHub integration on the development data factory to retain reviewed pipeline, dataset, linked-service and trigger definitions, and use CI/CD to deploy tested artifacts to recovery, test and production factories. Retain the factory infrastructure definition and account for deployment parameters, secrets and dependencies separately. Verify that the recorded artifacts can restore the intended configuration; Git integration is not a backup of the data being processed or of changes made directly outside Git.",
+        "resourceTypes": ["microsoft.datafactory/factories"],
+        "services": ["Data Factory"]
+      },
+      "sourceRefs": ["adf-legacy-permissions", "adf-v1-v2-migration", "adf-v2-resource", "adf-source-control", "adf-secure-deployment", "adf-reliability"],
+      "reason": "The repository-configuration requirement is backed by the current factories resource contract. Make its v2 scope and backup boundary explicit rather than renaming a valid v1 type in isolation.",
+      "limitations": ["No deployment artifacts or restore were executed.", "The proposal does not migrate v1 factory assets or claim automatic conversion."],
+      "overlap": [{"id": "ab91932c-9fc9-4d1b-a881-37f5e6c0cb9e", "relationship": "Broad playbook reference may include this practice, but the linked playbook was unavailable; equivalence cannot be established."}]
+    },
+    {
+      "id": "ab91932c-9fc9-4d1b-a881-37f5e6c0cb9e",
+      "name": "revcl-LeverageFtaResiliencyPlaybookAzureDataFactory",
+      "path": "v2/recos/Services/MicrosoftDataFactory-datafactories/Reliability/revcl-LeverageFtaResiliencyPlaybookAzureDataFactory.yaml",
+      "status": "deferred-no-change",
+      "beforeFileSha256": "9883b9479f00f0033b978a21af23e42aee597c6755073a46422484d96f3f784c",
+      "beforeDocumentSha256": "5d22642efd3aeedd1aa2cfa4d5229c5f3b95577d3198cb6b1ad9986230f2780a",
+      "proposedFieldsDocumentSha256": "5d22642efd3aeedd1aa2cfa4d5229c5f3b95577d3198cb6b1ad9986230f2780a",
+      "changedFields": [],
+      "absentBefore": [],
+      "before": {},
+      "after": {},
+      "retainedFields": {
+        "title": "Leverage FTA Resiliency Playbook for Azure Data Factory",
+        "resourceTypes": ["microsoft.datafactory/datafactories"],
+        "services": []
+      },
+      "sourceRefs": ["adf-legacy-permissions", "adf-v1-v2-migration", "adf-reliability"],
+      "reason": "The only linked playbook returns 404, and its filename's _v1 suffix does not establish the Data Factory product generation. Current reliability guidance is not evidence of this unavailable document's exact requirement. Retain the legitimate legacy type and uncurated services pending a recovered source or separately approved replacement requirement.",
+      "limitations": ["Unavailable source text and unknown author-intended product version.", "No replacement link, service curation, pillar change or type migration is proposed."],
+      "overlap": [{"id": "9ef1d6e8-32e5-42e3-911c-818b1a0bc511", "relationship": "Possible broad/narrow relationship only; inaccessible playbook prevents equivalence review."}]
+    },
+    {
+      "id": "e43a18a9-cd29-49cf-b7b1-7db8255562f2",
+      "name": "revcl-SelfHostedIntegrationRuntimeVmsRegion",
+      "path": "v2/recos/Services/MicrosoftDataFactory-datafactories/Reliability/revcl-SelfHostedIntegrationRuntimeVmsRegion.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "a71b14daaa3972d39d6dc3be665eb6a93ea1120bef1c6b1202c750ba4c99b6a1",
+      "beforeDocumentSha256": "fc6600eb586d9b14f29b14c9c73b5a15b7546c84eb4704f74b9074dece1b828a",
+      "proposedFieldsDocumentSha256": "be6c145009cf9f5648b137b9228b3aca545fda0f7161b5469c22c750ee5b2f29",
+      "changedFields": ["title", "description", "resourceTypes", "services"],
+      "absentBefore": ["description"],
+      "before": {
+        "title": "Make sure you replicate the Self-Hosted Integration Runtime VMs in another region ",
+        "resourceTypes": ["microsoft.datafactory/datafactories"],
+        "services": []
+      },
+      "after": {
+        "title": "Provide a tested regional recovery path for Data Factory v2 self-hosted integration runtimes",
+        "description": "When pipeline recovery objectives require surviving a regional outage, prepare replacement or recoverable self-hosted integration runtime compute and its network, identity and data-source dependencies in the recovery region. Microsoft-managed Data Factory failover does not recover customer-managed SHIR hosts. For SHIR hosted on Azure VMs, evaluate Azure Site Recovery or a tested redeployment approach; VM replication is an option, not a universal requirement. Verify host registration, connectivity and capacity before relying on the recovery path.",
+        "resourceTypes": ["microsoft.datafactory/factories"],
+        "services": ["Data Factory"]
+      },
+      "sourceRefs": ["adf-legacy-permissions", "adf-v2-resource", "adf-reliability", "adf-secure-deployment"],
+      "reason": "SHIR belongs to the current integration-runtime model, whereas the legacy provider separately models gateways. Make the version amendment explicit and replace blanket VM replication with the documented customer-owned recovery responsibility.",
+      "limitations": ["Host platform is not assumed to be Azure VMs; no invented VM/VMSS ARM restriction is added.", "RTO/RPO, registration and failover behavior were not tested."],
+      "overlap": [{"id": "aee4563a-fd83-4393-98b2-62d6dc5f512a", "relationship": "Related network dependency recovery; different requirement from recovering/registering SHIR compute, so no merge."}]
+    },
+    {
+      "id": "aee4563a-fd83-4393-98b2-62d6dc5f512a",
+      "name": "revcl-SisterRegionNetwork",
+      "path": "v2/recos/Services/MicrosoftDataFactory-datafactories/Reliability/revcl-SisterRegionNetwork.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "50a8ce2b90da8f308fca7e281bb96cfede39c383201c208a39fdcd13fedacfba",
+      "beforeDocumentSha256": "6e488bb550a4566436a3c528e3ad8e24397e5fd4e4002dd4ff80f0e922e2fc6c",
+      "proposedFieldsDocumentSha256": "ffc298fafb46a78bed2708a5827f16da65ff160ff526d721114c5b2479c33179",
+      "changedFields": ["title", "description", "resourceTypes", "services"],
+      "absentBefore": ["description"],
+      "before": {
+        "title": "Make sure you replicate or duplicate your network in the sister region. You have to make a copy of your Vnet in another region",
+        "resourceTypes": ["microsoft.datafactory/datafactories"],
+        "services": []
+      },
+      "after": {
+        "title": "Recreate required Data Factory v2 connectivity in the selected recovery region",
+        "description": "For a Data Factory v2 regional recovery design, document and recreate the networking needed by the selected integration runtimes and data dependencies, including applicable virtual networks, routes, name resolution and private connectivity. Validate connectivity to recovered data stores, Key Vault and SHIR hosts. Select the recovery region according to recovery objectives, service support and data-residency constraints; do not assume every factory has an appropriate paired region or that duplicating a virtual network alone restores pipeline operation.",
+        "resourceTypes": ["microsoft.datafactory/factories"],
+        "services": ["Data Factory"]
+      },
+      "sourceRefs": ["adf-legacy-permissions", "adf-v2-resource", "adf-reliability", "adf-secure-deployment"],
+      "reason": "Current regional-recovery guidance requires restoring networking but distinguishes paired/nonpaired regions and customer requirements. Preserve the dependency objective while explicitly maintaining it for v2, rather than pretending 'sister region' is universal.",
+      "limitations": ["No universal VNet requirement is inferred for public/Azure IR pipelines.", "Private endpoint, DNS and routing behavior is deployment-specific and untested."],
+      "overlap": [{"id": "e43a18a9-cd29-49cf-b7b1-7db8255562f2", "relationship": "Complementary SHIR compute recovery; network reconstruction alone is not that requirement."}]
+    },
+    {
+      "id": "e503547c-d447-4e82-9138-a7200f1cac6d",
+      "name": "revcl-ZoneRedundantPipelinesAvailabilityZones",
+      "path": "v2/recos/Services/MicrosoftDataFactory-datafactories/Reliability/revcl-ZoneRedundantPipelinesAvailabilityZones.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "70fdb8361a27e7ff6dc4bba7990dbd56356b0dc5823a0db4aa2119e74ba98927",
+      "beforeDocumentSha256": "fda2681af72b5bf8a68676ec11e55df68c34cbe9c2389015cce14bc0e449d18d",
+      "proposedFieldsDocumentSha256": "60c4678817576dbbf7b989b5aa9655f69792e0ec18fee51789288dff5575d981",
+      "changedFields": ["title", "description", "resourceTypes", "services"],
+      "absentBefore": ["description"],
+      "before": {
+        "title": "Use zone redundant pipelines in regions that support Availability Zones",
+        "resourceTypes": ["microsoft.datafactory/datafactories"],
+        "services": []
+      },
+      "after": {
+        "title": "Verify component-specific zone resilience for Data Factory v2 pipelines and integration runtimes",
+        "description": "In regions that support availability zones, the Data Factory core service and Azure integration runtime provide Microsoft-managed zone redundancy without a pipeline setting. For Azure-SSIS IR, use at least two nodes for automatic distribution across zones; for SHIR, provide customer-managed resilient compute across zones. Account for dependent data stores and the documented tumbling-window trigger-state caveat, and design retried activities to be idempotent. Do not interpret a factory's region alone as proof that every pipeline dependency is zone-resilient.",
+        "resourceTypes": ["microsoft.datafactory/factories"],
+        "services": ["Data Factory"]
+      },
+      "sourceRefs": ["adf-legacy-permissions", "adf-v2-resource", "adf-reliability"],
+      "reason": "Correct an implied universal 'zone redundant pipeline' toggle by explaining documented per-component responsibilities within an explicit v2 applicability amendment.",
+      "limitations": ["No Azure configuration, regional availability or failover was executed/verified live.", "Existing high severity and Reliability pillar are retained, not recalculated."],
+      "overlap": [{"id": "e43a18a9-cd29-49cf-b7b1-7db8255562f2", "relationship": "Zonal resilience is distinct from regional SHIR disaster recovery."}]
+    },
+    {
+      "id": "7f408960-c626-44cb-a018-347c8d790cdf",
+      "name": "revcl-ApplicationDeliveryServicesAzureFrontDoor-1",
+      "path": "v2/recos/Services/microsoftnetwork-frontdoorwebApplicationFirewalls/Operations/revcl-ApplicationDeliveryServicesAzureFrontDoor-1.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "a57495b12447d170c9771a805c051c390f3f769de6ee8251b6ab51286a927457",
+      "beforeDocumentSha256": "291ec43f87b08a5f0bd70f1e24f9bdf7e48aa5ecc5af37c29ea08c6e4675562f",
+      "proposedFieldsDocumentSha256": "507acdc1dd155ec7487ed9d1aefa7e6df28c4b5eb352bf6fb20798c5346f756b",
+      "changedFields": ["title", "description", "resourceTypes", "services"],
+      "absentBefore": ["description"],
+      "before": {
+        "title": "Send WAF logs from your application delivery services like Azure Front Door and Azure Application Gateway to Microsoft Sentinel. Detect attacks and integrate WAF telemetry into your overall Azure environment.",
+        "resourceTypes": ["microsoft.network/frontdoorwebapplicationfirewalls"],
+        "services": []
+      },
+      "after": {
+        "title": "Integrate application delivery WAF logs with Microsoft Sentinel",
+        "description": "For WAF-enabled Azure Front Door and Application Gateway deployments, enable the appropriate resource diagnostic categories, send them to the Log Analytics workspace used by Microsoft Sentinel, and configure the Azure WAF solution/connector and required analytics. Review ingestion and detection coverage rather than assuming that forwarding logs alone provides complete attack detection. Diagnostics belong to the application delivery resource: Front Door Standard/Premium uses Microsoft.Cdn/profiles with an Azure Front Door SKU, classic uses Microsoft.Network/frontdoors, and Application Gateway uses Microsoft.Network/applicationGateways. Other CDN profile SKUs are not implicitly in scope.",
+        "resourceTypes": ["microsoft.cdn/profiles", "microsoft.network/applicationgateways", "microsoft.network/frontdoors"],
+        "services": ["Application Gateway", "Azure Front Door", "Web Application Firewall"]
+      },
+      "sourceRefs": ["waf-policy-current", "waf-policy-2018", "waf-logging", "waf-best-practices", "waf-sentinel", "application-gateway-waf"],
+      "reason": "The original guidance explicitly names two application delivery services; assigning only a Front Door policy type would lose the Application Gateway and logging-host scope.",
+      "limitations": ["ARM type lists cannot express Front Door SKU or WAF-enabled conditions; the description is a required applicability guard.", "No connector ingestion, Sentinel rule, or query was run.", "The imported type's historical existence was not conclusively disproved."],
+      "overlap": [
+        {"id": "845f5f91-9c21-4674-a725-5ce890850e20", "relationship": "Front Door-only Sentinel requirement is a narrower subset."},
+        {"id": "92664c60-47e3-4591-8b1b-8d557656e686", "relationship": "Application Gateway-only Sentinel requirement is a narrower subset."},
+        {"id": "7eec048b-3dfe-4a71-b4ac-5a3f554ff7ae", "relationship": "Front Door anomaly review/SIEM has a Security pillar and broader monitoring content; reconcile before any merge."}
+      ]
+    },
+    {
+      "id": "89cc5e11-aa4d-4c3b-893d-feb99215266a",
+      "name": "revcl-ApplicationDeliveryServicesAzureFrontDoor",
+      "path": "v2/recos/Services/microsoftnetwork-frontdoorwebApplicationFirewalls/Operations/revcl-ApplicationDeliveryServicesAzureFrontDoor.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "d1af5b8742172bbce9e72d023041e6848b7e4bb16599d38e5690a049f50badd7",
+      "beforeDocumentSha256": "f3696df7e4f19206e1770ad166de5375995a7012fb74829b5b20c7181addf874",
+      "proposedFieldsDocumentSha256": "9264524e4b5cdaa479b2cad364857f75f1b1e76ce7803bf556bdc46b137a65fc",
+      "changedFields": ["title", "description", "resourceTypes", "services"],
+      "absentBefore": ["description"],
+      "before": {
+        "title": "Add diagnostic settings to save WAF logs from application delivery services like Azure Front Door and Azure Application Gateway. Regularly review the logs to check for attacks and for false positive detections.",
+        "resourceTypes": ["microsoft.network/frontdoorwebapplicationfirewalls"],
+        "services": []
+      },
+      "after": {
+        "title": "Enable and review WAF diagnostic logs on application delivery resources",
+        "description": "For WAF-enabled Front Door and Application Gateway deployments, configure diagnostic settings on the application delivery resource to retain the appropriate WAF logs and regularly review them for attacks and false positives. WAF logging is not established merely by the existence of a policy. Front Door Standard/Premium diagnostics use Azure Front Door SKU Microsoft.Cdn/profiles resources; classic diagnostics use Microsoft.Network/frontdoors. Application Gateway diagnostics use Microsoft.Network/applicationGateways. Select the categories available for the actual service/tier and do not include unrelated CDN profiles solely because their ARM type matches.",
+        "resourceTypes": ["microsoft.cdn/profiles", "microsoft.network/applicationgateways", "microsoft.network/frontdoors"],
+        "services": ["Application Gateway", "Azure Front Door", "Web Application Firewall"]
+      },
+      "sourceRefs": ["waf-policy-current", "waf-policy-2018", "waf-logging", "waf-best-practices", "application-gateway-waf"],
+      "reason": "Repair applicability according to the actual diagnostic hosts and both named services, without pretending all WAF records target a single ARM policy resource.",
+      "limitations": ["Logs, retention and operational review were not validated.", "SKU/WAF-enabled filtering remains an explicit human applicability condition, not a generated ARG verdict."],
+      "overlap": [
+        {"id": "4cea4050-7946-4a7c-89e6-b021b73c352d", "relationship": "Narrower Front Door logging-only recommendation."},
+        {"id": "f84106a2-2e9e-42ac-add6-d3416ecfed53", "relationship": "Narrower Application Gateway logging-only recommendation."},
+        {"id": "90aa5326-da06-4070-bcb0-26d31648029a", "relationship": "Front Door telemetry/alerts is broader in signals but narrower in service scope."},
+        {"id": "d0cfe47f-686b-5043-bf83-5a3868acb80a", "relationship": "Security-focused recent false-positive inspection; not equivalent to enabling diagnostics on both services."}
+      ]
+    },
+    {
+      "id": "3b22a5a6-7e7a-48ed-9b30-e38c3f29812b",
+      "name": "revcl-AzureFrontDoorAzureApplicationGateway",
+      "path": "v2/recos/Services/microsoftnetwork-frontdoorwebApplicationFirewalls/Security/revcl-AzureFrontDoorAzureApplicationGateway.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "dd6cb20552fae04e8ea309e4610a46e360eceb399f2d69bf6075be72344dbddd",
+      "beforeDocumentSha256": "ea1a359b071693027247020fdd41af08ef2d600a85632edf091c219199abccd5",
+      "proposedFieldsDocumentSha256": "5dd024910626768e11a32242174dfdc91df166b133eb2ee46974f9bc7377fb2c",
+      "changedFields": ["description", "resourceTypes", "services"],
+      "absentBefore": ["description"],
+      "before": {
+        "resourceTypes": ["microsoft.network/frontdoorwebapplicationfirewalls"],
+        "services": []
+      },
+      "after": {
+        "description": "When Application Gateway is an origin behind Front Door, apply the intended WAF policy at Front Door and prevent direct public traffic from bypassing that path. For a public Application Gateway origin, combine network filtering using AzureFrontDoor.Backend with validation of the expected X-Azure-FDID value; the shared service tag alone does not identify your Front Door instance. Review the actual Front Door tier and applicable policy capabilities: Standard supports custom rules, Premium supports managed rules, and existing classic deployments require their own configuration and migration planning. Private Link is a Premium-specific option for supported origins, not a universal prerequisite.",
+        "resourceTypes": ["microsoft.cdn/profiles", "microsoft.network/applicationgateways", "microsoft.network/frontdoors", "microsoft.network/frontdoorwebapplicationfirewallpolicies"],
+        "services": ["Application Gateway", "Azure Front Door", "Web Application Firewall"]
+      },
+      "sourceRefs": ["waf-policy-current", "waf-policy-2018", "waf-overview", "frontdoor-origin", "caf-internet"],
+      "reason": "The unchanged title's control spans a Front Door WAF policy and origin isolation; explicit service/type applicability must retain both services and tier distinctions.",
+      "limitations": ["Keep original low severity and Security pillar; do not silently adopt a duplicate's severity.", "The imported token is replaced based on positive control/resource evidence, not a claim that every historical API was searched."],
+      "overlap": [
+        {"id": "3f29812b-2363-4cef-b179-b599de0d5973", "relationship": "Nearly identical title, but medium severity and Front Door-only resource scope differ."},
+        {"id": "b039d95d-54c7-4c89-89cb-107d5325ae52", "relationship": "Same main control, but medium severity and previously unscoped practice applicability differ."},
+        {"id": "f3b0ac39-7b7c-4fea-a540-6aa367afbc12", "relationship": "Similar title, Reliability pillar and conflicting legacy feature claims in description; not safe to merge without explicit reconciliation."}
+      ]
+    },
+    {
+      "id": "1d7aa9b6-4704-4489-a804-2d88e79d17b7",
+      "name": "revcl-InboundHttpSConnectionsAzureFrontDoor",
+      "path": "v2/recos/Services/microsoftnetwork-frontdoorwebApplicationFirewalls/Security/revcl-InboundHttpSConnectionsAzureFrontDoor.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "fb672ea2f8a7010883085b4182ca2d48a6d00efe098b581595cb1bcc26764f83",
+      "beforeDocumentSha256": "afe7387a4edee1accf802022064ea7e0fd0ef2ef9958bd1e5f521fa649610060",
+      "proposedFieldsDocumentSha256": "9ca64edba442f6aa73a3687c5c887a91913ec92cc76debfa80fe516bcc9be067",
+      "changedFields": ["description", "resourceTypes", "services"],
+      "absentBefore": ["description"],
+      "before": {
+        "resourceTypes": ["microsoft.network/frontdoorwebapplicationfirewalls"],
+        "services": []
+      },
+      "after": {
+        "description": "Use Front Door with WAF policies for the intended global HTTP/S ingress protection requirement. Front Door WAF runs at the global edge; it is not deployed inside the landing-zone virtual network. Review policy association and capabilities against the actual tier: Standard has custom rules while Premium supports managed rule sets. Microsoft.Cdn/profiles is in scope only for Azure Front Door Standard/Premium SKUs; existing Microsoft.Network/frontdoors classic resources remain a distinct deployment model. The shared Front Door WAF policy type does not by itself identify the tier.",
+        "resourceTypes": ["microsoft.cdn/profiles", "microsoft.network/frontdoors", "microsoft.network/frontdoorwebapplicationfirewallpolicies"],
+        "services": ["Azure Front Door", "Web Application Firewall"]
+      },
+      "sourceRefs": ["waf-policy-current", "waf-policy-2018", "waf-overview", "caf-internet"],
+      "reason": "The title names global edge ingress, not a regional WAF appliance. Preserve classic and Standard/Premium as separate supported scopes and avoid applying the requirement to arbitrary CDN profile SKUs.",
+      "limitations": ["No policy associations, protection level or failover behavior was verified live.", "This is not a proposal to upgrade every Standard resource to Premium."],
+      "overlap": [
+        {"id": "5e39e530-9ccc-4d97-a366-bcda2750ab1a", "relationship": "Exact title/severity/pillar match but practice record has no resource scope; report for parent duplicate adjudication, no merge."},
+        {"id": "e79d17b7-3b22-4a5a-97e7-a8ed4b30e38c", "relationship": "Closely related global app protection, historically Front Door-only scope; no automatic merge."}
+      ]
+    },
+    {
+      "id": "2363cefe-179b-4599-be0d-5973cd4cd21b",
+      "name": "revcl-OtherReverseProxiesLandingZoneVirtualNetwork",
+      "path": "v2/recos/Services/microsoftnetwork-frontdoorwebApplicationFirewalls/Security/revcl-OtherReverseProxiesLandingZoneVirtualNetwork.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "9a678b54a56d52974b078226c355756b8c5b7ee151aa928b34400041b88c7c01",
+      "beforeDocumentSha256": "ca1da4660cc6c1cfad0e9dbcf683af1d17b9dc0a5c92764145dd10cf85735bff",
+      "proposedFieldsDocumentSha256": "8323c0e7b6cc9d6d606fa01b6f146783f0cd991419192a02887cb4f59d9f817e",
+      "changedFields": ["title", "description", "resourceTypes", "services"],
+      "absentBefore": ["description"],
+      "before": {
+        "title": "Deploy WAFs and other reverse proxies are required for inbound HTTP/S connections, deploy them within a landing-zone virtual network and together with the apps that they're protecting and exposing to the internet.",
+        "resourceTypes": ["microsoft.network/frontdoorwebapplicationfirewalls"],
+        "services": []
+      },
+      "after": {
+        "title": "Place required regional WAFs and reverse proxies with their applications in the landing-zone virtual network",
+        "description": "Where inbound HTTP/S protection requires an application-owned regional WAF or partner reverse proxy, place the deployment in the application landing-zone virtual network with the workloads it protects. Application Gateway and partner NVAs are applicable examples. This placement recommendation is not a requirement to deploy the global Azure Front Door edge service inside a VNet. Because the partner proxy's deployment technology is unspecified, do not constrain applicability to a guessed VM, scale set or policy ARM type.",
+        "resourceTypes": [],
+        "services": ["Application Gateway", "Network Virtual Appliance", "Web Application Firewall"]
+      },
+      "sourceRefs": ["caf-internet", "application-gateway-waf", "waf-overview"],
+      "reason": "This is genuinely different applicability from global Front Door WAF. An empty ARM list plus explicit service classifications is more honest than inventing an exhaustive resource-type list for arbitrary partner reverse proxies.",
+      "limitations": ["Removing the misleading type widens type-based selection and must be a semantic amendment with reviewer-visible reassessment, not cosmetic normalization.", "The original high severity is preserved."],
+      "overlap": [{"id": "48b662d6-d15f-4512-a654-98f6dfe237de", "relationship": "Strong overlap with Application Gateway v2/partner NVA placement, but medium severity, narrower ARM metadata and management-exception description differ. Parent must reconcile before any merge."}]
+    },
+    {
+      "id": "892ca809-e2b5-9a47-924a-71132bf6f902",
+      "name": "aprl-ResilientDistributedDataProcessingUsePhotonAcceleration",
+      "path": "v2/recos/Services/MicrosoftDatabricks-workspaces/aprl-ResilientDistributedDataProcessingUsePhotonAcceleration.yaml",
+      "status": "proposed-semantic-amendment",
+      "beforeFileSha256": "204aecbc343f6ba0665c4434ebd552918da2e7eabb5b11ea97330594b39a001b",
+      "beforeDocumentSha256": "87027aac530e8bf1dfc723bec2d853280b5264336ef94cc9bfcc03623aa75148",
+      "proposedFieldsDocumentSha256": "b4e0722f5fe8bd1dd187bb413114d2ab30938b01cba57669e958993df3c703b0",
+      "changedFields": ["title", "description", "waf", "services", "automation"],
+      "absentBefore": ["waf"],
+      "before": {
+        "title": "Use Photon Acceleration",
+        "description": "Apache Spark in Databricks Lakehouse ensures resilient distributed data processing by automatically rescheduling failed tasks, aiding in overcoming external issues like network problems or revoked VMs.",
+        "services": [],
+        "automation": {
+          "status": "candidate",
+          "validatedAt": null,
+          "resultSemantics": "unknown",
+          "notes": "The imported ARG payload was empty or comment-only, not executable automation. Original marker is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed."
+        }
+      },
+      "after": {
+        "title": "Use resilient distributed execution for Databricks SQL and DataFrame workloads",
+        "description": "Use Databricks' resilient distributed processing for SQL and Spark DataFrame workloads, and account for its task-recovery behavior in the workload design. Spark can reschedule missing or failed tasks after transient infrastructure faults such as a brief network interruption or a revoked Spot VM; this is not a guarantee that every job or dependency will recover. Photon is a compatible query-acceleration engine and should be evaluated separately for supported operations and performance needs, not treated as the switch that enables Spark task recovery. Job-level retries, streaming checkpoints and regional recovery remain separate controls.",
+        "waf": "Reliability",
+        "services": ["Azure Databricks"],
+        "automation": {
+          "status": "manual",
+          "validatedAt": null,
+          "resultSemantics": "unknown",
+          "notes": "Assess the workload's SQL/DataFrame execution model and documented task-recovery behavior manually. ARM workspace metadata alone does not establish Spark task recovery or Photon usage. The historical comment-only ARG marker remains in aprl-baseline.json; no executable ARG or live validation is claimed."
+        }
+      },
+      "sourceRefs": ["databricks-reliability", "databricks-photon", "aprl-current-databricks"],
+      "reason": "Reconcile the full title/description conflict in favor of the description's directly sourced reliability requirement and retained High Availability label. The current reliability article explicitly separates resilient execution from Photon's performance role. Reliability is therefore source-backed after the guidance repair, not inferred from the word Photon. Preserve the historical canonical name and GUID.",
+      "rejectedAlternatives": [
+        "Set Performance solely from the old title while retaining the Spark recovery description.",
+        "Keep the Photon title and merely add a Reliability pillar.",
+        "Invent a replacement current APRL GUID/hash or full upstream coverage.",
+        "Merge this record with job retries or Structured Streaming recovery, which are distinct control layers."
+      ],
+      "upstreamIdentity": {
+        "sourceId": "aprl",
+        "historicalImportedGuid": "892ca809-e2b5-9a47-924a-71132bf6f902",
+        "currentState": "absent-at-verified-current-revision",
+        "currentUpstreamRecommendationId": null,
+        "upstreamContentHash": null,
+        "proposedUpstreamRecommendations": []
+      },
+      "limitations": ["No workload, cluster runtime, Photon setting, job, or fault injection was inspected/executed.", "The repair is locally proposed guidance, not upstream publication or human approval.", "Task retries do not make Spot VMs suitable for every critical workload."],
+      "overlap": [
+        {"id": "84e44da6-8cd7-b349-b02c-c8bf72cf587c", "relationship": "Job-level retry/termination and its existing title/description conflict are separate; no merge or changes to this other record."},
+        {"id": "12e9d852-5cdc-2743-bffe-ee21f2ef7781", "relationship": "Streaming query restart/checkpoint recovery is a distinct requirement."}
+      ]
+    }
+  ],
+  "validation": {
+    "status": "passed-proposal-only",
+    "date": "2026-09-13",
+    "checks": [
+      "All twelve exact current file/document hashes and per-field before/absence preconditions matched.",
+      "Eleven changed-field sets and one empty deferred patch matched the actual in-memory differences.",
+      "Queries, canonical identity, aliases, labels and original source remained identical.",
+      "The entire 2011-record proposed corpus validated in memory, including explicit source-provenance append tuples for the eleven proposed amendments.",
+      "Null lastReviewed/upstreamRevision/validatedAt values were retained."
+    ],
+    "corpusWrites": 0,
+    "humanApproval": false,
+    "liveQueryValidation": false
+  },
+  "limitations": [
+    "Bounded adjudication, not an exhaustive Data Factory, Front Door, WAF or Databricks refresh.",
+    "No recommendation-level upstream mappings are proposed. Learn document revisions and a repository file hash are not recommendation inventory item hashes.",
+    "The five maintained-v2 Data Factory proposals explicitly change version applicability. A valid historical resource type must not become a global semantic alias for its successor.",
+    "One inaccessible FTA playbook remains unresolved rather than being silently replaced by generic guidance.",
+    "Imported Front Door WAF type history was not exhaustively reconstructed. Positive current/2018 policy references support actual target choices but do not establish that all legacy strings are impossible.",
+    "All overlapping records are comparison evidence only. Their classifications, queries, sources, IDs and aliases remain untouched; duplicate ownership belongs to the parent.",
+    "Resource-type lists cannot represent all SKU, topology, deployment or feature predicates. Descriptions and reviewer decisions retain those conditions.",
+    "Some current Microsoft documentation contains conflicting details or newly changed sections. Only the enumerated reading scope/findings are adopted; no unsupported category spelling or wider platform claim is imported."
+  ]
+}

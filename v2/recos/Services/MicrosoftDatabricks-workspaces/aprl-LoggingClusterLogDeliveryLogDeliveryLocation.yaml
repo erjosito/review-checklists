@@ -1,18 +1,49 @@
 name: aprl-LoggingClusterLogDeliveryLogDeliveryLocation
 title: Enable Logging-Cluster log delivery
-description: |-
-  When creating a Databricks cluster, you can set a log delivery location for the Spark driver, worker nodes, and events. Logs are delivered every 5 mins and archived hourly. Upon cluster termination, all generated logs until that point are guaranteed to be delivered.
+description: When creating a Databricks cluster, you can set a log delivery location for the Spark driver,
+  worker nodes, and events. Logs are delivered every 5 mins and archived hourly. Upon cluster termination,
+  all generated logs until that point are guaranteed to be delivered.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 1
 labels:
   guid: 7fb90127-5364-bb4d-86fa-30778ed713fb
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 7fb90127-5364-bb4d-86fa-30778ed713fb
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL 7fb90127-5364-bb4d-86fa-30778ed713fb: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 7fb90127-5364-bb4d-86fa-30778ed713fb
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d59ffb898c15424483ab3830fe9119636cd2826f594b59653afea8471a80c271
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

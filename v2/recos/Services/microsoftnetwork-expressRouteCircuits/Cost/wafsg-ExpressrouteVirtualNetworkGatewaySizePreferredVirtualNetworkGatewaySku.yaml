@@ -1,9 +1,8 @@
 name: wafsg-ExpressrouteVirtualNetworkGatewaySizePreferredVirtualNetworkGatewaySku
 title: Determine the ExpressRoute virtual network gateway size
-description: ExpressRoute virtual network gateways are used to pass traffic into a
-  virtual network over private peering. Review the performance and scale needs of
-  your preferred Virtual Network Gateway SKU. Select the appropriate gateway SKU on
-  your on-premises to Azure workload.
+description: ExpressRoute virtual network gateways are used to pass traffic into a virtual network over
+  private peering. Review the performance and scale needs of your preferred Virtual Network Gateway SKU.
+  Select the appropriate gateway SKU on your on-premises to Azure workload.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +14,23 @@ labels:
   guid: 73967d95-39ff-47bb-b4f4-33ddade69d1f
 links: []
 queries: {}
+schemaVersion: 1
+id: 73967d95-39ff-47bb-b4f4-33ddade69d1f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 2d710fcf-b8bc-461d-81a1-895193ce91cc
+  name: wafsg-ExpressrouteVirtualNetworkGatewaySize
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 2d710fcf-b8bc-461d-81a1-895193ce91cc
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressrouteVirtualNetworkGatewaySize.yaml

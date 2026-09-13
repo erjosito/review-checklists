@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs
 queries: {}
+schemaVersion: 1
+id: 47768314-c115-4775-a2ea-55b46ad48408
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

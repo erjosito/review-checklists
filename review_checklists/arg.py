@@ -86,6 +86,8 @@ def run_query(
     subscriptions = subscription_ids(scope)
     evidence = {
         "started_at": utc_now(), "query": query, "subscriptions": subscriptions,
+        "result_semantics": item["recommendation"].get("automation", {}).get("resultSemantics", "unknown"),
+        "query_validated_at": item["recommendation"].get("automation", {}).get("validatedAt"),
     }
     try:
         result = executor(query, subscriptions)
@@ -107,7 +109,8 @@ def run_selected(
         raise ReviewError(f"Select between 1 and {MAX_SELECTED} checks with ARG queries")
     subscriptions = subscription_ids(scope)
     # Validate the entire selection before issuing even the first Azure request.
-    items = [review.get(item_id) for item_id in selected]
+    resolved = [review.get(item_id) for item_id in selected]
+    items = list({item["id"]: item for item in resolved}.values())
     for item in items:
         if not has_arg_query(item["recommendation"]):
             raise ReviewError(f"Selected check has no ARG query: {item['id']}")

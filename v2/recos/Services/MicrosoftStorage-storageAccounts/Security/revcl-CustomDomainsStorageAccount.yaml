@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/blobs/storage-custom-domain-name
 queries: {}
+schemaVersion: 1
+id: 79b588de-fc49-472c-b3cd-21bf77036e5e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

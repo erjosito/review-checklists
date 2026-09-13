@@ -1,6 +1,8 @@
 name: wafsg-SnatPortRequirements
-title: Assess your SNAT port requirements.
-description: ''
+title: Plan Azure Firewall public IP capacity from measured SNAT demand
+description: Estimate concurrent flows by destination IP, port and protocol, then validate using firewall
+  telemetry and load tests. Review whether additional public IPs or a supported egress design is required.
+  Reserve headroom for growth; a count of public IPs alone is not proof against SNAT exhaustion.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-firewall.md
@@ -13,3 +15,16 @@ labels:
   guid: 503f63e3-bdd2-4e37-9a44-644670d204f0
 links: []
 queries: {}
+schemaVersion: 1
+id: 503f63e3-bdd2-4e37-9a44-644670d204f0
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall
+    title: Architecture best practices for Azure Firewall
+    accessedAt: '2026-09-11'

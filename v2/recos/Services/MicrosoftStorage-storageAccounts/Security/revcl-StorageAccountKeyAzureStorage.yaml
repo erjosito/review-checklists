@@ -1,10 +1,9 @@
 name: revcl-StorageAccountKeyAzureStorage
-title: Consider storing connection strings in Azure KeyVault (in scenarios where managed
-  identities are not possible)
-description: Ideally, your application should be using a managed identity to authenticate
-  to Azure Storage. If that is not possible, consider having the storage credential
-  (connection string, storage account key, SAS, service principal credential) in Azure
-  KeyVault or an equivalent service.
+title: Consider storing connection strings in Azure KeyVault (in scenarios where managed identities are
+  not possible)
+description: Ideally, your application should be using a managed identity to authenticate to Azure Storage.
+  If that is not possible, consider having the storage credential (connection string, storage account
+  key, SAS, service principal credential) in Azure KeyVault or an equivalent service.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -18,3 +17,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/framework/security/design-storage-keys
 queries: {}
+schemaVersion: 1
+id: 11cc57b4-a4b1-4410-b439-58a8c2289b3d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/security/application-secrets
+    title: Architecture strategies for protecting application secrets
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

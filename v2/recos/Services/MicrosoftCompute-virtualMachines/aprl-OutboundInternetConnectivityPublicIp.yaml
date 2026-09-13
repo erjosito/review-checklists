@@ -1,13 +1,14 @@
 name: aprl-OutboundInternetConnectivityPublicIp
 title: VMs should not have a Public IP directly associated
-description: |-
-  For outbound internet connectivity of Virtual Machines, using NAT Gateway or Azure Firewall is recommended to enhance security and service resilience, thanks to their higher availability and SNAT ports.
+description: For outbound internet connectivity of Virtual Machines, using NAT Gateway or Azure Firewall
+  is recommended to enhance security and service resilience, thanks to their higher availability and SNAT
+  ports.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 1
 labels:
   guid: 1f629a30-c9d0-d241-82ee-6f2eb9d42cb4
@@ -34,3 +35,18 @@ queries:
     ) on nicId
     | project recommendationId = "1f629a30-c9d0-d241-82ee-6f2eb9d42cb4", name, id, tags
     | order by id asc
+schemaVersion: 1
+id: 1f629a30-c9d0-d241-82ee-6f2eb9d42cb4
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The frozen GUID is absent from the complete pinned upstream
+    repository inventory; historical source identity does not prove a current recommendation or replacement
+    ID. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Security

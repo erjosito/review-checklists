@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/operator-best-practices-scheduler
 queries: {}
+schemaVersion: 1
+id: 769ef669-1a48-435a-a942-223ece80b123
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

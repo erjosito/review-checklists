@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/security/fundamentals/encryption-atrest
 queries: {}
+schemaVersion: 1
+id: 16183687-a047-47a2-8994-5bda43334f24
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

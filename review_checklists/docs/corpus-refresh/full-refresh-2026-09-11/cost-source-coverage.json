@@ -1,0 +1,1113 @@
+{
+  "artifactSchema": "full-refresh-cost-source-coverage/1",
+  "asOf": "2026-09-11",
+  "canonicalPillarScope": "Cost only",
+  "inventoryNormalization": [
+    {
+      "sourceId": "waf-cost-checklist",
+      "artifact": "cost-waf-inventory.json",
+      "originalArtifact": "review_checklists\\docs\\corpus-refresh\\source-inventories\\waf-cost-checklist--2026-09-11--28a78d22523542beeafc7de5eaa11fad791559b6--4c59d9796cff.json",
+      "originalFileSha256": "106eb434c9876205e986e2a56a905ba5c12c24eba03eee0157b9dd7feadb4c5b",
+      "originalSourceId": "waf-cost-checklist",
+      "normalization": "Corrected the earlier parent-proposed draft source ID to the central registry ID. The previous name was not a user requirement. Cost inventory now equals the central snapshot exactly; all item payloads, contentHash values, dates, revisions and scope remain unchanged.",
+      "previousDraftSourceId": "azure-waf-cost",
+      "verifiedItemCount": 14,
+      "payloadAndHashAgreement": true
+    },
+    {
+      "sourceId": "advisor-cost-catalog",
+      "artifact": "cost-advisor-inventory.json",
+      "originalArtifact": "review_checklists\\docs\\corpus-refresh\\source-inventories\\advisor-cost-catalog--2026-09-11--0eef202feb80322f1d1da95d4d026c2e2b70ce06--749a29e63992.json",
+      "originalFileSha256": "8474ad6891bcb9b8b71c2b928617594081fd9834338355e169c970ae7898003b",
+      "originalSourceId": "advisor-cost-catalog",
+      "normalization": "Corrected the earlier parent-proposed draft source ID to the central registry ID. The previous name was not a user requirement. Cost inventory now equals the central snapshot exactly; all item payloads, contentHash values, dates, revisions and scope remain unchanged.",
+      "previousDraftSourceId": "azure-advisor-cost",
+      "verifiedItemCount": 66,
+      "payloadAndHashAgreement": true
+    }
+  ],
+  "reports": {
+    "waf-cost-checklist": {
+      "schemaVersion": 1,
+      "sourceId": "waf-cost-checklist",
+      "title": "WAF Cost Optimization checklist",
+      "scope": "All numbered rows in the English WAF Cost Optimization design review checklist",
+      "unit": "published-checklist-row",
+      "asOf": "2026-09-11",
+      "retrievedAt": "2026-09-11T18:04:59.697367Z",
+      "upstreamRevision": "28a78d22523542beeafc7de5eaa11fad791559b6",
+      "inventoryStatus": "complete",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/checklist"
+      ],
+      "observedCount": 14,
+      "denominator": 14,
+      "counts": {
+        "full": 1,
+        "partial": 11,
+        "stale": 0,
+        "supporting": 0,
+        "unknown": 2
+      },
+      "coveragePercent": 7.14,
+      "partialPercent": 78.57,
+      "reason": null,
+      "assessmentBasis": "Recorded explicit ID mappings with matching content hashes; not independent human semantic review.",
+      "limitations": [
+        "Checklist rows only, not all Cost guidance paragraphs or service guides.",
+        "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+        "Explicit ID mapping is not human semantic review."
+      ],
+      "items": [
+        {
+          "id": "CO:01",
+          "title": "Create a culture of financial responsibility.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/create-culture-financial-responsibility",
+          "contentHash": "sha256:f5da18f5ecb6f393e4aae85d2dcea100fb472d409ce30007c31ef76c7d69bac3",
+          "state": "partial",
+          "corpusIds": [
+            "7bf19a02-eeec-4611-b559-f5cef964cc63"
+          ],
+          "assessments": [
+            {
+              "corpusId": "7bf19a02-eeec-4611-b559-f5cef964cc63",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/create-culture-financial-responsibility",
+              "notes": "Local AKS FinOps ownership and cross-team accountability cover financial culture; regular personnel training and tooling investment are not fully addressed. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:02",
+          "title": "Create and maintain a cost model.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/cost-model",
+          "contentHash": "sha256:a2c276a8656c81b4067ae80556ca29b1ac1cc592c7de15f630b1e368af9efb90",
+          "state": "full",
+          "corpusIds": [
+            "ccf66d9e-1364-576b-9b40-16f91a5b52b7"
+          ],
+          "assessments": [
+            {
+              "corpusId": "ccf66d9e-1364-576b-9b40-16f91a5b52b7",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/cost-model",
+              "notes": "The local control explicitly requires initial, run-rate and ongoing cost, an agreed budget buffer and maintained demand/architecture updates, covering the complete checklist-row requirement. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:03",
+          "title": "Collect and review cost data.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/collect-review-cost-data",
+          "contentHash": "sha256:c4a9ad40ca790b63fc31d3c3f429316576a093dbef493a49874e2125740e0e00",
+          "state": "partial",
+          "corpusIds": [
+            "29fd366b-a180-452b-9bd7-954b7700c667",
+            "32952499-58c8-4e6f-ada5-972e67893d55"
+          ],
+          "assessments": [
+            {
+              "corpusId": "29fd366b-a180-452b-9bd7-954b7700c667",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/collect-review-cost-data",
+              "notes": "Scoped actual/forecast thresholds, notifications and accountable responders cover the alerting portion; this is not the complete daily cost/reporting process. Source-text assessment, not independent human approval or live Azure validation."
+            },
+            {
+              "corpusId": "32952499-58c8-4e6f-ada5-972e67893d55",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/collect-review-cost-data",
+              "notes": "Daily actual/amortized cost, forecasts and stakeholder reviews are explicit; the separate automated threshold-alert requirement is not entirely implemented by this control. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:04",
+          "title": "Set spending guardrails.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/set-spending-guardrails",
+          "contentHash": "sha256:25e4f4e0a19e53216a81f36ac11568aae0384447399781a7ba46dfce822a9952",
+          "state": "partial",
+          "corpusIds": [
+            "389aca19-a7d5-4abb-82f6-66716e25023a"
+          ],
+          "assessments": [
+            {
+              "corpusId": "389aca19-a7d5-4abb-82f6-66716e25023a",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/set-spending-guardrails",
+              "notes": "Policies, allowed resources, limits, provisioning access and approval gates match the guardrail mechanisms; explicit preference for platform automation over manual processes remains a gap. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:05",
+          "title": "Get the best rates from providers.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/get-best-rates",
+          "contentHash": "sha256:257783a801a078a51c54b7662fad5aa2079042bb22558366a9cdc38a3750776c",
+          "state": "partial",
+          "corpusIds": [
+            "72eb7a10-acdd-47f4-ac63-c2366162dca0"
+          ],
+          "assessments": [
+            {
+              "corpusId": "72eb7a10-acdd-47f4-ac63-c2366162dca0",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/get-best-rates",
+              "notes": "Consumption/commitment and licensing economics are covered; corporate purchasing plans, price-sheet review and all regional/provider comparisons are broader than this control. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:06",
+          "title": "Align usage to billing increments.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/align-usage-to-billing-increments",
+          "contentHash": "sha256:bd67e2510e17ee3884b480d63697b60417b5aa86190d148caa6108c36c42b021",
+          "state": "partial",
+          "corpusIds": [
+            "73965cc9-1763-43c1-82aa-549b3ea75f4e"
+          ],
+          "assessments": [
+            {
+              "corpusId": "73965cc9-1763-43c1-82aa-549b3ea75f4e",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/align-usage-to-billing-increments",
+              "notes": "The refreshed Foundry control identifies actual billing meters and deployment costs; it does not cover every service's usage alignment or the checklist's proof-of-concept recommendation. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:07",
+          "title": "Optimize component costs.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-component-costs",
+          "contentHash": "sha256:1096633c915c6d22f515418bcbf78f8a9e8200889e1d5de0f3a7f45cd3a52262",
+          "state": "partial",
+          "corpusIds": [
+            "fe224a34-ae94-57de-8570-e8bae87812f7"
+          ],
+          "assessments": [
+            {
+              "corpusId": "fe224a34-ae94-57de-8570-e8bae87812f7",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-component-costs",
+              "notes": "Owner-reviewed removal of unused App Service plans is one component-cost case, not all legacy application/platform features and resources. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:08",
+          "title": "Optimize environment costs.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-environment-costs",
+          "contentHash": "sha256:21b97d8d73469e97940dc9df269483aa1b15ee6fe666afe5e1e487e64ca3bef2",
+          "state": "partial",
+          "corpusIds": [
+            "4e2a03a6-ff51-46c5-902d-3d7161d9c99c"
+          ],
+          "assessments": [
+            {
+              "corpusId": "4e2a03a6-ff51-46c5-902d-3d7161d9c99c",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-environment-costs",
+              "notes": "Preproduction tier, capacity and retention limits cover one environment; production, operations and DR priorities plus all security/licensing tradeoffs remain outside this record. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:09",
+          "title": "Optimize flow costs.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-flow-costs",
+          "contentHash": "sha256:1c105fe74aee5e29b62e9bb7bdae70807acc2d5580e71e12198fb083ef7515b7",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "CO:10",
+          "title": "Optimize data costs.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-data-costs",
+          "contentHash": "sha256:66171ee3412ee4ec228e7a6512ba0754b379fc7858c88f77c7697b87132e7f45",
+          "state": "partial",
+          "corpusIds": [
+            "d1e44a19-659d-4395-afd7-7289b835556d"
+          ],
+          "assessments": [
+            {
+              "corpusId": "d1e44a19-659d-4395-afd7-7289b835556d",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-data-costs",
+              "notes": "Blob tiering/retention and access/restore economics cover data lifecycle, not all volume, replication, backup and file-format decisions. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:11",
+          "title": "Optimize code costs.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-code-costs",
+          "contentHash": "sha256:b9d0eba0b60390ebbb47f025bdb3bf86b6dd7db8d48f4cb78e7ef94cb60d19dd",
+          "state": "partial",
+          "corpusIds": [
+            "2905301e-e22b-4203-8fa0-6c7d740dd465"
+          ],
+          "assessments": [
+            {
+              "corpusId": "2905301e-e22b-4203-8fa0-6c7d740dd465",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-code-costs",
+              "notes": "The ML control explicitly uses CPU/GPU observations to modify code or choose cheaper resources; it is workload-specific and does not assess all functional/nonfunctional code requirements. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:12",
+          "title": "Optimize scaling costs.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-scaling-costs",
+          "contentHash": "sha256:3ead080c63305aad1b830ff7020097e2bd9efbe726f494f5cac97f8e1a804ec6",
+          "state": "partial",
+          "corpusIds": [
+            "f7fc4792-bc2c-4a9d-98dc-ee637e18badd"
+          ],
+          "assessments": [
+            {
+              "corpusId": "f7fc4792-bc2c-4a9d-98dc-ee637e18badd",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-scaling-costs",
+              "notes": "Scale-up/out and queues, buffering and rate limiting cover demand/supply alternatives; explicit cost-model and every scale-unit limit analysis remain broader requirements. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "CO:13",
+          "title": "Optimize personnel time.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-personnel-time",
+          "contentHash": "sha256:177c77ff7ac82c2f6404dfcd9f09ee734fdb7e5451f2ba3bcc633d46f834ef85",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "CO:14",
+          "title": "Consolidate resources and responsibility.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/consolidation",
+          "contentHash": "sha256:39bef6a97c6735ebcaa43fa971d2bf6ca1df82f9c0a3be8f377fae36e253aea2",
+          "state": "partial",
+          "corpusIds": [
+            "78f09072-d08f-430c-9d24-6d3b938ecd14"
+          ],
+          "assessments": [
+            {
+              "corpusId": "78f09072-d08f-430c-9d24-6d3b938ecd14",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/consolidation",
+              "notes": "Shared Front Door and mission-critical isolation cover centralized-resource use; broader within-workload density and responsibility consolidation are not fully represented. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        }
+      ],
+      "referencesOutsideInventory": []
+    },
+    "advisor-cost-catalog": {
+      "schemaVersion": 1,
+      "sourceId": "advisor-cost-catalog",
+      "title": "Published Azure Advisor Cost catalog",
+      "scope": "All Recommendation ID sections in the English published Advisor Cost recommendations reference page",
+      "unit": "published-advisor-recommendation-guid",
+      "asOf": "2026-09-11",
+      "retrievedAt": "2026-09-11T18:05:20.569750Z",
+      "upstreamRevision": "0eef202feb80322f1d1da95d4d026c2e2b70ce06",
+      "inventoryStatus": "complete",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations"
+      ],
+      "observedCount": 66,
+      "denominator": 66,
+      "counts": {
+        "full": 4,
+        "partial": 6,
+        "stale": 0,
+        "supporting": 0,
+        "unknown": 56
+      },
+      "coveragePercent": 6.06,
+      "partialPercent": 9.09,
+      "reason": null,
+      "assessmentBasis": "Recorded explicit ID mappings with matching content hashes; not independent human semantic review.",
+      "limitations": [
+        "Advisor Cost published catalog only, not all Advisor categories or customer-specific available recommendations.",
+        "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+        "No Azure login or customer resource enumeration."
+      ],
+      "items": [
+        {
+          "id": "00b1ef72-4d0f-4452-a6a8-1df5397172d6",
+          "title": "Consider enabling autoscale feature on spark compute",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:24bd464501cd9d733e1be77026db1f9be5cf0fb671b90241e79db00ac59a1a52",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "0169a2e1-c7bf-4c37-90b8-0714811c82d3",
+          "title": "Consider Blob storage reserved instance to save on Blob v2 and Datalake storage Gen2 costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:c133a016e6e86e5547a2ffb9721f9465c9af41e4cddffd2359873a5f7d6d8a0b",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "06ad499a-0952-48d3-b061-ec81c9cabb8b",
+          "title": "Consider Database for PostgreSQL reserved instance to save over the pay-as-you-go costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:4820afe86795042d9dd6033e5d70ddf010d916a28e7333911786a72e5bfc13dd",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "0d524e8d-4cfd-4db5-9f91-8b4bb5235a8e",
+          "title": "Consider Data Factory reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:be5c6d465770298fe765ce1741149ad959b1994f8f5ebabbc236734f899c1c7b",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "0eb54047-acd9-4f26-8ffb-8cec713782d6",
+          "title": "Consider Azure Managed Disk reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:6bbcdcad24a574c5ceb0c0893346c3c09dd947970422db904f366e58891e1c57",
+          "state": "partial",
+          "corpusIds": [
+            "a6bcca2b-4fea-41db-b3dd-95d48c7c891d"
+          ],
+          "assessments": [
+            {
+              "corpusId": "a6bcca2b-4fea-41db-b3dd-95d48c7c891d",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "Eligible disk SKUs, one-year steady usage and unused reservation hours address the purchase decision; shared/subscription benefit scope is not completely specified. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "10aedd06-621e-4b4f-a45c-5256573e0191",
+          "title": "Consider Azure VMware Solution reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:a6aa8439201781c59bab9e3ae9be1153a796bf6cd38803c1c8831c5731d0978e",
+          "state": "full",
+          "corpusIds": [
+            "6e043e2a-a359-4271-ae6e-205172676ae4"
+          ],
+          "assessments": [
+            {
+              "corpusId": "6e043e2a-a359-4271-ae6e-205172676ae4",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "Stable eligible AVS usage, reservation purchase/renewal, benefit scope and actual utilization are explicit, covering the published AVS commitment opportunity with workload safeguards. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "148cdd60-97e8-426b-a7b9-141b7cb4bc2f",
+          "title": "Consider RedHat Osa reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:bbc638af892754b97179322bd3a5467a19dac4a896921c0bcc5ae830e20ccf00",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "17f6ab99-c9b6-4800-bebd-7466699cec31",
+          "title": "Consider Spot nodes for workloads that can handle interruptions",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:9ee27ce536d2d1ca2c375983900bf64dcf1988698f077775cf9359e81130d4a7",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "1b8c5187-32a6-4a2f-8ca1-b0b7d6ce9e86",
+          "title": "Consider Azure Data Explorer reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:c6cebb8a30fd7f93a8386e482fbc4a1a99f1a105b9210111a2e35c6eebb1d153",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "1c7fc5ab-f776-4aee-8236-ab478519f68f",
+          "title": "Disable health probes when there's only one origin in an origin group",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:0ec09514d3280aa28ea60eb1f81756b9454c6f328927aa2bf73f57c4cdabddfd",
+          "state": "partial",
+          "corpusIds": [
+            "f397a438-b320-46f8-a41a-f94545db3412"
+          ],
+          "assessments": [
+            {
+              "corpusId": "f397a438-b320-46f8-a41a-f94545db3412",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "The control covers the exact single-origin probe-disable condition and preserves monitoring; the source's additional preference for at least two origins is not explicitly required. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "201fb2fe-989f-45c1-8533-785ee8a4a08f",
+          "title": "Standard SSD disks billing caps",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:e6887ce5121016b9c1efbcf1648c2841bf875dcefaea42c77c2eb19c968b9a1f",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "22ae3910-a9a7-4e3d-8234-6a6b9ec7275b",
+          "title": "Enable Vertical Pod Autoscaler recommendation mode to rightsize resource requests and limits",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:cbdeb2a823e5ac071fae5e8c2d6e0756d2fb91271d10279697747babb3295808",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "2397042e-4064-41ca-a50e-4e845051bb0b",
+          "title": "Enable Optimized Autoscale for Data Explorer resources",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:0480981dc73c5e15ccc389b17bfc5b4ee05a6a04126368579d6e286d35ea1486",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "24d8db35-c214-4aae-892e-531b98dea439",
+          "title": "Potential Cost Savings on this LUIS Resource",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:151ad9142b426057dfbf2a66fd033eb2ed05533300d921cba0725b6f737cb9df",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "2e0c70b1-f85e-4497-b492-f8fe6dc00c92",
+          "title": "Consider using multiple endpoints under one single Front Door Standard/Premium profile",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:dd0a4cf6584335129710820bbf972d94f8bf9d91b70d04d68f44d271c830dfd2",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "32755df6-aa2f-48d7-9ab7-92b8a80352ea",
+          "title": "Consider NetApp Storage reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:c6c5dbaffbe21e816752354f537aaa5d4a3d1685a2c0e07a883861a961868697",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "354D7BBB-A243-4BE1-A8B9-43DBFC05C44A",
+          "title": "Unused running Data Explorer resources",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:bdb48d2d45ee81daa24a642da1399ac870e665771f9041615041ef034a241f3e",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "37cc8f6a-8059-407e-995a-10528ee3687b",
+          "title": "Potential Cost Savings on this Computer Vision Resource",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:12bac98e7aeeccd75cc1e24636659386ba992f27c9c618376f6d458027eeadd1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "386452d3-8df0-4174-94cb-fee063b3084f",
+          "title": "Revisit retention policy for classic log data in storage accounts",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:5324d032051b7882b6275fa87e935777d5e1731ebe78c50524837816adbc5088",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "39a8510f-5bbf-4304-9bcd-4106c996473b",
+          "title": "Unused/Empty App Service plan",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:e0ae8f4c130842e168a1c4a3e102c2ede9088b816db8bff32ab7e2ad59f5350b",
+          "state": "full",
+          "corpusIds": [
+            "fe224a34-ae94-57de-8570-e8bae87812f7"
+          ],
+          "assessments": [
+            {
+              "corpusId": "fe224a34-ae94-57de-8570-e8bae87812f7",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "The local control identifies plans without apps and evaluates their approved deletion, with extra slot/standby/dependency safeguards; it covers the entire published empty-plan action. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "3dfe0963-0fe5-49e0-aaaa-593b6fd4308e",
+          "title": "Data ingestion anomaly was detected",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:048ae4017f383d3e1ed086e3b5190109088b09db3635af6ade90afe37fe6e62d",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "3f6c5689-6a05-4896-a6e0-c6f8a22a44c2",
+          "title": "Consider Azure Dedicated Host reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:ff245f161f6cd94662319e4a501034d508cb3dfb13ed08b73a08efd135b91af1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "407b6ad6-8e0b-40e7-9384-643520cae0ed",
+          "title": "Consider Azure Files reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:e42b6038ac74117e129230630bf1b7d79a85d6737c8e901ce4b30aa284063505",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "48eda464-1485-4dcf-a674-d0905df5054a",
+          "title": "Review disks that aren't attached to a VM and evaluate if you still need the disks",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:aacc7d55f6f35e2779d2297837b07597341184f485c23c63ed27a3d6b989186e",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "4a993d7c-9d83-4d85-b5a9-7cce0b136378",
+          "title": "Review the configuration of your Azure Cosmos DB free tier account",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:adec6deff39dd1c7005cb6e8988c8043c1c115ed33b3c556d4ce78027ed32b90",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "4cfb349a-b25a-4bef-a7b4-ff9886dd53b6",
+          "title": "Potential Cost Savings on this Translator Resource",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:48f124f6adde31738124a9693afd33b4f1029193b613e49cc5b356eb7abe4970",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "56b0837b-7d02-4ca6-859f-59dc452fd93e",
+          "title": "Use Azure Kubernetes Service Cost Analysis",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:225255a8a557ec511d9e6f1858defdc208c24bb664c4bd48647f1d888d451c3d",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "57a36b11-140b-4276-a162-9919ca4e9462",
+          "title": "Save cost by using continuous backup with Fabric Mirroring",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:56677d7c35f3b22e7fe7d42c81aa4eb7398ae5b29390b8d4a6ee64082a06d984",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "5b8ddf04-be28-44ec-ab2c-a63a34d1de13",
+          "title": "Consider App Service reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:8c6e4e749a3246f3988a62c38f4e3ec8af38cebbcd08d6579f20f9a1784fe29d",
+          "state": "partial",
+          "corpusIds": [
+            "692ab2db-ff92-44e9-ae54-910c66389e0d"
+          ],
+          "assessments": [
+            {
+              "corpusId": "692ab2db-ff92-44e9-ae54-910c66389e0d",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "Predictable App Service usage and dedicated-compute reservations cover rate optimization; the full benefit-scope and term/lookback decision are not described. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "680a5388-28aa-44e8-88af-32e3598dc869",
+          "title": "Consider Azure Synapse Analytics (formerly SQL DW) reservation to save over the pay-as-you-go costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:ba8d72b3ba244572bc67ca3ad6786b2fbcce2e85e235d85d3f26bdc06e3e450f",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "6fceeb05-2cea-4774-9f6c-251964d5d5f6",
+          "title": "Optimize Your Azure Cosmos DB Costs with New Reserved Capacity Tiers",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:346742799bd6f5085fcb85375bcef768641a64bb283d100df0b0e8d7ca7b0828",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "702b474d-698f-4029-9f9d-4782c626923e",
+          "title": "Use Standard Storage to store Managed Disks snapshots",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:257b3ed28e789ddb4146cd7a4a82251fab23a0c88c0711dabb82700dbb6ebef5",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "706d4bdc-7ee0-4d2f-a9ac-3c1f124545d1",
+          "title": "Switch to Prometheus-based Container Insights",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:7999e4c4ff7ffbf69dae7ed0789a01d91abd5a8e752d294721dfee884ea60b2e",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "7e76e54f-7978-4d48-9ab9-a4da5b7c69a3",
+          "title": "Right-size underutilized MySQL servers",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:7541b6f980cca10bc95966613c33d4bd4dcbad33164d0837bcd8b9984c54d0b1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "805748e7-8764-49fe-b5b2-7fff63daaac2",
+          "title": "Consider configuring the low-cost Basic logs plan on selected tables",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:1e3a6fb982683d9c1151318d95db04b698d30b0d53084ad196da9b080119e139",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "82d10dcf-5127-4a8c-a2b1-fd02ab46df60",
+          "title": "Fine-tune the cluster autoscaler profile for rapid scale down and cost savings",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:7e9f44b2da84ef8fc4090577c34d9020c631753b9d9e0062b9694ffd484129d8",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "83cf9b6e-1b82-4a1d-9151-7581dda7a26e",
+          "title": "Use differential or incremental backup for database workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:fcf6427099a8fdf16672efa493c95d820d4f67e87f42e33d43f458e0b722f1b4",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "84b1a508-fc21-49da-979e-96894f1665df",
+          "title": "Consider virtual machine reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:8dcc9baf90a75973aea30c50fe884391b80dcfa8bd1197c7c350ba9e32aab856",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "885cd4f5-dfa0-4d68-bbfd-00f89fc2b69c",
+          "title": "Consider SQL PaaS DB reserved instance to save over the pay-as-you-go costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:5944ccabf16b350089040ca2f7d652281651f8d116bd5941746adcc3a42712e5",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "89515250-1243-43d1-b4e7-f9437cedffd8",
+          "title": "Consider purchasing a savings plan for compute to unlock lower prices",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:b8f1e9106a8bd3b93197138213dafc48f670ef06f862f3176932dbf456fa8072",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "8bd8e2a7-0dde-409a-ae31-d4ee8bae6d87",
+          "title": "Enable Autoscaling for Azure Databricks Clusters",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:0ca6708b13e6ff8e1cc023d0d7bf7ee8378b7d5587eb346dd71d8b0a2ebc8bff",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "8ee30d6b-2c73-452a-b4ad-e4386cd6f7d0",
+          "title": "Consider Cache for Redis reserved instance to save over the pay-as-you-go costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:108b60d1a975b2abf343d1f586b143ebd8b798421c453f29dbdc8f3284d9b85e",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "947a627a-532d-44f8-8e23-4f365a80a2ba",
+          "title": "Reduce Data Explorer table cache policy to optimize costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:de3e3c5a4801359275dee2f49c1caa1b5db70e8d1d4512a9c97aa860598dd417",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "94aea435-ef39-493f-a547-8408092c22a7",
+          "title": "Right-size or shutdown underutilized virtual machine scale sets",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:748783c2b91bd946a4ab818e27d6646ed4e604d78115cd322c6f4d0c6185e813",
+          "state": "partial",
+          "corpusIds": [
+            "fc6998a5-35e3-4378-a7e3-1c67d68cf6a6"
+          ],
+          "assessments": [
+            {
+              "corpusId": "fc6998a5-35e3-4378-a7e3-1c67d68cf6a6",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "The local control explicitly includes VMSS sizing with telemetry and justified exceptions; it does not fully describe scale-set shutdown/count handling. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "9ed827e8-2a1c-45f3-93f0-df6962034a33",
+          "title": "Consider Microsoft Fabric reservations to save over your pay-as-you-go costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:26d920d478b7bf450cdd38614b002a93aa28871dbe9909c0bdca819c8759e822",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a205074f-8049-48b3-903f-556f5e530ae3",
+          "title": "Consider Cosmos DB reserved instance to save over the pay-as-you-go costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:13f9bbed27e1bdcf6a8712c9a7a8936022dea893a5cbb978248db620c89f0048",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a4255ba5-b07e-45ae-99ca-25e6c2079e3c",
+          "title": "Consider taking action on the idle Azure Cosmos DB containers",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:a96ac35589c50971e7d8a781492f9d019971ba06fee810e7ce50f52a0bf0aba5",
+          "state": "full",
+          "corpusIds": [
+            "577a5f04-5ce3-5bf2-be7b-28c1ec86f362"
+          ],
+          "assessments": [
+            {
+              "corpusId": "577a5f04-5ce3-5bf2-be7b-28c1ec86f362",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "The local control reviews Advisor inactivity evidence and both throughput reduction and approved retirement, accounting for affected child containers and retained data. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "a8fd63ce-4600-43eb-af33-a6d5481f5930",
+          "title": "Consider Database for MySQL reserved instance to save over the pay-as-you-go costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:170bddf2533fd3843cb686ca317485682d6e147b2171a126eeb54783683edf80",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "abb1f687-2d58-4197-8f5b-8882f05c04b8",
+          "title": "Configure automatic renewal for the expiring reservations",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:1d6850be9e7fa866d06542d502a5c09d4c490029360059768a2d6b07bee4c99c",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "afdf4c1a-e46b-4817-a5d6-4b9909f58e2a",
+          "title": "Consider enabling automatic pause feature on spark compute",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:49c05ef0d5cdb486a34142ff1ae68f43e3725ac96667a1027d46fcf3edf71aa6",
+          "state": "partial",
+          "corpusIds": [
+            "e68a487c-dec4-4861-ac3b-c10ae77e26e4"
+          ],
+          "assessments": [
+            {
+              "corpusId": "e68a487c-dec4-4861-ac3b-c10ae77e26e4",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "Idle timeout and compute-release review cover the auto-pause behavior; the local tuning control does not explicitly require enabling auto-pause where it is absent. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "bce95beb-3389-4e64-8863-d196cc2f69dc",
+          "title": "Change Data Explorer clusters to a more cost effective and better performing SKU",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:cfa1af76e215fd3f657724fdc90d232dc5c2601eb16b4595c7b708a691ed4482",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "c1c98b41-ddf6-4b27-988c-0e8e6359a42a",
+          "title": "Potential Cost Savings on this Language Service Resource",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:fc4f00aea664ce742557f082d706cb0318d4d98ad85cc12d5be9c74705fb4f77",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "c68d7dd0-8a1c-4cc4-b52c-b7e8a072d00e",
+          "title": "Consider Changing Pricing Tier",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:0a89a957e07ec2e2c98364439e433753e52f2dc3de518b2c756f61a35df533d3",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "c81a0349-18c0-4bd2-81c7-475adde922d2",
+          "title": "Based on your high transactions/TB ratio, there's a possibility that premium storage might be more cost effective in addition to being performant for your scenario. More details on pricing for premium and standard accounts can be found here",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:4aafc1f89265dd1e3efc5b5347d09696a0cc95d44896ef8d42c93b600517029b",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "cc9d34f5-f9b8-4d4f-9de7-98b45c698a49",
+          "title": "Right-size underutilized App Service plans",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:e7cafc21113735aa9a5749bcfded121f563fd7b16182c39d2cbcafc32e739fff",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "cdf51428-a41b-4735-ba23-39f3b7cde20c",
+          "title": "Enable autoscale on your Azure Cosmos DB database or container",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:3608a129055d05b4df0e88b2f8d5099c835a1df13b9e5df0d3ab49623ebfe253",
+          "state": "partial",
+          "corpusIds": [
+            "ed807702-4e85-5b2e-b191-3fc76fe70a60"
+          ],
+          "assessments": [
+            {
+              "corpusId": "ed807702-4e85-5b2e-b191-3fc76fe70a60",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "The local control compares throughput modes and measured RU demand with safeguards; it does not reproduce Advisor's seven-day hourly savings calculation or mandate enabling autoscale. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "ceb9372d-60f6-4564-8033-a8b1ead4fa76",
+          "title": "Upgrade the Azure Cosmos DB for MongoDB API to version 4.2 for reduced query and storage costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:7553344b354b1953572e4c6db19fd1514979da02230ae08581f5c6ac6b4f3b4d",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "d9c2f871-904e-4907-8572-0a33b0651f01",
+          "title": "Unused stopped Data Explorer resources",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:8e3903908841bd065cb3303b7d9c5942ddc0cbf3ea160958d15809012f4cb429",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "da48cdd1-0c3f-4050-b037-89ecdb2be69a",
+          "title": "Potential Cost Savings on this Form Recognizer Resource",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:a8b64ee5341eb6ef5eb830278d3a8d55a0acb26d5d9b03149b689119c1966baa",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "dadc1876-61e3-42fc-a70e-e863bbc460b6",
+          "title": "Consider OpenAI Service Provisioned Throughput reservations to save over pay-as-you-go costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:d8de3f8d9041065d948ab97af7b502ee6e9de069ea23408c21f079f67c50a396",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "db621e98-4a20-4942-b174-c455dc71dbae",
+          "title": "Consider SuseLinux reserved instance to save over the on-demand costs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:b80c5c376ea388d0dc96ab7dbb3c6f6f62c7ecffe651d378dee2e9b98a0d9303",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "e10b1381-5f0a-47ff-8c7b-37bd13d7c974",
+          "title": "Right-size or shutdown underutilized virtual machines",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:dfb8eb246d5d3a67d34ce36b928bec6b45b7c0a50e5d4b4679ab50c3904036cd",
+          "state": "full",
+          "corpusIds": [
+            "544451e1-92d3-4442-a3c7-628637a551c5",
+            "fc6998a5-35e3-4378-a7e3-1c67d68cf6a6"
+          ],
+          "assessments": [
+            {
+              "corpusId": "544451e1-92d3-4442-a3c7-628637a551c5",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "The refreshed control explicitly reviews low-use VM resizing or shutdown with utilization and intentional-standby exceptions, matching the published opportunity rather than relying on the query filter alone. Source-text assessment, not independent human approval or live Azure validation."
+            },
+            {
+              "corpusId": "fc6998a5-35e3-4378-a7e3-1c67d68cf6a6",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+              "notes": "Existing representative VM utilization and SKU testing cover rightsizing; the separate shutdown branch is not explicit in the guidance, despite its broader query. Source-text assessment, not independent human approval or live Azure validation."
+            }
+          ]
+        },
+        {
+          "id": "e4429ab9-f27e-4750-89a7-30bce345f7fa",
+          "title": "Potential Cost Savings on this Speech Service Resource",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:d8d8aa8b591de91f3ab4a815487b2e6c77b980ffe271879e43029edc87682c31",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "e6744163-0be2-4c17-83da-179a0af9d14f",
+          "title": "Consider migrating to Front Door Standard/Premium",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:b0d7e64a3a8a607ce9abba7e6f1f5deb31b1bc808e5b7a37983474df11a92890",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "eb22702a-5ace-416a-abee-c03c69cede34",
+          "title": "Consider removing unused restored tables",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:c783305470957daa1f94c6ec4c24b484e54134628986a66256d712618216884d",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "f6e3ad9c-5d58-48ba-b06b-ebffba60dd18",
+          "title": "Delete failing ADF pipelines",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "contentHash": "sha256:486ee78a36eb018aba8189ae3631d0f698de3dedaf024b6d1e3d3e6f115f156a",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        }
+      ],
+      "referencesOutsideInventory": []
+    }
+  },
+  "limits": [
+    "Full/partial counts are distinct upstream ID assessments, never counts of citation URLs or executable queries.",
+    "Mappings were compared with source payloads but have not received independent human semantic review.",
+    "These inventories cover 14 numbered WAF checklist rows and 66 published Advisor Cost entries only, not all Cost guidance or Azure topics.",
+    "An unmapped inventory ID is an assessment gap in this Cost-only pass, not proof that no equivalent recommendation exists elsewhere in the corpus.",
+    "CO:09 flow-priority costs and CO:13 personnel-time costs remain unmapped; report and coordinate potential cross-pillar controls rather than adding speculative duplicates.",
+    "No prior complete dated inventory was supplied for this round; newly observed IDs cannot be labelled programmatically new relative to an unknown historical inventory."
+  ]
+}

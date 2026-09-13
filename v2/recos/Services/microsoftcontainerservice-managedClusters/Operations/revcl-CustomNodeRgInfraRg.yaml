@@ -1,5 +1,5 @@
 name: revcl-CustomNodeRgInfraRg
-title: Use custom Node RG (aka 'Infra RG') name
+title: Choose an AKS node resource group name that meets documented naming requirements
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,5 +13,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/cluster-configuration
 queries:
-  arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
-    = (properties.nodeResourceGroup !startswith 'MC_') | distinct id,compliant
+  arg: |
+    Resources
+    | where type =~ 'microsoft.containerservice/managedclusters'
+    | project id, name, resourceGroup, subscriptionId, nodeResourceGroup = properties.nodeResourceGroup
+schemaVersion: 1
+id: 73b32a5a-67f7-4a9e-b5b3-1f38c3f39812
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/aks/faq
+    title: AKS frequently asked questions
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/governance/resource-graph/concepts/query-language
+    title: Understand the query language - Azure Resource Graph
+    accessedAt: '2026-09-11'
+description: Choose a custom node resource group name at cluster creation only when organizational naming
+  requirements justify it. AKS creates and manages this group; do not supply an existing group, attempt
+  to rename it later, or manually alter managed infrastructure. The query inventories nodeResourceGroup
+  for naming review. The default MC_ prefix is valid, and absent properties or zero rows do not establish
+  compliance.

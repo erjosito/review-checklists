@@ -1,8 +1,5 @@
 name: revcl-DatabaseFileSystemsDatabaseVendors
-title: Exclude all the database file systems and executable programs from antivirus
-  scans. Including them could lead to performance problems. Check with the database
-  vendors for prescriptive details on the exclusion list. For example, Oracle recommends
-  excluding /oracle/<sid>/sapdata from antivirus scans.
+title: Use vendor-supported antivirus exclusions for SAP database workloads
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +12,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/sap/eslz-management-and-monitoring
 queries: {}
+schemaVersion: 1
+id: abb6af9c-982c-4cf1-83fb-329fafd1ee56
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/optimize-operational-tasks
+    title: Architecture strategies for optimizing operational tasks
+    accessedAt: '2026-09-11'
+description: Measure scanning overhead and use the database vendor's current, narrowly scoped exclusion
+  guidance for the deployed product and version. Do not blanket-exclude every database filesystem and
+  executable. Coordinate exclusions with security owners and retain required protection. Exact SAP/Oracle
+  exclusion paths and licensing-specific tools require vendor review.

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/sovereign-landing-zone
 queries: {}
+schemaVersion: 1
+id: 78b22132-b41c-460b-a4d3-df8f73a67dc2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -14,3 +14,13 @@ labels:
   guid: da9ce235-e104-401e-b094-59bf983cfa40
 links: []
 queries: {}
+schemaVersion: 1
+id: da9ce235-e104-401e-b094-59bf983cfa40
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

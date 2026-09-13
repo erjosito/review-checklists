@@ -17,3 +17,13 @@ labels:
   guid: c953c774-517c-48ce-82cb-105448b8a647
 links: []
 queries: {}
+schemaVersion: 1
+id: c953c774-517c-48ce-82cb-105448b8a647
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

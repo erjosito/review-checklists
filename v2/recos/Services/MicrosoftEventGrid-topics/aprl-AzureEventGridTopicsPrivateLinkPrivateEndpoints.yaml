@@ -1,13 +1,13 @@
 name: aprl-AzureEventGridTopicsPrivateLinkPrivateEndpoints
 title: Azure Event Grid topics should use Private Link Private Endpoints
-description: |-
-  Use private endpoints for secure event ingress to custom topics/domains via a private link, avoiding the public internet. It employs an IP from the VNet space for your topic/domain.
+description: Use private endpoints for secure event ingress to custom topics/domains via a private link,
+  avoiding the public internet. It employs an IP from the VNet space for your topic/domain.
 source:
   type: aprl
   file: azure-resources/EventGrid/topics/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.EventGrid/topics
+- microsoft.eventgrid/topics
 severity: 1
 labels:
   guid: b2069f64-4741-3d4a-a71d-50c8b03f5ab7
@@ -22,3 +22,34 @@ queries:
     | where properties['publicNetworkAccess'] == "Enabled"
     | project recommendationId = "b2069f64-4741-3d4a-a71d-50c8b03f5ab7", name, id, tags
     | order by id asc
+schemaVersion: 1
+id: b2069f64-4741-3d4a-a71d-50c8b03f5ab7
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/EventGrid/topics/recommendations.yaml
+    title: 'APRL b2069f64-4741-3d4a-a71d-50c8b03f5ab7: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b2069f64-4741-3d4a-a71d-50c8b03f5ab7
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/EventGrid/topics/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:c9159597254e0f62735d6a207932ba4644e1e6e3a8092a13e8318c0fe00bf5f8
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/roles/security-planning
 queries: {}
+schemaVersion: 1
+id: 6f704104-85c1-441f-96d3-c9819911645e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

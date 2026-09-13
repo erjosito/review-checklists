@@ -1,13 +1,13 @@
 name: aprl-LongerWarmupTimeMinimumInstanceCount
 title: Set minimum instance count to 2 for app service
-description: |-
-  App Service should be configured with a minimum of two instances for production workloads. If apps have a longer warmup time a minimum of three instances should be used.
+description: App Service should be configured with a minimum of two instances for production workloads.
+  If apps have a longer warmup time a minimum of three instances should be used.
 source:
   type: aprl
   file: azure-resources/Web/sites/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/sites
+- microsoft.web/sites
 severity: 1
 labels:
   guid: 9e6682ac-31bc-4635-9959-ab74b52454e6
@@ -28,3 +28,18 @@ queries:
         | project name
         ) on name
     | project recommendationId = "9e6682ac-31bc-4635-9959-ab74b52454e6", name, id, tags, param1 = "PreWarmedInstanceCount is less than 2"
+schemaVersion: 1
+id: 9e6682ac-31bc-4635-9959-ab74b52454e6
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The frozen GUID is absent from the complete pinned upstream
+    repository inventory; historical source identity does not prove a current recommendation or replacement
+    ID. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Reliability

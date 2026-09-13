@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/disks-types
 queries: {}
+schemaVersion: 1
+id: 8052d88e-79d1-47b7-9b22-a5a67e7a8ed4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

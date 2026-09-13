@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region#-route-api-calls-to-regional-backend-services
 queries: {}
+schemaVersion: 1
+id: 1b8d68a4-66cd-44d5-ba94-3ee94440e8d6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

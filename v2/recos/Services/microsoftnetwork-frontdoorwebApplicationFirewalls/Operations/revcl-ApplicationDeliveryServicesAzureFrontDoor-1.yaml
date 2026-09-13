@@ -1,12 +1,12 @@
 name: revcl-ApplicationDeliveryServicesAzureFrontDoor-1
-title: Send WAF logs from your application delivery services like Azure Front Door
-  and Azure Application Gateway to Microsoft Sentinel. Detect attacks and integrate
-  WAF telemetry into your overall Azure environment.
+title: Integrate application delivery WAF logs with Microsoft Sentinel
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.network/frontdoorwebapplicationfirewalls
+- microsoft.cdn/profiles
+- microsoft.network/applicationgateways
+- microsoft.network/frontdoors
 waf: Operations
 severity: 1
 labels:
@@ -15,3 +15,43 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-best-practices#send-logs-to-microsoft-sentinel
 queries: {}
+schemaVersion: 1
+id: 7f408960-c626-44cb-a018-347c8d790cdf
+services:
+- Application Gateway
+- Azure Front Door
+- Web Application Firewall
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/frontdoorwebapplicationfirewallpolicies
+    title: Microsoft.Network/FrontDoorWebApplicationFirewallPolicies - Bicep, ARM template & Terraform
+      AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/2018-08-01/frontdoorwebapplicationfirewallpolicies
+    title: Microsoft.Network/FrontDoorWebApplicationFirewallPolicies 2018-08-01 - Bicep, ARM template
+      & Terraform AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-monitor
+    title: Monitoring and Logging - Azure Web Application Firewall
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-best-practices
+    title: Best practices for Azure Web Application Firewall in Azure Front Door
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/waf-sentinel
+    title: Using Microsoft Sentinel with Azure Web Application Firewall
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview
+    title: What Is Azure Web Application Firewall on Azure Application Gateway?
+    accessedAt: '2026-09-13'
+description: 'For WAF-enabled Azure Front Door and Application Gateway deployments, enable the appropriate
+  resource diagnostic categories, send them to the Log Analytics workspace used by Microsoft Sentinel,
+  and configure the Azure WAF solution/connector and required analytics. Review ingestion and detection
+  coverage rather than assuming that forwarding logs alone provides complete attack detection. Diagnostics
+  belong to the application delivery resource: Front Door Standard/Premium uses Microsoft.Cdn/profiles
+  with an Azure Front Door SKU, classic uses Microsoft.Network/frontdoors, and Application Gateway uses
+  Microsoft.Network/applicationGateways. Other CDN profile SKUs are not implicitly in scope.'

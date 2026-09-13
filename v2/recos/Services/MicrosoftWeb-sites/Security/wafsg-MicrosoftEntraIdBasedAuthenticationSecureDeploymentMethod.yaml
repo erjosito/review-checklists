@@ -1,13 +1,10 @@
 name: wafsg-MicrosoftEntraIdBasedAuthenticationSecureDeploymentMethod
-title: '(App Service) To implement hardening:  - Disable basic authentication that
-  uses a username and password in favor of Microsoft Entra ID-based authentication.  -
-  Turn off remote debugging so that inbound ports aren''t opened. - Enable CORS policies
-  to tighten incoming requests.  - Disable protocols, such as FTP.'
-description: We don't recommend basic authentication as a secure deployment method.
-  Microsoft Entra ID employs OAuth 2.0 token-based authentication, which offers numerous
-  advantages and enhancements that address the limitations that are associated with
-  basic authentication.  Policies restrict access to application resources, only allow
-  requests from specific domains, and secure cross-region requests.
+title: Harden App Service deployment access, debugging, protocols and browser cross-origin settings.
+description: Disable FTP and SCM basic publishing authentication where supported and use Microsoft Entra-based
+  deployment methods. Disable remote debugging in production and protocols that the workload does not
+  need. Restrict CORS to intended browser origins, but enforce authentication and authorization independently
+  because CORS is not a security boundary for arbitrary clients. Test deployment and application paths
+  after changing controls and use policy to detect configuration drift.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -19,3 +16,32 @@ labels:
   guid: 78fd4f02-98f6-459c-882c-5f0d659a2251
 links: []
 queries: {}
+schemaVersion: 1
+id: 78fd4f02-98f6-459c-882c-5f0d659a2251
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/identity-access
+    title: Architecture strategies for identity and access management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:08
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

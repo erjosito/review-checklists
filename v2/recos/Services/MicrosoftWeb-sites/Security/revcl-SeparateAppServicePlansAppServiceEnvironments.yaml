@@ -1,8 +1,8 @@
 name: revcl-SeparateAppServicePlansAppServiceEnvironments
 title: Isolate systems that process sensitive information
-description: Systems that process sensitive information should be isolated.  To do
-  so, use separate App Service Plans or App Service Environments and consider the
-  use of different subscriptions or management groups.
+description: Systems that process sensitive information should be isolated.  To do so, use separate App
+  Service Plans or App Service Environments and consider the use of different subscriptions or management
+  groups.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +16,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/overview-hosting-plans
 queries: {}
+schemaVersion: 1
+id: 6ad48408-ee72-4734-a475-ba18fdbf590c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:04
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

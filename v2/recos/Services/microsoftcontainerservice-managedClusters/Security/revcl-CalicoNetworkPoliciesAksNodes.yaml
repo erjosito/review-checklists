@@ -1,5 +1,5 @@
 name: revcl-CalicoNetworkPoliciesAksNodes
-title: 'For Windows 2019 and 2022 AKS nodes Calico Network Policies can be used '
+title: Choose a supported Windows AKS network-policy engine and verify enforcement.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -12,7 +12,36 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/use-network-policies
-queries:
-  arg: where type=='microsoft.containerservice/managedclusters' | where isnotnull(properties.apiServerAccessProfile.enablePrivateCluster)
-    | extend compliant = (properties.apiServerAccessProfile.enablePrivateCluster==true)
-    | distinct id, compliant
+queries: {}
+schemaVersion: 1
+id: ce7f2a7c-297c-47c6-adea-a6ff838db665
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/use-network-policies
+    title: Secure traffic between pods with network policies in Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/networking
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Validate the current Windows version and networking support matrix when selecting Calico
+  or another supported control. Azure Network Policy Manager on Windows reaches end of support on September
+  30, 2026, and new subscriptions cannot onboard to that feature. Cilium's documented AKS support is Linux,
+  so it is not a drop-in Windows replacement. Review policy limitations and test permitted and denied
+  pod traffic. A private API-server setting does not establish Windows network-policy configuration or
+  enforcement.

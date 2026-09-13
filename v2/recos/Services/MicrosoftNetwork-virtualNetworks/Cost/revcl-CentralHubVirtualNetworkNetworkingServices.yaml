@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute
 queries: {}
+schemaVersion: 1
+id: 7dd61623-a364-4a90-9eca-e48ebd54cd7d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

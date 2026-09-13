@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/overview
 queries: {}
+schemaVersion: 1
+id: 3dba65cb-834d-44d8-a3ca-a6aa2f1587be
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

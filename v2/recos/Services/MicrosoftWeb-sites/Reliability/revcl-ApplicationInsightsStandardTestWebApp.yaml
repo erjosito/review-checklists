@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/azure-monitor/app/availability-standard-tests
 queries: {}
+schemaVersion: 1
+id: b4e3f2d5-a5c6-4d7e-8b2f-c5d9e7a8f0ea
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -14,3 +14,13 @@ labels:
   guid: 3b329988-97cb-40c6-b139-17089897a9a1
 links: []
 queries: {}
+schemaVersion: 1
+id: 3b329988-97cb-40c6-b139-17089897a9a1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/blobs/blob-storage-monitoring-scenarios#audit-account-activity
 queries: {}
+schemaVersion: 1
+id: d7999a64-6f43-489a-af42-c78e78c06a73
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

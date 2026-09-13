@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-12",
+  "reason": "Remove machine-local absolute paths from public audit metadata; findings and source evidence are unchanged.",
+  "reports": {
+    "review_checklists\\docs\\corpus-refresh\\duplicate-audit.json": {
+      "beforeSha256": "adc3ffa988d58eb4ca6daa43895f83c75cd00361676fa3338fa03d27b34a28f8",
+      "afterSha256": "6d0809b9316657b299c364294eab31f4e385dc9036d475ff3a831ef805854daf",
+      "changedFields": [
+        "artifacts.frozenSnapshot",
+        "artifacts.retrievalScript",
+        "artifacts.adjudicationScript",
+        "artifacts.exactReview",
+        "artifacts.nearMatchReview"
+      ],
+      "replacement": "Session-only artifact basenames, not repository links."
+    }
+  }
+}

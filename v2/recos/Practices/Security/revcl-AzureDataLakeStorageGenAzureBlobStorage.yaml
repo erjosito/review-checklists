@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/design-implement-private-access-to-azure-services/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 3c536a3e-1b6b-4e87-95ca-15edb47251c0
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

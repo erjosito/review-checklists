@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/paths/implement-resource-mgmt-security/
 queries: {}
+schemaVersion: 1
+id: 4e138115-2318-41aa-9174-26943ff8ae7d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

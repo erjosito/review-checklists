@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://me.sap.com/notes/0002879613
 queries: {}
+schemaVersion: 1
+id: b9b140cf-413a-483d-aad2-8802c4e3c017
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

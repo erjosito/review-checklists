@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/configure-network-watcher/
 queries: {}
+schemaVersion: 1
+id: 4722d928-c1b1-4cd5-81e5-4a29b9de39ac
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

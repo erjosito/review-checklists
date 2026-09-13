@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/configure-subscriptions/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 9cb107d5-325a-4e52-9ba3-4d4685e2213a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,8 +1,7 @@
 name: wafsg-CostAnalysisPaneAzurePortal
-title: 'Monitor costs: Ensure costs stay within budgets, compare costs against forecasts,
-  and see where overspending occurs. You can use the cost analysis pane in the Azure
-  portal to monitor costs. You also can export cost data to a storage account and
-  analyze that data by using Excel or Power BI.'
+title: 'Monitor costs: Ensure costs stay within budgets, compare costs against forecasts, and see where
+  overspending occurs. You can use the cost analysis pane in the Azure portal to monitor costs. You also
+  can export cost data to a storage account and analyze that data by using Excel or Power BI.'
 description: ''
 source:
   type: wafsg
@@ -16,3 +15,23 @@ labels:
   guid: 18f1f2f6-de79-405d-b7a1-65fb571c0493
 links: []
 queries: {}
+schemaVersion: 1
+id: 18f1f2f6-de79-405d-b7a1-65fb571c0493
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 5473960a-7ac3-44a0-8d01-695132b782cd
+  name: wafsg-CostAnalysisPaneAzurePortal-1
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-files.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 5473960a-7ac3-44a0-8d01-695132b782cd
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Cost/wafsg-CostAnalysisPaneAzurePortal-1.yaml

@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/disaster-recovery
 queries: {}
+schemaVersion: 1
+id: da611702-69f4-4fb4-aa3d-3ef7f3176c4b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

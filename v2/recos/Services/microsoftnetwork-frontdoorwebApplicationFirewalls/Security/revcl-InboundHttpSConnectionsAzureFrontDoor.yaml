@@ -1,11 +1,13 @@
 name: revcl-InboundHttpSConnectionsAzureFrontDoor
-title: Use Azure Front Door and WAF policies to provide global protection across Azure
-  regions for inbound HTTP/S connections to a landing zone.
+title: Use Azure Front Door and WAF policies to provide global protection across Azure regions for inbound
+  HTTP/S connections to a landing zone.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.network/frontdoorwebapplicationfirewalls
+- microsoft.cdn/profiles
+- microsoft.network/frontdoors
+- microsoft.network/frontdoorwebapplicationfirewallpolicies
 waf: Security
 severity: 1
 labels:
@@ -16,3 +18,35 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/secure-application-delivery/
 queries: {}
+schemaVersion: 1
+id: 1d7aa9b6-4704-4489-a804-2d88e79d17b7
+services:
+- Azure Front Door
+- Web Application Firewall
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/frontdoorwebapplicationfirewallpolicies
+    title: Microsoft.Network/FrontDoorWebApplicationFirewallPolicies - Bicep, ARM template & Terraform
+      AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/2018-08-01/frontdoorwebapplicationfirewallpolicies
+    title: Microsoft.Network/FrontDoorWebApplicationFirewallPolicies 2018-08-01 - Bicep, ARM template
+      & Terraform AzAPI reference
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/afds-overview
+    title: What Is Azure Web Application Firewall on Azure Front Door?
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-inbound-and-outbound-internet-connectivity
+    title: Plan for inbound and outbound internet connectivity - Cloud Adoption Framework
+    accessedAt: '2026-09-13'
+description: 'Use Front Door with WAF policies for the intended global HTTP/S ingress protection requirement.
+  Front Door WAF runs at the global edge; it is not deployed inside the landing-zone virtual network.
+  Review policy association and capabilities against the actual tier: Standard has custom rules while
+  Premium supports managed rule sets. Microsoft.Cdn/profiles is in scope only for Azure Front Door Standard/Premium
+  SKUs; existing Microsoft.Network/frontdoors classic resources remain a distinct deployment model. The
+  shared Front Door WAF policy type does not by itself identify the tier.'

@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/azure-architecture-fundamentals/
 queries: {}
+schemaVersion: 1
+id: 4c27d42e-8bba-4c75-9155-9ab9153e8908
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

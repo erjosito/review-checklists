@@ -1,7 +1,5 @@
-name: Get APRL checklists
+name: Deprecated manual APRL import
 on:
-    schedule:
-        - cron: '0 22 * * 0'  # every Sunday at 10pm
     workflow_dispatch:
 jobs:
   get-aprl:
@@ -9,6 +7,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v4
+    - name: Manual fallback notice
+      run: echo "::warning::Deprecated manual importer. Imported or LLM-curated recommendations require schema validation and human review before merging."
     # Get the APRL checklist
     - name: Retrieve the APRL checklists
       uses: ./.github/actions/get_aprl

@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/rest/api/storageservices/create-account-sas
 queries: {}
+schemaVersion: 1
+id: fd7b28dc-9355-4562-82bf-e4564b0d834a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,19 +1,50 @@
 name: aprl-UserVpnRouteLimitsConnectionCountLimits
 title: Monitor health for v-Hub's Point-to-Site VPN gateways
-description: Set up monitoring and alerts for Point-to-Site VPN gateways. Create alert
-  rule for ensuring promptly response to critical events such as Gateway overutilization,
-  connection count limits and User VPN route limits.
+description: Set up monitoring and alerts for Point-to-Site VPN gateways. Create alert rule for ensuring
+  promptly response to critical events such as Gateway over utilization, connection count limits and User
+  VPN route limits. Mission Critical workloads should use dual ExpressRoutes instead of VPN.
 source:
   type: aprl
   file: azure-resources/Network/p2sVpnGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/p2sVpnGateways
+- microsoft.network/p2svpngateways
 severity: 0
 labels:
   guid: fd43ea32-2ccf-49a8-ada4-9a78794e3ff1
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |-
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: fd43ea32-2ccf-49a8-ada4-9a78794e3ff1
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/p2sVpnGateways/recommendations.yaml
+    title: 'APRL fd43ea32-2ccf-49a8-ada4-9a78794e3ff1: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: fd43ea32-2ccf-49a8-ada4-9a78794e3ff1
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/p2sVpnGateways/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ab787d013c75d2db4582695677f4e213234c6e27d7f83d62fa2a762cd7ac3dd7
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Represented comment-only/empty
+      ARG honestly as manual or candidate automation. Current upstream ARG differs from the frozen query;
+      the old executable body is retained pending semantic/edge-case validation, not silently replaced
+      by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

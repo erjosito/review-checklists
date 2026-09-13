@@ -14,3 +14,13 @@ labels:
   guid: df3a72a5-8d24-4289-aa12-803287bb182d
 links: []
 queries: {}
+schemaVersion: 1
+id: df3a72a5-8d24-4289-aa12-803287bb182d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

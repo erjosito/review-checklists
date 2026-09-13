@@ -1,7 +1,6 @@
 name: revcl-CustomerManagedTlsCertificatesAzureFrontDoor
-title: If you use customer-managed TLS certificates with Azure Front Door, use the
-  'Latest' certificate version. Reduce the risk of outages caused by manual certificate
-  renewal
+title: If you use customer-managed TLS certificates with Azure Front Door, use the 'Latest' certificate
+  version. Reduce the risk of outages caused by manual certificate renewal
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +14,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/frontdoor/best-practices#use-latest-version-for-customer-managed-certificates
 queries: {}
+schemaVersion: 1
+id: f00a69de-7076-4734-a734-6e4552cad9e1
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain
+    title: Configure HTTPS for your custom domain
+    accessedAt: '2026-09-11'
+description: For customer-managed certificates on Front Door Standard/Premium, use the Latest Key Vault
+  certificate version when automatic rotation is intended and configure supported managed-identity access.
+  Verify certificate chain, hostname match, Key Vault accessibility and successful deployment of the renewed
+  version. Pinned versions require an explicit renewal process; Latest alone does not prove renewal succeeds.

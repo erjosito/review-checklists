@@ -1,0 +1,8 @@
+{% extends "corpus_base.html" %}
+{% block title %}Corpus administration error{% endblock %}
+{% block content %}
+<h1>Corpus administration unavailable</h1>
+<p class="error" role="alert">{{ error }}</p>
+<p>No empty or successful-looking statistics have been substituted. Correct the input
+  or source/report files and reload. This does not modify any review or corpus data.</p>
+{% endblock %}

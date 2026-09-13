@@ -1,6 +1,5 @@
 name: revcl-ApplicationInsightsAvailabilityTestsWebApp
-title: Monitor availability and responsiveness of web app or website using Application
-  Insights availability tests
+title: Monitor web application availability with recurring tests and retained reliability telemetry
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,36 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/azure-monitor/app/availability-overview
 queries: {}
+schemaVersion: 1
+id: c7d3e5f9-a19c-4833-8ca6-1dcb0128e129
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/app/availability-overview
+    title: Application Insights availability tests
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist
+    title: Design review checklist for Reliability
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/monitoring
+    title: Architecture strategies for monitoring workload reliability
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:10
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/monitoring
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:1fcc22ae7dbf60497e1c598f2d31681eefddfeeb60fd6669738b1e2b701ca68d
+    notes: Recurring endpoint tests plus retained accessible critical-flow telemetry support monitoring.
+      Web endpoint scope does not establish complete system monitoring.
+description: Use Application Insights availability tests from multiple locations to detect endpoint unavailability
+  and slow responses. Configure actionable alerts and interpret synthetic results alongside application/dependency
+  telemetry and critical-flow SLIs over defined measurement windows. Retain and make telemetry accessible
+  for detection, response and post-incident analysis. A passing endpoint test alone does not establish
+  availability of all business flows or prove the workload SLO.

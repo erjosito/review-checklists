@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/lighthouse/overview
 queries: {}
+schemaVersion: 1
+id: b7056168-6199-4732-a514-cdbb2d5c9c54
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

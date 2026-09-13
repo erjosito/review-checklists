@@ -1,18 +1,49 @@
 name: aprl-PrivateDnsZoneContributorRolePrivateDnsZones
 title: Protect private DNS zones and records
-description: |-
-  Private DNS zones and records are critical and their deletion can cause service outages. To protect against unauthorized or accidental changes, the Private DNS Zone Contributor role, a built-in role for managing these resources, should be assigned to specific users or groups.
+description: Private DNS zones and records are critical and their deletion can cause service outages.
+  To protect against unauthorized or accidental changes, the Private DNS Zone Contributor role, a built-in
+  role for managing these resources, should be assigned to specific users or groups.
 source:
   type: aprl
   file: azure-resources/Network/privateDnsZones/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/privateDnsZones
+- microsoft.network/privatednszones
 severity: 1
 labels:
   guid: 2820f6d6-a23c-7a40-aec5-506f3bd1aeb6
   area: Security
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 2820f6d6-a23c-7a40-aec5-506f3bd1aeb6
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/privateDnsZones/recommendations.yaml
+    title: 'APRL 2820f6d6-a23c-7a40-aec5-506f3bd1aeb6: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 2820f6d6-a23c-7a40-aec5-506f3bd1aeb6
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/privateDnsZones/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:51869ef4ab0f1826ce6502c76d1195c05db77c985d0c437a1b03beaf3208b86a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

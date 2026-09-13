@@ -1,9 +1,9 @@
 name: wafsg-AdequatePerformanceTestingScalingStrategy
-title: 'Optimize your scaling strategy: When possible, use autoscaling instead of
-  manually adjusting the number of instances as application load changes. With autoscaling,
-  App Service adjusts server capacity based on predefined rules or triggers. Make
-  sure you do adequate performance testing and set the right rules for the right triggers.'
-description: ''
+title: Test App Service scaling rules and initialization headroom
+description: Use a supported autoscaling mode for the plan and workload, set appropriate bounds, and account
+  for application initialization and dependency capacity. Rules-based autoscaling and simpler automatic
+  scaling have different configuration models; verify tier support. Load test bursts and scale-in against
+  response-time and throughput targets.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -16,3 +16,19 @@ labels:
   guid: 4cb7ff21-66c1-4347-b93c-5c4073b3c4af
 links: []
 queries: {}
+schemaVersion: 1
+id: 4cb7ff21-66c1-4347-b93c-5c4073b3c4af
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/scale-partition
+    title: Architecture strategies for optimizing scaling and partitioning
+    accessedAt: '2026-09-11'

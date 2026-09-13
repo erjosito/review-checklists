@@ -135,8 +135,8 @@ def get_v1_from_v2(reco_v2, service_dictionary=None):
         elif reco_v2['severity'] == 2:
             reco_v1['severity'] = 'Low' 
     # Services not there in v2
-    if 'services' in reco_v2:
-        reco_v1['service'] = reco_v2['service'][0]
+    if reco_v2.get('services'):
+        reco_v1['service'] = reco_v2['services'][0]
     elif 'resourceTypes' in reco_v2 and len(reco_v2['resourceTypes']) > 0:
         reco_v1['service'] = cl_v1tov2.get_standard_service_name(reco_v2['resourceTypes'][0], service_dictionary=service_dictionary)
     if 'waf' in reco_v2:

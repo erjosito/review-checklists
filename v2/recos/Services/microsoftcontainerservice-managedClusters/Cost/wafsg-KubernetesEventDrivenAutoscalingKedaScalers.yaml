@@ -1,7 +1,8 @@
 name: wafsg-KubernetesEventDrivenAutoscalingKedaScalers
-title: 'Workload architecture: Use Kubernetes Event Driven Autoscaling (KEDA).'
-description: Scale based on the number of events being processed. Choose from a rich
-  catalogue of 50+ KEDA scalers.
+title: Use supported KEDA scalers for event-driven AKS workload demand
+description: Select a currently supported KEDA scaler for the workload's event source and test minimum/maximum
+  replicas, event lag, startup behavior and scale-down safety. Coordinate pod demand with available node
+  capacity. Do not depend on a fixed advertised scaler count or assume scale-to-zero suits every workload.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,3 +14,19 @@ labels:
   guid: afad2446-229b-4b5c-89fc-33e0a1ffdf05
 links: []
 queries: {}
+schemaVersion: 1
+id: afad2446-229b-4b5c-89fc-33e0a1ffdf05
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Remove an aging scaler-count claim while retaining the guide''s event-driven
+    scaling recommendation. Requires workload, billing and operational evidence; no ARG query or live
+    validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service
+    title: Architecture best practices for Azure Kubernetes Service
+    accessedAt: '2026-09-11'

@@ -18,3 +18,14 @@ queries:
     | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName ==
     'AzureBastionSubnet' | extend compliant = (subnetPrefixLength <= 26) | distinct
     id, compliant
+schemaVersion: 1
+id: 6eab9eb6-762b-485e-8ea8-15aa5dba0bd0
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

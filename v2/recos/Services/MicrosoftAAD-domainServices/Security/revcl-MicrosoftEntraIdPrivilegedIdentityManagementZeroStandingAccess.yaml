@@ -1,6 +1,5 @@
 name: revcl-MicrosoftEntraIdPrivilegedIdentityManagementZeroStandingAccess
-title: Enforce Microsoft Entra ID Privileged Identity Management (PIM) to establish
-  zero standing access and least privilege
+title: Use time-limited privileged access through PIM, with documented emergency-role exceptions.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +15,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/azure-ad-privileged-identity-management/
 queries: {}
+schemaVersion: 1
+id: 14658d35-58fd-4772-99b8-21112df27ee4
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/entra/identity/role-based-access-control/security-emergency-access
+    title: Manage emergency access admin accounts
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/identity-access
+    title: Architecture strategies for identity and access management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Use eligible, least-privilege role assignments and controlled activation for routine privileged
+  administration. Regularly review assignments and remove access that is no longer required. Keep designated
+  emergency Global Administrator accounts permanent active rather than eligible so that recovery does
+  not depend on role activation or available approvers. Protect, monitor and exercise emergency access
+  separately.

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/postgresql/flexible-server/overview
 queries: {}
+schemaVersion: 1
+id: 65285269-441c-44bf-9d3e-0844276d4bdc
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

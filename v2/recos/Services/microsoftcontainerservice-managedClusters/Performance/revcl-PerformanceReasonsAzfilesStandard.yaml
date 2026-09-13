@@ -1,6 +1,5 @@
 name: revcl-PerformanceReasonsAzfilesStandard
-title: If using AzFiles Standard, consider AzFiles Premium and/or ANF for performance
-  reasons
+title: Choose AKS shared file storage from measured performance and access needs
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,22 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/operator-best-practices-storage
 queries: {}
+schemaVersion: 1
+id: 24429eb7-2281-4376-85cc-57b4a4b18142
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/concepts-storage
+    title: Storage options for applications in Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-files
+    title: Architecture best practices for Azure Files
+    accessedAt: '2026-09-11'
+description: Compare Azure Files SSD/premium options and Azure NetApp Files when existing file storage
+  cannot meet measured throughput, IOPS or latency targets. Include protocol, client concurrency, service
+  limits and cost. Changing service alone does not prove improvement; repeat representative workload tests.

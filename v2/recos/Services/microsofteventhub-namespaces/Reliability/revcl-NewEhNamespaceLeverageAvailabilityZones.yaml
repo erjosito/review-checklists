@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/event-hubs/event-hubs-premium-overview#high-availability-with-availability-zones
 queries: {}
+schemaVersion: 1
+id: f15bce21-9e4a-40eb-9787-9424d226786d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

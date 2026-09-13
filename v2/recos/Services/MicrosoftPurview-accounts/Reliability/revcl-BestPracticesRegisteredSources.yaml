@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/concept-best-practices-scanning
 queries: {}
+schemaVersion: 1
+id: 9579e76b-896e-4710-a7da-7be9956d14d3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

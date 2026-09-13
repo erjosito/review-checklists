@@ -1,18 +1,48 @@
 name: aprl-SeparateKeyVaultsSecurityBoundaries
 title: Use separate key vaults per application per environment
-description: |-
-  Key vaults are security boundaries for secret storage. Grouping secrets together increases risk during a security event, as attacks could access multiple secrets.
+description: Key vaults are security boundaries for secret storage. Grouping secrets together increases
+  risk during a security event, as attacks could access multiple secrets.
 source:
   type: aprl
   file: azure-resources/KeyVault/vaults/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.KeyVault/vaults
+- microsoft.keyvault/vaults
 severity: 0
 labels:
   guid: e7091145-3642-bd41-bb58-66502e64d2cd
   area: Governance
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: e7091145-3642-bd41-bb58-66502e64d2cd
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    title: 'APRL e7091145-3642-bd41-bb58-66502e64d2cd: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: e7091145-3642-bd41-bb58-66502e64d2cd
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6ae38bbb0e3f2f658d4896a77a823a2754297969811f66850fc70699ae536018
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

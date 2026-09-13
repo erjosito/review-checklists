@@ -1,0 +1,322 @@
+{
+  "mode": "write",
+  "before": 2011,
+  "after": 2008,
+  "retired": 3,
+  "groups": [
+    {
+      "canonicalId": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+      "retiredIds": [
+        "3195423b-0513-45e2-951b-87f9c5d534b0",
+        "0148ed98-3b9a-4b7f-81c2-8b550f56f793"
+      ],
+      "reason": "confirmed-050: all three current refreshed storage-account lock requirements have identical guidance, scope, priority, manual automation and exact partial SE:08 mapping. Preserve the existing historical survivor and both retired identities.",
+      "beforeContentHash": "sha256:3e80e71f2a74190c388ec80a9546eab29b9f497df531a2ad4fcfbaaa79e1020c",
+      "afterContentHash": "sha256:d76fa910178f601f928fe25bdab703a0254505aaa73305aac2795c4b6ef1f90a",
+      "aliases": [
+        {
+          "id": "3195423b-0513-45e2-951b-87f9c5d534b0",
+          "name": "wafsg-AzureResourceManagerLockDataLoss",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "labels": {
+            "guid": "3195423b-0513-45e2-951b-87f9c5d534b0"
+          },
+          "corpusFile": "Services/MicrosoftStorage-storageAccounts/Security/wafsg-AzureResourceManagerLockDataLoss.yaml"
+        },
+        {
+          "id": "0148ed98-3b9a-4b7f-81c2-8b550f56f793",
+          "name": "wafsg-ResourceManagerLockMaliciousDeletion",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "labels": {
+            "guid": "0148ed98-3b9a-4b7f-81c2-8b550f56f793"
+          },
+          "corpusFile": "Services/MicrosoftStorage-storageAccounts/Security/wafsg-ResourceManagerLockMaliciousDeletion.yaml"
+        }
+      ],
+      "originalRecommendations": [
+        {
+          "name": "wafsg-AzureResourceManagerLockMaliciousDeletion",
+          "title": "Use an appropriate resource lock to protect the storage account's control plane.",
+          "description": "A CanNotDelete lock helps prevent deletion of the storage account through Azure Resource Manager while allowing normal configuration changes. ReadOnly is more restrictive and can interfere with operations such as key listing and role assignment. Neither lock prevents data-plane deletion or modification of blobs, files, queues or tables. Combine locks with least-privilege access, service-level protection and recovery controls, and restrict who can remove a lock.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.storage/storageaccounts"
+          ],
+          "waf": "Security",
+          "severity": 1,
+          "labels": {
+            "guid": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+          "services": [],
+          "automation": {
+            "status": "manual",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources",
+                "title": "Lock your Azure resources to protect your infrastructure",
+                "accessedAt": "2026-09-11"
+              },
+              {
+                "url": "https://learn.microsoft.com/azure/well-architected/security/checklist",
+                "title": "Design review checklist for Security",
+                "accessedAt": "2026-09-11"
+              }
+            ],
+            "upstreamRecommendations": [
+              {
+                "sourceId": "waf-security-checklist",
+                "recommendationId": "SE:08",
+                "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+                "coverage": "partial",
+                "assessedAt": "2026-09-11",
+                "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+                "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+              }
+            ]
+          }
+        },
+        {
+          "name": "wafsg-AzureResourceManagerLockDataLoss",
+          "title": "Use an appropriate resource lock to protect the storage account's control plane.",
+          "description": "A CanNotDelete lock helps prevent deletion of the storage account through Azure Resource Manager while allowing normal configuration changes. ReadOnly is more restrictive and can interfere with operations such as key listing and role assignment. Neither lock prevents data-plane deletion or modification of blobs, files, queues or tables. Combine locks with least-privilege access, service-level protection and recovery controls, and restrict who can remove a lock.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.storage/storageaccounts"
+          ],
+          "waf": "Security",
+          "severity": 1,
+          "labels": {
+            "guid": "3195423b-0513-45e2-951b-87f9c5d534b0"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "3195423b-0513-45e2-951b-87f9c5d534b0",
+          "services": [],
+          "automation": {
+            "status": "manual",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources",
+                "title": "Lock your Azure resources to protect your infrastructure",
+                "accessedAt": "2026-09-11"
+              },
+              {
+                "url": "https://learn.microsoft.com/azure/well-architected/security/checklist",
+                "title": "Design review checklist for Security",
+                "accessedAt": "2026-09-11"
+              }
+            ],
+            "upstreamRecommendations": [
+              {
+                "sourceId": "waf-security-checklist",
+                "recommendationId": "SE:08",
+                "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+                "coverage": "partial",
+                "assessedAt": "2026-09-11",
+                "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+                "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+              }
+            ]
+          }
+        },
+        {
+          "name": "wafsg-ResourceManagerLockMaliciousDeletion",
+          "title": "Use an appropriate resource lock to protect the storage account's control plane.",
+          "description": "A CanNotDelete lock helps prevent deletion of the storage account through Azure Resource Manager while allowing normal configuration changes. ReadOnly is more restrictive and can interfere with operations such as key listing and role assignment. Neither lock prevents data-plane deletion or modification of blobs, files, queues or tables. Combine locks with least-privilege access, service-level protection and recovery controls, and restrict who can remove a lock.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.storage/storageaccounts"
+          ],
+          "waf": "Security",
+          "severity": 1,
+          "labels": {
+            "guid": "0148ed98-3b9a-4b7f-81c2-8b550f56f793"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "0148ed98-3b9a-4b7f-81c2-8b550f56f793",
+          "services": [],
+          "automation": {
+            "status": "manual",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources",
+                "title": "Lock your Azure resources to protect your infrastructure",
+                "accessedAt": "2026-09-11"
+              },
+              {
+                "url": "https://learn.microsoft.com/azure/well-architected/security/checklist",
+                "title": "Design review checklist for Security",
+                "accessedAt": "2026-09-11"
+              }
+            ],
+            "upstreamRecommendations": [
+              {
+                "sourceId": "waf-security-checklist",
+                "recommendationId": "SE:08",
+                "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+                "coverage": "partial",
+                "assessedAt": "2026-09-11",
+                "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+                "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+              }
+            ]
+          }
+        }
+      ],
+      "originalFiles": [
+        {
+          "id": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+          "path": "Services/MicrosoftStorage-storageAccounts/Security/wafsg-AzureResourceManagerLockMaliciousDeletion.yaml",
+          "sha256": "e9a150872f1881a9145a77257e543bbb1f94cbd902c96e5a56c7fd24a22ab2e6"
+        },
+        {
+          "id": "3195423b-0513-45e2-951b-87f9c5d534b0",
+          "path": "Services/MicrosoftStorage-storageAccounts/Security/wafsg-AzureResourceManagerLockDataLoss.yaml",
+          "sha256": "f6643dfe0b54ee813bd5b6d9e16db0b7396d0776470255a2d8dfa86094e5742f"
+        },
+        {
+          "id": "0148ed98-3b9a-4b7f-81c2-8b550f56f793",
+          "path": "Services/MicrosoftStorage-storageAccounts/Security/wafsg-ResourceManagerLockMaliciousDeletion.yaml",
+          "sha256": "f570b892f9029e2e7efa646dcbe195289f2aca53c6665788c7730749b7e500e0"
+        }
+      ]
+    },
+    {
+      "canonicalId": "af07c8fb-ba63-41e5-b924-3bc6759ad671",
+      "retiredIds": [
+        "f436bbde-bfd0-4be2-85a6-c13f0d79cee1"
+      ],
+      "reason": "confirmed-068: the same geo-redundant-storage Last Sync Time assessment, with identical scope and automation. Preserve both descriptions and clarify potential loss and planned versus unplanned failover using current primary documentation.",
+      "beforeContentHash": "sha256:91fc0bfa4c44ad400a31e51e41d19fe7327959999b422f2b27b732c388527e46",
+      "afterContentHash": "sha256:fb440fb7f74ada861d4b98289710aa4a363b9d6a7e291fde172349366b5d8bfc",
+      "aliases": [
+        {
+          "id": "f436bbde-bfd0-4be2-85a6-c13f0d79cee1",
+          "name": "wafsg-LastSynchronizationTimePropertyGzrsConfigurations-1",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "labels": {
+            "guid": "f436bbde-bfd0-4be2-85a6-c13f0d79cee1"
+          },
+          "corpusFile": "Services/MicrosoftStorage-storageAccounts/Reliability/wafsg-LastSynchronizationTimePropertyGzrsConfigurations-1.yaml"
+        }
+      ],
+      "originalRecommendations": [
+        {
+          "name": "wafsg-LastSynchronizationTimePropertyGzrsConfigurations",
+          "title": "Before initiating a failover or failback, evaluate the potential for data loss by checking the value of the last synchronization time property. This recommendation applies only to GRS and GZRS configurations.",
+          "description": "This property helps you estimate how much data you might lose by initiating an account failover. All data and metadata written before the last synchronization time is available on the secondary region, but data and metadata written after the last synchronization time might be lost because it's not written to the secondary region.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.storage/storageaccounts"
+          ],
+          "waf": "Reliability",
+          "severity": 1,
+          "labels": {
+            "guid": "af07c8fb-ba63-41e5-b924-3bc6759ad671"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "af07c8fb-ba63-41e5-b924-3bc6759ad671",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          }
+        },
+        {
+          "name": "wafsg-LastSynchronizationTimePropertyGzrsConfigurations-1",
+          "title": "Before you initiate a failover or failback, check the value of the last synchronization time property to evaluate the potential for data loss. This recommendation applies only to GRS and GZRS configurations.",
+          "description": "This property helps you estimate how much data you might lose if you initiate an account failover. All data and metadata that's written before the last synchronization time is available on the secondary region, but you might lose data and metadata that's written after the last synchronization time because it's not written to the secondary region.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.storage/storageaccounts"
+          ],
+          "waf": "Reliability",
+          "severity": 1,
+          "labels": {
+            "guid": "f436bbde-bfd0-4be2-85a6-c13f0d79cee1"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "f436bbde-bfd0-4be2-85a6-c13f0d79cee1",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          }
+        }
+      ],
+      "originalFiles": [
+        {
+          "id": "af07c8fb-ba63-41e5-b924-3bc6759ad671",
+          "path": "Services/MicrosoftStorage-storageAccounts/Reliability/wafsg-LastSynchronizationTimePropertyGzrsConfigurations.yaml",
+          "sha256": "44c5eb79d1cbbc20fc990c830c125b2b88c6d7c4f03ac83121150236d53a9685"
+        },
+        {
+          "id": "f436bbde-bfd0-4be2-85a6-c13f0d79cee1",
+          "path": "Services/MicrosoftStorage-storageAccounts/Reliability/wafsg-LastSynchronizationTimePropertyGzrsConfigurations-1.yaml",
+          "sha256": "c9407d088319b56e1091928ac194f7571cdf1d1eb2014c71fa77bc811cdb4991"
+        }
+      ]
+    }
+  ],
+  "execution": "Verified in isolated staging, then applied together with 19 source amendments in one guarded corpus file commit. No review database was read or changed."
+}

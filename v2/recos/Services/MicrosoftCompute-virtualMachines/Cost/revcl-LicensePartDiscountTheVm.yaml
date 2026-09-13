@@ -1,5 +1,5 @@
 name: revcl-LicensePartDiscountTheVm
-title: The VM + license part discount (ahub + 3YRI) is around 70% discount
+title: Calculate combined licensing and commitment savings using actual rates
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,28 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/roles/best-practices
 queries: {}
+schemaVersion: 1
+id: 6e2065b3-a76a-4f4a-991e-8839ada46667
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload requirements, financial or operational judgment; a generic ARG property check
+    cannot establish this recommendation.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing
+    title: Explore Azure Hybrid Benefit for Windows VMs
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation
+    title: Decide between a savings plan and a reservation
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/focus/what-is-focus
+    title: FinOps Open Cost and Usage Specification
+    accessedAt: '2026-09-11'
+description: Evaluate Azure Hybrid Benefit and commitment discounts as separate components of the total
+  VM bill. Confirm license eligibility, commitment coverage and utilization, then compare the resulting
+  effective cost with the applicable on-demand baseline. Include residual software and dependent-resource
+  charges instead of applying a universal discount percentage.

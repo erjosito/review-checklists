@@ -1,10 +1,9 @@
 name: revcl-AdHocSasServiceSasNearTermExpirationTimes
 title: Strive for short validity periods for ad-hoc SAS
-description: Use near-term expiration times on an ad hoc SAS service SAS or account
-  SAS. In this way, even if a SAS is compromised, it's valid only for a short time.
-  This practice is especially important if you cannot reference a stored access policy.
-  Near-term expiration times also limit the amount of data that can be written to
-  a blob by limiting the time available to upload to it.
+description: Use near-term expiration times on an ad hoc SAS service SAS or account SAS. In this way,
+  even if a SAS is compromised, it's valid only for a short time. This practice is especially important
+  if you cannot reference a stored access policy. Near-term expiration times also limit the amount of
+  data that can be written to a blob by limiting the time available to upload to it.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -18,3 +17,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
 queries: {}
+schemaVersion: 1
+id: 27138b82-1102-4cac-9eae-01e6e842e52f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/common/storage-sas-overview
+    title: Grant limited access to data with shared access signatures (SAS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

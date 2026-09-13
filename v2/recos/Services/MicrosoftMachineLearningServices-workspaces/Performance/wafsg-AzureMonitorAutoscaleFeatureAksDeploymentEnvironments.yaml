@@ -16,3 +16,13 @@ labels:
   guid: bc3729bc-45fd-4ceb-9b5d-2135464eddfb
 links: []
 queries: {}
+schemaVersion: 1
+id: bc3729bc-45fd-4ceb-9b5d-2135464eddfb
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

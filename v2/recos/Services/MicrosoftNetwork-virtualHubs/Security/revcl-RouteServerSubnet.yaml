@@ -18,3 +18,14 @@ queries:
     | extend subnetPrefixLength = split(subnetPrefix, '/')[1] | where subnetName ==
     'RouteServerSubnet' | extend compliant = (subnetPrefixLength <= 27) | distinct
     id, compliant
+schemaVersion: 1
+id: 91b9d7d5-91e1-4dcb-8f1f-fa7e465646cc
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -15,3 +15,14 @@ links:
 queries:
   arg: resources | where type=='microsoft.network/firewallpolicies' | extend compliant
     = (properties.sku.tier == 'Premium') | distinct id,compliant
+schemaVersion: 1
+id: c10d51ef-f999-455d-bba0-5c90ece07447
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

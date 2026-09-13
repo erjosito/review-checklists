@@ -1,8 +1,8 @@
 name: wafsg-ApplicationGatewayHighTrafficSupportApplicationGatewayCapacity
 title: Monitor capacity metrics
-description: Use these metrics as indicators of utilization of the provisioned Application
-  Gateway capacity. We strongly recommend setting up alerts on capacity. For details,
-  see Application Gateway high traffic support.
+description: Use these metrics as indicators of utilization of the provisioned Application Gateway capacity.
+  We strongly recommend setting up alerts on capacity. For details, see Application Gateway high traffic
+  support.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +14,23 @@ labels:
   guid: 14cdf40e-36a1-4947-90a3-3b833e2df9d3
 links: []
 queries: {}
+schemaVersion: 1
+id: 14cdf40e-36a1-4947-90a3-3b833e2df9d3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 188b768d-c65f-46c8-b0a7-e7b288b0c15d
+  name: wafsg-CapacityMetrics
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 188b768d-c65f-46c8-b0a7-e7b288b0c15d
+  corpusFile: Services/microsoftnetwork-applicationGateways/Operations/wafsg-CapacityMetrics.yaml

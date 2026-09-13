@@ -17,3 +17,13 @@ labels:
   guid: afb9a354-567a-4820-ae85-8eff0ad71f44
 links: []
 queries: {}
+schemaVersion: 1
+id: afb9a354-567a-4820-ae85-8eff0ad71f44
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

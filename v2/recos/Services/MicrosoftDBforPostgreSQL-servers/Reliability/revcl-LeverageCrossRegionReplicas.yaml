@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/postgresql/single-server/concepts-business-continuity#cross-region-read-replicas
 queries: {}
+schemaVersion: 1
+id: 31b67c67-be59-4519-8083-845d587cb391
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

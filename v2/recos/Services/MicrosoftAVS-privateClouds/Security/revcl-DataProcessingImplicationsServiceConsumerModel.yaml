@@ -12,3 +12,13 @@ labels:
   guid: 832e42e3-611c-4818-a0a0-bc510e43a18a
 links: []
 queries: {}
+schemaVersion: 1
+id: 832e42e3-611c-4818-a0a0-bc510e43a18a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

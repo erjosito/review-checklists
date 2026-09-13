@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#create-a-key-expiration-policy
 queries: {}
+schemaVersion: 1
+id: a22a4956-e7a8-4dc4-a20e-27c3e29711b1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

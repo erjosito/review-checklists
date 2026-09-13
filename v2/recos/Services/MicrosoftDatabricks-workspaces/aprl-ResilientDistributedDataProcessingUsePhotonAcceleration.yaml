@@ -1,18 +1,47 @@
 name: aprl-ResilientDistributedDataProcessingUsePhotonAcceleration
-title: Use Photon Acceleration
-description: |-
-  Apache Spark in Databricks Lakehouse ensures resilient distributed data processing by automatically rescheduling failed tasks, aiding in overcoming external issues like network problems or revoked VMs.
+title: Use resilient distributed execution for Databricks SQL and DataFrame workloads
+description: Use Databricks' resilient distributed processing for SQL and Spark DataFrame workloads, and
+  account for its task-recovery behavior in the workload design. Spark can reschedule missing or failed
+  tasks after transient infrastructure faults such as a brief network interruption or a revoked Spot VM;
+  this is not a guarantee that every job or dependency will recover. Photon is a compatible query-acceleration
+  engine and should be evaluated separately for supported operations and performance needs, not treated
+  as the switch that enables Spark task recovery. Job-level retries, streaming checkpoints and regional
+  recovery remain separate controls.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 2
 labels:
   guid: 892ca809-e2b5-9a47-924a-71132bf6f902
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 892ca809-e2b5-9a47-924a-71132bf6f902
+services:
+- Azure Databricks
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: Assess the workload's SQL/DataFrame execution model and documented task-recovery behavior manually.
+    ARM workspace metadata alone does not establish Spark task recovery or Photon usage. The historical
+    comment-only ARG marker remains in aprl-baseline.json; no executable ARG or live validation is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices#use-a-resilient-distributed-data-engine-for-all-workloads
+    title: Best practices for reliability - Azure Databricks
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/databricks/compute/photon
+    title: What is Photon? - Azure Databricks
+    accessedAt: '2026-09-13'
+  - url: https://raw.githubusercontent.com/Azure/Azure-Proactive-Resiliency-Library-v2/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: APRL Databricks workspace recommendations at verified current main
+    accessedAt: '2026-09-13'
+waf: Reliability

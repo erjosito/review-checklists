@@ -1,44 +1,58 @@
-# Prototype for web-based checklist
+# Legacy MySQL/ACI web prototype
 
-This is a Minimum Viable Product (MVP) for an architecture for web-based checklist reviews. It consists of the following elements:
+**Historical v1 architecture, not the current localhost application.**
+To run the current local-first Python CLI/UI, follow
+[`review_checklists/README.md`](../review_checklists/README.md). It uses a pinned
+SQLite review and needs neither MySQL nor an Azure Container Instance (ACI).
+Although both implementations use Flask, the code in this directory is not
+the current app or its deployment template.
 
-**High Level Overview**  
+This document preserves the older proof of concept and its limitations for
+readers maintaining existing assets. It is not a supported deployment guide,
+and retained templates/scripts have not been validated against today's Azure
+services. See the [legacy guide](../docs/legacy-v1.md) and
+[current decision log](../v2/docs/next-generation-design.md).
 
-![High Level Overview](../pictures/high_level_web_based_view.png)
+## Historical architecture
 
-- A MySQL database
-- An Azure Container Instance that will launch 3 containers:
-    - `filldb` (init container): creates the required database and tables in the MySQL server, and fills in the data imported from the latest checklist
-    - `fillgraphdb` (init container): executes any Azure Resource Graph queries stored in the checklist, and stores the results in the MySQL database
-    - `flask` (main container): a flask-based web frontend that allows inspecting the MySQL checklist table, as well as updating the status and comments of each individual checklist item
+![Legacy high-level overview](../pictures/high_level_web_based_view.png)
 
-This screenshot shows the `flask` container web interface that can be used to frontend the MySQL database containing the review checklist items:
+The prototype used a MySQL database and an ACI container group with:
 
-![Flask container screenshot](../pictures/flaskmysql_screenshot.png)
+| Container | Historical role |
+| --- | --- |
+| `filldb` (init) | Create the database/tables and load a legacy JSON checklist |
+| `fillgraphdb` (init) | Execute checklist ARG queries and store results in MySQL |
+| `flask` (main) | Display rows and update per-item status/comments in MySQL |
 
-The `fillgraphdb` container needs to authenticate to Azure to send the Azure Resource Graph queries. There are two options:
+![Legacy Flask/MySQL interface](../pictures/flaskmysql_screenshot.png)
 
-- **Working today**: With Service Principal credentials
-- **Roadmap**: With a [User-Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources) with read access to the subscription(s). The `identityId` parameter of the ARM template needs to be provided. Initial tests have shown that the User-Managed Identity is not available in the init containers.
+The old `fillgraphdb` path used service-principal credentials for Azure queries.
+User-assigned managed identity was a proposed improvement; the original tests
+reported identity access problems in init containers. Neither statement is a
+current validation of these authentication paths.
 
-The [Azure CLI deployment script for Service Principals](./arm/deploy_sp.azcli) shows how to create the Service Principal, assign the reader role for the whole subscription, and launch the ARM template to create the MySQL server and the Azure Container Instance (it doesn't store the Service Principal secret in an Azure Key Vault, that would be highly advisable). If you already have the Service Principal, you can deploy the ARM template graphically as well using the button below:
+The retained [service-principal deployment script](arm/deploy_sp.azcli) and
+[ARM template](arm/template.json) are historical references, not setup steps for
+the current project. The script created a principal, assigned subscription-wide
+Reader access, and provisioned MySQL/ACI; credentials were not stored in Key Vault.
+The historical UI listened on the container group's public IP at TCP port 5000.
+Do not expose this prototype as a current hosted review service.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Freview-checklists%2Fmain%2Fweb%2Farm%2Ftemplate.json)
+## Known historical limitations
 
-The web interface will be available in the public IP address of the ACI container group, on TCP port 5000.
+The original design explicitly omitted HTTPS and application authentication,
+left the MySQL network firewall open, and disabled MySQL SSL enforcement for its
+client library. Those omissions are not supported defaults or guarantees of
+safety. Proposed proxies, network restrictions and managed identity work were
+ideas, not implemented fixes documented here.
 
-## Future improvements
+Its UI wrote directly to MySQL. Restarting the container group could rerun
+`filldb` and wipe/reinitialize the review; independent query refresh and frontend
+restart were proposed but not established in the original guide. Do not use
+these containers to open, migrate or resume a current SQLite review.
 
-Since this is only a prototype, there are some aspects not being addressed for the sake of simplicity:
-
-- Figure out why the user-managed identities seem not to be reachable from the init containers
-- No HTTPS (it could be easily achieved with an nginx sidecar in the ACI container group)
-- No authentication (an authentication proxy such as Ambassador could be leveraged for this)
-- The network firewall of the MySQL server is fully open (it could be closed down to the ACI egress IP address)
-- The UI of the flask container is rather rudimentary, but it shows the basic principles and does live updates to the MySQL database without having to press any "Submit" button
-- SSL Enforcement is disabled in the MySQL Server due to `flask-mysql` not using encryption
-- Decouple the containers, so that they can be launched independently:
-    - It should be possible to launch the `fillgraphdb` container at any time, to refresh the Graph results
-    - It should be possible to restart the `flask` container (web) without having the `filldb` container run as an init container wiping out the database
-
-Contributions highly appreciated!
+For current storage, save behavior, localhost boundaries and explicit evidence-only
+ARG execution, consult the [application guide](../review_checklists/README.md).
+For changes to retained assets, use [Contributing](../CONTRIBUTING.md) and clearly
+identify the legacy scope. The [root disclaimer](../README.md#disclaimer) applies.

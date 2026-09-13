@@ -1,13 +1,14 @@
 name: aprl-ReadableSecondaryDatabaseReplicasActiveGeoReplication
 title: Use Active Geo Replication to Create a Readable Secondary in Another Region
-description: |-
-  Active Geo Replication ensures business continuity by utilizing readable secondary database replicas. In case of primary database failure, manually failover to secondary database. Secondaries, up to four, can be in same/different regions, used for read-only access.
+description: Active Geo Replication ensures business continuity by utilizing readable secondary database
+  replicas. In case of primary database failure, manually failover to secondary database. Secondaries,
+  up to four, can be in same/different regions, used for read-only access.
 source:
   type: aprl
   file: azure-resources/Sql/servers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Sql/servers
+- microsoft.sql/servers
 severity: 0
 labels:
   guid: 74c2491d-048b-0041-a140-935960220e20
@@ -27,3 +28,34 @@ queries:
     ) on name
     | extend param1 = "Not part of Geo Replication"
     | project recommendationId = "74c2491d-048b-0041-a140-935960220e20", name, id, tags, param1
+schemaVersion: 1
+id: 74c2491d-048b-0041-a140-935960220e20
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Sql/servers/recommendations.yaml
+    title: 'APRL 74c2491d-048b-0041-a140-935960220e20: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 74c2491d-048b-0041-a140-935960220e20
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Sql/servers/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:2836f51719027d187e7fcf29ff82f73dc9d29d61cbbb700b3a33721ab2342f14
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

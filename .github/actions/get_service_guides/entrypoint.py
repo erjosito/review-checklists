@@ -232,6 +232,7 @@ def parse_markdown(markdown, service, source=None, verbose=False):
 
 # Function to get list of WAF service guides URLs
 def get_waf_service_guide_recos():
+    print("WARNING: Deprecated manual import; validate and human-review curated changes before merging.")
     # Variables
     github_org = 'MicrosoftDocs'
     github_repo = 'well-architected'

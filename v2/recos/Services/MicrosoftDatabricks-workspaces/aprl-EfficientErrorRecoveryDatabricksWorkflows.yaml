@@ -1,18 +1,49 @@
 name: aprl-EfficientErrorRecoveryDatabricksWorkflows
 title: Use Databricks Workflows and built-in recovery
-description: |-
-  Databricks Workflows enable efficient error recovery in multi-task jobs by offering a matrix view for issue examination. Fixes can be applied to initiate repair runs targeting only failed and dependent tasks, preserving successful outcomes and thereby saving time and money.
+description: Databricks Workflows enable efficient error recovery in multi-task jobs by offering a matrix
+  view for issue examination. Fixes can be applied to initiate repair runs targeting only failed and dependent
+  tasks, preserving successful outcomes and thereby saving time and money.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 2
 labels:
   guid: c0e22580-3819-444d-8546-a80e4ed85c83
   area: Disaster Recovery
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: c0e22580-3819-444d-8546-a80e4ed85c83
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL c0e22580-3819-444d-8546-a80e4ed85c83: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: c0e22580-3819-444d-8546-a80e4ed85c83
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:148f16300e7c9aaec5bbbafcdc90185163dcc1ae16bff6e1faa24ae3ed2b2835
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

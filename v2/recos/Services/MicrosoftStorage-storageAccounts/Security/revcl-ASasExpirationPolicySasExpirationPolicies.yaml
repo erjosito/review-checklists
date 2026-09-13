@@ -1,9 +1,12 @@
 name: revcl-ASasExpirationPolicySasExpirationPolicies
-title: Consider configuring an SAS expiration policy
-description: A SAS expiration policy specifies a recommended interval over which the
-  SAS is valid. SAS expiration policies apply to a service SAS or an account SAS.
-  When a user generates service SAS or an account SAS with a validity interval that
-  is larger than the recommended interval, they'll see a warning.
+title: Configure SAS expiration limits, monitor violations and enforce Block where compatible.
+description: Set an appropriate maximum validity interval and require a signed start time. Start with
+  Log and diagnostic logging to identify affected clients, then use Block after confirming compatibility.
+  The policy covers user delegation, service and account SAS, but expiration actions do not apply to user
+  delegation SAS through the HDFS endpoint or service SAS linked to a stored access policy. A user delegation
+  SAS remains bounded by its seven-day maximum and delegation-key expiry. Account for Azure File Sync's
+  minimum three-day SAS interval where used. ARG configuration cannot enumerate all issued SAS or prove
+  their use is compliant.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -17,3 +20,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/sas-expiration-policy
 queries: {}
+schemaVersion: 1
+id: 352beee0-79b5-488d-bfc4-972cd3cd21bf
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/common/sas-expiration-policy
+    title: Configure an expiration policy for shared access signatures (SAS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/storage/common/storage-sas-overview
+    title: Grant limited access to data with shared access signatures (SAS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

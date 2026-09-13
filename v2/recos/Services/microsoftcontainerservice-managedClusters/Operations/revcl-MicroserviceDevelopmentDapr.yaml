@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://dapr.io/
 queries: {}
+schemaVersion: 1
+id: 26886d20-b66c-457b-a591-19bf8e8f5c58
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

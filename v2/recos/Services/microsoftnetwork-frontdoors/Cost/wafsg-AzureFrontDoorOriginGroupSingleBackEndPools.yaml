@@ -1,8 +1,9 @@
 name: wafsg-AzureFrontDoorOriginGroupSingleBackEndPools
-title: Disable health checks in single back-end pools.If you have only one origin
-  configured in your Azure Front Door origin group, these calls are unnecessary.
-description: You can save on bandwidth costs by disabling requests that aren't required
-  to make routing decisions.
+title: Review disabling Front Door probes only for a genuinely single-origin group
+description: Confirm the origin group contains only one origin and that probe results are not needed for
+  another operational purpose. Front Door routes to the sole origin regardless of its health status, so
+  unnecessary probes can add bandwidth cost. Preserve independent availability monitoring and reassess
+  probes when adding origins; this is not advice to remove multi-origin failover checks.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,4 +14,55 @@ severity: 1
 labels:
   guid: f397a438-b320-46f8-a41a-f94545db3412
 links: []
-queries: {}
+queries:
+  arg: |-
+    AdvisorResources
+    | where type =~ 'microsoft.advisor/recommendations'
+    | where properties.category =~ 'Cost'
+    | where tostring(properties.recommendationTypeId) in~ ('1c7fc5ab-f776-4aee-8236-ab478519f68f')
+    | project id, subscriptionId, resourceGroup,
+        targetResourceId = tostring(properties.resourceMetadata.resourceId),
+        impactedField = tostring(properties.impactedField),
+        recommendationTypeId = tostring(properties.recommendationTypeId),
+        impact = tostring(properties.impact),
+        problem = tostring(properties.shortDescription.problem),
+        solution = tostring(properties.shortDescription.solution),
+        lastUpdated = tostring(properties.lastUpdated),
+        extendedProperties = properties.extendedProperties
+schemaVersion: 1
+id: f397a438-b320-46f8-a41a-f94545db3412
+services: []
+automation:
+  status: query_available
+  resultSemantics: inventory
+  validatedAt: null
+  notes: Unexecuted Advisor opportunity inventory, not compliance or realized savings. id identifies the
+    Advisor recommendation; targetResourceId identifies the affected resource. Use the intended subscriptions
+    or management-group scope with complete read permissions and paging. Empty or truncated results do
+    not establish compliance. Advisor coverage, telemetry and freshness vary; review dismissals, dependency/retention
+    requirements, actual billing and existing commitments before action. Do not sum overlapping estimates
+    or assume a common currency/time horizon in extendedProperties. No live Azure execution or compilation;
+    validatedAt remains null. Only this primary query is wired.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-front-door
+    title: Architecture best practices for Azure Front Door
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations - Azure Advisor
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-cost-catalog
+    recommendationId: 1c7fc5ab-f776-4aee-8236-ab478519f68f
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0ec09514d3280aa28ea60eb1f81756b9454c6f328927aa2bf73f57c4cdabddfd
+    notes: The control covers the exact single-origin probe-disable condition and preserves monitoring;
+      the source's additional preference for at least two origins is not explicitly required. Source-text
+      assessment, not independent human approval or live Azure validation.

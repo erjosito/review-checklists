@@ -18,3 +18,14 @@ queries:
   arg: resourcecontainers| where type == 'microsoft.resources/subscriptions'| extend
     ManagementGroup = tostring(tags),mgmtChain = properties.managementGroupAncestorsChain|
     extend compliant = (array_length(mgmtChain) > 1)
+schemaVersion: 1
+id: 33b6b780-8b9f-4e5c-9104-9d403a923c34
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

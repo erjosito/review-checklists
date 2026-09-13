@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/backup/backup-azure-immutable-vault-concept?source=recommendations&tabs=recovery-services-vault
 queries: {}
+schemaVersion: 1
+id: 2cc88147-0607-4c1c-aa0e-614658dd458e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

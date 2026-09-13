@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-error-handling-policies
 queries: {}
+schemaVersion: 1
+id: d7941d4a-7b6f-458f-8714-2f8f8c059ad4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

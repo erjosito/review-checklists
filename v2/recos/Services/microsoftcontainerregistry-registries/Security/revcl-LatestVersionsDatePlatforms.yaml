@@ -13,3 +13,13 @@ labels:
   guid: 4e401955-387e-45ce-b126-cd132af5b20c
 links: []
 queries: {}
+schemaVersion: 1
+id: 4e401955-387e-45ce-b126-cd132af5b20c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

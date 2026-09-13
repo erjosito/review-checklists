@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure
 queries: {}
+schemaVersion: 1
+id: fc5972cd-4cd2-41b0-a803-7f5e6b4bfd3d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

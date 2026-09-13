@@ -14,3 +14,13 @@ labels:
   guid: cbbd35ba-ecdb-4139-ab42-bdac8141062a
 links: []
 queries: {}
+schemaVersion: 1
+id: cbbd35ba-ecdb-4139-ab42-bdac8141062a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

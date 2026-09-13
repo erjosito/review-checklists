@@ -1,8 +1,8 @@
 name: wafsg-AzureKeyVaultExtensionCorrespondingCertificates
-title: Protect secrets such as the certificates that you need to protect data in transit.
-  Consider using the Azure Key Vault extension for Windows or Linux that automatically
-  refreshes the certificates stored in a key vault. When it detects a change in the
-  certificates, the extension retrieves and installs the corresponding certificates.
+title: Protect secrets such as the certificates that you need to protect data in transit. Consider using
+  the Azure Key Vault extension for Windows or Linux that automatically refreshes the certificates stored
+  in a key vault. When it detects a change in the certificates, the extension retrieves and installs the
+  corresponding certificates.
 description: ''
 source:
   type: wafsg
@@ -16,3 +16,21 @@ labels:
   guid: 08be36ad-0190-4740-b002-9adae9be0cca
 links: []
 queries: {}
+schemaVersion: 1
+id: 08be36ad-0190-4740-b002-9adae9be0cca
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-windows
+    title: Azure Key Vault VM extension for Windows
+    accessedAt: '2026-09-13'
+    revision: null
+  - url: https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-linux
+    title: Azure Key Vault virtual machine extension for Linux
+    accessedAt: '2026-09-13'
+    revision: null

@@ -1,0 +1,143 @@
+{
+  "asOf": "2026-09-11",
+  "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+  "inventoryStatus": "complete",
+  "items": [
+    {
+      "contentHash": "sha256:f1dbf331239efc9b9df3daf6677ba4a519d908ecfd85a0d5a48c9de27a866e6f",
+      "id": "OE:01",
+      "payload": {
+        "code": "[OE:01](devops-culture)",
+        "id": "OE:01",
+        "recommendation": "**Define your standard practices to develop and operate your workload.** Align team members' specializations to clear practices for designing, deploying, and operating the workload. Establish accountability and create a culture that promotes continuous improvement and a blameless culture that supports learning."
+      },
+      "title": "Define your standard practices to develop and operate your workload.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture"
+    },
+    {
+      "contentHash": "sha256:c7130262beee1291b3c3e0ea3b7d554ddc251cbb77f12a80deffc8424915677b",
+      "id": "OE:02",
+      "payload": {
+        "code": "[OE:02](formalize-operations-tasks)",
+        "id": "OE:02",
+        "recommendation": "Use standardization as a way to make routine, ad-hoc, and emergency operations consistent and predictable."
+      },
+      "title": "Use standardization as a way to make routine, ad-hoc, and emergency operations consistent and predictable.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/formalize-operations-tasks"
+    },
+    {
+      "contentHash": "sha256:e85b430fe96d3e58eedf5c75aa2309893bbb6095507b25211074bc62ca149dea",
+      "id": "OE:03",
+      "payload": {
+        "code": "[OE:03](formalize-development-practices)",
+        "id": "OE:03",
+        "recommendation": "Formalize processes across the full software development lifecycle, from ideation to delivery, and make them transparent to the team and stakeholders."
+      },
+      "title": "Formalize processes across the full software development lifecycle, from ideation to delivery, and make them transparent to the team and stakeholders.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/formalize-development-practices"
+    },
+    {
+      "contentHash": "sha256:716777ae5ab9be1861c31a025fca83612c57c188920d4169328f9f652340181a",
+      "id": "OE:04",
+      "payload": {
+        "code": "[OE:04](tools-processes)",
+        "id": "OE:04",
+        "recommendation": "**Enhance software development and quality assurance** by implementing industry-standard practices. Ensure clear role definitions and consistent processes by standardizing tools, source control, design patterns, documentation, and style guides."
+      },
+      "title": "Enhance software development and quality assurance",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/tools-processes"
+    },
+    {
+      "contentHash": "sha256:762fec3a61c5c118a1f9173f89173d01b5a11f0c841007fec34a88ee57e3e092",
+      "id": "OE:05",
+      "payload": {
+        "code": "[OE:05](infrastructure-as-code-design)",
+        "id": "OE:05",
+        "recommendation": "**Use a standardized infrastructure as code (IaC) approach to prepare resources and configurations.** Use IaC to ensure consistent styles, modularization, and quality assurance. Prefer declarative over imperative approaches when practical."
+      },
+      "title": "Use a standardized infrastructure as code (IaC) approach to prepare resources and configurations.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/infrastructure-as-code-design"
+    },
+    {
+      "contentHash": "sha256:2f826a2abaaf5f56cc1286cfc5f0126c6eb391f18d3aeee875fcfc0b95146cba",
+      "id": "OE:06",
+      "payload": {
+        "code": "[OE:06](workload-supply-chain)",
+        "id": "OE:06",
+        "recommendation": "**Build a workload supply chain that drives changes** through predictable, automated pipelines. Ensure these pipelines test and promote changes across all environments and quality gates. Incorporate comprehensive testing."
+      },
+      "title": "Build a workload supply chain that drives changes",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/workload-supply-chain"
+    },
+    {
+      "contentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540",
+      "id": "OE:07",
+      "payload": {
+        "code": "[OE:07](observability)[OE:07](instrument-application)",
+        "id": "OE:07",
+        "recommendation": "**Design a monitoring stack** that captures operational telemetry, metrics, and logs from the workload's infrastructure and code to validate design decisions and guide future improvements."
+      },
+      "title": "Design a monitoring stack",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/checklist"
+    },
+    {
+      "contentHash": "sha256:3c792b0f198f8b8043d74774b023aa1cbd501d4be3cb0bdba99a017c62df6fd5",
+      "id": "OE:08",
+      "payload": {
+        "code": "[OE:08](incident-response)",
+        "id": "OE:08",
+        "recommendation": "**Establish a clear, structured incident management process** with defined roles, documented procedures, and architecture designed for rapid detection, diagnosis, and recovery."
+      },
+      "title": "Establish a clear, structured incident management process",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/incident-response"
+    },
+    {
+      "contentHash": "sha256:05eb3f80be3d468f7cbf3190526aafaf9272e148edbcc8357b6bbd515d6b0e07",
+      "id": "OE:09",
+      "payload": {
+        "code": "[OE:09](testing)",
+        "id": "OE:09",
+        "recommendation": "**Enhance the quality of your workload** by adopting testing practices that align with business objectives and uphold quality standards."
+      },
+      "title": "Enhance the quality of your workload",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/testing"
+    },
+    {
+      "contentHash": "sha256:887f8ffd7c1422192a6a3c456641f2fe51ba2de072bec94a6d9d7f5a13806348",
+      "id": "OE:10",
+      "payload": {
+        "code": "[OE:10](enable-automation)",
+        "id": "OE:10",
+        "recommendation": "**Design automation to be reliable, secure, and maintainable** across the workload lifecycle. Automate repetitive, procedural tasks that deliver clear return on investment."
+      },
+      "title": "Design automation to be reliable, secure, and maintainable",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/enable-automation"
+    },
+    {
+      "contentHash": "sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a",
+      "id": "OE:11",
+      "payload": {
+        "code": "[OE:11](safe-deployments)",
+        "id": "OE:11",
+        "recommendation": "**Clearly define your workload's safe deployment practices.** Focus on small, incremental releases with quality gates. Use modern deployment patterns and progressive exposure to manage risk. Plan for both routine and emergency deployments."
+      },
+      "title": "Clearly define your workload's safe deployment practices.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments"
+    }
+  ],
+  "limitations": [
+    "Checklist rows only, not all Operations guidance paragraphs or service guides.",
+    "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+    "Explicit ID mapping is not human semantic review."
+  ],
+  "retrievedAt": "2026-09-11T18:17:04.772859Z",
+  "schemaVersion": 1,
+  "scope": "All numbered rows in the English WAF Operational Excellence design review checklist",
+  "sourceId": "waf-operations-checklist",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/checklist"
+  ],
+  "title": "WAF Operational Excellence checklist",
+  "unit": "published-checklist-row",
+  "upstreamRevision": "84fd234f106eacce573ee415497edd96436e6620"
+}

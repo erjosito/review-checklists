@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/concept-policies-devops
 queries: {}
+schemaVersion: 1
+id: b49e5b96-0332-44ec-b8cc-13318da61170
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

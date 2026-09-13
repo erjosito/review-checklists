@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/monitor-service
 queries: {}
+schemaVersion: 1
+id: 8a488cde-c486-42bc-9bd2-1be77f26e5e6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

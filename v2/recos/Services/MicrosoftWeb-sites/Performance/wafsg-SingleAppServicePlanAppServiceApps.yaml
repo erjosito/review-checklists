@@ -1,8 +1,9 @@
 name: wafsg-SingleAppServicePlanAppServiceApps
-title: Enable the Always On setting when applications share a single App Service plan.
-  App Service apps automatically unload when idle to save resources. The next request
-  triggers a cold start, which can cause request timeouts.
-description: The application is never unloaded with Always On enabled.
+title: Evaluate Always On for App Service workloads sensitive to cold starts
+description: Enable Always On on a supported plan when unloading idle applications would violate startup
+  or request-latency requirements. The concern is not limited to multiple apps sharing a plan. Validate
+  initialization, dependencies and observed behavior; Always On does not guarantee that every request
+  meets its latency target.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +15,16 @@ labels:
   guid: 225c3a4c-ee57-48b4-99f4-93d4c4884f4d
 links: []
 queries: {}
+schemaVersion: 1
+id: 225c3a4c-ee57-48b4-99f4-93d4c4884f4d
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'

@@ -22,3 +22,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/data-explorer/business-continuity-overview#on-demand-data-recovery-configuration
 queries: {}
+schemaVersion: 1
+id: 49aa8092-dc8e-4b9d-8bb7-3b26a5a67eba
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

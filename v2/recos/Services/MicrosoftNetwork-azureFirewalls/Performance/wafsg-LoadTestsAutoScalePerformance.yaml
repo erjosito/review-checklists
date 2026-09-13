@@ -1,6 +1,9 @@
 name: wafsg-LoadTestsAutoScalePerformance
-title: Plan load tests to test auto-scale performance in your environment.
-description: ''
+title: Test Azure Firewall scaling under representative steady and burst traffic
+description: Measure throughput, latency, connection/SNAT demand and packet loss against targets with
+  realistic rules, inspection modes and destination patterns. Separate warmed steady-state measurements
+  from burst and scale-response experiments. Capture scale events and retain results; do not assume an
+  inventory of firewall resources demonstrates performance.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-firewall.md
@@ -13,3 +16,19 @@ labels:
   guid: 5dcb4cd3-a501-4d37-b2a6-3f59c3e1bd32
 links: []
 queries: {}
+schemaVersion: 1
+id: 5dcb4cd3-a501-4d37-b2a6-3f59c3e1bd32
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall
+    title: Architecture best practices for Azure Firewall
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-test
+    title: Architecture strategies for performance testing
+    accessedAt: '2026-09-11'

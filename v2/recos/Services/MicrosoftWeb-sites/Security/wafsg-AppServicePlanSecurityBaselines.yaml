@@ -1,6 +1,6 @@
 name: wafsg-AppServicePlanSecurityBaselines
-title: 'Review security baselines: To enhance the security posture of your application
-  that''s hosted on an App Service plan, review the security baseline for App Service.'
+title: 'Review security baselines: To enhance the security posture of your application that''s hosted
+  on an App Service plan, review the security baseline for App Service.'
 description: ''
 source:
   type: wafsg
@@ -14,3 +14,29 @@ labels:
   guid: 44ba257f-d6b6-4eed-b5a1-eff3dcb027e8
 links: []
 queries: {}
+schemaVersion: 1
+id: 44ba257f-d6b6-4eed-b5a1-eff3dcb027e8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:01
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/establish-baseline
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:928240eef3091d4b3d3756ff803c7d5aa7a8580d7d1d023dedf1d2a885640b85
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

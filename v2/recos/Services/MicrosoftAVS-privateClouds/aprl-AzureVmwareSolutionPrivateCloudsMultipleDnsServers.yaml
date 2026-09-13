@@ -1,18 +1,49 @@
 name: aprl-AzureVmwareSolutionPrivateCloudsMultipleDnsServers
 title: Use multiple DNS servers per private FQDN zone
-description: |-
-  Azure VMware Solution private clouds support up to three DNS servers for a single FQDN, preventing a single DNS server from becoming a point of failure. It's crucial to use multiple DNS servers for on-premises FQDN resolution from each private cloud.
+description: Azure VMware Solution private clouds support up to three DNS servers for a single FQDN, preventing
+  a single DNS server from becoming a point of failure. It's crucial to use multiple DNS servers for on-premises
+  FQDN resolution from each private cloud.
 source:
   type: aprl
   file: azure-resources/AVS/privateClouds/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AVS/privateClouds
+- microsoft.avs/privateclouds
 severity: 0
 labels:
   guid: fcc2e257-23af-4c68-aac8-9cc03033c939
   area: High Availability
 links: []
 queries:
-  arg: |-
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: fcc2e257-23af-4c68-aac8-9cc03033c939
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    title: 'APRL fcc2e257-23af-4c68-aac8-9cc03033c939: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: fcc2e257-23af-4c68-aac8-9cc03033c939
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d8c487c6eb7fd3967bc01b98affc814cb198f6d83c9a16e87e53c641cec989e0
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

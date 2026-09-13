@@ -1,13 +1,13 @@
 name: aprl-StandardNetworkFeaturesAzureNetappFiles
 title: Use standard network features for production in Azure NetApp Files
-description: |-
-  Standard network feature in Azure NetApp Files enhances IP limits and VNet capabilities, including network security groups, user-defined routes on subnets, and diverse connectivity options.
+description: Standard network feature in Azure NetApp Files enhances IP limits and VNet capabilities,
+  including network security groups, user-defined routes on subnets, and diverse connectivity options.
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 0
 labels:
   guid: ab984130-c57b-6c4a-8d04-6723b4e1bdb6
@@ -21,3 +21,34 @@ queries:
     | where type =~ "microsoft.netapp/netappaccounts/capacitypools/volumes"
     | where properties.networkFeatures != "Standard"
     | project recommendationId = "ab984130-c57b-6c4a-8d04-6723b4e1bdb6", name, id, tags
+schemaVersion: 1
+id: ab984130-c57b-6c4a-8d04-6723b4e1bdb6
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.NetApp/netAppAccounts/capacityPools/volumes''],
+    while the frozen corpus scope is [''Microsoft.NetApp/netAppAccounts'']; applicability is not broadened
+    or narrowed without separate verification. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL ab984130-c57b-6c4a-8d04-6723b4e1bdb6: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: ab984130-c57b-6c4a-8d04-6723b4e1bdb6
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ca517d3f43e803f37b33dbd76df56115e772dc07a9db0a16c00b60458b1c3a39
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.NetApp/netAppAccounts/capacityPools/volumes'],
+      while the frozen corpus scope is ['Microsoft.NetApp/netAppAccounts']; applicability is not broadened
+      or narrowed without separate verification. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

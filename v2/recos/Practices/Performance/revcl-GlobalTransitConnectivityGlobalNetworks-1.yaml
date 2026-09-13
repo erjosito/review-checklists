@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/explore-azure-networking/10-explore-azure-front-door
 queries: {}
+schemaVersion: 1
+id: e73de7d5-6f36-4217-a526-e1a621ecddde
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

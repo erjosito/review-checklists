@@ -1,7 +1,5 @@
 name: revcl-InterruptibleJobsDiscountedPrice
-title: 'Use Spot VMs for interruptible jobs: These are VMs that can be bid on and
-  purchased at a discounted price, providing a cost-effective solution for non-critical
-  workloads.'
+title: Use Azure Spot VMs only with tested eviction and recovery handling
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -17,3 +15,23 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/secure-application-delivery/
 queries: {}
+schemaVersion: 1
+id: 393a040f-d329-4479-ab11-88b2c5a46ceb
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Replace the misleading bidding description with documented Spot pricing
+    and eviction semantics. Requires workload, billing and operational evidence; no ARG query or live
+    validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/virtual-machines/spot-vms
+    title: About Azure Spot Virtual Machines
+    accessedAt: '2026-09-11'
+description: Evaluate Spot for interruption-tolerant work using regional/SKU price and eviction history.
+  Azure can reclaim capacity, and Spot VMs have no availability SLA. Set an appropriate maximum price
+  and eviction policy, checkpoint or retry work, and account for retained-disk charges after deallocation.
+  Capacity availability and a maximum-price ceiling are not an auction or a restart guarantee.

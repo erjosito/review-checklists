@@ -21,3 +21,13 @@ labels:
   guid: 27f96d86-72a7-4c44-8cdd-146d39feefaf
 links: []
 queries: {}
+schemaVersion: 1
+id: 27f96d86-72a7-4c44-8cdd-146d39feefaf
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

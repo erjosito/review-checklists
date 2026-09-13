@@ -1,13 +1,13 @@
 name: aprl-TenantRootManagementGroupManagementGroups
 title: Subscriptions should not be placed under the Tenant Root Management Group
-description: |-
-  The root management group in Azure is designed for organizational hierarchy, allowing for all management groups and subscriptions to fold into it.
+description: The root management group in Azure is designed for organizational hierarchy, allowing for
+  all management groups and subscriptions to fold into it.
 source:
   type: aprl
   file: azure-resources/Subscription/subscriptions/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Subscription/Subscriptions
+- microsoft.subscription/subscriptions
 severity: 1
 labels:
   guid: 5ada5ffa-7149-4e49-9fbf-e67be7c2594c
@@ -22,3 +22,34 @@ queries:
     | extend mgParentSize = array_length(properties.managementGroupAncestorsChain)
     | where mgParentSize == 1
     | project recommendationId="5ada5ffa-7149-4e49-9fbf-e67be7c2594c", name, id, tags
+schemaVersion: 1
+id: 5ada5ffa-7149-4e49-9fbf-e67be7c2594c
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Subscription/subscriptions/recommendations.yaml
+    title: 'APRL 5ada5ffa-7149-4e49-9fbf-e67be7c2594c: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 5ada5ffa-7149-4e49-9fbf-e67be7c2594c
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Subscription/subscriptions/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:7a218fad1e6d2dfc15e3989ba04c47cff79b6eebf80c3d1050e99341cc87a8e7
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

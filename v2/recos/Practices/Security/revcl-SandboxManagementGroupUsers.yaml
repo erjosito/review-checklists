@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/enterprise-scale-architecture/
 queries: {}
+schemaVersion: 1
+id: 667313b4-f566-44b5-b984-a859c773e7d2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

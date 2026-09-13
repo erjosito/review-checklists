@@ -1,13 +1,13 @@
 name: aprl-AzureVirtualMachinesReviewVms
 title: Review VMs in stopped state
-description: |-
-  Azure Virtual Machines (VM) instances have various states, like provisioning and power states. A non-running VM may indicate issues or it being unnecessary, suggesting removal could help cut costs.
+description: Azure Virtual Machines (VM) instances have various states, like provisioning and power states.
+  A non-running VM may indicate issues or it being unnecessary, suggesting removal could help cut costs.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 2
 labels:
   guid: 98b334c0-8578-6046-9e43-b6e8fce6318e
@@ -21,3 +21,18 @@ queries:
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where properties.extended.instanceView.powerState.displayStatus != 'VM running'
     | project recommendationId = "98b334c0-8578-6046-9e43-b6e8fce6318e", name, id, tags
+schemaVersion: 1
+id: 98b334c0-8578-6046-9e43-b6e8fce6318e
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The frozen GUID is absent from the complete pinned upstream
+    repository inventory; historical source identity does not prove a current recommendation or replacement
+    ID. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Cost

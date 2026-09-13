@@ -1,8 +1,5 @@
 name: revcl-MinimalContentFunctionProxy
-title: Frontdoor - Route to something that returns nothing. Either set up a Function,
-  Function Proxy, or add a route in your WebApp that returns 200 (OK) and sends no
-  or minimal content. The advantage of this is you will be able to log out when it
-  is called.
+title: Reduce Front Door probe payload while retaining meaningful health checks
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +13,23 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/monitoring-reporting?tabs=AzureMonitor
 queries: {}
+schemaVersion: 1
+id: 8dd458e9-2713-49b8-8110-2dbd6eaf11e6
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Replace an obsolete Function Proxy suggestion with the documented
+    HEAD/200 contract. Requires workload, billing and operational evidence; no ARG query or live validation
+    is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/frontdoor/health-probes
+    title: Health Probes - Azure Front Door
+    accessedAt: '2026-09-11'
+description: Use HEAD health probes where supported, or a lightweight endpoint returning HTTP 200 when
+  the origin is healthy. Avoid unnecessary response bodies and expensive work, but do not replace a meaningful
+  health signal with an unconditional successful response. Verify the endpoint method, health behavior
+  and failover with the application owner.

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
 queries: {}
+schemaVersion: 1
+id: cf3fe65c-fec0-495a-8edc-9675200f2add
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

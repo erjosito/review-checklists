@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/app-service/monitor-instances-health-check
 queries: {}
+schemaVersion: 1
+id: a3b4d5f6-758c-4f9d-9e1a-d7c6b7e8f9ab
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

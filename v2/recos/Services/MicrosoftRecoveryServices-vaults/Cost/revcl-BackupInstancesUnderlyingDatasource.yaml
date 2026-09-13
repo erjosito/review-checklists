@@ -1,5 +1,5 @@
 name: revcl-BackupInstancesUnderlyingDatasource
-title: check backup instances with the underlying datasource not found
+title: Review retained backups whose source is no longer present
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,25 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/multi-tenant/automation
 queries: {}
+schemaVersion: 1
+id: 45901365-d38e-443f-abcb-d868266abca2
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Requires backup service inventory, complete source visibility and retention/deletion history.
+    The documented lastBackupTime>90d sample does not prove a missing source and is not substituted.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/storage
+    title: FinOps best practices for Storage
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-data-costs
+    title: Architecture strategies for optimizing data costs
+    accessedAt: '2026-09-11'
+description: Reconcile backup inventory with source-resource visibility and deletion history. A missing
+  source can be intentional retention or incomplete permissions; preserve required recovery points, legal
+  holds and immutability. Confirm ownership and approved retention before changing protection or deleting
+  backup data.

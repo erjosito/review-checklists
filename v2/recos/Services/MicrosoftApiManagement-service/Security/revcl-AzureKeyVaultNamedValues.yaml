@@ -1,6 +1,5 @@
 name: revcl-AzureKeyVaultNamedValues
-title: Ensure that secrets (Named values) are stored an Azure Key Vault so they can
-  be securely accessed and updated
+title: Store secret API Management named values in Azure Key Vault where the integration is supported.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,23 @@ links:
 - type: docs
   url: https://learn.microsoft.com/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#im-8-restrict-the-exposure-of-credential-and-secrets
 queries: {}
+schemaVersion: 1
+id: f8af3d94-1d2b-4070-846f-849197524258
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-properties
+    title: How to Use Named Values in Azure API Management policies
+    accessedAt: '2026-09-13'
+    revision: null
+description: Reference a Key Vault secret from the named value using an API Management managed identity
+  with the required secret-read permissions. Use a versionless secret identifier for automatic refresh,
+  and verify access after rotation; the documented refresh interval is up to four hours. This integration
+  is not available for workspace named values. Restrict policy-editing and request-tracing access because
+  storing the source secret in Key Vault does not prevent authorized API Management features from exposing
+  its resolved value.

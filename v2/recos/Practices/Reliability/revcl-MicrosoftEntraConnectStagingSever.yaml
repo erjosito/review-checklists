@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-staging-server
 queries: {}
+schemaVersion: 1
+id: cd163e39-84a5-4b39-97b7-6973abd70d94
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

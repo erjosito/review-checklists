@@ -1,0 +1,206 @@
+{
+  "assessedAt": "2026-09-11",
+  "status": "LLM-assessed explicit mappings; not human approval",
+  "mappings": [
+    {
+      "corpusId": "5c8617a0-c1a5-5d95-9520-646263b48cd9",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:01",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/performance-targets",
+      "coverage": "full",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:6ab7cdb514ef235477c40c3cb1a5886b0e820083a9bdb01277bc40c88c9796c4",
+      "notes": "New all-flow target register directly addresses numerical workload-driven targets for every user/system/data flow. Full is limited to the checklist control statement, not all linked guidance."
+    },
+    {
+      "corpusId": "f527e0a1-3ba5-48d8-93db-07cf5ce42fdd",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:02",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/capacity-planning",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:49ffb1f01ca9fc6666a61f1d6000628b4b4323f3f20274bb6110c2ad0a1e6840",
+      "notes": "AKS capacity planning addresses SKU, autoscale, addressing and failover. It does not establish workload-wide anticipation of seasonal/campaign/regulatory demand changes."
+    },
+    {
+      "corpusId": "633df150-cf95-4992-853f-72b1d599395b",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:03",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/select-services",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:0bd2d517f44eb97ad2c3cf654a65fd75ce3f487dd2b8d6a5a3db73ba8a0d6dd2",
+      "notes": "VM/disk selection addresses workload performance profiles and durability. It does not cover every workload service choice or platform-versus-custom implementation."
+    },
+    {
+      "corpusId": "bebcf697-35e6-4f4d-abce-329e52c87367",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:04",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/monitoring",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:1a53bbb6c0c0a4f1964ff103d0bbfacec82fcfe0a203c1643253f3e509500af6",
+      "notes": "App Service targets, traces and baseline comparison implement consistent measurement for this service, not every workload component."
+    },
+    {
+      "corpusId": "90ce65de-8e13-4f9c-abd4-69266abca264",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:05",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/scale-partition",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:e8f21b18c1cdfe5dcf9305911484e8623626e30fe27b8f3812b66bafe91af90e",
+      "notes": "AKS autoscaler review addresses controlled per-pool scale and constraints, not the complete workload scale-unit and partitioning design."
+    },
+    {
+      "corpusId": "a805eb93-ffa7-4fc8-a8ce-7481da64aa1e",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:06",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/performance-test",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:eca3f58d9203e53c5c2e5acfb1ce8bf679abbf130ad6863c72a400be27bad783",
+      "notes": "Recurring production-like AKS tests exercise pod/node scale with measurable targets. Other workload components and full end-to-end business objectives remain outside this service control."
+    },
+    {
+      "corpusId": "26455527-f19a-43ef-adf4-29ed5e966a44",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:06",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/performance-test",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:eca3f58d9203e53c5c2e5acfb1ce8bf679abbf130ad6863c72a400be27bad783",
+      "notes": "App Service load-test targets, baseline comparisons and fail/stop criteria cover a specific hosting scope; not all workload tests."
+    },
+    {
+      "corpusId": "faea0cea-49d5-462b-bece-94cca446b10a",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:07",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-code-infrastructure",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:5e901d67902505c3ed187e6b0beeb318f277d1deab669a6c343f919dd3491701",
+      "notes": "Blob SDKs, bounded concurrency and server-side copies address efficient code/platform use for storage clients, not all code and infrastructure."
+    },
+    {
+      "corpusId": "de7e1635-911b-43e8-a887-95b8e13778d1",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:08",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-data-performance",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:a5328043fbb2ecf2981a270ff0c84d2660f8e991b5832095d0a93d726ec6eb2e",
+      "notes": "Files access-pattern and metadata optimization addresses one data service; broader store, partition and index design remains uncovered."
+    },
+    {
+      "corpusId": "c8f369bf-bb71-4c71-bec6-a9806f071d66",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:09",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/prioritize-critical-flows",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:ecdba59beb49bb7d3934048f0ff0946bc0b3bf87d04cff1f7f92554e67e2326a",
+      "notes": "OpenAI traffic prioritization distinguishes synchronous high-priority and asynchronous lower-priority work, but not an all-flow business-criticality and capacity-allocation process."
+    },
+    {
+      "corpusId": "0f62530d-f4e5-5687-bba9-8da9e63af7cd",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:10",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-operational-tasks",
+      "coverage": "full",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:7bd0f084b1c7f304041aab7cc53b7c5e6e01ed8aa09e42ff047c913afd94318b",
+      "notes": "New operational-task budget explicitly covers lifecycle and routine scans, rotation, backups, database maintenance and deployments, with measurement and minimization of performance overhead. Full applies only to the checklist statement."
+    },
+    {
+      "corpusId": "730f27c7-3b7e-5c10-86e9-00d86105a898",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:11",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/respond-live-performance-issues",
+      "coverage": "full",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:0f42f6eef0605342c081d14232a863186da9b9724c8a4112525b0f648a942711",
+      "notes": "New performance triage plan covers responsibilities/communication, diagnosis, recovery verification and preventive runbook improvements. Full applies to the checklist statement, not every implementation in linked guidance."
+    },
+    {
+      "corpusId": "d5d78692-ab7b-45d0-8c91-93b4f6329f41",
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:12",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/continuous-performance-optimize",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:0d5a6b438ff19206a68777245013cca005e74e519959a8beaee2ac5b311a510d",
+      "notes": "ML infrastructure monitoring, review and action support ongoing optimization in that service. Database/network deterioration elsewhere remains outside its scope."
+    },
+    {
+      "corpusId": "e1a91738-8def-4c1e-83ce-cd7dac9c986a",
+      "sourceId": "advisor-performance-catalog",
+      "recommendationId": "2ee9f31e-df58-4893-b3e7-66c0cd74183a",
+      "url": "https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:e263ff86d51fd522b9dbac902d5dc9b9f3113a809de2d81079763b4f8775b95b",
+      "notes": "v2 maximum capacity/subnet headroom addresses the autoscaling branch; the catalog also describes high utilization and v1 manual scaling. No live Advisor finding or utilization is inferred."
+    },
+    {
+      "corpusId": "0da83bb1-2f39-49af-b5c9-835fc455e3d1",
+      "sourceId": "advisor-performance-catalog",
+      "recommendationId": "10b153b5-59d0-45ac-bb3f-6a0b7ad9c0cd",
+      "url": "https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations",
+      "coverage": "partial",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:0a8e50555edadd50450931a2fa8087223fc46b357ad82296129b020fd5201e59",
+      "notes": "IP-group/prefix rule reduction addresses network-rule processing pressure, but this corpus check does not establish the catalog's measured unique-source/destination limit condition."
+    },
+    {
+      "corpusId": "a13f72f3-8f5c-4864-95e5-75bf37fbbeb1",
+      "sourceId": "advisor-performance-catalog",
+      "recommendationId": "241b9d61-3657-4096-85c3-83ad2a5f36e2",
+      "url": "https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations",
+      "coverage": "supporting",
+      "assessedAt": "2026-09-11",
+      "upstreamContentHash": "sha256:603628cd62616b88a5fdd77b5cab70f6545ed0b11cfdd7c7d843f37c1753696a",
+      "notes": "The catalog names classic Microsoft.Network/frontdoors. Modern Front Door probe guidance is related, but different resource scope prevents counting this as full or partial type-specific coverage."
+    }
+  ],
+  "crossOwnedProposals": [
+    {
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:09",
+      "corpusId": "e545b2de-84e1-4c41-81a6-46914c8e72cf",
+      "suggestedCoverage": "partial",
+      "reason": "Reliability-owned App Service flow-priority control covers a service-specific subset; do not duplicate or move it. Not included in this slice's counts."
+    },
+    {
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:06",
+      "corpusId": "a4224cce-1a82-4c9e-a488-86bb6b215a39",
+      "suggestedCoverage": "partial",
+      "reason": "Operations-owned release testing complements load testing; owner must assess current source/content. Not included in this slice's counts."
+    },
+    {
+      "sourceId": "waf-performance-checklist",
+      "recommendationId": "PE:10",
+      "corpusId": "0586a21b-1b24-4112-b1b6-9e10119bed8b",
+      "suggestedCoverage": "supporting",
+      "reason": "Operations-owned AKS blue/green deployment concerns one operational task; no duplicate or pillar move."
+    }
+  ],
+  "deferredNewChecks": [
+    {
+      "topic": "AKS LocalDNS and high-scale Container Insights",
+      "reason": "New current service-guide topics observed; feature prerequisites and corpus-wide semantic overlap need deeper owner review before adding. No inferred full AKS coverage."
+    },
+    {
+      "topic": "Advisor catalog entries beyond explicit mappings",
+      "reason": "150-ID inventory is complete but unmatched IDs remain unassessed; do not bulk-generate checks or claim percentage from citations."
+    }
+  ],
+  "persistence": {
+    "status": "embedded",
+    "field": "provenance.upstreamRecommendations",
+    "mappingCount": 16,
+    "runtimeUse": "Audit evidence only: do not supply this array in addition to embedded corpus/bundle mappings.",
+    "crossOwnedProposals": "Remain external and uncounted; no foreign records edited."
+  }
+}

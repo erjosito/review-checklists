@@ -1,13 +1,14 @@
 name: aprl-BackendPoolMembersBackendMaintenance
 title: Plan for backend maintenance by using connection draining
-description: |-
-  Using connection draining for backend maintenance ensures graceful removal of backend pool members during updates or health issues. It's enabled via Backend Setting and applies to all members during rule creation.
+description: Using connection draining for backend maintenance ensures graceful removal of backend pool
+  members during updates or health issues. It's enabled via Backend Setting and applies to all members
+  during rule creation.
 source:
   type: aprl
   file: azure-resources/Network/applicationGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/applicationGateways
+- microsoft.network/applicationgateways
 severity: 1
 labels:
   guid: 10f02bc6-e2e7-004d-a2c2-f9bf9f16b915
@@ -24,3 +25,31 @@ queries:
     | where connectionDrainingEnabled != true
     | extend backendPoolName = backendHttpSettings.name
     | project recommendationId = "10f02bc6-e2e7-004d-a2c2-f9bf9f16b915", name, id, tags, param1 = "connectionDraining: Disabled", param2 = strcat("backendSettingsName: ", backendPoolName)
+schemaVersion: 1
+id: 10f02bc6-e2e7-004d-a2c2-f9bf9f16b915
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    title: 'APRL 10f02bc6-e2e7-004d-a2c2-f9bf9f16b915: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 10f02bc6-e2e7-004d-a2c2-f9bf9f16b915
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:93326e6c2db689b5612a87722742c0ca1fca596ca375c27374a8693f8fcf0e12
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

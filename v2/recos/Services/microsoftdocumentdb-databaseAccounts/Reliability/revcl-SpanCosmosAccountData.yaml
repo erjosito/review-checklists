@@ -1,6 +1,9 @@
 name: revcl-SpanCosmosAccountData
-title: Distribute your data globally
-description: Span Cosmos account across two or more regions with multi-region writes
+title: Use multiple Cosmos DB account regions when regional resilience is required
+description: For production workloads needing resilience to regional loss, use at least two supported
+  account regions and budget for additional capacity. Decide separately between a single write region
+  with failover and multiple write regions. Configure client routing, consistency and sufficient remaining-region
+  capacity; regional replication alone is not evidence that the full application meets recovery targets.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +17,28 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cosmos-db/high-availability#slas
 queries: {}
+schemaVersion: 1
+id: 8153d89f-89dc-47b3-9be2-b1a27f7b9e91
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-cosmos-db-nosql
+    title: Reliability in Azure Cosmos DB
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/advisor/advisor-high-availability-recommendations
+    title: Reliability recommendations
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-reliability-catalog
+    recommendationId: b57f7a29-dcc8-43de-86fa-18d3f9d3764d
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f11b3fa9ccd35a08d61816e14343ddb5e5037091a27733e4ee6044042b3be2a5
+    notes: Updated check requires at least two regions where regional resilience is needed; it does not
+      impose this on every production account irrespective of business requirements.

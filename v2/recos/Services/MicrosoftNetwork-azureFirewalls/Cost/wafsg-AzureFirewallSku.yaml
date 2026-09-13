@@ -13,3 +13,13 @@ labels:
   guid: e23cca89-b750-4a14-8187-038aa999ab81
 links: []
 queries: {}
+schemaVersion: 1
+id: e23cca89-b750-4a14-8187-038aa999ab81
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

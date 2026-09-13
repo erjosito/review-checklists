@@ -1,7 +1,7 @@
 # Next-Generation Review Checklists — Design Decisions
 
 Status: **Draft / living document**
-Last updated: 2026-09-11
+Last updated: 2026-09-13
 
 This document captures the design decisions for evolving the Azure Review Checklists
 project beyond the macro-enabled Excel spreadsheet, leveraging the existing structured
@@ -75,7 +75,8 @@ This is the macro-spreadsheet replacement and the focus of initial effort.
 **First milestone (2026-09-11):** Python CLI + localhost Flask UI, served by
 Waitress, with SQLite working state and git-friendly JSON export. Implemented
 under [`review_checklists/`](../../review_checklists/README.md); the existing web app
-and scripts remain unchanged. The package name is independent of release versions.
+is preserved. The package name is independent of release versions; corpus tooling
+is being modernized separately under Decision C.
 The prototype restricts `DefaultAzureCredential` to the existing Azure CLI session.
 Azure query execution sends query/scope to Azure; optional remote AI would require
 separate data-egress approval. Local-first is not a promise that explicit Azure
@@ -168,37 +169,38 @@ Two distinct audiences:
 
 ---
 
-## Decision C — Content & pipeline modernization (candidate, not yet decided)
+## Decision C — Content & pipeline modernization — CHOSEN
 
-Noted for later discussion:
+The follow-on phase retains individual YAML authoring files, distributes
+deterministic versioned JSON bundles, and keeps SQLite for review working state.
+The strengthened schema records canonical IDs, retired-ID aliases, explicit
+services, honest automation/result semantics, and source/freshness metadata.
+See the [corpus contract](../../review_checklists/docs/corpus-contract.md).
 
-- **(11) Recommendation API / package** — publish the corpus as a versioned REST/GraphQL
-  endpoint or npm/PyPI package as a single source of truth.
-- **(12) Schema convergence** — finish the v2 per-reco model; treat v1 JSON, Excel, web,
-  workbooks, and WAF consolidation as *renderers* of one data model.
-- **(13) Provenance & freshness** — surface "last reviewed / may be stale"; auto-open
-  issues when upstream (APRL/WAF) changes a source recommendation.
+- **(11) Distribution** — local JSON bundles first; hosted APIs/package registries remain deferred.
+- **(12) Schema convergence** — a single authoritative recommendation schema;
+  legacy formats remain renderers rather than competing authoring models.
+- **(13) Provenance & freshness** — preserve unknown dates/revisions as unknown.
+  Automatic upstream-change issue creation remains future work.
 
-### C.1 Corpus refresh: hybrid (mechanical ingestion + LLM-in-the-loop via PRs) — **CHOSEN**
+### C.1 Corpus refresh: LLM-assisted curation with deterministic gates — **CHOSEN**
 
 Question considered: should the YAML corpus become a "knowledge base" refreshed
 periodically by an LLM (e.g. GitHub Copilot), replacing the mechanical Python pipelines
 triggered by upstream repo updates?
 
-**Decision: hybrid, not replacement.** An LLM must **not** write to the source of truth
-autonomously. Keep the deterministic pipeline for ingestion/validation and wrap an LLM
-around it for the judgment tasks scripts do badly. Rationale:
+**Revised decision (2026-09-11):** disable scheduled APRL, AKS-checklist, and WAF
+service-guide imports. Keep importer scripts/workflow dispatch as deprecated manual
+fallbacks. The original automatic-mechanical-ingestion proposal is superseded;
+deterministic parsing, schema/identity validation, assembly, and rendering remain.
+Neither an LLM nor a manual importer bypasses human review.
 
-- **Determinism & auditability** — mechanical syncs produce reviewable, reproducible
-  `git diff`s; an LLM refresh is non-deterministic and erodes the "why did this change?"
-  provenance that reviewers and contributors depend on.
-- **ARG queries are executable code** — unsupervised LLM rewrites of embedded KQL risk
-  silently wrong queries that mis-classify resources as compliant: the worst failure mode
-  for a review tool.
-- **Cost/latency** — periodically reprocessing ~2000 files via an LLM is expensive for
-  work that string-matching does for free and instantly.
-- **Upstream is already structured** — APRL/WAF publish machine-readable sources;
-  mechanical pull is the right transport, with no semantic gap to bridge.
+Refreshes cite public evidence, distinguish updates from justified additions, and
+record uncertain findings. ARG text is executable code: inventory is not a
+violation, an available query is not a validated query, and empty results are not
+compliance. Utilization, billing, licensing, and business-context checks may need
+non-ARG evidence. Confirmed duplicate merges keep existing survivor IDs and retired
+aliases; ambiguous or scope-conflicting overlaps stay separate.
 
 **Where the LLM genuinely adds value** (judgment tasks):
 
@@ -213,12 +215,13 @@ around it for the judgment tasks scripts do badly. Rationale:
 **The pattern — LLM-in-the-loop, never autonomous-on-main:**
 
 ```
-mechanical sync (detect change) → LLM judgment (dedup / draft / summarize / explain)
-  → PR → CI validation (schema + ARG lint/run) → human merge
+public-source research → LLM-assisted proposal (dedup / draft / explain)
+  → PR → deterministic schema/identity/bundle checks → human merge
 ```
 
 Determinism and provenance are preserved at the `main`-branch boundary; LLM leverage
-happens inside the *proposal* step. A scheduled GitHub Action with Copilot fits this.
+happens inside the *proposal* step. Live ARG validation requires separately
+authorized subscription scope; offline CI must not imply it occurred.
 
 ---
 
@@ -241,17 +244,18 @@ mechanical vs. gains an LLM-in-the-loop layer:
 | `cl.py` | CLI: `analyze-v1/2`, `list/show-recos`, `v1tov2` (uses **Text Analytics**, **endpoint decommissioned**), `run-arg` | Partly — `v1tov2` AI-assisted but currently broken |
 | `upload2cosmosdb.py`, `upload2tablestorage.py` | Publish corpus to Cosmos DB / Table Storage | No — relates to (11) API/package |
 
-Takeaway: ingestion, validation, assembly, and rendering stay **mechanical**; translation,
-dedup/merge, and authoring/triage are the **LLM-in-the-loop** surfaces — and two of them
-(`merge_waf_checklists.py`, `cl.py v1tov2`) already use AI, so C.1 extends an existing
-precedent rather than introducing a new paradigm.
+Takeaway: validation, assembly, and rendering stay **mechanical**. Automatic upstream
+ingestion is deprecated in this branch; manual importer fallback does not replace
+source-backed curation and review. The inventory above describes legacy tools,
+not a claim that all their cloud dependencies have been restored.
 
 ---
 
 ## Open items / next steps
 
 - [x] Confirm first-milestone scope: local prototype plus provider/MCP designs;
-      defer Decision C implementation and customer-hosted collaboration.
+      initially defer Decision C. Corpus modernization is now approved as the
+      follow-on phase; customer-hosted collaboration remains deferred.
 - [x] Sketch the LLM provider abstraction; separate completion and optional
       embedding capabilities. See [integration contracts](../../review_checklists/docs/integration-design.md).
 - [x] Prototype A.1: local CLI/web, pinned v2 recommendations, SQLite assessments,
@@ -267,6 +271,25 @@ precedent rather than introducing a new paradigm.
 - [x] Consolidate CLI scope selection into one option with name/ID preview and change
       confirmation; explain disabled query actions with page/filtered query counts.
 - [x] Design the MCP server over the checklist corpus + review state (feature 7).
+- [x] Add editable review name/description metadata, retaining explicit filenames.
+- [x] Make pagination optional and disabled by default; retain the 50-check run limit.
+- [x] Migrate corpus metadata and implement deterministic versioned JSON bundles.
+- [x] Complete the initial source-backed Cost refresh, conservative duplicate
+      merges and importer deprecation; preserve the initial stage reports.
+- [x] Account for the entire frozen corpus across five pillars and APRL, recording
+      verified changes, source-supported unchanged guidance and explicit gaps.
+      See the [all-pillar report](../../review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/README.md).
+- [x] Implement explicit review-refresh preview/apply, backup and history without
+      overwriting assessments; changed guidance requires reassessment.
+- [x] Implement read-only corpus administration and dated upstream inventories,
+      with source-ID/hash reconciliation rather than inferred completeness.
+- [x] Apply a bounded classification/Key Vault follow-up and two confirmed storage
+      merges, preserving all identities and immutable source evidence. See the
+      [September 13 report](../../review_checklists/docs/corpus-refresh/followup-2026-09-13.md).
+- [x] Preserve distinct upstream mappings during merges and reject conflicts for
+      the same source/ID; retain explicit priority/pillar/scope deferrals.
+- [x] Improve large-list rendering without removing rows, native controls,
+      no-JavaScript saving, print content or stale-edit protection.
 - [ ] Validate the ARG path against explicitly authorized live subscription scope.
 - [ ] Implement read-only stdio MCP with bounded output and explicit host-data disclosure.
 - [ ] Implement and validate a first provider adapter with explicit remote-data approval.
@@ -283,5 +306,5 @@ calls or live Azure queries were needed for the local prototype's automated test
 | A.2 | Customer-deployed app + managed identity, Easy Auth + assignment-required | **Deferred, specced** |
 | B.1 | LLM features optional; no-LLM baseline guaranteed; provider-pluggable | **Chosen** |
 | B.2 | GitHub Copilot as recommended default for MS/partners | **Chosen** |
-| C   | Content/pipeline modernization (API, schema convergence, provenance) | **Proposed** |
-| C.1 | Hybrid corpus refresh — mechanical ingestion + LLM-in-the-loop via PRs (no autonomous writes to main) | **Chosen** |
+| C   | YAML authoring, versioned JSON bundles, schema/provenance/identity contract | **Implemented baseline; source-specific gaps recorded** |
+| C.1 | LLM-assisted curated proposals; deprecated manual importers; deterministic validation and human review | **Chosen** |

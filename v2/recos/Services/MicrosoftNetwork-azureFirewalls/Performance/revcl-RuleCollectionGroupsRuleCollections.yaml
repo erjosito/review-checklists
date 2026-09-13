@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/firewall-manager/rule-hierarchy
 queries: {}
+schemaVersion: 1
+id: 828cec2e-af6c-40c2-8fa2-1b681ee63eb7
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,13 +1,9 @@
 name: wafsg-StandardAzureFileSharesPremiumShares
-title: 'Understand how your bill is calculated: Standard Azure file shares provide
-  a pay-as-you-go model. Premium shares use a provisioned model in which you specify
-  and pay for a certain amount of capacity, IOPS, and throughput up front. In the
-  pay-as-you-go model, meters track the amount of data that''s stored in the account,
-  or the capacity, and the number and type of transactions based on your usage of
-  that data. The pay-as-you-go model can be cost efficient because you pay only for
-  what you use. With the pay-as-you-go model, you don''t need to overprovision or
-  deprovision storage based on performance requirements or demand fluctuations.'
-description: ''
+title: Compare current Azure Files billing models and independent provisioning
+description: Distinguish provisioned v2, provisioned v1 and pay-as-you-go rather than equating HDD with
+  PAYG and SSD with one provisioned model. For eligible deployments, evaluate provisioned v2 capacity,
+  IOPS and throughput independently. Compare current media, protocol, redundancy, resource-model and regional
+  support with total workload cost before migration.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-files.md
@@ -20,3 +16,19 @@ labels:
   guid: 6a667592-f9c4-45ba-81c8-bb4841aa8781
 links: []
 queries: {}
+schemaVersion: 1
+id: 6a667592-f9c4-45ba-81c8-bb4841aa8781
+services:
+- Azure Files
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload requirements, financial or operational judgment; a generic ARG property check
+    cannot establish this recommendation.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/files/understanding-billing
+    title: Understand Azure Files billing
+    accessedAt: '2026-09-11'

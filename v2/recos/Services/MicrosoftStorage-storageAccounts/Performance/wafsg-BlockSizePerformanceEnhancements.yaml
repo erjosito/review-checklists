@@ -1,8 +1,9 @@
 name: wafsg-BlockSizePerformanceEnhancements
-title: When uploading blobs or blocks, use a blob or block size that's greater than
-  256 KiB.
-description: Blob or block sizes above 256 KiB takes advantage of performance enhancements
-  in the platform made specifically for larger blobs and block sizes.
+title: Tune Blob transfer block sizes for the storage tier and client workload
+description: Benchmark block size together with concurrency, memory and request overhead. The general
+  checklist mentions blocks larger than 256 KiB; the current developer checklist distinguishes sizes above
+  4 MiB for standard and 256 KiB for premium high-throughput transfers. Do not apply 256 KiB as a universal
+  standard-tier optimum. Verify the current SDK/tier guidance and retain measured results.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +15,19 @@ labels:
   guid: 22fb7fa5-e280-4a6a-8ae4-53fcd802c196
 links: []
 queries: {}
+schemaVersion: 1
+id: 22fb7fa5-e280-4a6a-8ae4-53fcd802c196
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/blobs/storage-performance-checklist
+    title: Performance checklist for Blob Storage
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/storage/blobs/storage-performance-checklist-developers
+    title: Performance checklist for Blob Storage developers
+    accessedAt: '2026-09-11'

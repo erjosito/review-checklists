@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-azure
 queries: {}
+schemaVersion: 1
+id: 19aed9c5-5d04-4c2c-9919-ca0b2c12159e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

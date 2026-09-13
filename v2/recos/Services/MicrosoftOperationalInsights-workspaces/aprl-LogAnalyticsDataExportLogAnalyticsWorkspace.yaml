@@ -1,18 +1,49 @@
 name: aprl-LogAnalyticsDataExportLogAnalyticsWorkspace
 title: Enable Log Analytics data export to GRS or GZRS
-description: |-
-  Data export in a Log Analytics workspace to an Azure Storage account enhances data protection against regional failures by using geo-redundant (GRS) or geo-zone-redundant storage (GZRS), mainly for compliance and integration with other Azure services and tools.
+description: Data export in a Log Analytics workspace to an Azure Storage account enhances data protection
+  against regional failures by using geo-redundant (GRS) or geo-zone-redundant storage (GZRS), mainly
+  for compliance and integration with other Azure services and tools.
 source:
   type: aprl
   file: azure-resources/OperationalInsights/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.OperationalInsights/workspaces
+- microsoft.operationalinsights/workspaces
 severity: 1
 labels:
   guid: b36fd2ac-dd83-664a-ab48-ff7b8d3b189d
   area: Governance
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: b36fd2ac-dd83-664a-ab48-ff7b8d3b189d
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/OperationalInsights/workspaces/recommendations.yaml
+    title: 'APRL b36fd2ac-dd83-664a-ab48-ff7b8d3b189d: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b36fd2ac-dd83-664a-ab48-ff7b8d3b189d
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/OperationalInsights/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:79cf0eab36ac620d2f3828a7423cd47cf1453b3021276405f7c42d9790b65e73
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

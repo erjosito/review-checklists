@@ -1,5 +1,5 @@
 name: revcl-MinimumAmountAutoscaling
-title: Configure autoscaling with a minimum amount of instances of two.
+title: Size Application Gateway autoscaling for normal traffic and zone loss
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,6 +15,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/secure-application-delivery/
 queries:
-  arg: resources | where type =~ 'microsoft.network/applicationGateways' | extend
-    compliant = (isnotnull(properties.autoscaleConfiguration) and properties.autoscaleConfiguration.minCapacity
-    >= 2) | distinct id,compliant
+  arg: |
+    Resources
+    | where type =~ 'microsoft.network/applicationgateways'
+    | project id, name, resourceGroup, subscriptionId, location, zones,
+        skuName = tostring(properties.sku.name), skuTier = tostring(properties.sku.tier),
+        configuredCapacity = properties.sku.capacity,
+        autoscaleMinCapacity = properties.autoscaleConfiguration.minCapacity,
+        autoscaleMaxCapacity = properties.autoscaleConfiguration.maxCapacity
+schemaVersion: 1
+id: 135bf4ac-f9db-461f-b76b-2ee9e30b12c0
+services: []
+automation:
+  status: query_available
+  resultSemantics: inventory
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-application-gateway-v2
+    title: Reliability in Azure Application Gateway v2
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/applicationgateways
+    title: Microsoft.Network applicationGateways
+    accessedAt: '2026-09-11'
+description: 'Configure autoscaling maximum capacity for peak traffic and redistribution after zone loss,
+  and choose minimum provisioned capacity from workload needs. The platform internally maintains at least
+  two instances for high availability, even when displayed configured capacity differs; a configured autoscale
+  minimum alone does not measure runtime instance count. Monitor capacity and test backend and gateway
+  capacity under failure. The ARG query inventories reported configuration only. An omitted zone list
+  is not evidence of nonredundancy: current v2 gateways default to zone redundancy in supported regions
+  unless pinned to one zone. Null/missing properties, incomplete scope or zero rows do not establish compliance.
+  Verify deployment behavior, capacity under failure and backend health separately; no live query validation
+  is recorded.'

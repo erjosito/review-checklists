@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/ag/rate-limiting-overview
 queries: {}
+schemaVersion: 1
+id: 43fae595-8a32-4299-a69e-0f32c454dcc9
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,18 +1,48 @@
 name: aprl-AzureFrontDoorMicrosoftBackboneNetwork
 title: Secure your Origin with Private Link in Azure Front Door
-description: |-
-  Azure Private Link enables secure access to Azure PaaS and services over a private endpoint in your virtual network, ensuring traffic goes over the Microsoft backbone network, not the public internet.
+description: Azure Private Link enables secure access to Azure PaaS and services over a private endpoint
+  in your virtual network, ensuring traffic goes over the Microsoft backbone network, not the public internet.
 source:
   type: aprl
   file: azure-resources/Cdn/profiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Cdn/profiles
+- microsoft.cdn/profiles
 severity: 1
 labels:
   guid: 1cfe7834-56ec-ff41-b11d-993734705dba
   area: Security
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 1cfe7834-56ec-ff41-b11d-993734705dba
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    title: 'APRL 1cfe7834-56ec-ff41-b11d-993734705dba: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1cfe7834-56ec-ff41-b11d-993734705dba
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5252dbfc24fc9b463a6441ee3db94033b0a61fa940575fda7a95c98e3717ea07
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

@@ -19,3 +19,13 @@ labels:
   guid: 18050528-bca5-43c3-99c5-4e7035bd9496
 links: []
 queries: {}
+schemaVersion: 1
+id: 18050528-bca5-43c3-99c5-4e7035bd9496
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

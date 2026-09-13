@@ -1,18 +1,49 @@
 name: aprl-DistinctNetworkEdgeDevicesExpressroutePeeringLocation
 title: Ensure ExpressRoute's physical links connect to distinct network edge devices
-description: |-
-  Microsoft or the ExpressRoute provider always ensures physical redundancy in their services. It's essential to maintain this level of physical redundancy (two devices, two links) from the ExpressRoute peering location to your network for optimal performance and reliability.
+description: Microsoft or the ExpressRoute provider always ensures physical redundancy in their services.
+  It's essential to maintain this level of physical redundancy (two devices, two links) from the ExpressRoute
+  peering location to your network for optimal performance and reliability.
 source:
   type: aprl
   file: azure-resources/Network/expressRouteCircuits/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/expressRouteCircuits
+- microsoft.network/expressroutecircuits
 severity: 0
 labels:
   guid: 0e19cc41-8274-1342-b0db-0e4146eacef8
   area: High Availability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 0e19cc41-8274-1342-b0db-0e4146eacef8
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    title: 'APRL 0e19cc41-8274-1342-b0db-0e4146eacef8: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 0e19cc41-8274-1342-b0db-0e4146eacef8
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d8e90c7d2762225a1f05ca3a28ff732d9e59d4b05fe8e37a9c577d745a4a2b01
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

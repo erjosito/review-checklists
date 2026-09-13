@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
 queries: {}
+schemaVersion: 1
+id: 8b1188b3-c6a4-46ce-a544-451e192d3442
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

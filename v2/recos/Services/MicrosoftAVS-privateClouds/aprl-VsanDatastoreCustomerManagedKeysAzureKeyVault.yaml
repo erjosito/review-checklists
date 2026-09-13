@@ -1,18 +1,49 @@
 name: aprl-VsanDatastoreCustomerManagedKeysAzureKeyVault
 title: Use key autorotation for vSAN datastore customer-managed keys
-description: |-
-  When using customer-managed keys for encrypting vSAN datastores, leveraging Azure Key Vault for central management and accessing them via a managed identity linked to the private cloud is advised. The expiration of these keys can render the vSAN datastore and its associated workloads inaccessible.
+description: When using customer-managed keys for encrypting vSAN datastores, leveraging Azure Key Vault
+  for central management and accessing them via a managed identity linked to the private cloud is advised.
+  The expiration of these keys can render the vSAN datastore and its associated workloads inaccessible.
 source:
   type: aprl
   file: azure-resources/AVS/privateClouds/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AVS/privateClouds
+- microsoft.avs/privateclouds
 severity: 0
 labels:
   guid: e0ac2f57-c8c0-4b8c-a7c8-19e5797828b5
   area: Security
 links: []
 queries:
-  arg: |-
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: e0ac2f57-c8c0-4b8c-a7c8-19e5797828b5
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    title: 'APRL e0ac2f57-c8c0-4b8c-a7c8-19e5797828b5: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: e0ac2f57-c8c0-4b8c-a7c8-19e5797828b5
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:8f4b76e638b75707f90cf6940f95158a2430de3dc543d950980a852d7b8a0e44
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

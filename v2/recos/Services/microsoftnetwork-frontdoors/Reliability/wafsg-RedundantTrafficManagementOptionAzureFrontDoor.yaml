@@ -16,3 +16,13 @@ labels:
   guid: 5a88863f-43e9-48c7-8346-cf797fa4e4fa
 links: []
 queries: {}
+schemaVersion: 1
+id: 5a88863f-43e9-48c7-8346-cf797fa4e4fa
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

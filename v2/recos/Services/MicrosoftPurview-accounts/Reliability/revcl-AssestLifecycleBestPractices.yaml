@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/concept-best-practices-asset-lifecycle
 queries: {}
+schemaVersion: 1
+id: b3d1325a-a225-4c6f-9e06-85edddea8a4b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

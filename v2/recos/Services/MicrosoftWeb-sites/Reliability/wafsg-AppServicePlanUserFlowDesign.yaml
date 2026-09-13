@@ -1,9 +1,9 @@
 name: wafsg-AppServicePlanUserFlowDesign
-title: 'Prioritize user flows: Not all flows are equally critical. Assign priorities
-  to each flow to guide your design decisions. User flow design can influence which
-  service tiers and number of instances that you choose for an App Service plan and
-  configuration.'
-description: ''
+title: Prioritize App Service user and system flows by business criticality
+description: Identify critical user journeys and supporting system flows and rate them with business stakeholders.
+  Use that ranking to choose App Service tiers, instance counts, dependency resilience and recovery/testing
+  priorities. Avoid treating every flow as equally critical or assuming an app-wide endpoint check measures
+  every flow.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -16,3 +16,28 @@ labels:
   guid: e545b2de-84e1-4c41-81a6-46914c8e72cf
 links: []
 queries: {}
+schemaVersion: 1
+id: e545b2de-84e1-4c41-81a6-46914c8e72cf
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist
+    title: Design review checklist for Reliability
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:02
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/identify-flows
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:7366847664077c15e78a15324e9f78abd109a367ee583cf16b2aa2d03129c1cd
+    notes: Explicit user/system flow classification and business-criticality ranking, but App Service
+      scope only; not every workload in the estate.

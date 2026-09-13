@@ -1,30 +1,40 @@
 name: aprl-NsgFlowLogsOpenInternetPorts
-title: Configure NSG Flow Logs
-description: |-
-  Monitoring, managing, and understanding your network is crucial for protection and optimization. Knowing the current state, who and from where connections are made, open internet ports, expected and irregular behavior, and traffic spikes is essential.
+title: Migrate NSG flow logging to virtual network flow logs
+description: Use virtual network flow logs for new network flow logging and migrate existing NSG flow
+  logs before their September 30, 2027 retirement. New NSG flow-log creation is no longer supported. Review
+  logging scope, storage, retention, and Traffic Analytics requirements and verify the new flow logs before
+  retiring the old configuration. Existing stored NSG flow-log records remain subject to their configured
+  retention; do not interpret an NSG without its own flow-log resource as a violation after migration.
 source:
   type: aprl
   file: azure-resources/Network/networkSecurityGroups/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/networkSecurityGroups
+- microsoft.network/networksecuritygroups
 severity: 1
 labels:
   guid: da1a3c06-d1d5-a940-9a99-fcc05966fe7c
   area: Monitoring and Alerting
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/network-watcher/nsg-flow-logs-migrate
 queries:
-  arg: |
-    // Azure Resource Graph Query
-    // Find all Network Security Groups without NSG Flow logs configured or disabled.
-    resources
-    | where type =~ "Microsoft.Network/networkSecurityGroups"
-    | project name, id, tags, lowerCaseNsgId = tolower(id)
-    | join kind = leftouter (
-        resources
-        | where type == "microsoft.network/networkwatchers/flowlogs" and properties.enabled == true
-        | project flowLogName = name, lowerCaseTargetNsgId = tolower(properties.targetResourceId)
-        )
-        on $left.lowerCaseNsgId == $right.lowerCaseTargetNsgId
-    | where isempty(lowerCaseTargetNsgId)
-    | project recommendationId = "da1a3c06-d1d5-a940-9a99-fcc05966fe7c", name, id, tags, param1 = "NSGFlowLog: Not configured/Disabled"
+  arg: ''
+schemaVersion: 1
+id: da1a3c06-d1d5-a940-9a99-fcc05966fe7c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The old query reports missing NSG loggers even when virtual network flow logs replace them; new
+    NSG flow-log creation is unavailable. The exact old query is retained in aprl-baseline.json; no Azure
+    validation is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/network-watcher/nsg-flow-logs-migrate
+    title: NSG flow-log retirement and migration to virtual network flow logs
+    accessedAt: '2026-09-11'
+waf: Operations

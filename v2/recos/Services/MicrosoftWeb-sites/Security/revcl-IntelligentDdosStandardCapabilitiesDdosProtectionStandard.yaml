@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/ddos-protection/ddos-protection-overview
 queries: {}
+schemaVersion: 1
+id: 223ece80-b123-4071-a541-6415833ea3ad
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

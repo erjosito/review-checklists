@@ -16,3 +16,13 @@ labels:
   guid: fd59590a-44b0-469a-aa57-e04183683d0b
 links: []
 queries: {}
+schemaVersion: 1
+id: fd59590a-44b0-469a-aa57-e04183683d0b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

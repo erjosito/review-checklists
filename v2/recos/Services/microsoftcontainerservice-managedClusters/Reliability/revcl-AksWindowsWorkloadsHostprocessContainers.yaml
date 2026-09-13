@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/use-windows-hpc
 queries: {}
+schemaVersion: 1
+id: ab5351f6-383a-45ed-9c5e-b143b16db40a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

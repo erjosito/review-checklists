@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/architect-infrastructure-operations/
 queries: {}
+schemaVersion: 1
+id: 5e6c4cfd-3e50-4454-9c24-47ec66138a72
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

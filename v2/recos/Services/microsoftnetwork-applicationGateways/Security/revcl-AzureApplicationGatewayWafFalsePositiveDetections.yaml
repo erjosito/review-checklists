@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/ag/best-practices#tune-your-waf
 queries: {}
+schemaVersion: 1
+id: a4dd86d3-5ffa-408c-b660-cce073d085b8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

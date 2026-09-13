@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/backup/backup-center-overview
 queries: {}
+schemaVersion: 1
+id: f625ca44-e569-45f2-823a-ce8cb12308ca
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

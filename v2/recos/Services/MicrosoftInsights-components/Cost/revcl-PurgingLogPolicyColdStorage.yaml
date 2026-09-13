@@ -1,11 +1,10 @@
 name: revcl-PurgingLogPolicyColdStorage
-title: Enforce a purging log policy and automation (if needed, logs can be moved to
-  cold storage)
+title: Set log retention from access and compliance requirements
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.insights/components
+- microsoft.operationalinsights/workspaces
 waf: Cost
 severity: 1
 labels:
@@ -16,3 +15,25 @@ links:
 - type: docs
   url: https://www.youtube.com/watch?v=nHQYcYGKuyw
 queries: {}
+schemaVersion: 1
+id: 91be1f38-8ef3-494c-8bd4-63cbbac75819
+services:
+- Azure Monitor
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload requirements, financial or operational judgment; a generic ARG property check
+    cannot establish this recommendation.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-monitor/fundamentals/best-practices-cost
+    title: Cost optimization in Azure Monitor
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-data-costs
+    title: Architecture strategies for optimizing data costs
+    accessedAt: '2026-09-11'
+description: Classify logs by alerting, investigation, audit and recovery use. Choose interactive and
+  long-term retention or an export destination with suitable access characteristics. Include retrieval/search,
+  ingestion and storage costs; validate legal holds and approved expiry before any purge automation.

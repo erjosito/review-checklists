@@ -1,13 +1,14 @@
 name: aprl-MicrosoftAzureCloudAzureBackupService
 title: Backup VMs with Azure Backup service
-description: |-
-  Enable backups for your virtual machines with Azure Backup to secure and quickly recover your data. This service offers simple, secure, and cost-effective solutions for backing up and recovering data from the Microsoft Azure cloud.
+description: Enable backups for your virtual machines with Azure Backup to secure and quickly recover
+  your data. This service offers simple, secure, and cost-effective solutions for backing up and recovering
+  data from the Microsoft Azure cloud.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 1
 labels:
   guid: 1981f704-97b9-b645-9c57-33f8ded9261a
@@ -33,3 +34,31 @@ queries:
     | project-away name1
     | project recommendationId = "1981f704-97b9-b645-9c57-33f8ded9261a", name, id, tags
     | order by id asc
+schemaVersion: 1
+id: 1981f704-97b9-b645-9c57-33f8ded9261a
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL 1981f704-97b9-b645-9c57-33f8ded9261a: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1981f704-97b9-b645-9c57-33f8ded9261a
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:26f7a4a57c69ec0f3dbc6ee9176662c5adb4bb4d3b5a72bf66801eabd6c30e45
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

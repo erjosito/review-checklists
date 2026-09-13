@@ -1,18 +1,56 @@
 name: aprl-StorageAutoGrowServer-1
 title: Configure storage auto-grow
-description: |-
-  Configure storage auto-grow to prevent the server from running out of storage and becoming read-only.
+description: Configure storage auto-grow to prevent the server from running out of storage and becoming
+  read-only.
 source:
   type: aprl
   file: azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DBforPostgreSQL/flexibleServers
+- microsoft.dbforpostgresql/flexibleservers
 severity: 0
 labels:
   guid: 6293a3cc-6b4a-4c0f-9ea7-b8ae8d7dd3d5
   area: Scalability
 links: []
 queries:
-  arg: |-
-    // cannot-be-validated-with-arg
+  arg: |
+    // Azure Resource Graph Query
+    // Provides a list of Azure Database for PostgreSQL flexible server resources that do not configure auto-grow to enabled
+    resources
+    | where type =~ "Microsoft.DBforPostgreSQL/flexibleServers"
+    | where properties.storage.type !~ "PremiumV2_LRS"
+    | where properties.storage.autoGrow !~ "Enabled"
+    | project recommendationId = "6293a3cc-6b4a-4c0f-9ea7-b8ae8d7dd3d5", name, id, tags, param1 = strcat("autoGrow: ", properties.storage.autoGrow)
+schemaVersion: 1
+id: 6293a3cc-6b4a-4c0f-9ea7-b8ae8d7dd3d5
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+  notes: The current query checks storage.autoGrow and excludes PremiumV2_LRS; the legacy payload was
+    only an unavailable-ARG comment. Static source review only; not executed against Azure. Returned rows
+    require applicability review, and zero rows do not prove compliance.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
+    title: 'APRL 6293a3cc-6b4a-4c0f-9ea7-b8ae8d7dd3d5: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 6293a3cc-6b4a-4c0f-9ea7-b8ae8d7dd3d5
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:32a98ffcff5fde0690881097b25ae9f4f644ba94b975dc38e416998ad873bcc5
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. The current query checks storage.autoGrow and excludes
+      PremiumV2_LRS; the legacy payload was only an unavailable-ARG comment. Coverage concerns the inventory's
+      explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

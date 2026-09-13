@@ -29,7 +29,7 @@ class QueryAvailabilityTests(ReviewFixture):
         self.client = create_app(self.review).test_client()
 
     def test_no_queries_on_current_page_explains_other_page_availability(self):
-        response = self.client.get("/?waf=cost&severity=medium")
+        response = self.client.get("/?waf=cost&severity=medium&paginate=1")
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"0 runnable ARG checks on this page", response.data)
         self.assertIn(b"2 of 52 matching checks have ARG queries", response.data)
@@ -40,6 +40,7 @@ class QueryAvailabilityTests(ReviewFixture):
         ).group(1))
         self.assertEqual(parse_qs(urlsplit(target).query), {
             "page": ["1"], "waf": ["cost"], "severity": ["medium"], "with_arg": ["1"],
+            "paginate": ["1"],
         })
         filtered = self.client.get(target)
         self.assertEqual(filtered.status_code, 200)

@@ -15,3 +15,14 @@ links:
 queries:
   arg: resources | where type=='microsoft.network/firewallpolicies' | extend compliant
     = (properties.intrusionDetection.mode == 'Deny') | project id, compliant
+schemaVersion: 1
+id: b9d0dff5-bdd4-4cd8-88ed-5811610b2b2c
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

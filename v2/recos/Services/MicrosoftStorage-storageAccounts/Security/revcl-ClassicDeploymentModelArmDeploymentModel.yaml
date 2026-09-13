@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts
 queries: {}
+schemaVersion: 1
+id: 30e37c3e-2971-41b2-963c-eee079b598de
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,6 +1,5 @@
 name: revcl-IncidentResponsePlanAzureServices
-title: Determine the incident response plan for Azure services before allowing it
-  into production.
+title: Define, exercise and maintain owned security incident-response procedures before production.
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -16,3 +15,34 @@ links:
 - type: docs
   url: https://learn.microsoft.com/security/benchmark/azure/security-control-incident-response
 queries: {}
+schemaVersion: 1
+id: b86ad884-08e3-4727-94b8-75ba18f20459
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/security/incident-response
+    title: Architecture strategies for security incident response
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:12
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/incident-response
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0a63290261c2ee8eef765125524a8205d249ab001156046c2878467b57900c49
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. Workload-wide owned
+      incident response covers localized through disaster-recovery scenarios and procedure testing.
+description: Assign workload and SecOps contacts, incident command and decision authority. Document detection
+  and triage, containment, evidence preservation, eradication, secure recovery and communication obligations.
+  Exercise scenarios from localized compromise through disaster recovery, including failover and failback
+  without reintroducing the compromise. Retain incident records, run post-incident reviews, and feed lessons
+  into the playbook and future drills. Use business-approved recovery tradeoffs and test the procedures
+  in a low-risk environment.

@@ -1,9 +1,8 @@
 name: wafsg-ExpressrouteCircuitExpressrouteConnection
 title: Monitor ExpressRoute circuit and gateway metrics
-description: Set up alerts base on ExpressRoute metrics to proactively notify you
-  when a certain threshold is met. These metrics are useful to understand anomalies
-  that can happen with your ExpressRoute connection such as outages and maintenance
-  happening to your ExpressRoute circuits.
+description: Set up alerts base on ExpressRoute metrics to proactively notify you when a certain threshold
+  is met. These metrics are useful to understand anomalies that can happen with your ExpressRoute connection
+  such as outages and maintenance happening to your ExpressRoute circuits.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +14,23 @@ labels:
   guid: 3e5d89cf-a4b0-4624-8a74-c086ce3665ac
 links: []
 queries: {}
+schemaVersion: 1
+id: 3e5d89cf-a4b0-4624-8a74-c086ce3665ac
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: a77220d0-45e2-4ac9-9f8e-352f4e4848d8
+  name: wafsg-ExpressrouteCircuitGatewayMetrics
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: a77220d0-45e2-4ac9-9f8e-352f4e4848d8
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Performance/wafsg-ExpressrouteCircuitGatewayMetrics.yaml

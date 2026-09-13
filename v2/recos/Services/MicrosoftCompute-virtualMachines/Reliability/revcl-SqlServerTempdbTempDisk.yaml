@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk
 queries: {}
+schemaVersion: 1
+id: e0d5973c-d4ce-432c-8881-37f6f7c4c0d4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

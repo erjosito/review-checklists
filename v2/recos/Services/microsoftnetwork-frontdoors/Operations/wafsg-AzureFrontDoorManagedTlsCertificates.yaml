@@ -1,8 +1,10 @@
 name: wafsg-AzureFrontDoorManagedTlsCertificates
 title: Use managed TLS certificates when possible.
-description: Azure Front Door can issue and manage certificates for you. This feature
-  eliminates the need for certificate renewals and minimizes the risk of an outage
-  due to an invalid or expired TLS certificate.
+description: Use Azure-managed certificates for eligible Front Door Standard/Premium custom domains to
+  reduce renewal work. Maintain domain validation and monitor certificate provisioning and renewal. Use
+  a documented customer-managed certificate process where managed certificates are unsuitable. Front Door
+  classic requires migration planning; do not assume this modern-tier capability applies unchanged to
+  classic.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +16,19 @@ labels:
   guid: 544fffff-4bcd-4d30-851d-05b7bc2cdb91
 links: []
 queries: {}
+schemaVersion: 1
+id: 544fffff-4bcd-4d30-851d-05b7bc2cdb91
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain
+    title: Configure HTTPS for your custom domain
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/frontdoor/front-door-url-redirect
+    title: URL redirect - Azure Front Door
+    accessedAt: '2026-09-11'

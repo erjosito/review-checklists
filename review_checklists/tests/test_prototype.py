@@ -27,7 +27,7 @@ SCOPE = "11111111-1111-1111-1111-111111111111"
 RECO = {
     "id": ID, "name": "test-Recommendation", "title": "Check resource tags",
     "severity": 1, "waf": "Security", "labels": {"guid": ID},
-    "source": {"type": "revcl"}, "resourceTypes": ["Microsoft.Test/resources"],
+    "source": {"type": "revcl", "file": "test-fixture.yaml"}, "resourceTypes": ["Microsoft.Test/resources"],
     "queries": {"arg": "resources | project id, name"},
 }
 ROOT = Path(__file__).resolve().parents[2]
@@ -46,7 +46,9 @@ class ReviewFixture(unittest.TestCase):
 class CorpusTests(unittest.TestCase):
     def test_real_corpus_and_nested_checklists(self):
         recos = load_corpus(ROOT / "v2" / "recos")
-        self.assertEqual(len(recos), 2052)
+        # Six full-pillar additions, followed by three audited storage duplicate retirements.
+        self.assertEqual(len(recos), 2008)
+        self.assertEqual(sum(len(reco.get("aliases", [])) for reco in recos), 58)
         self.assertEqual(len({r["id"] for r in recos}), len(recos))
         all_recos = read_document(ROOT / "v2" / "checklists" / "all_recos.yaml")
         self.assertEqual(len(select_checklist(recos, all_recos)), len(recos))
@@ -56,7 +58,8 @@ class CorpusTests(unittest.TestCase):
         delivery = select_checklist(
             recos, read_document(ROOT / "v2" / "checklists" / "app_delivery.yaml")
         )
-        self.assertEqual(len(delivery), 37)
+        self.assertEqual(len(delivery), 42)
+        self.assertIn("64f9a19a-f29c-495d-94c6-c7919ca0f6c5", {reco["id"] for reco in delivery})
         items = [{"id": reco["id"], "recommendation": reco} for reco in recos]
         expected_aks = {
             reco["id"] for reco in recos
@@ -92,7 +95,7 @@ class CorpusTests(unittest.TestCase):
             file.write_text(yaml.safe_dump(RECO), encoding="utf-8")
             self.assertEqual(load_corpus(root)[0]["id"], ID)
             (root / "duplicate.yaml").write_text(yaml.safe_dump(RECO), encoding="utf-8")
-            with self.assertRaisesRegex(ReviewError, "duplicate"):
+            with self.assertRaisesRegex(ReviewError, "[Dd]uplicate"):
                 load_corpus(root)
 
 
@@ -119,7 +122,7 @@ class StorageTests(ReviewFixture):
     def test_snapshot_is_independent_and_report_shape_is_stable(self):
         self.recos[0]["title"] = "Changed upstream"
         report = json.loads(self.review.export())
-        self.assertEqual(report["schema_version"], 1)
+        self.assertEqual(report["schema_version"], 2)
         self.assertEqual(report["summary"]["Not reviewed"], 1)
         self.assertEqual(report["items"][0]["recommendation"]["title"], RECO["title"])
         self.assertEqual(len(report["metadata"]["corpus_sha256"]), 64)
@@ -308,7 +311,7 @@ class WebTests(ReviewFixture):
         recos = [dict(RECO, id=str(index), title=f"Recommendation {index}") for index in range(51)]
         review = Review.create(self.root / "pages.sqlite3", "Pages", recos, self.root)
         client = create_app(review).test_client()
-        first, second = client.get("/"), client.get("/?page=2")
+        first, second = client.get("/?paginate=1"), client.get("/?page=2")
         self.assertEqual(first.data.count(b"<td><a "), 50)
         self.assertEqual(second.data.count(b"<td><a "), 1)
         self.assertIn(b"Page 2 of 2", second.data)

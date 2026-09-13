@@ -20,3 +20,14 @@ queries:
     VNet = name, serviceEndpoints = subnets.properties.serviceEndpoints, compliant
     = (isnull(subnets.properties.serviceEndpoints) or array_length(subnets.properties.serviceEndpoints)
     == 0) | order by compliant asc
+schemaVersion: 1
+id: 4704489a-8042-4d88-b79d-17b73b22a5a6
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

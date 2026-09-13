@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/container-registry-skus
 queries: {}
+schemaVersion: 1
+id: fc833934-8b26-42d6-ac5f-512925498f6d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/configure-azure-ad-application-proxy/
 queries: {}
+schemaVersion: 1
+id: c5972cd4-cd21-4b07-9036-f5e6b4bfd3d5
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,6 +1,5 @@
 name: revcl-HeadHealthProbesAzureFrontDoor
-title: Use HEAD health probes with Azure Front Door, to reduce the traffic that Front
-  Door sends to your application.
+title: Use HEAD health probes where the Front Door origin supports them
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,8 +12,40 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/frontdoor/best-practices#use-head-health-probes
-queries:
-  arg: cdnresources | where type =~ 'microsoft.cdn/profiles/origingroups' | extend
-    frontDoorId = substring(id, 0, indexof(id, '/origingroups/')) | extend compliant
-    = (isnull(properties['healthProbeSettings']['probeRequestType']) or toupper(properties['healthProbeSettings']['probeRequestType'])
-    == 'HEAD') | project compliant, id=frontDoorId
+queries: {}
+schemaVersion: 1
+id: a13f72f3-8f5c-4864-95e5-75bf37fbbeb1
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-front-door
+    title: Architecture best practices for Azure Front Door
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations
+    title: Performance recommendations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources
+    title: Azure Resource Graph table and resource type reference
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/frontdoor/health-probes
+    title: Health probes
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-performance-catalog
+    recommendationId: 241b9d61-3657-4096-85c3-83ad2a5f36e2
+    url: https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:603628cd62616b88a5fdd77b5cab70f6545ed0b11cfdd7c7d843f37c1753696a
+    notes: The catalog names classic Microsoft.Network/frontdoors. Modern Front Door probe guidance is
+      related, but different resource scope prevents counting this as full or partial type-specific coverage.
+description: HEAD reduces probe response traffic when the origin returns the required health status without
+  a body. Confirm that the application's health endpoint handles HEAD correctly; use a justified alternative
+  when it does not. Missing probe configuration is not evidence of a correct HEAD probe. Review origin-group
+  settings through the service API or portal; the inherited CdnResources query has no established ARG
+  table support.

@@ -1,19 +1,49 @@
 name: aprl-LogAnalyticsWorkspaceExpressrouteTrafficCollector
-title: Ensure ExpressRoute Traffic Collector is enabled and configured for Direct
-  or Provider circuits
-description: |-
-  ExpressRoute Traffic Collector samples network flows over ExpressRoute Direct or Service-Provider based circuits, sending flow logs to a Log Analytics workspace for analysis or export to visualization tools/SIEM.
+title: Ensure ExpressRoute Traffic Collector is enabled and configured for Direct or Provider circuits
+description: ExpressRoute Traffic Collector samples network flows over ExpressRoute Direct or Service-Provider
+  based circuits, sending flow logs to a Log Analytics workspace for analysis or export to visualization
+  tools/SIEM.
 source:
   type: aprl
   file: azure-resources/NetworkFunction/azureTrafficCollectors/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetworkFunction/azureTrafficCollectors
+- microsoft.networkfunction/azuretrafficcollectors
 severity: 1
 labels:
   guid: 1ceea4b5-1d8b-4be0-9bbe-9594557be51a
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 1ceea4b5-1d8b-4be0-9bbe-9594557be51a
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetworkFunction/azureTrafficCollectors/recommendations.yaml
+    title: 'APRL 1ceea4b5-1d8b-4be0-9bbe-9594557be51a: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1ceea4b5-1d8b-4be0-9bbe-9594557be51a
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetworkFunction/azureTrafficCollectors/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:183893c0df2b11b53bb23a506dfd41c9da2becf42f7af041b0176744bea2099a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

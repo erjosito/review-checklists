@@ -1,13 +1,14 @@
 name: aprl-TwoGatewayIpConfigurationsTwoPublicIpAddresses
 title: Enable Active-Active VPN Gateways for redundancy
-description: |-
-  The active-active mode is available for all SKUs except Basic, allowing for two Gateway IP configurations and two public IP addresses, enhancing redundancy and traffic handling.
+description: The active-active mode is available for all SKUs except Basic, allowing for two Gateway IP
+  configurations and two public IP addresses, enhancing redundancy and traffic handling. Mission Critical
+  workloads should use dual ExpressRoutes instead of VPN.
 source:
   type: aprl
   file: azure-resources/Network/virtualNetworkGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/virtualNetworkGateways
+- microsoft.network/virtualnetworkgateways
 severity: 1
 labels:
   guid: 281a2713-c0e0-3c48-b596-19f590c46671
@@ -24,4 +25,31 @@ queries:
     | where activeactive == false
     | project recommendationId = "281a2713-c0e0-3c48-b596-19f590c46671", name, id, tags
 
-...
+schemaVersion: 1
+id: 281a2713-c0e0-3c48-b596-19f590c46671
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworkGateways/recommendations.yaml
+    title: 'APRL 281a2713-c0e0-3c48-b596-19f590c46671: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 281a2713-c0e0-3c48-b596-19f590c46671
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworkGateways/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:10a236e7bb1ac2b277f67453f629e81a3cf6f2db0925a74a268f695d13006b20
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

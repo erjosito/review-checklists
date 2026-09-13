@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions?source=recommendations
 queries: {}
+schemaVersion: 1
+id: e6e20617-3686-4af4-9791-f8935ada4332
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

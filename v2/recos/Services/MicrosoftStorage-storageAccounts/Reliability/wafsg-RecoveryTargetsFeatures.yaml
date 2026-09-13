@@ -14,3 +14,13 @@ labels:
   guid: ff928466-de8a-496a-b5ba-aa8c358e3e09
 links: []
 queries: {}
+schemaVersion: 1
+id: ff928466-de8a-496a-b5ba-aa8c358e3e09
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

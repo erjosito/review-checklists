@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/frontdoor/origin-security?tabs=app-service-functions
 queries: {}
+schemaVersion: 1
+id: 7d3df025-59a3-447d-ac25-3f5750d35de1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

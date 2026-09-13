@@ -1,7 +1,7 @@
 name: wafsg-EmergencyRecoveryPlansDataProtectionFeatures
-title: 'Create maintenance and emergency recovery plans: Consider data protection
-  features, backup and restore operations, and failover procedures. Prepare for potential
-  data loss and data inconsistencies and the time and cost of failing over.'
+title: 'Create maintenance and emergency recovery plans: Consider data protection features, backup and
+  restore operations, and failover procedures. Prepare for potential data loss and data inconsistencies
+  and the time and cost of failing over.'
 description: ''
 source:
   type: wafsg
@@ -15,3 +15,23 @@ labels:
   guid: 2f429983-43fe-4e9a-a0f7-ec3328270b5c
 links: []
 queries: {}
+schemaVersion: 1
+id: 2f429983-43fe-4e9a-a0f7-ec3328270b5c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 7de2699b-2c67-4b05-90a4-45d6c9d6693a
+  name: wafsg-EmergencyRecoveryPlansDataProtectionFeatures-1
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-files.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 7de2699b-2c67-4b05-90a4-45d6c9d6693a
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Operations/wafsg-EmergencyRecoveryPlansDataProtectionFeatures-1.yaml

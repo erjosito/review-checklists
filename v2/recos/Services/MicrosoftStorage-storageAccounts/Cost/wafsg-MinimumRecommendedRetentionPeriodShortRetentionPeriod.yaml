@@ -1,13 +1,9 @@
 name: wafsg-MinimumRecommendedRetentionPeriodShortRetentionPeriod
-title: If you enable soft delete, then place blobs that are frequently overwritten
-  into an account that doesn't have soft delete enabled. Set retention periods. Consider
-  starting with a short retention period to better understand how the feature affects
-  your bill. The minimum recommended retention period is seven days.
-description: Every time a blob is overwritten, a new snapshot is created. The cause
-  of increased capacity charges might be difficult to access because the creation
-  of these snapshots doesn't appear in logs. To reduce capacity charges, store frequently
-  overwritten data in a separate storage account with soft delete disabled. A retention
-  period keeps soft-deleted blobs from piling up and adding to the cost of capacity.
+title: Balance Blob soft-delete retention with recoverability and churn cost
+description: Measure retained capacity from overwrites and deletions, then choose approved soft-delete
+  retention and lifecycle policies that meet recovery and compliance objectives. Isolate high-churn data
+  only when its protection requirements justify a different policy. Do not disable recovery protection
+  or shorten retention solely to reduce cost.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -19,3 +15,18 @@ labels:
   guid: edc3f7bc-6b6c-41a8-8f11-1485781fdf58
 links: []
 queries: {}
+schemaVersion: 1
+id: edc3f7bc-6b6c-41a8-8f11-1485781fdf58
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload requirements, financial or operational judgment; a generic ARG property check
+    cannot establish this recommendation.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-data-costs
+    title: Architecture strategies for optimizing data costs
+    accessedAt: '2026-09-11'

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/ag/best-practices#define-your-waf-configuration-as-code
 queries: {}
+schemaVersion: 1
+id: ba0e9b26-6e0d-4ec8-8541-023c00afd5b7
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

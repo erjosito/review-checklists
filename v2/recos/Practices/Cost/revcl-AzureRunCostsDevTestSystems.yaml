@@ -1,6 +1,5 @@
 name: revcl-AzureRunCostsDevTestSystems
-title: Consider running dev/test systems in a snooze model to save and optimize Azure
-  run costs.
+title: Schedule nonproduction shutdown and expiry with recovery safeguards
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +12,28 @@ links:
 - type: docs
   url: https://azure.microsoft.com/pricing/offers/dev-test/
 queries: {}
+schemaVersion: 1
+id: a491dfc4-9353-4213-9217-eef0949f9467
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Schedules and run history can be inspected through service-specific configuration and automation
+    systems; ARG inventory alone does not verify actual stop/start behavior.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/set-spending-guardrails
+    title: Architecture strategies for setting spending guardrails
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/compute
+    title: FinOps best practices for compute
+    accessedAt: '2026-09-11'
+description: Define owner-approved operating hours and expiration for nonproduction environments. Automate
+  supported stop/deallocation and restart operations with dependency ordering, timezone handling, exceptions
+  and restart checks. Review residual storage/network charges and avoid assuming a schedule alone eliminates
+  all cost.

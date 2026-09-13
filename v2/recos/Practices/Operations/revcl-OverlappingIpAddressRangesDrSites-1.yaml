@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/design-ip-addressing-for-azure/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 54c7c892-9cb1-407d-9325-ae525ba34d46
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

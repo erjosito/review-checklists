@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/security-center/container-security
 queries: {}
+schemaVersion: 1
+id: 59bce65d-e8a0-43f9-9879-468d66a786d6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

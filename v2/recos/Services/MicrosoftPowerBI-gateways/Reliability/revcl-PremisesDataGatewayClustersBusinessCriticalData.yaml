@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/data-integration/gateway/service-gateway-high-availability-clusters
 queries: {}
+schemaVersion: 1
+id: 89f89dc7-b44b-4e3b-8a27-f8b9e91be103
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

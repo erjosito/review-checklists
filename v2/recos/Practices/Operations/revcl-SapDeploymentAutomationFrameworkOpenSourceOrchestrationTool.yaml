@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://github.com/Azure/sap-automation
 queries: {}
+schemaVersion: 1
+id: 5d75e99d-624d-4afe-91d9-e17adc580790
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

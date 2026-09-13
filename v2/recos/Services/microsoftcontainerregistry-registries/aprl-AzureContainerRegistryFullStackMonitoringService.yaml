@@ -1,18 +1,56 @@
 name: aprl-AzureContainerRegistryFullStackMonitoringService
 title: Monitor Azure Container Registry with Azure Monitor
-description: |-
-  Monitoring Azure resources using Azure Monitor enhances their availability, performance, and operation. Azure Container Registry, a full-stack monitoring service, provides features for Azure and other cloud and on-premises resources.
+description: Use Azure Monitor to analyze Azure Container Registry metrics and logs and configure actionable
+  alerts. Platform metrics and the Activity log are collected automatically; resource logs require diagnostic
+  settings and a destination. Review registry usage, push/pull activity, failures, and resource-specific
+  metrics. Azure Container Registry produces the telemetry; Azure Monitor is the monitoring service.
 source:
   type: aprl
   file: azure-resources/ContainerRegistry/registries/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerRegistry/registries
+- microsoft.containerregistry/registries
 severity: 1
 labels:
   guid: d594cde6-4116-d143-a64a-25f63289a2f8
   area: Monitoring and Alerting
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/container-registry/monitor-container-registry
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: d594cde6-4116-d143-a64a-25f63289a2f8
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/container-registry/monitor-container-registry
+    title: Container Registry monitoring roles and telemetry collection prerequisites
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    title: 'APRL d594cde6-4116-d143-a64a-25f63289a2f8: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: d594cde6-4116-d143-a64a-25f63289a2f8
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerRegistry/registries/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:c4be8b622b61ead9195ef497dd654b6256decf8b137b3a90fb5af512199fbbb4
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Container Registry monitoring roles and telemetry
+      collection prerequisites. Represented comment-only/empty ARG honestly as manual or candidate automation.
+      Coverage concerns the inventory''s explicit metadata fingerprint; queries were not executed and
+      lastReviewed/validatedAt remain unchanged.'
+waf: Operations

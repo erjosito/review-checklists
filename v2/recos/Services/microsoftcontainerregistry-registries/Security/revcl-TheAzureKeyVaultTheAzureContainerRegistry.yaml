@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/container-registry-tutorial-sign-build-push
 queries: {}
+schemaVersion: 1
+id: d345293c-7639-4637-a551-c5c04e401955
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

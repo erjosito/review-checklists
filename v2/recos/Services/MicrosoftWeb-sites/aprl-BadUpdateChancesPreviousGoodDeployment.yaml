@@ -1,13 +1,14 @@
 name: aprl-BadUpdateChancesPreviousGoodDeployment
 title: Deploy to a staging slot
-description: |-
-  Create a deployment slot for staging to deploy updates, verify them, and ensure all instances are warmed up before production swap, reducing bad update chances. An LKG slot allows easy rollback to a previous good deployment if issues arise later, enhancing reliability.
+description: Create a deployment slot for staging to deploy updates, verify them, and ensure all instances
+  are warmed up before production swap, reducing bad update chances. An LKG slot allows easy rollback
+  to a previous good deployment if issues arise later, enhancing reliability.
 source:
   type: aprl
   file: azure-resources/Web/sites/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/sites
+- microsoft.web/sites
 severity: 2
 labels:
   guid: a1d91661-32d4-430b-b3b6-5adeb0975df7
@@ -29,3 +30,35 @@ queries:
     | extend DeploymentSlotEnabled = iff(Slots > 1, true, false)
     | where DeploymentSlotEnabled = false
     | project recommendationId="a1d91661-32d4-430b-b3b6-5adeb0975df7", name, id, tags="", param1=Sku, param2=Slots, param3="DeploymentSlotEnabled=false"
+schemaVersion: 1
+id: a1d91661-32d4-430b-b3b6-5adeb0975df7
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    title: 'APRL a1d91661-32d4-430b-b3b6-5adeb0975df7: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: a1d91661-32d4-430b-b3b6-5adeb0975df7
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:fdd52a3ef1024541a127e4ad4ed27004f48977412490eadff7faa09c3c5795e8
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

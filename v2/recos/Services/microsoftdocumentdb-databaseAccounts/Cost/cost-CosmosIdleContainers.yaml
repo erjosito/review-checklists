@@ -1,0 +1,79 @@
+id: 577a5f04-5ce3-5bf2-be7b-28c1ec86f362
+name: cost-CosmosIdleContainers
+source:
+  type: curated
+  url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+- type: docs
+  url: https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-data-costs
+title: Review Advisor-identified inactive Cosmos DB containers before reducing spend
+description: Investigate containers with Advisor inactivity recommendations, confirm retention, future
+  demand and recovery obligations, and assess safe throughput reduction or approved retirement. Validate
+  relevant database/container ownership and current activity; an account-level Advisor row may represent
+  only selected child containers.
+waf: Cost
+severity: 1
+services:
+- Azure Cosmos DB
+resourceTypes:
+- microsoft.documentdb/databaseaccounts
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG inventory/Advisor query available but unvalidated; financial and operational judgment remains mandatory.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Inventory of Advisor-issued cost opportunities. The recommendation ID is id; the affected resource is targetResourceId. A row is not a policy violation and absence is not a pass.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Advisor recommendations depend on service coverage, telemetry, configured lookback and recommendation freshness; review dismissals/postponements in Advisor. Published recommendationTypeId values are used verbatim; no inferred IDs or text matching. IDs and coverage can evolve. Savings fields vary by recommendation. Preserve extendedProperties rather than assume a universal monthly/annual field; do not sum overlapping opportunities or mixed currencies/time horizons. Advisor estimates may not reflect existing reservations, savings plans, negotiated rates or operational constraints. Do not inner-join to Resources: subscription-level commitments and some affected child resources would be lost.
+  resultSemantics: inventory
+queries:
+  arg: |-
+    AdvisorResources
+    | where type =~ 'microsoft.advisor/recommendations'
+    | where properties.category =~ 'Cost'
+    | where tostring(properties.recommendationTypeId) in~ ('a4255ba5-b07e-45ae-99ca-25e6c2079e3c')
+    | project id, subscriptionId, resourceGroup,
+        targetResourceId = tostring(properties.resourceMetadata.resourceId),
+        impactedField = tostring(properties.impactedField),
+        recommendationTypeId = tostring(properties.recommendationTypeId),
+        impact = tostring(properties.impact),
+        problem = tostring(properties.shortDescription.problem),
+        solution = tostring(properties.shortDescription.solution),
+        lastUpdated = tostring(properties.lastUpdated),
+        extendedProperties = properties.extendedProperties
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-data-costs
+    title: Architecture strategies for optimizing data costs
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-cost-catalog
+    recommendationId: a4255ba5-b07e-45ae-99ca-25e6c2079e3c
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:a96ac35589c50971e7d8a781492f9d019971ba06fee810e7ce50f52a0bf0aba5
+    notes: The local control reviews Advisor inactivity evidence and both throughput reduction and approved
+      retirement, accounting for affected child containers and retained data. Source-text assessment,
+      not independent human approval or live Azure validation.
+schemaVersion: 1

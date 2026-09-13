@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/reliability/reliability-bot#cross-region-disaster-recovery-in-multi-region-geography
 queries: {}
+schemaVersion: 1
+id: 19bfe9d5-5d04-4c3c-9919-ca1b2d1215ae
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

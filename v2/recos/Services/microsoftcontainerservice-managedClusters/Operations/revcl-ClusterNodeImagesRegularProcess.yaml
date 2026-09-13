@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/node-image-upgrade
 queries: {}
+schemaVersion: 1
+id: 139c9580-ade3-426a-ba09-cf157d9f6477
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

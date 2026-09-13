@@ -1,13 +1,14 @@
 name: aprl-DemandingNetworkWorkloadsAcceleratedNetworking
 title: Enable Accelerated Networking (AccelNet)
-description: |-
-  Accelerated networking enables SR-IOV to a VM, greatly improving its networking performance by bypassing the host from the data path, which reduces latency, jitter, and CPU utilization for demanding network workloads on supported VM types.
+description: Accelerated networking enables SR-IOV to a VM, greatly improving its networking performance
+  by bypassing the host from the data path, which reduces latency, jitter, and CPU utilization for demanding
+  network workloads on supported VM types.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 1
 labels:
   guid: dfedbeb1-1519-fc47-86a5-52f96cf07105
@@ -32,3 +33,31 @@ queries:
     | extend param1 = strcat("NicName: ", strcat_array(nicNames, ", ")), param2 = strcat("VMSize: ", vmSize)
     | project recommendationId = "dfedbeb1-1519-fc47-86a5-52f96cf07105", name, id, tags, param1, param2
     | order by id asc
+schemaVersion: 1
+id: dfedbeb1-1519-fc47-86a5-52f96cf07105
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL dfedbeb1-1519-fc47-86a5-52f96cf07105: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: dfedbeb1-1519-fc47-86a5-52f96cf07105
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d7f355ada296562705e7d2090efbb580b261766ac051889e56dee8de4d69ae0d
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

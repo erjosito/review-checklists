@@ -1,0 +1,39 @@
+schemaVersion: 1
+id: 5c8617a0-c1a5-5d95-9520-646263b48cd9
+name: performance-FlowPerformanceTargets
+title: Define numerical performance targets for every workload flow
+description: Inventory user, system and data flows and their dependencies. Agree workload-driven numerical
+  latency percentiles, throughput, concurrency and error targets, with a measurement window and owner
+  for each applicable flow. Derive component budgets from end-to-end requirements and publish the targets
+  for development and operations. Review customer feedback and revise targets when requirements change.
+  Do not copy example thresholds or infer achievement from Azure configuration inventory.
+severity: 1
+waf: Performance
+source:
+  type: curated
+  url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-targets
+resourceTypes: []
+services: []
+queries: {}
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-targets
+    title: Architecture strategies for defining performance targets
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/checklist
+    title: Design review checklist for Performance Efficiency
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:01
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/performance-targets
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6ab7cdb514ef235477c40c3cb1a5886b0e820083a9bdb01277bc40c88c9796c4
+    notes: New all-flow target register directly addresses numerical workload-driven targets for every
+      user/system/data flow. Full is limited to the checklist control statement, not all linked guidance.

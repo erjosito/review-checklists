@@ -1,13 +1,13 @@
 name: aprl-TheAzureImageBuilderServiceContinuousVirtualMachineDeployment
 title: Replicate your Image Templates to a secondary region
-description: |-
-  The Azure Image Builder service, used for deploying Image Templates, lacks availability zones support. By replicating Image Templates to a secondary, preferably paired, region, quick recovery from a region failure is enabled, ensuring continuous virtual machine deployment from these templates.
+description: The Azure Image Builder service lacks availability zones support. Replicating Image Templates
+  to a secondary region will enable the build of new images in secondary region.
 source:
   type: aprl
   file: azure-resources/VirtualMachineImages/imageTemplates/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.VirtualMachineImages/imageTemplates
+- microsoft.virtualmachineimages/imagetemplates
 severity: 2
 labels:
   guid: 21fb841b-ba70-1f4e-a460-1f72fb41aa51
@@ -22,3 +22,31 @@ queries:
     | mv-expand distribution=properties.distribute
     | where array_length(parse_json(distribution).replicationRegions) == 1
     | project recommendationId = "21fb841b-ba70-1f4e-a460-1f72fb41aa51", name, id, param1=strcat("replicationRegions:",parse_json(distribution).replicationRegions)
+schemaVersion: 1
+id: 21fb841b-ba70-1f4e-a460-1f72fb41aa51
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/VirtualMachineImages/imageTemplates/recommendations.yaml
+    title: 'APRL 21fb841b-ba70-1f4e-a460-1f72fb41aa51: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 21fb841b-ba70-1f4e-a460-1f72fb41aa51
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/VirtualMachineImages/imageTemplates/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:11053acfabdca831e0d2c00c643ebb5b2623b149ae95705771f45daee2b6ead4
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

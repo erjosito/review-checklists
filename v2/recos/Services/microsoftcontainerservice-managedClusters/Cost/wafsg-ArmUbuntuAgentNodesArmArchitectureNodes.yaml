@@ -1,8 +1,9 @@
 name: wafsg-ArmUbuntuAgentNodesArmArchitectureNodes
-title: 'Cluster architecture: Select virtual machines based on the Arm architecture.'
-description: AKS supports creating ARM64 Ubuntu agent nodes, as well as a of mix Intel
-  and ARM architecture nodes within a cluster that can bring better performance at
-  a lower cost.
+title: Evaluate Arm64 AKS node pools against workload compatibility and price-performance
+description: Compare supported Arm64 node pools with other node architectures using representative workloads,
+  compatible container images, dependencies and regional capacity. Test application behavior and operational
+  support before migration. Arm64 is a processor architecture, not Azure Resource Manager, and lower cost
+  or higher performance is not guaranteed for every workload.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +15,18 @@ labels:
   guid: 620cb68e-2005-464b-90d3-0e767babcfcd
 links: []
 queries: {}
+schemaVersion: 1
+id: 620cb68e-2005-464b-90d3-0e767babcfcd
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Remove blanket architecture selection and correct the ambiguous ARM
+    wording. Requires workload, billing and operational evidence; no ARG query or live validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service
+    title: Architecture best practices for Azure Kubernetes Service
+    accessedAt: '2026-09-11'

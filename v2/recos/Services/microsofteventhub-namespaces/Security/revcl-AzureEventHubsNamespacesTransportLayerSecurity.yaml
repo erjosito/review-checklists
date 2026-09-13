@@ -20,3 +20,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/secure-aad-users-with-mfa/
 queries: {}
+schemaVersion: 1
+id: d2f54b29-769e-43a6-a0e7-828ac936657e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

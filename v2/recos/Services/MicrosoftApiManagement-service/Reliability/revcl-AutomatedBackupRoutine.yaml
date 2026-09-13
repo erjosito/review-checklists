@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#service-native-backup-capability
 queries: {}
+schemaVersion: 1
+id: 8d2db6e8-85c6-4118-a52c-ae76a4f27934
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

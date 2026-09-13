@@ -17,3 +17,13 @@ labels:
   guid: 361c5452-9715-4191-b073-b0331eb90559
 links: []
 queries: {}
+schemaVersion: 1
+id: 361c5452-9715-4191-b073-b0331eb90559
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

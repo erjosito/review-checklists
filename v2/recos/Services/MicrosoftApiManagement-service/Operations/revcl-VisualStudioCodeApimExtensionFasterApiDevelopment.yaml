@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/visual-studio-code-tutorial
 queries: {}
+schemaVersion: 1
+id: 6c3a27c0-197f-426c-9ffa-86fed51d9ab6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

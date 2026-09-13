@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#disable-public-network-access
 queries: {}
+schemaVersion: 1
+id: d698adbd-3288-44cb-b10a-9b572da395ae
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

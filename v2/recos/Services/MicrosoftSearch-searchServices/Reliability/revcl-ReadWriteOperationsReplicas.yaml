@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/search/search-reliability#high-availability
 queries: {}
+schemaVersion: 1
+id: 7d956fd9-788a-4845-9b9f-c0340972d810
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,18 +1,48 @@
 name: aprl-HealthStatusAlertRuleLogAnalyticsWorkspace
 title: Create a health status alert rule for your Log Analytics workspace
-description: |-
-  A health status alert will proactively notify you if a workspace becomes unavailable because of a datacenter or regional failure.
+description: A health status alert will proactively notify you if a workspace becomes unavailable because
+  of a datacenter or regional failure.
 source:
   type: aprl
   file: azure-resources/OperationalInsights/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.OperationalInsights/workspaces
+- microsoft.operationalinsights/workspaces
 severity: 2
 labels:
   guid: 4b77191c-cc3c-8c4e-844b-0f56d0927890
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 4b77191c-cc3c-8c4e-844b-0f56d0927890
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/OperationalInsights/workspaces/recommendations.yaml
+    title: 'APRL 4b77191c-cc3c-8c4e-844b-0f56d0927890: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 4b77191c-cc3c-8c4e-844b-0f56d0927890
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/OperationalInsights/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:4ecd6d277d6a28c23b1d63906f80dfc7236edb2d1d551f60bf2cc2476216eb8b
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

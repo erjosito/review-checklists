@@ -1,25 +1,61 @@
 name: aprl-AzureNetappFilesReplicationAzureNetappFilesVolumes
 title: Enable Cross-region replication of Azure NetApp Files volumes
-description: |-
-  Azure NetApp Files replication offers data protection by allowing asynchronous cross-region volume replication for application failover in case of regional outages. Volumes can be replicated across regions, not concurrently with cross-zone replication. Note that failover is a manual process.
+description: Azure NetApp Files replication offers data protection by allowing asynchronous cross-region
+  volume replication for application failover in case of regional outages. Volumes can be replicated across
+  regions, not concurrently with cross-zone replication. Note that failover is a manual process.
 source:
   type: aprl
   file: azure-resources/NetApp/netAppAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.NetApp/netAppAccounts
+- microsoft.netapp/netappaccounts
 severity: 0
 labels:
   guid: e30317d2-c502-4dfe-a2d3-0a737cc79545
   area: Disaster Recovery
 links: []
 queries:
-  arg: "// Azure Resource Graph Query\n// This Resource Graph query will return all\
-    \ Azure NetApp Files volumes without cross-region replication.\nresources\n|\_\
-    where\_type\_==\_\"microsoft.netapp/netappaccounts/capacitypools/volumes\"\n|\_\
-    extend\_remoteVolumeRegion\_=\_properties.dataProtection.replication.remoteVolumeRegion\n\
-    |\_extend\_volumeType\_=\_properties.volumeType\n|\_extend\_replicationType\_\
-    =\_iff((remoteVolumeRegion\_==\_location),\_\"CZR\",\_iff((remoteVolumeRegion\_\
-    ==\_\"\"),\"n/a\",\"CRR\"))\n| where replicationType != \"CRR\" and volumeType\
-    \ != \"DataProtection\"\n| project recommendationId = \"e30317d2-c502-4dfe-a2d3-0a737cc79545\"\
-    , name, id, tags\n"
+  arg: |
+    // Azure Resource Graph Query
+    // This Resource Graph query will return all Azure NetApp Files volumes without cross-region replication.
+    resources
+    | where type == "microsoft.netapp/netappaccounts/capacitypools/volumes"
+    | extend remoteVolumeRegion = properties.dataProtection.replication.remoteVolumeRegion
+    | extend volumeType = properties.volumeType
+    | extend replicationType = iff((remoteVolumeRegion == location), "CZR", iff((remoteVolumeRegion == ""),"n/a","CRR"))
+    | where replicationType != "CRR" and volumeType != "DataProtection"
+    | project recommendationId = "e30317d2-c502-4dfe-a2d3-0a737cc79545", name, id, tags
+schemaVersion: 1
+id: e30317d2-c502-4dfe-a2d3-0a737cc79545
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The assertion that ANF cross-zone and cross-region replication
+    cannot coexist was not verified against current feature combinations. Upstream resource scope is [''Microsoft.NetApp/netAppAccounts/capacityPools/volumes''],
+    while the frozen corpus scope is [''Microsoft.NetApp/netAppAccounts'']; applicability is not broadened
+    or narrowed without separate verification. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    title: 'APRL e30317d2-c502-4dfe-a2d3-0a737cc79545: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: e30317d2-c502-4dfe-a2d3-0a737cc79545
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/NetApp/netAppAccounts/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d01279056587a1e1aac8ed7487d828cd1a61af90ffa290f456e9bb6aeb6e45d0
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. The assertion that ANF cross-zone and
+      cross-region replication cannot coexist was not verified against current feature combinations. Upstream
+      resource scope is ['Microsoft.NetApp/netAppAccounts/capacityPools/volumes'], while the frozen corpus
+      scope is ['Microsoft.NetApp/netAppAccounts']; applicability is not broadened or narrowed without
+      separate verification. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

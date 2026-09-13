@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/frontdoor/best-practices#enable-the-waf
 queries: {}
+schemaVersion: 1
+id: 28b9ee82-b2c7-45aa-bc98-6de6f59a095d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

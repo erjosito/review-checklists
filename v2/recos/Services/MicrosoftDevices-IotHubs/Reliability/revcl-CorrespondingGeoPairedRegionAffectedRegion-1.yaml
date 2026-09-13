@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/iot-hub/iot-hub-ha-dr#microsoft-initiated-failover
 queries: {}
+schemaVersion: 1
+id: 35f651e8-0124-4ef7-8c57-658e38609e6e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

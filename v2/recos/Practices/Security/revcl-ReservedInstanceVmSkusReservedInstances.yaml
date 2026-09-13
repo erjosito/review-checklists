@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/improve-reliability-modern-operations/
 queries: {}
+schemaVersion: 1
+id: c68e1d76-6673-413b-9f56-64b5e984a859
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

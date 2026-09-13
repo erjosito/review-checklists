@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
 queries: {}
+schemaVersion: 1
+id: 081a5417-4158-433e-a3ad-3c2de733165c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

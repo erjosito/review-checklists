@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/iot-dps/iot-dps-ha-dr#high-availability
 queries: {}
+schemaVersion: 1
+id: c0c273bd-00ad-419a-9f2f-fc72fb181e55
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

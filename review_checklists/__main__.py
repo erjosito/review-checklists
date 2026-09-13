@@ -9,6 +9,7 @@ import sys
 from review_checklists.corpus import ReviewError, load_corpus, read_document, select_checklist
 from review_checklists.filters import SEVERITIES, WAF_PILLARS
 from review_checklists.review import Review, STATUSES
+from scripts.modules.cl_corpus import CorpusError
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -16,12 +17,22 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def parser() -> argparse.ArgumentParser:
     result = argparse.ArgumentParser(description="Local-first Azure review checklists")
-    result.add_argument("--review", type=Path, default=Path(".reviews") / "review.sqlite3")
+    result.add_argument(
+        "--review", type=Path, default=Path(".reviews") / "review.sqlite3",
+        help="Review database filename/path (default: .reviews\\review.sqlite3); independent of --name",
+    )
     commands = result.add_subparsers(dest="command", required=True)
     init = commands.add_parser("init", help="Create a review with a pinned v2 corpus snapshot")
-    init.add_argument("--corpus", type=Path, default=ROOT / "v2" / "recos")
+    input_source = init.add_mutually_exclusive_group()
+    input_source.add_argument("--corpus", type=Path, default=ROOT / "v2" / "recos")
+    input_source.add_argument("--bundle", type=Path, help="Versioned JSON corpus bundle")
     init.add_argument("--checklist", type=Path, help="Optional v2 YAML checklist definition")
     init.add_argument("--name", default="Azure review")
+    init.add_argument("--description", default="", help="Engagement context stored in the review")
+    metadata = commands.add_parser("metadata", help="Show or edit review name and description")
+    metadata.add_argument("--name")
+    metadata.add_argument("--description", help="Use an empty string to clear the description")
+    metadata.add_argument("--revision", type=int, help="Reject metadata edits based on an outdated revision")
     listing = commands.add_parser("list", help="List review items as JSON")
     listing.add_argument("--search", default="")
     listing.add_argument("--status", choices=STATUSES, nargs="+", action="extend", default=[],
@@ -42,6 +53,18 @@ def parser() -> argparse.ArgumentParser:
     update.add_argument("--status", choices=STATUSES)
     update.add_argument("--comments")
     update.add_argument("--revision", type=int, help="Reject edits based on an outdated revision")
+    update.add_argument(
+        "--confirm-current-assessment", action="store_true",
+        help="Explicitly acknowledge refreshed guidance without changing status",
+    )
+    refresh = commands.add_parser("refresh", help="Preview or explicitly apply a versioned bundle to a review")
+    refresh.add_argument("--bundle", type=Path, required=True)
+    refresh.add_argument("--apply", action="store_true", help="Apply the exact previously previewed plan")
+    refresh.add_argument("--token", help="Token from preview; required with --apply")
+    refresh.add_argument("--add-new", action="store_true", help="Opt in to new checks within the saved/explicit scope")
+    refresh_scope = refresh.add_mutually_exclusive_group()
+    refresh_scope.add_argument("--checklist", type=Path, help="Explicit replacement scope for future additions")
+    refresh_scope.add_argument("--all-corpus", action="store_true", help="Explicitly allow all-corpus scope")
     run = commands.add_parser("run", help="Explicitly execute one pinned ARG query")
     run.add_argument("id")
     run.add_argument("--subscriptions", required=True, help="Comma-separated subscription GUIDs")
@@ -50,21 +73,95 @@ def parser() -> argparse.ArgumentParser:
     export.add_argument("--output", required=True, type=Path)
     serve = commands.add_parser("serve", help="Serve the web UI on 127.0.0.1 only")
     serve.add_argument("--port", type=int, default=8765)
+    corpus = commands.add_parser("corpus", help="Validate, migrate, or build the recommendation corpus")
+    corpus_commands = corpus.add_subparsers(dest="corpus_command", required=True)
+    for name in ("validate", "migrate", "build", "merge"):
+        command = corpus_commands.add_parser(name)
+        command.add_argument("--corpus", type=Path, default=ROOT / "v2" / "recos")
+        if name == "migrate":
+            command.add_argument("--write", action="store_true", help="Apply the preflighted metadata migration")
+        if name == "build":
+            command.add_argument("--version", required=True)
+            command.add_argument("--output", type=Path, required=True)
+        if name == "merge":
+            command.add_argument("--manifest", type=Path, required=True)
+            command.add_argument("--write", action="store_true")
     return result
 
 
 def main(argv=None) -> int:
     args = parser().parse_args(argv)
     try:
+        if args.command == "corpus":
+            from review_checklists.catalog import build_bundle, migrate_corpus
+            if args.corpus_command == "validate":
+                recos = load_corpus(args.corpus, require_current=True)
+                print(f"Validated {len(recos)} recommendations and their aliases.")
+            elif args.corpus_command == "migrate":
+                print(json.dumps(migrate_corpus(args.corpus, write=args.write), indent=2))
+            elif args.corpus_command == "merge":
+                from review_checklists.merge import merge_confirmed, read_merge_manifest
+                groups = read_merge_manifest(args.manifest)
+                print(json.dumps(merge_confirmed(args.corpus, groups, write=args.write), indent=2))
+            else:
+                bundle = build_bundle(args.corpus, args.version, args.output)
+                print(f"Built {args.output}: {len(bundle['recommendations'])} recommendations, "
+                      f"version {bundle['corpusVersion']}, {bundle['contentHash']}")
+            return 0
         if args.command == "init":
-            recos = load_corpus(args.corpus)
+            bundle = None
+            if args.bundle:
+                from review_checklists.catalog import read_bundle
+                bundle = read_bundle(args.bundle)
+                recos = bundle["recommendations"]
+            else:
+                recos = load_corpus(args.corpus)
+            scope = {"kind": "all"}
             if args.checklist:
-                recos = select_checklist(recos, read_document(args.checklist))
-            Review.create(args.review, args.name, recos, args.corpus)
+                definition = read_document(args.checklist)
+                recos = select_checklist(recos, definition)
+                scope = {"kind": "checklist", "definition": definition}
+            Review.create(
+                args.review, args.name, recos, args.bundle or args.corpus,
+                description=args.description,
+                corpus_version=bundle["corpusVersion"] if bundle else None,
+                corpus_content_hash=bundle["contentHash"] if bundle else None,
+                scope=scope,
+            )
             print(f"Created {args.review} with {len(recos)} recommendations.")
             return 0
         review = Review(args.review)
-        if args.command == "list":
+        if args.command == "refresh":
+            from review_checklists.catalog import read_bundle
+            from review_checklists.refresh import apply_refresh, plan_refresh
+            if args.apply and not args.token:
+                raise ReviewError("--apply requires --token from a prior refresh preview")
+            if args.token and not args.apply:
+                raise ReviewError("--token is only used with --apply")
+            scope = None
+            if args.checklist:
+                scope = {"kind": "checklist", "definition": read_document(args.checklist)}
+            elif args.all_corpus:
+                scope = {"kind": "all"}
+            bundle = read_bundle(args.bundle)
+            options = {"add_new": args.add_new, "scope": scope}
+            result = (
+                apply_refresh(review, bundle, token=args.token, **options)
+                if args.apply else plan_refresh(review, bundle, **options)
+            )
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+        elif args.command == "metadata":
+            if args.name is not None or args.description is not None:
+                review.update_metadata(
+                    name=args.name, description=args.description, revision=args.revision,
+                )
+            elif args.revision is not None:
+                raise ReviewError("Specify --name or --description when using --revision")
+            print(json.dumps(
+                {"file": str(review.path), "metadata": review.metadata},
+                ensure_ascii=False, indent=2,
+            ))
+        elif args.command == "list":
             print(json.dumps(
                 review.items(
                     args.search, args.status, severity=args.severity,
@@ -77,13 +174,14 @@ def main(argv=None) -> int:
                 ensure_ascii=False, indent=2,
             ))
         elif args.command == "update":
-            if args.status is None and args.comments is None:
-                raise ReviewError("Specify --status or --comments")
+            if args.status is None and args.comments is None and not args.confirm_current_assessment:
+                raise ReviewError("Specify --status, --comments, or --confirm-current-assessment")
             item = review.get(args.id)
             review.update(
                 args.id, args.status if args.status is not None else item["status"],
                 args.comments if args.comments is not None else item["comments"],
                 args.revision if args.revision is not None else item["revision"],
+                confirm_current_assessment=args.confirm_current_assessment,
             )
             print("Review saved.")
         elif args.command == "run":
@@ -110,7 +208,7 @@ def main(argv=None) -> int:
             from review_checklists.web import create_app
             print(f"Open http://127.0.0.1:{args.port} (Ctrl+C to stop)", flush=True)
             serve(create_app(review), host="127.0.0.1", port=args.port)
-    except (ReviewError, OSError, sqlite3.Error) as exc:
+    except (ReviewError, CorpusError, OSError, sqlite3.Error) as exc:
         print(f"Error: {exc}", file=sys.stderr)
         return 1
     return 0

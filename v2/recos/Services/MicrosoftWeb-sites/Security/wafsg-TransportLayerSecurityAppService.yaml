@@ -1,9 +1,9 @@
 name: wafsg-TransportLayerSecurityAppService
-title: (App Service) Configure custom domains for applications.  Disable HTTP and
-  only accept HTTPS requests.
-description: Custom domains enable secure communication through HTTPS using Transport
-  Layer Security (TLS) protocol, which ensures the protection of sensitive data and
-  builds user trust.
+title: Secure App Service custom domains with valid certificates and enforce HTTPS.
+description: Configure certificate bindings for the intended hostnames and enable HTTPS Only to redirect
+  HTTP requests to HTTPS. Test trust, hostname matching, expiration and renewal; the portal's Secured
+  label alone does not verify these properties. HTTPS Only is a redirect control, not evidence that the
+  shared HTTP port is closed. Validate minimum TLS requirements and any proxy-to-origin encryption separately.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +15,32 @@ labels:
   guid: ef64b1c3-a41f-4913-8ac4-27be04d96d10
 links: []
 queries: {}
+schemaVersion: 1
+id: ef64b1c3-a41f-4913-8ac4-27be04d96d10
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/app-service/configure-ssl-bindings
+    title: Secure your domain with TLS/SSL
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/app-service/configure-common
+    title: Configure an App Service app
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:07
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/encryption
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

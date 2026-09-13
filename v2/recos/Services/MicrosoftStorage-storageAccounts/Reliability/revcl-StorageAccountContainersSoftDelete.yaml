@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/blobs/soft-delete-container-enable
 queries: {}
+schemaVersion: 1
+id: a3992c2d-e6e2-4065-a3a7-6af4a691e893
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

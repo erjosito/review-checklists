@@ -1,18 +1,23 @@
 name: aprl-AzureApiManagementPlatformVersionApiManagementStv
-title: Azure API Management platform version should be stv2
-description: |-
-  Upgrading to API Management stv2 is required as stv1 retires on 31 Aug 2024, offering enhanced capabilities with the new platform version.
+title: Use a supported API Management platform and migrate remaining stv1 instances
+description: The classic API Management stv1 platform retirement date was August 31, 2024 in the global
+  cloud and February 24, 2025 in Azure Government and China. Identify and migrate any remaining affected
+  Developer, Basic, Standard, or Premium classic instances to a supported platform. The stv1 retirement
+  did not apply to Consumption instances using mtv1. Treat the archived retirement notice as historical
+  migration evidence, not a current SLA certification.
 source:
   type: aprl
   file: azure-resources/ApiManagement/service/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ApiManagement/service
+- microsoft.apimanagement/service
 severity: 0
 labels:
   guid: e35cf148-8eee-49d1-a1c9-956160f99e0b
   area: High Availability
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/previous-versions/azure/api-management/breaking-changes/stv1-platform-retirement-august-2024
 queries:
   arg: |
     // Azure Resource Graph Query
@@ -23,3 +28,39 @@ queries:
     | extend skuName = sku.name
     | where tolower(plat_version) != tolower('stv2')
     | project recommendationId = "e35cf148-8eee-49d1-a1c9-956160f99e0b", name, id, tags, param1=strcat("Platform Version: ", plat_version) , param2=strcat("SKU: ", skuName)
+schemaVersion: 1
+id: e35cf148-8eee-49d1-a1c9-956160f99e0b
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/previous-versions/azure/api-management/breaking-changes/stv1-platform-retirement-august-2024
+    title: Archived API Management stv1 retirement scope and dates
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ApiManagement/service/recommendations.yaml
+    title: 'APRL e35cf148-8eee-49d1-a1c9-956160f99e0b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: e35cf148-8eee-49d1-a1c9-956160f99e0b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ApiManagement/service/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:de64d513b44f81126e80033ca3f40cb3bcc0c4df860a5a39bdb7df6c287fa7e2
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Archived API Management stv1 retirement scope and
+      dates. Current upstream ARG differs from the frozen query; the old executable body is retained pending
+      semantic/edge-case validation, not silently replaced by unreviewed KQL. Coverage concerns the inventory''s
+      explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.'
+waf: Operations

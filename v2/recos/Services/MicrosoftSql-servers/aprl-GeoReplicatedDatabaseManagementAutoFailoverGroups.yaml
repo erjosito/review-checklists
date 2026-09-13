@@ -1,14 +1,14 @@
 name: aprl-GeoReplicatedDatabaseManagementAutoFailoverGroups
-title: Auto Failover Groups can encompass one or multiple databases, usually used
-  by the same app.
-description: |-
-  Failover Groups facilitate disaster recovery by configuring databases on one logical server to replicate to another region's logical server. This streamlines geo-replicated database management, offering a single endpoint for connection routing to replicated databases if the primary server fails.
+title: Auto Failover Groups can encompass one or multiple databases, usually used by the same app.
+description: Failover Groups facilitate disaster recovery by configuring databases on one logical server
+  to replicate to another region's logical server. This streamlines geo-replicated database management,
+  offering a single endpoint for connection routing to replicated databases if the primary server fails.
 source:
   type: aprl
   file: azure-resources/Sql/servers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Sql/servers
+- microsoft.sql/servers
 severity: 0
 labels:
   guid: 943c168a-2ec2-a94c-8015-85732a1b4859
@@ -22,3 +22,34 @@ queries:
     | where type =~'microsoft.sql/servers/databases'
     | where isnull(properties['failoverGroupId'])
     | project recommendationId = "943c168a-2ec2-a94c-8015-85732a1b4859", name, id, tags, param1= strcat("databaseId=", properties['databaseId'])
+schemaVersion: 1
+id: 943c168a-2ec2-a94c-8015-85732a1b4859
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Sql/servers/recommendations.yaml
+    title: 'APRL 943c168a-2ec2-a94c-8015-85732a1b4859: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 943c168a-2ec2-a94c-8015-85732a1b4859
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Sql/servers/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:179462dd6cf84de8374b7c0992d20555d2e74a619f25187f864bf19e2453b75a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

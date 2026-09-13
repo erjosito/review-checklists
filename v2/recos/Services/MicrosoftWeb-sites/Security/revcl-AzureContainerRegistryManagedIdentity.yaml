@@ -1,7 +1,6 @@
 name: revcl-AzureContainerRegistryManagedIdentity
 title: Pull containers using a Managed Identity
-description: Where using images stored in Azure Container Registry, pull these using
-  a Managed Identity.
+description: Where using images stored in Azure Container Registry, pull these using a Managed Identity.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +14,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/configure-custom-container#use-managed-identity-to-pull-image-from-azure-container-registry
 queries: {}
+schemaVersion: 1
+id: d9a25827-18d2-4ddb-8072-5769ee6691a4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

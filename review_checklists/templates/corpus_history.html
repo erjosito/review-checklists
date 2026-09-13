@@ -1,0 +1,37 @@
+{% extends "corpus_base.html" %}
+{% block title %}Corpus maintenance history{% endblock %}
+{% block content %}
+<h1>Recorded maintenance history</h1>
+<p>Read from allowlisted structured local reports, never inferred from Markdown.
+  Dates and before/after counts describe recorded events, not necessarily today's
+  corpus. Overlapping audit and aggregate summaries are not added to application events.</p>
+{% for error in history.errors %}<p class="error" role="alert">{{ error }}</p>{% endfor %}
+<h2>Application events</h2>
+{% for event in history.events %}
+<section><h3><a href="{{ url_for('corpus_admin.report', name=event.filename) }}">{{ event.filename }}</a></h3>
+<p>{{ event.date }} - {{ event.status }}</p><p>{{ event.scope }}</p>
+<pre>{{ event.summary | tojson(indent=2) }}</pre></section>
+{% else %}<p>No application events recorded in the recognized reports.</p>{% endfor %}
+<h2>Aggregate, audit and proposal snapshots</h2>
+{% for event in history.snapshots %}
+<details><summary>{{ event.filename }} - {{ event.status }} ({{ event.date }})</summary>
+<p>{{ event.scope }}</p><pre>{{ event.summary | tojson(indent=2) }}</pre>
+<a href="{{ url_for('corpus_admin.report', name=event.filename) }}">Download source report as plain text</a>
+</details>{% else %}<p>No recognized snapshots recorded.</p>{% endfor %}
+<h2>Technical deferrals</h2>
+<p>The authoritative recorded set is <code>alias-migration.json / finalTechnicalDeferrals</code>.
+  It is not combined with superseded audit candidates. Entries remain recorded decisions,
+  not a fresh technical reassessment by this dashboard.</p>
+{% if history.deferrals is none %}<p>Not recorded. No zero-deferral conclusion is implied.</p>
+{% else %}<p>{{ history.deferrals | length }} recorded technical deferral groups.</p>
+{% for item in history.deferrals %}
+<details><summary>{{ item.groupId }} - {{ item.get('finalDisposition', item.get('status', 'Not recorded')) }}</summary>
+{% if item.get('canonicalId') %}<p><a href="{{ url_for('corpus_admin.recommendation', identity=item.canonicalId) }}">Canonical recommendation {{ item.canonicalId }}</a></p>{% endif %}
+<ul>{% for reason in item.reasons %}<li>{{ reason }}</li>{% endfor %}</ul>
+<pre>{{ item | tojson(indent=2) }}</pre></details>
+{% endfor %}{% endif %}
+<h2>Human-readable reports</h2>
+<p>Markdown is downloaded as plain text, not rendered as executable HTML.</p>
+<ul>{% for name in history.documents %}<li><a href="{{ url_for('corpus_admin.report', name=name) }}">{{ name }}</a></li>
+{% else %}<li>No allowlisted public Markdown reports recorded.</li>{% endfor %}</ul>
+{% endblock %}

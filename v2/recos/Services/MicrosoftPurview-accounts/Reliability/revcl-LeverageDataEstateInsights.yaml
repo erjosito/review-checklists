@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/concept-insights
 queries: {}
+schemaVersion: 1
+id: 03324ecf-8cc1-4331-ada6-1170269f4fb4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,7 +1,5 @@
 name: revcl-FastViolationDetectionConsistentPolicyAdherence
-title: 'Use Azure Policy for access control and compliance reporting. Azure Policy
-  provides the ability to enforce organization-wide settings to ensure consistent
-  policy adherence and fast violation detection. '
+title: Use Azure Policy for resource governance and compliance reporting alongside Azure RBAC
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +14,21 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/architect-infrastructure-operations/
 queries: {}
+schemaVersion: 1
+id: 5325ae52-5ba3-44d4-985e-2213ace7bb12
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/governance/policy/overview
+    title: Overview of Azure Policy
+    accessedAt: '2026-09-11'
+description: Use Azure Policy definitions, initiatives and assignments to evaluate and enforce organizational
+  resource standards and report noncompliance. Combine this with Azure RBAC for authorization. Review
+  assignment scope, exclusions, exemptions, effects and remediation permissions. Evaluation occurs at
+  documented lifecycle triggers and periodic cycles, not as a guarantee of immediate detection. Test policies
+  before broad enforcement.

@@ -1,10 +1,11 @@
 name: wafsg-LoadBalancerTcpResetMatchTimeoutSettings
 title: Match timeout settings with the backend application
-description: Ensure you have configured the IdleTimeout settings to match the listener
-  and traffic characteristics of the backend application. The default value is set
-  to four minutes and can be configured to a maximum of 30. For more information,
-  see Load Balancer TCP Reset and Idle Timeout.For workload considerations, see Monitoring
-  application health for reliability.
+description: Identify the Application Gateway setting relevant to the protocol and traffic pattern instead
+  of applying Azure Load Balancer idle-timeout limits. For planned backend removal, configure connection
+  draining to accommodate expected transfers and account for affinity and long-running connections. Validate
+  HTTP request timeout, backend behavior and deployment recovery against current Application Gateway documentation.
+  The previous four-minute/default and thirty-minute/maximum Load Balancer statement did not establish
+  Application Gateway limits.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -16,3 +17,19 @@ labels:
   guid: 9dd45a04-f63b-4ba8-bb19-0fa074b57dcc
 links: []
 queries: {}
+schemaVersion: 1
+id: 9dd45a04-f63b-4ba8-bb19-0fa074b57dcc
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/application-gateway/configuration-http-settings
+    title: Azure Application Gateway backend settings configuration
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    title: Architecture strategies for safe deployment practices
+    accessedAt: '2026-09-11'

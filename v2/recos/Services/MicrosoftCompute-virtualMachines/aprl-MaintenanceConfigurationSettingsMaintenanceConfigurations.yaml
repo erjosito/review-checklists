@@ -1,14 +1,14 @@
 name: aprl-MaintenanceConfigurationSettingsMaintenanceConfigurations
-title: Use maintenance configurations for the VMs
-description: |-
-  The maintenance configuration settings let users schedule and manage updates, making sure the updates or interruptions on the VM are performed within a planned timeframe.
+title: Use maintenance configurations for the Dedicated and/or Isolated VM SKUs
+description: The maintenance configuration settings let users schedule and manage updates, making sure
+  the updates or interruptions on the VM are performed within a planned timeframe.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
-severity: 0
+- microsoft.compute/virtualmachines
+severity: 1
 labels:
   guid: 52ab9e5c-eec0-3148-8bd7-b6dd9e1be870
   area: High Availability
@@ -30,3 +30,35 @@ queries:
     | where isnull(maintenanceProps)
     | project recommendationId = "52ab9e5c-eec0-3148-8bd7-b6dd9e1be870",name, id, tags
     | order by id asc
+schemaVersion: 1
+id: 52ab9e5c-eec0-3148-8bd7-b6dd9e1be870
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL 52ab9e5c-eec0-3148-8bd7-b6dd9e1be870: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 52ab9e5c-eec0-3148-8bd7-b6dd9e1be870
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:8e2d01303ddd21257530343c198dc8fcb9138a4e704df6a4f4d213b6dd025b62
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

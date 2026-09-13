@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "advisor-security-catalog",
+  "title": "Azure Advisor Security recommendation-ID inventory gap",
+  "scope": "Published Azure Advisor Security recommendation type IDs",
+  "unit": "published-advisor-recommendation-guid",
+  "asOf": "2026-09-11",
+  "retrievedAt": "2026-09-11T18:16:24.425965Z",
+  "upstreamRevision": null,
+  "inventoryStatus": "unknown",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/defender-for-cloud/review-security-recommendations"
+  ],
+  "observedCount": 0,
+  "denominator": null,
+  "counts": {
+    "full": 0,
+    "partial": 0,
+    "stale": 0,
+    "supporting": 0,
+    "unknown": 0
+  },
+  "coveragePercent": null,
+  "partialPercent": null,
+  "reason": "Inventory is not complete for the stated scope and unit. Inventory is empty; no nonempty denominator is established. No current full/partial ID assessments; missing, supporting, or stale references are not zero coverage.",
+  "assessmentBasis": "Recorded explicit ID mappings with matching content hashes; not independent human semantic review.",
+  "limitations": [
+    "The Advisor Security reference URL could not be retrieved.",
+    "The Advisor security guidance URL redirects to Defender for Cloud review guidance, not a complete Advisor type-ID catalog.",
+    "An empty inventory records an evidence gap; it is not a zero-recommendation denominator, a zero-percent coverage score or a compliance pass.",
+    "Defender assessment keys, Azure Policy IDs, local GUIDs and Advisor recommendation-type IDs cannot be silently equated."
+  ],
+  "items": [],
+  "referencesOutsideInventory": []
+}

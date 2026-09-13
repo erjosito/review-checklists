@@ -1,19 +1,49 @@
 name: aprl-AutomaticJobTerminationUserDefinedLocalProcesses
-title: Automatic Job Termination is enabled, ensure there are no user-defined local
-  processes
-description: |-
-  To conserve cluster resources, you can terminate a cluster to store its configuration for future reuse or autostart jobs. Clusters can auto-terminate after inactivity, but this only tracks Spark jobs, not local processes, which might still be running even after Spark jobs end.
+title: Automatic Job Termination is enabled, ensure there are no user-defined local processes
+description: To conserve cluster resources, you can terminate a cluster to store its configuration for
+  future reuse or autostart jobs. Clusters can auto-terminate after inactivity, but this only tracks Spark
+  jobs, not local processes, which might still be running even after Spark jobs end.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 1
 labels:
   guid: 3d3e53b5-ebd1-db42-b43b-d4fad74824ec
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 3d3e53b5-ebd1-db42-b43b-d4fad74824ec
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL 3d3e53b5-ebd1-db42-b43b-d4fad74824ec: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 3d3e53b5-ebd1-db42-b43b-d4fad74824ec
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:57d91621af2119c1284ed0656eb72716f89f7638e45a15b9415acd4c231ff479
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Cost

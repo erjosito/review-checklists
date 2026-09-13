@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region
 queries: {}
+schemaVersion: 1
+id: fbcb40ac-9480-4a6d-bcf4-8081252a6716
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

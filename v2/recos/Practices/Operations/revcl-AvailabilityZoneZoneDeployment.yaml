@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/quotas/quickstart-increase-quota-portal
 queries: {}
+schemaVersion: 1
+id: cbfad17b-f240-42bf-a1d8-f4f4cee661c8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

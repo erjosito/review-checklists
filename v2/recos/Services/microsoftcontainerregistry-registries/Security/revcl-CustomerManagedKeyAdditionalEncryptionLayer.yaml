@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/tutorial-customer-managed-keys
 queries: {}
+schemaVersion: 1
+id: 0bd05dc2-efd5-4d76-8d41-d2500cc47b49
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/iot-hub/iot-hub-ha-dr#cross-region-dr
 queries: {}
+schemaVersion: 1
+id: 4ed3e490-dc06-4a1e-b467-5d0239d85540
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

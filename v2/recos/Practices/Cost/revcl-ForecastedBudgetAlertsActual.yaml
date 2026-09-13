@@ -1,5 +1,5 @@
 name: revcl-ForecastedBudgetAlertsActual
-title: Configure 'Actual' and 'Forecasted' Budget Alerts.
+title: Configure actual and forecast budget alerts with accountable responders
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -15,3 +15,38 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets?bc=%2Fazure%2Fcloud-adoption-framework%2F_bread%2Ftoc.json&toc=%2Fazure%2Fcloud-adoption-framework%2Ftoc.json
 queries: {}
+schemaVersion: 1
+id: 29fd366b-a180-452b-9bd7-954b7700c667
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Budget/notification configuration and delivery history can be checked outside ARG; budget effectiveness
+    and response require billing and operational evidence.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets
+    title: 'Tutorial: Create and manage budgets'
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/collect-review-cost-data
+    title: Architecture strategies for collecting and reviewing cost data
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:03
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/collect-review-cost-data
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:c4a9ad40ca790b63fc31d3c3f429316576a093dbef493a49874e2125740e0e00
+    notes: Scoped actual/forecast thresholds, notifications and accountable responders cover the alerting
+      portion; this is not the complete daily cost/reporting process. Source-text assessment, not independent
+      human approval or live Azure validation.
+description: Set scoped budgets and actual/forecast thresholds that reflect workload forecasts and billing
+  currency. Assign owners and an escalation process, check recipients and alert delivery, and review scope/offer
+  support and data latency. Budgets notify; they do not cap charges or automatically stop resources. Any
+  automated response needs separate approval and safeguards.

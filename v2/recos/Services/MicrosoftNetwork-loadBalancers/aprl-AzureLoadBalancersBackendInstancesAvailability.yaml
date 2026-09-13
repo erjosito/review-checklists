@@ -1,13 +1,14 @@
 name: aprl-AzureLoadBalancersBackendInstancesAvailability
 title: Use Health Probes to detect backend instances availability
-description: |-
-  Health probes are used by Azure Load Balancers to determine the status of backend endpoints. Using custom health probes that are aligned with vendor recommendations enhances understanding of backend availability and facilitates monitoring of backend services for any impact.
+description: Health probes are used by Azure Load Balancers to determine the status of backend endpoints.
+  Using custom health probes that are aligned with vendor recommendations enhances understanding of backend
+  availability and facilitates monitoring of backend services for any impact.
 source:
   type: aprl
   file: azure-resources/Network/loadBalancers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/loadBalancers
+- microsoft.network/loadbalancers
 severity: 0
 labels:
   guid: e5f5fcea-f925-4578-8599-9a391e888a60
@@ -21,3 +22,18 @@ queries:
     | where type =~ "microsoft.network/loadbalancers"
     | where array_length(properties.probes) == 0
     | project recommendationId="e5f5fcea-f925-4578-8599-9a391e888a60", name, id, tags, param1="customHealthProbeUsed: false"
+schemaVersion: 1
+id: e5f5fcea-f925-4578-8599-9a391e888a60
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The frozen GUID is absent from the complete pinned upstream
+    repository inventory; historical source identity does not prove a current recommendation or replacement
+    ID. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Reliability

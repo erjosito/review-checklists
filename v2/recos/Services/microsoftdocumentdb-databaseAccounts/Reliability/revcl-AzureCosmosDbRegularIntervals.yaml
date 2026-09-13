@@ -1,8 +1,9 @@
 name: revcl-AzureCosmosDbRegularIntervals
-title: Enable Automatic Backups
-description: Azure Cosmos DB automatically takes backups of your data at regular intervals.
-  The automatic backups are taken without affecting the performance or availability
-  of the database operations. All the backups are stored separately in a storage service.
+title: Verify Cosmos DB backup mode and recoverability rather than assuming automatic backups are sufficient
+description: Review whether periodic or continuous backup meets the workload's recovery and retention
+  requirements. Automatic backup creation is not a recovery test and does not protect every account configuration
+  or region by itself. Document restore permissions, available restore points, target region, excluded
+  configuration and a tested process for restoring application access.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -18,3 +19,19 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/explore-basic-services-identity-types/
 queries: {}
+schemaVersion: 1
+id: 3499c9c1-133d-42f7-a4b1-a5bd06ff1a90
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-cosmos-db-nosql
+    title: Reliability in Azure Cosmos DB
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-restore-introduction
+    title: Continuous backup with point-in-time restore in Azure Cosmos DB
+    accessedAt: '2026-09-11'

@@ -14,3 +14,13 @@ labels:
   guid: be71278e-b14a-4c1b-9007-b7513095b138
 links: []
 queries: {}
+schemaVersion: 1
+id: be71278e-b14a-4c1b-9007-b7513095b138
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

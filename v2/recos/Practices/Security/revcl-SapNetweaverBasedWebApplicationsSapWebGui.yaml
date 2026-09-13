@@ -1,6 +1,5 @@
 name: revcl-SapNetweaverBasedWebApplicationsSapWebGui
-title: Implement SSO to SAP NetWeaver-based web applications like SAP Fiori and SAP
-  Web GUI by using SAML.
+title: Implement SSO to SAP NetWeaver-based web applications like SAP Fiori and SAP Web GUI by using SAML.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,4 +13,25 @@ links:
   url: https://learn.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial
 - type: docs
   url: https://learn.microsoft.com/training/modules/explore-identity-services/8-exercise-integrate-azure-active-directory-sap-netweaver
+- type: docs
+  url: https://learn.microsoft.com/training/modules/explore-identity-services/6-exercise-integrate-azure-active-directory-sap-fiori
 queries: {}
+schemaVersion: 1
+id: 325ae525-ba34-4d46-a5e2-213ace7bb122
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 9eb54dad-7861-4e1c-973a-f3bb003fc9c1
+  name: revcl-SapNetweaverBasedWebApplicationsSapWebGui-1
+  source:
+    type: revcl
+    file: ./checklists/waf_checklist.en.json
+  labels:
+    guid: 9eb54dad-7861-4e1c-973a-f3bb003fc9c1
+  corpusFile: Practices/Security/revcl-SapNetweaverBasedWebApplicationsSapWebGui-1.yaml

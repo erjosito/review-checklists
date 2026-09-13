@@ -1,5 +1,5 @@
 name: revcl-ClusterAutoscaler
-title: Use the Cluster Autoscaler
+title: Configure and test AKS cluster autoscaling at node-pool scope
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,5 +13,44 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/concepts-scale
 queries:
-  arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
-    = (isnotnull(properties.autoScalerProfile)) | distinct id,compliant
+  arg: |
+    Resources
+    | where type =~ 'microsoft.containerservice/managedclusters'
+    | mv-expand pool = properties.agentPoolProfiles
+    | project id, name, resourceGroup, subscriptionId, poolName = tostring(pool.name),
+        vmSize = tostring(pool.vmSize), enableAutoScaling = pool.enableAutoScaling,
+        minCount = pool.minCount, maxCount = pool.maxCount, osDiskType = tostring(pool.osDiskType),
+        kubeletConfig = pool.kubeletConfig, linuxOSConfig = pool.linuxOSConfig
+schemaVersion: 1
+id: 90ce65de-8e13-4f9c-abd4-69266abca264
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/cluster-autoscaler-overview
+    title: Cluster autoscaling in Azure Kubernetes Service (AKS) overview
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service
+    title: Architecture best practices for Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/scale-partition
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e8f21b18c1cdfe5dcf9305911484e8623626e30fe27b8f3812b66bafe91af90e
+    notes: AKS autoscaler review addresses controlled per-pool scale and constraints, not the complete
+      workload scale-unit and partitioning design.
+description: |-
+  Enable autoscaling on suitable node pools and choose tested minimum/maximum counts. The cluster autoscaler reacts to unschedulable pods, not merely node CPU pressure; coordinate pod requests, HPA/KEDA, quotas, subnet headroom and eviction constraints. A cluster-wide autoScalerProfile configures behavior but does not prove a pool has autoscaling enabled.
+
+  ARG returns configuration inventory only, not utilization, latency, capacity sufficiency or a compliance verdict. Missing properties, limited permissions, truncation and zero rows do not establish a pass. Compare with workload telemetry and requirements; this query has not been executed or validated against Azure.

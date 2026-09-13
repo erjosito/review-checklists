@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
 queries: {}
+schemaVersion: 1
+id: b123071a-5416-4415-a33e-a3ad2c2de732
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

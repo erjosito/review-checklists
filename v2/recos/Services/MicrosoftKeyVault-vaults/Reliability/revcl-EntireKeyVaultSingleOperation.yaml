@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/backup?tabs=azure-cli#limitations
 queries: {}
+schemaVersion: 1
+id: 45c25e29-d0ef-4f07-aa04-0f8c64cbcc04
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

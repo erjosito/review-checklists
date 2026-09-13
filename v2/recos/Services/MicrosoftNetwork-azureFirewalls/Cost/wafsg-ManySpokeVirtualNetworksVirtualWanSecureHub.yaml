@@ -16,3 +16,13 @@ labels:
   guid: 0648162b-e60c-4625-811d-8e844e53d297
 links: []
 queries: {}
+schemaVersion: 1
+id: 0648162b-e60c-4625-811d-8e844e53d297
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

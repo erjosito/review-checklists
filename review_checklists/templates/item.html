@@ -3,9 +3,17 @@
 {% set reco = item.recommendation %}
 <h1>{{ reco.title }}</h1>
 <p>{{ reco.name }} | {{ item.id }}</p>
+{% include "review_refresh_state.html" %}
+{% if metadata.get('last_applied_source') %}
+<p>Latest applied source (not every item's origin): <code>{{ metadata.last_applied_source }}</code>.</p>
+{% endif %}
+<p><a href="{{ url_for('review_refresh_history') }}">Review refresh history</a></p>
 <p>{{ {0: 'High', 1: 'Medium', 2: 'Low'}.get(reco.severity, 'Unknown') }} severity |
 {{ reco.get('waf', 'No WAF pillar') }} | Source: {{ reco.get('source', {}).get('type', 'Unknown') }}</p>
 <p>Azure service: {{ services | join(', ') if services else 'Not service-specific' }}</p>
+{% if not reco.get('services') and reco.get('resourceTypes') %}
+<p>Service labels above are inferred from resource types; explicit service classification is not recorded.</p>
+{% endif %}
 <p>{{ reco.get('area', '') }} / {{ reco.get('subarea', '') }}</p>
 <div class="text">{{ reco.get('description', '') }}</div>
 {% for link in reco.get('links', []) %}
@@ -13,6 +21,38 @@
   <p><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.url }}</a></p>
   {% endif %}
 {% endfor %}
+<details>
+  <summary>Corpus metadata and provenance</summary>
+  {% if reco.get('schemaVersion') %}
+  <p>Recommendation schema: {{ reco.schemaVersion }}.
+  Automation: {{ reco.automation.status }}.
+  Query result semantics: {{ reco.automation.get('resultSemantics', 'Not applicable') }}.
+  Query validated: {{ reco.automation.get('validatedAt') or 'Not recorded' }}.</p>
+  {% if reco.automation.get('notes') %}<p>{{ reco.automation.notes }}</p>{% endif %}
+  <p>Last reviewed: {{ reco.provenance.lastReviewed or 'Not recorded' }}.
+  Upstream revision: {{ reco.provenance.upstreamRevision or 'Not recorded' }}.</p>
+  {% for source in reco.provenance.sources %}
+    {% if source.url.startswith(('https://', 'http://')) %}
+    <p><a href="{{ source.url }}" target="_blank" rel="noopener noreferrer">{{ source.get('title', source.url) }}</a>
+    {% if source.get('accessedAt') %} (accessed {{ source.accessedAt }}){% endif %}</p>
+    {% endif %}
+  {% endfor %}
+  {% for reference in reco.provenance.get('upstreamRecommendations', []) %}
+  <p>Explicit upstream reference: {{ reference.sourceId }} / {{ reference.recommendationId }}.
+  Coverage assessment: {{ reference.coverage }} ({{ reference.assessedAt }}).
+  {% if reference.get('url', '').startswith(('https://', 'http://')) %}
+  <a href="{{ reference.url }}" target="_blank" rel="noopener noreferrer">Upstream recommendation</a>
+  {% endif %}</p>
+  <p>{{ reference.notes }}</p>
+  {% if reference.get('upstreamContentHash') %}<p>Recorded upstream fingerprint: <code>{{ reference.upstreamContentHash }}</code>.</p>{% endif %}
+  {% endfor %}
+  {% else %}
+  <p>This legacy review snapshot predates the versioned corpus metadata. Its assessments and evidence are unchanged.</p>
+  {% endif %}
+  {% for alias in reco.get('aliases', []) %}
+  <p>Retired identity preserved as an alias: {{ alias.name }} (<code>{{ alias.id }}</code>).</p>
+  {% endfor %}
+</details>
 <h2>Review assessment</h2>
 <form method="post" action="{{ url_for('update', item_id=item.id, **listing_args) }}">
   <input type="hidden" name="csrf" value="{{ session.csrf }}">
@@ -21,6 +61,11 @@
     <option {% if status == item.status %}selected{% endif %}>{{ status }}</option>
   {% endfor %}</select></label>
   <label>Comments <textarea name="comments" rows="6" maxlength="20000">{{ item.comments }}</textarea></label>
+  {% if item.refresh_state.needs_reassessment %}
+  <label><input type="checkbox" name="confirm_current_assessment" value="1">
+    I reviewed the refreshed guidance and confirm the current assessment</label>
+  <p>Leave unchecked for comment-only changes. Changing status also acknowledges the refreshed guidance.</p>
+  {% endif %}
   <button type="submit">Save assessment</button>
 </form>
 {% if has_query %}
@@ -42,6 +87,8 @@ Save any assessment edits before running or refreshing subscription details.</p>
   <summary>{{ result.completed_at }}: {{ result.outcome }}
   {% if result.get('truncated') %} - TRUNCATED{% endif %}</summary>
   <p>Scope: {{ result.subscriptions | join(', ') }}</p>
+  <p>Result semantics: {{ result.get('result_semantics', 'unknown') }}.
+  Query validation date: {{ result.get('query_validated_at') or 'Not recorded' }}.</p>
   {% if result.outcome == 'error' %}<p role="alert">{{ result.error }}</p>
   {% else %}
     <p>{{ result.rows | length }} rows saved. Showing at most 100; JSON export includes all saved rows.</p>

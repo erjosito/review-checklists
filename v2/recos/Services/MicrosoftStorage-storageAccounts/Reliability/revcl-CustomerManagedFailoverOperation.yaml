@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance
 queries: {}
+schemaVersion: 1
+id: 2fa56c56-ad48-4408-be72-734c486ba280
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

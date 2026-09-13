@@ -1,10 +1,10 @@
 name: revcl-UsualRbacControlsLocalUserAccount
-title: 'SFTP: Limit the amount of ''local users'' for SFTP access, and audit whether
-  access is needed over time.'
-description: When accessing blob storage via SFTP using a 'local user account', the
-  'usual' RBAC controls do not apply. Blob access via NFS or REST might be more restrictive
-  than SFTP access. Unfortunately, as of early 2023, local users are the only form
-  of identity management that is currently supported for the SFTP endpoint
+title: Minimize Blob SFTP local users and evaluate Microsoft Entra-based SFTP authentication.
+description: Use only the local accounts and permissions required by the workload, audit ownership, and
+  remove obsolete access. Local-user permissions remain separate from Microsoft Entra RBAC and can grant
+  broader access than REST paths. Microsoft Entra-based SFTP is now documented and supports the existing
+  RBAC, ABAC and ACL model through short-lived OpenSSH certificates; verify client support and identity
+  requirements before migration. Do not assume password plus SSH key provides MFA for local SFTP users.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -18,3 +18,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support#sftp-permission-model
 queries: {}
+schemaVersion: 1
+id: ad53cc7c-e1d7-4aaa-a357-1449ab8053d8
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support
+    title: SFTP support for Azure Blob Storage
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support-entra-id-based-access
+    title: Authorize SFTP access to blobs using Microsoft Entra ID
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

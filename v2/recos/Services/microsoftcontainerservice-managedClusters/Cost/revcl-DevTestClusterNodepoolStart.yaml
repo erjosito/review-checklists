@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/start-stop-nodepools
 queries: {}
+schemaVersion: 1
+id: 2b72a08b-0410-4cd6-9093-e068a5cf27e8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

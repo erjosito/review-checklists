@@ -1,8 +1,9 @@
 name: wafsg-AutomatedRecoveryOperationsConductReliabilityTesting
-title: 'Conduct reliability testing: Conduct load testing to evaluate your application''s
-  reliability and performance under load. Test plans should include scenarios that
-  validate your automated recovery operations.'
-description: ''
+title: Test App Service load, fault tolerance and automated recovery against defined targets
+description: Run load and controlled fault-injection scenarios to verify scaling, self-healing, dependency
+  failure handling and recovery within agreed targets. Include plan resource limits and realistic warm-up
+  behavior. Define safety boundaries and collect results to improve the design; configuration inventory
+  is not evidence that these tests passed.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -15,3 +16,28 @@ labels:
   guid: 04ae0e82-112b-4433-8a90-273a5684b328
 links: []
 queries: {}
+schemaVersion: 1
+id: 04ae0e82-112b-4433-8a90-273a5684b328
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist
+    title: Design review checklist for Reliability
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:08
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/reliability-test
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:518f13e47f3461f9a98a0071be99177e811e476062e49505379cf6427a76aeb7
+    notes: Controlled fault injection, load, scaling and recovery targets are explicit; only App Service
+      testing, no actual test result asserted.

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-howto-mutual-certificates-for-clients
 queries: {}
+schemaVersion: 1
+id: b6439493-426a-45f3-9697-cf65baee208d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

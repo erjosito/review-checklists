@@ -14,3 +14,13 @@ labels:
   guid: dad6ac87-fd6d-44a4-9882-6d51b37bc564
 links: []
 queries: {}
+schemaVersion: 1
+id: dad6ac87-fd6d-44a4-9882-6d51b37bc564
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

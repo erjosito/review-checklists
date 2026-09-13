@@ -1,19 +1,49 @@
 name: aprl-UniqueOuHostPools
-title: Ensure a unique OU is used when deploying host pools with domain joined session
-  hosts
-description: |-
-  For optimized AVD configuration, place Hybrid VMs in unique OUs. Segregate Prod and DR units for environment-specific settings. This ensures targeted configurations for session hosts, including Fslogix, timeouts, and session controls.
+title: Ensure a unique OU is used when deploying host pools with domain joined session hosts
+description: Place domain joined session hosts VMs in unique OUs. Segregate Prod and DR units for environment-specific
+  settings. This ensures targeted configurations for session hosts, including FSLogix, session controls,
+  etc.
 source:
   type: aprl
   file: azure-resources/DesktopVirtualization/hostPools/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DesktopVirtualization/hostPools
+- microsoft.desktopvirtualization/hostpools
 severity: 1
 labels:
   guid: 939cb85c-102a-4e0a-ab82-5c92116d3778
   area: Governance
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 939cb85c-102a-4e0a-ab82-5c92116d3778
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DesktopVirtualization/hostPools/recommendations.yaml
+    title: 'APRL 939cb85c-102a-4e0a-ab82-5c92116d3778: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 939cb85c-102a-4e0a-ab82-5c92116d3778
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DesktopVirtualization/hostPools/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:a5b7ce7db029d88194e1cf6a3d614f1cf2cfee5ad583ed874bb1add0b5cf758e
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

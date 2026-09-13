@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/postgresql/flexible-server/overview#architecture-and-high-availability
 queries: {}
+schemaVersion: 1
+id: 016ccf31-ae5a-41eb-9888-9535e227896d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

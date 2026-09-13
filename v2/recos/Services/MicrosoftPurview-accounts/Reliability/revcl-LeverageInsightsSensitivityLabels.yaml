@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/glossary-insights
 queries: {}
+schemaVersion: 1
+id: 19bf8d8e-5c58-46b7-b8cd-c15acc075ee9
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

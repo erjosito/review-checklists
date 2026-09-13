@@ -113,7 +113,9 @@ class MultiSelectWebTests(FilterFixture):
         self.assertIn(b"Assessment status for 2 matching checks", response.data)
         selected = SelectedFilters(response.text).values
         for name in MULTI_FILTERS:
-            self.assertEqual(set(selected[name]), set(self.parameters[name]))
+            expected = (["azure kubernetes service", "application gateway"] if name == "service"
+                        else self.parameters[name])
+            self.assertEqual(set(selected[name]), set(expected))
         self.assertIn(b"Severity: 2 selected", response.data)
         self.assertIn(b"Azure service: 2 selected", response.data)
         self.assertNotIn(b'<select name="severity"', response.data)
@@ -159,7 +161,9 @@ class MultiSelectWebTests(FilterFixture):
         })
         self.assertEqual(response.status_code, 200)
         for name, values in SelectedFilters(response.text).values.items():
-            self.assertEqual(set(values), set(self.parameters[name]))
+            expected = (["azure kubernetes service", "application gateway"] if name == "service"
+                        else self.parameters[name])
+            self.assertEqual(set(values), set(expected))
         self.assertIn(f'name="selected" value="{ID}" checked'.encode(), response.data)
         batch_action = re.search(r'action="([^"]*run-selected[^"]*)"', response.text).group(1)
         self.assert_parameters(batch_action)
@@ -176,11 +180,11 @@ class MultiSelectWebTests(FilterFixture):
                       resourceTypes=["Microsoft.ContainerService/managedClusters"]) for index in range(51)]
         review = Review.create(self.root / "multipage.sqlite3", "Multiple pages", recos, self.root)
         client = create_app(review).test_client()
-        parameters = dict(self.parameters, service=["aks", "none"])
+        parameters = dict(self.parameters, service=["aks", "none"], paginate=["1"])
         query = urlencode(parameters, doseq=True)
         response = client.get("/?" + query)
         next_link = re.search(r'<a href="([^"]+)">Next</a>', response.text).group(1)
-        expected = dict(parameters, page=["2"])
+        expected = dict(parameters, page=["2"], service=["azure kubernetes service", "none"])
         self.assertEqual(parse_qs(urlsplit(html.unescape(next_link)).query), expected)
         response = client.get(html.unescape(next_link))
         self.assertEqual(response.status_code, 200)

@@ -1,18 +1,49 @@
 name: aprl-SecondaryAzureRegionPersonalHostPools
 title: Use Azure Site Recovery or backups to protect VMs supporting personal desktops
-description: |-
-  Implement Azure Site Recovery (ASR) or Azure Backup for personal host pools to enable seamless failover and failback. This replicates VMs supporting personal desktops to a secondary Azure region, ensuring recovery from a known state in case of a disaster or outage.
+description: Implement Azure Site Recovery (ASR) or Azure Backup for personal host pools to enable seamless
+  failover and failback. This replicates VMs supporting personal desktops to a secondary Azure region,
+  ensuring recovery from a known state in case of a disaster or outage.
 source:
   type: aprl
   file: azure-resources/DesktopVirtualization/hostPools/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 1
 labels:
   guid: 38721758-2cc2-4d6b-b7b7-8b47dadbf7df
   area: Disaster Recovery
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 38721758-2cc2-4d6b-b7b7-8b47dadbf7df
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DesktopVirtualization/hostPools/recommendations.yaml
+    title: 'APRL 38721758-2cc2-4d6b-b7b7-8b47dadbf7df: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 38721758-2cc2-4d6b-b7b7-8b47dadbf7df
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DesktopVirtualization/hostPools/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b79807010f2dd15c1d85d0a51d5d0c2c7d06cd35065fbd7ecd80d68877ba3355
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

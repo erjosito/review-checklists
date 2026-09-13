@@ -1,8 +1,7 @@
 name: wafsg-AppropriateDnsServerPrivateDnsZone
 title: Use an appropriate DNS server for backend pool resources
-description: When the backend pool contains a resolvable FQDN, the DNS resolution
-  is based on a private DNS zone or custom DNS server (if configured on the VNet),
-  or it uses the default Azure-provided DNS.
+description: When the backend pool contains a resolvable FQDN, the DNS resolution is based on a private
+  DNS zone or custom DNS server (if configured on the VNet), or it uses the default Azure-provided DNS.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +13,23 @@ labels:
   guid: 694b80a2-72fb-4d42-a249-e9c86fb4d00a
 links: []
 queries: {}
+schemaVersion: 1
+id: 694b80a2-72fb-4d42-a249-e9c86fb4d00a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 24847b21-1c0f-4ac9-9c00-f116155257b3
+  name: wafsg-AppropriateDnsServerBackendPoolResources
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 24847b21-1c0f-4ac9-9c00-f116155257b3
+  corpusFile: Services/microsoftnetwork-applicationGateways/Security/wafsg-AppropriateDnsServerBackendPoolResources.yaml

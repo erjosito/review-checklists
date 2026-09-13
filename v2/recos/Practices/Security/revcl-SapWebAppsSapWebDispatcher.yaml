@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://help.sap.com/docs/SUPPORT_CONTENT/si/3362959506.html
 queries: {}
+schemaVersion: 1
+id: 91a65e40-be90-45b3-9f73-f3edbf8dc324
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

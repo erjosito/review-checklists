@@ -1,6 +1,5 @@
 name: revcl-CircuitsPeeringLocationLocalSku
-title: Leverage the Local SKU of ExpressRoute to reduce the cost of your circuits,
-  if your circuits' peering location supports your Azure regions for the Local SKU.
+title: Evaluate ExpressRoute Local only when destination reach and billing fit
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,9 +13,48 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-local
 queries:
-  arg: resources | where type=='microsoft.network/connections' | where properties.connectionType
-    == 'ExpressRoute' | project id, gwid=tostring(properties.virtualNetworkGateway1.id),
-    circuitid=tostring(properties.peer.id) | join (resources | where type=='microsoft.network/expressroutecircuits'
-    | project circuitid=tostring(id), circuitsku=sku.tier) on circuitid | project
-    id=gwid, compliant = (circuitsku == 'Local') | summarize compliant=max(compliant)
-    by id
+  arg: |-
+    Resources
+    | where type =~ 'microsoft.network/expressroutecircuits'
+    | project id, name, subscriptionId, resourceGroup, location,
+        skuTier = tostring(sku.tier), dataPlan = tostring(sku.family),
+        providerState = tostring(properties.serviceProviderProvisioningState),
+        peeringLocation = tostring(properties.serviceProviderProperties.peeringLocation),
+        bandwidthMbps = tolong(properties.serviceProviderProperties.bandwidthInMbps),
+        serviceProvider = tostring(properties.serviceProviderProperties.serviceProviderName)
+schemaVersion: 1
+id: f4e7926a-ec35-476e-a412-5dd17136bd62
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Circuit configuration to join with billing and traffic evidence outside ARG; no SKU is inherently cost compliant.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Local applicability depends on peering location, required destinations and topology; resource location is not a substitute. Metered versus unlimited depends on measured egress, negotiated price, port/circuit model and Global Reach. ExpressRoute Direct and provider circuits have different billing structures; not all fields are populated for both.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/expressroute/plan-manage-cost
+    title: Plan and manage costs for Azure ExpressRoute
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/networking
+    title: FinOps best practices for Networking
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+description: Compare Local, Standard and Premium against required Azure destinations, peering location,
+  circuit/Direct model and provider pricing. Select Local only when its reach and feature limits meet
+  the workload. Review total circuit, port, gateway, data-transfer and provider cost rather than considering
+  Local universally compliant.

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/application-gateway/application-gateway-websocket
 queries: {}
+schemaVersion: 1
+id: fa64b4dd-35c2-4047-ac5c-45dfbf8b0db9
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

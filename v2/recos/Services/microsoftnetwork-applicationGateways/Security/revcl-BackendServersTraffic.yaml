@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/application-gateway/ssl-overview
 queries: {}
+schemaVersion: 1
+id: a66f0fd8-2ca4-422e-8df3-235148127ca2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

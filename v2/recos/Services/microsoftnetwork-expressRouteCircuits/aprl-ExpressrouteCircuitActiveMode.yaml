@@ -1,19 +1,49 @@
 name: aprl-ExpressrouteCircuitActiveMode
-title: Ensure both connections of an ExpressRoute circuit are configured in active-active
-  mode
-description: |-
-  Operating both connections of an ExpressRoute circuit in active-active mode enhances high availability as the Microsoft network will load balance the traffic across the connections on a per-flow basis.
+title: Ensure both connections of an ExpressRoute are configured in active-active mode
+description: Operating both connections of an ExpressRoute circuit in active-active mode enhances high
+  availability as the Microsoft network will load balance the traffic across the connections on a per-flow
+  basis.
 source:
   type: aprl
   file: azure-resources/Network/expressRouteCircuits/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/expressRouteCircuits
+- microsoft.network/expressroutecircuits
 severity: 0
 labels:
   guid: f06a2bbe-5839-d447-9f39-fc3d20562d88
   area: High Availability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: f06a2bbe-5839-d447-9f39-fc3d20562d88
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    title: 'APRL f06a2bbe-5839-d447-9f39-fc3d20562d88: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: f06a2bbe-5839-d447-9f39-fc3d20562d88
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteCircuits/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:55c636cf230c45e7529de3a17e02e78be6df7134f6d19ca522c231e0030d0c72
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

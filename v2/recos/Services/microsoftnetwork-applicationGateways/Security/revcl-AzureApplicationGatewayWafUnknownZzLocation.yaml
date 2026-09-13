@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules
 queries: {}
+schemaVersion: 1
+id: 349a15c1-52f4-4319-9078-3895d95ecafd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,7 +1,10 @@
 name: revcl-LeverageMultiRegionWritesMultiRegionWritesCapability
-title: Leverage Multi-Region Writes
-description: Multi-region writes capability allows you to take advantage of the provisioned
-  throughput for your databases and containers across the globe
+title: Evaluate Cosmos DB multiregion writes with consistency and conflict-resolution requirements
+description: Use multiple write regions when the workload requires regional write availability and can
+  support the consistency and conflict-resolution model. Configure supported SDK routing and sufficient
+  capacity in surviving regions. Evaluate replication lag, conflicts and recovery behavior rather than
+  assuming writes in several regions guarantee zero data loss or uninterrupted availability. Avoid bounded
+  staleness as a multiregion-write default; the Advisor catalog calls out its coordination overhead.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +18,28 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cosmos-db/high-availability#multiple-write-regions
 queries: {}
+schemaVersion: 1
+id: bad38ead-53cc-47de-8d8a-aab3571449ab
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-cosmos-db-nosql
+    title: Reliability in Azure Cosmos DB
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/advisor/advisor-high-availability-recommendations
+    title: Reliability recommendations
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-reliability-catalog
+    recommendationId: a2002089-9dd1-46b6-881c-d0f349515230
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5df00a6656f0c88fa0294291b0d453f7f965d10f3aba3b789177d43c71500b0a
+    notes: Requirement evaluates multiregion writes with explicit consistency, conflict resolution and
+      bounded-staleness coordination caveat, rather than mandatory use.

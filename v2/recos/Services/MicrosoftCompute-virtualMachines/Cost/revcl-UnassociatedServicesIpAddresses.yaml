@@ -1,10 +1,13 @@
 name: revcl-UnassociatedServicesIpAddresses
-title: Delete or archive unassociated services (disks, nics, ip addresses etc)
+title: Review orphaned chargeable networking resources with dependency checks
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.compute/virtualmachines
+- microsoft.network/ddosprotectionplans
+- microsoft.network/loadbalancers
+- microsoft.network/natgateways
+- microsoft.network/publicipaddresses
 waf: Cost
 severity: 1
 labels:
@@ -12,4 +15,48 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/multi-tenant/lighthouse
-queries: {}
+queries:
+  arg: |-
+    Resources
+    | where type =~ 'microsoft.network/publicipaddresses'
+    | where isempty(properties.ipConfiguration) and isempty(properties.natGateway)
+    | where properties.publicIPAllocationMethod =~ 'Static'
+    | project id, name, subscriptionId, resourceGroup, location, sku,
+        ipAddress = tostring(properties.ipAddress)
+schemaVersion: 1
+id: 64f9a19a-f29c-495d-94c6-c7919ca0f6c5
+services:
+- Azure DDoS Protection
+- Azure Load Balancer
+- Azure NAT Gateway
+- Azure Virtual Network
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Static IPs with no visible association in the documented fields.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Reserved addresses may be deliberately held for allowlists, DR or migration. Recreating a deleted public IP does not guarantee the same address. This intentionally omits IPs attached to orphan NICs; the source's union branch has a misspelled table and incomplete subscription projection.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/networking
+    title: FinOps best practices for Networking
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+description: Review unassociated static public IPs, NAT gateways, DDoS plans and load balancers against
+  ownership, IaC state, approved standby and complete dependency visibility. Validate live associations
+  before cleanup and obtain approval. NICs and NSGs are housekeeping candidates, not direct cost savings;
+  do not report their count as monetary savings.

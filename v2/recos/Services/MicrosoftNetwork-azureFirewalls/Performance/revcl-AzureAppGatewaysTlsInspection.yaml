@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
 queries: {}
+schemaVersion: 1
+id: 6eff7e6c-6c4a-43d7-be3f-6641c2cb3d4a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

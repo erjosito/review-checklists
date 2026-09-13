@@ -13,3 +13,13 @@ labels:
   guid: 037e283c-7763-4006-939e-f101331fef86
 links: []
 queries: {}
+schemaVersion: 1
+id: 037e283c-7763-4006-939e-f101331fef86
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

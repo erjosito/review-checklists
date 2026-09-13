@@ -1,0 +1,1582 @@
+{
+  "assessedAt": "2026-09-11",
+  "scope": "Only explicit mappings assessed in the Operations worker; not integrated all-corpus source coverage.",
+  "sources": [
+    {
+      "schemaVersion": 1,
+      "sourceId": "waf-operations-checklist",
+      "title": "Design review checklist for Operational Excellence - Microsoft Azure Well-Architected Framework | Microsoft Learn",
+      "scope": "All numbered rows in the English WAF Operational Excellence design review checklist",
+      "unit": "published-checklist-row",
+      "asOf": "2026-09-11",
+      "retrievedAt": "2026-09-11T18:05:30.507601Z",
+      "upstreamRevision": "84fd234f106eacce573ee415497edd96436e6620",
+      "inventoryStatus": "complete",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/checklist"
+      ],
+      "observedCount": 11,
+      "denominator": 11,
+      "counts": {
+        "full": 2,
+        "partial": 6,
+        "stale": 0,
+        "supporting": 0,
+        "unknown": 3
+      },
+      "coveragePercent": 18.18,
+      "partialPercent": 54.55,
+      "reason": null,
+      "assessmentBasis": "Recorded explicit ID mappings with matching content hashes; not independent human semantic review.",
+      "limitations": [
+        "Control-level published inventory only, not all guidance or linked service documentation.",
+        "Page-reported revision is source evidence, not a separately inspected repository commit.",
+        "Mappings are explicit semantic assessments by this bounded pass, not human approval.",
+        "A missing mapping is unassessed coverage, not proof that the full corpus lacks a related recommendation."
+      ],
+      "items": [
+        {
+          "id": "OE:01",
+          "title": "Define your standard practices to develop and operate your workload.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture",
+          "contentHash": "sha256:f1dbf331239efc9b9df3daf6677ba4a519d908ecfd85a0d5a48c9de27a866e6f",
+          "state": "partial",
+          "corpusIds": [
+            "634146bf-7085-4419-a7b5-f96d2726f6da",
+            "a9e65070-c59e-4112-8bf6-c11364d4a2a5",
+            "e85f4226-bf06-4e35-8a8b-7aee4d2d633a"
+          ],
+          "assessments": [
+            {
+              "corpusId": "634146bf-7085-4419-a7b5-f96d2726f6da",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture",
+              "notes": "Clarify platform-team ownership and decision authority. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "a9e65070-c59e-4112-8bf6-c11364d4a2a5",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture",
+              "notes": "Custom RBAC roles alone cannot establish workload-team self-sufficiency. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "e85f4226-bf06-4e35-8a8b-7aee4d2d633a",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/devops-culture",
+              "notes": "Make the existing cross-functional team control assessable. Narrow control or service scope; not all aspects of the upstream control."
+            }
+          ]
+        },
+        {
+          "id": "OE:02",
+          "title": "Use standardization as a way to make routine, ad-hoc, and emergency operations consistent and predictable.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/formalize-operations-tasks",
+          "contentHash": "sha256:c7130262beee1291b3c3e0ea3b7d554ddc251cbb77f12a80deffc8424915677b",
+          "state": "full",
+          "corpusIds": [
+            "482a84af-0360-55ab-be33-6d8e4706b580"
+          ],
+          "assessments": [
+            {
+              "corpusId": "482a84af-0360-55ab-be33-6d8e4706b580",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/formalize-operations-tasks",
+              "notes": "Workload-wide requirement includes each clause of the checklist control; supporting guide reading limits remain explicit."
+            }
+          ]
+        },
+        {
+          "id": "OE:03",
+          "title": "Formalize processes across the full software development lifecycle, from ideation to delivery, and make them transparent to the team and stakeholders.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/formalize-development-practices",
+          "contentHash": "sha256:e85b430fe96d3e58eedf5c75aa2309893bbb6095507b25211074bc62ca149dea",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "OE:04",
+          "title": "Enhance software development and quality assurance",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/tools-processes",
+          "contentHash": "sha256:716777ae5ab9be1861c31a025fca83612c57c188920d4169328f9f652340181a",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "OE:05",
+          "title": "Use a standardized infrastructure as code (IaC) approach to prepare resources and configurations.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/infrastructure-as-code-design",
+          "contentHash": "sha256:762fec3a61c5c118a1f9173f89173d01b5a11f0c841007fec34a88ee57e3e092",
+          "state": "partial",
+          "corpusIds": [
+            "2cdc9d99-dbcc-4ad4-97f5-e7d358bdfa73"
+          ],
+          "assessments": [
+            {
+              "corpusId": "2cdc9d99-dbcc-4ad4-97f5-e7d358bdfa73",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/infrastructure-as-code-design",
+              "notes": "Make landing-zone IaC repeatability and change control explicit without claiming deployed configuration proves process quality. Narrow control or service scope; not all aspects of the upstream control."
+            }
+          ]
+        },
+        {
+          "id": "OE:06",
+          "title": "Build a workload supply chain that drives changes",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/workload-supply-chain",
+          "contentHash": "sha256:2f826a2abaaf5f56cc1286cfc5f0126c6eb391f18d3aeee875fcfc0b95146cba",
+          "state": "partial",
+          "corpusIds": [
+            "165eb5e9-b434-448a-9e24-178632186212"
+          ],
+          "assessments": [
+            {
+              "corpusId": "165eb5e9-b434-448a-9e24-178632186212",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/workload-supply-chain",
+              "notes": "Add quality gates and controlled artifact promotion to the existing CI/CD requirement. Narrow control or service scope; not all aspects of the upstream control."
+            }
+          ]
+        },
+        {
+          "id": "OE:07",
+          "title": "Design a monitoring stack",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+          "contentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540",
+          "state": "partial",
+          "corpusIds": [
+            "35367a45-61fb-4731-a636-e59e8ce67fac",
+            "5b56ad48-408f-4e72-934c-476ba280dcf5",
+            "6f8389a7-f82c-4b8e-a8c0-aa63a25a4956",
+            "859c3900-4514-41eb-b010-475d695abd74",
+            "9ab6b90d-899e-4c61-8127-e097c1d80cca",
+            "b88f9b48-fd82-404f-8b7b-5acea4d17dc4",
+            "bdab324d-7736-4444-a03e-a1ec180f3699",
+            "e3ab3693-829e-47e3-8618-3687a0477a20",
+            "eaa8dc4a-2436-47b3-9697-15b1752beee0"
+          ],
+          "assessments": [
+            {
+              "corpusId": "35367a45-61fb-4731-a636-e59e8ce67fac",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+              "notes": "Replace conflation of Container insights and managed Prometheus. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "5b56ad48-408f-4e72-934c-476ba280dcf5",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+              "notes": "Replace master/API-log shorthand with separately configured control-plane resource logs. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "6f8389a7-f82c-4b8e-a8c0-aa63a25a4956",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+              "notes": "Separate Prometheus metrics from container-log collection. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "859c3900-4514-41eb-b010-475d695abd74",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+              "notes": "Replace unspecified monitoring adequacy with assessable health-model and telemetry requirements. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "9ab6b90d-899e-4c61-8127-e097c1d80cca",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+              "notes": "Distinguish monitoring components without declaring one add-on sufficient. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "b88f9b48-fd82-404f-8b7b-5acea4d17dc4",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+              "notes": "Clarify that diagnostic settings collect control-plane logs, not proof that monitoring works. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "bdab324d-7736-4444-a03e-a1ec180f3699",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+              "notes": "Modernize the old combined Container insights metrics/logs description. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "e3ab3693-829e-47e3-8618-3687a0477a20",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+              "notes": "Remove categorical prohibition on exporting raw logs; documented monitoring supports governed external destinations. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "eaa8dc4a-2436-47b3-9697-15b1752beee0",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability",
+              "notes": "Replace add-on-enabled compliance with documented configuration inventory and distinguish actual log delivery. Narrow control or service scope; not all aspects of the upstream control."
+            }
+          ]
+        },
+        {
+          "id": "OE:08",
+          "title": "Establish a clear, structured incident management process",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/incident-response",
+          "contentHash": "sha256:3c792b0f198f8b8043d74774b023aa1cbd501d4be3cb0bdba99a017c62df6fd5",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "OE:09",
+          "title": "Enhance the quality of your workload",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/testing",
+          "contentHash": "sha256:05eb3f80be3d468f7cbf3190526aafaf9272e148edbcc8357b6bbd515d6b0e07",
+          "state": "partial",
+          "corpusIds": [
+            "0cadb8c7-8fa5-4fbf-8f39-d1fadb3b0460",
+            "a4224cce-1a82-4c9e-a488-86bb6b215a39"
+          ],
+          "assessments": [
+            {
+              "corpusId": "0cadb8c7-8fa5-4fbf-8f39-d1fadb3b0460",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/testing",
+              "notes": "Clarify test ownership and avoid treating unit tests as complete release confidence. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "a4224cce-1a82-4c9e-a488-86bb6b215a39",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/testing",
+              "notes": "Remove unsupported functional-tool example and define test evidence instead. Narrow control or service scope; not all aspects of the upstream control."
+            }
+          ]
+        },
+        {
+          "id": "OE:10",
+          "title": "Design automation to be reliable, secure, and maintainable",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/enable-automation",
+          "contentHash": "sha256:887f8ffd7c1422192a6a3c456641f2fe51ba2de072bec94a6d9d7f5a13806348",
+          "state": "full",
+          "corpusIds": [
+            "eac9d939-9c58-5bf4-aa1d-1c77d8068036"
+          ],
+          "assessments": [
+            {
+              "corpusId": "eac9d939-9c58-5bf4-aa1d-1c77d8068036",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/enable-automation",
+              "notes": "Workload-wide requirement includes each clause of the checklist control; supporting guide reading limits remain explicit."
+            }
+          ]
+        },
+        {
+          "id": "OE:11",
+          "title": "Clearly define your workload's safe deployment practices.",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments",
+          "contentHash": "sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a",
+          "state": "partial",
+          "corpusIds": [
+            "02d5a8b1-6038-49c3-96b1-87ac56064269",
+            "2676ae46-65ca-444e-8695-fdddeace4cb1",
+            "cb3372a2-16ef-4ebf-b7c2-b58f984ef966",
+            "d4909fdf-867b-43b7-828d-197247a83530"
+          ],
+          "assessments": [
+            {
+              "corpusId": "02d5a8b1-6038-49c3-96b1-87ac56064269",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments",
+              "notes": "Slot swap is not universal stateful rollback or guaranteed application correctness. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "2676ae46-65ca-444e-8695-fdddeace4cb1",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments",
+              "notes": "Clarify emergency change authorization and follow-up instead of treating all quick fixes as acceptable debt. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "cb3372a2-16ef-4ebf-b7c2-b58f984ef966",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments",
+              "notes": "Make advanced Kubernetes rollout patterns conditional on health gates and recovery evidence. Narrow control or service scope; not all aspects of the upstream control."
+            },
+            {
+              "corpusId": "d4909fdf-867b-43b7-828d-197247a83530",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments",
+              "notes": "Qualify no-extra-charge claim and slot isolation/recovery assumptions. Narrow control or service scope; not all aspects of the upstream control."
+            }
+          ]
+        }
+      ],
+      "referencesOutsideInventory": []
+    },
+    {
+      "schemaVersion": 1,
+      "sourceId": "advisor-operations-catalog",
+      "title": "Operational excellence recommendations - Azure Advisor | Microsoft Learn",
+      "scope": "All Recommendation ID sections in the English published Advisor Operational Excellence recommendations reference page",
+      "unit": "published-advisor-recommendation-guid",
+      "asOf": "2026-09-11",
+      "retrievedAt": "2026-09-11T18:05:31.307278Z",
+      "upstreamRevision": "0eef202feb80322f1d1da95d4d026c2e2b70ce06",
+      "inventoryStatus": "complete",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations"
+      ],
+      "observedCount": 122,
+      "denominator": 122,
+      "counts": {
+        "full": 3,
+        "partial": 2,
+        "stale": 0,
+        "supporting": 0,
+        "unknown": 117
+      },
+      "coveragePercent": 2.46,
+      "partialPercent": 1.64,
+      "reason": null,
+      "assessmentBasis": "Recorded explicit ID mappings with matching content hashes; not independent human semantic review.",
+      "limitations": [
+        "Control-level published inventory only, not all guidance or linked service documentation.",
+        "Page-reported revision is source evidence, not a separately inspected repository commit.",
+        "Mappings are explicit semantic assessments by this bounded pass, not human approval.",
+        "A missing mapping is unassessed coverage, not proof that the full corpus lacks a related recommendation."
+      ],
+      "items": [
+        {
+          "id": "061dcd4a-2090-4ec0-b4e0-ec9eaae5cf80",
+          "title": "Migrate Azure Cosmos DB attachments to Azure Blob Storage",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:db49976fce3f80aa71847526e6faef679ac784d31367aeb33853bbad045f7d01",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "062d41f2-0dfa-48e0-a9b8-fb40fa5b001f",
+          "title": "Migrate Azure CDN Standard from Microsoft (Classic) to Azure Front Door Standard/Premium tier",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:6a74230514a9d3afcf5af595963329379617f4dc71581002e3392520e096bc1a",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "06578866-1877-41e6-9d22-3ea5122e8048",
+          "title": "Switch to Azure Monitor based alerts for backup",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:da6446527ebc7cdd5b733681905cf681745f96aacac8967be824ddd265b96971",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "083322ac-d997-414e-a6bd-f01187204ab6",
+          "title": "Ensure the Operating system in DB VM is supported for the DB type in your SAP workload",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:5b8bc665c81545b37563be6f89c66d3d0822a32e9e0d9e0ad5cf836c3de84956",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "0b341a36-99c1-41be-b9fb-71efd8029d31",
+          "title": "Use the Standard Load Balancer",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:a11f44b436a35514c1879626702e9308857b506f95daed87a573e3882df59989",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "0e19257e-dcef-4d00-8de1-5fe1ae0fd948",
+          "title": "Application Gateway v1 has been retired. Migrate to Application Gateway v2.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:d2667ecf88a87c6056f582037d1052fb5e6b7276147771f3f237a7f08b544727",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "0fa90566-e286-44d4-9dad-9c0cad0cf8ee",
+          "title": "Adjust VM swappiness linux kernel parameter for better reliability of SAP with DB2 database",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:abacce8a7a092148e82a54373d22f47c5e8ac2128e12489a4da122349accfa61",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "107e13ec-4080-4666-9a0a-2ff0366cd1d7",
+          "title": "Media Services deprecation on June 30th 2024",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:4b91553dd4f458d40fd930f2fffe19be0dbedf98fb73e0d8d70a41a25672f2f9",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "12278831-341f-4933-85e6-40560e4a3405",
+          "title": "Create a backup of HSM",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:405ed5e44c42e66099078cb75c13c64e98890d901f3be071eec105176a5da3c4",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "135f09ad-9dbb-433d-8854-da272e05f435",
+          "title": "Enable Java Stack to unleash the power of Java",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:b6a38b5b07a3e3b867727f1616890dc2736fe5b9b9f4485f134e6fa2ccfd6f24",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "13a8f39c-7d65-4008-8be2-3e8520f0ac2b",
+          "title": "Adjust Linux kernel semaphore settings for better performance and reliability of SAP",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:315acd3f3866ff1baa2089268b57cacc9e9036e2fcd10614651b390e866b254c",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "14368063-38db-4dd6-a755-9c49ff123a5e",
+          "title": "Migrate Azure Front Door (classic) to Standard/Premium tier",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:389aea9f8c30bce331cf3845952c14837a75908a041731c54efe2afa8c5fa2e1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "15ab1e61-048c-47e0-9e10-fa55762efd49",
+          "title": "Ensure the Operating system in App VM is supported in combination with DB type in your SAP workload",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:5066f51814b7133ad66d175a5fdebc57e23f0fea6e439063b20b4ae1a8722408",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "1a778001-f50a-4e08-a03d-ed2e40f4cc15",
+          "title": "Set the parameter net.ipv4.tcp\\_retries1 to '3' in the Application VM OS in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:17a1bf987baabbbc641cd985c194c9a75f50c032ad800e33082c8585a5e75adb",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "204cc04b-0e75-46f9-9a43-9bcb39955236",
+          "title": "Cloud service caches are being retired in August 2024, migrate before then to avoid any problems",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:b29c49cfbaf6f70b6079063307436247d5499f6ffbe17534eaf1a95d992a22df",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "20c2eb91-7c3b-4744-8bd3-44820f563ce1",
+          "title": "Azure AI Search Storage is 80% full; add partition to increase capacity",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:7d8faefdb89d8e1173b2cf928f146c86c360f32f00290fe986a420c9ae183995",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "23b9b84a-7e9d-41cf-9a26-494d7cd1d9fa",
+          "title": "Modernize SQL Server on Azure VM to SQL Managed Instance",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:c13035f0f251e8cc028f48d66bd04c96b8f0ea9247845cf036d1272a0c090cd1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "2435ce38-ad73-4d5e-ab40-8e508f915796",
+          "title": "VM not certified! For better performance and support, ensure that VM is Certified for SAP on Azure",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:bb6137408d32e411bf34a327d46897d857c34557d25c40d86049486bb2f6271f",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "2881ca3a-070d-40fb-9471-83783ff487c0",
+          "title": "Enable VM Insights for virtual machines",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:ef307cda44f5b1be7cb4bf638b996eae64fcfa23d20129e307c081d37dddfae1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "2bb28cf0-969d-43a3-baf8-51328ac497fc",
+          "title": "Migrate to Azure Managed Redis",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:947574ef78be3b77f9ae325266b3f86106373290a1daf7a4f5ac3654b6f50695",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "2bf9d58d-6ceb-41f2-9f95-94089f3cdbf6",
+          "title": "Optimize or partition tables in your database which has huge tablespace size",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:0f7f4abeb95a9b5753e2432a96eb85f51d48e0188251d76c82226fb11062ea18",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "2fc002b9-ad07-40f0-8418-a6f3ef928499",
+          "title": "See the parameter net.ipv4.tcp\\_keepalive\\_probes to '9' in the Application VM OS in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:7e605155ac6126422b9e8e89a12e82121cf5ff418fdb4599eae1ab1389f1fbee",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "31e5d980-53b5-4475-855e-b6d71b70c2af",
+          "title": "IoT Hub Fallback Route Disabled",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:9d39f7d2487a06c7f36a9f32f7207184f24dfdd1cd70790b70e1f0eab8264cf3",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "3467464b-955a-4caf-95e5-547344ba0281",
+          "title": "Resolve Azure Key Vault issue for your Application Gateway",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:1f2c73a6fcdedc8e0a0fc677a27745964fbc63144f439bffc8970d378a21e0a9",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "36851155-3579-47fc-afc6-8334fe9eb26a",
+          "title": "Azure NetApp Files SDK Upgrade Recommendation",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:394bc1c1a03ec55e8bc1b8ec5b8f7b3bce34412680b1abe1fbf73e389ee6a4c3",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "37652095-cbe3-4132-9c62-526eeb6f4d75",
+          "title": "Migrate from Basic to Standard Virtual WAN",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:b20c331e032fe5c24fbd492a3249aee9f846e57c721c1487a6f91ff7dc8b26ff",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "37a054b6-21dc-4f5c-bdfe-360c0827205f",
+          "title": "Deprecated Kubernetes APIs are found. Avoid using deprecated API.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:d7af2a97f0893c794a9c7b84d2a8fc69e75de23cc53e1eaa791e14acf5da8dfa",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "3c374434-42e7-44db-8b0b-5b8ed970114b",
+          "title": "Update to newer releases of the Storage Java v12 SDK for better reliability.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:c9d939328635c9e820398141798c3045f5bf453c15606324247ecf7dfcf90034",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "416eefce-4efb-4219-8876-c11f51e81365",
+          "title": "To avoid performance regressions, swap space on HANA systems should be 2GB in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:466015c3579c629777deb5170c2f4e35cfaf7862487ef3716bcd3c054041b042",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "43b6411e-c197-4e3d-9295-af1b84e552cf",
+          "title": "Enable storage autogrow for MySQL Flexible Server",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:e996e4e2bf0355dae0bc570284869c27643081e5035debce4a880a552da7736e",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "464a7366-ddae-4d74-9187-386bfc45e4f5",
+          "title": "Avoid mounting issue by specifying NFSv4.1 mount options",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:a1d077d27b0671e0de5eb34d8578dfe6fa24b95f14acd13ccea202dc02c6676a",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "47ee7abd-4f5e-45d7-9d9f-d0329616fef9",
+          "title": "Upgrade your legacy WAF configuration to WAF policies",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:e970e98cbd94a93c4a472e5df409da03f907ea3dd6cacbd0c81179ca2d0dcef6",
+          "state": "full",
+          "corpusIds": [
+            "f17ec301-8470-4afd-aabc-c1fdfe47dcc0"
+          ],
+          "assessments": [
+            {
+              "corpusId": "f17ec301-8470-4afd-aabc-c1fdfe47dcc0",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+              "notes": "Existing requirement explicitly selects WAF policies instead of legacy Application Gateway WAF configuration; unchanged YAML supported by the exact catalog action."
+            }
+          ]
+        },
+        {
+          "id": "48ae14cb-10de-4bd9-a005-5c25f498649b",
+          "title": "Delete and recreate your pool using a VM size that will soon be retired",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:b8658a3afd05d33fe630e3b04e373dbde78b6aa6436c44b2ff10f7c55fab4a8d",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "4b25fc0f-b045-423b-a85a-241978696e36",
+          "title": "In-Place Upgrade to Ubuntu Pro with zero downtime for Extended Security",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:27694312c18a3888228b0e704a6219af09bb8ec96591adc44b7dc3ae256e10c2",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "4c3cfb18-c43f-42e5-8814-552b86bac6ff",
+          "title": "Disable fstrim in SLES OS to avoid XFS metadata corruption in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:41fe238759734ad71a536be6d1db10ebc3691f19ec565b175e1debd913fcc8a5",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "511c0f88-60dd-4178-9c48-36e9d61f6c85",
+          "title": "Update Service Connector API Version",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:266265475c0a2f16f0e2a9e836ab19a15704ed69b63e9aa23b5536f69dff4105",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "528d066a-8652-479e-8eec-92d41174210f",
+          "title": "Set the parameter net.ipv4.tcp\\_tw\\_reuse to '0' in the Application VM OS in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:88ed5aa4da76308a3afef31287b9febfe53f184a57825009ae537deaf9cfbb4e",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "52fef986-5897-4359-8b92-0f22749f0d73",
+          "title": "Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:7beca351f1828513b84f0622c5244514d5d557a432556581dd0530cb76efbcd1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "54537590-fff7-4680-bdf8-5e37b5cf0c12",
+          "title": "Enable near real-time analytics or reporting on your Azure Cosmos DB data",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:433423e078049e2bfa8c00c2e01636de29850cdd112a192e9df8ddd79477ed82",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "580a50ee-8300-4678-9a16-a946c948778b",
+          "title": "Validate JWT policy is being used with security keys that have insecure key size for validating Json Web Token (JWT).",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:845126b319cc6f302424d07e07e5a120656d56fdf5c1cd04fce56a32e152beaf",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "5c48d9ec-397c-4f11-a342-929a1208c375",
+          "title": "Upgrade the Azure Cosmos DB account to TLS 1.2 or later",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:dd7537787995f30be1b336c3e8bd5caa52b6a32851cd30ff9a622af8e30c5f17",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "5def6158-6b43-44af-9744-681ce65b0248",
+          "title": "Update Cloud HSM SDK Version",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:6eaa4d9b2faf7e48dc2a713f9cedce8505ce7916ed90371205ada7840b82cbc2",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "63d8c4d5-b717-44d9-88e1-ca8082e12a1c",
+          "title": "For better performance and support, ensure HANA data filesystem type is supported for HANA DB",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:6550dd6a09ce162ad45eb88674698e70a4e5fcf493cb9de6fd6be5cf241d9437",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "6c154595-3c5c-49d3-ac57-f122a8e1adb9",
+          "title": "Use api-versions newer than 2021-08-01 to manage service configuration",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:2f03a2aa777945d7d53f8c4fdebe8f7c0a0c97fe77ec0b199f927a865aa2a083",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "6e5238b4-d495-4bde-bc7b-17f5d67f696b",
+          "title": "Add firewall rules for MySQL Flexible Server",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:2be6148e3a9b624005e4ac0dec1fb243fbe494cb404c20679c3010a74ad81c8a",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "6f087e7e-afdf-4a3d-a1de-41d70404b9cb",
+          "title": "Upgrade from network security group flow log to Virtual Network flow log",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:26cd3e61c9531daaa276c22bd826ffd19695b47e53c71e046bcb640868e4b2f8",
+          "state": "full",
+          "corpusIds": [
+            "90483845-c986-4cb2-a131-56a12476e49f"
+          ],
+          "assessments": [
+            {
+              "corpusId": "90483845-c986-4cb2-a131-56a12476e49f",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+              "notes": "Existing Network Watcher traffic-flow requirement now explicitly requires NSG-to-virtual-network-flow-log migration, validation and retirement handling."
+            }
+          ]
+        },
+        {
+          "id": "70825f31-3f42-4070-ae1c-757da5872db3",
+          "title": "Enable Standard SKU for Service Fabric Managed Clusters",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:b31717d6c5b14e0dbbae3a57ed8049f64b766ac2b32ec4e67e34f51c0c3091ca",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "70cec929-4e06-4334-ab73-15c48fb4dc6f",
+          "title": "For better performance and support, ensure HANA log filesystem type is supported for HANA DB",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:e68ce42db79632f0013defbd50f71b91ab1febbb944717493b1fa5e040886f0b",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "77204a4e-03ed-4db5-b059-3c3a26145b43",
+          "title": "Using persistence with soft delete enabled can increase storage costs.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:d306f3b535332d3e8e72a7858bdd324cc450d8aea309a34512089c7b31efcc99",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "78785b91-c41b-4d86-9a8f-37705c13c2a6",
+          "title": "New HCX version is available for upgrade",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:f2e9ebe893a7cdb550c014ba421eac2037399a90a907e119925267b8dbccabd6",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "78a6427a-8307-4077-9503-50258fc03798",
+          "title": "Adjust Linux kernel semaphore settings for better performance and reliability of SAP",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:ecc3d67110765b95e7f10610fe9bacfacbca837e56ff945cc82dea3f223be775",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "797ce8ea-e16e-4b87-84da-fe3f3e872875",
+          "title": "Set the parameter net.ipv4.tcp\\_retries2 to '15' in the Application VM OS in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:0cbe11863c2b40efb1a8e2c0594170d38ca8e9abb4e0a2ee845f949e118bafc3",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "79dd48e7-cd34-4f35-a8be-a7d483353c1c",
+          "title": "Use Ephemeral OS disk",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:c616b10e587d8331f465a4f5c1d43e6dde8bb4c9c25dbce2296785f643e18fbb",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "7aaefe5a-5b88-4790-9a3d-5106722f7c34",
+          "title": "Upgrade to the latest DRS rule set in Application Gateway WAF",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:6c39a03326fe059f4a103a079c09fedc78ff72b3295170acfd767466f9c34779",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "7c27d589-c7ed-47e1-8fe9-fe12ea81634a",
+          "title": "Enable Traffic Analytics to view insights into traffic patterns across Azure resources",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:19f712543e764323765e92ec03a80098d2e19069386e74ac1c1ca5da0e5e0cab",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "7f921999-e9e3-4193-8b77-10382beb4dc9",
+          "title": "Ensure Accelerated Networking is enabled on all NICs for improved performance of SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:3c4c9df5e32cdbd8b974ff44004651e4ddadbea1ec2310b10fb1452edf0e8118",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "7fa5b5cb-1839-4d0f-9ac6-b6e45959c3a6",
+          "title": "Adjust VM overcommit memory linux kernel parameter for better reliability of SAP with DB2 database",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:f0e59bf85fafd070eca9e8ae615c0c71d392dbbbd9a0edd525dc49fd1dd1d04f",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "884975b5-12b5-433d-a633-904d8db75c5f",
+          "title": "Fix DNS configuration causing resolution failures",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:a74b0612b855f8a37848c82580e932236d433795b01bc09bec7c508614d70116",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "8849acb8-a958-41f3-af98-dab43f85bf3c",
+          "title": "Avoid using explicit key versions for customer-managed keys in Service Bus namespace",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:6d27ff0193300b7dfe51bd5790d9e0bb67d312de2518447f1c48a28bf6cf1bd9",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "88ecf03e-51dc-4aa4-9a4d-2ee48c407f56",
+          "title": "Enable Admin State for both links of the ExpressRoute Direct",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:0a9bb5e710e263dfdf44f53015f7d33dbd4447186d2132f5c3d101672dbfd293",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "89e238d9-56e5-4f05-bd9a-295ebd55711d",
+          "title": "Use Fleet Manager auto-upgrade profiles to replace cluster auto-upgrades",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:6c8e998247ea273ff7c553a882c3b8df3198b6cb814bfb52c4b51db6976629e1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "8a885111-34c0-4fd6-bb77-dbbb844ad7e5",
+          "title": "Monitor Azure Firewall Metrics",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:8df2303f1af981c082af2f8c746acdd5dd6cd81dd6bc451faf3453b56634799f",
+          "state": "partial",
+          "corpusIds": [
+            "912d5cba-1c0b-4a40-8ec0-81e5492c3023"
+          ],
+          "assessments": [
+            {
+              "corpusId": "912d5cba-1c0b-4a40-8ec0-81e5492c3023",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+              "notes": "Health, throughput and SNAT monitoring are present; catalog NAT integration caveats are not fully represented."
+            }
+          ]
+        },
+        {
+          "id": "8abe4b22-d8ad-4bff-babe-38b9267e46b7",
+          "title": "Monitor health for virtual hubs",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:2062f4194adebe5f7b28aba4acc3aaab587b7641964bdf4e27df84e1088e87f3",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "8cf57fc1-66ee-4089-a92f-29b9fdb27ea7",
+          "title": "Configure Connection Monitor for ExpressRoute",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:94454c306df45cf7c830aed7b727717faccbf31b25b5d59a5a4bd10f0f6e0e20",
+          "state": "full",
+          "corpusIds": [
+            "06b83763-eef7-4e07-8c16-8e0fcc9a388c"
+          ],
+          "assessments": [
+            {
+              "corpusId": "06b83763-eef7-4e07-8c16-8e0fcc9a388c",
+              "coverage": "full",
+              "state": "full",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+              "notes": "Existing ExpressRoute check requires Connection Monitor for on-premises-to-Azure private and Microsoft peering paths, matching the catalog action."
+            }
+          ]
+        },
+        {
+          "id": "927abfcb-1a85-4411-bc49-7c8a2d9fb098",
+          "title": "Avoid using explicit key versions for customer-managed keys in Event Hubs namespace",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:01c27229770d465e13220044f4e028e262c700d0143b687f51698f8c795293b7",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "95c1a2fb-ee2f-40bf-b3b4-ee8fc3fd94dd",
+          "title": "Avoid volume availability issues with Azure NetApp Files",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:9e5d7d82b6fdd014b44bef123940c5fa97241813bcda17c94a45e5ab0ab3373c",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "9a3ea211-a282-4ab6-a63b-81024975b796",
+          "title": "Reduce the cache policy on your Data Explorer tables",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:b3945dd6e02ea10172447abf60b4cb14aea514af4dfa01678e1ac48115f7eea1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "9e0a4a67-45b6-408b-b766-6c4822fca2ec",
+          "title": "Install SQL best practices assessment on your SQL VM",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:27656145fcb8e97403fecddab8ea799e5ba7a9de9b689adda23233906629aa52",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "9e273e91-2876-4999-a7cf-7281bf7be031",
+          "title": "Set the parameter net.ipv4.tcp\\_tw\\_recycle to '0' in the Application VM OS in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:3bbdc4a509caf650f1478aca08da1088a93e4ae0ff8103ee1dc5aa4d99719ccc",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "A0C6DF20-B77A-4215-A877-A8EE03CEB156",
+          "title": "The API version you use for Microsoft.App is deprecated, please use latest API version",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:bdce68e3414df19290ab25fb551b4bce47f6c359de0ba386e71ea539e49ae8c7",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a0609b82-7756-11ec-8827-7c50798c1d82",
+          "title": "VM not certified! For better performance and support, ensure that VM is Certified for SAP on Azure",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:68e6d939e4f86398a6f62feade26fba6db36f52870783616d09de364c8ff0ac2",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a07aa063-45a8-4538-9bd5-41f4a8abff4b",
+          "title": "VM not certified! For better performance and support, ensure that VM is Certified for SAP on Azure",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:e5740d1573c04493e5558e1bea1966645896305a0918ceef134f15e25c39bf44",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a0ad4f8c-f904-4b11-955d-e0044473c5fa",
+          "title": "Prevent hitting subscription limit for maximum storage accounts",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:8f3025c6b6a3de2eb5fc228d4ce63872cd26b53003a77eb4b3c71bb875c09d55",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a1ad465b-8218-40d6-a6ce-4bfff566a6cd",
+          "title": "Upgrade to the latest DRS rule set in Front Door WAF",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:09734244fcd0bb3ff34f632b36d2a27d70d6392076b63fdd023c873f2c9495a2",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a37462ed-d4d7-4c42-bf88-f16a60e2f8b6",
+          "title": "Recreate your pool with a new image",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:9f411859c7f8e4bde10f46b86609025479d23c16993fbb41c20192725c5b9c79",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a58fd47f-d7b9-49dc-b763-c511d8774639",
+          "title": "Subscription with more than 10 VNets should be managed using AVNM",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:d6473f56a25c3a693c28ffb87dbfe324b62f4194642eea99cde18c8ca41f8e33",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a742dd2f-a022-45a2-8948-6741b460c461",
+          "title": "Ensure Accelerated Networking is enabled on all NICs for improved performance of SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:e23ad46469254bcaad8099724ea79b5c81b5cbd33cecd374a898bce9b470d181",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "a850ac78-dcea-485d-9c86-17a5f2cf56c4",
+          "title": "Monitor Azure Cosmos DB data by using resource-specific diagnostic settings.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:0fe80e0abe76800e71c3a73c521afbc94469713604e731729a7f80033848ee0d",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "aa60b18a-feab-4857-8d9a-e4f6a8d3ef0e",
+          "title": "Upgrade from legacy CRS 2.2.9 rule set to the latest DRS version",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:cc94317ae577a555c51a6a8d551ba5623c9012f7acc1ce293b0548b9fb7bc965",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "aafa012d-9696-4f5b-8f72-ffa083d7040d",
+          "title": "Set the parameter net.ipv4.tcp\\_keepalive\\_time to '300' in the Application VM OS in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:73b9bcd571254287e84c236004472a5697dbf8046320d62d2f3139ee76f66b65",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "abe69199-cad8-4eb8-a915-15bcf58ff369",
+          "title": "Update Service Connector SDK to the latest version",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:553d4ddb4ca0b105a904f296b1dfc2c6b36721404595ff2fc33d4a8eb2298d4f",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "acc30c87-0979-4a35-b4c4-918869897844",
+          "title": "Add explicit outbound method to disable default outbound for Virtual Machine Scale Sets",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:f3f3e297e5fe161b68785bda21cf876f694f8f63788aabccf280916c060a9c80",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "b07e6fcd-1741-477a-b8f0-0bf90c1aef10",
+          "title": "Ensure the Operating system in ASCS VM is supported in combination with DB type in your SAP workload",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:028cd58dcbdd00d9e01637cf73f5be569c03bc1188dd8ae00c683e296872e4d8",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "b081afb7-0106-4b69-8bc6-9f9ea1e57728",
+          "title": "Optimize network configuration for improved internal HANA communication in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:b45bf28f7d7617a8cc2068341a4ae272df93db53396d8e3a7adfd2fa6514caa9",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "b226053d-8d25-4de4-9e26-fa30df1a4379",
+          "title": "Use Azure AD-based authentication for more fine-grained control and simplified management",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:a8cca75360cf6736d97ec595914566a7590c4d0673335f0a224ba80f93e585cc",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "b64191e1-69b1-4977-be74-284a0b1ff535",
+          "title": "Enable API specification static analysis to ensure compliance with your organization's API style guide.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:353fa788ab407752c6dff81c32ee84a37edf44534f3cf2673fdea5ca6c1c1614",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "b677ed4b-1eed-45c7-b268-4280be5839f8",
+          "title": "Self-hosted gateway instance(s) were identified that use gateway tokens that will expire soon",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:758d0cb4c1d491eb46813bbe50d6f9e25b8e69692c371c07498fdf4d51b061b0",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "b7e3affb-e367-4b6b-ada0-ad40197a9ad3",
+          "title": "Deprecated Microsoft Planetary Computer API version detected.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:3042f50c54454b6717dea140bbece355830a87ba92c55a91a34f4c3a81181a18",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "bb3bb94d-c2f1-4f8b-97b3-7025e1a11f03",
+          "title": "Only allow tracing on subscriptions intended for debugging purposes. Sharing subscription keys with tracing allowed with unauthorized users could lead to disclosure of sensitive information contained in tracing logs such as keys, access tokens, passwords, internal hostnames, and IP addresses.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:1f420fe4cad568b7547ccbde1b1983e848664cf80584497cdb78d3b80640f95d",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "bbc3f0f1-85b7-4bcb-b474-0e02571eb5fa",
+          "title": "Upgrade to the latest API version to ensure your Batch account remains operational.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:cc9274f917a8bf67995f32f603f5bbbc0c41a16628b1d6e357cfd63717a2d0b8",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "be19e76c-125e-4f19-aa19-51e400e754fe",
+          "title": "Apply resource delete lock",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:eeeacf5ff996396fedecf41d4d1788b32e0b5d5060656c61975be724a23d4260",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "bf161e78-ce57-4198-82e8-a34522045518",
+          "title": "Enable partition merge to configure an optimal database partition layout",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:41bb8f06e7161210d3f217b5af6b5262fb8110b21b13913bffca6482121c2f7b",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "bfa9dd65-27ca-4d93-8634-a909b1132277",
+          "title": "Enable container monitoring for Azure Kubernetes Service (AKS) clusters",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:47d00ce63a643c91c805c6a8fa04f0be4a1d35dc826df5059c71dfdc5c0a31e9",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "c2f34a5d-2742-4c3d-9247-e0a8b85c3e51",
+          "title": "Configure the Cluster Autoscaler",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:346f2da606516f9b0afe1c0b2ef1735e9a3b4c5d36000bf5f00650bc66fbae85",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "c324c9de-e88a-4074-9727-c775a0b169b2",
+          "title": "Update Azure Managed Grafana SDK Version",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:2934e2f138de43a76fa04cae1997fff65c66c320506d1657ffeae1bee5bff973",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "c61597cf-c7b2-4f9c-bbd0-49fb4762278c",
+          "title": "Disable fstrim in SLES OS to avoid XFS metadata corruption in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:48e4cc93ea4d6b08074dc96f554590b31425fa954e86c9aa0b9035f9c72fc5d7",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "c7a883a4-fda2-4bcd-9f78-dad70c19429f",
+          "title": "Add explicit outbound method to disable default outbound",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:2ea64c8c0fcf361526828eb2fdeffb71f78c1ce838447914879c05808965e53f",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "c7af38cf-0f55-4843-9b53-66d929a621ae",
+          "title": "Set the parameter net.ipv4.tcp\\_keepalive\\_intvl to '75' in the Application VM OS in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:bb69e9c7d2577e6bb3a8aa14d1d990ea230690d07c90afb3b08db80e03fefec2",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "cbb610fd-5caf-445e-943b-8175c77f1118",
+          "title": "Disable fstrim in SLES OS to avoid XFS metadata corruption in SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:c1fb42c1f97c11e22f2af54a3a1b5643aeceae8f14f4146a5e0cc4489d4aa4a7",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "cc62fec4-24e5-4fc4-bf99-2b83d0702549",
+          "title": "Simplify multi-cluster management with Azure Kubernetes Fleet Manager",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:5d731722b2ba5c9a9a0d0c4ad11ab27d9be7454545ef816e0a9594a655a4971c",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "cd3d9525-7315-42af-a005-a61aea23d20c",
+          "title": "Ensure the HANA DB VM type supports the HANA scenario in your SAP workload",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:abb8f2f40da5421c95266942779dc4b3c1886aafa76f3c255b71798ce7d4b3f0",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "cfdd653f-53d8-498d-8310-16da6d1b95b1",
+          "title": "Deprecated Microsoft Planetary Computer ARM API version detected",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:60c4eb589122f52fbb0e7928b31a677c09d739fb59255e4ac50c302bbb4cb1e0",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "d1e9f4a0-926e-4480-a4e4-3ea94877370c",
+          "title": "Enable container monitoring for Azure Kubernetes Service (AKS) clusters",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:e23b510bdef8cbffe1a32e0a19bef61b614a90bce89594a30b88e34a1c98d762",
+          "state": "partial",
+          "corpusIds": [
+            "eaa8dc4a-2436-47b3-9697-15b1752beee0"
+          ],
+          "assessments": [
+            {
+              "corpusId": "eaa8dc4a-2436-47b3-9697-15b1752beee0",
+              "coverage": "partial",
+              "state": "partial",
+              "hashMatches": true,
+              "assessedAt": "2026-09-11",
+              "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+              "notes": "AKS container log monitoring is represented; this record does not require all Prometheus metrics in the published Advisor requirement."
+            }
+          ]
+        },
+        {
+          "id": "d35fd191-4fa0-4949-8517-50750bd9672e",
+          "title": "Configure standard networking for the Azure NetApp Files volume",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:2e5fc2f5cdc3c2882c4699dd36f9a10e613d5112f69f95a28cd7929be61f8334",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "d6c54614-97fe-4f55-85cf-adb49ca7ccd3",
+          "title": "Disable trusted service connectivity in API Management",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:a37c6a03e639cede532491f8744ae570970dfed6df47d381327f1e6b91bfc96f",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "db4ccef4-d6aa-40a8-8d3c-b42ffc20a9a0",
+          "title": "Configure the network topology and the domain controllers",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:b348050c4e0c36d7f93b5d0cf3cb5ef2e087d1c2c37ef18173b6c930130ba534",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "dc33091b-a748-4418-b4b0-d3d97466efe4",
+          "title": "Injecting a cache into a virtual network (VNet) imposes complex requirements on your network configuration. This is a common source of incidents affecting customer applications",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:dc3d01c04e46b65e16bed1aee9e2651fba3950d4446ca578b0700871d8ededb1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "de7ddac0-29e6-4bff-a812-519d18184982",
+          "title": "Enable Trusted Launch foundational excellence, and modern security for Existing Generation 2 VM(s)",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:20f8a33c4bfa9b19378b107da8e26d0f961921fc6a4ac6be823f24d7356bf46c",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "deb97441-d830-49f6-b9a5-9d04306abde9",
+          "title": "Use the latest generation VM series such as Ddv5 series",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:9a9ff435b84ff39b7e4089d2ccd4f7185b874ddad760b55742e1d74b54b7d6c1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "dedaaba3-b5aa-4e91-a12e-6886ba0b2f6d",
+          "title": "Configure Connection Monitor for ExpressRoute Gateway",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:d8bab185dfa3c56dbfa277fa5a1f94e3393478f80443ab3fb426712440315f99",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "e32c5e70-515f-45aa-90e7-94fb4fdb1b6c",
+          "title": "Use Uptime SLA",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:55aa7b0d28807ae4688e5fc4ebe21cedf872c4a43feb55f975ba07700f8213d3",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "e387838a-4fbc-47d5-9a3d-9d1aaa218345",
+          "title": "Redis persistence allows you to persist data stored in a cache so you can reload data from an event that caused data loss.",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:3749f73d432f2dc126f864b49427f6026472346a1aa3e93e52d4706c83cddbbf",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "ea000e01-b053-4076-a61b-e4cc58e9db07",
+          "title": "Remove the conflicting private frontend IP configuration",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:fd2c906bc347ec651ed3fb7ea374326d043dfdf240b54b4a81edeba318c6be8a",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "f160c11d-9aab-4d41-979f-d119dec02392",
+          "title": "You may benefit from using an Enterprise tier cache instance",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:0225d36caaefff52e2c82969452af73b6707800af75a29b1e43929d53b2540db",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "f1a7425d-69fa-463e-a2b0-f1d37cb995cf",
+          "title": "Backup Vault Migration",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:3c388e5ab9ebc8fb841058b48af2f7f4abd08c94026e6f8fb55d92ef9319f361",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "f52ed1b8-9d60-469c-b1d8-b671043fe264",
+          "title": "Upgrade to latest version of carbon optimization API",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:fa0ce05c156c4b32283eff65bf64801f8abbc5ab031f0f85a6b5a1d8e3844966",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "f632b889-88b5-4bf6-adb0-c1c65bd4ba55",
+          "title": "Adjust randomize VA space linux kernel parameter for better security of SAP on DB2 database",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:063f4cc865a0143d4bd2083011e81992491ad9e18b7e6f159ca1a3610c100c85",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "f8d4da72-3b27-4dd7-839c-bd69b9b95111",
+          "title": "VNet with more than 5 peerings should be managed using AVNM connectivity configuration",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:f7961acadef516ac7af428b66fffdb59f1af0108163f7224020c651432460677",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "f8fece56-6392-4ee9-b9c1-9bafd056037f",
+          "title": "For better performance and support, ensure HANA shared filesystem type is supported for HANA DB",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:ec6cea19daebc420927802fdeecd8ddb9fe8c643a97c2722418ed60354fbadfb",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "fa28a694-3881-4aae-9a77-86ff2f6105aa",
+          "title": "Update Azure File Sync agent to latest version",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:9e28f696ccfd41dfd6221d882481511154906fe353facfd9ecd7364f0a9e2710",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "fad6ef33-8ee0-4b11-b6b9-27c927a6d06d",
+          "title": "Ensure Accelerated Networking is enabled on all NICs for improved performance of SAP workloads",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:816dfb0166ca1d90008caa77782a5cf1683314f923871f18cfe6626db99fb1f1",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        },
+        {
+          "id": "fd86a3fc-2048-46a7-8ea1-d859cecf54ef",
+          "title": "Upgrade to the latest bot protection rule set in Application Gateway WAF",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations",
+          "contentHash": "sha256:10495a512c3f0996aa0004e948c4fc7080bf0328b7ed6631e1f37dbd30ef8331",
+          "state": "unknown",
+          "corpusIds": [],
+          "assessments": []
+        }
+      ],
+      "referencesOutsideInventory": []
+    }
+  ],
+  "crossOwnedProposals": [
+    {
+      "sourceId": "waf-operations-checklist",
+      "recommendationId": "OE:08",
+      "corpusId": "b86ad884-08e3-4727-94b8-75ba18f20459",
+      "ownedPillar": "Security",
+      "coverage": "supporting",
+      "status": "proposed-not-applied",
+      "notes": "Existing Security incident response control overlaps. Consider broader incident roles, communications, drills and blameless RCA in the owning pass; no duplicate Operations incident check added."
+    }
+  ]
+}

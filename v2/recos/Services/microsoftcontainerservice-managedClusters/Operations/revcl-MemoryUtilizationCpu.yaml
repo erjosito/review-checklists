@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-analyze
 queries: {}
+schemaVersion: 1
+id: 4621dd68-c5a5-4be2-bdb1-1726769ef669
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

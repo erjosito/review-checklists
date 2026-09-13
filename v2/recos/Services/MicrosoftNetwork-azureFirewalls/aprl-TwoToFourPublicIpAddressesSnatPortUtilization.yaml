@@ -1,18 +1,48 @@
 name: aprl-TwoToFourPublicIpAddressesSnatPortUtilization
 title: Configure 2-4 PIPs for SNAT Port utilization
-description: |-
-  Configure a minimum of two to four public IP addresses per Azure Firewall to avoid SNAT exhaustion. Azure Firewall offers SNAT for all outbound traffic to public IPs, providing 2,496 SNAT ports for each additional PIP.
+description: Configure a minimum of two to four public IP addresses per Azure Firewall to avoid SNAT exhaustion.
+  Azure Firewall offers SNAT for all outbound traffic to public IPs, providing 2,496 SNAT ports for each
+  additional PIP.
 source:
   type: aprl
   file: azure-resources/Network/azureFirewalls/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/azureFirewalls
+- microsoft.network/azurefirewalls
 severity: 1
 labels:
   guid: d2e4a38e-2307-4299-a217-4c0cebc9a7f6
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under development
+  arg: ''
+schemaVersion: 1
+id: d2e4a38e-2307-4299-a217-4c0cebc9a7f6
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/azureFirewalls/recommendations.yaml
+    title: 'APRL d2e4a38e-2307-4299-a217-4c0cebc9a7f6: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: d2e4a38e-2307-4299-a217-4c0cebc9a7f6
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/azureFirewalls/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:9985887cdebefb3f398551363e93eaacf21c83ee8742f0e7a2b92257f759233d
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. SNAT sizing guidance needs per-public-IP and per-firewall-instance
+      accounting plus workload port demand; do not treat 2-4 IPs as universal. Coverage concerns the inventory's
+      explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

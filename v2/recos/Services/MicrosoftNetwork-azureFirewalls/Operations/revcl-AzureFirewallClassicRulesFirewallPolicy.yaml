@@ -14,5 +14,14 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/secure-networking-infrastructure/
 queries: {}
-filepath: C:\Users\jomore\Repos\review-checklists\v2\recos\Services\MicrosoftNetwork-azureFirewalls\Operations\revcl-AzureFirewallClassicRulesFirewallPolicy.yaml
 severity: 1
+schemaVersion: 1
+id: e960fc6b-4ab2-4db6-9609-3745135f9ffa
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

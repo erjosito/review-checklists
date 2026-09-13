@@ -1,18 +1,48 @@
 name: aprl-AzureDdosProtectionPlanMetricsAzureDdosPlanMetrics
 title: Monitor Azure DDoS Protection Plan metrics
-description: |-
-  Azure DDoS Plan metrics differentiate packets and bytes by tags: Dropped (packets scrubbed by DDoS), Forwarded (packets to VIP not filtered), and No tag (total packets, sum of dropped and forwarded).
+description: 'Azure DDoS Plan metrics differentiate packets and bytes by tags: Dropped (packets scrubbed
+  by DDoS), Forwarded (packets to VIP not filtered), and No tag (total packets, sum of dropped and forwarded).'
 source:
   type: aprl
   file: azure-resources/Network/ddosProtectionPlans/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/ddosProtectionPlans
+- microsoft.network/ddosprotectionplans
 severity: 1
 labels:
   guid: ae054bf2-aefa-cf4a-8282-741194cef8da
   area: Security
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: ae054bf2-aefa-cf4a-8282-741194cef8da
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/ddosProtectionPlans/recommendations.yaml
+    title: 'APRL ae054bf2-aefa-cf4a-8282-741194cef8da: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: ae054bf2-aefa-cf4a-8282-741194cef8da
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/ddosProtectionPlans/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f2774c9e33188ee797186ebaeb7dbc7a86595627cc2e98563610cdc813d18a90
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

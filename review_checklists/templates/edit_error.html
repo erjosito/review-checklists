@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Assessment not saved</h1>
+<p role="alert" class="warning">{{ error }}</p>
+<p>Your submitted draft is below. Copy it before reloading or leaving this page.
+  {% if kind == 'conflict' %}Another editor changed this assessment. Compare the saved version and
+  reconcile your draft; retrying this stale revision cannot overwrite it.{% endif %}</p>
+<p><a href="{{ url_for('detail', item_id=request.view_args.item_id, **listing_args) }}"
+  target="_blank" rel="noopener">Open saved assessment in a new tab to compare</a></p>
+<form method="post" action="{{ request.url }}">
+  <input type="hidden" name="csrf" value="{{ session.csrf }}">
+  <input type="hidden" name="revision" value="{{ request.form.get('revision', '') }}">
+  <label>Status <select name="status">
+    {% if request.form.get('status') not in statuses %}
+    <option selected>{{ request.form.get('status', '') }}</option>
+    {% endif %}
+    {% for status in statuses %}
+    <option {% if status == request.form.get('status') %}selected{% endif %}>{{ status }}</option>
+    {% endfor %}
+  </select></label>
+  <label>Comments <textarea name="comments" rows="8" maxlength="20000">{{ request.form.get('comments', '') }}</textarea></label>
+  <button type="submit">Retry save</button>
+</form>
+{% endblock %}

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/governance/policy/concepts/guest-configuration
 queries: {}
+schemaVersion: 1
+id: f541acdc-e979-4377-acdb-3751ab2ab13a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

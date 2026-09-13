@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/firewall/premium-features#tls-inspection
 queries: {}
+schemaVersion: 1
+id: 346840b8-1064-496e-8396-4b1340172d52
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

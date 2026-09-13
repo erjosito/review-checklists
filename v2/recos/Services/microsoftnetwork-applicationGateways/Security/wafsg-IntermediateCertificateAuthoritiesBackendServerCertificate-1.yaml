@@ -1,11 +1,10 @@
 name: wafsg-IntermediateCertificateAuthoritiesBackendServerCertificate-1
-title: When re-encrypting backend traffic, ensure the backend server certificate contains
-  both the root and intermediate Certificate Authorities (CAs)
-description: A TLS certificate of the backend server must be issued by a well-known
-  CA. If the certificate was not issued by a trusted CA, the Application Gateway checks
-  if the certificate was issued by a trusted CA, and so on, until a trusted CA certificate
-  is found. Only then a secure connection is established. Otherwise, Application Gateway
-  marks the backend as unhealthy.
+title: When re-encrypting backend traffic, ensure the backend server certificate contains both the root
+  and intermediate Certificate Authorities (CAs)
+description: A TLS certificate of the backend server must be issued by a well-known CA. If the certificate
+  was not issued by a trusted CA, the Application Gateway checks if the certificate was issued by a trusted
+  CA, and so on, until a trusted CA certificate is found. Only then a secure connection is established.
+  Otherwise, Application Gateway marks the backend as unhealthy.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -17,3 +16,23 @@ labels:
   guid: 08b9ecd4-7e8b-40a1-803b-bad57bec80ea
 links: []
 queries: {}
+schemaVersion: 1
+id: 08b9ecd4-7e8b-40a1-803b-bad57bec80ea
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: d3ed4722-efc4-4567-b9fe-e4254225913e
+  name: wafsg-IntermediateCertificateAuthoritiesBackendServerCertificate
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: d3ed4722-efc4-4567-b9fe-e4254225913e
+  corpusFile: Services/microsoftnetwork-applicationGateways/Security/wafsg-IntermediateCertificateAuthoritiesBackendServerCertificate.yaml

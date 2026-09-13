@@ -1,13 +1,13 @@
 name: aprl-FlexibleServerInstancesAutomaticFailoverCapability-1
 title: Enable HA with zone redundancy
-description: |-
-  Enable HA with zone redundancy on flexible server instances to deploy a standby replica in a different zone, offering automatic failover capability for improved reliability and disaster recovery.
+description: Enable HA with zone redundancy on flexible server instances to deploy a standby replica in
+  a different zone, offering automatic failover capability for improved reliability and disaster recovery.
 source:
   type: aprl
   file: azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DBforPostgreSQL/flexibleServers
+- microsoft.dbforpostgresql/flexibleservers
 severity: 0
 labels:
   guid: ca87914f-aac4-4783-ab67-82a6f936f194
@@ -21,3 +21,35 @@ queries:
     | where type == "microsoft.dbforpostgresql/flexibleservers"
     | where properties.highAvailability.mode != "ZoneRedundant"
     | project recommendationId = "ca87914f-aac4-4783-ab67-82a6f936f194", name, id, tags, param1 = "ZoneRedundant: False"
+schemaVersion: 1
+id: ca87914f-aac4-4783-ab67-82a6f936f194
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
+    title: 'APRL ca87914f-aac4-4783-ab67-82a6f936f194: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: ca87914f-aac4-4783-ab67-82a6f936f194
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:3f5afb9dd39aebf664b8d833ea06e0f890f5629f2e49d3afdb47293694e90429
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

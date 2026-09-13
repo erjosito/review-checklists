@@ -14,3 +14,13 @@ labels:
   guid: 77a59c87-2e77-4070-8823-def10424362e
 links: []
 queries: {}
+schemaVersion: 1
+id: 77a59c87-2e77-4070-8823-def10424362e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

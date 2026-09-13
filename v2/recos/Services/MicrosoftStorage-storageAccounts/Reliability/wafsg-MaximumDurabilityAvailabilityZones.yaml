@@ -16,3 +16,13 @@ labels:
   guid: 8930145f-653c-4630-8090-7ddfb1522a30
 links: []
 queries: {}
+schemaVersion: 1
+id: 8930145f-653c-4630-8090-7ddfb1522a30
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

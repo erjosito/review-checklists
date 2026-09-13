@@ -12,3 +12,13 @@ labels:
   guid: f41ce6a0-64f3-4805-bc65-3ab50df01265
 links: []
 queries: {}
+schemaVersion: 1
+id: f41ce6a0-64f3-4805-bc65-3ab50df01265
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

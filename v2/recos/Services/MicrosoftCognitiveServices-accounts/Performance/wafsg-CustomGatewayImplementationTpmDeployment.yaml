@@ -1,10 +1,10 @@
 name: wafsg-CustomGatewayImplementationTpmDeployment
-title: 'Capacity: Allocate PTUs to cover your predicted usage, and complement these
-  PTUs with a TPM deployment to handle elasticity above that limit. This approach
-  combines base throughput with elastic throughput for efficiency. Like other considerations,
-  this approach requires a custom gateway implementation to route requests to the
-  TPM deployment when the PTU limits are reached.'
-description: ''
+title: Evaluate native spillover for bursts beyond Azure OpenAI provisioned capacity
+description: Size provisioned throughput for the measured baseline. For suitable workloads, configure
+  native spillover to a standard deployment in the same Foundry resource with a matching model and version,
+  instead of assuming a custom gateway is always required. Verify current deployment/model eligibility
+  and quota. Test spillover failures and additional latency; standard traffic is token-billed and may
+  also be throttled. Monitor deployment-level requests, tokens, status codes and spillover indicators.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -17,3 +17,19 @@ labels:
   guid: 2153dc0b-41f7-4470-abd1-c6ac7522537c
 links: []
 queries: {}
+schemaVersion: 1
+id: 2153dc0b-41f7-4470-abd1-c6ac7522537c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/ai-foundry/openai/how-to/spillover-traffic-management
+    title: Manage traffic with spillover for provisioned deployments
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/ai-foundry/openai/how-to/latency
+    title: Performance and latency
+    accessedAt: '2026-09-11'

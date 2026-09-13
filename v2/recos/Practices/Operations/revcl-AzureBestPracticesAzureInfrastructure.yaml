@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck
 queries: {}
+schemaVersion: 1
+id: 73686af4-6791-4f89-95ad-a43324e13811
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

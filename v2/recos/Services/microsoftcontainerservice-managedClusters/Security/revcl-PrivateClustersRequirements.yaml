@@ -16,3 +16,14 @@ queries:
   arg: where type=='microsoft.containerservice/managedclusters' | where isnotnull(properties.apiServerAccessProfile.enablePrivateCluster)
     | extend compliant = (properties.apiServerAccessProfile.enablePrivateCluster==true)
     | distinct id, compliant
+schemaVersion: 1
+id: ecccd979-3b6b-4cda-9b50-eb2eb03dda6d
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

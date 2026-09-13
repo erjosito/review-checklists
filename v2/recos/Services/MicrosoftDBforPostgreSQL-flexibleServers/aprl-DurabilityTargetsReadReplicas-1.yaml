@@ -1,23 +1,58 @@
 name: aprl-DurabilityTargetsReadReplicas-1
 title: Configure one or more read replicas
-description: |-
-  Configure one or more read replicas to ensure that your database meets its availability and durability targets even in the face of failures or disasters.
+description: Configure one or more read replicas to ensure that your database meets its availability and
+  durability targets even in the face of failures or disasters.
 source:
   type: aprl
   file: azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DBforPostgreSQL/flexibleServers
+- microsoft.dbforpostgresql/flexibleservers
 severity: 0
 labels:
   guid: 2ab85a67-26be-4ed2-a0bb-101b2513ec63
   area: Disaster Recovery
 links: []
 queries:
-  arg: |-
+  arg: |
     // Azure Resource Graph Query
-    // Find Database for PostgreSQL instances that are read replicas
+    // Find Database for PostgreSQL instances that do not have read replicas
     resources
-    | where type == "microsoft.dbforpostgresql/flexibleservers"
-    | where properties.replicationRole == "AsyncReplica"
-    | project recommendationId = "2ab85a67-26be-4ed2-a0bb-101b2513ec63", name, id, tags, param1 = strcat("replicationRole:", properties['replicationRole'])
+    | where type == "microsoft.dbforpostgresql/flexibleservers" and properties.replicationRole == "AsyncReplica"
+    | project replicaServerId = id, id = tostring(properties.sourceServerResourceId)
+    | join kind=fullouter (resources | where type == "microsoft.dbforpostgresql/flexibleservers" and properties.replicationRole != "AsyncReplica") on id
+    | where isempty(replicaServerId)
+    | project recommendationId = "2ab85a67-26be-4ed2-a0bb-101b2513ec63", name, id = id1, tags, param1 = strcat("replicationRole:", properties['replicationRole'])
+schemaVersion: 1
+id: 2ab85a67-26be-4ed2-a0bb-101b2513ec63
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+  notes: The current query joins replicas to their source server and finds primaries without replicas,
+    instead of returning replicas as failures. Static source review only; not executed against Azure.
+    Returned rows require applicability review, and zero rows do not prove compliance.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
+    title: 'APRL 2ab85a67-26be-4ed2-a0bb-101b2513ec63: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 2ab85a67-26be-4ed2-a0bb-101b2513ec63
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b4186bf1dc36657a1b721521a1b7a5153b86ce2e7bfc572412e78493548b3fd3
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. The current query joins replicas to their source
+      server and finds primaries without replicas, instead of returning replicas as failures. Coverage
+      concerns the inventory's explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt
+      remain unchanged.
+waf: Reliability

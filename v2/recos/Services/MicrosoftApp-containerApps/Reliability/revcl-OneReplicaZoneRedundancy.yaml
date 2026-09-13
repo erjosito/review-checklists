@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/reliability/reliability-azure-container-apps?tabs=azure-cli#set-up-zone-redundancy-in-your-container-apps-environment
 queries: {}
+schemaVersion: 1
+id: 95bc80ec-6499-4d14-a7d2-7d296b1d8abc
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

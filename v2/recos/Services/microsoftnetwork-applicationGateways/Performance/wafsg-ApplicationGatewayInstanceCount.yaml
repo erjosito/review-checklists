@@ -1,6 +1,9 @@
 name: wafsg-ApplicationGatewayInstanceCount
-title: Estimate the Application Gateway instance count
-description: ''
+title: Estimate Application Gateway v2 capacity using traffic and compute measurements
+description: Use current compute units, throughput, connections and representative payloads to estimate
+  instances; the documented approximate per-instance capacities are planning inputs, not guarantees. Compare
+  estimates with measured peak traffic, autoscaling delays, configured limits and subnet headroom. Maintain
+  a buffer for bursts and validate with load tests.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-application-gateway.md
@@ -13,3 +16,16 @@ labels:
   guid: 63dd2b1b-6076-46c9-8b80-54a255b77f49
 links: []
 queries: {}
+schemaVersion: 1
+id: 63dd2b1b-6076-46c9-8b80-54a255b77f49
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-application-gateway
+    title: Architecture best practices for Azure Application Gateway v2
+    accessedAt: '2026-09-11'

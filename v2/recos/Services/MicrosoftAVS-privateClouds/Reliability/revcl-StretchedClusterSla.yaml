@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/frontdoor/best-practices#select-good-health-probe-endpoints
 queries: {}
+schemaVersion: 1
+id: 4c486b6d-8bdc-4059-acf7-5ee8a1309888
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

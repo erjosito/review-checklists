@@ -1,11 +1,9 @@
 name: wafsg-StandardAzureFileSharesPremiumFileShares
-title: When you migrate to standard Azure file shares, we recommend that you start
-  in the transaction-optimized tier during the initial migration. Transaction usage
-  during migration isn't typically indicative of normal transaction usage. This consideration
-  doesn't apply for premium file shares because the provisioned billing model doesn't
-  charge for transactions.
-description: Migrating to Azure Files is a temporary, transaction-heavy workload.
-  Optimize the price for high-transaction workloads to help reduce migration costs.
+title: Separate Azure Files migration transaction cost from steady-state billing choice
+description: If a migration uses PAYG HDD classic shares, start with the transaction-optimized tier and
+  reassess after representative steady-state usage. Migration traffic is not a reliable normal-operation
+  baseline. Evaluate provisioned v2 for new deployments and compare total provisioned versus consumed-resource
+  costs; do not select PAYG solely because the storage media is HDD.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -17,3 +15,18 @@ labels:
   guid: 72b9477f-3c39-4633-a052-90b1203f9be5
 links: []
 queries: {}
+schemaVersion: 1
+id: 72b9477f-3c39-4633-a052-90b1203f9be5
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Retain the documented migration advice only for the applicable PAYG
+    model. Requires workload, billing and operational evidence; no ARG query or live validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/files/understanding-billing
+    title: Understand Azure Files Billing
+    accessedAt: '2026-09-11'

@@ -1,13 +1,13 @@
 name: aprl-TrafficManagerMonitorStatusApplicationWorkload
 title: Traffic Manager Monitor Status Should be Online
-description: |-
-  Monitor status should be online to ensure failover for application workload. If Traffic Manager's health shows Degraded, one or more endpoints may also be Degraded.
+description: Monitor status should be online to ensure failover for application workload. If Traffic Manager's
+  health shows Degraded, one or more endpoints may also be Degraded.
 source:
   type: aprl
   file: azure-resources/Network/trafficManagerProfiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/trafficManagerProfiles
+- microsoft.network/trafficmanagerprofiles
 severity: 0
 labels:
   guid: f05a3e6d-49db-2740-88e2-2b13706c1f67
@@ -22,3 +22,31 @@ queries:
     | mv-expand properties.endpoints
     | where properties_endpoints.properties.endpointMonitorStatus != "Online"
     | project recommendationId = "f05a3e6d-49db-2740-88e2-2b13706c1f67", name, id, tags, param1 = strcat('Profile name: ',properties_endpoints.name), param2 = strcat('endpointMonitorStatus: ', properties_endpoints.properties.endpointMonitorStatus)
+schemaVersion: 1
+id: f05a3e6d-49db-2740-88e2-2b13706c1f67
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/trafficManagerProfiles/recommendations.yaml
+    title: 'APRL f05a3e6d-49db-2740-88e2-2b13706c1f67: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: f05a3e6d-49db-2740-88e2-2b13706c1f67
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/trafficManagerProfiles/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:af2fa75a0b8f1a8a7440abd1bc20a8603bfa72493828b176f5bdcdd4c668e6cd
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

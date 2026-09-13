@@ -16,3 +16,13 @@ labels:
   guid: 0eb2861e-50ba-479a-93d2-ca98a617e5fb
 links: []
 queries: {}
+schemaVersion: 1
+id: 0eb2861e-50ba-479a-93d2-ca98a617e5fb
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,18 +1,23 @@
 name: aprl-RecoveryServicesVaultsSoftDelete
-title: Enable Soft Delete for Recovery Services Vaults in Azure Backup
-description: |-
-  With soft delete, if backup data is deleted, the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss with no cost to you. Soft delete is enabled by default. Disabling this feature isn't recommended.
+title: Verify Backup soft-delete protection and recovery retention
+description: Keep soft-delete protection for Recovery Services vault backup data and verify recovery procedures.
+  The default soft-delete retention is 14 days and can be configured from 14 to 180 days; retention beyond
+  14 days incurs additional charges. Account for secure-by-default enforcement rather than assuming soft
+  delete can always be disabled. Confirm workload and region applicability, because vaulted data protection
+  does not imply identical protection for every operational backup type.
 source:
   type: aprl
   file: azure-resources/RecoveryServices/vaults/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.RecoveryServices/vaults
+- microsoft.recoveryservices/vaults
 severity: 1
 labels:
   guid: 9e39919b-78af-4a0b-b70f-c548dae97c25
   area: Disaster Recovery
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/backup/secure-by-default
 queries:
   arg: |-
     // Azure Resource Graph Query
@@ -22,3 +27,38 @@ queries:
     | mv-expand issoftDelete=properties.securitySettings.softDeleteSettings.softDeleteState
     | where issoftDelete == 'Disabled'
     | project recommendationId = "9e39919b-78af-4a0b-b70f-c548dae97c25", name, id, tags, param1=strcat("Soft Delete: ",issoftDelete)
+schemaVersion: 1
+id: 9e39919b-78af-4a0b-b70f-c548dae97c25
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+  notes: Retained the legacy query as inventory only. Assess the updated guidance, eligibility, resource
+    scope, and recovery/migration policy manually; returned rows are not automatic violations and zero
+    rows do not prove compliance. Not executed against Azure.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/backup/secure-by-default
+    title: Backup configurable soft-delete retention, costs, and applicability
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/RecoveryServices/vaults/recommendations.yaml
+    title: 'APRL 9e39919b-78af-4a0b-b70f-c548dae97c25: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 9e39919b-78af-4a0b-b70f-c548dae97c25
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/RecoveryServices/vaults/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:7b8351a56ce444d55ad2dfdd5b72aa34ec7bbdca85c5a1951334374908888e6f
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Backup configurable soft-delete retention, costs,
+      and applicability. Coverage concerns the inventory''s explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.'
+waf: Reliability

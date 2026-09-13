@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/operating-system-functionality#file-access
 queries: {}
+schemaVersion: 1
+id: e65de8e0-3f9b-4cbd-9682-66abca264f9a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

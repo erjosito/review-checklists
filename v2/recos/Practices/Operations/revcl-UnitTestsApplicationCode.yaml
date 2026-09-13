@@ -15,3 +15,33 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/considerations/development-strategy-development-lifecycle#automated-builds
 queries: {}
+schemaVersion: 1
+id: 0cadb8c7-8fa5-4fbf-8f39-d1fadb3b0460
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/testing
+    title: Architecture strategies for testing
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/infrastructure-as-code-design
+    title: Architecture strategies for using infrastructure as code
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:09
+    coverage: partial
+    notes: Clarify test ownership and avoid treating unit tests as complete release confidence. Narrow
+      control or service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/testing
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:05eb3f80be3d468f7cbf3190526aafaf9272e148edbcc8357b6bbd515d6b0e07
+description: Include fast unit tests for application code and validation tests for IaC in the build process.
+  Add integration and end-to-end tests that verify the application can use the provisioned infrastructure
+  and critical business flows still work. Define test scope and release entry/exit criteria based on workload
+  risk. Keep feedback fast without using unit-test success as a substitute for deployment and recovery
+  testing.

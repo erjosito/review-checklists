@@ -1,10 +1,10 @@
 name: wafsg-NoisyNeighborProblemsConsistentMaximumLatency
-title: 'Capacity: Use provisioned throughput for production workloads. Provisioned
-  throughput offers dedicated memory and compute, reserved capacity, and consistent
-  maximum latency for the specified model version. The pay-as-you-go offering can
-  suffer from noisy neighbor problems like increased latency and throttling in regions
-  under heavy use. Also, the pay-as-you-go approach doesn''t offer guaranteed capacity.'
-description: ''
+title: Choose Azure OpenAI deployment capacity from measured workload requirements
+description: Evaluate standard and provisioned deployments against token distributions, concurrency, latency
+  targets, model/version availability and cost. Provisioned processing capacity can make throughput more
+  predictable, but the achieved throughput and per-call latency still depend on workload shape, cache
+  behavior and load. It is not a universal production requirement or a guarantee of consistent maximum
+  end-to-end latency.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -17,3 +17,16 @@ labels:
   guid: 2b52edf1-c7bc-4108-90c0-d3df81bff610
 links: []
 queries: {}
+schemaVersion: 1
+id: 2b52edf1-c7bc-4108-90c0-d3df81bff610
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/ai-foundry/openai/how-to/latency
+    title: Performance and latency
+    accessedAt: '2026-09-11'

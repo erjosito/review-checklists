@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-gb/training/modules/visualize-data-workbooks/
 queries: {}
+schemaVersion: 1
+id: c773e7d2-6162-43a7-95a9-17e1f348ef25
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

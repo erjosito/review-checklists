@@ -1,8 +1,9 @@
 name: revcl-AppropriateNodeSizeLargerNodes
-title: Consider an appropriate node size, not too large or too small
-description: Larger nodes will bring higher performance and features such as ephemeral
-  disks and accelerated networking, but they will increase the blast radius and decrease
-  the scaling granularity
+title: Size AKS nodes using allocatable resources and workload scaling granularity
+description: Include CPU/memory requests, AKS resource reservations, storage and network needs, pod density,
+  and daemon overhead. Larger nodes change failure impact and scale increments; a larger SKU does not
+  universally guarantee every optional feature. Load test representative workloads and verify the selected
+  VM's supported features.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +17,19 @@ links:
 - type: docs
   url: https://blog.cloudtrooper.net/2020/10/23/which-vm-size-should-i-choose-as-aks-node/
 queries: {}
+schemaVersion: 1
+id: 5ae124ba-34df-4585-bcdc-e9bd3bb0cdb3
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/cluster-configuration
+    title: Core concepts for Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service
+    title: Architecture best practices for Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'

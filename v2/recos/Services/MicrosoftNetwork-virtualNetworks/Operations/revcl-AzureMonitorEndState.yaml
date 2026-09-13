@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/design-implement-network-monitoring/
 queries: {}
+schemaVersion: 1
+id: 4722d929-c1b1-4cd6-81f5-4b29bade39ad
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

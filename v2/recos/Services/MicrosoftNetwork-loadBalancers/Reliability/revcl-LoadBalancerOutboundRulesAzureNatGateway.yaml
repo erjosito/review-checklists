@@ -16,3 +16,14 @@ links:
 queries:
   arg: resources | where type=='microsoft.network/loadbalancers' | extend countOutRules=array_length(properties.outboundRules)
     | extend compliant = (countOutRules == 0) | distinct id,compliant
+schemaVersion: 1
+id: 97a2fd46-64b0-1dfa-b72d-9c8869496d75
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

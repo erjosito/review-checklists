@@ -1,5 +1,5 @@
 name: revcl-AzureVmwareSolutionGuestVmWorkloadsLogAnalyticsAgents
-title: Deploy the Log Analytics Agents to Azure VMware Solution guest VM workloads
+title: Migrate Azure VMware Solution guest monitoring to Azure Monitor Agent
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -11,3 +11,21 @@ labels:
   guid: 4ed90dae-2cc8-44c4-9b6b-781cbafe6c46
 links: []
 queries: {}
+schemaVersion: 1
+id: 4ed90dae-2cc8-44c4-9b6b-781cbafe6c46
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-migration
+    title: Log Analytics agent migration
+    accessedAt: '2026-09-11'
+description: For supported Azure VMware Solution guest operating systems, onboard non-Azure servers with
+  Azure Arc as required, then deploy Azure Monitor Agent with the intended data collection rules. The
+  Log Analytics agent retired on August 31, 2024 and ingestion can stop after March 2, 2026. Pilot the
+  migration, confirm expected telemetry and dependent services, avoid duplicate collection and remove
+  legacy workspace collection after validation. Preserve any separately required on-premises SCOM configuration.

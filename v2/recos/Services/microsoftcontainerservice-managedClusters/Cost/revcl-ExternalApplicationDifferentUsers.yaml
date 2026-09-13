@@ -1,6 +1,5 @@
 name: revcl-ExternalApplicationDifferentUsers
-title: Use an external application such as kubecost to allocate costs to different
-  users
+title: Allocate AKS costs using native cost analysis or a justified alternative
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,24 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/aks/eslz-cost-governance-with-kubecost
 queries: {}
+schemaVersion: 1
+id: f82cb8eb-8c0a-4a63-a25a-4956eaa8dc4a
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Requires Kubernetes usage allocation and billing data, not merely ARG resources.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/cost-analysis
+    title: Azure Kubernetes Service (AKS) cost analysis
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/azure-monitor/fundamentals/best-practices-cost
+    title: Cost optimization in Azure Monitor
+    accessedAt: '2026-09-11'
+description: Evaluate native AKS cost analysis first where supported, or use a maintained OpenCost-compatible
+  or commercial alternative for unmet allocation requirements. Reconcile shared, idle and unallocated
+  charges to the billing view and assign owners. Avoid installing duplicate collectors without a clear
+  need.

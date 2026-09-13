@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/ja-jp/azure/well-architected/oracle-iaas/performance-efficiency
 queries: {}
+schemaVersion: 1
+id: 33c5d5bf-daf3-4f0d-bd50-6010fdcec22e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

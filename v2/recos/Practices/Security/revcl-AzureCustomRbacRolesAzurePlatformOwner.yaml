@@ -20,3 +20,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/create-custom-azure-roles-with-rbac/
 queries: {}
+schemaVersion: 1
+id: f5664b5e-984a-4859-a773-e7d261623a76
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

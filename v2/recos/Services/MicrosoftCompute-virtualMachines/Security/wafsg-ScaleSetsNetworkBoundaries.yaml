@@ -14,3 +14,13 @@ labels:
   guid: f90aa688-2018-4e02-9fd9-0c7151dee588
 links: []
 queries: {}
+schemaVersion: 1
+id: f90aa688-2018-4e02-9fd9-0c7151dee588
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

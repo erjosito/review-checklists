@@ -1,13 +1,13 @@
 name: aprl-NetworkSecurityGroupApplicationSecurityGroups
 title: All Subnets should have a Network Security Group associated
-description: |-
-  Network security groups and application security groups allow filtering of inbound and outbound traffic by IP, port, and protocol, adding a security layer at the Subnet level.
+description: Network security groups and application security groups allow filtering of inbound and outbound
+  traffic by IP, port, and protocol, adding a security layer at the Subnet level.
 source:
   type: aprl
   file: azure-resources/Network/virtualNetworks/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/virtualNetworks
+- microsoft.network/virtualnetworks
 severity: 2
 labels:
   guid: f0bf9ae6-25a5-974d-87d5-025abec73539
@@ -23,3 +23,34 @@ queries:
     | extend sn = string_size(subnets.properties.networkSecurityGroup)
     | where sn == 0 and subnets.name !in ("GatewaySubnet", "AzureFirewallSubnet", "AzureFirewallManagementSubnet", "RouteServerSubnet")
     | project recommendationId = "f0bf9ae6-25a5-974d-87d5-025abec73539", name, id, tags, param1 = strcat("SubnetName: ", subnets.name), param2 = "NSG: False"
+schemaVersion: 1
+id: f0bf9ae6-25a5-974d-87d5-025abec73539
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworks/recommendations.yaml
+    title: 'APRL f0bf9ae6-25a5-974d-87d5-025abec73539: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: f0bf9ae6-25a5-974d-87d5-025abec73539
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworks/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0c731a14bb94377e5fc6fcf47d2d598aeb6fea6cf2b1a4770361dec02af090a6
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

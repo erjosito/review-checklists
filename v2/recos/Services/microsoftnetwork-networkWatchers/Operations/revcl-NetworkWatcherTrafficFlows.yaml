@@ -15,3 +15,30 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/configure-network-watcher/
 queries: {}
+schemaVersion: 1
+id: 90483845-c986-4cb2-a131-56a12476e49f
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/network-watcher/nsg-flow-logs-overview
+    title: NSG flow logs overview
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-operations-catalog
+    recommendationId: 6f087e7e-afdf-4a3d-a1de-41d70404b9cb
+    coverage: full
+    notes: Existing Network Watcher traffic-flow requirement now explicitly requires NSG-to-virtual-network-flow-log
+      migration, validation and retirement handling.
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:26cd3e61c9531daaa276c22bd826ffd19695b47e53c71e046bcb640868e4b2f8
+description: Use Network Watcher flow telemetry to investigate expected and unexpected traffic. New NSG
+  flow-log creation is no longer supported; migrate existing NSG flow logs to virtual network flow logs
+  before September 30, 2027. Validate storage, retention, traffic analytics and downstream investigations
+  after migration. Existing storage records are not deleted by the NSG flow-log resource retirement. Flow-log
+  configuration alone is not proof of complete traffic visibility.

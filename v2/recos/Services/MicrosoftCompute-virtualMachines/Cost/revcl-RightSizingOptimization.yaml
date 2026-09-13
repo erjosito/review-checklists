@@ -1,5 +1,5 @@
 name: revcl-RightSizingOptimization
-title: After the right-sizing optimization
+title: Recalculate commitment coverage after rightsizing
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,28 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain
 queries: {}
+schemaVersion: 1
+id: cb1f7d57-59ae-4568-aa38-d4985e2213db
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Requires Cost Management/FOCUS usage and commitment data, not ARG resource inventory; documented
+    FinOps Costs/Prices queries use a different engine.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation
+    title: Decide between a savings plan and a reservation
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/focus/what-is-focus
+    title: FinOps Open Cost and Usage Specification
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/compute
+    title: FinOps best practices for compute
+    accessedAt: '2026-09-11'
+description: After a resize, shutdown or migration, measure reservation and savings-plan utilization and
+  uncovered eligible usage using billing and usage data. Reassign benefits or use currently permitted
+  exchange/trade-in options before new purchases. Separate unused commitment cost from resource consumption
+  and assign an owner to investigate underutilization.

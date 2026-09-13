@@ -15,3 +15,14 @@ links:
 queries:
   arg: resources | where type == 'microsoft.network/loadbalancers' | project id, compliant=(tolower(sku.name)
     == 'standard')
+schemaVersion: 1
+id: 4e35fbf5-0ae2-48b2-97ce-753353edbd1a
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

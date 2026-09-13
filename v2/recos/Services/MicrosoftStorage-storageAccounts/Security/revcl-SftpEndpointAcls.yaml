@@ -1,5 +1,5 @@
 name: revcl-SftpEndpointAcls
-title: 'SFTP: The SFTP endpoint does not support POSIX-like ACLs.'
+title: Apply supported ACLs for Blob SFTP and understand their interaction with container permissions.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-known-issues#authentication-and-authorization
 queries: {}
+schemaVersion: 1
+id: 9f89dc7b-33be-42a1-a27f-7b9e91be1f38
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support
+    title: SFTP support for Azure Blob Storage
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support-entra-id-based-access
+    title: Authorize SFTP access to blobs using Microsoft Entra ID
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: For local users, enable ACL authorization and use the supported owning-user, owning-group
+  and other-user permissions. Named-user and named-group ACL entries are not supported for local-user
+  authorization. Container permissions are evaluated first; ACLs cannot restrict an operation already
+  allowed at container scope. Verify access to parent directories and target paths with the intended user.
+  Microsoft Entra-based SFTP has a different identity and authorization model.

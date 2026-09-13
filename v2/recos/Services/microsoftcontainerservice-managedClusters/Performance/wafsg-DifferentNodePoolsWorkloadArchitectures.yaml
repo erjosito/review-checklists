@@ -1,7 +1,8 @@
 name: wafsg-DifferentNodePoolsWorkloadArchitectures
-title: 'Cluster and workload architectures: Separate workloads into different node
-  pools allowing independent scalling.'
-description: ''
+title: Separate AKS workloads into node pools when independent scaling is required
+description: Group workloads by scaling and scheduling requirements, configure placement, and test pool-level
+  growth and contraction. Separate node pools permit independent capacity changes; they do not alone prove
+  that application flows can scale independently.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-kubernetes-service.md
@@ -14,3 +15,16 @@ labels:
   guid: 162e3ed3-bde4-4a09-b074-aec1140b735a
 links: []
 queries: {}
+schemaVersion: 1
+id: 162e3ed3-bde4-4a09-b074-aec1140b735a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service
+    title: Architecture best practices for Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'

@@ -21,3 +21,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/data-explorer/business-continuity-overview#active-hot-standby-configuration
 queries: {}
+schemaVersion: 1
+id: 8fadfe27-7de2-483b-8ac3-52baa9b75708
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

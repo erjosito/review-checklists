@@ -1,18 +1,49 @@
 name: aprl-AzureVmwareSolutionClusterSizeProactiveResourceMonitoring
 title: Monitor when Azure VMware Solution Cluster Size is approaching the host limit
-description: |-
-  Alert when the cluster size reaches 14 hosts. Set up periodic alerts for planning new clusters or datastores due to growth, especially from storage needs. Beyond 14 hosts, trigger alerts for each new host addition for proactive resource monitoring.
+description: Alert when the cluster size reaches 14 hosts. Set up periodic alerts for planning new clusters
+  or datastores due to growth, especially from storage needs. Beyond 14 hosts, trigger alerts for each
+  new host addition for proactive resource monitoring.
 source:
   type: aprl
   file: azure-resources/AVS/privateClouds/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AVS/privateClouds
+- microsoft.avs/privateclouds
 severity: 1
 labels:
   guid: f86355e3-de7c-4dad-8080-1b0b411e66c8
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |-
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: f86355e3-de7c-4dad-8080-1b0b411e66c8
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    title: 'APRL f86355e3-de7c-4dad-8080-1b0b411e66c8: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: f86355e3-de7c-4dad-8080-1b0b411e66c8
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:03c73a934c3141f9f3c822f013eeb09bebd051b0377d32dc2a2d03ec6208d8c5
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

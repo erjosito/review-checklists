@@ -13,3 +13,13 @@ labels:
   guid: 6fff442f-deed-462d-90b6-7fde6ce81fae
 links: []
 queries: {}
+schemaVersion: 1
+id: 6fff442f-deed-462d-90b6-7fde6ce81fae
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

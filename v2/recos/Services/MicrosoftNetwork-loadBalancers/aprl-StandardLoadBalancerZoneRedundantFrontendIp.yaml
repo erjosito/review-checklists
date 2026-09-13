@@ -1,13 +1,14 @@
 name: aprl-StandardLoadBalancerZoneRedundantFrontendIp
 title: Ensure Standard Load Balancer is zone-redundant
-description: |-
-  In regions with Availability Zones, assigning a zone-redundant frontend IP to a Standard Load Balancer ensures continuous traffic distribution even if one availability zone fails, provided other healthy zones and backend instances are available to receive the traffic.
+description: In regions with Availability Zones, assigning a zone-redundant frontend IP to a Standard
+  Load Balancer ensures continuous traffic distribution even if one availability zone fails, provided
+  other healthy zones and backend instances are available to receive the traffic.
 source:
   type: aprl
   file: azure-resources/Network/loadBalancers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/loadBalancers
+- microsoft.network/loadbalancers
 severity: 0
 labels:
   guid: 621dbc78-3745-4d32-8eac-9e65b27b7512
@@ -48,3 +49,35 @@ queries:
                 InnerID = toupper(id)
         ) on $left.PIPid == $right.InnerID)
     | project recommendationId = "621dbc78-3745-4d32-8eac-9e65b27b7512", name, id, tags, param1="Zones: No Zone or Zonal", param2=strcat("Frontend IP Configuration:", " ", feConfigName)
+schemaVersion: 1
+id: 621dbc78-3745-4d32-8eac-9e65b27b7512
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/loadBalancers/recommendations.yaml
+    title: 'APRL 621dbc78-3745-4d32-8eac-9e65b27b7512: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 621dbc78-3745-4d32-8eac-9e65b27b7512
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/loadBalancers/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:99b0a897756abba3aa5f359437ebc85faef3ee87e1e5c0d3d7c51153332c99cc
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

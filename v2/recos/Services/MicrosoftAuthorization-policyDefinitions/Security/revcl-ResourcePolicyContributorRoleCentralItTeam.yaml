@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy
 queries: {}
+schemaVersion: 1
+id: 3f988795-25d6-4268-a6d7-0ba6c97be995
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

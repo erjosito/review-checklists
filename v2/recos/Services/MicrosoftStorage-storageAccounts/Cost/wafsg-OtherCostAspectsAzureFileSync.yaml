@@ -17,3 +17,13 @@ labels:
   guid: 318fe019-cffa-4ca1-aa56-e00d1df86fe2
 links: []
 queries: {}
+schemaVersion: 1
+id: 318fe019-cffa-4ca1-aa56-e00d1df86fe2
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,6 +1,5 @@
 name: revcl-FunctionAppsPlan
-title: Function apps in a given plan are all scaled together, so any issues with scaling
-  can affect all apps in the plan.
+title: Model Functions scaling at the correct hosting-plan boundary
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,22 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal
 queries: {}
+schemaVersion: 1
+id: ad53cc7d-e2e8-4aaa-a357-1549ab9153d8
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload requirements, financial or operational judgment; a generic ARG property check
+    cannot establish this recommendation.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-functions/functions-scale
+    title: Azure Functions hosting options
+    accessedAt: '2026-09-11'
+description: Choose hosting based on workload, networking, concurrency and latency needs. Compare Flex
+  Consumption per-function scaling and documented trigger groups with Premium/Dedicated sharing behavior.
+  Isolate workloads only when performance, scaling or ownership benefits outweigh added baseline cost;
+  do not assume all plans scale every function together.

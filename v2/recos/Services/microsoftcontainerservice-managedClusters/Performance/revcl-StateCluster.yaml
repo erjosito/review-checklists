@@ -1,6 +1,5 @@
 name: revcl-StateCluster
-title: Avoid keeping state in the cluster, and store data outside (AzStorage, AzSQL,
-  Cosmos, etc)
+title: Externalize session state and use durable storage for stateful AKS workloads
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,23 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/operator-best-practices-multi-region
 queries: {}
+schemaVersion: 1
+id: 9f7547c1-747d-4c56-868a-714435bd19dd
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/concepts-storage
+    title: Storage options for applications in Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/scale-partition
+    title: Architecture strategies for optimizing scaling and partitioning
+    accessedAt: '2026-09-11'
+description: Keep disposable pod/node storage separate from durable application state. External services
+  can simplify scaling, but supported CSI persistent volumes also allow stateful AKS workloads. Select
+  storage for access modes, performance, failure recovery and lifecycle requirements; do not interpret
+  this check as prohibiting all stateful workloads in Kubernetes.

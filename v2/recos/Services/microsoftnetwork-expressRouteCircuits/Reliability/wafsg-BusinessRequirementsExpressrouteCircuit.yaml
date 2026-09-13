@@ -13,3 +13,13 @@ labels:
   guid: c18e33dd-d764-42da-b855-cd050de2367a
 links: []
 queries: {}
+schemaVersion: 1
+id: c18e33dd-d764-42da-b855-cd050de2367a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

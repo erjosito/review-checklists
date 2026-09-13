@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/supported-kubernetes-versions
 queries: {}
+schemaVersion: 1
+id: e189c599-df0d-45a7-9dd4-ce32c1881370
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

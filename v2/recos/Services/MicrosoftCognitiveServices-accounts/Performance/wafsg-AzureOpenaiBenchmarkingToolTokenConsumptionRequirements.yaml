@@ -1,8 +1,9 @@
 name: wafsg-AzureOpenaiBenchmarkingToolTokenConsumptionRequirements
-title: 'Capacity: Benchmark token consumption requirements based on estimated demands
-  from consumers. Consider using the Azure OpenAI benchmarking tool to help you validate
-  the throughput if you''re using provisioned throughput unit (PTU) deployments.'
-description: ''
+title: Benchmark Azure OpenAI capacity with representative token and request distributions
+description: Measure input and output tokens, request rate, concurrency, prompt-cache behavior and latency
+  for the selected model/version. Use observed workload distributions and the capacity calculator when
+  sizing provisioned deployments, then load test. Standard TPM quota governs admission and is not a guarantee
+  of achieved throughput. ARG deployment inventory cannot establish these measurements.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -15,3 +16,16 @@ labels:
   guid: 1238d615-b520-4de2-a8db-5da3156ea687
 links: []
 queries: {}
+schemaVersion: 1
+id: 1238d615-b520-4de2-a8db-5da3156ea687
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/ai-foundry/openai/how-to/latency
+    title: Performance and latency
+    accessedAt: '2026-09-11'

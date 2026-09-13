@@ -1,13 +1,14 @@
 name: aprl-HttpServerErrorsAutoHeal
 title: Enable auto heal for Functions App
-description: |-
-  Auto Heal allows you to mitigate your apps when it runs into unexpected situations like HTTP server errors, resource exhaustion, etc. You can configure different triggers based on your need and choose to recycle the app to recover it from a bad state.
+description: Auto Heal allows you to mitigate your apps when it runs into unexpected situations like HTTP
+  server errors, resource exhaustion, etc. You can configure different triggers based on your need and
+  choose to recycle the app to recover it from a bad state.
 source:
   type: aprl
   file: azure-resources/Web/sites/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/sites
+- microsoft.web/sites
 severity: 2
 labels:
   guid: c6c4b962-5af4-447a-9d74-7b9c53a5dff5
@@ -28,3 +29,31 @@ queries:
         | project id, name, tenantId, location, resourceGroup, properties.AutoHealEnabled
         ) on name
     | project recommendationID = "c6c4b962-5af4-447a-9d74-7b9c53a5dff5", name, id, type, kind, param1="AutoHealEnabled =false"
+schemaVersion: 1
+id: c6c4b962-5af4-447a-9d74-7b9c53a5dff5
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    title: 'APRL c6c4b962-5af4-447a-9d74-7b9c53a5dff5: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: c6c4b962-5af4-447a-9d74-7b9c53a5dff5
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:cfe450e11589735ee6d9f89e6d024dbeed3d83ec3f74deb82f7414f2f2d5900a
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

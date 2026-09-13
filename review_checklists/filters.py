@@ -2,10 +2,7 @@
 
 from collections.abc import Callable, Sequence
 from functools import lru_cache
-import json
-from pathlib import Path
-
-from scripts.modules.cl_v1tov2 import get_standard_service_name
+from scripts.modules import cl_services
 
 from review_checklists.corpus import ReviewError, has_arg_query
 
@@ -34,31 +31,37 @@ def filter_values(
 
 @lru_cache(maxsize=1)
 def service_dictionary() -> list[dict]:
-    path = Path(__file__).resolve().parents[1] / "scripts" / "service_dictionary.json"
     try:
-        entries = json.loads(path.read_text(encoding="utf-8"))
+        return cl_services.service_dictionary()
     except (OSError, ValueError) as exc:
-        raise ReviewError(f"Cannot read service dictionary {path}: {exc}") from exc
-    if not isinstance(entries, list) or not all(
-        isinstance(entry, dict)
-        and isinstance(entry.get("service"), str) and entry["service"].strip()
-        and isinstance(entry.get("names"), list) and entry["names"]
-        and all(isinstance(name, str) and name.strip() for name in entry["names"])
-        for entry in entries
-    ):
-        raise ReviewError(f"Invalid service dictionary: {path}")
-    return entries
+        raise ReviewError(f"Cannot read service dictionary: {exc}") from exc
 
 
 @lru_cache(maxsize=2048)
 def service_name(value: str) -> str:
-    # Reuse the legacy alias mapping; unmapped ARM types remain searchable as-is.
-    return get_standard_service_name(value.strip().casefold(), service_dictionary())
+    service_dictionary()
+    return cl_services.normalize_service_name(value)
 
 
 def services_for(recommendation: dict) -> list[str]:
-    values = recommendation.get("services") or recommendation.get("resourceTypes") or []
-    return sorted({service_name(value) for value in values}, key=str.casefold)
+    if recommendation.get("services"):
+        return cl_services.normalize_services(recommendation["services"])
+    names = []
+    for resource_type in recommendation.get("resourceTypes", []):
+        candidates = cl_services.services_for_resource_type(resource_type)
+        names.append(candidates[0] if len(candidates) == 1 else resource_type.strip().casefold())
+    return sorted(set(names), key=str.casefold)
+
+
+def _service_keys(recommendation: dict) -> set[str]:
+    keys = {name.casefold() for name in services_for(recommendation)}
+    types = cl_services.normalize_resource_types(recommendation.get("resourceTypes", []))
+    # Raw ARM filters always test the actual type, even with explicit classifications.
+    keys.update(types)
+    if not recommendation.get("services"):
+        for resource_type in types:
+            keys.update(name.casefold() for name in cl_services.services_for_resource_type(resource_type))
+    return keys or {"none"}
 
 
 def filter_options(items: list[dict]) -> dict:
@@ -92,7 +95,8 @@ def filter_items(
         raise ReviewError("The ARG-only filter must be a boolean")
     if services:
         available = filter_options(items)["services"]
-        if unknown := services - available.keys():
+        accepted = {"none"}.union(*(_service_keys(item["recommendation"]) for item in items))
+        if unknown := services - accepted:
             raise ReviewError(
                 f"Unknown Azure service: {', '.join(sorted(unknown))}. Available in this review: "
                 + ", ".join(available.values())
@@ -103,7 +107,5 @@ def filter_items(
         if (not severity_codes or item["recommendation"].get("severity") in severity_codes)
         and (not with_arg or has_arg_query(item["recommendation"]))
         and (not pillars or (item["recommendation"].get("waf") or "none").casefold() in pillars)
-        and (not services or services.intersection(
-            {name.casefold() for name in services_for(item["recommendation"])} or {"none"}
-        ))
+        and (not services or services.intersection(_service_keys(item["recommendation"])))
     ]

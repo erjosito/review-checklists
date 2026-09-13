@@ -1,6 +1,5 @@
 name: revcl-ManagedTlsCertificatesAzureFrontDoor
-title: Use managed TLS certificates with Azure Front Door. Reduce operational cost
-  and risk of outages due to certificate renewals.
+title: Prefer managed TLS certificates on eligible Azure Front Door Standard/Premium domains
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,8 +12,34 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/frontdoor/best-practices#use-managed-tls-certificates
-queries:
-  arg: cdnresources | where type =~ 'microsoft.cdn/profiles/customdomains' | extend
-    frontDoorId = substring(id, 0, indexof(id, '/customdomains')) | extend compliant
-    = (isnull(properties['tlsSettings']['certificateType']) or tolower(properties['tlsSettings']['certificateType'])
-    =~ 'customercertificate') | project compliant, id = frontDoorId
+queries: {}
+schemaVersion: 1
+id: af95c92d-d723-4f4a-98d7-8722324efd4d
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain
+    title: Configure HTTPS for your custom domain
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/templates/microsoft.cdn/profiles/customdomains
+    title: Microsoft.Cdn/profiles/customDomains template reference
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/governance/resource-graph/concepts/query-language
+    title: Understand the query language - Azure Resource Graph
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/frontdoor/front-door-url-redirect
+    title: URL redirect - Azure Front Door
+    accessedAt: '2026-09-11'
+description: Prefer Azure-managed certificates for eligible Front Door Standard/Premium custom domains,
+  after validating DNS/domain ownership and renewal prerequisites. Use customer-managed certificates when
+  required and operate their rotation and Key Vault access explicitly. Front Door classic is retiring
+  and no longer supports managed certificates; plan migration rather than applying Standard/Premium configuration
+  assumptions to classic resources. The removed query incorrectly treated CustomerCertificate or a missing
+  certificate type as compliant with managed certificates. The public ARG table reference read in this
+  pass did not establish the CdnResources/custom-domain surface, so assess certificate configuration and
+  renewal manually.

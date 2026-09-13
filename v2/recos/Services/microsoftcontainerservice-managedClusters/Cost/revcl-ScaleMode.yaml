@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/scale-down-mode
 queries: {}
+schemaVersion: 1
+id: 4d3dfbab-9924-4831-a68d-fdf0d72f462c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

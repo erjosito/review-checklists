@@ -1,18 +1,50 @@
 name: aprl-AutoScalerPodCreationFailuresQuickPodProvisioning
 title: Attach Virtual Nodes (ACI) to the AKS cluster
-description: |-
-  To rapidly scale AKS workloads, utilize virtual nodes for quick pod provisioning, unlike Kubernetes auto-scaler. For clusters with availability zones, ensure one nodepool per AZ due to persistent volumes not working across AZs, preventing auto-scaler pod creation failures if lacking access.
+description: To rapidly scale AKS workloads, utilize virtual nodes for quick pod provisioning, unlike
+  Kubernetes auto-scaler. For clusters with availability zones, ensure one nodepool per AZ due to persistent
+  volumes not working across AZs, preventing auto-scaler pod creation failures if lacking access.
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 2
 labels:
   guid: b4639ca7-6308-429a-8b98-92f0bf9bf813
   area: Scalability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: b4639ca7-6308-429a-8b98-92f0bf9bf813
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL b4639ca7-6308-429a-8b98-92f0bf9bf813: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b4639ca7-6308-429a-8b98-92f0bf9bf813
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:18c6ceb1ace4074a53dfb0185c95e7357d261f4d1333c7d079a9723468696d51
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Disabled upstream virtual-node guidance includes an unverified cross-zone
+      claim; a current supported architecture needs review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

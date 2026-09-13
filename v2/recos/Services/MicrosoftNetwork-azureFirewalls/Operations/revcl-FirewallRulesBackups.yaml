@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall
 queries: {}
+schemaVersion: 1
+id: 64e7000e-3c06-485e-b455-ced7f454cba3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

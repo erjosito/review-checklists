@@ -15,3 +15,13 @@ labels:
   guid: fca027d7-7acf-497a-b915-52872ab724a4
 links: []
 queries: {}
+schemaVersion: 1
+id: fca027d7-7acf-497a-b915-52872ab724a4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

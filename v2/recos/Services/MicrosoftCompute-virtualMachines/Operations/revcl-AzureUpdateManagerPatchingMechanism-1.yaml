@@ -12,7 +12,17 @@ labels:
   guid: c806c048-26b7-4ddf-b4c2-b4f0c476925d
 links:
 - type: docs
-  url: 'https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-operational-compliance#update-management-considerations '
+  url: 'https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-operational-compliance#update-management-considerations'
 - type: docs
   url: https://learn.microsoft.com/azure/update-manager/overview?tabs=azure-vms
 queries: {}
+schemaVersion: 1
+id: c806c048-26b7-4ddf-b4c2-b4f0c476925d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

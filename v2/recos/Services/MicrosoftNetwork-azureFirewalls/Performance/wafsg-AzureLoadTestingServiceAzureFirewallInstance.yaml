@@ -1,9 +1,9 @@
 name: wafsg-AzureLoadTestingServiceAzureFirewallInstance
-title: Properly warm up Azure Firewall before any performance test.
-description: Create initial traffic that isn't part of your load tests 20 minutes
-  before the test. Use diagnostics settings to capture scale-up and scale-down events.
-  You can use the Azure Load Testing service to generate the initial traffic. Allows
-  the Azure Firewall instance to scale up its instances to the maximum.
+title: Warm up Azure Firewall and verify observed capacity before steady-state load tests
+description: Generate separate warm-up traffic before steady-state measurements; the service guide recommends
+  starting it 20 minutes before a test. Record scale events and observed capacity rather than assuming
+  elapsed time guarantees maximum instances. Test cold-start and burst scaling separately. Where supported,
+  evaluate prescaling for predictable demand and confirm eligibility and cost.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +15,19 @@ labels:
   guid: 0ec844d3-4b8c-41ee-ad0a-89c2b23f007b
 links: []
 queries: {}
+schemaVersion: 1
+id: 0ec844d3-4b8c-41ee-ad0a-89c2b23f007b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall
+    title: Architecture best practices for Azure Firewall
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-test
+    title: Architecture strategies for performance testing
+    accessedAt: '2026-09-11'

@@ -20,3 +20,13 @@ labels:
   guid: 59fe4bee-d21b-4f74-880f-eb22da54ee6e
 links: []
 queries: {}
+schemaVersion: 1
+id: 59fe4bee-d21b-4f74-880f-eb22da54ee6e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

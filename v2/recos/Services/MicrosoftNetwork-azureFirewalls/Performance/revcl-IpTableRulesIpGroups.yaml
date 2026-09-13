@@ -13,3 +13,22 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/firewall/ip-groups
 queries: {}
+schemaVersion: 1
+id: 0da83bb1-2f39-49af-b5c9-835fc455e3d1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+  upstreamRecommendations:
+  - sourceId: advisor-performance-catalog
+    recommendationId: 10b153b5-59d0-45ac-bb3f-6a0b7ad9c0cd
+    url: https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0a8e50555edadd50450931a2fa8087223fc46b357ad82296129b020fd5201e59
+    notes: IP-group/prefix rule reduction addresses network-rule processing pressure, but this corpus
+      check does not establish the catalog's measured unique-source/destination limit condition.

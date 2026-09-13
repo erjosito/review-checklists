@@ -1,13 +1,14 @@
 name: aprl-AzureVmwareSolutionSynchronousStorageReplication
 title: Enable Stretched Clusters for Multi-AZ Availability of the vSAN Datastore
-description: |-
-  For Azure VMware Solution, enabling Stretched Clusters offers 99.99% SLA, synchronous storage replication (RPO=0), and spreads vSAN datastore across two AZs. Must be done at initial setup, needing double quota due to extension across AZs.
+description: For Azure VMware Solution, enabling Stretched Clusters offers 99.99% SLA, synchronous storage
+  replication (RPO=0), and spreads vSAN datastore across two AZs. Must be done at initial setup, needing
+  double quota due to extension across AZs.
 source:
   type: aprl
   file: azure-resources/AVS/privateClouds/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AVS/privateClouds
+- microsoft.avs/privateclouds
 severity: 2
 labels:
   guid: 9ec5b4c8-3dd8-473a-86ee-3273290331b9
@@ -23,3 +24,31 @@ queries:
     | where avsproperties.availability.strategy != "DualZone"
     | where location in ("uksouth", "westeurope", "germanywestcentral", "australiaeast")
     | project recommendationId = "9ec5b4c8-3dd8-473a-86ee-3273290331b9", name, id, tags, param1 = "stretchClusters: Disabled"
+schemaVersion: 1
+id: 9ec5b4c8-3dd8-473a-86ee-3273290331b9
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    title: 'APRL 9ec5b4c8-3dd8-473a-86ee-3273290331b9: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 9ec5b4c8-3dd8-473a-86ee-3273290331b9
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AVS/privateClouds/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:54338896080f14369457259b2fa25eac1f87d60cb30c068d8f0e49d955b4b09e
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

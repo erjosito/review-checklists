@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/search/search-reliability#multiple-services-in-separate-geographic-regions
 queries: {}
+schemaVersion: 1
+id: cd0730f0-0ff1-4b77-9a2b-2a1f7dd5e291
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

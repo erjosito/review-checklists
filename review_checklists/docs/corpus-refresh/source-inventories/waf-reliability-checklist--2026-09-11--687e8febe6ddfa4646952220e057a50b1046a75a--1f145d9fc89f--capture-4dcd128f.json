@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "waf-reliability-checklist",
+  "title": "WAF Reliability checklist",
+  "scope": "All numbered rows in the English WAF Reliability design review checklist",
+  "unit": "published-checklist-row",
+  "asOf": "2026-09-11",
+  "retrievedAt": "2026-09-11T18:16:00.334123Z",
+  "upstreamRevision": "687e8febe6ddfa4646952220e057a50b1046a75a",
+  "inventoryStatus": "complete",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist"
+  ],
+  "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+  "items": [
+    {
+      "id": "RE:01",
+      "title": "Focus your workload design on simplicity and efficiency.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/simplify",
+      "contentHash": "sha256:4e05cf4bcc9fecc919fd54c3a652706a031e79a1d3d4341b2d03904fdf0e8a22",
+      "payload": {
+        "id": "RE:01",
+        "code": "[RE:01](simplify)",
+        "recommendation": "**Focus your workload design on simplicity and efficiency.** Use a practical approach to avoid unnecessary complexity while meeting your business goals and requirements."
+      }
+    },
+    {
+      "id": "RE:02",
+      "title": "Identify and rate user and system flows.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/identify-flows",
+      "contentHash": "sha256:7366847664077c15e78a15324e9f78abd109a367ee583cf16b2aa2d03129c1cd",
+      "payload": {
+        "id": "RE:02",
+        "code": "[RE:02](identify-flows)",
+        "recommendation": "**Identify and rate user and system flows.** Use a criticality scale based on your business requirements to prioritize the flows."
+      }
+    },
+    {
+      "id": "RE:03",
+      "title": "Use failure mode analysis (FMA) to identify potential failures in your workload.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis",
+      "contentHash": "sha256:84b3ed7c3450a92120b7957150c542cd05597415cabaccedf367fe8b94c42eb9",
+      "payload": {
+        "id": "RE:03",
+        "code": "[RE:03](failure-mode-analysis)",
+        "recommendation": "**Use failure mode analysis (FMA) to identify potential failures in your workload.** Identify dependencies and failure points, and develop mitigation strategies for those failures."
+      }
+    },
+    {
+      "id": "RE:04",
+      "title": "Define reliability and recovery targets",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics",
+      "contentHash": "sha256:f64975113bdb5338d2ac5ec0115cd558c7642ef091cbcfc68b465579234ad9bd",
+      "payload": {
+        "id": "RE:04",
+        "code": "[RE:04](metrics)",
+        "recommendation": "**Define reliability and recovery targets** for your workload. Use the targets to inform your design and as the foundation of your health model."
+      }
+    },
+    {
+      "id": "RE:05",
+      "title": "Add redundancy at different levels, especially for critical flows",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/redundancy",
+      "contentHash": "sha256:50c6b1c6d6320778e60597bd97c85a26ce97ed8f828173db803889f93c25209c",
+      "payload": {
+        "id": "RE:05",
+        "code": "[RE:05](redundancy)",
+        "recommendation": "**Add redundancy at different levels, especially for critical flows**, to help meet your reliability targets. Consider redundant infrastructure components such as compute and network, and multiple instances of your solution."
+      }
+    },
+    {
+      "id": "RE:06",
+      "title": "Implement a timely and reliable scaling strategy at the application, data, and infrastructure levels",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/scaling",
+      "contentHash": "sha256:1bb1a64b7d71faa956cdc9b236675afad9e27e59a7845645e4f575e34cf7049e",
+      "payload": {
+        "id": "RE:06",
+        "code": "[RE:06](scaling)",
+        "recommendation": "**Implement a timely and reliable scaling strategy at the application, data, and infrastructure levels**. Base the scaling strategy on actual or predicted usage patterns and minimize manual intervention."
+      }
+    },
+    {
+      "id": "RE:07",
+      "title": "Strengthen the resiliency of your workload by implementing self-preservation and self-healing measures",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/self-preservation",
+      "contentHash": "sha256:6344fd3c801023ddd16358844ff69d91bf04bcefd4b96c0c777107e445120d04",
+      "payload": {
+        "id": "RE:07",
+        "code": "[RE:07](self-preservation)",
+        "recommendation": "**Strengthen the resiliency of your workload by implementing self-preservation and self-healing measures**. Use built-in features and well-established cloud patterns to help your workload remain functional during and recover from incidents."
+      }
+    },
+    {
+      "id": "RE:08",
+      "title": "Test for resiliency and availability scenarios by applying the principles of chaos engineering.",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/reliability-test",
+      "contentHash": "sha256:518f13e47f3461f9a98a0071be99177e811e476062e49505379cf6427a76aeb7",
+      "payload": {
+        "id": "RE:08",
+        "code": "[RE:08](reliability-test)",
+        "recommendation": "**Test for resiliency and availability scenarios by applying the principles of chaos engineering.** Use reliability testing to verify that your workload can withstand faults, scale under demand, and recover within your defined targets."
+      }
+    },
+    {
+      "id": "RE:09",
+      "title": "Implement structured, tested, and documented disaster recovery (DR) plans",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/disaster-recovery",
+      "contentHash": "sha256:09dbccbd1f7b794892baa92a8fcc48ab69e7619b7909e2426d7cd39001e3d293",
+      "payload": {
+        "id": "RE:09",
+        "code": "[RE:09](disaster-recovery)",
+        "recommendation": "**Implement structured, tested, and documented disaster recovery (DR) plans** that align with the recovery targets. Plans must cover all components and the system as a whole."
+      }
+    },
+    {
+      "id": "RE:10",
+      "title": "Continuously measure and track system health using uptime and reliability indicators",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/monitoring",
+      "contentHash": "sha256:1fcc22ae7dbf60497e1c598f2d31681eefddfeeb60fd6669738b1e2b701ca68d",
+      "payload": {
+        "id": "RE:10",
+        "code": "[RE:10](monitoring)",
+        "recommendation": "**Continuously measure and track system health using uptime and reliability indicators** across components and critical flows. Ensure this data is retained and accessible to support timely detection, response, and post-incident analysis."
+      }
+    }
+  ],
+  "limitations": [
+    "Checklist rows only, not all Reliability guidance paragraphs or service guides.",
+    "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+    "Explicit ID mapping is not human semantic review."
+  ]
+}

@@ -1,0 +1,40 @@
+schemaVersion: 1
+id: eac9d939-9c58-5bf4-aa1d-1c77d8068036
+name: operations-ReliableLifecycleAutomation
+title: Govern operational automation for reliability, security and maintainability
+description: Prioritize repetitive, procedural workload tasks with demonstrable operational value. Select
+  maintainable, supported tools and keep automation in source control. Apply workload-equivalent access
+  controls, testing, monitoring and ownership to automated operations; define error handling, stop/recovery
+  behavior and human decision points. Measure outcomes and maintenance effort, investigate bypasses, and
+  revisit automation as the workload changes. Assess scripts, pipelines, run history and operator procedures
+  manually; deployed automation resources alone do not prove reliability or return on investment.
+severity: 1
+waf: Operations
+source:
+  type: curated
+  url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/enable-automation
+resourceTypes: []
+services: []
+queries: {}
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/enable-automation
+    title: Architecture strategies for enabling and implementing automation in a workload
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/checklist
+    title: Design review checklist for Operational Excellence
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:10
+    coverage: full
+    notes: Workload-wide requirement includes each clause of the checklist control; supporting guide reading
+      limits remain explicit.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/enable-automation
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:887f8ffd7c1422192a6a3c456641f2fe51ba2de072bec94a6d9d7f5a13806348

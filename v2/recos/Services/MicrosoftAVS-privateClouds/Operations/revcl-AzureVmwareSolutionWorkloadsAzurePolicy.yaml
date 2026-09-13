@@ -12,3 +12,13 @@ labels:
   guid: 17e7a8d9-0ae0-4e27-aee2-9711bd352caa
 links: []
 queries: {}
+schemaVersion: 1
+id: 17e7a8d9-0ae0-4e27-aee2-9711bd352caa
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

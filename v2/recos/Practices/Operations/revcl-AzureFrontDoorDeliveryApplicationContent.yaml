@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-app-delivery
 queries: {}
+schemaVersion: 1
+id: 373f482f-3e39-4d39-8aa4-7e566f6082b6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,11 +1,11 @@
 name: wafsg-AppServiceAppsAzureVirtualNetwork
-title: 'Create segmentation through isolation boundaries to contain breach: Apply
-  identity segmentation. For example, implement role-based access control (RBAC) to
-  assign specific permissions based on roles. Follow the principle of least privilege
-  to limit access rights to only what''s necessary. Also create segmentation at the
-  network level. Inject App Service apps in an Azure virtual network for isolation
-  and define network security groups (NSGs) to filter traffic.'
-description: ''
+title: Segment App Service identities and network paths with controls appropriate to the hosting model.
+description: Assign least-privilege identities and choose isolation boundaries for apps and plans according
+  to the data and trust boundaries. For multitenant App Service, virtual network integration controls
+  outbound connectivity; it is not equivalent to injecting the application into a subnet or isolating
+  inbound access. Use private endpoints or other supported inbound restrictions, configure the outbound
+  routing explicitly, and verify allowed flows. Consider App Service Environment when dedicated compute
+  and network isolation are required.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -18,3 +18,29 @@ labels:
   guid: dbeebd4f-c94a-4060-a2ac-c523b3e64a3d
 links: []
 queries: {}
+schemaVersion: 1
+id: dbeebd4f-c94a-4060-a2ac-c523b3e64a3d
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:04
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/keep-your-virtual-machines-updated/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 4d116785-d2fa-456c-96ad-48408fe72734
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

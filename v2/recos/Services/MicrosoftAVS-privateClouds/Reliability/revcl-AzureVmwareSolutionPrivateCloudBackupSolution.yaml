@@ -12,3 +12,13 @@ labels:
   guid: bd352caa-ab79-4b18-adab-81932c9fc9d1
 links: []
 queries: {}
+schemaVersion: 1
+id: bd352caa-ab79-4b18-adab-81932c9fc9d1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

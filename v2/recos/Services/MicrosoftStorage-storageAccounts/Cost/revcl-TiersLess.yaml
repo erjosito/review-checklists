@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/architecture/best-practices/monitoring
 queries: {}
+schemaVersion: 1
+id: 7e31c67d-68cf-46a6-8a11-94956d697dc3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,10 +1,9 @@
 name: wafsg-AzureFirewallPortalExperienceAzureFirewallMonitoringWorkbook
 title: Use the built-in Azure Firewall Monitoring Workbook.
-description: Azure Firewall portal experience now includes a new workbook under the
-  Monitoring section UI, a separate installation is no more required. With the Azure
-  Firewall Workbook, you can extract valuable insights from Azure Firewall events,
-  delve into your application and network rules, and examine statistics regarding
-  firewall activities across URLs, ports, and addresses.
+description: Azure Firewall portal experience now includes a new workbook under the Monitoring section
+  UI, a separate installation is no more required. With the Azure Firewall Workbook, you can extract valuable
+  insights from Azure Firewall events, delve into your application and network rules, and examine statistics
+  regarding firewall activities across URLs, ports, and addresses.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -16,3 +15,23 @@ labels:
   guid: c108c3a4-1cb0-4b5f-84dc-060e313574c4
 links: []
 queries: {}
+schemaVersion: 1
+id: c108c3a4-1cb0-4b5f-84dc-060e313574c4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 35c3a850-dd12-46fc-8748-d8e549a9b70e
+  name: wafsg-LeverageAzureFirewallMonitoringWorkbook
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-firewall.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 35c3a850-dd12-46fc-8748-d8e549a9b70e
+  corpusFile: Services/MicrosoftNetwork-azureFirewalls/Operations/wafsg-LeverageAzureFirewallMonitoringWorkbook.yaml

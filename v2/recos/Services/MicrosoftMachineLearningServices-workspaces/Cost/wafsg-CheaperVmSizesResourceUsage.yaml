@@ -1,7 +1,7 @@
 name: wafsg-CheaperVmSizesResourceUsage
-title: 'Monitor and optimize: Monitor your resource usage such as CPU and GPU usage
-  when training models. If the resources aren''t being fully used, modify your code
-  to better use resources or scale down to smaller or cheaper VM sizes.'
+title: 'Monitor and optimize: Monitor your resource usage such as CPU and GPU usage when training models.
+  If the resources aren''t being fully used, modify your code to better use resources or scale down to
+  smaller or cheaper VM sizes.'
 description: ''
 source:
   type: wafsg
@@ -15,3 +15,26 @@ labels:
   guid: 2905301e-e22b-4203-8fa0-6c7d740dd465
 links: []
 queries: {}
+schemaVersion: 1
+id: 2905301e-e22b-4203-8fa0-6c7d740dd465
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:11
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-code-costs
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b9d0eba0b60390ebbb47f025bdb3bf86b6dd7db8d48f4cb78e7ef94cb60d19dd
+    notes: The ML control explicitly uses CPU/GPU observations to modify code or choose cheaper resources;
+      it is workload-specific and does not assess all functional/nonfunctional code requirements. Source-text
+      assessment, not independent human approval or live Azure validation.

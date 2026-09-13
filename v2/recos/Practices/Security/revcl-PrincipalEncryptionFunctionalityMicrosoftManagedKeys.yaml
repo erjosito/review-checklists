@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/manage-secrets-with-azure-key-vault/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: eeaa3592-829e-42ed-a217-3676aff6691b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

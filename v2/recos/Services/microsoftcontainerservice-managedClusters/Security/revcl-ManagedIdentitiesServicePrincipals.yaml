@@ -15,3 +15,14 @@ links:
 queries:
   arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
     = (properties.servicePrincipalProfile.clientId=='msi') | distinct id,compliant
+schemaVersion: 1
+id: ed127dd1-42b0-46b2-8c69-99a646f3389a
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

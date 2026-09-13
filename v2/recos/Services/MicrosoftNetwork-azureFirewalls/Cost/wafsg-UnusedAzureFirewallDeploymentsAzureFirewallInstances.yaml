@@ -20,3 +20,13 @@ labels:
   guid: ef951ddc-d36a-4194-a039-48af1cd3b1dd
 links: []
 queries: {}
+schemaVersion: 1
+id: ef951ddc-d36a-4194-a039-48af1cd3b1dd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

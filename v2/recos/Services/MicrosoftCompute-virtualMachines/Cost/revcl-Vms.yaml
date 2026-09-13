@@ -1,5 +1,5 @@
 name: revcl-Vms
-title: Right-sizing all VMs
+title: Review VM rightsizing with utilization evidence and workload constraints
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -12,4 +12,58 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/load-balancer/load-balancer-overview
-queries: {}
+queries:
+  arg: |-
+    AdvisorResources
+    | where type =~ 'microsoft.advisor/recommendations'
+    | where properties.category =~ 'Cost'
+    | where tostring(properties.recommendationTypeId) in~ ('e10b1381-5f0a-47ff-8c7b-37bd13d7c974')
+    | project id, subscriptionId, resourceGroup,
+        targetResourceId = tostring(properties.resourceMetadata.resourceId),
+        impactedField = tostring(properties.impactedField),
+        recommendationTypeId = tostring(properties.recommendationTypeId),
+        impact = tostring(properties.impact),
+        problem = tostring(properties.shortDescription.problem),
+        solution = tostring(properties.shortDescription.solution),
+        lastUpdated = tostring(properties.lastUpdated),
+        extendedProperties = properties.extendedProperties
+schemaVersion: 1
+id: 544451e1-92d3-4442-a3c7-628637a551c5
+services: []
+automation:
+  status: query_available
+  resultSemantics: inventory
+  validatedAt: null
+  notes: Unexecuted Advisor opportunity inventory, not compliance or realized savings. id identifies the
+    Advisor recommendation; targetResourceId identifies the affected resource. Use the intended subscriptions
+    or management-group scope with complete read permissions and paging. Empty or truncated results do
+    not establish compliance. Advisor coverage, telemetry and freshness vary; review dismissals, dependency/retention
+    requirements, actual billing and existing commitments before action. Do not sum overlapping estimates
+    or assume a common currency/time horizon in extendedProperties. No live Azure execution or compilation;
+    validatedAt remains null. Only this primary query is wired.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/virtual-machines
+    title: Architecture best practices for Azure Virtual Machines
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations - Azure Advisor
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: advisor-cost-catalog
+    recommendationId: e10b1381-5f0a-47ff-8c7b-37bd13d7c974
+    url: https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dfb8eb246d5d3a67d34ce36b928bec6b45b7c0a50e5d4b4679ab50c3904036cd
+    notes: The refreshed control explicitly reviews low-use VM resizing or shutdown with utilization and
+      intentional-standby exceptions, matching the published opportunity rather than relying on the query
+      filter alone. Source-text assessment, not independent human approval or live Azure validation.
+description: Use Advisor rightsizing opportunities as review candidates. Compare CPU, memory, I/O, peaks,
+  availability and application requirements before changing VM size or shutting down capacity. Recalculate
+  costs with commitments and dependencies, test changes and record justified standby or growth exceptions.

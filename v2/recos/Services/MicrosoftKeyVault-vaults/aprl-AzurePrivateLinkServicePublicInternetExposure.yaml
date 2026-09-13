@@ -1,13 +1,13 @@
 name: aprl-AzurePrivateLinkServicePublicInternetExposure
 title: Private endpoint should be configured for Key Vault
-description: |-
-  Azure Private Link Service lets you securely and privately connect to Azure Key Vault via a Private Endpoint in your VNet, using a private IP and eliminating public Internet exposure.
+description: Azure Private Link Service lets you securely and privately connect to Azure Key Vault via
+  a Private Endpoint in your VNet, using a private IP and eliminating public Internet exposure.
 source:
   type: aprl
   file: azure-resources/KeyVault/vaults/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.KeyVault/vaults
+- microsoft.keyvault/vaults
 severity: 1
 labels:
   guid: 00c3d2b0-ea6e-4c4b-89be-b78a35caeb51
@@ -24,3 +24,34 @@ queries:
     | extend param1 = strcat('Private Endpoint: ', iif(isnotnull(properties.privateEndpointConnections),split(properties.privateEndpointConnections[0].properties.privateEndpoint.id,'/')[8],'No Private Endpoint'))
     | extend param2 = strcat('Access: ', iif(properties.publicNetworkAccess == 'Disabled', 'Public Access Disabled', iif(isnotnull(properties.networkAcls), 'NetworkACLs in place','Public Access Enabled')))
     | project recommendationId = "00c3d2b0-ea6e-4c4b-89be-b78a35caeb51", name, id, tags, param1, param2
+schemaVersion: 1
+id: 00c3d2b0-ea6e-4c4b-89be-b78a35caeb51
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    title: 'APRL 00c3d2b0-ea6e-4c4b-89be-b78a35caeb51: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 00c3d2b0-ea6e-4c4b-89be-b78a35caeb51
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/KeyVault/vaults/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:a332c5c7d31a768e87c61b7095fe43dee9ac344598f3693a365d9f115cdc2d0b
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "advisor-reliability-catalog",
+  "title": "Published Azure Advisor Reliability catalog",
+  "scope": "All Recommendation ID sections in the English published Advisor Reliability recommendations reference page",
+  "unit": "published-advisor-recommendation-guid",
+  "asOf": "2026-09-11",
+  "retrievedAt": "2026-09-11T18:18:26.206512Z",
+  "upstreamRevision": "0eef202feb80322f1d1da95d4d026c2e2b70ce06",
+  "inventoryStatus": "partial",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+  ],
+  "observedCount": 9,
+  "denominator": null,
+  "counts": {
+    "full": 3,
+    "partial": 6,
+    "stale": 0,
+    "supporting": 0,
+    "unknown": 0
+  },
+  "coveragePercent": null,
+  "partialPercent": null,
+  "reason": "Inventory is not complete for the stated scope and unit.",
+  "assessmentBasis": "Recorded explicit ID mappings with matching content hashes; not independent human semantic review.",
+  "limitations": [
+    "Only nine explicitly read and mapped catalog GUIDs are inventoried; not a complete denominator.",
+    "Shared complete parser failed on an ID-less section. No recommendation ID was inferred from a repeated title.",
+    "Unidentified sections observed: Avoid placing Traffic Manager behind Front Door\r",
+    "Full/partial item mappings are semantic assessments, not independent human approval or tenant Advisor findings.",
+    "A partial inventory must not produce whole-catalog coverage percentages."
+  ],
+  "items": [
+    {
+      "id": "52fef986-5897-4359-8b92-0f22749f0d73",
+      "title": "Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+      "contentHash": "sha256:00d5e7e3b5b8fd588b23ce901819b39ed8659a2a56715b730535fe0e51fefd6f",
+      "state": "partial",
+      "corpusIds": [
+        "d43918a8-cd28-49be-b6b1-7cb8245461e1"
+      ],
+      "assessments": [
+        {
+          "corpusId": "d43918a8-cd28-49be-b6b1-7cb8245461e1",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "notes": "Continuous backup and recoverability are covered with current 7/30/35-day tiers. Catalog's blanket 30-day wording and suggested cost effectiveness are not adopted."
+        }
+      ]
+    },
+    {
+      "id": "5c488377-be3e-4365-92e8-09d1e8d9038c",
+      "title": "Deploy your Application Gateway across Availability Zones",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+      "contentHash": "sha256:a40fbf7e154f73f8fe8987c4c1993dbbf2af9cea2ccb306ceab38d5926ca2f84",
+      "state": "full",
+      "corpusIds": [
+        "060c6964-52b5-48db-af8b-83e4b2d85349"
+      ],
+      "assessments": [
+        {
+          "corpusId": "060c6964-52b5-48db-af8b-83e4b2d85349",
+          "coverage": "full",
+          "state": "full",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "notes": "The updated gateway requirement explicitly requires zone redundancy, including default-zone and single-zone distinctions. Full applies to this zone-redundancy catalog item, not observed deployment compliance."
+        }
+      ]
+    },
+    {
+      "id": "5de9f2e6-087e-40da-863a-34b7943beed4",
+      "title": "Enable service managed failover for Cosmos DB account",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+      "contentHash": "sha256:2c61e2b7eea1189ec7b094a66d95a388dbf288984effcc9635f7e7a642a8c2e1",
+      "state": "partial",
+      "corpusIds": [
+        "a47e4d1e-bb79-43f9-bf87-69e1032b72fe"
+      ],
+      "assessments": [
+        {
+          "corpusId": "a47e4d1e-bb79-43f9-bf87-69e1032b72fe",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "notes": "Service-managed failover configuration is covered. Catalog claim of no downtime is explicitly rejected: current service reliability guide documents possible hour-or-longer account failover."
+        }
+      ]
+    },
+    {
+      "id": "687f83d3-db01-4ab1-a77b-b31e99f16d33",
+      "title": "Enable zone redundancy for multi-region Cosmos DB accounts",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+      "contentHash": "sha256:1cc551f14316782e7e38d8aa1f022bcb8454cbf697c13a2262faee9aaab68750",
+      "state": "partial",
+      "corpusIds": [
+        "de39ac0e-7c28-4dc9-9565-7202bff4564b"
+      ],
+      "assessments": [
+        {
+          "corpusId": "de39ac0e-7c28-4dc9-9565-7202bff4564b",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "notes": "Same current per-region zone requirement supports this separately published GUID, without treating zone redundancy as region-failure protection."
+        }
+      ]
+    },
+    {
+      "id": "72063b96-92fa-4b74-9457-b84b662155f9",
+      "title": "Enable Health check for App Service",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+      "contentHash": "sha256:e9207f0ef3d728d21aae44a3fbbeff591afaef553407c3d34faf7ac4e0f5f1d9",
+      "state": "partial",
+      "corpusIds": [
+        "874fa451-0ef2-4638-8cfd-c07cef131d7f"
+      ],
+      "assessments": [
+        {
+          "corpusId": "874fa451-0ef2-4638-8cfd-c07cef131d7f",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "notes": "Existing byte-unchanged health-check requirement covers path and unhealthy-instance routing; it does not explicitly require the path to check every critical component. External assessment only."
+        }
+      ]
+    },
+    {
+      "id": "8034b205-167a-4fd5-a133-0c8cb166103c",
+      "title": "Enable zone redundancy for multi-region Cosmos DB accounts",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+      "contentHash": "sha256:289541adf313970f61eb56da7d1c96257c8741d7890a62fc626db5718ca6a7a2",
+      "state": "partial",
+      "corpusIds": [
+        "de39ac0e-7c28-4dc9-9565-7202bff4564b"
+      ],
+      "assessments": [
+        {
+          "corpusId": "de39ac0e-7c28-4dc9-9565-7202bff4564b",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "notes": "Per-region zone redundancy includes multiregion accounts. Catalog regional-outage protection wording is qualified: zone redundancy does not replace region resilience."
+        }
+      ]
+    },
+    {
+      "id": "a2002089-9dd1-46b6-881c-d0f349515230",
+      "title": "Evaluate multi-region write capability in Azure Cosmos DB",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+      "contentHash": "sha256:5df00a6656f0c88fa0294291b0d453f7f965d10f3aba3b789177d43c71500b0a",
+      "state": "full",
+      "corpusIds": [
+        "bad38ead-53cc-47de-8d8a-aab3571449ab"
+      ],
+      "assessments": [
+        {
+          "corpusId": "bad38ead-53cc-47de-8d8a-aab3571449ab",
+          "coverage": "full",
+          "state": "full",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "notes": "Requirement evaluates multiregion writes with explicit consistency, conflict resolution and bounded-staleness coordination caveat, rather than mandatory use."
+        }
+      ]
+    },
+    {
+      "id": "b57f7a29-dcc8-43de-86fa-18d3f9d3764d",
+      "title": "Add a second region to your production workloads on Azure Cosmos DB",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+      "contentHash": "sha256:f11b3fa9ccd35a08d61816e14343ddb5e5037091a27733e4ee6044042b3be2a5",
+      "state": "partial",
+      "corpusIds": [
+        "8153d89f-89dc-47b3-9be2-b1a27f7b9e91"
+      ],
+      "assessments": [
+        {
+          "corpusId": "8153d89f-89dc-47b3-9be2-b1a27f7b9e91",
+          "coverage": "partial",
+          "state": "partial",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "notes": "Updated check requires at least two regions where regional resilience is needed; it does not impose this on every production account irrespective of business requirements."
+        }
+      ]
+    },
+    {
+      "id": "fac3022a-eda5-44b9-b54d-cb500d1d01dd",
+      "title": "Use zone-supported App Service Plan",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+      "contentHash": "sha256:02cbd27cca0e5c7c204f396a0611c08c468b5fdd523223181245ba3d4ca242f1",
+      "state": "full",
+      "corpusIds": [
+        "f6d4a1ff-bf30-4477-823d-b2163667a87d"
+      ],
+      "assessments": [
+        {
+          "corpusId": "f6d4a1ff-bf30-4477-823d-b2163667a87d",
+          "coverage": "full",
+          "state": "full",
+          "hashMatches": true,
+          "assessedAt": "2026-09-11",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "notes": "The updated App Service plan requirement explicitly enables supported plan-level zone redundancy with prerequisites and surviving-zone capacity."
+        }
+      ]
+    }
+  ],
+  "referencesOutsideInventory": []
+}

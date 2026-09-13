@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/container-registry-azure-policy
 queries: {}
+schemaVersion: 1
+id: d503547c-d447-4e82-9128-a7100f1cac6d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

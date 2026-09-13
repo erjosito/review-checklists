@@ -15,3 +15,13 @@ labels:
   guid: f47bab52-1aa2-45c5-b250-b3716716367e
 links: []
 queries: {}
+schemaVersion: 1
+id: f47bab52-1aa2-45c5-b250-b3716716367e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

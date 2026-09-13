@@ -1,0 +1,2716 @@
+{
+  "artifactSchema": "security-source-id-normalization/1",
+  "date": "2026-09-11",
+  "reason": "Parent coordination clarified that earlier azure-* names were proposals, not user requirements; adopt pipeline canonical source families.",
+  "renames": {
+    "azure-waf-security": "waf-security-checklist",
+    "azure-advisor-security": "advisor-security-catalog"
+  },
+  "guidanceChanged": false,
+  "newUpstreamFetch": false,
+  "baselineFileHash": "sha256:3e0bb33f7de5c16cf3515bbd771514b2f7053b6a7349f62293a2691e15ab364f",
+  "centralInventoryPath": "review_checklists/docs/corpus-refresh/source-inventories/waf-security-checklist--2026-09-11--1df1c6023e01032c7be0013b086379c176827b1c--ed51828272ff.json",
+  "centralInventoryFileHash": "sha256:1b7d15c93b0841d1adac15779b12454590b9c99459943b1ae4f0ce139c4f1f31",
+  "agreement": {
+    "itemCount": 12,
+    "allPayloadsEqual": true,
+    "allContentHashesEqual": true,
+    "allItemObjectsEqual": true,
+    "items": [
+      {
+        "id": "SE:01",
+        "contentHash": "sha256:928240eef3091d4b3d3756ff803c7d5aa7a8580d7d1d023dedf1d2a885640b85"
+      },
+      {
+        "id": "SE:02",
+        "contentHash": "sha256:88eebece884c081cecd9b710b3d6b968654182381206b94c62f8bc9059ac42cb"
+      },
+      {
+        "id": "SE:03",
+        "contentHash": "sha256:398cf0318d0f06b70e58e14d9020d8195052bcd16ccc394b5120d922decff7fb"
+      },
+      {
+        "id": "SE:04",
+        "contentHash": "sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788"
+      },
+      {
+        "id": "SE:05",
+        "contentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c"
+      },
+      {
+        "id": "SE:06",
+        "contentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57"
+      },
+      {
+        "id": "SE:07",
+        "contentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60"
+      },
+      {
+        "id": "SE:08",
+        "contentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8"
+      },
+      {
+        "id": "SE:09",
+        "contentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3"
+      },
+      {
+        "id": "SE:10",
+        "contentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d"
+      },
+      {
+        "id": "SE:11",
+        "contentHash": "sha256:56032a34dbdb70e37543fced61b3650916bd286d6d6f8930d5ef3aca09b86f33"
+      },
+      {
+        "id": "SE:12",
+        "contentHash": "sha256:0a63290261c2ee8eef765125524a8205d249ab001156046c2878467b57900c49"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "4935ada4-2223-4ece-a1b1-23181a541741",
+      "path": "v2/recos/Practices/Security/revcl-AzureKeyVaultApplication-1.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:8ece19ca0c53a0c5dbe25306e0fe8337de4c53dc0f3a1e196ef23a71a5506a19",
+      "afterFileHash": "sha256:1d0f12a5630bea7a62bd87d076b0e66411d2203dd6d2d8395a53aed691d14835",
+      "beforeContentHash": "sha256:5050d52987153125248b862de73ccbbb6c76f4b757791cdf0df0e00455488b48",
+      "afterContentHash": "sha256:9580e88dd0379c33de4885586f911eef60f69670d4ebd987beb0a74413fbd040"
+    },
+    {
+      "id": "ce9bd3bb-0cdb-43b5-9eb2-ec14eeaa3592",
+      "path": "v2/recos/Practices/Security/revcl-AzureKeyVaultSecrets-1.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:e85e4e18e7607dca03e4f20df59800f0bf4d463c40e5addec3823fe9a02b7185",
+      "afterFileHash": "sha256:d5fb4cc5f3f23113e5a0a80bdcf87cce31839de51761052f6c5d298239218a60",
+      "beforeContentHash": "sha256:b0a17612dca0cf6db68b95fe9d70627c7ba0f0e23508a2637262905b6e450e3c",
+      "afterContentHash": "sha256:9dc60fca79c8f1fec12e8b4aff0d946f63dcec55fe08910d1e9983351ce138dc"
+    },
+    {
+      "id": "2223ece8-1b12-4318-8a54-17415833fb4a",
+      "path": "v2/recos/Practices/Security/revcl-AzureKeyVaultSoftDelete-1.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:08611d2dd6e3b6c9f854b5aa0489e93419a9e5169aaea870b1e8bfbff4687581",
+      "afterFileHash": "sha256:7ed83c85a67ec0b9b0d6bee2c556d4b44ec5b285637c7148b887fb98f625a8a7",
+      "beforeContentHash": "sha256:3afafc2ce3091a0c678898b25d972885a62b076d1b28e0d55531de02a3035eda",
+      "afterContentHash": "sha256:d57ca3a678cda5813e95e65b11d514faed7cc81e50d0c829e45b9b5c70a34e12"
+    },
+    {
+      "id": "829e2edb-2173-4676-aff6-691b4935ada4",
+      "path": "v2/recos/Practices/Security/revcl-CustomizedAzurePoliciesAzureResources.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:8fb72a8de2d5c6088574d4765b3081d46abd0a3569e986a65b7e66b8a73b57d6",
+      "afterFileHash": "sha256:c209cfd7f82a6d4f141bfc815b60007c0282043e989d7b895655d6448a938ccf",
+      "beforeContentHash": "sha256:4c49d81b45c234373cbfef028f6b561184609755de8580ddc81467de15b325f6",
+      "afterContentHash": "sha256:b694cd3bfd47498d83a1c9e16532af8ad42af3359ecd6e24d525d162aa200171"
+    },
+    {
+      "id": "d4d1ad54-1abc-4919-b267-3f342d3b49e4",
+      "path": "v2/recos/Practices/Security/revcl-DataPlaneAccessDataOperations.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:ab91145a6978105fe00ac1d2f335af7693a559eebcba74958439e888f8087435",
+      "afterFileHash": "sha256:60c1c19d57628ebc7205091936f6c7fcf81e280cf3f81ee1dbca1bebf5e91691",
+      "beforeContentHash": "sha256:bcd249944515da12e9399529b520732a9424a4c2b64d8b08d8940dcea2035c6d",
+      "afterContentHash": "sha256:7fe8475f3f07cc0520248188a95cf33983fa3021a29cb466552431c27514c273"
+    },
+    {
+      "id": "09945bda-4333-44f2-9911-634182ba5275",
+      "path": "v2/recos/Practices/Security/revcl-DefenderCloudSecurityPostureManagementSubscriptions.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:10",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:10",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:90b26d47ad6036e5d80b615ad4eb8c3837b0fac4138e08b8b8258dd3a386d64d",
+      "afterFileHash": "sha256:a12bbe7709a9f936691713bb35686a60b283e744a7c651e6288870b66c2b44cf",
+      "beforeContentHash": "sha256:45ff25d17454b421441e9e30b7f50e07c00879d5937ad4f7a2687e5141d60ac9",
+      "afterContentHash": "sha256:591d369cd105fa5077789bfa214039f009aec69fe0f6c380aa5606401510f5e8"
+    },
+    {
+      "id": "b86ad884-08e3-4727-94b8-75ba18f20459",
+      "path": "v2/recos/Practices/Security/revcl-IncidentResponsePlanAzureServices.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:12",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/incident-response",
+            "coverage": "full",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:0a63290261c2ee8eef765125524a8205d249ab001156046c2878467b57900c49",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. Workload-wide owned incident response covers localized through disaster-recovery scenarios and procedure testing."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:12",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/incident-response",
+            "coverage": "full",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:0a63290261c2ee8eef765125524a8205d249ab001156046c2878467b57900c49",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. Workload-wide owned incident response covers localized through disaster-recovery scenarios and procedure testing."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:c0a3018778789952a5117639801ad86e6ebaf5dde177b5b760195bbe507c4cdb",
+      "afterFileHash": "sha256:d0843fe43376d1dd1243277cf6652b9e18f38403da5af1e11703a3a0c6d6df2e",
+      "beforeContentHash": "sha256:4bf6df5a3cf48f153f384bed45d4c3b2fef5f92ee86942b10985e7f0049b1d89",
+      "afterContentHash": "sha256:636f428713b3a0ac9728e8a9aba044607e7fa2d5741a044ac1a1a1294bca9dae"
+    },
+    {
+      "id": "d505ebcb-79b1-4274-9c0d-a27c8bea489c",
+      "path": "v2/recos/Practices/Security/revcl-MicrosoftEntraIdPimAccessReviewsResourceEntitlements.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:046bc41e64c59a7f7552f3cbc75254c63f5a64834c1cd9d1015e2cf21f82ed94",
+      "afterFileHash": "sha256:b8487e631da7f20d2a5a8d27d46aff30901170625f8d22e43103e90dfd1e499b",
+      "beforeContentHash": "sha256:63a8f1a42fe2055aea4b58770df0fde5cb6fab3b1499f8b8a62fe45e6c7a655a",
+      "afterContentHash": "sha256:e6e64a5e0edab21f2ebacde73ef5c64e52621ad3f068c0a1f85781653118df12"
+    },
+    {
+      "id": "4348bf81-7573-4512-8f46-9061cc198fea",
+      "path": "v2/recos/Practices/Security/revcl-ServicePrincipalLoginsExistingServicePrincipals.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:3b24daa84eb749e669b841101f2d2875fc6433e6dd42c228871143b4c248b5c8",
+      "afterFileHash": "sha256:ffe9825060d8c62290da53e1efcff6a0c058b79048393c8adcd78b12cc479f29",
+      "beforeContentHash": "sha256:c8bad5b4860044ffd5d7818d6b302a595d2a2e16a3c49c9f106e9327e17c6d97",
+      "afterContentHash": "sha256:7c8dc54c058e1c33bc3b9480e00646eee8ca316dd04ae7fc5fc4fbe95827f4d0"
+    },
+    {
+      "id": "01365d38-e43f-49cc-ad86-8266abca264f",
+      "path": "v2/recos/Practices/Security/revcl-ZeroTrustApproachAzurePlatform.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:de72d11d773195d899204ea60df89eae661ab690f12bb57890c71edc5804e967",
+      "afterFileHash": "sha256:f48baa64f98480180fa2613d6d2ed0a16800afc5358823818a0ee0b15c69874d",
+      "beforeContentHash": "sha256:d794e5e4ab7e601f0c7fbbc4d7ff9a76aba30f9728ff5e4faec1f3e99fdf6a6e",
+      "afterContentHash": "sha256:8aeed77b24e6b6712360732cb28a09d313e66f431eb10ec52d2474dceff958c4"
+    },
+    {
+      "id": "53e8908a-e28c-484c-93b6-b7808b9fe5c4",
+      "path": "v2/recos/Services/MicrosoftAAD-domainServices/Security/revcl-MicrosoftEntraIdConditionalAccessPoliciesAzureEnvironments.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:f4f5741173af6d7951a6c8d395d8d975e116fc670dde5abc09b0c88e0d401994",
+      "afterFileHash": "sha256:4f5b44dde9077226a96b53c2470f1402c7d6ec4083e872479dc9b41e5e22fe46",
+      "beforeContentHash": "sha256:288c0192cbc8df1b4fcab984abc354770bf4e0f62ab5420023d5ad16687f80fa",
+      "afterContentHash": "sha256:b2eb13dc6609d75a28039efe57f580c0cfb0a4acb8cda5be43788aff199cb7f0"
+    },
+    {
+      "id": "14658d35-58fd-4772-99b8-21112df27ee4",
+      "path": "v2/recos/Services/MicrosoftAAD-domainServices/Security/revcl-MicrosoftEntraIdPrivilegedIdentityManagementZeroStandingAccess.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:b99dc470faf5809ec6da42081746469a53351fffd977d63b45e55a4cce8670f9",
+      "afterFileHash": "sha256:9caf4b86469f144feb9f0a325cfe3c61cfcc947d04e5b99b7e8a03bd9677496c",
+      "beforeContentHash": "sha256:b6a84847a43eb1322177a3982d898f6127d3e687d1de6426eb55355781f1dcc3",
+      "afterContentHash": "sha256:fcc928cfb7cf692f4b8fbc8eac72496a217b51565bb1567f83dce1c61ce1e6e9"
+    },
+    {
+      "id": "35037e68-9349-4c15-b371-228514f4cdff",
+      "path": "v2/recos/Services/MicrosoftAAD-domainServices/Security/revcl-MicrosoftEntraIdRoleAssignmentsPremisesSyncedAccounts.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:b767f79c81f2c6c7a06a281349439e732b7909a5566438e208474be7f474e67a",
+      "afterFileHash": "sha256:d308d6c02b5549f0d94657f8b3bf544479a7209c4704b754f0eea7aa7d87a960",
+      "beforeContentHash": "sha256:5e159994d3975bcf50e4d3bcf5faf92dc5c1e3929f5ec222de72206b6023db3e",
+      "afterContentHash": "sha256:15afe87f248455d3e3ac04e00671f40173e89b38ff3bd2a1a82bd4a5f5824e62"
+    },
+    {
+      "id": "1049d403-a923-4c34-94d0-0018ac6a9e01",
+      "path": "v2/recos/Services/MicrosoftAAD-domainServices/Security/revcl-MultiFactorAuthenticationAzureEnvironments.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:75cbaa32c15b5dec1f38b058ac509f66396708afbba4875f8604c4eccbb29034",
+      "afterFileHash": "sha256:7d10c74f971493b5ffce949b383173dc69b62eb4fb97bda7c1a63ecbc1ecb397",
+      "beforeContentHash": "sha256:0128252719063dc7289432a76469a1df7c75887480599f965cbf3be22e9e8191",
+      "afterContentHash": "sha256:302472d88d4c7bfb3705f875aa4ad19264a68bb57495217dacb29f7f73ed8084"
+    },
+    {
+      "id": "984a859c-773e-47d2-9162-3a765a917e1f",
+      "path": "v2/recos/Services/MicrosoftAAD-domainServices/Security/revcl-TenantWideAccountLockoutEmergencyAccess.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:9725920700e11c5834f1a382f6701aa32e9666ec391f2aa09de5028dc1430ea6",
+      "afterFileHash": "sha256:3a995c6756d314e1663ee6c169c0263462bb34eabf34c57b51bfc993e0cc5bc6",
+      "beforeContentHash": "sha256:ce8edf7fb7e793a9409befe9611c231babe6c2b1762922bee8c520d12e1b14c9",
+      "afterContentHash": "sha256:42182d58a5cd2fb4c64729522ebf5ba1cb7f75f53f3cffe648ee5406f84d3e9b"
+    },
+    {
+      "id": "387e5ced-126c-4d13-8af5-b20c6998a646",
+      "path": "v2/recos/Services/microsoftcontainerregistry-registries/Security/revcl-AcrPullPushOperationsAcrpushRbacRoles.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:4c7c8782494227628644fa5f0ee3f1449c9e12a816c7ae3134d5fa7f7ff61f38",
+      "afterFileHash": "sha256:22eca74734911f1aa5a701e433c4d2595d142280172344ee747df19854e29630",
+      "beforeContentHash": "sha256:c2e3cf3a364b6726afc2f25517878c88db5cb42fddbd2803452ff43ec8146f5d",
+      "afterContentHash": "sha256:1269290fcfe54bc7fe90da7f1f3919353d615f07a03a0e2a226940ab2190c950"
+    },
+    {
+      "id": "f4dcf690-1b30-407d-abab-6f8aa780d3a3",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-AksNonInteractiveLoginsKubelogin.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:513c6b840d7116ac5402c91b117b1a119074d3165f0aa09519e3d767cdc16a5b",
+      "afterFileHash": "sha256:3a3797d5348b5695ad4e249c80e5e204efd3d9f6a117426487b1ac3ce887f076",
+      "beforeContentHash": "sha256:d9914d67660f535113ee870de2284c66c7849fc1e976cc4083a4ec2d884a58b5",
+      "afterContentHash": "sha256:99562701fd162b61160bdb9126d4981b0ea63d9392953633ac3f22a82d3076dc"
+    },
+    {
+      "id": "ce7f2a7c-297c-47c6-adea-a6ff838db665",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-CalicoNetworkPoliciesAksNodes.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:639b901e848b92d9d5237ddc07fe252d5d1bf3bab58c352e52a34880c152c5b8",
+      "afterFileHash": "sha256:20ca9d47696e941aea6e37a3c31956156e9198719e9fea7274fe560c19f2ed4c",
+      "beforeContentHash": "sha256:7161c13fbf2b0425d22ab1176d86c437de6eb5f2781ee4cff2bd0c6015538484",
+      "afterContentHash": "sha256:18cc9c07cc76252c6d4126a73a9c81bf7c52869fa8a1e963941dc352529f5cc0"
+    },
+    {
+      "id": "6c46b91a-1107-4485-ad66-3183e2a8c266",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-HttpProxyCompany.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:65c377149f80a9a98d84cfec5b89239f860b3c7014a3ce093a836ad1788e69c4",
+      "afterFileHash": "sha256:36685d2982f5f91c933bcf04fd5cfc47d89bf90ec81c99f5e88a688236c9bc7b",
+      "beforeContentHash": "sha256:87ebaed569a92117ed7b2d68b491a0adb6d233155f27f7e83691b0d95d3afefc",
+      "afterContentHash": "sha256:fbbab03f9eabd35bd00c45f2b5b90437c71f34b77c7986b6e781830d77629cfa"
+    },
+    {
+      "id": "85e2223e-ce8b-4b12-907c-a5f16f158e3e",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-KubernetesNetworkPoliciesIntraClusterSecurity.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:45896957fb0b2ba9b7090134a4fbe6af948dc80bded361483115d91af62404e1",
+      "afterFileHash": "sha256:08ca9c05362e02565de9e0a19520e9c071f82413e0e62780fb25907a5deefb5f",
+      "beforeContentHash": "sha256:8b4f7da1f210a003139de43389a9ae67a265ad605381590a8a20752b63f0fd7a",
+      "afterContentHash": "sha256:e4fd530ccaaff7479fcff9333026a983a968b54efff0747afd8ee889e9b6da63"
+    },
+    {
+      "id": "58d7c892-ddb1-407d-9769-ae669ca48e4a",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-KubernetesNetworkPolicyOptionCalicoAzure.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:a10aa4484fe2ad0daddbeb58982ffbb9f63127a09ec5cfee95faa50dc14b85b7",
+      "afterFileHash": "sha256:db2124eb041451f753899d57984b73497a10f469620747483448e9e18c7a827c",
+      "beforeContentHash": "sha256:d68fc6c6349cfb1a4036eb101fe8278b8562547a92273e22363c8fdff8021bbc",
+      "afterContentHash": "sha256:be936d7a127c54571c9f0abaf4a79689f24243b18e43fcca2e2c6f9c7e43b276"
+    },
+    {
+      "id": "d2e0d5d7-71d4-41e3-910c-c57b4a4b1410",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/revcl-PodIdentityAccessManagementAzureAdWorkloadIdentity.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:fac09446ced3dcc93411e31557528782fafaa42f659cc9cca8d2ca34540c360a",
+      "afterFileHash": "sha256:d693e9b08f8eee3b0ff286ee0755c5262ec35b4406ba93f2fa2a250e561d2781",
+      "beforeContentHash": "sha256:e4de7781ab1544b3916b7682fc725b99b153e781e2bb2277b1e84f92585ea71c",
+      "afterContentHash": "sha256:442ae193950272948977e1ee74ba017f0997a348e27edec2ac016d826893453d"
+    },
+    {
+      "id": "d1008f3b-5c0d-42ff-8513-fcd6b064fc5d",
+      "path": "v2/recos/Services/microsoftcontainerservice-managedClusters/Security/wafsg-AzureNetworkPoliciesNetworkTraffic.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:bca7bfa730691b9c9e626f7d9e279bebbd85fcc923be7f45a392c890036f219d",
+      "afterFileHash": "sha256:43ba5f4bf4025595ed1009187754bf9b1acdff0db2be492f068e888df6da785e",
+      "beforeContentHash": "sha256:8ba8d23d884e1eb48a7afc362e32daac0ff629bfa94bb58370b96530296a5a82",
+      "afterContentHash": "sha256:841de328e2f05f2ece44fbdffcffc6aa4624c65f5582aa8562af7b087cbab51c"
+    },
+    {
+      "id": "913156a1-2476-4e49-b541-acdce979377b",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-AutomatedProcessCertificateRotation.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:cd63cd97a514c3655ee41c284903f482490ed3e14c33f7cfe66d2f038b066806",
+      "afterFileHash": "sha256:51ba3e9d19e9af8c404470025a0ba252d15d4a72421b6e1aa96c9d9b2cad4c03",
+      "beforeContentHash": "sha256:b51fd2f4ef346bf60f2d73a8d3b0908b876bc758bff2a85d1a37e0389a5324d4",
+      "afterContentHash": "sha256:764061b11271c17169df6f6635edc097d1921d67a29096abaa360d5cea897bff"
+    },
+    {
+      "id": "91163418-2ba5-4275-8694-4008be7d7e48",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-AzureKeyVaultApplication.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:ee7ab93e18f2d831171a07fd9a50adb52e1dbd01a774525c7357b90810a3951e",
+      "afterFileHash": "sha256:ce09f39cac3c91af8fdb776412717d6dd995d68bdae87690ee7b62d4d9bfcec5",
+      "beforeContentHash": "sha256:9a18e545bfeb71e31203283bd1900515ae9e170266cb71d3f5b5cdd46f1f1ea7",
+      "afterContentHash": "sha256:30d068563a25069ffc0645d70721a4cb699ebe25c4f2c3b3a5ae8dd81a51810e"
+    },
+    {
+      "id": "5017f154-e3ab-4369-9829-e7e316183687",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-AzureKeyVaultSecrets.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:8b40c623f5b38089285ec532d1313fea4959e97663f53de07876f9e8cf46df95",
+      "afterFileHash": "sha256:2a0054134f566152248339a241fa5716f00d90b35f69f6d1f0e8dd14bd9d8b38",
+      "beforeContentHash": "sha256:033da943c4b88aa876ed1d184ce4b351375f57a709f19e5b306c39dae31fb62c",
+      "afterContentHash": "sha256:61b51c23cf83ff086bb9fbee3108d138c2d584a8ccf92ed6d51d1eba240dde5d"
+    },
+    {
+      "id": "2ba52752-6944-4008-ae7d-7e4843276d8b",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-AzureKeyVaultSoftDelete.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:e65fd6447cf35af72638289dced49f59bf9cb1ee5cd4ee8f7e98db923e46fa67",
+      "afterFileHash": "sha256:6d4d04084a38726f3da6cc966fbf7d4522583289a8e0d3e1ba1a0a9b8dc113ed",
+      "beforeContentHash": "sha256:7ac4c1d11a7009dd08447371e0be44a90e8828bd04ee0a739e030d2c29ee492c",
+      "afterContentHash": "sha256:e3bf308eae66a77a07b1d77212d0a27201ee5cc6cc60ea40e694dd5b81db491d"
+    },
+    {
+      "id": "dc055bcf-619e-48a1-9f98-879525d62688",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-CustomMicrosoftEntraIdRolesPrivilegeModel.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:8c543a7a1c40e0d9c81da0525194ece0e34fd49e3f419fdda9ba5bbe1405945f",
+      "afterFileHash": "sha256:0bdedea6833fd5a8b9d20c62c286eb411f57de6bd981024aed08838286b88343",
+      "beforeContentHash": "sha256:173f58f42c7ff60ce5a6f59eb72eefacfe1e42d084b9182510a589e20852932c",
+      "afterContentHash": "sha256:233668ecd736b7867f61842f3cb06df3b916101dc7b4ea67afdf10d0540dbd21"
+    },
+    {
+      "id": "a0477a20-9945-4bda-9333-4f2491163418",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-DifferentAzureKeyVaultsTransactionScaleLimits.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:8a0f73ffad2c299847e3516900e2fb2c1a381dbf685dc71bbc79b159d46303d9",
+      "afterFileHash": "sha256:25e0aa463223417295e74d9c6f5bab8175cb5884f2d34c302052fc3a34b75ceb",
+      "beforeContentHash": "sha256:5a50d1e4a5b603feacf3880d7ad667d766a23474e0f32ef754471858c151d68d",
+      "afterContentHash": "sha256:f492d26820aa4e59693ec6bc742bcdcb31eee982e078c97e5c4f91a6be835a20"
+    },
+    {
+      "id": "4ac6b67c-b3a4-4ff9-8e87-b07a7ce7bbdb",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-SovereignLandingZoneAzureKeyVault.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:81e764738bb5d02a9c026849467757e404a88d72bb66cba1c68712d7a6637606",
+      "afterFileHash": "sha256:891613156ca4e09e25862831eb1e81001dd1aebff9f9a63490430e901d31a6d7",
+      "beforeContentHash": "sha256:cb8a9b9dba468eeb40b5782a24d384623b6ab79caa5c3e187cdd112dc9ffed85",
+      "afterContentHash": "sha256:0ad8c786ad4c3b8147981d90a4244badd37b85884a23054f565f77d3853aa835"
+    },
+    {
+      "id": "cdb3751a-b2ab-413a-ba6e-55d7d8a2adb1",
+      "path": "v2/recos/Services/MicrosoftKeyVault-vaults/Security/revcl-VirtualNetworkServiceEndpointPrivateEndpoint.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:cd39d1b457f25450d026c7b0f4d86583447bca93150d263375f283d953490546",
+      "afterFileHash": "sha256:140d2afaebbe4979e6e7180add4f2e09357587a0e107910ac87936f0b98e47ca",
+      "beforeContentHash": "sha256:d3ed8fd5aac52a2c7ca828546673e32e8b62337339e086eded17da494541d60b",
+      "afterContentHash": "sha256:1297919a6da30cc8df09b8eb128b2d54c0594324f681470f49a5e4553f840fdc"
+    },
+    {
+      "id": "baf8e317-2397-4d49-b3d1-0dcc16d8778d",
+      "path": "v2/recos/Services/microsoftnetwork-applicationGateways/Security/revcl-WafPolicyApplicationGateway.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:327e6965d89d43ee9a9cd2b2507afbb51e6ac68f378c365a6caa4c7eabc3c71e",
+      "afterFileHash": "sha256:c66922d91fb42425e483619b11ab8ca5de9dc2e7f0a34b9161300aa2b6c65c11",
+      "beforeContentHash": "sha256:795a689a7f45b42e1558db00c8a970d69bf2a869b063239238fa7438858043a1",
+      "afterContentHash": "sha256:278130bc2800b3c72f3155bbfa4ab3764e13ff02082618ca2eb3e4ec61e335e6"
+    },
+    {
+      "id": "fd7f29a7-ae31-4983-8510-e219a25cfdfc",
+      "path": "v2/recos/Services/microsoftnetwork-expressRouteCircuits/Security/wafsg-AdministrativeAccountsExpressrouteResources.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:8ed9282b40d74016e4c54781f377f10d9f9d9b45b0dcdf48b2183e0892798dba",
+      "afterFileHash": "sha256:d31595f8483978807bde4e32b9fe01949ad59b1ff9cb65024c653eb0b3832395",
+      "beforeContentHash": "sha256:410a4b7d2d443262ba5df63239814f57d1ba2fdd4614b002c6fe43ca583caf53",
+      "afterContentHash": "sha256:5407e6ae1d0448ab1cc205aa2b74c6376d3a9d5fb98a10f2cf98685daa8c9b82"
+    },
+    {
+      "id": "44059f81-2473-4325-ad67-70df146e1f5d",
+      "path": "v2/recos/Services/microsoftnetwork-expressRouteCircuits/Security/wafsg-MaintainInventoryAdministrativeAccounts.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:73b24ba580310344203692a8c2f6b744dbb58ff000654ce30b6d7c71d8442068",
+      "afterFileHash": "sha256:999d0c76ebbb2d39638a8fc08530664036afb59c268529f9a2e8151601e190a5",
+      "beforeContentHash": "sha256:39a7c650f3a299b30fe96c93b1aa1c00ad404e7f54351a0f7e358a1776988c8a",
+      "afterContentHash": "sha256:f690ded94d26a8b4467bd7f744dcb86b5e7f98e93928badda0df66cdd56f9e79"
+    },
+    {
+      "id": "27138b82-1102-4cac-9eae-01e6e842e52f",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-AdHocSasServiceSasNearTermExpirationTimes.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:1b3fc35557888ba993f40d3fbd35f5a5dff09e178426a2877e336428c020b135",
+      "afterFileHash": "sha256:517437a255996e4d13993b97a14d0571b83b8e6bce5bfa3813ce11e9bf2d7ffd",
+      "beforeContentHash": "sha256:d0a194be399baaeb1d6018867c13a2e4b742fc583ef365e2e831cc830c502163",
+      "afterContentHash": "sha256:5a27ee09dd73953362ea8f4e8fbf13fc356612a6321de8a34a6e52c03a050068"
+    },
+    {
+      "id": "352beee0-79b5-488d-bfc4-972cd3cd21bf",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-ASasExpirationPolicySasExpirationPolicies.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:1d86d0bcd3a7d17fe81f438e0dddbfff163fedfa442809ec7e4cf23659f27d97",
+      "afterFileHash": "sha256:18b2fb15243467057d5b5f20fa4afe282bd91f9c9227776e96a0cd1676b21f01",
+      "beforeContentHash": "sha256:8b9f0f2b941e249e0cf0698e14e1c5a9c3c001209fd547023f7230e0994dd6f2",
+      "afterContentHash": "sha256:d199e72aa9fcc7500129c9f1ceef604f20920d225ec2e0e2fe377b123b040831"
+    },
+    {
+      "id": "55461e1a-3e34-453a-9c86-39648b652d6c",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-AzureActiveDirectoryUserDelegationSas.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:48b43f0c14dc267f763f7d89e16262e68056d9b51f6af188b99eabff81f1adc2",
+      "afterFileHash": "sha256:5fd4ed425762fa4744521e28a02f22ba09762f14078f01ebdc958d63a59bff0f",
+      "beforeContentHash": "sha256:0e6f7ed29b1135c0e5292b6d2ee89c4145f2c9f6e3e57780cec356093a92249e",
+      "afterContentHash": "sha256:8b9af672ac76ffca02ca3caad9ec84465f3c7974c26c90f8370af74f2dbbbe67"
+    },
+    {
+      "id": "4721d928-c1b1-4cd5-81e5-4a29a9de399c",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-NarrowScopeSingleResource.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:31f228003e8428fde7d279f8d30b8796a3b92c20381d03740a563f5ec9ff745b",
+      "afterFileHash": "sha256:bf799285c882a0fe962c700692529e4ac3819c90a85b008a2cd198381b67c67d",
+      "beforeContentHash": "sha256:611e40641a23306d9e76684b18405dc6b1bf624cc3cbc3dc8118bf577f1c1f93",
+      "afterContentHash": "sha256:a96f016e304c527693054ce629a53741b133f9b70d3d9042ca8774c3bbc7c1af"
+    },
+    {
+      "id": "5398e6de-d227-4dd1-92b0-6c21d7999a64",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-ResourceLocksStorageAccounts.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:8f9ba8bd6831a00f4a77273f5451360a8b2218bc47c4a798c27f54a7ed6889a9",
+      "afterFileHash": "sha256:7a2019d084e91b370a4d685c42b584dd54cb27cec0a79d811b13ac9dc4c97fca",
+      "beforeContentHash": "sha256:88c45b13c3dd322684232d9e1027d3b1b5a021da06cc7df6996a8cc6c5dfab28",
+      "afterContentHash": "sha256:a6bdc37ff1be94fe8fbf97369fb95b215d148c0fb7eae13cf39f214112b272a4"
+    },
+    {
+      "id": "b03ed428-4617-4067-a787-85468b9ccf3f",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-SecureTransferStorageAccounts.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:60d8aa3e5e6f21b54fbe73d534151884cc55634a79521fc7a48718c1e3fe7bff",
+      "afterFileHash": "sha256:262bc43e5204e7f907374e50edb536c9e89d914e6d25c889ae6ac2a2d2a507b8",
+      "beforeContentHash": "sha256:5a7e541bd468dde0664d55a3cdc1fa2582bf7e6181d0d9aa9f8dff5fcf395c63",
+      "afterContentHash": "sha256:61e32402676a46dcde39ccacff0685448946d05a9297abf94ee9b28404eb5b96"
+    },
+    {
+      "id": "9f89dc7b-33be-42a1-a27f-7b9e91be1f38",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-SftpEndpointAcls.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:f20b3b9282028011acbbe41760c91ac47c25a738a069a3501eb3902604ab1076",
+      "afterFileHash": "sha256:fa5603580c1c13c2d831ce2b2b8838f436157238307461cb434e3c45b6be66b0",
+      "beforeContentHash": "sha256:b03537b5123eaef698bac970f856729d98ede5c9b08f1ca8beb4f573d0a3efb3",
+      "afterContentHash": "sha256:380f3457a16bc94840f87af718910b6c23e428882f3046e70295ceb0b8cc1911"
+    },
+    {
+      "id": "6b4bed3d-5035-447c-8347-dc56028a71ff",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-SharedAccessSignatureSasTokens.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:3eee0611f170281ed3c705ceb1d98aaa7510293a9eb37fb72bf3d135712a7829",
+      "afterFileHash": "sha256:0d1ab1319cabbdd12d902f44fe44b8005b8961e9bdff82e819dc79af11945784",
+      "beforeContentHash": "sha256:563c1f162d37cc6483351bf1eeefb686940ccfc7ff0cc92f45ce7addabb66c7e",
+      "afterContentHash": "sha256:74c25a46e90a9e8ab164c080f2a6c6e4e09d5616ee5a72a3b4ad64ceafa7d3b6"
+    },
+    {
+      "id": "028a71ff-e1ce-415d-b3f0-d5e772d41e36",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-SourceCodeRepositoryStorageAccountKeys.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:c43da339751bd9bedaef88b151934d5056ec8d4a45c2d36631e1dbccb9ef148f",
+      "afterFileHash": "sha256:efcd7b24e60d75242484b8813625db2809d6699ba79e175b294d0f14eb0206b7",
+      "beforeContentHash": "sha256:f501054410800d8f2ae45357f4e8927f50c60c73ce00431dca97b35a3f8c18b2",
+      "afterContentHash": "sha256:fdd2c209c5688b8a97440185c928c897db0045fdda1a413e334a91c3fa170fb7"
+    },
+    {
+      "id": "11cc57b4-a4b1-4410-b439-58a8c2289b3d",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-StorageAccountKeyAzureStorage.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:bb26d3a015b31148ea11f70d2eb7392a156617edb141f20979ba3d7811647f52",
+      "afterFileHash": "sha256:91fe6e4f835ca5d1f3b1bbd8dddd6845ff1e287dceab5275f4d39807edbce690",
+      "beforeContentHash": "sha256:19cc939be72d96cd8381d1ac5899dda433f770f49737d5a8a80aa637a26a9295",
+      "afterContentHash": "sha256:c10bb07fd2b982e6f5d1a3027370fa28cdcb1538bf213a051cb6ddd2b42de53e"
+    },
+    {
+      "id": "77036e5e-6b4b-4ed3-b503-547c1347dc56",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-StorageAccountKeysStoredAccessPolicies.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:ef5497f260b8722ed1c29eaadad07fe1ad9ffe34021af1800c6b791c02a02f2f",
+      "afterFileHash": "sha256:8fb33c9f590057160e3c8339083eeca6c894333cc46eb9df41b37535bcc06519",
+      "beforeContentHash": "sha256:e4b5bfd36a4ca8899538e5552079baf08a0d05101fb7f1ccce05c7d6c0bbd977",
+      "afterContentHash": "sha256:294743688c3b05b861f937c6d1a8b59bd1ef9b264afdd6f911fcb07ce53c6044"
+    },
+    {
+      "id": "e7a8dc4a-20e2-47c3-b297-11b1352beee0",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-UnprotectedHttpAccessStorageAccount.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:0c4a122cd3320bd77815831f25cebebfa2f44e291d791bd084612951030b62c3",
+      "afterFileHash": "sha256:cc028e0f072509f03bf468a12342eb10ca768d93076576560ae0761864f0a594",
+      "beforeContentHash": "sha256:23933dad28799ec9f3be7df9ce27b9fe8517ff1773fdba5d18240c72caa78ad4",
+      "afterContentHash": "sha256:681f8f5aa35d3db45a10af2b5894084908d81eca9f39c950dad3fe54aac2855b"
+    },
+    {
+      "id": "ad53cc7c-e1d7-4aaa-a357-1449ab8053d8",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/revcl-UsualRbacControlsLocalUserAccount.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:083393f389c6f2fa3f1eb10b3cbdaaf221ff4d2099b94f1713c5bac23f31a637",
+      "afterFileHash": "sha256:96f879ac960ba396ceb016fc34382202d065fcee06ee3c05d2124cc153aabe9e",
+      "beforeContentHash": "sha256:a4cc6835aa26211be596eb8bf4b9c661ae887ec8cb52412e9cd16917ba8e229b",
+      "afterContentHash": "sha256:eb96e93cc4d9a61adcec817fbf25c78cdc619161e6d7d2ec449397cb79d0e70e"
+    },
+    {
+      "id": "a07d96be-b231-444c-8b2e-3123950de82f",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/wafsg-AccessControlListsSecurityRequirements.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:9a123e53ab8ae658d848756122402a44183929155607087b276b3a44ab6b4a38",
+      "afterFileHash": "sha256:c6c4535f52b5f4fcf1976604255cbe479ea5e73b2a27a491bf01d93819057572",
+      "beforeContentHash": "sha256:1231e874192bdff7519463702e4e8af478b85a08fcb45eb114ae8e758c0307c9",
+      "afterContentHash": "sha256:1a676cfe51959743ac2cf89758c23fe02a2101139316f746698a18ee2193a491"
+    },
+    {
+      "id": "3195423b-0513-45e2-951b-87f9c5d534b0",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/wafsg-AzureResourceManagerLockDataLoss.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:4e3cc77e6c97dbe0913dc138a779726a977b2748f07952085e06e4c5f5fb9888",
+      "afterFileHash": "sha256:f6643dfe0b54ee813bd5b6d9e16db0b7396d0776470255a2d8dfa86094e5742f",
+      "beforeContentHash": "sha256:a164665d263f02a054f48f37a8442f9a31c218ca20463379e770fa1b54f5edd0",
+      "afterContentHash": "sha256:24011853eb20c9c653a7ef9a0bc339f4574b128106363d1962fdb0f64988a11a"
+    },
+    {
+      "id": "5efa7ffa-1cc0-4a74-bd15-c809185ccb58",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/wafsg-AzureResourceManagerLockMaliciousDeletion.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:6beab3573d4500fb44b947cac8349fc78e5b5c1dc56a31d264170817f26140ba",
+      "afterFileHash": "sha256:e9a150872f1881a9145a77257e543bbb1f94cbd902c96e5a56c7fd24a22ab2e6",
+      "beforeContentHash": "sha256:5cfe086f5b4f0cce069c939ac8606d78baeaa1963613cd6746bd8ae73808a84d",
+      "afterContentHash": "sha256:27c3b8808e206ad6019427ccf41fe207cf6c1cf4e2d6fdb67bc86992776e1cfd"
+    },
+    {
+      "id": "02be562a-9a28-4e56-94a3-a3671dd382fc",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/wafsg-AzureRoleBasedAccessControlMicrosoftEntraId.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:75f7d49d06a18cd120c1bfb661f5c550c66cce550b1364d69ffd813298700b63",
+      "afterFileHash": "sha256:49ec76747f0747aa0b874f6537468f2dbb2013dc48d8984d45ba95704b1cb8ec",
+      "beforeContentHash": "sha256:23f7a59c27b23c1fa05bf533580f00a1626de1bdba1e96789a81200bddf67af2",
+      "afterContentHash": "sha256:69bed525f4789c127f6fc513a725e76392ad79ebde570e899c8bfe17a2a18069"
+    },
+    {
+      "id": "b3a2f115-8ee1-401e-a939-f4406b43b460",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/wafsg-NfsAzureFileSharesNetworkLevelSecurity.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:257e52e28ad9b76f0d073ad0836b48d652b635f710eb43fa28b6159516233cf6",
+      "afterFileHash": "sha256:c985dc8da03b5c47b6e06908410be48a25bde0c55eba2c905d7c24c94513a6db",
+      "beforeContentHash": "sha256:319f34a27edd816c55931e179a5bfab06939793fc1df61c7c7e0e2ffea6b5f1d",
+      "afterContentHash": "sha256:0e33eec585aacc850b27635312fd3d403e5cbc172eee03609500f5fa4a89ff2c"
+    },
+    {
+      "id": "0148ed98-3b9a-4b7f-81c2-8b550f56f793",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/wafsg-ResourceManagerLockMaliciousDeletion.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:aeec440ede8c58d02afcb2d176e8594f0584f725c5427835f48baca974d60ac8",
+      "afterFileHash": "sha256:f570b892f9029e2e7efa646dcbe195289f2aca53c6665788c7730749b7e500e0",
+      "beforeContentHash": "sha256:2c276a60bd9ce77267fedcffce1b8b77a9333e1817688aa5340ac28c6ca9687e",
+      "afterContentHash": "sha256:e94a0732c7b9fd663c82d1e11452e3117e8bc372b5d25da2fd5ce2ea1e838be5"
+    },
+    {
+      "id": "b174e3db-c952-4b33-a72e-874f60a0f671",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/wafsg-SecureTransferStorageAccounts.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:435249f1d933571ddaab19f2fd1e6406730369aa7c03a6dcae2dce0b88e92f5b",
+      "afterFileHash": "sha256:f3c883eedaf073259a3a89af903b0e5848515812ca132696f0b7b98e2e88b705",
+      "beforeContentHash": "sha256:01e209159af4cfac8fb0a6d46a7ecf62907b11df118def27d9231e7730ac01d1",
+      "afterContentHash": "sha256:d298e11af647ccd7c1104b7fc5c0dfcc6a5bf22475ee44727c62d9df8528cb33"
+    },
+    {
+      "id": "b9cbb598-dcaa-431a-bae0-f8a7909f577b",
+      "path": "v2/recos/Services/MicrosoftStorage-storageAccounts/Security/wafsg-SmbFileSharesMostCases.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:6d885c55da914b087f9cddbaedc1f45bc036d30a7285dfc15e6f5938c5e4a929",
+      "afterFileHash": "sha256:b6d8270aa981dc002f7d8c1a8679ce5a3d1c513e35364a1d2b61cca9965dbc07",
+      "beforeContentHash": "sha256:9970717a5a51654976136c13c4ff77bfc341a3f84f04b8eac183b5088871ce62",
+      "afterContentHash": "sha256:06dab6ce69c5f1528b247450b938ff79129395720f12098786cee15988190f37"
+    },
+    {
+      "id": "834ac932-223e-4ce8-8b12-3071a5416415",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-AppServiceKeyVaultReferencesAzureKeyVault.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:382556b82be578cbea5cb457669ba29a9a35b4b5384a636a9af9f5488331e069",
+      "afterFileHash": "sha256:ca1a60b4c5cbe7f64151ad62c7254856a1f75ea3ff34618a27250713bcc5c57e",
+      "beforeContentHash": "sha256:6b5db06a19f6abe8a5215d51676cebd29f7aa08c6a0ffebc5c6b5decdb4df0a1",
+      "afterContentHash": "sha256:f12b30c544c985c9194f360596464cdd81950ddd5953c8722c3729c9c41799d8"
+    },
+    {
+      "id": "833ea3ad-2c2d-4e73-8165-c3acbef4abe1",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-AppServiceKeyVaultReferencesKeyVaultSdk.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:c335b47d5c153dbaa743667d702dfc35c91c6f2805f1b32078bd11bff8c96dd5",
+      "afterFileHash": "sha256:ef7cd0bb97581d5d2feb7715b9173f77eeea006fdb6f86d66d1281c916b5e28b",
+      "beforeContentHash": "sha256:f539183148616dc7f69885e40188dc7c3e533403ab20f112b0d833912c75a56e",
+      "afterContentHash": "sha256:4f73898bcafadcbc254bccc5df6833ca174617e6ba37def8c5cf05af1fba0d23"
+    },
+    {
+      "id": "d9a25827-18d2-4ddb-8072-5769ee6691a4",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-AzureContainerRegistryManagedIdentity.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:5bf37479b78898c0c4f12d92720ff781568c624a6fee5c38da15f6dcea0d6866",
+      "afterFileHash": "sha256:d5910dfae5593655d17c4d13ca8ccfe589e904220e95e1f560ad47fee504742e",
+      "beforeContentHash": "sha256:925eeb9df080fb253dc1723609ca6be59657011ac1e920d4cb3c908d4ed7ce9c",
+      "afterContentHash": "sha256:2a0eb8834a60ce07617ba9f1ea0465b035f7d1c0c36f9794405b939c9eeadeb9"
+    },
+    {
+      "id": "68266abc-a264-4f9a-89ae-d9c55d04c2c3",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-CorsConfigurationWildcards.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:56be67bc40d7047939594e0aa1844c367ad84c311eb54543c129e3822fa26adf",
+      "afterFileHash": "sha256:354045d0bae6daab23f9a32779653945d23535f413f29984ef3015bd8971d9d1",
+      "beforeContentHash": "sha256:32217bbf81bd640b79d1bb610fc69f65279c70435397cea4ee899baf015ccc1d",
+      "afterContentHash": "sha256:8f09112fc441585b98f91942e26bc237b7c3ca49bdfa19473436fa665b87bfaa"
+    },
+    {
+      "id": "114b933d-f574-4ecc-ad9b-d3bafcda3b54",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-LatestVersionsDatePlatforms-1.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:f322902f1c2911ba0747c9396b0b85e3e57b97ff231cfb3187043e732c8f88b3",
+      "afterFileHash": "sha256:fe06909873cedfe75054bde575d6a94cfb25f7ddfda1cb62b704c127d4d5bb2f",
+      "beforeContentHash": "sha256:80287ffc2e24493cc2434f1f676546adb20d1bdbfc0b5d61d857f6860a9ce405",
+      "afterContentHash": "sha256:309d6c78d05076a16340efacf431c843a0bf4a24ea675efd55affa084a969f7c"
+    },
+    {
+      "id": "f574eccc-d9bd-43ba-bcda-3b54eb2eb03d",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-ManagedIdentityAzureAd.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:72f2887c9bfcf7313e68026a02da7678e55621adb3b107bff615aa06771ea6ad",
+      "afterFileHash": "sha256:1b4a2c3c40bacee72e96c317154ac2219553daca5a1a76d7c365ba574c2a7d32",
+      "beforeContentHash": "sha256:6237a29e71ed8801af040566b1fab3b30c0dbfe266c927d5d962c6d737410fbb",
+      "afterContentHash": "sha256:2fd9a50cf50f1a2c9b047329732e3b14a3864c3bcc54fb57eb7adb393aa69af3"
+    },
+    {
+      "id": "c115775c-2ea5-45b4-9ad4-8408ee72734b",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-MinimumTlsPolicyAppServiceConfiguration.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:0dfb2319a37943b8eddaffd98e3fcfb68b60c46e05b168832c9ccc86d5ac390b",
+      "afterFileHash": "sha256:b646aafeb5273b92b3b237c7580610bbd1ba0e9079366d5862909a84125c360b",
+      "beforeContentHash": "sha256:c8d8a5871f88468283e929048df8204a0c8bdac44ceb856a4ac5f9903293b17b",
+      "afterContentHash": "sha256:609ca4f9198c8666379ddfab4e66e46a8285fe9ec58195e333752396ca89ce90"
+    },
+    {
+      "id": "eb2eb03d-d9a2-4582-918d-2ddb10725769",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-PenetrationTestingRulesWebApplication.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:11",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/test",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:56032a34dbdb70e37543fced61b3650916bd286d6d6f8930d5ef3aca09b86f33",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:11",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/test",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:56032a34dbdb70e37543fced61b3650916bd286d6d6f8930d5ef3aca09b86f33",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:0a1b136914aa8f81dcd7f931bf6982f3591207d9167cf5ab45c73a7cab62a941",
+      "afterFileHash": "sha256:81d8301c266f13954356d7f140a921ac155bbd08c6eba29bb3e09d830ad0ad84",
+      "beforeContentHash": "sha256:75794d39b3e947d6e441a91f558b5eb09839152544dc5b3578c9aad878ebf747",
+      "afterContentHash": "sha256:ce7b104f890815f2a58605bb4c001bcdf3a6770b3d7fa3ea6f793f612e11c5b2"
+    },
+    {
+      "id": "d9bd3baf-cda3-4b54-bb2e-b03dd9a25827",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-RemoteDebuggingAdditionalPorts.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:5b37757a12e385b79ac182279851670e6e37e7e6db9e87777896811a80cf472f",
+      "afterFileHash": "sha256:f1f22c3604a9d47c723b0190104a2c15984dabdb25ba47282a19abf1fd7b2c2d",
+      "beforeContentHash": "sha256:9188652b1892ea8ddd2761440b920dfe5f1b4391c1fbe65a2b84c03e84ab7592",
+      "afterContentHash": "sha256:64d7a753d44e016c48871edde0d87594d09b174b8100b3569a55a5df669ebf76"
+    },
+    {
+      "id": "6ad48408-ee72-4734-a475-ba18fdbf590c",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/revcl-SeparateAppServicePlansAppServiceEnvironments.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:04",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:04",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:6bfaed2b9a0bd73113905ca83b427c0ab2f3969593c2fdfbad54d1e83c8ba3ae",
+      "afterFileHash": "sha256:c1f2b46b3354b1eee124d347aaa3558677435c0393ea1d7d890a1ab24857f50a",
+      "beforeContentHash": "sha256:c88e2402cd365ab893f642166df7ce649cbb0d27def37ecbff062d4b5a14b15a",
+      "afterContentHash": "sha256:3cf270cd0f093f87a1f39f2c8b88ae5b05d75d3f0e23cabbd02409115608f2ad"
+    },
+    {
+      "id": "dbeebd4f-c94a-4060-a2ac-c523b3e64a3d",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-AppServiceAppsAzureVirtualNetwork.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:04",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:04",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/segmentation",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:b781902e457b2fae7083ee124be76285258e8c119bd387b990be6b76fdfdf788",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:9b5ac9164fb18124d50019311be6515a2c41e890fe0eebd356b1dd5480ca2756",
+      "afterFileHash": "sha256:3ef3b35d8254892adead1aeb8deb56b9500eaaa8ca5d21d8c2e7935f679b7abc",
+      "beforeContentHash": "sha256:d9f418ac2027687ecec06dd9d540ff08d5d244a791ddc76e6a1995ff552b35db",
+      "afterContentHash": "sha256:9a760c21ef8067ba3e1a76de4c2082fb552ab12bbb5dc890d881c7e63522300f"
+    },
+    {
+      "id": "44ba257f-d6b6-4eed-b5a1-eff3dcb027e8",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-AppServicePlanSecurityBaselines.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:01",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/establish-baseline",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:928240eef3091d4b3d3756ff803c7d5aa7a8580d7d1d023dedf1d2a885640b85",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:01",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/establish-baseline",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:928240eef3091d4b3d3756ff803c7d5aa7a8580d7d1d023dedf1d2a885640b85",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:1a967e69125976091d76653973cee9f71ee0c1a671ecfdfa124768708248ca33",
+      "afterFileHash": "sha256:51fb1c31ea7b17019ede07196277c42a6b1ed9bc2ff9c6a6ee0ae88e8791224c",
+      "beforeContentHash": "sha256:14e7179ba854760775f34c7180b48d328d03f6f6a989654e8e8f62ed673dc1b4",
+      "afterContentHash": "sha256:2c643de7a9e76daea0a9d45963b5f49375a1f91a600fa5468c47777e1b081674"
+    },
+    {
+      "id": "14bc5ea3-400b-4bbf-9187-f0b21505173d",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-AppServiceWebApp.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:475fd67004f334db670278aab3ed72d35adb4c1cd1f8ba93df2f1d713701314a",
+      "afterFileHash": "sha256:ad0b235ac4800aee38581899f9ad9a9be04b269ca361d431838e3df0ead61222",
+      "beforeContentHash": "sha256:617b7027ed60c22757ef6f6d4a7a4fc066f54c24b1f060d3bbfdf23daa003b5d",
+      "afterContentHash": "sha256:6b57369bf1988d621ed4739337e337c3289b30e16ef93bf119a6c7c88f16c87b"
+    },
+    {
+      "id": "0545fb6c-0662-4ffd-8834-7d4d4ac7f2bb",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-AzureKeyVaultReferencesSensitiveInformation.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:5df821c038bd44ed7807fb0d5c344add5230e17fc830ba324b8029ec5e7d68c0",
+      "afterFileHash": "sha256:0cea7d744ee7640abd06d53e16a9ac6f52b25ff247960f802b967583b908323e",
+      "beforeContentHash": "sha256:a670d441fbae4dc30dac6083453147093551e1d110216836c47b3bd17dbe5968",
+      "afterContentHash": "sha256:835b786a65aae27d1dc3d7b7b1d481b9859ff4020f728ff0dc90460861990746"
+    },
+    {
+      "id": "603bf106-42e6-43d3-a8e0-4470d05093b9",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-AzureStorageAccountsAzureEventHubs.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:10",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:10",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:e55d4c1d9895f256b068456d6079bcf9062b4010345c8ab5c3dc23de36dbe737",
+      "afterFileHash": "sha256:571279e5b26917e58fb017f455a92562b3177206bbdeba4104257349b55c0c73",
+      "beforeContentHash": "sha256:3d99598fa7bebd72ec229278383a0bb1d24bca6e9d7793b942798b470dc40748",
+      "afterContentHash": "sha256:eec73b2134b96b4ed1abccddd3bbb5854d6c1bbc4242d41a81d9eff730c7d0e4"
+    },
+    {
+      "id": "1c90ec2a-85e3-400e-8937-22686ac115b8",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-ComprehensiveActivityTrailsResourceLogs.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:10",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:10",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:194381cbf051f4bd475c12d893f950f7913e4395f9804686f42ee9344d403c6d",
+      "afterFileHash": "sha256:c548f43484c529b7193fd5bf92a3f3a77e07cb5ea47fa6d8331a321e5df927e2",
+      "beforeContentHash": "sha256:2e0c318ed9763f7e50527f0f2ebfe4bd1a016894852aa4b7442ec049eb1059c1",
+      "afterContentHash": "sha256:5fab0d8cf9fbc27eda57102c6f4a4ab5380a6ca11b8787925bec0dd359af7950"
+    },
+    {
+      "id": "59402f53-7298-4295-b919-609d8fc73876",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-KeyVaultReferencesSecretRotations.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:09",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:5f3893f00333388e0ae10fca97699921b725e5bcef65d6d8edeee8391de07be0",
+      "afterFileHash": "sha256:62dc52f7bddfa7992a3198172fd0b45b05c9947f4d55bdf763c3dcfb77843925",
+      "beforeContentHash": "sha256:a94616c89019555163279027ca8a2952322fa364ed308f777f55dfe880060764",
+      "afterContentHash": "sha256:1c81b68697ea2bcb0d2dbfd05618be2eb7d35f4f14b53ead6a022795b21798f6"
+    },
+    {
+      "id": "4133fafa-441c-4d27-bfd1-f76a58ab6620",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-LanguageRuntimeSupportPolicyLatestRuntime.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:f717a612e533f6a10c387aba54b79698579ba8f0d5c0cec77656e6a50db35027",
+      "afterFileHash": "sha256:41cc82d81090510e89e7d5fab58f48cf69c88d4df370066b6bc69e4b9d8dde2f",
+      "beforeContentHash": "sha256:ae552ee12c5dfd7d8f909695d63b5ae9c91bd0565682c2f5d6a2603ff19e3586",
+      "afterContentHash": "sha256:eadf7ea317a5206bd6c33919e87a81320ee89ed022b486699f13096e1f4adad3"
+    },
+    {
+      "id": "78fd4f02-98f6-459c-882c-5f0d659a2251",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-MicrosoftEntraIdBasedAuthenticationSecureDeploymentMethod.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:9d82278672eab05a477d86383bac989e53b35e9538591dc61516441e6c0d4481",
+      "afterFileHash": "sha256:cb3fb914ee9410b3aeb122d7572beb3679873b54af2ea35d37e64a09882479f1",
+      "beforeContentHash": "sha256:fd7e2eda8204a58c8ca6f9a2ab20ac3685a3cd8e1eb0b2c9461e42600674dcfa",
+      "afterContentHash": "sha256:77e93ec179f34895d49ea9db25cfee82639c197775d9f70b37109e053e652221"
+    },
+    {
+      "id": "5bb8daca-fde8-45bf-82f6-e55cdb28da05",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-OverallSecurityPostureAccessControls.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:05",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:a068448ce4254d923687c08a22cbb0362681dfa9836298a25eec1dd6c2112276",
+      "afterFileHash": "sha256:47a62cf289892e46d0e7c994b94e074c55ae95a73970f3de4a98f40dd8d97a15",
+      "beforeContentHash": "sha256:ce9e1df96d55a5a12bd536f1f2f39c2862336936a82bb7dd4a76f2ea5b7ca835",
+      "afterContentHash": "sha256:8027e72edf5d5e051a72a7439365e5c3176906335c85fedb0c66da24e462998a"
+    },
+    {
+      "id": "def198c3-8a34-4d8f-8e46-91b6f36064ab",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-OverallSecurityPostureAppServicePlan.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:10",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:10",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:4ad2209a11918464659936756afcc18f9add0c94c6b8735e046621e86ea8359c",
+      "afterFileHash": "sha256:db279a78c2664386ce85eb4cd6ba4dcc2e524edfad980bcb30f0546da2234a59",
+      "beforeContentHash": "sha256:af32bde38bb6b0226289599e1dd19afab5bad516e24585f002760f40b779606e",
+      "afterContentHash": "sha256:a09560028125e862f64f62aac739882c380135e7dcc3afa73b547bb35c839482"
+    },
+    {
+      "id": "d63a7c58-a495-4ff3-a164-88e8eac4febf",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-SourceControlManagerFileTransferProtocol.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:08",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:bad884d97805709d0b3115a58e1e06ee03b8e8a9dd92daa87a96bc08163034e9",
+      "afterFileHash": "sha256:0d1169d15cdd8200402eb7e5951ee703a9cc617c4f2d2bb15e7dfe9963ba3926",
+      "beforeContentHash": "sha256:c3e9f60eed839587978e89cad1864e7750d5de9c4d3f3d2f8e105296957d7248",
+      "afterContentHash": "sha256:ffe5bcaa9ff21b176e839799a82c9001633dd62eb387a74e007677193550089c"
+    },
+    {
+      "id": "ef64b1c3-a41f-4913-8ac4-27be04d96d10",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-TransportLayerSecurityAppService.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:07",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/encryption",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:053ab645ab55baa91a2ecdf7d2730ad47e4729d4a9fa9bbff37fc9e3e34f1b60",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:4f4c820e89549afecb41b2affc0caf17dfad0f9e8f2922b46c98c4288d0a866a",
+      "afterFileHash": "sha256:1b8f95e08be6ca04a2503361e5e24a58e8e56d0c2a3efce4c93126f3f2520892",
+      "beforeContentHash": "sha256:be18bcda35c20b621eb7c21db8b9516e38deb4e11571b2356c2f6288693fe21a",
+      "afterContentHash": "sha256:02dff1cf8f888620ee121e36cc96a6907b86feedb0be3f86b7a162f514790944"
+    },
+    {
+      "id": "703d13a6-d768-443b-b9f9-4e31d74767f9",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Security/wafsg-VirtualNetworkIntegrationAzureVirtualNetwork.yaml",
+      "changedFields": [
+        "provenance.upstreamRecommendations[].sourceId"
+      ],
+      "referenceChanges": [
+        {
+          "before": {
+            "sourceId": "azure-waf-security",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          },
+          "after": {
+            "sourceId": "waf-security-checklist",
+            "recommendationId": "SE:06",
+            "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/networking",
+            "coverage": "partial",
+            "assessedAt": "2026-09-11",
+            "upstreamContentHash": "sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57",
+            "notes": "LLM-assisted draft semantic mapping, not human approval or live validation. This record implements only a particular service or subrequirement; it does not establish complete workload-wide control coverage."
+          }
+        }
+      ],
+      "beforeFileHash": "sha256:aa8c9ce2ea07ca229fff387ec345e89e939940df2874c06af30e1abf656e452c",
+      "afterFileHash": "sha256:9aa3a517842d175a334a637426689a79dc4c5bd95ed082c970daa8691f874a84",
+      "beforeContentHash": "sha256:1495584cd718dac4a30883e3f23ea8252d96dd503223ca02454d1b722ad8cb5c",
+      "afterContentHash": "sha256:b75f9611b5d85b8a82afdbfca305ee4b4b2d12155b755175eac681bc3fea3984"
+    }
+  ],
+  "counts": {
+    "changedRecords": 79,
+    "renamedReferences": 79,
+    "guidanceChanges": 0
+  },
+  "reports": [
+    {
+      "path": "security-manifest.json",
+      "beforeFileHash": "sha256:b45db062ab0079eeef48477f645ed2835ccfdb9cc49a3a48969e8ef0de480374",
+      "afterFileHash": "sha256:c1024f23778dada4ee61d5edb4fb81ec624251ec06f0c01f949a1080e09574c5"
+    },
+    {
+      "path": "security-mapping-proposals.json",
+      "beforeFileHash": "sha256:0f3eddb33dd1b26bc48a0667f58c2f18f118a4b99db204b96e882ecd148a1c83",
+      "afterFileHash": "sha256:e09e026a3f0f4af23ff852a5266968adc93d7c2d97ac4335079289002cfce84b"
+    },
+    {
+      "path": "security-waf-inventory.json",
+      "beforeFileHash": "sha256:1c0e7ad873a061b82ac1034eb8368816058929436bafe77523774a85efdd87a1",
+      "afterFileHash": "sha256:a0021c1a69ba84ef4184406a4ce598d5f4ee7d1046238fd3fd0c47818d94aa5b"
+    },
+    {
+      "path": "security-waf-coverage.json",
+      "beforeFileHash": "sha256:24c077e3e1d0b9a540558163f7374cf163ea84bb327b02f88ebc00fd6af28a39",
+      "afterFileHash": "sha256:062210215143156b5b0c9eb91ade4a9d5dd7e35d22cd30b39a0f7b4b24ca37fe"
+    },
+    {
+      "path": "security-advisor-inventory.json",
+      "beforeFileHash": "sha256:d4e3504eda900be77abf414037939380489545b6add6388a90aac75573de25ce",
+      "afterFileHash": "sha256:68eaf7ddc912e2622973b874c5e3dcd2e1ec61e91709b889b30fe7de2720536f"
+    },
+    {
+      "path": "security-advisor-coverage.json",
+      "beforeFileHash": "sha256:896c739f8719e4fabf9e125f0da4eb8c99578f36cbfc4f0fe4d481e21595567c",
+      "afterFileHash": "sha256:65e173d934b0c56d4851d577252be8a73fb3706e334e7871734c395b0a6f4019"
+    }
+  ]
+}

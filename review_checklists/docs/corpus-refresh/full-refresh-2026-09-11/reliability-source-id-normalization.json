@@ -1,0 +1,676 @@
+{
+  "date": "2026-09-11",
+  "validation": {
+    "testModule": "review_checklists.tests.test_full_refresh_reliability",
+    "testsPassed": 12,
+    "scope": "Owned normalization, reference-only changes, frozen identities, exact queries, canonical inventory comparisons and shared schema."
+  },
+  "kind": "source-id-normalization-not-new-refresh",
+  "normalizations": {
+    "azure-waf-reliability": "waf-reliability-checklist",
+    "azure-advisor-reliability": "advisor-reliability-catalog"
+  },
+  "baselineFileSha256Unchanged": "dfff7b8af5070254ad76df6c68dd2d6d8a55f7fbc1fe7a53993f61f8703c1d4b",
+  "corpusRecordsChanged": 16,
+  "records": [
+    {
+      "id": "0962db49-c5c0-45b4-9064-c5da949a67b3",
+      "path": "v2/recos/Services/MicrosoftCompute-virtualMachines/Reliability/wafsg-CompositeServiceLevelObjectivesAzureServiceLevelAgreements.yaml",
+      "beforeFileSha256": "667545e0910a7af0890dd75bdc1a2b8c5f3bef9e0410604112051ea406390959",
+      "beforeContentSha256": "a6bce9a0a4454a23b4f90e515f557b1b94ac48e296c998082da6247892853e51",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:04",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:f64975113bdb5338d2ac5ec0115cd558c7642ef091cbcfc68b465579234ad9bd",
+          "notes": "Business SLO/SLI windows, RTO/RPO, architecture and health-model use are explicit; VM workload scope does not cover all workloads."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:04",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:f64975113bdb5338d2ac5ec0115cd558c7642ef091cbcfc68b465579234ad9bd",
+          "notes": "Business SLO/SLI windows, RTO/RPO, architecture and health-model use are explicit; VM workload scope does not cover all workloads."
+        }
+      ],
+      "afterFileSha256": "bb220ed15ecde752a04e3825036ca7c6f0f6e3463a753962802ad1b28f6faead",
+      "afterContentSha256": "2ad37540787cfba53ea683a93b6394e33e2c7bfda0cde2ec966141c837e4304b"
+    },
+    {
+      "id": "dcaadec2-8bc9-43ce-b13d-51aa5c4db90e",
+      "path": "v2/recos/Services/MicrosoftCompute-virtualMachines/Reliability/wafsg-ComprehensiveDisasterRecoveryPlanComprehensivePlan.yaml",
+      "beforeFileSha256": "d1ba99b02257e534dc9e1d60c5cc280b753acf81fcfbf7a5645bea2ce3957000",
+      "beforeContentSha256": "34ebf7e6155571cae65f86d0655a4baa5f09393c0a92ed74be11b591d8e37745",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:09",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/disaster-recovery",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:09dbccbd1f7b794892baa92a8fcc48ab69e7619b7909e2426d7cd39001e3d293",
+          "notes": "Structured plans, dependencies, authorization, drills and RTO/RPO measurement cover VM workloads; not a workload-independent all-estate DR control."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:09",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/disaster-recovery",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:09dbccbd1f7b794892baa92a8fcc48ab69e7619b7909e2426d7cd39001e3d293",
+          "notes": "Structured plans, dependencies, authorization, drills and RTO/RPO measurement cover VM workloads; not a workload-independent all-estate DR control."
+        }
+      ],
+      "afterFileSha256": "7ea70499efbfae02e034c484ea8cb9471736533a16790f4ae896260a63d27448",
+      "afterContentSha256": "52a47eef64b746baec5a56d7a1b9850279b492f1a6132e0e2fec08c8c427ed54"
+    },
+    {
+      "id": "d43918a8-cd28-49be-b6b1-7cb8245461e1",
+      "path": "v2/recos/Services/microsoftdocumentdb-databaseAccounts/Reliability/revcl-AzureCosmosDbExtraProvisionedThroughput.yaml",
+      "beforeFileSha256": "f40ad4bfd40aa110b1960bbb454312fddff850a641d5bfb64587af22a5fb29dc",
+      "beforeContentSha256": "923bfbb4c371388a2c1785f2c50a147b4beedd1eef7fe67135b2eb58650616dc",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-advisor-reliability",
+          "recommendationId": "52fef986-5897-4359-8b92-0f22749f0d73",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:00d5e7e3b5b8fd588b23ce901819b39ed8659a2a56715b730535fe0e51fefd6f",
+          "notes": "Continuous backup and recoverability are covered with current 7/30/35-day tiers. Catalog's blanket 30-day wording and suggested cost effectiveness are not adopted."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "advisor-reliability-catalog",
+          "recommendationId": "52fef986-5897-4359-8b92-0f22749f0d73",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:00d5e7e3b5b8fd588b23ce901819b39ed8659a2a56715b730535fe0e51fefd6f",
+          "notes": "Continuous backup and recoverability are covered with current 7/30/35-day tiers. Catalog's blanket 30-day wording and suggested cost effectiveness are not adopted."
+        }
+      ],
+      "afterFileSha256": "d632448b69bd29a11bf8b399f6e514f9f279961549d096d706f335fc91c86ac0",
+      "afterContentSha256": "05fb7aaec306c8f530e83a7c0952b308eb896138b2e07e17f06d1c04e3fbcace"
+    },
+    {
+      "id": "de39ac0e-7c28-4dc9-9565-7202bff4564b",
+      "path": "v2/recos/Services/microsoftdocumentdb-databaseAccounts/Reliability/revcl-LeverageAvailablityZonesOfcourse.yaml",
+      "beforeFileSha256": "a1fa127feae593777ca3d5fcbd98386f7598c5f284a993461137c1bfe7ef1a45",
+      "beforeContentSha256": "e78d2480281e78513d47236385b4b86af6060c7f0a5706f53c9cfd64ecc1efa5",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-advisor-reliability",
+          "recommendationId": "8034b205-167a-4fd5-a133-0c8cb166103c",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:289541adf313970f61eb56da7d1c96257c8741d7890a62fc626db5718ca6a7a2",
+          "notes": "Per-region zone redundancy includes multiregion accounts. Catalog regional-outage protection wording is qualified: zone redundancy does not replace region resilience."
+        },
+        {
+          "sourceId": "azure-advisor-reliability",
+          "recommendationId": "687f83d3-db01-4ab1-a77b-b31e99f16d33",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:1cc551f14316782e7e38d8aa1f022bcb8454cbf697c13a2262faee9aaab68750",
+          "notes": "Same current per-region zone requirement supports this separately published GUID, without treating zone redundancy as region-failure protection."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "advisor-reliability-catalog",
+          "recommendationId": "8034b205-167a-4fd5-a133-0c8cb166103c",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:289541adf313970f61eb56da7d1c96257c8741d7890a62fc626db5718ca6a7a2",
+          "notes": "Per-region zone redundancy includes multiregion accounts. Catalog regional-outage protection wording is qualified: zone redundancy does not replace region resilience."
+        },
+        {
+          "sourceId": "advisor-reliability-catalog",
+          "recommendationId": "687f83d3-db01-4ab1-a77b-b31e99f16d33",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:1cc551f14316782e7e38d8aa1f022bcb8454cbf697c13a2262faee9aaab68750",
+          "notes": "Same current per-region zone requirement supports this separately published GUID, without treating zone redundancy as region-failure protection."
+        }
+      ],
+      "afterFileSha256": "c7c698d0504fac243e4ccd75c8a575af7d16114eb6f0ceec461712aae1834d9d",
+      "afterContentSha256": "5ea024c76d65198acbeec897fe1f62533499f2a74b513bfe222067b55b9f921e"
+    },
+    {
+      "id": "bad38ead-53cc-47de-8d8a-aab3571449ab",
+      "path": "v2/recos/Services/microsoftdocumentdb-databaseAccounts/Reliability/revcl-LeverageMultiRegionWritesMultiRegionWritesCapability.yaml",
+      "beforeFileSha256": "5219b490975f9a6e9b7315aa291cd86f5ce44abdf7f8dd5b5738492dcfeea171",
+      "beforeContentSha256": "7e0005ef94b6dd197cd71c8418cc10a94b5520b839a8d1dce1d4c3d33b5ddae7",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-advisor-reliability",
+          "recommendationId": "a2002089-9dd1-46b6-881c-d0f349515230",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "full",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:5df00a6656f0c88fa0294291b0d453f7f965d10f3aba3b789177d43c71500b0a",
+          "notes": "Requirement evaluates multiregion writes with explicit consistency, conflict resolution and bounded-staleness coordination caveat, rather than mandatory use."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "advisor-reliability-catalog",
+          "recommendationId": "a2002089-9dd1-46b6-881c-d0f349515230",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "full",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:5df00a6656f0c88fa0294291b0d453f7f965d10f3aba3b789177d43c71500b0a",
+          "notes": "Requirement evaluates multiregion writes with explicit consistency, conflict resolution and bounded-staleness coordination caveat, rather than mandatory use."
+        }
+      ],
+      "afterFileSha256": "7725a2626f24f1498b502152252e90bd96df1e64473957bd79a8cda7ded268de",
+      "afterContentSha256": "3514573771f960ae68f3bc631d95993133ea4fb2ce5e9c324e771392391ffde2"
+    },
+    {
+      "id": "a47e4d1e-bb79-43f9-bf87-69e1032b72fe",
+      "path": "v2/recos/Services/microsoftdocumentdb-databaseAccounts/Reliability/revcl-RegularBusinessContinuityDrillsAzureCosmosDb.yaml",
+      "beforeFileSha256": "d7bb1f591d241934e20273b7d6e8bd4dbf9e6d1d70aa8517c8899185584bb1b9",
+      "beforeContentSha256": "eb0bb28f0facbc4a6684542781df69f4cedd80f0e816f4e8cafd420dad789685",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-advisor-reliability",
+          "recommendationId": "5de9f2e6-087e-40da-863a-34b7943beed4",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:2c61e2b7eea1189ec7b094a66d95a388dbf288984effcc9635f7e7a642a8c2e1",
+          "notes": "Service-managed failover configuration is covered. Catalog claim of no downtime is explicitly rejected: current service reliability guide documents possible hour-or-longer account failover."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "advisor-reliability-catalog",
+          "recommendationId": "5de9f2e6-087e-40da-863a-34b7943beed4",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:2c61e2b7eea1189ec7b094a66d95a388dbf288984effcc9635f7e7a642a8c2e1",
+          "notes": "Service-managed failover configuration is covered. Catalog claim of no downtime is explicitly rejected: current service reliability guide documents possible hour-or-longer account failover."
+        }
+      ],
+      "afterFileSha256": "6576d909e72da082d0001845d35dbf21eb1e4323cbc4e67fcf674880bea43dca",
+      "afterContentSha256": "58387a58728283a938605a2148ed3db5534d84362690174aefa02e696f52150e"
+    },
+    {
+      "id": "8153d89f-89dc-47b3-9be2-b1a27f7b9e91",
+      "path": "v2/recos/Services/microsoftdocumentdb-databaseAccounts/Reliability/revcl-SpanCosmosAccountData.yaml",
+      "beforeFileSha256": "98b3a2aa874d1b12e2ad1af537e3e637e05bbf8b85eaf013a78badf403787179",
+      "beforeContentSha256": "197a294c7f880cca744fd3fabf6036adabc679be0010eb0739a8ed4190e56e93",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-advisor-reliability",
+          "recommendationId": "b57f7a29-dcc8-43de-86fa-18d3f9d3764d",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:f11b3fa9ccd35a08d61816e14343ddb5e5037091a27733e4ee6044042b3be2a5",
+          "notes": "Updated check requires at least two regions where regional resilience is needed; it does not impose this on every production account irrespective of business requirements."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "advisor-reliability-catalog",
+          "recommendationId": "b57f7a29-dcc8-43de-86fa-18d3f9d3764d",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:f11b3fa9ccd35a08d61816e14343ddb5e5037091a27733e4ee6044042b3be2a5",
+          "notes": "Updated check requires at least two regions where regional resilience is needed; it does not impose this on every production account irrespective of business requirements."
+        }
+      ],
+      "afterFileSha256": "b2075079171e36af84fcdfd77a241c377cb802b034462acadaa24acce96899da",
+      "afterContentSha256": "f157a619bbadc3cf5754f1e5527cf9b56b37c9682105e528a11aea0e678a24bd"
+    },
+    {
+      "id": "060c6964-52b5-48db-af8b-83e4b2d85349",
+      "path": "v2/recos/Services/microsoftnetwork-applicationGateways/Reliability/revcl-ApplicationGatewayAvailabilityZones.yaml",
+      "beforeFileSha256": "e9234335bc8b29c88d3bb6237bba94511cf74f20b3f5bdf269bdaeee7c7f98ca",
+      "beforeContentSha256": "05dc87f56f665095d840a2de61ef2ce0d0b7ba13d4816d6daf70e881734f3fa2",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-advisor-reliability",
+          "recommendationId": "5c488377-be3e-4365-92e8-09d1e8d9038c",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "full",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:a40fbf7e154f73f8fe8987c4c1993dbbf2af9cea2ccb306ceab38d5926ca2f84",
+          "notes": "The updated gateway requirement explicitly requires zone redundancy, including default-zone and single-zone distinctions. Full applies to this zone-redundancy catalog item, not observed deployment compliance."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "advisor-reliability-catalog",
+          "recommendationId": "5c488377-be3e-4365-92e8-09d1e8d9038c",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "full",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:a40fbf7e154f73f8fe8987c4c1993dbbf2af9cea2ccb306ceab38d5926ca2f84",
+          "notes": "The updated gateway requirement explicitly requires zone redundancy, including default-zone and single-zone distinctions. Full applies to this zone-redundancy catalog item, not observed deployment compliance."
+        }
+      ],
+      "afterFileSha256": "b0c2a47fc3524aaf6f6aea8a9ecf3cbb4f6f87d3c6a146671a2ce18dd6cbf754",
+      "afterContentSha256": "d459fd8d7d8d8fa5bd2ba82f64a70bc1a8617c51a008819b68736b763d24124d"
+    },
+    {
+      "id": "c7d3e5f9-a19c-4833-8ca6-1dcb0128e129",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Reliability/revcl-ApplicationInsightsAvailabilityTestsWebApp.yaml",
+      "beforeFileSha256": "4f3dfe553d45dd83325fae7113fd1f0b14a9e5153325892549ad9360d35a39c0",
+      "beforeContentSha256": "2d62491f40afe6ede26bf386f66209c0bdaf18c8522407c367b46ab338db7c09",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:10",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/monitoring",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:1fcc22ae7dbf60497e1c598f2d31681eefddfeeb60fd6669738b1e2b701ca68d",
+          "notes": "Recurring endpoint tests plus retained accessible critical-flow telemetry support monitoring. Web endpoint scope does not establish complete system monitoring."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:10",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/monitoring",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:1fcc22ae7dbf60497e1c598f2d31681eefddfeeb60fd6669738b1e2b701ca68d",
+          "notes": "Recurring endpoint tests plus retained accessible critical-flow telemetry support monitoring. Web endpoint scope does not establish complete system monitoring."
+        }
+      ],
+      "afterFileSha256": "88ebdd26ec9255f00effc10592d33b09041fb2e796040c16825375cc9c24a54b",
+      "afterContentSha256": "6e1e6e27c79c1ab805a3865ed41f5bc74d9c96ef1d4fb65f87655a229bd82145"
+    },
+    {
+      "id": "e545b2de-84e1-4c41-81a6-46914c8e72cf",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Reliability/wafsg-AppServicePlanUserFlowDesign.yaml",
+      "beforeFileSha256": "8166c3b086d2fcd9c2186481b4e185ffb19acc995a29aabd97438b342072273e",
+      "beforeContentSha256": "32e30db430cb1d37ebc3c31cc36c58954ef261cd233bb2ba658e11690aa405f7",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:02",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/identify-flows",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:7366847664077c15e78a15324e9f78abd109a367ee583cf16b2aa2d03129c1cd",
+          "notes": "Explicit user/system flow classification and business-criticality ranking, but App Service scope only; not every workload in the estate."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:02",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/identify-flows",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:7366847664077c15e78a15324e9f78abd109a367ee583cf16b2aa2d03129c1cd",
+          "notes": "Explicit user/system flow classification and business-criticality ranking, but App Service scope only; not every workload in the estate."
+        }
+      ],
+      "afterFileSha256": "ebe21eacd70e5f76b4d67d4aa9a90a7376a6e7019bc4f5a5ed6f91b1e11981f5",
+      "afterContentSha256": "4318ae67ee9538a5ac1163b52c3a28318824b38bc7cde56e0550d4a5f660260a"
+    },
+    {
+      "id": "f6d4a1ff-bf30-4477-823d-b2163667a87d",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Reliability/wafsg-AppServicePlanZoneRedundancy.yaml",
+      "beforeFileSha256": "f9aaba6371b3a98afcaaf63b42f40fc8f3114d9e24af648201c5e9c0d54ab406",
+      "beforeContentSha256": "d1480497d8862769be390d900b75694e67f5a67ddbe44c31c902461733c1a9b3",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:05",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/redundancy",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:50c6b1c6d6320778e60597bd97c85a26ce97ed8f828173db803889f93c25209c",
+          "notes": "App Service plan zone/instance redundancy and dependency resilience are covered; not all levels of every critical flow or other compute/network services."
+        },
+        {
+          "sourceId": "azure-advisor-reliability",
+          "recommendationId": "fac3022a-eda5-44b9-b54d-cb500d1d01dd",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "full",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:02cbd27cca0e5c7c204f396a0611c08c468b5fdd523223181245ba3d4ca242f1",
+          "notes": "The updated App Service plan requirement explicitly enables supported plan-level zone redundancy with prerequisites and surviving-zone capacity."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:05",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/redundancy",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:50c6b1c6d6320778e60597bd97c85a26ce97ed8f828173db803889f93c25209c",
+          "notes": "App Service plan zone/instance redundancy and dependency resilience are covered; not all levels of every critical flow or other compute/network services."
+        },
+        {
+          "sourceId": "advisor-reliability-catalog",
+          "recommendationId": "fac3022a-eda5-44b9-b54d-cb500d1d01dd",
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations",
+          "coverage": "full",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:02cbd27cca0e5c7c204f396a0611c08c468b5fdd523223181245ba3d4ca242f1",
+          "notes": "The updated App Service plan requirement explicitly enables supported plan-level zone redundancy with prerequisites and surviving-zone capacity."
+        }
+      ],
+      "afterFileSha256": "e9f3106a31be8c8e24082da60be25b7b6039bca8ec3850b763172300bc9e4c9d",
+      "afterContentSha256": "12514358349ebfd37ce9378b0b4fca80857cc35e0c15c2f5b4584c1835f6c6ba"
+    },
+    {
+      "id": "04ae0e82-112b-4433-8a90-273a5684b328",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Reliability/wafsg-AutomatedRecoveryOperationsConductReliabilityTesting.yaml",
+      "beforeFileSha256": "b0ee17dc3beab09f41fb5d2d2482965b4c3ee76284f3ebaecb25972844547802",
+      "beforeContentSha256": "eea76a81a1185aceabaf2eade9b9facd82714c5d8646369466dbf2a5eac9476b",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:08",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/reliability-test",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:518f13e47f3461f9a98a0071be99177e811e476062e49505379cf6427a76aeb7",
+          "notes": "Controlled fault injection, load, scaling and recovery targets are explicit; only App Service testing, no actual test result asserted."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:08",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/reliability-test",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:518f13e47f3461f9a98a0071be99177e811e476062e49505379cf6427a76aeb7",
+          "notes": "Controlled fault injection, load, scaling and recovery targets are explicit; only App Service testing, no actual test result asserted."
+        }
+      ],
+      "afterFileSha256": "edaee3b6135b11df3684be6bfdc01505be1bf657183ed1bca810a2766033e10f",
+      "afterContentSha256": "5e72bc6da6cd835a162f4e90a49620fdbbe9b2ada9cd7951fe8f7e27cc7f01ca"
+    },
+    {
+      "id": "bc69b314-43db-4c70-8b68-fcaf3b01137e",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Reliability/wafsg-AutomaticHealingCapabilitiesAutomaticRepair.yaml",
+      "beforeFileSha256": "8487974a7b9b2eeb2475ca7877f29b007782c1e8ae210e600647a7dc05dc1e61",
+      "beforeContentSha256": "e293266045d80723f4e1e53cbd7c45b536ceeac0598fed6cadeddf4b6d8f993c",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:07",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/self-preservation",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:6344fd3c801023ddd16358844ff69d91bf04bcefd4b96c0c777107e445120d04",
+          "notes": "Built-in auto-heal and retry/circuit-breaker/bulkhead/queue patterns support self-healing and self-preservation; App Service scope only."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:07",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/self-preservation",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:6344fd3c801023ddd16358844ff69d91bf04bcefd4b96c0c777107e445120d04",
+          "notes": "Built-in auto-heal and retry/circuit-breaker/bulkhead/queue patterns support self-healing and self-preservation; App Service scope only."
+        }
+      ],
+      "afterFileSha256": "499ddaf285b84af202dfd217e7c2ed98522a63855fce799d57684691d71b5134",
+      "afterContentSha256": "8dba1b44857aaa3fb4eeba71918b3292b5749c57a46c04dffd76757391e0e5db"
+    },
+    {
+      "id": "f5e1c56f-e3a8-4dbd-b235-fdb88c41216d",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Reliability/wafsg-FailureModeAnalysisPotentialFailures.yaml",
+      "beforeFileSha256": "1024b78766fd5a94b3b81eb2e510e4e301da9c8d34d11f70daa122bd0bf0503b",
+      "beforeContentSha256": "ec3aec3e5f395bc72e82248ec1578c9803f9eb5494137cabf7542820093817e1",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:03",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:84b3ed7c3450a92120b7957150c542cd05597415cabaccedf367fe8b94c42eb9",
+          "notes": "Failure points, dependencies, critical-flow detection and mitigation are explicit, but only for App Service workloads."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:03",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:84b3ed7c3450a92120b7957150c542cd05597415cabaccedf367fe8b94c42eb9",
+          "notes": "Failure points, dependencies, critical-flow detection and mitigation are explicit, but only for App Service workloads."
+        }
+      ],
+      "afterFileSha256": "935b12fd9496f584814a29ac3b56647536d3dded49b2598270886bbfcce52e76",
+      "afterContentSha256": "261f78603c66b196ad5fafa234a59fa207bbd1a147b00a12b0984faf9f6b4a52"
+    },
+    {
+      "id": "e03792ee-d7db-4ec3-8596-9d77baf09f8f",
+      "path": "v2/recos/Services/MicrosoftWeb-sites/Reliability/wafsg-ReliableScalingStrategyRightScalingApproach.yaml",
+      "beforeFileSha256": "1d77e3a3caa606c3639749dca82d561cc63b1a6b1e29abfbe2619d90599d458b",
+      "beforeContentSha256": "aabd7f9df0728c1e8c95b0a4aba3061fc1b7e1a9fd71a0bcc82bcb8144749f39",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:06",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/scaling",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:1bb1a64b7d71faa956cdc9b236675afad9e27e59a7845645e4f575e34cf7049e",
+          "notes": "Demand-led autoscaling, initialization and headroom are addressed for App Service; independently scaling data and other infrastructure is outside this check."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:06",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/scaling",
+          "coverage": "partial",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:1bb1a64b7d71faa956cdc9b236675afad9e27e59a7845645e4f575e34cf7049e",
+          "notes": "Demand-led autoscaling, initialization and headroom are addressed for App Service; independently scaling data and other infrastructure is outside this check."
+        }
+      ],
+      "afterFileSha256": "e4ccb1a166807242e90aab176e1151e5964dc040baeb74f45fe283e95cf8c7b1",
+      "afterContentSha256": "2660cabecd92f05d0606ace133d7314e334d489a2bb7b41ecd8faa223e998a40"
+    },
+    {
+      "id": "c6c87882-4b54-5f08-9950-5a8b7ac0f546",
+      "path": "v2/recos/Practices/Reliability/reliability-WorkloadSimplicityDecisionReview.yaml",
+      "beforeFileSha256": "dd8c77b95726e7b36ec149484f5a95c768eae86dd2965279f605475279091cff",
+      "beforeContentSha256": "569de506d55cd7427d6b87a180d4787be67b9a45d97fde2ef2b798237c13c1ac",
+      "beforeReferences": [
+        {
+          "sourceId": "azure-waf-reliability",
+          "recommendationId": "RE:01",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/simplify",
+          "coverage": "full",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:4e05cf4bcc9fecc919fd54c3a652706a031e79a1d3d4341b2d03904fdf0e8a22",
+          "notes": "Workload-wide design decision review explicitly balances simplicity/efficiency with business functionality and reliability requirements. Full refers only to the published RE:01 checklist row, not every paragraph of the linked guide."
+        }
+      ],
+      "afterReferences": [
+        {
+          "sourceId": "waf-reliability-checklist",
+          "recommendationId": "RE:01",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/simplify",
+          "coverage": "full",
+          "assessedAt": "2026-09-11",
+          "upstreamContentHash": "sha256:4e05cf4bcc9fecc919fd54c3a652706a031e79a1d3d4341b2d03904fdf0e8a22",
+          "notes": "Workload-wide design decision review explicitly balances simplicity/efficiency with business functionality and reliability requirements. Full refers only to the published RE:01 checklist row, not every paragraph of the linked guide."
+        }
+      ],
+      "afterFileSha256": "7f8dc280ef214641c6607303743e60121215fe4ce15930918d73a427243ad7b5",
+      "afterContentSha256": "9844fa331b780aefdd9efdcd3bb219feb3209cf94ad755c61c7bc6a8863e47ce"
+    }
+  ],
+  "artifactChanges": [
+    {
+      "path": "review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/reliability-waf-inventory.json",
+      "beforeFileSha256": "cdba2a4ea73e49a5fd7271c4713a4367101f02ce5d6d88dc068f33ea318d37f0",
+      "afterFileSha256": "4dcd128fef0aa35b7fd3e978e2452dded8326ea7ef7a6f772e505b151f109bb7"
+    },
+    {
+      "path": "review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/reliability-waf-coverage.json",
+      "beforeFileSha256": "b253183ef8fe2d4683f7feb0625fff93abd6ea8abe71ead9909cbd56d859ac36",
+      "afterFileSha256": "a88f6169792fcd854998592babf531b6400a72b703edf26d62c09970e3fc6a59"
+    },
+    {
+      "path": "review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/reliability-advisor-inventory.json",
+      "beforeFileSha256": "ba36d877f58717c1759762677c35b479ffd03533bc02bb6b7ece3706276bdb9d",
+      "afterFileSha256": "b864f506c45852be4a0128214486b205b3b643677cb14c21ea95244cd3b1c066"
+    },
+    {
+      "path": "review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/reliability-advisor-coverage.json",
+      "beforeFileSha256": "713a896ad711fbcd121c9978a06c3ebccf7eefbf5e60bc19160cbd27c95ee85d",
+      "afterFileSha256": "5f4bceb6f3b647d818cab7ecfcf7e8d14e3be135ead5c0cd5aa626cea9397161"
+    },
+    {
+      "path": "review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/reliability-manifest.json",
+      "beforeFileSha256": "773c3c7a65bb2dd5af0a2456315e4df61ac501cc3642b5f2c0270d6361c1747e",
+      "afterFileSha256": "ce9238e093a1fcd6530cf558655f77196c7bba4c59869af3db023a036df10e90"
+    },
+    {
+      "path": "review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/reliability-report.md",
+      "beforeFileSha256": "c607a06d8fe8314624597df847ad68860070b74d2604dc5c3097490e1090d44d",
+      "afterFileSha256": "513833ea19dd8a4ee2cd81540de06a2d29c6a259ec2618509e809fc3a09feb83"
+    }
+  ],
+  "centralInventoryChecks": [
+    {
+      "sourceId": "waf-reliability-checklist",
+      "localPath": "review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/reliability-waf-inventory.json",
+      "itemCount": 10,
+      "payloadsAndHashesUnchanged": true,
+      "items": [
+        {
+          "id": "RE:01",
+          "contentHash": "sha256:4e05cf4bcc9fecc919fd54c3a652706a031e79a1d3d4341b2d03904fdf0e8a22"
+        },
+        {
+          "id": "RE:02",
+          "contentHash": "sha256:7366847664077c15e78a15324e9f78abd109a367ee583cf16b2aa2d03129c1cd"
+        },
+        {
+          "id": "RE:03",
+          "contentHash": "sha256:84b3ed7c3450a92120b7957150c542cd05597415cabaccedf367fe8b94c42eb9"
+        },
+        {
+          "id": "RE:04",
+          "contentHash": "sha256:f64975113bdb5338d2ac5ec0115cd558c7642ef091cbcfc68b465579234ad9bd"
+        },
+        {
+          "id": "RE:05",
+          "contentHash": "sha256:50c6b1c6d6320778e60597bd97c85a26ce97ed8f828173db803889f93c25209c"
+        },
+        {
+          "id": "RE:06",
+          "contentHash": "sha256:1bb1a64b7d71faa956cdc9b236675afad9e27e59a7845645e4f575e34cf7049e"
+        },
+        {
+          "id": "RE:07",
+          "contentHash": "sha256:6344fd3c801023ddd16358844ff69d91bf04bcefd4b96c0c777107e445120d04"
+        },
+        {
+          "id": "RE:08",
+          "contentHash": "sha256:518f13e47f3461f9a98a0071be99177e811e476062e49505379cf6427a76aeb7"
+        },
+        {
+          "id": "RE:09",
+          "contentHash": "sha256:09dbccbd1f7b794892baa92a8fcc48ab69e7619b7909e2426d7cd39001e3d293"
+        },
+        {
+          "id": "RE:10",
+          "contentHash": "sha256:1fcc22ae7dbf60497e1c598f2d31681eefddfeeb60fd6669738b1e2b701ca68d"
+        }
+      ],
+      "centralPath": "review_checklists/docs/corpus-refresh/source-inventories/waf-reliability-checklist--2026-09-11--687e8febe6ddfa4646952220e057a50b1046a75a--1f145d9fc89f.json",
+      "centralFileSha256": "6ccf055411ed00dd1bf8132f0906be7a208e23614395f56f54a4ad6a478a4be1",
+      "exactCentralPayloadHashAgreement": 10,
+      "centralIntegration": "verified"
+    },
+    {
+      "sourceId": "advisor-reliability-catalog",
+      "localPath": "review_checklists/docs/corpus-refresh/full-refresh-2026-09-11/reliability-advisor-inventory.json",
+      "itemCount": 9,
+      "payloadsAndHashesUnchanged": true,
+      "items": [
+        {
+          "id": "52fef986-5897-4359-8b92-0f22749f0d73",
+          "contentHash": "sha256:00d5e7e3b5b8fd588b23ce901819b39ed8659a2a56715b730535fe0e51fefd6f"
+        },
+        {
+          "id": "5c488377-be3e-4365-92e8-09d1e8d9038c",
+          "contentHash": "sha256:a40fbf7e154f73f8fe8987c4c1993dbbf2af9cea2ccb306ceab38d5926ca2f84"
+        },
+        {
+          "id": "5de9f2e6-087e-40da-863a-34b7943beed4",
+          "contentHash": "sha256:2c61e2b7eea1189ec7b094a66d95a388dbf288984effcc9635f7e7a642a8c2e1"
+        },
+        {
+          "id": "687f83d3-db01-4ab1-a77b-b31e99f16d33",
+          "contentHash": "sha256:1cc551f14316782e7e38d8aa1f022bcb8454cbf697c13a2262faee9aaab68750"
+        },
+        {
+          "id": "72063b96-92fa-4b74-9457-b84b662155f9",
+          "contentHash": "sha256:e9207f0ef3d728d21aae44a3fbbeff591afaef553407c3d34faf7ac4e0f5f1d9"
+        },
+        {
+          "id": "8034b205-167a-4fd5-a133-0c8cb166103c",
+          "contentHash": "sha256:289541adf313970f61eb56da7d1c96257c8741d7890a62fc626db5718ca6a7a2"
+        },
+        {
+          "id": "a2002089-9dd1-46b6-881c-d0f349515230",
+          "contentHash": "sha256:5df00a6656f0c88fa0294291b0d453f7f965d10f3aba3b789177d43c71500b0a"
+        },
+        {
+          "id": "b57f7a29-dcc8-43de-86fa-18d3f9d3764d",
+          "contentHash": "sha256:f11b3fa9ccd35a08d61816e14343ddb5e5037091a27733e4ee6044042b3be2a5"
+        },
+        {
+          "id": "fac3022a-eda5-44b9-b54d-cb500d1d01dd",
+          "contentHash": "sha256:02cbd27cca0e5c7c204f396a0611c08c468b5fdd523223181245ba3d4ca242f1"
+        }
+      ],
+      "centralIntegration": "requested-from-pipeline-owner",
+      "exactCentralPayloadHashAgreement": null,
+      "centralPath": null,
+      "limitation": "Partial nine-item capture offered for central integration; no central snapshot existed at normalization. No whole-catalog denominator."
+    }
+  ],
+  "unchanged": [
+    "all upstream item.payload and item.contentHash values",
+    "recommendation content except reference sourceId",
+    "source observation/assessment dates",
+    "outcome accounting and coverage classifications",
+    "all foreign records and central pipeline files",
+    "frozen baseline"
+  ],
+  "newNetworkFetches": 0
+}

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale#overview-of-plans
 queries: {}
+schemaVersion: 1
+id: 4238f409-2ea0-43be-a06b-2a993c98aa7b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

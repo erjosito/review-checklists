@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Review refresh preview</h1>
+<p><strong>No review changes have been saved.</strong> This preview expires in {{ expiry_minutes | int }} minutes
+and can be applied only once in this browser session. Any intervening review change requires a new preview.</p>
+<p class="warning">A consistent backup containing private review data will be created beside the review before mutation.
+Apply is atomic. Changed item revisions invalidate old assessment forms and autosaves.
+Existing statuses remain historical reviewer decisions, not certification of updated guidance.</p>
+{% include "review_refresh_plan.html" %}
+{% if not plan.has_changes %}<p>No changes are needed; confirming creates no backup or history entry.</p>{% endif %}
+<form method="post" action="{{ url_for('review_refresh_apply') }}">
+  <input type="hidden" name="csrf" value="{{ session.csrf }}">
+  <input type="hidden" name="handle" value="{{ handle }}">
+  <button type="submit">Apply this review refresh</button>
+</form>
+<p><a href="{{ url_for('review_refresh') }}">Return without applying</a> |
+<a href="{{ url_for('review_refresh_history') }}">Review refresh history</a></p>
+{% endblock %}

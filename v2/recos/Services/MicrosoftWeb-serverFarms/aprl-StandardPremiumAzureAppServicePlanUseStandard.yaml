@@ -1,13 +1,13 @@
 name: aprl-StandardPremiumAzureAppServicePlanUseStandard
 title: Use Standard or Premium tier
-description: |-
-  Choose Standard/Premium Azure App Service Plan for robust apps with advanced scaling, high availability, better performance, and multiple slots, ensuring resilience and continuous operation.
+description: Choose Standard/Premium Azure App Service Plan for robust apps with advanced scaling, high
+  availability, better performance, and multiple slots, ensuring resilience and continuous operation.
 source:
   type: aprl
   file: azure-resources/Web/serverFarms/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/serverFarms
+- microsoft.web/serverfarms
 severity: 0
 labels:
   guid: b2113023-a553-2e41-9789-597e2fb54c31
@@ -25,3 +25,31 @@ queries:
             tolower(sku_tier) !contains "premium" and
             tolower(sku_tier) !contains "isolatedv2"
     | project recommendationId="b2113023-a553-2e41-9789-597e2fb54c31", name, id, tags, param1= strcat("SKU=",sku_tier)
+schemaVersion: 1
+id: b2113023-a553-2e41-9789-597e2fb54c31
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    title: 'APRL b2113023-a553-2e41-9789-597e2fb54c31: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b2113023-a553-2e41-9789-597e2fb54c31
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/serverFarms/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:cec9e374befa76f69cb4c5ced481159f04aaab85306346cb2b3b9e855ad0ade8
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

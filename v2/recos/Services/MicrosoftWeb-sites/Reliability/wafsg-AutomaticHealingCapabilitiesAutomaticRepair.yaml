@@ -1,8 +1,9 @@
 name: wafsg-AutomaticHealingCapabilitiesAutomaticRepair
-title: 'Plan your recoverability: Redundancy is crucial for business continuity. Fail
-  over to another instance if one instance is unreachable. Explore automatic healing
-  capabilities in App Service, such as automatic repair of instances.'
-description: ''
+title: Design App Service recovery with redundancy, self-healing and graceful degradation
+description: Use multiple instances and supported auto-heal capabilities, and design application behavior
+  for failed dependencies. Apply appropriate retry, circuit-breaker, bulkhead and queue-based load-leveling
+  patterns to contain failures and maintain useful service. Test recovery and degraded modes against targets
+  rather than relying on automatic repair alone.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -15,3 +16,28 @@ labels:
   guid: bc69b314-43db-4c70-8b68-fcaf3b01137e
 links: []
 queries: {}
+schemaVersion: 1
+id: bc69b314-43db-4c70-8b68-fcaf3b01137e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist
+    title: Design review checklist for Reliability
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:07
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/self-preservation
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6344fd3c801023ddd16358844ff69d91bf04bcefd4b96c0c777107e445120d04
+    notes: Built-in auto-heal and retry/circuit-breaker/bulkhead/queue patterns support self-healing and
+      self-preservation; App Service scope only.

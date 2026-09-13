@@ -14,3 +14,13 @@ labels:
   guid: a2c5082f-3260-46ef-a44f-cab9c74fd16f
 links: []
 queries: {}
+schemaVersion: 1
+id: a2c5082f-3260-46ef-a44f-cab9c74fd16f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

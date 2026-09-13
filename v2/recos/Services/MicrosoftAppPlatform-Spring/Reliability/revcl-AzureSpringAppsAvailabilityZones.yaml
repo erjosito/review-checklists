@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/reliability/reliability-spring-apps
 queries: {}
+schemaVersion: 1
+id: ff1ae6a7-9301-4feb-9d11-56cd72f1d4ef
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

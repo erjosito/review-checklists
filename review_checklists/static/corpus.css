@@ -1,0 +1,33 @@
+:root { font-family: system-ui, sans-serif; color: #172b4d; background: #f5f7fa; }
+body { margin: 0; }
+header { padding: 1rem 2rem; background: #172b4d; color: white; }
+header a { color: white; font-weight: bold; margin-right: 1rem; }
+main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+a { color: #005a9e; overflow-wrap: anywhere; }
+nav { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { text-align: left; vertical-align: top; padding: .75rem; border-bottom: 1px solid #ccd4df; }
+th { background: #e6edf5; }
+.table-scroll { overflow-x: auto; }
+.metrics, .columns { display: flex; flex-wrap: wrap; gap: 1rem; }
+.metrics section, .columns table { flex: 1 1 220px; }
+.metrics section { padding: 1rem; background: white; }
+.metrics h2 { font-size: 1rem; }
+.number { font-size: 2rem; font-weight: bold; margin: .5rem 0; }
+.boundary { padding: .8rem; border-left: 4px solid #527fa8; background: #e6edf5; }
+.error { color: #8b211e; background: #fde8e7; padding: 1rem; }
+.notice { background: #d8efd8; padding: 1rem; }
+.hash, code, dd { overflow-wrap: anywhere; }
+dt { font-weight: bold; margin-top: .8rem; }
+dd { margin-left: 0; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #e6edf5; padding: 1rem; }
+details { margin: 1rem 0; padding: .6rem; border: 1px solid #ccd4df; }
+summary { cursor: pointer; }
+label { display: block; margin: .5rem 0; }
+input, select, button { font: inherit; padding: .5rem; max-width: 100%; box-sizing: border-box; }
+button { background: #005a9e; color: white; border: 0; cursor: pointer; }
+.filters { display: flex; flex-wrap: wrap; align-items: end; gap: 1rem; margin: 1rem 0; }
+.filters label { max-width: 22rem; }
+.filters select, .filters input { display: block; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #ce7200; }
+@media (max-width: 650px) { header { padding: 1rem; } th, td { padding: .5rem; } }

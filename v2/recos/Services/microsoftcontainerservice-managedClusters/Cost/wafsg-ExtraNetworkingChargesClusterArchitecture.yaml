@@ -15,3 +15,13 @@ labels:
   guid: ddb71774-895b-4149-9e0c-e348a9829df5
 links: []
 queries: {}
+schemaVersion: 1
+id: ddb71774-895b-4149-9e0c-e348a9829df5
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

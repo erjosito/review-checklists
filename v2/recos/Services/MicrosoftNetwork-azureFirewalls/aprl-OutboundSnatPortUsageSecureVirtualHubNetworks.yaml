@@ -1,13 +1,14 @@
 name: aprl-OutboundSnatPortUsageSecureVirtualHubNetworks
 title: Monitor Azure Firewall metrics
-description: |-
-  Monitor Azure Firewall for overall health, processed throughput, and outbound SNAT port usage. Get alerted before limits impact services. Consider NAT gateway integration with zonal deployments; note limitations with zone redundant firewalls and secure virtual hub networks.
+description: Monitor Azure Firewall for overall health, processed throughput, and outbound SNAT port usage.
+  Get alerted before limits impact services. Consider NAT gateway integration with zonal deployments;
+  note limitations with zone redundant firewalls and secure virtual hub networks.
 source:
   type: aprl
   file: azure-resources/Network/azureFirewalls/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/azureFirewalls
+- microsoft.network/azurefirewalls
 severity: 0
 labels:
   guid: 3c8fa7c6-6b78-a24a-a63f-348a7c71acb9
@@ -36,3 +37,31 @@ queries:
     | extend alertsNotFullyConfigured = isnull(allAlertsConfigured) or not(allAlertsConfigured)
     | where alertsNotFullyConfigured
     | project recommendationId = "c8fa7c6-6b78-a24a-a63f-348a7c71acb9", name, id = firewallId, tags, param1 = strcat("MetricsAlerts:", monitoredMetrics)
+schemaVersion: 1
+id: 3c8fa7c6-6b78-a24a-a63f-348a7c71acb9
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/azureFirewalls/recommendations.yaml
+    title: 'APRL 3c8fa7c6-6b78-a24a-a63f-348a7c71acb9: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 3c8fa7c6-6b78-a24a-a63f-348a7c71acb9
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/azureFirewalls/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ad0530050ea31d04ef672a11df14aa07975492b3e80f2ca0b19f2805e1d31163
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

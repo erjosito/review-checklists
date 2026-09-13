@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/purview/compliance-manager
 queries: {}
+schemaVersion: 1
+id: b130a888-9579-4e76-a896-e710a7da7be9
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

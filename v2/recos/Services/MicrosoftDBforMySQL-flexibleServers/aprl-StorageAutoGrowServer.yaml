@@ -1,13 +1,13 @@
 name: aprl-StorageAutoGrowServer
 title: Configure storage auto-grow
-description: |-
-  Configure storage auto-grow to prevent the server from running out of storage and becoming read-only.
+description: Configure storage auto-grow to prevent the server from running out of storage and becoming
+  read-only.
 source:
   type: aprl
   file: azure-resources/DBforMySQL/flexibleServers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DBforMySQL/flexibleServers
+- microsoft.dbformysql/flexibleservers
 severity: 0
 labels:
   guid: 8176a79d-8645-4e52-96be-a10fc0204fe5
@@ -21,3 +21,31 @@ queries:
     | where type =~ "microsoft.dbformysql/flexibleservers"
     | where properties.storage.autoGrow != "Enabled"
     | project recommendationId = "8176a79d-8645-4e52-96be-a10fc0204fe5", name, id, tags, param1 = strcat("autoGrow:", properties['storage']['autoGrow'])
+schemaVersion: 1
+id: 8176a79d-8645-4e52-96be-a10fc0204fe5
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforMySQL/flexibleServers/recommendations.yaml
+    title: 'APRL 8176a79d-8645-4e52-96be-a10fc0204fe5: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 8176a79d-8645-4e52-96be-a10fc0204fe5
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforMySQL/flexibleServers/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:42c7aeb8f39b43ae77c124c2792bf343daa4cf419206d3b33e82f001ecef35bf
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

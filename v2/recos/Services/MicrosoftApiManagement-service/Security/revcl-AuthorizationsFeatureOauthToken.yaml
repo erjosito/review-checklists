@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/authorizations-overview
 queries: {}
+schemaVersion: 1
+id: 5507c4b8-a7f8-41d6-9661-418c987100c9
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

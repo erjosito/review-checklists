@@ -25,3 +25,14 @@ queries:
     = iff(isnotnull(prefix1), prefix1, prefix2) | extend subnetPrefixLength = split(prefix,
     '/')[1])on subnetId | extend compliant = (subnetPrefixLength <= 24 or subnetPrefixLength
     == 64) | distinct id,compliant
+schemaVersion: 1
+id: dfc50f87-3800-424c-937b-ed5f186e7c15
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

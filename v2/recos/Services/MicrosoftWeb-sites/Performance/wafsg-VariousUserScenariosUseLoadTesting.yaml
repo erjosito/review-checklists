@@ -1,8 +1,11 @@
 name: wafsg-VariousUserScenariosUseLoadTesting
-title: 'Assess capacity: Simulate various user scenarios to determine the optimal
-  capacity that you need to handle expected traffic. Use Load Testing to understand
-  how your application behaves under different levels of load.'
-description: ''
+title: Load test App Service capacity with explicit acceptance and stop criteria
+description: Exercise realistic user flows and data in a production-like environment and compare normal,
+  peak and sustained-load results with workload targets. Configure request-scoped response-time percentiles,
+  throughput and error thresholds in Azure Load Testing where appropriate. Auto-stop protects against
+  harmful or wasteful runs and is separate from test acceptance. Server-side failure criteria require
+  metric access and currently cannot be configured through Azure Pipelines/GitHub Actions. Keep baseline
+  comparisons and results; an ARG resource list is not a load test.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -15,3 +18,31 @@ labels:
   guid: 26455527-f19a-43ef-adf4-29ed5e966a44
 links: []
 queries: {}
+schemaVersion: 1
+id: 26455527-f19a-43ef-adf4-29ed5e966a44
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-test
+    title: Architecture strategies for performance testing
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/app-testing/load-testing/how-to-define-test-criteria
+    title: Define fail criteria for load tests by using Azure Load Testing
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/performance-test
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:eca3f58d9203e53c5c2e5acfb1ce8bf679abbf130ad6863c72a400be27bad783
+    notes: App Service load-test targets, baseline comparisons and fail/stop criteria cover a specific
+      hosting scope; not all workload tests.

@@ -1,8 +1,7 @@
 name: wafsg-MonitoringExpressrouteCostsExpressrouteCircuit
 title: Monitor cost and create budget alerts
-description: Monitor the cost of your ExpressRoute circuit and create alerts for spending
-  anomalies and overspending risks. For more information, see Monitoring ExpressRoute
-  costs.
+description: Monitor the cost of your ExpressRoute circuit and create alerts for spending anomalies and
+  overspending risks. For more information, see Monitoring ExpressRoute costs.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -14,3 +13,23 @@ labels:
   guid: edd459fa-3105-4a03-b009-4f983d23da5a
 links: []
 queries: {}
+schemaVersion: 1
+id: edd459fa-3105-4a03-b009-4f983d23da5a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 7327aac3-008f-4878-bf49-a6c3f76746a1
+  name: wafsg-BudgetAlertsCost
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 7327aac3-008f-4878-bf49-a6c3f76746a1
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-BudgetAlertsCost.yaml

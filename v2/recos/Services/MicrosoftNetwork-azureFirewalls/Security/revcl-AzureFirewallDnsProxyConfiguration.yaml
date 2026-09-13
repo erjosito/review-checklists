@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/firewall/dns-details
 queries: {}
+schemaVersion: 1
+id: 94f3eede-9aa3-4088-92a3-bb9a56509fad
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

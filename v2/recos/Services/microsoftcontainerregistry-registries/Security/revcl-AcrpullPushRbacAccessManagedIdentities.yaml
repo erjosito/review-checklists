@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity
 queries: {}
+schemaVersion: 1
+id: 8f42d78e-79dc-47b3-9bd2-a1a27e7a8e90
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

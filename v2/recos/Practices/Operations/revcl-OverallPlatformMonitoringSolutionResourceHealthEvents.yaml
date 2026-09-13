@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal
 queries: {}
+schemaVersion: 1
+id: e5695f22-23ac-4e8c-a123-08ca5017f154
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

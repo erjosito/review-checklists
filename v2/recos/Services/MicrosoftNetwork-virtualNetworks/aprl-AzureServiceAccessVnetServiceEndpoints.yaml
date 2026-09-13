@@ -1,14 +1,14 @@
 name: aprl-AzureServiceAccessVnetServiceEndpoints
-title: When available, use Private Endpoints instead of Service Endpoints for PaaS
-  Services
-description: |-
-  Use VNet service endpoints only if Private Link isn't available and no data movement concerns. This feature restricts Azure service access to specified VNet and subnet, enhancing network security and isolating service traffic.
+title: When available, use Private Endpoints instead of Service Endpoints for PaaS Services
+description: Use VNet service endpoints only if Private Link isn't available and no data movement concerns.
+  This feature restricts Azure service access to specified VNet and subnet, enhancing network security
+  and isolating service traffic.
 source:
   type: aprl
   file: azure-resources/Network/virtualNetworks/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/virtualNetworks
+- microsoft.network/virtualnetworks
 severity: 1
 labels:
   guid: 24ae3773-cc2c-3649-88de-c9788e25b463
@@ -28,3 +28,34 @@ queries:
     | project name, id, tags, subnetName=subnets.name, serviceName=tostring(serviceEndpoints.service)
     | where serviceName in (parse_json('["Microsoft.CognitiveServices","Microsoft.AzureCosmosDB","Microsoft.DBforMariaDB","Microsoft.DBforMySQL","Microsoft.DBforPostgreSQL","Microsoft.EventHub","Microsoft.KeyVault","Microsoft.ServiceBus","Microsoft.Sql", "Microsoft.Storage","Microsoft.StorageSync","Microsoft.Synapse","Microsoft.Web"]'))
     | project recommendationId = "24ae3773-cc2c-3649-88de-c9788e25b463", name, id, tags, param1 = strcat("subnet=", subnetName), param2=strcat("serviceName=",serviceName), param3="ServiceEndpoints=true"
+schemaVersion: 1
+id: 24ae3773-cc2c-3649-88de-c9788e25b463
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworks/recommendations.yaml
+    title: 'APRL 24ae3773-cc2c-3649-88de-c9788e25b463: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 24ae3773-cc2c-3649-88de-c9788e25b463
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworks/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:9387a0ce8c5ce00d13f179efaed38630baa8798541ac9f8b6f5265c0c8e37a59
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

@@ -1,6 +1,5 @@
 name: revcl-AzureKeyVaultSoftDelete
-title: Provision Azure Key Vault with the soft delete and purge policies enabled to
-  allow retention protection for deleted objects.
+title: Enable Key Vault soft delete and purge protection with an appropriate retention period.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/best-practices
 queries: {}
+schemaVersion: 1
+id: 2ba52752-6944-4008-ae7d-7e4843276d8b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/key-vault/general/soft-delete-overview
+    title: Azure Key Vault soft-delete
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/key-vault/general/rbac-guide
+    title: Grant permission to applications to access an Azure key vault using Azure RBAC
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Soft delete and purge protection are separate safeguards. Soft delete is enabled by default
+  for new vaults and cannot be disabled after enablement; purge protection must be enabled explicitly.
+  Select the 7-90 day retention period at creation because it cannot subsequently be changed. Restrict
+  deletion and purge permissions, and test recovery of the vault, objects, role assignments and dependent
+  integrations. Recovering a vault does not restore deleted role assignments or Event Grid subscriptions.

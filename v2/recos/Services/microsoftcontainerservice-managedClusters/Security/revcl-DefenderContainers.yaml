@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable
 queries: {}
+schemaVersion: 1
+id: c9e95ffe-6dd1-4a17-8c5f-110389ca9b21
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

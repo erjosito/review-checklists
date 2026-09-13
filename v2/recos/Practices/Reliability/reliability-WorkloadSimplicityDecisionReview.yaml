@@ -1,0 +1,41 @@
+schemaVersion: 1
+id: c6c87882-4b54-5f08-9950-5a8b7ac0f546
+name: reliability-WorkloadSimplicityDecisionReview
+title: Justify workload complexity against business reliability requirements
+description: 'Review the workload with business and technical stakeholders and justify components, dependencies
+  and design patterns against functional and nonfunctional requirements. Remove unnecessary coupling,
+  custom code and operational overhead; prefer supported platform capabilities and reusable libraries
+  when they meet those requirements. Record the tradeoffs: a simpler design must still satisfy critical-flow
+  availability, recovery, scale and data-consistency needs. Revisit the decisions as the workload evolves.
+  Architecture and code review are required; resource inventory cannot establish this control.'
+waf: Reliability
+severity: 1
+source:
+  type: curated
+  url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/simplify
+resourceTypes: []
+services: []
+queries: {}
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist
+    title: Design review checklist for Reliability
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/simplify
+    title: Architecture strategies for designing for simplicity and efficiency
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:01
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/simplify
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:4e05cf4bcc9fecc919fd54c3a652706a031e79a1d3d4341b2d03904fdf0e8a22
+    notes: Workload-wide design decision review explicitly balances simplicity/efficiency with business
+      functionality and reliability requirements. Full refers only to the published RE:01 checklist row,
+      not every paragraph of the linked guide.

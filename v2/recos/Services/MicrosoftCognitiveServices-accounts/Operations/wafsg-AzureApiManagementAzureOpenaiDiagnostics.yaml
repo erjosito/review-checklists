@@ -16,3 +16,13 @@ labels:
   guid: eff14512-adda-441e-a2af-7a6589c330d5
 links: []
 queries: {}
+schemaVersion: 1
+id: eff14512-adda-441e-a2af-7a6589c330d5
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

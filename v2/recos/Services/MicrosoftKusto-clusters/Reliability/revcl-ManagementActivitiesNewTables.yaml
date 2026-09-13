@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/data-explorer/business-continuity-create-solution#replicate-management-activities
 queries: {}
+schemaVersion: 1
+id: 436b0635-cb45-4e57-a603-324ace8cc123
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

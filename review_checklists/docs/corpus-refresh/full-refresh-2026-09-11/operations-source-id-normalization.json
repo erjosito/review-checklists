@@ -1,0 +1,413 @@
+{
+  "artifactSchema": "operations-source-id-normalization/1",
+  "normalizedAt": "2026-09-11T21:15:31.935970+00:00",
+  "reason": "Explicit coordination correction: earlier azure-* names were parent proposals, not user requirements. Canonical names identify the published source unit.",
+  "sourceIdRenames": {
+    "azure-waf-operations": "waf-operations-checklist",
+    "azure-advisor-operations": "advisor-operations-catalog"
+  },
+  "noNetworkFetch": true,
+  "records": [
+    {
+      "id": "859c3900-4514-41eb-b010-475d695abd74",
+      "path": "v2\\recos\\Practices\\Operations\\revcl-AppropriateDataCollectionMonitoringRequirements.yaml",
+      "beforeFileHash": "sha256:0888f9beff8726a336b821a1d0cca92aff6610a806f4a26ac5363079b21ab82d",
+      "afterFileHash": "sha256:5b8139f1d157d8bd13ea3eb792c6d28db88850e90e7413459ea911d315ddd4d5",
+      "beforeContentHash": "sha256:7d86ac9ae1f78e0e36a181db029f6801fef7eb3a2538fc07ad64cb8acb686f3c",
+      "afterContentHash": "sha256:1f166fafef0be156b6adcb529015d79b30a480894def93dedd18c630cd68f1f2",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:07",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540"
+        }
+      ]
+    },
+    {
+      "id": "2cdc9d99-dbcc-4ad4-97f5-e7d358bdfa73",
+      "path": "v2\\recos\\Practices\\Operations\\revcl-AzureLandingZoneArchitectureLeverageDeclarativeInfrastructure.yaml",
+      "beforeFileHash": "sha256:09e41c30de6e1121b4b78759a2b18b7e5db9b3426fee8849feae80759ab6bfbc",
+      "afterFileHash": "sha256:9a5fc4697c654987627c6ec8e5565e8c721b731382ca2345fcddaf4078d1c313",
+      "beforeContentHash": "sha256:93a84f21f267cfa6f3a02cd42a8b31502735b761ce29725cb91e773c4e898f44",
+      "afterContentHash": "sha256:15b2984d37200aae736cd89fc36cbf2aecc5cc221d87bd607404d968d1cad161",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:05",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:762fec3a61c5c118a1f9173f89173d01b5a11f0c841007fec34a88ee57e3e092"
+        }
+      ]
+    },
+    {
+      "id": "634146bf-7085-4419-a7b5-f96d2726f6da",
+      "path": "v2\\recos\\Practices\\Operations\\revcl-AzureLandingZonePlatformTeamFunctions.yaml",
+      "beforeFileHash": "sha256:a9de6a2f3edbf1a86e475390a795de160fc416b5170e378739c6af8be23994bc",
+      "afterFileHash": "sha256:21778ec29702b38be3c8d39fa53f5bcd0c9a6741f8d3670eb7c34be29354f9c4",
+      "beforeContentHash": "sha256:afa20cf032196548126f2ca15d5b3dcf6278d04b023660cc9a379477fe043ede",
+      "afterContentHash": "sha256:7bbeab15b75eec4bf4d7a9261d253a217b833755667e7bc38a86a065b3d09c61",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:01",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:f1dbf331239efc9b9df3daf6677ba4a519d908ecfd85a0d5a48c9de27a866e6f"
+        }
+      ]
+    },
+    {
+      "id": "165eb5e9-b434-448a-9e24-178632186212",
+      "path": "v2\\recos\\Practices\\Operations\\revcl-CiCdPipelineIacArtifacts.yaml",
+      "beforeFileHash": "sha256:7d404959885a1b6edf6d7570653b18cdc9b3bb364f73b497bfaf5bedd0725aa1",
+      "afterFileHash": "sha256:2eef012e0ff3d2139b5bbce68e7697fa736e22a10ec1b6311bf72fc7a9c45f33",
+      "beforeContentHash": "sha256:6ad356a5f0873ff09b38a293bd58881613e7daa4094f313089b393ef2344a182",
+      "afterContentHash": "sha256:a9c489e1d15cb1adef6f1a7aaef4912dc589b22afd665b6fa13bb8f0fad3cdff",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:06",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:2f826a2abaaf5f56cc1286cfc5f0126c6eb391f18d3aeee875fcfc0b95146cba"
+        }
+      ]
+    },
+    {
+      "id": "e85f4226-bf06-4e35-8a8b-7aee4d2d633a",
+      "path": "v2\\recos\\Practices\\Operations\\revcl-CrossFunctionalDevopsPlatformTeamAzureLandingZoneArchitecture.yaml",
+      "beforeFileHash": "sha256:0cf2fb03b7f989a4a662ed650f20decee8fd0b241a1caa4d32ad4b810bcbd8cc",
+      "afterFileHash": "sha256:23acd9a4191dafa9fd8b76d75ee919b9f2e26c227ab8dcbffcb0e5bee0d2b46a",
+      "beforeContentHash": "sha256:7bf7b947a4c951cfe956595a1a0bccc881ea2197aa18afc3fc6e686c43920af7",
+      "afterContentHash": "sha256:a7d651f281dd551642209553dbc2d6c5ea02f9258678bc600ed14ce325f653dc",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:01",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:f1dbf331239efc9b9df3daf6677ba4a519d908ecfd85a0d5a48c9de27a866e6f"
+        }
+      ]
+    },
+    {
+      "id": "a9e65070-c59e-4112-8bf6-c11364d4a2a5",
+      "path": "v2\\recos\\Practices\\Operations\\revcl-DevopsPlatformTeamSupportApplicationWorkloadTeams.yaml",
+      "beforeFileHash": "sha256:3abbbf54f6230354c5b2dfa3cbd1453a0ae787e45e5cfffdd8ad1cc893673300",
+      "afterFileHash": "sha256:57c4ab4d650f6ca6415d1a19c6034cbaca67d9b5bb359af0591fd005f18ed2d5",
+      "beforeContentHash": "sha256:64ee611a3f8dbb7d7bee03914f74c50e4621e7051236afbd9b6033448157e81e",
+      "afterContentHash": "sha256:b7934776cd4e9cd7c7d16fd60b47eccbe69be13953c557efc672becb653cf8d8",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:01",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:f1dbf331239efc9b9df3daf6677ba4a519d908ecfd85a0d5a48c9de27a866e6f"
+        }
+      ]
+    },
+    {
+      "id": "2676ae46-65ca-444e-8695-fdddeace4cb1",
+      "path": "v2\\recos\\Practices\\Operations\\revcl-QuickFixesTechnicalDebt.yaml",
+      "beforeFileHash": "sha256:3c3788c49fd710e8c9616a32198d765ce79be436ab25ce2275bbbf41a2efe160",
+      "afterFileHash": "sha256:e8c90026b1c9814e5cad4e0140cd3e4baab7bd6d7deb7541969523c9e87940e8",
+      "beforeContentHash": "sha256:af75d4976bec3098ff59955aec06b7e4d5613785fd92b63a5e685f2ff3690893",
+      "afterContentHash": "sha256:a03b86cd577319ffbf8cdd9a5cc74f77d286159ce98e833ba7ca6d1894f1af1e",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:11",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a"
+        }
+      ]
+    },
+    {
+      "id": "e3ab3693-829e-47e3-8618-3687a0477a20",
+      "path": "v2\\recos\\Practices\\Operations\\revcl-RawLogEntriesPremisesMonitoringSystems.yaml",
+      "beforeFileHash": "sha256:0ba54a62007ed65c64aaa202989e4e79e41d755c90f87188c10a1c0fee53968f",
+      "afterFileHash": "sha256:a3a065f007cf87bbda141e2b2bc106e1d9d9fcb3b51a2be5d57a847c2f7b0bf6",
+      "beforeContentHash": "sha256:2414381e52de2731d79036607c59fe076542df48db9c82b7e9a2a4052535c0b6",
+      "afterContentHash": "sha256:f27b36811464a06a1de00ec34a7a9b8ac6f03b70500211d566ab2e6c93ae0cbf",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:07",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540"
+        }
+      ]
+    },
+    {
+      "id": "0cadb8c7-8fa5-4fbf-8f39-d1fadb3b0460",
+      "path": "v2\\recos\\Practices\\Operations\\revcl-UnitTestsApplicationCode.yaml",
+      "beforeFileHash": "sha256:09c385812f0de866b68bf192e36a94d6409604dc07d14392e4a834f2ab8cb922",
+      "afterFileHash": "sha256:c80bd62d3cc020e41d912c273499e8cc2ca925d90662609c09d110f4c0c9f181",
+      "beforeContentHash": "sha256:2067f645ae5fdd56f2bc50b50a0c8560892b38e84f2ff62974b361f1c686631b",
+      "afterContentHash": "sha256:9a2862808b85663700b0e3756c11d8ed2487e1faeaee58b283d78b613d55099e",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:09",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:05eb3f80be3d468f7cbf3190526aafaf9272e148edbcc8357b6bbd515d6b0e07"
+        }
+      ]
+    },
+    {
+      "id": "eaa8dc4a-2436-47b3-9697-15b1752beee0",
+      "path": "v2\\recos\\Services\\microsoftcontainerservice-managedClusters\\Operations\\revcl-ClusterLogsContainerInsights.yaml",
+      "beforeFileHash": "sha256:b46f7772b9ca9824fc9072c1270dd8771f75224312125533dac537b629896c60",
+      "afterFileHash": "sha256:a4461fa90adde17981786b22825ebd033d9745480d02ef9d31e349bd47090d77",
+      "beforeContentHash": "sha256:09a202b266929ba454dd21b7171a95bdef5dbdf9549fb74c8e7068be67fda34a",
+      "afterContentHash": "sha256:f9916e1ec83fec00588a231aed6ed613b416a0b2f843b7b982313ec6e9c517bd",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:07",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540"
+        },
+        {
+          "recommendationId": "d1e9f4a0-926e-4480-a4e4-3ea94877370c",
+          "beforeSourceId": "azure-advisor-operations",
+          "afterSourceId": "advisor-operations-catalog",
+          "unchangedUpstreamContentHash": "sha256:e23b510bdef8cbffe1a32e0a19bef61b614a90bce89594a30b88e34a1c98d762"
+        }
+      ]
+    },
+    {
+      "id": "6f8389a7-f82c-4b8e-a8c0-aa63a25a4956",
+      "path": "v2\\recos\\Services\\microsoftcontainerservice-managedClusters\\Operations\\revcl-ClusterMetricsContainerInsights.yaml",
+      "beforeFileHash": "sha256:bfc988a46b31841150bd233de3fcda21065e82f79115d67db5977f52bc960a42",
+      "afterFileHash": "sha256:64810333fda46a3cdbe2fe991bf03013dbd4c7a358f3f3096d1f4ca47f7eea82",
+      "beforeContentHash": "sha256:41e68ae7e2c40f8128416dd866f5822beb6239869e4b24b0ff7aba1c575ec6db",
+      "afterContentHash": "sha256:3c0b92011bf15491cf738d0e4fea402f78eb1d57f80e94e07620d0ec4da49c93",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:07",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540"
+        }
+      ]
+    },
+    {
+      "id": "5b56ad48-408f-4e72-934c-476ba280dcf5",
+      "path": "v2\\recos\\Services\\microsoftcontainerservice-managedClusters\\Operations\\revcl-PreferredLogManagementSolutionViaDiagnosticSettings.yaml",
+      "beforeFileHash": "sha256:43ebf5b546c376549602d5401681f52e7f1b91aa7e72a91c63169ca20b04cb50",
+      "afterFileHash": "sha256:dddffc5061e8514d9477a37d1059eec0cd8e216df109e75dc835e27376007c44",
+      "beforeContentHash": "sha256:e045c224dbb67cd4833e27acf71c4851e1aefb5c41442aa5ef30d6e469e90ee3",
+      "afterContentHash": "sha256:19e3fe3197d05a920b3eca6d816d101a9660de4d460e2c136b2559f9ebae3412",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:07",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540"
+        }
+      ]
+    },
+    {
+      "id": "b88f9b48-fd82-404f-8b7b-5acea4d17dc4",
+      "path": "v2\\recos\\Services\\microsoftcontainerservice-managedClusters\\Operations\\wafsg-CoreApiServerInteractionsClusterArchitecture.yaml",
+      "beforeFileHash": "sha256:906ab5d92635ad49e2b693ae1aaacb6096b15478cf2b25f255edc8a125d8e5ff",
+      "afterFileHash": "sha256:0ae42964f80406f1a6f36a21bc8bcc4c93cb2214e03bf6db99785376bcb2344c",
+      "beforeContentHash": "sha256:11f0cb6a0d51a0add5f1fcc35d8c4e4116a96475b10b73df453c4ada1bee0c09",
+      "afterContentHash": "sha256:f435f4f46985caa35ffaa620a4ee633ea0b634880969ef05012127448b97a516",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:07",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540"
+        }
+      ]
+    },
+    {
+      "id": "cb3372a2-16ef-4ebf-b7c2-b58f984ef966",
+      "path": "v2\\recos\\Services\\microsoftcontainerservice-managedClusters\\Operations\\wafsg-ManyAdvancedDeploymentPatternsReleaseEngineeringProcess.yaml",
+      "beforeFileHash": "sha256:b7cac285276ae8d0bfbc19c22f1636621394c04ea9a5e3244c8d42a7ea8783ce",
+      "afterFileHash": "sha256:15d02f53970e702326c0281a10e1e2bf44a499512cb4a34428b78b5219543ce2",
+      "beforeContentHash": "sha256:f9a249e35b4ae9f30d8eecf9ee98dfc5a6e034f59b1793a253e0c94464199b54",
+      "afterContentHash": "sha256:975c0ca203ba04ffaa951d887072a8b5129ebf3b01c01b60514e762f91face62",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:11",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a"
+        }
+      ]
+    },
+    {
+      "id": "35367a45-61fb-4731-a636-e59e8ce67fac",
+      "path": "v2\\recos\\Services\\microsoftcontainerservice-managedClusters\\Operations\\wafsg-SeamlessOnboardingExperienceReferenceConfigureScraping.yaml",
+      "beforeFileHash": "sha256:fd3f791b6a4a2b98f3824112f457cf202d47483d1d18a037f9398d856b0b0557",
+      "afterFileHash": "sha256:0b45ae0b16d3273088b0d2aecf23b4a84f7a503e00318d80722ce48e0f5c7961",
+      "beforeContentHash": "sha256:fedb5e64fefbf69fea0778da1ba3ee2496b80c1aef069c9bf2fd07bd685dd892",
+      "afterContentHash": "sha256:c5fcfc0d9dd841894ff769d54cb181d9de8b9bfaffe06b10f6cabfafb4377abd",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:07",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540"
+        }
+      ]
+    },
+    {
+      "id": "bdab324d-7736-4444-a03e-a1ec180f3699",
+      "path": "v2\\recos\\Services\\microsoftcontainerservice-managedClusters\\Operations\\wafsg-WorkloadArchitecturesContainerInsights-1-2.yaml",
+      "beforeFileHash": "sha256:a67133b3eee062451d13f3ef11828a924958b15d4e5e3d87369002ced130d370",
+      "afterFileHash": "sha256:ca8dc3d6efed4d049b96678a99d9d90d61d20377c81a412f2394b3b2cac9a32d",
+      "beforeContentHash": "sha256:4273609ef8a6210c8d2a84b4c88c5d30105d720d553a5b58b6f0b101c874e00d",
+      "afterContentHash": "sha256:d476333b70123fef965952f8ce177b960046aa748884b5458ecd0a98d405a16d",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:07",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540"
+        }
+      ]
+    },
+    {
+      "id": "9ab6b90d-899e-4c61-8127-e097c1d80cca",
+      "path": "v2\\recos\\Services\\microsoftcontainerservice-managedClusters\\Operations\\wafsg-WorkloadArchitecturesContainerInsights-1.yaml",
+      "beforeFileHash": "sha256:c321b2ab8b949da9160594cfc52001494af2d155c24063e91a16a32fe285e88a",
+      "afterFileHash": "sha256:b76a20216e24fbc79a39ca1c34296eeebb86f2f97786809e2862e5fd38fe85e3",
+      "beforeContentHash": "sha256:565e2d8579581e152b346e886423cda5a81cff5e8f3bdf7b8225d9a82c4af745",
+      "afterContentHash": "sha256:7cb637dbcba38d37a31885cb9e9068254dc4178a6df54d9109a5f7074b0fc6d0",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:07",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540"
+        }
+      ]
+    },
+    {
+      "id": "90483845-c986-4cb2-a131-56a12476e49f",
+      "path": "v2\\recos\\Services\\microsoftnetwork-networkWatchers\\Operations\\revcl-NetworkWatcherTrafficFlows.yaml",
+      "beforeFileHash": "sha256:01c661b6183e57170c58efd5ebce137d4c17eeb84082d1ccf9f18c01d2876256",
+      "afterFileHash": "sha256:edb49dcf8fc3d8bf35b24d04cc678ce068d4f5b2dd314b726252f7fd11c10657",
+      "beforeContentHash": "sha256:96365c14b77c2ad2f4fe18e904625bd6ba7c9f3fb43a8024809906b402da7bc1",
+      "afterContentHash": "sha256:e409829f84f7f6e827e84c7c57d84e71707a5834840ad50f151435fe94babaf8",
+      "referenceChanges": [
+        {
+          "recommendationId": "6f087e7e-afdf-4a3d-a1de-41d70404b9cb",
+          "beforeSourceId": "azure-advisor-operations",
+          "afterSourceId": "advisor-operations-catalog",
+          "unchangedUpstreamContentHash": "sha256:26cd3e61c9531daaa276c22bd826ffd19695b47e53c71e046bcb640868e4b2f8"
+        }
+      ]
+    },
+    {
+      "id": "02d5a8b1-6038-49c3-96b1-87ac56064269",
+      "path": "v2\\recos\\Services\\MicrosoftWeb-sites\\Operations\\wafsg-AppServicePlanAppChanges.yaml",
+      "beforeFileHash": "sha256:c2fc94ff937e7f534787ea638a45020271bf43ef27839573331fada7a9a6d1e8",
+      "afterFileHash": "sha256:f0326e918fb2cb8b1395b3ee28ee4ee30e690142578a4fcda4e60d20bd9ed276",
+      "beforeContentHash": "sha256:3180d1599a7f9883091a55706cc8f09d630c4f94a3bed6adebe23a7c9d6b7a63",
+      "afterContentHash": "sha256:bdff5a4da995366d367ab7580ffeadcd750684b7ba74ea9d9554b4e46605b66a",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:11",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a"
+        }
+      ]
+    },
+    {
+      "id": "a4224cce-1a82-4c9e-a488-86bb6b215a39",
+      "path": "v2\\recos\\Services\\MicrosoftWeb-sites\\Operations\\wafsg-AzureLoadTestingAutomatedTests.yaml",
+      "beforeFileHash": "sha256:4e937d0a904576038e4d064f26dca9ae337e634ea6093b26b03287fca0d6bde9",
+      "afterFileHash": "sha256:85c20f3f10c925da54237487aa3fc583800d1084590558ab2ca05539a1e92aa9",
+      "beforeContentHash": "sha256:6c9ac442c6255aca017220e556e69cb0bf2eadecac37208622bdc19e8ccefbd1",
+      "afterContentHash": "sha256:5cbd1a96db19f0fe9a5ae797742319fa1c58e0c33d6a503ac72fd8327c01e7d6",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:09",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:05eb3f80be3d468f7cbf3190526aafaf9272e148edbcc8357b6bbd515d6b0e07"
+        }
+      ]
+    },
+    {
+      "id": "d4909fdf-867b-43b7-828d-197247a83530",
+      "path": "v2\\recos\\Services\\MicrosoftWeb-sites\\Operations\\wafsg-SameVirtualMachineDeploymentSlots.yaml",
+      "beforeFileHash": "sha256:e585b764414aaaf5176f0823a23b1c12c2c7f0741404862799bae44cc5f636d2",
+      "afterFileHash": "sha256:d68cc09e17cbd6a5119f388b574ea9f83bc0af4fd15a21c1c095d0b325c2af1c",
+      "beforeContentHash": "sha256:980cac5b9d4fe4c26042dedcb9e53580c9a893582621ec0ca44d7cefc48c3900",
+      "afterContentHash": "sha256:09bd0190267c2ecb5d9848147bf4f99d7e79c998be57222ce7ec0739054218c7",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:11",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:0d6a2f7582c16706956abc013ec21238468172f1b24a9d9e5fb63545e58b827a"
+        }
+      ]
+    },
+    {
+      "id": "482a84af-0360-55ab-be33-6d8e4706b580",
+      "path": "v2\\recos\\Practices\\Operations\\operations-VersionedOperationalRunbooks.yaml",
+      "beforeFileHash": "sha256:c8c105033f14c48609c497a2f6e7b75f450f99c8f40ad80c0ea4f91ecc753ede",
+      "afterFileHash": "sha256:35074b1758c6992d5c09bd2d474ea0f6228f19db8ab9bb83d6736e1af2c3e689",
+      "beforeContentHash": "sha256:12668a8cff8b2ac6e6928cefbc4a214bb46047a9d67246e09535b6ce67782370",
+      "afterContentHash": "sha256:ab88f7078910a159f9b4b4b81b82160bffd3f706a35ae8d293350eb646fef006",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:02",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:c7130262beee1291b3c3e0ea3b7d554ddc251cbb77f12a80deffc8424915677b"
+        }
+      ]
+    },
+    {
+      "id": "eac9d939-9c58-5bf4-aa1d-1c77d8068036",
+      "path": "v2\\recos\\Practices\\Operations\\operations-ReliableLifecycleAutomation.yaml",
+      "beforeFileHash": "sha256:c03108cba0464a82512b20b71346d86a561a4fadb18dfc4c8136f7b0ae58e2fd",
+      "afterFileHash": "sha256:f1a1955425b31b044e06a0ec681bfa0f51e1fa94401d486c5bf001fecec3f633",
+      "beforeContentHash": "sha256:0572f77852e98f4be07a96a6652f1729e2501da940a07aa971cda967f51617d8",
+      "afterContentHash": "sha256:4a6aa925515ff297dc3c8bfbb8fe0a73b2d7bdea169dedd9f963e23378e29c8f",
+      "referenceChanges": [
+        {
+          "recommendationId": "OE:10",
+          "beforeSourceId": "azure-waf-operations",
+          "afterSourceId": "waf-operations-checklist",
+          "unchangedUpstreamContentHash": "sha256:887f8ffd7c1422192a6a3c456641f2fe51ba2de072bec94a6d9d7f5a13806348"
+        }
+      ]
+    }
+  ],
+  "inventories": [
+    {
+      "path": "review_checklists\\docs\\corpus-refresh\\full-refresh-2026-09-11\\operations-waf-inventory.json",
+      "beforeSourceId": "azure-waf-operations",
+      "afterSourceId": "waf-operations-checklist",
+      "itemCount": 11,
+      "beforeItemsHash": "sha256:94230a3fa28b2d01d039d035de20d2ee8b3ef9f0b610c0e6f68643797dda468c",
+      "afterItemsHash": "sha256:94230a3fa28b2d01d039d035de20d2ee8b3ef9f0b610c0e6f68643797dda468c",
+      "centralAgreement": "exact-all-item-payloads-and-hashes",
+      "centralInventory": "review_checklists\\docs\\corpus-refresh\\source-inventories\\waf-operations-checklist--2026-09-11--84fd234f106eacce573ee415497edd96436e6620--938e88b5449f.json",
+      "matchingItemCount": 11
+    },
+    {
+      "path": "review_checklists\\docs\\corpus-refresh\\full-refresh-2026-09-11\\operations-advisor-inventory.json",
+      "beforeSourceId": "azure-advisor-operations",
+      "afterSourceId": "advisor-operations-catalog",
+      "itemCount": 122,
+      "beforeItemsHash": "sha256:473cdd3d1b9e3c8ec52d5ed5546a40761dff5b020408bdee66f07dce4e62d545",
+      "afterItemsHash": "sha256:473cdd3d1b9e3c8ec52d5ed5546a40761dff5b020408bdee66f07dce4e62d545",
+      "centralAgreement": "pending-pipeline-integration"
+    }
+  ],
+  "changedRecordCount": 23,
+  "changedReferenceCount": 24,
+  "changedExternalReferenceCount": 3,
+  "guidanceChanged": false,
+  "coverageCountsChanged": false
+}

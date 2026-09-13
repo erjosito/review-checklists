@@ -1,0 +1,75 @@
+id: 570cc0b7-8bcc-54bc-b0a3-abf24374c97b
+name: cost-AdvisorActionBacklog
+source:
+  type: curated
+  url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+links:
+- type: docs
+  url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+- type: docs
+  url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+- type: docs
+  url: https://learn.microsoft.com/cloud-computing/finops/toolkit/workbooks/optimization
+- type: docs
+  url: https://learn.microsoft.com/azure/well-architected/cost-optimization/collect-review-cost-data
+title: Maintain an owner-reviewed Azure Advisor cost action backlog
+description: Regularly collect Cost recommendations across the intended scope, assign an owner and disposition,
+  and track implementation or time-bounded exceptions. Review recommendation freshness, workload constraints
+  and estimated savings assumptions. Use the Cost Optimization workbook or an appropriately governed FinOps
+  workflow; confirm net savings with billing after changes.
+waf: Cost
+severity: 1
+services:
+- Azure Advisor
+- Microsoft Cost Management
+resourceTypes: []
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG inventory/Advisor query available but unvalidated; financial and operational judgment remains mandatory.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    Inventory of Advisor-issued cost opportunities. The recommendation ID is id; the affected resource is targetResourceId. A row is not a policy violation and absence is not a pass.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Advisor recommendations depend on service coverage, telemetry, configured lookback and recommendation freshness; review dismissals/postponements in Advisor. Published recommendationTypeId values are used verbatim; no inferred IDs or text matching. IDs and coverage can evolve. Savings fields vary by recommendation. Preserve extendedProperties rather than assume a universal monthly/annual field; do not sum overlapping opportunities or mixed currencies/time horizons. Advisor estimates may not reflect existing reservations, savings plans, negotiated rates or operational constraints. Do not inner-join to Resources: subscription-level commitments and some affected child resources would be lost.
+  resultSemantics: inventory
+queries:
+  arg: |-
+    AdvisorResources
+    | where type =~ 'microsoft.advisor/recommendations'
+    | where properties.category =~ 'Cost'
+    | project id, subscriptionId, resourceGroup,
+        targetResourceId = tostring(properties.resourceMetadata.resourceId),
+        impactedField = tostring(properties.impactedField),
+        recommendationTypeId = tostring(properties.recommendationTypeId),
+        impact = tostring(properties.impact),
+        problem = tostring(properties.shortDescription.problem),
+        solution = tostring(properties.shortDescription.solution),
+        lastUpdated = tostring(properties.lastUpdated),
+        extendedProperties = properties.extendedProperties
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/toolkit/workbooks/optimization
+    title: Optimization workbook
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/collect-review-cost-data
+    title: Architecture strategies for collecting and reviewing cost data
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+schemaVersion: 1

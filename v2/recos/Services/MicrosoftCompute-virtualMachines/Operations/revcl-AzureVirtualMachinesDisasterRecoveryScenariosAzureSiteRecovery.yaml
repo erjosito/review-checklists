@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/site-recovery/site-recovery-overview
 queries: {}
+schemaVersion: 1
+id: 2476e49f-541a-4cdc-b979-377bcdb3751a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

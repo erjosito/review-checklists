@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/retry-policy
 queries: {}
+schemaVersion: 1
+id: 43e60b94-7bca-43a2-aadf-efb04d63a485
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

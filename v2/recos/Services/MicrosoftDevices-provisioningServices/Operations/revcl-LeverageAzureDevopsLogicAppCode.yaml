@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/training/modules/deploy-azure-functions/
 queries: {}
+schemaVersion: 1
+id: 62711604-c9d1-4b0a-bdb7-5fda54a4f6c1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

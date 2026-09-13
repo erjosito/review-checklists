@@ -1,8 +1,7 @@
 name: wafsg-EnvironmentCostsPreProductionEnvironments
-title: 'Optimize environment costs: Consider the Basic or Free tier to run pre-production
-  environments. These tiers are low performance and low cost. If you use the Basic
-  or Free tier, use governance to enforce the tier, constrain the number of instances
-  and CPUs, restrict scaling, and limit log retention.'
+title: 'Optimize environment costs: Consider the Basic or Free tier to run pre-production environments.
+  These tiers are low performance and low cost. If you use the Basic or Free tier, use governance to enforce
+  the tier, constrain the number of instances and CPUs, restrict scaling, and limit log retention.'
 description: ''
 source:
   type: wafsg
@@ -16,3 +15,26 @@ labels:
   guid: 4e2a03a6-ff51-46c5-902d-3d7161d9c99c
 links: []
 queries: {}
+schemaVersion: 1
+id: 4e2a03a6-ff51-46c5-902d-3d7161d9c99c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:08
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-environment-costs
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:21b97d8d73469e97940dc9df269483aa1b15ee6fe666afe5e1e487e64ca3bef2
+    notes: Preproduction tier, capacity and retention limits cover one environment; production, operations
+      and DR priorities plus all security/licensing tradeoffs remain outside this record. Source-text
+      assessment, not independent human approval or live Azure validation.

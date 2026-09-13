@@ -1,0 +1,73 @@
+{% extends "corpus_base.html" %}
+{% block title %}Upstream source coverage{% endblock %}
+{% block content %}
+<h1>Dated upstream recommendation coverage</h1>
+<p>Coverage reconciles identified upstream recommendations against explicit corpus mappings
+  for a recorded source scope, unit and date. It is not service breadth or a citation count.
+  A WAF control-row inventory does not represent all Azure guidance.</p>
+{% for error in coverage.errors %}<p class="error" role="alert">{{ error }}</p>{% endfor %}
+{% if coverage.unknownSources %}
+<section class="error" role="alert"><h2>Unknown source IDs require explicit reconciliation</h2>
+<p>These IDs are absent from the central registry. They are not counted as uncovered,
+  renamed by similarity, or added as duplicate source rows. Owners must normalize
+  references/inventories explicitly while preserving their verified payload hashes.</p>
+{% for source_id, evidence in coverage.unknownSources.items() %}
+<details><summary><a href="{{ url_for('corpus_admin.source', source_id=source_id) }}">{{ source_id }}</a></summary>
+<p>Referenced by canonical records:</p><ul>{% for identity in evidence.corpusIds %}
+<li><a href="{{ url_for('corpus_admin.recommendation', identity=identity) }}">{{ identity }}</a></li>
+{% else %}<li>No current corpus mappings.</li>{% endfor %}</ul>
+<p>Recorded inventory artifacts: {{ evidence.inventoryFiles | join(", ") or 'None' }}</p>
+</details>{% endfor %}</section>
+{% endif %}
+{% if not coverage.sources %}
+<p class="notice"><strong>Not measured.</strong> No upstream recommendation inventories or
+  mappings could be reconciled with a valid registered source. Supporting source links
+  do not supply a denominator.</p>
+{% else %}
+<div class="table-scroll"><table><thead><tr><th>Source</th><th>Scope / unit / date</th><th>Full coverage</th><th>Recorded states</th></tr></thead><tbody>
+{% for source in coverage.sources %}
+<tr><td><a href="{{ url_for('corpus_admin.source', source_id=source.sourceId) }}">{{ source.title }}</a><br><code>{{ source.sourceId }}</code></td>
+{% if source.get('error') %}
+<td colspan="3"><span class="error">Invalid inventory: {{ source.error }}. Not measured.</span></td>
+{% else %}
+<td>{{ source.scope or 'Scope not recorded' }}<br>{{ source.unit or 'Unit not recorded' }}<br>
+as of {{ source.asOf or 'Not recorded' }} ({{ source.inventoryStatus }})
+{% if source.get('coverageSelection') %}<br>{{ source.inventoryCount }} total inventoried;
+{{ source.excludedCount }} excluded from this coverage scope.{% endif %}</td>
+<td>{% if source.coveragePercent is not none %}
+<strong>{{ source.counts.full }} / {{ source.denominator }}</strong> upstream recommendations
+fully covered ({{ source.coveragePercent }}%)
+{% else %}<strong>Not measured</strong><br>{{ source.reason }}{% endif %}</td>
+<td>{% if source.counts %}
+Full {{ source.counts.full }}; partial {{ source.counts.partial }}; stale {{ source.counts.stale }};
+supporting {{ source.counts.supporting }}; unknown {{ source.counts.unknown }}
+{% else %}No recorded reconciliation{% endif %}</td>
+{% endif %}</tr>{% endfor %}</tbody></table></div>
+{% endif %}
+<p>Percentages require a complete, dated, nonempty upstream inventory and current full/partial
+  assessments. Stale hashes and supporting citations never count as fully covered.
+  Follow a source for partial, unknown, changed, new and removed upstream IDs when recorded.</p>
+<h2>Original source families</h2>
+<p>These are import/curation origins, not measured upstream coverage.
+  Preserved alias origins are shown separately and are not additional canonical records.</p>
+<div class="columns">
+<table><thead><tr><th>Canonical origin</th><th>Recommendations</th></tr></thead><tbody>
+{% for origin, count in summary.origins.items() %}<tr><td><a href="{{ url_for('corpus_admin.recommendations', origin=origin) }}">{{ origin }}</a></td><td>{{ count }}</td></tr>{% endfor %}
+</tbody></table>
+<table><thead><tr><th>Preserved alias origin</th><th>Aliases</th></tr></thead><tbody>
+{% for origin, count in summary.alias_origins.items() %}<tr><td>{{ origin }}</td><td>{{ count }}</td></tr>{% endfor %}
+</tbody></table></div>
+<h2>Supporting provenance references</h2>
+<p>Distinct recorded URLs, with canonical recommendation relationships and access dates.
+  These are not an upstream recommendation inventory or a complete source-coverage measure.</p>
+{% include "corpus_pagination.html" %}
+<table><thead><tr><th>Supporting reference</th><th>Recorded access dates</th><th>Canonical records</th></tr></thead><tbody>
+{% for reference in items %}<tr><td>
+{% if safe_external_url(reference.url) %}<a href="{{ safe_external_url(reference.url) }}" rel="noreferrer noopener">{{ reference.titles | sort | join("; ") or reference.url }}</a>
+{% else %}{{ reference.titles | sort | join("; ") or reference.url }} (non-HTTP(S) link not enabled){% endif %}
+<br><code>{{ reference.url }}</code></td>
+<td>{{ reference.dates | sort | join(", ") or 'Not recorded' }}{% if reference.undated %}<br>Some relationships lack an access date.{% endif %}</td>
+<td><a href="{{ url_for('corpus_admin.recommendations', reference=reference.url) }}">{{ reference.ids | length }}</a></td></tr>
+{% else %}<tr><td colspan="3">No supporting provenance references recorded.</td></tr>{% endfor %}
+</tbody></table>
+{% endblock %}

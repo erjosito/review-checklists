@@ -16,3 +16,13 @@ labels:
   guid: 51c32087-d5b8-4be6-9006-786bf12bd94b
 links: []
 queries: {}
+schemaVersion: 1
+id: 51c32087-d5b8-4be6-9006-786bf12bd94b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

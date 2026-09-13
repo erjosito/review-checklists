@@ -1,18 +1,49 @@
 name: aprl-GenerationVirtualMachineSourceImageImageTemplates
 title: Use Generation 2 virtual machine source image
-description: |-
-  When building Image Templates, use sources for gen 2 VMs. Gen 2 offers more memory, supports >2TB disks, uses UEFI for faster boot/installation, has Intel SGX, and virtualized persistent memory (vPMEM), unlike gen 1's BIOS-based architecture.
+description: When building Image Templates, use sources for gen 2 VMs. Gen 2 offers more memory, supports
+  >2TB disks, uses UEFI for faster boot/installation, has Intel SGX, and virtualized persistent memory
+  (vPMEM), unlike gen 1's BIOS-based architecture.
 source:
   type: aprl
   file: azure-resources/VirtualMachineImages/imageTemplates/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.VirtualMachineImages/imageTemplates
+- microsoft.virtualmachineimages/imagetemplates
 severity: 2
 labels:
   guid: 19b6df57-f6b5-3e4f-843a-273daa087cb0
   area: High Availability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 19b6df57-f6b5-3e4f-843a-273daa087cb0
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/VirtualMachineImages/imageTemplates/recommendations.yaml
+    title: 'APRL 19b6df57-f6b5-3e4f-843a-273daa087cb0: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 19b6df57-f6b5-3e4f-843a-273daa087cb0
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/VirtualMachineImages/imageTemplates/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:335adf7c0d19e844125ae1ec02db6c9a22601aa322db35a7ba6e78e451c5fa6b
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

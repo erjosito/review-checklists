@@ -1,0 +1,42 @@
+schemaVersion: 1
+id: 730f27c7-3b7e-5c10-86e9-00d86105a898
+name: performance-PerformanceIncidentTriage
+title: Maintain and exercise a live performance incident response plan
+description: Assign detection, triage, escalation and stakeholder communication responsibilities for live
+  latency, throughput and resource-contention incidents. Keep architecture/dependency information, baseline-aligned
+  alerts and time-limited least-privilege access to diagnostic evidence ready. Correlate metrics, traces,
+  logs and changes to test root-cause hypotheses; apply an approved mitigation or rollback and verify
+  recovery against performance targets. Record lessons, preventive actions, owners and runbook improvements
+  to shorten recurrence recovery. This complements security incident response and is not proven by inventory
+  or an alert count.
+severity: 1
+waf: Performance
+source:
+  type: curated
+  url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/respond-live-performance-issues
+resourceTypes: []
+services: []
+queries: {}
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/respond-live-performance-issues
+    title: Architecture strategies for responding to live performance issues
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/checklist
+    title: Design review checklist for Performance Efficiency
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:11
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/respond-live-performance-issues
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:0f42f6eef0605342c081d14232a863186da9b9724c8a4112525b0f648a942711
+    notes: New performance triage plan covers responsibilities/communication, diagnosis, recovery verification
+      and preventive runbook improvements. Full applies to the checklist statement, not every implementation
+      in linked guidance.

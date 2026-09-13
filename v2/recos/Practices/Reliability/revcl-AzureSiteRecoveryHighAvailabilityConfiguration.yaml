@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/implement-disaster-recovery-for-sap-workloads-azure/2-explore-disaster-recovery-sap-workloads
 queries: {}
+schemaVersion: 1
+id: 51904867-a70e-4fa0-b4ff-3e6292846d7c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

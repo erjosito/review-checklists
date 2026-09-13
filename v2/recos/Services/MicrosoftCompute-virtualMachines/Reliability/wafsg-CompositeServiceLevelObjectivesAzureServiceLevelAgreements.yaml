@@ -1,8 +1,10 @@
 name: wafsg-CompositeServiceLevelObjectivesAzureServiceLevelAgreements
-title: Calculate your composite service-level objectives (SLOs) based on Azure service-level
-  agreements (SLAs). Ensure that your SLO isn't higher than the Azure SLAs to avoid
-  unrealistic expectations and potential issues.
-description: ''
+title: Define business-driven reliability and recovery targets for VM-based workload flows
+description: Agree measurable availability SLOs, their SLIs and measurement windows, and RTO/RPO targets
+  with business stakeholders. Account for VM, storage, network and external dependencies, deployment and
+  operational failure modes. Azure SLAs are contractual inputs, not observed workload availability and
+  not an automatic ceiling on a workload SLO. Use the targets to guide architecture and health modeling,
+  and refine them with monitoring and recovery-test evidence.
 source:
   type: wafsg
   file: well-architected/service-guides/virtual-machines.md
@@ -15,3 +17,28 @@ labels:
   guid: 0962db49-c5c0-45b4-9064-c5da949a67b3
 links: []
 queries: {}
+schemaVersion: 1
+id: 0962db49-c5c0-45b4-9064-c5da949a67b3
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist
+    title: Design review checklist for Reliability
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics
+    title: Architecture strategies for defining reliability targets
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-reliability-checklist
+    recommendationId: RE:04
+    url: https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f64975113bdb5338d2ac5ec0115cd558c7642ef091cbcfc68b465579234ad9bd
+    notes: Business SLO/SLI windows, RTO/RPO, architecture and health-model use are explicit; VM workload
+      scope does not cover all workloads.

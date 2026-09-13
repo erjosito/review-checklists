@@ -1,18 +1,57 @@
 name: aprl-LatestXVersionDatabricksRuntimeVersion
-title: Databricks runtime version is not latest or is not LTS version
-description: |-
-  Databricks recommends migrating workloads to the latest or LTS version of its runtime for enhanced stability and support. If on Runtime 11.3 LTS or above, move directly to the latest 12.x version. If below, first migrate to 11.3 LTS, then to the latest 12.x version as per the migration guide.
+title: Run Databricks workloads on supported runtime versions and plan LTS upgrades
+description: Check each workload's Databricks Runtime against the current supported-release and end-of-support
+  table. Prefer an appropriate supported LTS release for workloads that need long-term support, and test
+  Spark, library, MLflow, and feature compatibility before upgrading. Do not follow the obsolete fixed
+  migration path through Runtime 11.3 and 12.x; select a currently supported target. Serverless compute
+  uses Databricks-managed runtime versions and has separate release guidance.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 1
 labels:
   guid: 0e835cc2-2551-a247-b1f1-3c5f25c9cb70
   area: Governance
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/databricks/release-notes/runtime/
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 0e835cc2-2551-a247-b1f1-3c5f25c9cb70
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/databricks/release-notes/runtime/
+    title: Current Databricks Runtime support table and compatibility guidance
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL 0e835cc2-2551-a247-b1f1-3c5f25c9cb70: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 0e835cc2-2551-a247-b1f1-3c5f25c9cb70
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:3e9f5aa6731bc555e8c65df2852df1039db8db08a1e39a14387ffb7a3d6b6739
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Current Databricks Runtime support table and compatibility
+      guidance. Represented comment-only/empty ARG honestly as manual or candidate automation. Coverage
+      concerns the inventory''s explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt
+      remain unchanged.'
+waf: Operations

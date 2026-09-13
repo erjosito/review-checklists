@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-high-availability#storage-account-for-persistence
 queries: {}
+schemaVersion: 1
+id: eb722823-7a15-41c5-ab4e-4f1814387e5c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

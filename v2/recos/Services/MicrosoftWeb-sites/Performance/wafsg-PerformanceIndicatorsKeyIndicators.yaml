@@ -1,9 +1,9 @@
 name: wafsg-PerformanceIndicatorsKeyIndicators
-title: 'Identify and monitor performance indicators: Set targets for the key indicators
-  for the application, such as the volume of incoming requests, time that the application
-  takes to respond to requests, pending requests, and errors in HTTP responses. Consider
-  key indicators as part of the performance baseline for the workload.'
-description: ''
+title: Define and monitor numerical App Service performance targets
+description: Record workload-driven targets for request throughput, latency percentiles, errors and queueing,
+  and correlate App Service metrics with application traces and profiling. Establish a repeatable baseline
+  and compare over time. An average response time or resource inventory alone can hide tail latency and
+  does not establish that all user flows meet their targets.
 source:
   type: wafsg
   file: well-architected/service-guides/app-service-web-apps.md
@@ -16,3 +16,28 @@ labels:
   guid: bebcf697-35e6-4f4d-abce-329e52c87367
 links: []
 queries: {}
+schemaVersion: 1
+id: bebcf697-35e6-4f4d-abce-329e52c87367
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-targets
+    title: Architecture strategies for defining performance targets
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:04
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/monitoring
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:1a53bbb6c0c0a4f1964ff103d0bbfacec82fcfe0a203c1643253f3e509500af6
+    notes: App Service targets, traces and baseline comparison implement consistent measurement for this
+      service, not every workload component.

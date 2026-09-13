@@ -12,3 +12,13 @@ labels:
   guid: d329f798-bc17-48bd-a5a0-6ca7144351d1
 links: []
 queries: {}
+schemaVersion: 1
+id: d329f798-bc17-48bd-a5a0-6ca7144351d1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://github.com/Azure/Enterprise-Scale/wiki/ALZ-Policies#corp
 queries: {}
+schemaVersion: 1
+id: 3c5a808d-c695-4c14-a63c-c7ab7a510e41
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

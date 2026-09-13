@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://azure.microsoft.com/pricing/reservations/
 queries: {}
+schemaVersion: 1
+id: 44be3b1a-27f8-4b9e-a1be-1f38df03a822
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

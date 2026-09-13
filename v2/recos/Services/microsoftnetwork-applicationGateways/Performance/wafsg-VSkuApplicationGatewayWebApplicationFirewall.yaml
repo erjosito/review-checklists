@@ -1,13 +1,8 @@
 name: wafsg-VSkuApplicationGatewayWebApplicationFirewall
-title: Take advantage of features for autoscaling and performance benefits
-description: The v2 SKU offers autoscaling to ensure that your Application Gateway
-  can scale up as traffic increases. When compared to v1 SKU, v2 has capabilities
-  that enhance the performance of the workload. For example, better TLS offload performance,
-  quicker deployment and update times, zone redundancy, and more. For more information
-  about autoscaling features, see Scaling Application Gateway v2 and WAF v2.If you
-  are running v1 SKU Application gateway, consider migrating to the Application gateway
-  v2 SKU. For more information, see Migrate Azure Application Gateway and Web Application
-  Firewall from v1 to v2.
+title: Use supported Application Gateway v2 scaling and performance capabilities
+description: Application Gateway v1 retired on 2026-04-28 and is no longer supported. Migrate any remaining
+  v1 deployment promptly using the current migration guidance. For v2, configure and test autoscaling,
+  TLS processing capacity and zone-aware deployment according to workload requirements.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -19,3 +14,29 @@ labels:
   guid: 22740e5f-f63b-4b82-8629-fb9d4fd74c36
 links: []
 queries: {}
+schemaVersion: 1
+id: 22740e5f-f63b-4b82-8629-fb9d4fd74c36
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-application-gateway
+    title: Architecture best practices for Azure Application Gateway v2
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/application-gateway/v1-retirement
+    title: Migrate from Application Gateway V1 to V2
+    accessedAt: '2026-09-11'
+aliases:
+- id: 66695955-0890-4f69-ab88-292a6c641558
+  name: wafsg-ApplicationGatewayVFeaturesPerformanceBenefits
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 66695955-0890-4f69-ab88-292a6c641558
+  corpusFile: Services/microsoftnetwork-applicationGateways/Performance/wafsg-ApplicationGatewayVFeaturesPerformanceBenefits.yaml

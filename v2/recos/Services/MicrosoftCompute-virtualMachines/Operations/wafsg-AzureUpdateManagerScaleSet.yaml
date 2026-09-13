@@ -16,3 +16,13 @@ labels:
   guid: 2adb5980-e146-44a0-b143-b1e618b9af3f
 links: []
 queries: {}
+schemaVersion: 1
+id: 2adb5980-e146-44a0-b143-b1e618b9af3f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

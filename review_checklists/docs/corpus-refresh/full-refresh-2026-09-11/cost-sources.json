@@ -1,0 +1,481 @@
+{
+  "artifactSchema": "full-refresh-cost-sources/1",
+  "accessedAt": "2026-09-11",
+  "scope": "Bounded reading across Cost; not all Azure services or all authoritative pages.",
+  "sourceInventory": [
+    {
+      "id": "waf",
+      "url": "https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist",
+      "title": "Design review checklist for Cost Optimization",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Full 14-row CO:01 through CO:14 checklist.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "ccf66d9e-1364-576b-9b40-16f91a5b52b7",
+        "29fd366b-a180-452b-9bd7-954b7700c667",
+        "32952499-58c8-4e6f-ada5-972e67893d55",
+        "389aca19-a7d5-4abb-82f6-66716e25023a",
+        "72af3409-f6b8-43b7-b254-31990577bb73",
+        "54387e5c-ed12-46cd-832a-f5b2fc6998a5"
+      ],
+      "mappedIds": [
+        "2905301e-e22b-4203-8fa0-6c7d740dd465",
+        "29fd366b-a180-452b-9bd7-954b7700c667",
+        "32952499-58c8-4e6f-ada5-972e67893d55",
+        "389aca19-a7d5-4abb-82f6-66716e25023a",
+        "4e2a03a6-ff51-46c5-902d-3d7161d9c99c",
+        "72eb7a10-acdd-47f4-ac63-c2366162dca0",
+        "73965cc9-1763-43c1-82aa-549b3ea75f4e",
+        "78f09072-d08f-430c-9d24-6d3b938ecd14",
+        "7bf19a02-eeec-4611-b559-f5cef964cc63",
+        "ccf66d9e-1364-576b-9b40-16f91a5b52b7",
+        "d1e44a19-659d-4395-afd7-7289b835556d",
+        "f7fc4792-bc2c-4a9d-98dc-ee637e18badd",
+        "fe224a34-ae94-57de-8570-e8bae87812f7"
+      ]
+    },
+    {
+      "id": "advisor",
+      "url": "https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations",
+      "title": "Cost recommendations - Azure Advisor",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Full catalog read in three consecutive sections, including published IDs and resource scopes.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "570cc0b7-8bcc-54bc-b0a3-abf24374c97b",
+        "6e043e2a-a359-4271-ae6e-205172676ae4",
+        "8c51bdd3-d4cb-4742-a323-89917c6ac87e",
+        "a6bcca2b-4fea-41db-b3dd-95d48c7c891d",
+        "544451e1-92d3-4442-a3c7-628637a551c5",
+        "577a5f04-5ce3-5bf2-be7b-28c1ec86f362",
+        "ed807702-4e85-5b2e-b191-3fc76fe70a60",
+        "f397a438-b320-46f8-a41a-f94545db3412",
+        "e68a487c-dec4-4861-ac3b-c10ae77e26e4",
+        "fe224a34-ae94-57de-8570-e8bae87812f7"
+      ],
+      "mappedIds": [
+        "544451e1-92d3-4442-a3c7-628637a551c5",
+        "577a5f04-5ce3-5bf2-be7b-28c1ec86f362",
+        "692ab2db-ff92-44e9-ae54-910c66389e0d",
+        "6e043e2a-a359-4271-ae6e-205172676ae4",
+        "a6bcca2b-4fea-41db-b3dd-95d48c7c891d",
+        "e68a487c-dec4-4861-ac3b-c10ae77e26e4",
+        "ed807702-4e85-5b2e-b191-3fc76fe70a60",
+        "f397a438-b320-46f8-a41a-f94545db3412",
+        "fc6998a5-35e3-4378-a7e3-1c67d68cf6a6",
+        "fe224a34-ae94-57de-8570-e8bae87812f7"
+      ]
+    },
+    {
+      "id": "finops",
+      "url": "https://learn.microsoft.com/cloud-computing/finops/best-practices/general",
+      "title": "FinOps best practices for general resource management",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Full article; documented AdvisorResources Cost inventory and projected properties.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "570cc0b7-8bcc-54bc-b0a3-abf24374c97b",
+        "a6bcca2b-4fea-41db-b3dd-95d48c7c891d",
+        "544451e1-92d3-4442-a3c7-628637a551c5",
+        "f397a438-b320-46f8-a41a-f94545db3412"
+      ]
+    },
+    {
+      "id": "ai-cost",
+      "url": "https://learn.microsoft.com/azure/foundry/concepts/manage-costs",
+      "title": "Plan and Manage Costs - Microsoft Foundry",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Prerequisites, estimates, reconciliation, billing models, fine-tuned deployment hosting and cost monitoring; portal walkthrough not exhaustively read.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "0c5365cb-838b-4dfb-9608-0bcfabe98460",
+        "0d6d5b07-c475-408c-8f6a-fa8c92b96957",
+        "73965cc9-1763-43c1-82aa-549b3ea75f4e",
+        "6ebaa528-2e34-4366-b8cb-6bc3318ec624",
+        "15ea2d47-0659-4906-a1ec-d26a00aa4237",
+        "e65920ea-b7aa-4eda-bfc8-36746c74933a",
+        "8c51bdd3-d4cb-4742-a323-89917c6ac87e",
+        "a1abac7c-cce9-4443-97e8-2faf150559d4",
+        "fb012775-b93d-442c-916c-81ca72d7bc91"
+      ]
+    },
+    {
+      "id": "ai-reasoning",
+      "url": "https://learn.microsoft.com/azure/foundry/openai/how-to/reasoning",
+      "title": "Azure OpenAI reasoning models",
+      "accessedAt": "2026-09-11",
+      "readingScope": "How reasoning works, context, cost control, incomplete responses and model-dependent effort; not the full API matrix.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "0d6d5b07-c475-408c-8f6a-fa8c92b96957",
+        "550bf6a6-0fd6-4f5e-a447-fefda36067bc",
+        "9e2fb33a-0e01-43c6-9de0-2409778ad08d",
+        "d310e9bc-ae3d-4eff-90a1-8356d72a1376",
+        "fb012775-b93d-442c-916c-81ca72d7bc91"
+      ]
+    },
+    {
+      "id": "ai-batch",
+      "url": "https://learn.microsoft.com/azure/foundry/openai/how-to/batch",
+      "title": "How to use global batch processing with Azure OpenAI in Microsoft Foundry Models",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Introduction, turnaround target, cancellation charging, residency, model availability and feature constraints.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "3100afcf-2db1-4f14-901c-bd5e33bc29ff"
+      ]
+    },
+    {
+      "id": "files",
+      "url": "https://learn.microsoft.com/azure/storage/files/understanding-billing",
+      "title": "Understand Azure Files Billing",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Billing/media/resource models, TCO, provisioned v2 recommendations/availability/guardrails, soft-delete meters, provisioned v1 and PAYG access-tier guidance.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "c1f59c13-a5f1-4969-a1f4-a3180d9f7a30",
+        "9dd18ccf-33eb-4da0-9710-7b3d64290faa",
+        "54bceac0-695d-4d3a-9e50-91fdb4c9f51a",
+        "bb6048c7-29fd-4388-aa22-de89fdbb39ea",
+        "318fe019-cffa-4ca1-aa56-e00d1df86fe2",
+        "11b05f06-7a9a-4f25-9816-f41f893897b4",
+        "72b9477f-3c39-4633-a052-90b1203f9be5",
+        "6a667592-f9c4-45ba-81c8-bb4841aa8781",
+        "f3dd18d1-9937-413e-99a6-6abbe25b574c",
+        "220f8243-dcba-41cd-95c1-70b8b0cc3bd2",
+        "f3715e13-e5c7-4830-b1a0-4319523efab1",
+        "a294f2dd-cd4f-42f7-80d8-798759c799e4"
+      ]
+    },
+    {
+      "id": "appgw",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-application-gateway",
+      "title": "Architecture best practices for Azure Application Gateway",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Cost Optimization checklist and configuration recommendations.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+        "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+        "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+        "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+        "74ad737c-cbb8-4e91-84b7-2aa937b37ede"
+      ]
+    },
+    {
+      "id": "firewall",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall",
+      "title": "Architecture best practices for Azure Firewall",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Cost Optimization checklist and configuration recommendations.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "e3cd59af-4664-4d35-b291-45076f5452bd",
+        "a8ac7739-8682-4369-84c6-e0fd8185f1a6",
+        "e23cca89-b750-4a14-8187-038aa999ab81",
+        "9fba472e-101a-4d6c-b9e9-762ce0e6035d",
+        "5f8eaf16-cabf-4fc4-82f9-1b9069b3bac2",
+        "b68aec37-acbd-4101-be19-3e99e8d641f6",
+        "ed8185a5-8f3a-402b-bd40-a3db15b390fd",
+        "0648162b-e60c-4625-811d-8e844e53d297",
+        "c606fee7-9b75-4ce1-921f-aac5591768f8",
+        "c88ea77e-1e9c-4d30-8b5e-c5e35cd4d93f",
+        "c6b65421-d9c6-46aa-85c5-9e891c888744",
+        "ef951ddc-d36a-4194-a039-48af1cd3b1dd",
+        "01e92d97-de38-46fd-a4b3-a180301ada9b"
+      ]
+    },
+    {
+      "id": "frontdoor",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-front-door",
+      "title": "Architecture best practices for Azure Front Door",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Cost Optimization checklist and configuration recommendations.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "871b4651-734d-40f4-b8a5-1705fa30dbe3",
+        "fc470281-721e-40db-9289-ad73b03159d7",
+        "f397a438-b320-46f8-a41a-f94545db3412",
+        "3db5b1f9-57ec-44a6-adec-4f7cef47e63c",
+        "d16d79fc-3c0c-4da4-9cfe-8a6b97d7259d",
+        "5ecb8da9-9b18-4f39-a69e-c69eb2513b4b",
+        "638db3b0-f9b3-49b8-86f1-11621086b10f",
+        "78f09072-d08f-430c-9d24-6d3b938ecd14",
+        "1069bc46-68c3-46dd-80d0-700866521165"
+      ]
+    },
+    {
+      "id": "blob",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-blob-storage",
+      "title": "Architecture best practices for Azure Blob Storage",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Cost checklist from meter-unit example onward, lifecycle/feature costs, guardrails, monitoring and full configuration recommendations.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "d1e44a19-659d-4395-afd7-7289b835556d",
+        "d3294798-b118-48b2-a5a4-6ceb544451e1",
+        "c4e2436b-1336-4db5-9f17-960eee0bdf5c",
+        "7e31c67d-68cf-46a6-8a11-94956d697dc3",
+        "4ee9e348-ad55-46c9-bdbf-e17adcae5fd0",
+        "e53d71d3-879f-4a64-b425-e30f007e7221",
+        "4d17df43-4382-430a-9463-13abf73774d0",
+        "5bf631db-5818-4a48-9bb2-12383fb22c27",
+        "d48626ce-bf57-4b9a-92b4-58d2904aca16",
+        "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+        "d78ebd83-3708-43dc-a146-c87c0bc845cc",
+        "96e18bc5-92d9-4184-990e-0916f7c116fa",
+        "d8225b92-cc37-400e-9e24-660b9f4c1a28",
+        "ab60898d-c5ae-4087-95ce-5b55ed006972",
+        "a97cd83a-ed73-43df-bf01-11853e14f665",
+        "1e8c6cb4-abe1-4ba1-899f-5ddc0d700517",
+        "72af3409-f6b8-43b7-b254-31990577bb73",
+        "edc3f7bc-6b6c-41a8-8f11-1485781fdf58",
+        "d48bcd05-e5af-4500-b04e-e35dce0f17f9",
+        "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+        "dd86bdc7-a08c-4624-9028-e0e80335a9ba",
+        "ccbe2ffd-7bea-41ce-93fa-a9facc5bc5d0",
+        "322c5ad8-8c4a-4aa9-acd7-6f34a3e47c9c",
+        "4fb53237-e44f-4292-a7a5-f8e79d55fc4e"
+      ]
+    },
+    {
+      "id": "ml",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-machine-learning",
+      "title": "Architecture best practices for Azure Machine Learning",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Complete Cost Optimization checklist and configuration recommendations.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "f846a556-0f24-45ba-a2e2-43855e78ca2d",
+        "2905301e-e22b-4203-8fa0-6c7d740dd465",
+        "d02f1c6b-b32d-4027-8c23-dad429d06570",
+        "af8c167c-be44-45c2-bb57-a1bc383a8abd",
+        "f96f9439-c6c3-4bd1-a6ef-912307025375",
+        "feac1256-41f0-435e-8d6c-c66c264deb5b",
+        "8fff224b-1d7f-4116-8624-e92ed5afc67a",
+        "2c88452f-1c05-46c4-a541-54acbfc708b2",
+        "bfc81863-3497-4a8d-a16e-aab55f3bae72",
+        "ac00077c-9c99-40f8-8b08-9938b9ab6445",
+        "66c94617-9ee4-4b81-be7a-ef5dbd521fc6",
+        "42466537-fe74-483d-94b7-3525c15f3cf8",
+        "1d3deb66-a7cf-4c9e-8071-3b3e3d60c478"
+      ]
+    },
+    {
+      "id": "aks",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service",
+      "title": "Architecture best practices for Azure Kubernetes Service",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Cost Optimization checklist/configuration; adjacent Operational Excellence KEDA recommendation.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "9cd3e427-64d5-48e8-aa6a-dfa7a473512c",
+        "ec710c29-e6c0-4675-b051-73fc3a0010d7",
+        "620cb68e-2005-464b-90d3-0e767babcfcd",
+        "8b20a125-f425-42b9-9636-128941325958",
+        "aa2243d7-e30a-4963-b569-a93bf2660bb2",
+        "7bf19a02-eeec-4611-b559-f5cef964cc63",
+        "330a0b20-69f1-44b9-9b9e-907e8e1bf5ca",
+        "ddb71774-895b-4149-9e0c-e348a9829df5",
+        "18dfc1c5-f5e8-4c89-9805-af9dd82f595d",
+        "afad2446-229b-4b5c-89fc-33e0a1ffdf05",
+        "479e3bcb-48bb-4f49-a449-d67df3a82c1e",
+        "45c1b3bf-8e01-4337-984d-e8b03a969e4c",
+        "d6b9a1b1-66b9-4f32-9269-4dba8ff3691d",
+        "d917bb41-11ca-4487-a354-abad918096e6",
+        "60822342-a88f-4260-a595-c5919386bbdd"
+      ]
+    },
+    {
+      "id": "vm",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/virtual-machines",
+      "title": "Architecture best practices for Azure Virtual Machines",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Complete Cost Optimization checklist and configuration recommendations.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "fc6998a5-35e3-4378-a7e3-1c67d68cf6a6",
+        "544451e1-92d3-4442-a3c7-628637a551c5",
+        "ccbd9792-a6bc-4ca2-a4fe-a1dbf3dd95d4",
+        "8e136ca6-91e6-4cd0-8d19-b6cfec2622c1",
+        "e445d2d7-01a5-428d-9996-7d42b8727ae5",
+        "bf114ba8-d145-4e31-9798-fb07277a246d",
+        "f7fc4792-bc2c-4a9d-98dc-ee637e18badd",
+        "12835f9e-fdcf-4ecd-8d96-22d2a32bbd29",
+        "2a4a0772-4dab-4123-bdb0-569271e29b63",
+        "4f730d71-d8da-489b-b609-e9b1962ab07f",
+        "72eb7a10-acdd-47f4-ac63-c2366162dca0",
+        "fd59590a-44b0-469a-aa57-e04183683d0b"
+      ]
+    },
+    {
+      "id": "er",
+      "url": "https://learn.microsoft.com/azure/expressroute/plan-manage-cost",
+      "title": "Plan to manage costs for Azure ExpressRoute",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Full article including SKUs, Direct/Global Reach, gateway residual charges, budgets and exports.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "f4e7926a-ec35-476e-a412-5dd17136bd62",
+        "718cb437-b060-2589-8856-2e93a5c6633b",
+        "7025b442-f6e9-4af6-b11f-c9574916016f",
+        "a3aaf86d-0531-404f-b881-78bbacd912ca",
+        "92eec823-61dd-486c-b46e-0339fc02987e",
+        "edd459fa-3105-4a03-b009-4f983d23da5a",
+        "c5c27eb1-6f1c-4b97-a216-0cbdc31a3c98",
+        "54387e5c-ed12-46cd-832a-f5b2fc6998a5"
+      ]
+    },
+    {
+      "id": "spot",
+      "url": "https://learn.microsoft.com/azure/virtual-machines/spot-vms",
+      "title": "About Azure Spot Virtual Machines",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Overview through pricing/eviction history and documented SpotResources queries; FAQ not fully read.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "393a040f-d329-4479-ab11-88b2c5a46ceb"
+      ]
+    },
+    {
+      "id": "disk-ri",
+      "url": "https://learn.microsoft.com/azure/virtual-machines/disks-reserved-capacity",
+      "title": "Optimize costs for Azure Disk Storage with reservations",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Overview, per-SKU consumption, eligibility table, purchase considerations/restrictions; purchase walkthrough only partially read.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "a6bcca2b-4fea-41db-b3dd-95d48c7c891d"
+      ]
+    },
+    {
+      "id": "app",
+      "url": "https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps",
+      "title": "Architecture best practices for App Service Web Apps",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Complete Cost Optimization checklist and configuration recommendations.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "a14a3b78-26d3-4159-975b-df8e82c9590e",
+        "dc84dbbc-6816-48ae-9926-e52e68d4273e",
+        "66723d3b-34de-4f55-8861-299453c5b6d8",
+        "692ab2db-ff92-44e9-ae54-910c66389e0d",
+        "83127c0d-df6c-4785-be24-e54d0933118d",
+        "551337b1-cb7a-4f60-870b-331efa943936",
+        "4e2a03a6-ff51-46c5-902d-3d7161d9c99c",
+        "b7564349-7885-4f66-89ae-b732adaf29ae",
+        "7ce7bbb5-df18-4e4d-86b6-83e25e835457",
+        "41026085-4728-4bff-abbe-be08a46e4735",
+        "289a2a9d-eda1-4be4-af63-23d230194724"
+      ]
+    },
+    {
+      "id": "frontdoor-probes",
+      "url": "https://learn.microsoft.com/azure/frontdoor/health-probes",
+      "title": "Health Probes - Azure Front Door",
+      "accessedAt": "2026-09-11",
+      "readingScope": "Full article, including HEAD recommendation, 200-only healthy status, all-origin failure and single-origin probe disabling.",
+      "verification": "Public primary page read; guidance paraphrased, not live Azure execution.",
+      "supportsIds": [
+        "3da1dae2-cc88-4147-8607-c1cca0e61465",
+        "8dd458e9-2713-49b8-8110-2dbd6eaf11e6"
+      ]
+    }
+  ],
+  "freshnessIssues": [
+    {
+      "requestedUrl": "https://learn.microsoft.com/azure/well-architected/service-guides/azure-openai",
+      "resolvedUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure",
+      "observation": "The former WAF service guide redirects to a model catalog. The catalog was not treated as authority for inherited cost claims; current Foundry billing/reasoning/Batch pages were read instead."
+    }
+  ],
+  "queryCatalog": [
+    {
+      "id": "cost-round2-revcl-LargerDisksTib",
+      "recommendationId": "a6bcca2b-4fea-41db-b3dd-95d48c7c891d",
+      "upstreamRecommendationIds": [
+        "0eb54047-acd9-4f26-8ffb-8cec713782d6"
+      ],
+      "sourceRefs": [
+        "advisor",
+        "finops"
+      ],
+      "role": "primary",
+      "kql": "AdvisorResources\n| where type =~ 'microsoft.advisor/recommendations'\n| where properties.category =~ 'Cost'\n| where tostring(properties.recommendationTypeId) in~ ('0eb54047-acd9-4f26-8ffb-8cec713782d6')\n| project id, subscriptionId, resourceGroup,\n    targetResourceId = tostring(properties.resourceMetadata.resourceId),\n    impactedField = tostring(properties.impactedField),\n    recommendationTypeId = tostring(properties.recommendationTypeId),\n    impact = tostring(properties.impact),\n    problem = tostring(properties.shortDescription.problem),\n    solution = tostring(properties.shortDescription.solution),\n    lastUpdated = tostring(properties.lastUpdated),\n    extendedProperties = properties.extendedProperties",
+      "resultSemantics": "inventory",
+      "liveExecuted": false,
+      "validatedAt": null,
+      "derivation": "Documented AdvisorResources Cost projection plus exact published recommendationTypeId filter; no text matching, inferred IDs or Resources inner join.",
+      "requiredDataAndScopes": "Unexecuted Advisor opportunity inventory, not compliance or realized savings. id identifies the Advisor recommendation; targetResourceId identifies the affected resource. Use the intended subscriptions or management-group scope with complete read permissions and paging. Empty or truncated results do not establish compliance. Advisor coverage, telemetry and freshness vary; review dismissals, dependency/retention requirements, actual billing and existing commitments before action. Do not sum overlapping estimates or assume a common currency/time horizon in extendedProperties. No live Azure execution or compilation; validatedAt remains null. Only this primary query is wired."
+    },
+    {
+      "id": "cost-round2-revcl-Vms",
+      "recommendationId": "544451e1-92d3-4442-a3c7-628637a551c5",
+      "upstreamRecommendationIds": [
+        "e10b1381-5f0a-47ff-8c7b-37bd13d7c974"
+      ],
+      "sourceRefs": [
+        "advisor",
+        "finops"
+      ],
+      "role": "primary",
+      "kql": "AdvisorResources\n| where type =~ 'microsoft.advisor/recommendations'\n| where properties.category =~ 'Cost'\n| where tostring(properties.recommendationTypeId) in~ ('e10b1381-5f0a-47ff-8c7b-37bd13d7c974')\n| project id, subscriptionId, resourceGroup,\n    targetResourceId = tostring(properties.resourceMetadata.resourceId),\n    impactedField = tostring(properties.impactedField),\n    recommendationTypeId = tostring(properties.recommendationTypeId),\n    impact = tostring(properties.impact),\n    problem = tostring(properties.shortDescription.problem),\n    solution = tostring(properties.shortDescription.solution),\n    lastUpdated = tostring(properties.lastUpdated),\n    extendedProperties = properties.extendedProperties",
+      "resultSemantics": "inventory",
+      "liveExecuted": false,
+      "validatedAt": null,
+      "derivation": "Documented AdvisorResources Cost projection plus exact published recommendationTypeId filter; no text matching, inferred IDs or Resources inner join.",
+      "requiredDataAndScopes": "Unexecuted Advisor opportunity inventory, not compliance or realized savings. id identifies the Advisor recommendation; targetResourceId identifies the affected resource. Use the intended subscriptions or management-group scope with complete read permissions and paging. Empty or truncated results do not establish compliance. Advisor coverage, telemetry and freshness vary; review dismissals, dependency/retention requirements, actual billing and existing commitments before action. Do not sum overlapping estimates or assume a common currency/time horizon in extendedProperties. No live Azure execution or compilation; validatedAt remains null. Only this primary query is wired."
+    },
+    {
+      "id": "cost-round2-wafsg-AzureFrontDoorOriginGroupSingleBackEndPools",
+      "recommendationId": "f397a438-b320-46f8-a41a-f94545db3412",
+      "upstreamRecommendationIds": [
+        "1c7fc5ab-f776-4aee-8236-ab478519f68f"
+      ],
+      "sourceRefs": [
+        "advisor",
+        "finops"
+      ],
+      "role": "primary",
+      "kql": "AdvisorResources\n| where type =~ 'microsoft.advisor/recommendations'\n| where properties.category =~ 'Cost'\n| where tostring(properties.recommendationTypeId) in~ ('1c7fc5ab-f776-4aee-8236-ab478519f68f')\n| project id, subscriptionId, resourceGroup,\n    targetResourceId = tostring(properties.resourceMetadata.resourceId),\n    impactedField = tostring(properties.impactedField),\n    recommendationTypeId = tostring(properties.recommendationTypeId),\n    impact = tostring(properties.impact),\n    problem = tostring(properties.shortDescription.problem),\n    solution = tostring(properties.shortDescription.solution),\n    lastUpdated = tostring(properties.lastUpdated),\n    extendedProperties = properties.extendedProperties",
+      "resultSemantics": "inventory",
+      "liveExecuted": false,
+      "validatedAt": null,
+      "derivation": "Documented AdvisorResources Cost projection plus exact published recommendationTypeId filter; no text matching, inferred IDs or Resources inner join.",
+      "requiredDataAndScopes": "Unexecuted Advisor opportunity inventory, not compliance or realized savings. id identifies the Advisor recommendation; targetResourceId identifies the affected resource. Use the intended subscriptions or management-group scope with complete read permissions and paging. Empty or truncated results do not establish compliance. Advisor coverage, telemetry and freshness vary; review dismissals, dependency/retention requirements, actual billing and existing commitments before action. Do not sum overlapping estimates or assume a common currency/time horizon in extendedProperties. No live Azure execution or compilation; validatedAt remains null. Only this primary query is wired."
+    }
+  ],
+  "upstreamInventories": [
+    {
+      "sourceId": "waf-cost-checklist",
+      "artifact": "cost-waf-inventory.json",
+      "originalArtifact": "review_checklists\\docs\\corpus-refresh\\source-inventories\\waf-cost-checklist--2026-09-11--28a78d22523542beeafc7de5eaa11fad791559b6--4c59d9796cff.json",
+      "originalFileSha256": "106eb434c9876205e986e2a56a905ba5c12c24eba03eee0157b9dd7feadb4c5b",
+      "originalSourceId": "waf-cost-checklist",
+      "normalization": "Corrected the earlier parent-proposed draft source ID to the central registry ID. The previous name was not a user requirement. Cost inventory now equals the central snapshot exactly; all item payloads, contentHash values, dates, revisions and scope remain unchanged.",
+      "previousDraftSourceId": "azure-waf-cost",
+      "verifiedItemCount": 14,
+      "payloadAndHashAgreement": true
+    },
+    {
+      "sourceId": "advisor-cost-catalog",
+      "artifact": "cost-advisor-inventory.json",
+      "originalArtifact": "review_checklists\\docs\\corpus-refresh\\source-inventories\\advisor-cost-catalog--2026-09-11--0eef202feb80322f1d1da95d4d026c2e2b70ce06--749a29e63992.json",
+      "originalFileSha256": "8474ad6891bcb9b8b71c2b928617594081fd9834338355e169c970ae7898003b",
+      "originalSourceId": "advisor-cost-catalog",
+      "normalization": "Corrected the earlier parent-proposed draft source ID to the central registry ID. The previous name was not a user requirement. Cost inventory now equals the central snapshot exactly; all item payloads, contentHash values, dates, revisions and scope remain unchanged.",
+      "previousDraftSourceId": "azure-advisor-cost",
+      "verifiedItemCount": 66,
+      "payloadAndHashAgreement": true
+    }
+  ],
+  "coverageStatus": "measured_for_two_explicit_inventory_scopes",
+  "limits": [
+    "Source access and semantic assessment are not human approval, review dates, live query compilation or execution.",
+    "Supported unchanged refers to written guidance, not verification of every inherited query property or actual Azure configurations.",
+    "Broad WAF and Advisor catalogs are initial measurable source units only; service articles are supporting readings, not exhaustive recommendation inventories.",
+    "No source percentage is computed from citation counts or generic Advisor query filters.",
+    "Inherited unknown services/resource types were not guessed; Front Door Classic versus Standard/Premium scope still requires care.",
+    "The 77 explicitly unverified records require follow-up; dedicated SAP/HANA, AKS operations, licensing/commerce, Monitor, backup and Functions sources are notable gaps."
+  ]
+}

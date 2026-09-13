@@ -1,32 +1,59 @@
-# Automatic workbook creation
+# Legacy Azure Monitor workbooks
 
-The checklists in this repo have the option of documenting Azure Resource Graph queries along with each check, to dynamically verify whether the resources in your subsciption(s) are compliant with the checklist recommendations.
+**Historical v1 output, not the current review UI or report format.**
+Use the [local-first application](../review_checklists/README.md) for pinned
+SQLite reviews and JSON/HTML reports. These retained workbooks consume queries
+from legacy checklist JSON; they do not open current reviews or write assessments
+back to the application.
 
-To quickly check these out you can import them via ARM into your Azure Monitor instances:
+The v1 pipeline rendered workbook JSON and ARM templates from the
+[building blocks](blocks) and [legacy checklists](../checklists/README.md).
+Their presence here is not a claim that cloud workflows still run automatically,
+that the files track the current YAML corpus, or that deployment/query behavior
+has been validated against current Azure services.
 
-- Landing Zone review workbook:
+## Retained artifacts
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Freview-checklists%2Fmain%2Fworkbooks%2Falz_checklist.en_workbook_template.json)
+| Legacy workbook | Workbook JSON | ARM template |
+| --- | --- | --- |
+| Landing Zone | [Workbook](alz_checklist.en_workbook.json) | [Template](alz_checklist.en_workbook_template.json) |
+| AKS | [Workbook](aks_checklist.en_workbook.json) | [Template](aks_checklist.en_workbook_template.json) |
+| Landing Zone network counters | See template | [Template](alz_checklist.en_network_counters_template.json) |
+| Application delivery network counters | See template | [Template](appdelivery_checklist.en_network_counters_workbook_template.json) |
 
-- Networking - Landing Zone review workbook:
+These links point to this checkout's artifacts instead of one-click deployment
+buttons targeting a different branch's upstream files. Deploying a template is a
+separate Azure operation, not a prerequisite for local review.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Freview-checklists%2Fmain%2Fworkbooks%2Falz_checklist.en_network_counters_template.json)
+## Historical manual import
 
-- AKS review workbook:
+The old workflow copied workbook JSON into the **Advanced Editor** of an Azure
+Monitor workbook. If maintaining an existing workbook, inspect the source,
+queries, parameters and subscription scope before doing so. Azure access and
+appropriate permissions are needed; opening a workbook can execute queries.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Freview-checklists%2Fmain%2Fworkbooks%2Faks_checklist.en_workbook_template.json)
+![Legacy advanced editor](pictures/advanced_editor.png)
 
-- Network App Delivery workbook:
+Queries were grouped by checklist category. Some legacy renderers expected `id`
+and `compliant` output columns and displayed resource-level results:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Freview-checklists%2Fmain%2Fworkbooks%2Fappdelivery_checklist.en_network_counters_workbook_template.json)
+![Legacy AKS BC/DR results](pictures/aks_bcdr.png)
 
-The Github pipelines in this repo automatically generate Azure Monitor workbooks with those queries grouped in their corresponding categories, for easy consumption. In order to deploy these workbooks to your Azure Monitor instance, you can do a simple copy/paste operation from the corresponding JSON file (for example [alz_checklist.en_workbook.json](alz_checklist.en_workbook.json) or [aks_checklist.en_workbook.json](aks_checklist.en_workbook.json)), and copy them into the advanced editor mode of an Azure Monitor workbook. For example:
+Treat those displays as evidence requiring interpretation, not an architecture
+sign-off. Empty, incomplete or permission-limited results do not establish
+compliance. Inventory and optimization candidates are not automatic violations
+or proven savings. The current app likewise never changes reviewer statuses
+from query output.
 
-![advanced editor](./pictures/advanced_editor.png)
+## Contributions
 
-After doing this the queries will start running and you will see a list of the resources in your subscription that comply and not comply with each specific recommendation with documented Azure Resource Graph queries. For example, the following screenshot shows the BC/DR section of the AKS workbook:
+Do not hand-edit generated workbook JSON to change a recommendation. Author
+current guidance in [`v2/recos`](../v2/recos) using
+[Contributing](../CONTRIBUTING.md) and the
+[corpus contract](../review_checklists/docs/corpus-contract.md). A YAML change is
+not a promise that these legacy workbook files will be regenerated automatically.
+If maintaining a renderer or block, coordinate that explicitly as a legacy change
+and regenerate/review its output through the applicable deterministic tools.
 
-![aks BCDR](./pictures/aks_bcdr.png)
-
-Please do not send contributions to these workbooks, since they are generated dynamically out of the building blocks contained in the [blocks directory](./blocks/) and the Azure Resource Graph queries defined in the files contained in the [checklists directory](../checklists/).
-
+See [scripts](../scripts/README.md) and the [legacy guide](../docs/legacy-v1.md)
+for related adapters and spreadsheet history.

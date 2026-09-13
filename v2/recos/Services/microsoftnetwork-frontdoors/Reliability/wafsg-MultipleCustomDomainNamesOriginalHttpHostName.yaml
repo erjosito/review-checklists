@@ -17,3 +17,13 @@ labels:
   guid: afa6253b-fffa-487f-a9b9-911e9821afef
 links: []
 queries: {}
+schemaVersion: 1
+id: afa6253b-fffa-487f-a9b9-911e9821afef
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

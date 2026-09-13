@@ -1,11 +1,10 @@
 name: wafsg-CostSavingGoalsCloudFinancialDiscipline
-title: 'Cluster and workload architectures: Adopt a cloud financial discipline and
-  cultural practice to drive ownership of cloud usage.'
-description: The foundation of enabling cost optimization is the spread of a cost
-  saving cluster. A financial operations approach (FinOps) is often used to help organizations
-  reduce cloud costs. It is a practice involving collaboration between finance, operations,
-  and engineering teams to drive alignment on cost saving goals and bring transparency
-  to cloud costs.
+title: 'Cluster and workload architectures: Adopt a cloud financial discipline and cultural practice to
+  drive ownership of cloud usage.'
+description: The foundation of enabling cost optimization is the spread of a cost saving cluster. A financial
+  operations approach (FinOps) is often used to help organizations reduce cloud costs. It is a practice
+  involving collaboration between finance, operations, and engineering teams to drive alignment on cost
+  saving goals and bring transparency to cloud costs.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -17,3 +16,26 @@ labels:
   guid: 7bf19a02-eeec-4611-b559-f5cef964cc63
 links: []
 queries: {}
+schemaVersion: 1
+id: 7bf19a02-eeec-4611-b559-f5cef964cc63
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:01
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/create-culture-financial-responsibility
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:f5da18f5ecb6f393e4aae85d2dcea100fb472d409ce30007c31ef76c7d69bac3
+    notes: Local AKS FinOps ownership and cross-team accountability cover financial culture; regular personnel
+      training and tooling investment are not fully addressed. Source-text assessment, not independent
+      human approval or live Azure validation.

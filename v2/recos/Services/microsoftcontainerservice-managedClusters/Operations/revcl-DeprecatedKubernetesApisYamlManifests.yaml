@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://kubernetes.io/docs/setup/release/notes/
 queries: {}
+schemaVersion: 1
+id: b2463cff-e189-4c59-adf0-d5a73dd4ce32
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

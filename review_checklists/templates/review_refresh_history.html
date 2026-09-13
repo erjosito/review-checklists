@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Review refresh history</h1>
+<p><a href="{{ url_for('review_refresh') }}">Preview another review refresh</a> |
+<a href="{{ review_url }}">Return to assessments</a> |
+<a href="{{ url_for('export', format='json') }}">Export full history and assessments as JSON</a></p>
+<p>Original snapshot hash: <code>{{ metadata.corpus_sha256 }}</code>.</p>
+{% if metadata.get('last_applied_source') %}
+<p>Latest applied source (not every item's origin): <code>{{ metadata.last_applied_source }}</code>.</p>
+<p>Actual reviewed recommendation snapshot hash: <code>{{ metadata.reviewed_snapshot_hash }}</code>.</p>
+{% endif %}
+<p>History records the decisions and guidance at apply time. Later reassessment acknowledgments
+are shown on the current item; they do not rewrite this audit history.</p>
+{% for record in history %}
+<details class="refresh-history" {% if loop.first %}open{% endif %}>
+  <summary>{{ record.applied_at }} - {{ record.plan.target.version }} - {{ record.refresh_id }}</summary>
+  <p>Consistent pre-refresh backup: <code>{{ record.backup_path }}</code>.
+  This private backup is not downloadable through the web app.</p>
+  <p>Resulting snapshot hash: <code>{{ record.reviewed_snapshot_hash }}</code>.</p>
+  {% with plan=record.plan %}{% include "review_refresh_plan.html" %}{% endwith %}
+</details>
+{% else %}<p>No review refreshes have been applied.</p>{% endfor %}
+{% endblock %}

@@ -16,3 +16,14 @@ links:
 queries:
   arg: resources | where type=='microsoft.network/firewallpolicies' | extend compliant
     = (properties.threatIntelMode == 'Deny') | distinct id,compliant
+schemaVersion: 1
+id: e9c8f584-6d5e-473b-8dc5-acc9fbaab4e3
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

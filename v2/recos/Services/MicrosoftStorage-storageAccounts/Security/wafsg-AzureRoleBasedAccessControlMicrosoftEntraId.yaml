@@ -1,9 +1,9 @@
 name: wafsg-AzureRoleBasedAccessControlMicrosoftEntraId
-title: Authorize access by using Azure role-based access control (RBAC).
-description: With RBAC, there are no passwords or keys that can be compromised. The
-  security principal (user, group, managed identity, or service principal) is authenticated
-  by Microsoft Entra ID to return an OAuth 2.0 token. The token is used to authorize
-  a request against the Blob Storage service.
+title: Authorize Blob access with least-privilege Azure RBAC and protect the caller's credentials.
+description: 'Use Microsoft Entra identities and appropriate Blob data roles rather than distributing
+  account keys. Prefer managed identities or federation where supported. RBAC does not itself remove credentials:
+  a user or application may still authenticate with credentials, and access tokens must be protected.
+  Verify both the principal''s authentication and its effective role scope.'
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +15,32 @@ labels:
   guid: 02be562a-9a28-4e56-94a3-a3671dd382fc
 links: []
 queries: {}
+schemaVersion: 1
+id: 02be562a-9a28-4e56-94a3-a3671dd382fc
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/security/identity-access
+    title: Architecture strategies for identity and access management
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/storage/common/storage-sas-overview
+    title: Grant limited access to data with shared access signatures (SAS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

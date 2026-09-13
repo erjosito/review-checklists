@@ -12,3 +12,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot
 queries: {}
+schemaVersion: 1
+id: cafde29d-a0af-4bcd-87c0-0f299d63f0e8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

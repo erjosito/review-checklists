@@ -1,13 +1,14 @@
 name: aprl-StorageAccountsDurabilityTargets
 title: Ensure that storage accounts are zone or region redundant
-description: |-
-  Redundancy ensures storage accounts meet availability and durability targets amidst failures, weighing lower costs against higher availability. Locally redundant storage offers the least durability at the lowest cost.
+description: Redundancy ensures storage accounts meet availability and durability targets amidst failures,
+  weighing lower costs against higher availability. Locally redundant storage offers the least durability
+  at the lowest cost.
 source:
   type: aprl
   file: azure-resources/Storage/storageAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Storage/storageAccounts
+- microsoft.storage/storageaccounts
 severity: 0
 labels:
   guid: e6c7e1cc-2f47-264d-aa50-1da421314472
@@ -21,3 +22,31 @@ queries:
     | where type =~ "Microsoft.Storage/storageAccounts"
     | where sku.name in~ ("Standard_LRS", "Premium_LRS")
     | project recommendationId = "e6c7e1cc-2f47-264d-aa50-1da421314472", name, id, tags, param1 = strcat("sku: ", sku.name)
+schemaVersion: 1
+id: e6c7e1cc-2f47-264d-aa50-1da421314472
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    title: 'APRL e6c7e1cc-2f47-264d-aa50-1da421314472: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: e6c7e1cc-2f47-264d-aa50-1da421314472
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ec99da1d2df8845797f713e624c239884ef79e40374d4958edfa3695e6e05c07
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

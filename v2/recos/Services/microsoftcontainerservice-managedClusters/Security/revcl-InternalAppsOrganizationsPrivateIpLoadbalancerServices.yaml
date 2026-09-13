@@ -20,3 +20,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/internal-lb
 queries: {}
+schemaVersion: 1
+id: 13c00567-4b1e-4945-a459-c373e7ed6162
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

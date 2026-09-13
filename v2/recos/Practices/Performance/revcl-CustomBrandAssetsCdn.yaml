@@ -12,3 +12,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/entra/architecture/resilient-end-user-experience#use-a-content-delivery-network
 queries: {}
+schemaVersion: 1
+id: 3e3553a4-c873-4964-ab66-2d6c15f51296
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

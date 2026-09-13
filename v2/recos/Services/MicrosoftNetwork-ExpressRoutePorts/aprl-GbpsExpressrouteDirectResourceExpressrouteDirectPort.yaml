@@ -1,14 +1,15 @@
 name: aprl-GbpsExpressrouteDirectResourceExpressrouteDirectPort
-title: Ensure you do not over-subscribe an ExpressRoute Direct
-description: |-
-  Provisioning ExpressRoute circuits on a 10-Gbps or 100-Gbps ExpressRoute Direct resource up to 20-Gbps or 200-Gbps is possible but not recommended for resiliency. If an ExpressRoute Direct port fails, and circuits are using full capacity, the remaining port won't handle the extra load.
+title: Ensure ExpressRoute Direct is not over-subscribed
+description: Provisioning ExpressRoute circuits on a 10-Gbps or 100-Gbps ExpressRoute Direct resource
+  up to 20-Gbps or 200-Gbps is possible but not recommended for resiliency. If an ExpressRoute Direct
+  port fails, and circuits are using full capacity, the remaining port won't handle the extra load.
 source:
   type: aprl
   file: azure-resources/Network/expressRoutePorts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/ExpressRoutePorts
-severity: 0
+- microsoft.network/expressrouteports
+severity: 1
 labels:
   guid: 0bee356b-7348-4799-8cab-0c71ffe13018
   area: Scalability
@@ -21,3 +22,31 @@ queries:
     | where type == "microsoft.network/expressrouteports"
     | where toint(properties['provisionedBandwidthInGbps']) > toint(properties['bandwidthInGbps'])
     | project recommendationId = "0bee356b-7348-4799-8cab-0c71ffe13018", name, id, tags, param1 = strcat("provisionedBandwidthInGbps: ", properties['provisionedBandwidthInGbps']), param2 = strcat("bandwidthInGbps: ", properties['bandwidthInGbps'])
+schemaVersion: 1
+id: 0bee356b-7348-4799-8cab-0c71ffe13018
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRoutePorts/recommendations.yaml
+    title: 'APRL 0bee356b-7348-4799-8cab-0c71ffe13018: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 0bee356b-7348-4799-8cab-0c71ffe13018
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRoutePorts/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:a15b395432c928bdc94e91d436c78de42837385698f8d1c257ae45c7bfd465a9
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

@@ -1,13 +1,14 @@
 name: aprl-DirectPodVnetConnectivityDiverseNetworkPolicies
-title: Configure Azure CNI networking for dynamic allocation of IPs
-description: |-
-  Azure CNI enhances cluster IP and network management, allowing dynamic IP allocation, scalable subnets, direct pod-VNET connectivity, and supports diverse network policies for pods and nodes with Azure Network Policies and Calico, optimizing network efficiency and security
+title: Configure Azure CNI networking for dynamic allocation of IPs or use CNI overlay
+description: Azure CNI enhances cluster IP and network management, allowing dynamic IP allocation, scalable
+  subnets, direct pod-VNET connectivity, and supports diverse network policies for pods and nodes with
+  Azure Network Policies and Calico, optimizing network efficiency and security
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 1
 labels:
   guid: c22db132-399b-4e7c-995d-577a60881be8
@@ -22,3 +23,31 @@ queries:
     | extend networkProfile = tostring (parse_json(properties.networkProfile.networkPlugin))
     | where networkProfile =="kubenet"
     | project recommendationId="c22db132-399b-4e7c-995d-577a60881be8", name, id, tags, param1=strcat("networkProfile :",networkProfile)
+schemaVersion: 1
+id: c22db132-399b-4e7c-995d-577a60881be8
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL c22db132-399b-4e7c-995d-577a60881be8: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: c22db132-399b-4e7c-995d-577a60881be8
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6d2ebe135d2d3da2b0b9d434180d5478ec1d4f855cd9f837b9d7c4810787ec7f
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

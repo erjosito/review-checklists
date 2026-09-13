@@ -1,0 +1,4 @@
+# Preserve exact bytes used by immutable corpus history and source-report hashes.
+/v2/recos/** -text
+/scripts/service_dictionary.json -text
+/review_checklists/docs/corpus-refresh/** -text

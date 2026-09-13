@@ -1,12 +1,10 @@
 name: revcl-OtherReverseProxiesLandingZoneVirtualNetwork
-title: Deploy WAFs and other reverse proxies are required for inbound HTTP/S connections,
-  deploy them within a landing-zone virtual network and together with the apps that
-  they're protecting and exposing to the internet.
+title: Place required regional WAFs and reverse proxies with their applications in the landing-zone virtual
+  network
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
-resourceTypes:
-- microsoft.network/frontdoorwebapplicationfirewalls
+resourceTypes: []
 waf: Security
 severity: 0
 labels:
@@ -17,3 +15,31 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/architect-network-infrastructure/
 queries: {}
+schemaVersion: 1
+id: 2363cefe-179b-4599-be0d-5973cd4cd21b
+services:
+- Application Gateway
+- Network Virtual Appliance
+- Web Application Firewall
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-inbound-and-outbound-internet-connectivity
+    title: Plan for inbound and outbound internet connectivity - Cloud Adoption Framework
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview
+    title: What Is Azure Web Application Firewall on Azure Application Gateway?
+    accessedAt: '2026-09-13'
+  - url: https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/afds-overview
+    title: What Is Azure Web Application Firewall on Azure Front Door?
+    accessedAt: '2026-09-13'
+description: Where inbound HTTP/S protection requires an application-owned regional WAF or partner reverse
+  proxy, place the deployment in the application landing-zone virtual network with the workloads it protects.
+  Application Gateway and partner NVAs are applicable examples. This placement recommendation is not a
+  requirement to deploy the global Azure Front Door edge service inside a VNet. Because the partner proxy's
+  deployment technology is unspecified, do not constrain applicability to a guessed VM, scale set or policy
+  ARM type.

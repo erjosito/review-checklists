@@ -1,6 +1,5 @@
 name: revcl-KeyVaultSoftDeletedResources
-title: Key Vault's soft-deleted resources are retained for a set period of 90 calendar
-  days. Familiarize yourself with the Key Vault's soft-delete guidance.
+title: Choose Key Vault soft-delete retention from 7 to 90 days at vault creation
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,21 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/soft-delete-overview
 queries: {}
+schemaVersion: 1
+id: cbfa96b0-5249-4e6f-947c-d0e79509708c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview
+    title: 'Azure Key Vault: soft-delete overview'
+    accessedAt: '2026-09-11'
+description: The default retention is 90 days, but the configured interval can be 7 to 90 days and cannot
+  be changed after vault creation. The same interval applies to purge protection. Soft delete is enabled
+  by default for new vaults and cannot be disabled once enabled. Recovery of a deleted vault does not
+  restore associated RBAC role assignments or Event Grid subscriptions; include recreating these dependencies
+  in recovery procedures.

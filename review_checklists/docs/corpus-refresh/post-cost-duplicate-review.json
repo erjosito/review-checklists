@@ -1,0 +1,2916 @@
+{
+  "reportVersion": 1,
+  "reviewedUtc": "2026-09-11T17:16:01.837374+00:00",
+  "scope": "Only the original 11 deferred confirmed Cost groups. No other duplicate candidates or eight Cost additions were semantically re-reviewed.",
+  "summary": {
+    "reviewedCostGroups": 11,
+    "reviewedCostMembers": 22,
+    "stillSafeProposalGroups": 9,
+    "proposedAdditionalAliases": 9,
+    "technicalDeferralGroups": 2,
+    "groupsAppliedDuringFollowUp": 0,
+    "yamlFilesModifiedDuringFollowUp": 0,
+    "observedCorpusCount": 2014
+  },
+  "method": "Compare refreshed titles/descriptions, service/resource/constraint/WAF/severity scope, all queries, automation, labels/source/provenance against frozen original evidence. Nine unchanged pairs passed the hardened merge utility in dry-run only.",
+  "decisions": [
+    {
+      "groupId": "confirmed-011",
+      "canonicalId": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+      "ids": [
+        "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+        "96bcda1b-240a-4d4b-93fa-6872b549d711"
+      ],
+      "aliases": [
+        {
+          "id": "96bcda1b-240a-4d4b-93fa-6872b549d711",
+          "name": "wafsg-ScalePolicy"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+          "changedFields": []
+        },
+        {
+          "id": "96bcda1b-240a-4d4b-93fa-6872b549d711",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-ApplicationGatewayInstanceCountAzureApplicationGateway",
+          "title": "Have a scale-in and scale-out policy",
+          "description": "A scale-out policy ensures that there will be enough instances to handle incoming traffic and spikes. Also, have a scale-in policy that makes sure the number of instances are reduced when demand drops. Consider the choice of instance size. The size can significantly impact the cost. Some considerations are described in the Estimate the Application Gateway instance count.For more information, see What is Azure Application Gateway v2?",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "d0c4b44f-7b43-428c-93f2-dedd7bf00799"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayInstanceCountAzureApplicationGateway.yaml"
+        },
+        {
+          "name": "wafsg-ScalePolicy",
+          "title": "Have a scale-in and scale-out policy",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-application-gateway.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "96bcda1b-240a-4d4b-93fa-6872b549d711"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "96bcda1b-240a-4d4b-93fa-6872b549d711",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ScalePolicy.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "description": [
+          {
+            "id": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+            "value": "A scale-out policy ensures that there will be enough instances to handle incoming traffic and spikes. Also, have a scale-in policy that makes sure the number of instances are reduced when demand drops. Consider the choice of instance size. The size can significantly impact the cost. Some considerations are described in the Estimate the Application Gateway instance count.For more information, see What is Azure Application Gateway v2?"
+          },
+          {
+            "id": "96bcda1b-240a-4d4b-93fa-6872b549d711",
+            "value": ""
+          }
+        ],
+        "source": [
+          {
+            "id": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+            "value": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            }
+          },
+          {
+            "id": "96bcda1b-240a-4d4b-93fa-6872b549d711",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+            "value": {
+              "guid": "d0c4b44f-7b43-428c-93f2-dedd7bf00799"
+            }
+          },
+          {
+            "id": "96bcda1b-240a-4d4b-93fa-6872b549d711",
+            "value": {
+              "guid": "96bcda1b-240a-4d4b-93fa-6872b549d711"
+            }
+          }
+        ]
+      },
+      "decision": "applied_cost_stage",
+      "mergeApplied": true,
+      "technicalBlockers": [],
+      "rationale": "Both still require Application Gateway scale-in and scale-out policies; preserve capacity-spike and instance-sizing explanation. Same service applicability, WAF/severity, empty query and unknown automation.",
+      "requiredPreservation": [
+        "Keep chosen canonical GUID and every proposed obsolete ID/name/source/label alias.",
+        "Retain the only nonempty original description, if any, verbatim; no description rewrite required.",
+        "Keep empty queries and identical unknown automation; no ARG query or validation claim added.",
+        "Preserve differing upstream source file/timestamp information through aliases and durable source evidence."
+      ],
+      "decisionAtReadOnlyReview": "still_safe_proposal",
+      "appliedTransactionReport": "cost-alias-migration.json",
+      "coordinationRequirementAtReview": "Read-only follow-up: do not apply until parent coordinates Cost manifest/test exact counts and explicitly approves this proposal.",
+      "coordinationStatus": "Parent approved; Cost apply agent completed the manifest."
+    },
+    {
+      "groupId": "confirmed-012",
+      "canonicalId": "7947e534-c9a8-435b-9e03-d300143b5f74",
+      "ids": [
+        "7947e534-c9a8-435b-9e03-d300143b5f74",
+        "74ad737c-cbb8-4e91-84b7-2aa937b37ede"
+      ],
+      "aliases": [
+        {
+          "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+          "name": "wafsg-UnderutilizedResources"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+          "changedFields": [
+            "title",
+            "description",
+            "queries",
+            "automation",
+            "provenance"
+          ]
+        },
+        {
+          "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-ApplicationGatewayInstancesEmptyBackendPools",
+          "title": "Review Application Gateways with no configured backend targets",
+          "description": "Identify gateways with no visible backend targets and verify provisioning state, traffic, ownership, automation and approved standby plans. Remove only confirmed unnecessary instances through controlled change. Empty or missing backend metadata is a candidate signal, not proof of waste or authority to delete.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "7947e534-c9a8-435b-9e03-d300143b5f74"
+          },
+          "links": [],
+          "queries": {
+            "arg": "Resources\n| where type =~ 'microsoft.network/applicationgateways'\n| project id, name, subscriptionId, resourceGroup, location, sku\n| join kind=leftouter (\n    Resources\n    | where type =~ 'microsoft.network/applicationgateways'\n    | mv-expand pool = properties.backendAddressPools limit 2000\n    | extend ipCount = array_length(pool.properties.backendIPConfigurations),\n        addressCount = array_length(pool.properties.backendAddresses)\n    | summarize backendTargets = sum(coalesce(ipCount, 0) + coalesce(addressCount, 0)) by id\n) on id\n| where coalesce(backendTargets, 0) == 0\n| project id, name, subscriptionId, resourceGroup, location, sku, backendTargets"
+          },
+          "schemaVersion": 1,
+          "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+          "services": [],
+          "automation": {
+            "status": "query_available",
+            "validatedAt": null,
+            "notes": "Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.\n\nOnly the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.\n\nGateways with no targets visible across backend pools, including gateways with an empty pool array.\n\nNo live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.\n\nRequired scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.\n\nCaveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Missing fields can be incomplete metadata, not an empty live configuration. Validate current backend targets, provisioning status, traffic and IaC ownership. Backend pool expansion is explicitly limited to the documented ARG maximum of 2,000; verify the array is fully represented before interpreting an empty sum. An intentionally stopped or staged gateway is not automatically waste. Requires human confirmation before deletion.",
+            "resultSemantics": "inventory"
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/cloud-computing/finops/best-practices/networking",
+                "title": "FinOps best practices for Networking",
+                "accessedAt": "2026-09-11"
+              },
+              {
+                "url": "https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language",
+                "title": "Understanding the Azure Resource Graph query language",
+                "accessedAt": "2026-09-11"
+              }
+            ]
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayInstancesEmptyBackendPools.yaml"
+        },
+        {
+          "name": "wafsg-UnderutilizedResources",
+          "title": "Review underutilized resources",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-application-gateway.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "74ad737c-cbb8-4e91-84b7-2aa937b37ede"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-UnderutilizedResources.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "title": [
+          {
+            "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+            "value": "Review Application Gateways with no configured backend targets"
+          },
+          {
+            "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+            "value": "Review underutilized resources"
+          }
+        ],
+        "description": [
+          {
+            "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+            "value": "Identify gateways with no visible backend targets and verify provisioning state, traffic, ownership, automation and approved standby plans. Remove only confirmed unnecessary instances through controlled change. Empty or missing backend metadata is a candidate signal, not proof of waste or authority to delete."
+          },
+          {
+            "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+            "value": ""
+          }
+        ],
+        "source": [
+          {
+            "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+            "value": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            }
+          },
+          {
+            "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+            "value": {
+              "guid": "7947e534-c9a8-435b-9e03-d300143b5f74"
+            }
+          },
+          {
+            "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+            "value": {
+              "guid": "74ad737c-cbb8-4e91-84b7-2aa937b37ede"
+            }
+          }
+        ],
+        "queries": [
+          {
+            "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+            "value": {
+              "arg": "Resources\n| where type =~ 'microsoft.network/applicationgateways'\n| project id, name, subscriptionId, resourceGroup, location, sku\n| join kind=leftouter (\n    Resources\n    | where type =~ 'microsoft.network/applicationgateways'\n    | mv-expand pool = properties.backendAddressPools limit 2000\n    | extend ipCount = array_length(pool.properties.backendIPConfigurations),\n        addressCount = array_length(pool.properties.backendAddresses)\n    | summarize backendTargets = sum(coalesce(ipCount, 0) + coalesce(addressCount, 0)) by id\n) on id\n| where coalesce(backendTargets, 0) == 0\n| project id, name, subscriptionId, resourceGroup, location, sku, backendTargets"
+            }
+          },
+          {
+            "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+            "value": {}
+          }
+        ],
+        "automation": [
+          {
+            "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+            "value": {
+              "status": "query_available",
+              "validatedAt": null,
+              "notes": "Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.\n\nOnly the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.\n\nGateways with no targets visible across backend pools, including gateways with an empty pool array.\n\nNo live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.\n\nRequired scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.\n\nCaveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Missing fields can be incomplete metadata, not an empty live configuration. Validate current backend targets, provisioning status, traffic and IaC ownership. Backend pool expansion is explicitly limited to the documented ARG maximum of 2,000; verify the array is fully represented before interpreting an empty sum. An intentionally stopped or staged gateway is not automatically waste. Requires human confirmation before deletion.",
+              "resultSemantics": "inventory"
+            }
+          },
+          {
+            "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+            "value": {
+              "status": "unknown",
+              "validatedAt": null
+            }
+          }
+        ],
+        "provenance": [
+          {
+            "id": "7947e534-c9a8-435b-9e03-d300143b5f74",
+            "value": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": [
+                {
+                  "url": "https://learn.microsoft.com/cloud-computing/finops/best-practices/networking",
+                  "title": "FinOps best practices for Networking",
+                  "accessedAt": "2026-09-11"
+                },
+                {
+                  "url": "https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language",
+                  "title": "Understanding the Azure Resource Graph query language",
+                  "accessedAt": "2026-09-11"
+                }
+              ]
+            }
+          },
+          {
+            "id": "74ad737c-cbb8-4e91-84b7-2aa937b37ede",
+            "value": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ]
+      },
+      "decision": "deferred_technical",
+      "mergeApplied": false,
+      "technicalBlockers": [
+        "Guidance diverged during refresh: canonical now specifically reviews gateways with no visible configured backend targets, while the other record still broadly says review underutilized resources. A populated but lightly used gateway is outside the refreshed empty-target inventory.",
+        "The refreshed ARG query sums backendIPConfigurations/backendAddresses across pools, uses leftouter join to retain empty-pool-array gateways, and returns zero-target candidates. Other member has no query. Empty-target inventory is not a general utilization or deletion-compliance test.",
+        "Automation differs: query_available/resultSemantics=inventory with explicit scope, paging/expansion, eventually-consistent-data and human-review caveats versus unknown/no query. Conservative merge policy rejects query donation or silent automation reclassification.",
+        "New guidance requires provisioning/traffic/ownership/IaC/standby verification and controlled removal; refreshed FinOps/ARG evidence must not be discarded or flattened into the old generic requirement."
+      ],
+      "requiredResolution": "Keep both records distinct until an author decides whether general versus narrower/expanded controls should remain separate and explicitly reconciles query/automation contracts. Do not automatically union queries or erase new safeguards.",
+      "finalDisposition": "deferred_technical"
+    },
+    {
+      "groupId": "confirmed-013",
+      "canonicalId": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+      "ids": [
+        "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+        "30cbe437-b17d-45ad-a42e-a26bef6f4b77"
+      ],
+      "aliases": [
+        {
+          "id": "30cbe437-b17d-45ad-a42e-a26bef6f4b77",
+          "name": "wafsg-ApplicationGatewayPricing"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+          "changedFields": []
+        },
+        {
+          "id": "30cbe437-b17d-45ad-a42e-a26bef6f4b77",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-AzureApplicationGatewayWebApplicationFirewall",
+          "title": "Familiarize yourself with Application Gateway pricing",
+          "description": "For information about Application Gateway pricing, see Understanding Pricing for Azure Application Gateway and Web Application Firewall. You can also leverage the Pricing calculator.Ensure that the options are adequately sized to meet the capacity demand and deliver expected performance without wasting resources.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "6f1432ef-61d2-4037-8f85-58e005d16b8c"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-AzureApplicationGatewayWebApplicationFirewall.yaml"
+        },
+        {
+          "name": "wafsg-ApplicationGatewayPricing",
+          "title": "Familiarize yourself with Application Gateway pricing",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-application-gateway.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "30cbe437-b17d-45ad-a42e-a26bef6f4b77"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "30cbe437-b17d-45ad-a42e-a26bef6f4b77",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayPricing.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "description": [
+          {
+            "id": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+            "value": "For information about Application Gateway pricing, see Understanding Pricing for Azure Application Gateway and Web Application Firewall. You can also leverage the Pricing calculator.Ensure that the options are adequately sized to meet the capacity demand and deliver expected performance without wasting resources."
+          },
+          {
+            "id": "30cbe437-b17d-45ad-a42e-a26bef6f4b77",
+            "value": ""
+          }
+        ],
+        "source": [
+          {
+            "id": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+            "value": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            }
+          },
+          {
+            "id": "30cbe437-b17d-45ad-a42e-a26bef6f4b77",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+            "value": {
+              "guid": "6f1432ef-61d2-4037-8f85-58e005d16b8c"
+            }
+          },
+          {
+            "id": "30cbe437-b17d-45ad-a42e-a26bef6f4b77",
+            "value": {
+              "guid": "30cbe437-b17d-45ad-a42e-a26bef6f4b77"
+            }
+          }
+        ]
+      },
+      "decision": "applied_cost_stage",
+      "mergeApplied": true,
+      "technicalBlockers": [],
+      "rationale": "Both still require Application Gateway pricing familiarization. The only nonempty description supplies pricing calculator and capacity/performance sizing details, which survive unchanged.",
+      "requiredPreservation": [
+        "Keep chosen canonical GUID and every proposed obsolete ID/name/source/label alias.",
+        "Retain the only nonempty original description, if any, verbatim; no description rewrite required.",
+        "Keep empty queries and identical unknown automation; no ARG query or validation claim added.",
+        "Preserve differing upstream source file/timestamp information through aliases and durable source evidence."
+      ],
+      "decisionAtReadOnlyReview": "still_safe_proposal",
+      "appliedTransactionReport": "cost-alias-migration.json",
+      "coordinationRequirementAtReview": "Read-only follow-up: do not apply until parent coordinates Cost manifest/test exact counts and explicitly approves this proposal.",
+      "coordinationStatus": "Parent approved; Cost apply agent completed the manifest."
+    },
+    {
+      "groupId": "confirmed-014",
+      "canonicalId": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+      "ids": [
+        "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+        "0ce550b6-f2ed-428c-b8c2-b224c065a0db"
+      ],
+      "aliases": [
+        {
+          "id": "0ce550b6-f2ed-428c-b8c2-b224c065a0db",
+          "name": "wafsg-ConsumptionMetricsDifferentParameters"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+          "changedFields": []
+        },
+        {
+          "id": "0ce550b6-f2ed-428c-b8c2-b224c065a0db",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-CurrentCapacityUnitsforMicrosoftCostManagement",
+          "title": "Review consumption metrics across different parameters",
+          "description": "You're billed based on metered instances of Application Gateway based on the metrics tracked by Azure. Evaluate the various metrics and capacity units and determine the cost drivers. For more information, see Microsoft Cost Management and Billing. The following metrics are key for Application Gateway. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic.- Estimated Billed Capacity Units- Fixed Billable Capacity Units- Current Capacity UnitsFor more information, see Application Gateway metrics.Make sure you account for bandwidth costs.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "ac8bb190-71ba-48ec-9fef-351c1cd5501f"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-CurrentCapacityUnitsforMicrosoftCostManagement.yaml"
+        },
+        {
+          "name": "wafsg-ConsumptionMetricsDifferentParameters",
+          "title": "Review consumption metrics across different parameters",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-application-gateway.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "0ce550b6-f2ed-428c-b8c2-b224c065a0db"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "0ce550b6-f2ed-428c-b8c2-b224c065a0db",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ConsumptionMetricsDifferentParameters.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "description": [
+          {
+            "id": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+            "value": "You're billed based on metered instances of Application Gateway based on the metrics tracked by Azure. Evaluate the various metrics and capacity units and determine the cost drivers. For more information, see Microsoft Cost Management and Billing. The following metrics are key for Application Gateway. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic.- Estimated Billed Capacity Units- Fixed Billable Capacity Units- Current Capacity UnitsFor more information, see Application Gateway metrics.Make sure you account for bandwidth costs."
+          },
+          {
+            "id": "0ce550b6-f2ed-428c-b8c2-b224c065a0db",
+            "value": ""
+          }
+        ],
+        "source": [
+          {
+            "id": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+            "value": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            }
+          },
+          {
+            "id": "0ce550b6-f2ed-428c-b8c2-b224c065a0db",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+            "value": {
+              "guid": "ac8bb190-71ba-48ec-9fef-351c1cd5501f"
+            }
+          },
+          {
+            "id": "0ce550b6-f2ed-428c-b8c2-b224c065a0db",
+            "value": {
+              "guid": "0ce550b6-f2ed-428c-b8c2-b224c065a0db"
+            }
+          }
+        ]
+      },
+      "decision": "applied_cost_stage",
+      "mergeApplied": true,
+      "technicalBlockers": [],
+      "rationale": "Both still require Application Gateway consumption/capacity-cost analysis. Preserve Estimated Billed, Fixed Billable and Current Capacity Units plus bandwidth-cost detail; no competing query or interpretation.",
+      "requiredPreservation": [
+        "Keep chosen canonical GUID and every proposed obsolete ID/name/source/label alias.",
+        "Retain the only nonempty original description, if any, verbatim; no description rewrite required.",
+        "Keep empty queries and identical unknown automation; no ARG query or validation claim added.",
+        "Preserve differing upstream source file/timestamp information through aliases and durable source evidence."
+      ],
+      "decisionAtReadOnlyReview": "still_safe_proposal",
+      "appliedTransactionReport": "cost-alias-migration.json",
+      "coordinationRequirementAtReview": "Read-only follow-up: do not apply until parent coordinates Cost manifest/test exact counts and explicitly approves this proposal.",
+      "coordinationStatus": "Parent approved; Cost apply agent completed the manifest."
+    },
+    {
+      "groupId": "confirmed-035",
+      "canonicalId": "edd459fa-3105-4a03-b009-4f983d23da5a",
+      "ids": [
+        "edd459fa-3105-4a03-b009-4f983d23da5a",
+        "7327aac3-008f-4878-bf49-a6c3f76746a1"
+      ],
+      "aliases": [
+        {
+          "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+          "name": "wafsg-BudgetAlertsCost"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "edd459fa-3105-4a03-b009-4f983d23da5a",
+          "changedFields": []
+        },
+        {
+          "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-MonitoringExpressrouteCostsExpressrouteCircuit",
+          "title": "Monitor cost and create budget alerts",
+          "description": "Monitor the cost of your ExpressRoute circuit and create alerts for spending anomalies and overspending risks. For more information, see Monitoring ExpressRoute costs.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.network/expressroutecircuits"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "edd459fa-3105-4a03-b009-4f983d23da5a"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "edd459fa-3105-4a03-b009-4f983d23da5a",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-MonitoringExpressrouteCostsExpressrouteCircuit.yaml"
+        },
+        {
+          "name": "wafsg-BudgetAlertsCost",
+          "title": "Monitor cost and create budget alerts.",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-expressroute.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.network/expressroutecircuits"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "7327aac3-008f-4878-bf49-a6c3f76746a1"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-BudgetAlertsCost.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "title": [
+          {
+            "id": "edd459fa-3105-4a03-b009-4f983d23da5a",
+            "value": "Monitor cost and create budget alerts"
+          },
+          {
+            "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+            "value": "Monitor cost and create budget alerts."
+          }
+        ],
+        "description": [
+          {
+            "id": "edd459fa-3105-4a03-b009-4f983d23da5a",
+            "value": "Monitor the cost of your ExpressRoute circuit and create alerts for spending anomalies and overspending risks. For more information, see Monitoring ExpressRoute costs."
+          },
+          {
+            "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+            "value": ""
+          }
+        ],
+        "source": [
+          {
+            "id": "edd459fa-3105-4a03-b009-4f983d23da5a",
+            "value": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            }
+          },
+          {
+            "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "edd459fa-3105-4a03-b009-4f983d23da5a",
+            "value": {
+              "guid": "edd459fa-3105-4a03-b009-4f983d23da5a"
+            }
+          },
+          {
+            "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+            "value": {
+              "guid": "7327aac3-008f-4878-bf49-a6c3f76746a1"
+            }
+          }
+        ]
+      },
+      "decision": "applied_cost_stage",
+      "mergeApplied": true,
+      "technicalBlockers": [],
+      "rationale": "Both still require ExpressRoute cost monitoring and budget alerts; retain spending-anomaly and overspending-risk description. Scope, severity and automation are identical.",
+      "requiredPreservation": [
+        "Keep chosen canonical GUID and every proposed obsolete ID/name/source/label alias.",
+        "Retain the only nonempty original description, if any, verbatim; no description rewrite required.",
+        "Keep empty queries and identical unknown automation; no ARG query or validation claim added.",
+        "Preserve differing upstream source file/timestamp information through aliases and durable source evidence."
+      ],
+      "decisionAtReadOnlyReview": "still_safe_proposal",
+      "appliedTransactionReport": "cost-alias-migration.json",
+      "coordinationRequirementAtReview": "Read-only follow-up: do not apply until parent coordinates Cost manifest/test exact counts and explicitly approves this proposal.",
+      "coordinationStatus": "Parent approved; Cost apply agent completed the manifest."
+    },
+    {
+      "groupId": "confirmed-036",
+      "canonicalId": "92eec823-61dd-486c-b46e-0339fc02987e",
+      "ids": [
+        "92eec823-61dd-486c-b46e-0339fc02987e",
+        "96599299-4653-4e94-989b-8c7fe64cb2bd"
+      ],
+      "aliases": [
+        {
+          "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+          "name": "wafsg-ExpressroutePricing"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "92eec823-61dd-486c-b46e-0339fc02987e",
+          "changedFields": []
+        },
+        {
+          "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-ExpressroutePricingUnderstandPricing",
+          "title": "Familiarize yourself with ExpressRoute pricing",
+          "description": "For information about ExpressRoute pricing, see Understand pricing for Azure ExpressRoute. You can also use the Pricing calculator.Ensure that the options are adequately sized to meet the capacity demand and deliver expected performance without wasting resources.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.network/expressroutecircuits"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "92eec823-61dd-486c-b46e-0339fc02987e"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "92eec823-61dd-486c-b46e-0339fc02987e",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressroutePricingUnderstandPricing.yaml"
+        },
+        {
+          "name": "wafsg-ExpressroutePricing",
+          "title": "Familiarize yourself with ExpressRoute pricing.",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-expressroute.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.network/expressroutecircuits"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "96599299-4653-4e94-989b-8c7fe64cb2bd"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressroutePricing.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "title": [
+          {
+            "id": "92eec823-61dd-486c-b46e-0339fc02987e",
+            "value": "Familiarize yourself with ExpressRoute pricing"
+          },
+          {
+            "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+            "value": "Familiarize yourself with ExpressRoute pricing."
+          }
+        ],
+        "description": [
+          {
+            "id": "92eec823-61dd-486c-b46e-0339fc02987e",
+            "value": "For information about ExpressRoute pricing, see Understand pricing for Azure ExpressRoute. You can also use the Pricing calculator.Ensure that the options are adequately sized to meet the capacity demand and deliver expected performance without wasting resources."
+          },
+          {
+            "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+            "value": ""
+          }
+        ],
+        "source": [
+          {
+            "id": "92eec823-61dd-486c-b46e-0339fc02987e",
+            "value": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            }
+          },
+          {
+            "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "92eec823-61dd-486c-b46e-0339fc02987e",
+            "value": {
+              "guid": "92eec823-61dd-486c-b46e-0339fc02987e"
+            }
+          },
+          {
+            "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+            "value": {
+              "guid": "96599299-4653-4e94-989b-8c7fe64cb2bd"
+            }
+          }
+        ]
+      },
+      "decision": "applied_cost_stage",
+      "mergeApplied": true,
+      "technicalBlockers": [],
+      "rationale": "Both still require ExpressRoute pricing familiarization; retain calculator, capacity-demand sizing and performance/cost balancing details. No different licensing or billing scope is introduced.",
+      "requiredPreservation": [
+        "Keep chosen canonical GUID and every proposed obsolete ID/name/source/label alias.",
+        "Retain the only nonempty original description, if any, verbatim; no description rewrite required.",
+        "Keep empty queries and identical unknown automation; no ARG query or validation claim added.",
+        "Preserve differing upstream source file/timestamp information through aliases and durable source evidence."
+      ],
+      "decisionAtReadOnlyReview": "still_safe_proposal",
+      "appliedTransactionReport": "cost-alias-migration.json",
+      "coordinationRequirementAtReview": "Read-only follow-up: do not apply until parent coordinates Cost manifest/test exact counts and explicitly approves this proposal.",
+      "coordinationStatus": "Parent approved; Cost apply agent completed the manifest."
+    },
+    {
+      "groupId": "confirmed-053",
+      "canonicalId": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+      "ids": [
+        "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+        "5473960a-7ac3-44a0-8d01-695132b782cd"
+      ],
+      "aliases": [
+        {
+          "id": "5473960a-7ac3-44a0-8d01-695132b782cd",
+          "name": "wafsg-CostAnalysisPaneAzurePortal-1"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+          "changedFields": []
+        },
+        {
+          "id": "5473960a-7ac3-44a0-8d01-695132b782cd",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-CostAnalysisPaneAzurePortal",
+          "title": "Monitor costs: Ensure costs stay within budgets, compare costs against forecasts, and see where overspending occurs. You can use the cost analysis pane in the Azure portal to monitor costs. You also can export cost data to a storage account and analyze that data by using Excel or Power BI.",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-blob-storage.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.storage/storageaccounts"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "18f1f2f6-de79-405d-b7a1-65fb571c0493"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-CostAnalysisPaneAzurePortal.yaml"
+        },
+        {
+          "name": "wafsg-CostAnalysisPaneAzurePortal-1",
+          "title": "Monitor costs: Ensure costs stay within budgets, compare costs against forecasts, and see where overspending occurs. You can use the cost analysis pane in the Azure portal to monitor costs. You can also export cost data to a storage account, and use Excel or Power BI to analyze that data.",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-files.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.storage/storageaccounts"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "5473960a-7ac3-44a0-8d01-695132b782cd"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "5473960a-7ac3-44a0-8d01-695132b782cd",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-CostAnalysisPaneAzurePortal-1.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "title": [
+          {
+            "id": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+            "value": "Monitor costs: Ensure costs stay within budgets, compare costs against forecasts, and see where overspending occurs. You can use the cost analysis pane in the Azure portal to monitor costs. You also can export cost data to a storage account and analyze that data by using Excel or Power BI."
+          },
+          {
+            "id": "5473960a-7ac3-44a0-8d01-695132b782cd",
+            "value": "Monitor costs: Ensure costs stay within budgets, compare costs against forecasts, and see where overspending occurs. You can use the cost analysis pane in the Azure portal to monitor costs. You can also export cost data to a storage account, and use Excel or Power BI to analyze that data."
+          }
+        ],
+        "source": [
+          {
+            "id": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-blob-storage.md",
+              "timestamp": "July 24, 2024"
+            }
+          },
+          {
+            "id": "5473960a-7ac3-44a0-8d01-695132b782cd",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-files.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+            "value": {
+              "guid": "18f1f2f6-de79-405d-b7a1-65fb571c0493"
+            }
+          },
+          {
+            "id": "5473960a-7ac3-44a0-8d01-695132b782cd",
+            "value": {
+              "guid": "5473960a-7ac3-44a0-8d01-695132b782cd"
+            }
+          }
+        ]
+      },
+      "decision": "applied_cost_stage",
+      "mergeApplied": true,
+      "technicalBlockers": [],
+      "rationale": "Files and Blob guides still repeat the same account-level cost-versus-budget/forecast and export/Excel/Power BI analysis requirement. Only phrasing differs; no Files/Blob-specific feature or automation condition.",
+      "requiredPreservation": [
+        "Keep chosen canonical GUID and every proposed obsolete ID/name/source/label alias.",
+        "Retain the only nonempty original description, if any, verbatim; no description rewrite required.",
+        "Keep empty queries and identical unknown automation; no ARG query or validation claim added.",
+        "Preserve differing upstream source file/timestamp information through aliases and durable source evidence."
+      ],
+      "decisionAtReadOnlyReview": "still_safe_proposal",
+      "appliedTransactionReport": "cost-alias-migration.json",
+      "coordinationRequirementAtReview": "Read-only follow-up: do not apply until parent coordinates Cost manifest/test exact counts and explicitly approves this proposal.",
+      "coordinationStatus": "Parent approved; Cost apply agent completed the manifest."
+    },
+    {
+      "groupId": "confirmed-060",
+      "canonicalId": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+      "ids": [
+        "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+        "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea"
+      ],
+      "aliases": [
+        {
+          "id": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea",
+          "name": "wafsg-ResourceGroupsGovernancePolicies"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+          "changedFields": []
+        },
+        {
+          "id": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-RoleBasedAccessControlResourceGroups",
+          "title": "Create guardrails: Create budgets based on subscriptions and resource groups. Use governance policies to restrict resource types, configurations, and locations. Additionally, use role-based access control (RBAC) to block actions that can lead to overspending.",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-files.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.storage/storageaccounts"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-RoleBasedAccessControlResourceGroups.yaml"
+        },
+        {
+          "name": "wafsg-ResourceGroupsGovernancePolicies",
+          "title": "Create guardrails: Create budgets based on subscriptions and resource groups. Use governance policies to restrict resource types, configurations, and locations. Additionally, use RBAC to block actions that can lead to overspending.",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-blob-storage.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.storage/storageaccounts"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-ResourceGroupsGovernancePolicies.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "title": [
+          {
+            "id": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+            "value": "Create guardrails: Create budgets based on subscriptions and resource groups. Use governance policies to restrict resource types, configurations, and locations. Additionally, use role-based access control (RBAC) to block actions that can lead to overspending."
+          },
+          {
+            "id": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea",
+            "value": "Create guardrails: Create budgets based on subscriptions and resource groups. Use governance policies to restrict resource types, configurations, and locations. Additionally, use RBAC to block actions that can lead to overspending."
+          }
+        ],
+        "source": [
+          {
+            "id": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-files.md",
+              "timestamp": "July 24, 2024"
+            }
+          },
+          {
+            "id": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-blob-storage.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+            "value": {
+              "guid": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d"
+            }
+          },
+          {
+            "id": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea",
+            "value": {
+              "guid": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea"
+            }
+          }
+        ]
+      },
+      "decision": "applied_cost_stage",
+      "mergeApplied": true,
+      "technicalBlockers": [],
+      "rationale": "Files and Blob guides still prescribe the same subscription/resource-group budgets, configuration/location policies and RBAC cost guardrails. Expanding the RBAC acronym does not alter the requirement.",
+      "requiredPreservation": [
+        "Keep chosen canonical GUID and every proposed obsolete ID/name/source/label alias.",
+        "Retain the only nonempty original description, if any, verbatim; no description rewrite required.",
+        "Keep empty queries and identical unknown automation; no ARG query or validation claim added.",
+        "Preserve differing upstream source file/timestamp information through aliases and durable source evidence."
+      ],
+      "decisionAtReadOnlyReview": "still_safe_proposal",
+      "appliedTransactionReport": "cost-alias-migration.json",
+      "coordinationRequirementAtReview": "Read-only follow-up: do not apply until parent coordinates Cost manifest/test exact counts and explicitly approves this proposal.",
+      "coordinationStatus": "Parent approved; Cost apply agent completed the manifest."
+    },
+    {
+      "groupId": "confirmed-064",
+      "canonicalId": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+      "ids": [
+        "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+        "2d710fcf-b8bc-461d-81a1-895193ce91cc"
+      ],
+      "aliases": [
+        {
+          "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+          "name": "wafsg-ExpressrouteVirtualNetworkGatewaySize"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+          "changedFields": []
+        },
+        {
+          "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-ExpressrouteVirtualNetworkGatewaySizePreferredVirtualNetworkGatewaySku",
+          "title": "Determine the ExpressRoute virtual network gateway size",
+          "description": "ExpressRoute virtual network gateways are used to pass traffic into a virtual network over private peering. Review the performance and scale needs of your preferred Virtual Network Gateway SKU. Select the appropriate gateway SKU on your on-premises to Azure workload.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.network/expressroutecircuits"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "73967d95-39ff-47bb-b4f4-33ddade69d1f"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressrouteVirtualNetworkGatewaySizePreferredVirtualNetworkGatewaySku.yaml"
+        },
+        {
+          "name": "wafsg-ExpressrouteVirtualNetworkGatewaySize",
+          "title": "Determine the ExpressRoute virtual network gateway size required.",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-expressroute.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.network/expressroutecircuits"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "2d710fcf-b8bc-461d-81a1-895193ce91cc"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressrouteVirtualNetworkGatewaySize.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "title": [
+          {
+            "id": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+            "value": "Determine the ExpressRoute virtual network gateway size"
+          },
+          {
+            "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+            "value": "Determine the ExpressRoute virtual network gateway size required."
+          }
+        ],
+        "description": [
+          {
+            "id": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+            "value": "ExpressRoute virtual network gateways are used to pass traffic into a virtual network over private peering. Review the performance and scale needs of your preferred Virtual Network Gateway SKU. Select the appropriate gateway SKU on your on-premises to Azure workload."
+          },
+          {
+            "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+            "value": ""
+          }
+        ],
+        "source": [
+          {
+            "id": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+            "value": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            }
+          },
+          {
+            "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+            "value": {
+              "guid": "73967d95-39ff-47bb-b4f4-33ddade69d1f"
+            }
+          },
+          {
+            "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+            "value": {
+              "guid": "2d710fcf-b8bc-461d-81a1-895193ce91cc"
+            }
+          }
+        ]
+      },
+      "decision": "applied_cost_stage",
+      "mergeApplied": true,
+      "technicalBlockers": [],
+      "rationale": "Both still require choosing ExpressRoute virtual-network-gateway size from workload performance and scale. Preserve private-peering context and gateway-SKU guidance; title-only member adds no competing qualifier.",
+      "requiredPreservation": [
+        "Keep chosen canonical GUID and every proposed obsolete ID/name/source/label alias.",
+        "Retain the only nonempty original description, if any, verbatim; no description rewrite required.",
+        "Keep empty queries and identical unknown automation; no ARG query or validation claim added.",
+        "Preserve differing upstream source file/timestamp information through aliases and durable source evidence."
+      ],
+      "decisionAtReadOnlyReview": "still_safe_proposal",
+      "appliedTransactionReport": "cost-alias-migration.json",
+      "coordinationRequirementAtReview": "Read-only follow-up: do not apply until parent coordinates Cost manifest/test exact counts and explicitly approves this proposal.",
+      "coordinationStatus": "Parent approved; Cost apply agent completed the manifest."
+    },
+    {
+      "groupId": "confirmed-065",
+      "canonicalId": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+      "ids": [
+        "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+        "a36bac4f-bf10-44c6-a51e-0d845162b3af"
+      ],
+      "aliases": [
+        {
+          "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+          "name": "wafsg-ApplicationGatewayInstancesUse"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+          "changedFields": []
+        },
+        {
+          "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-ApplicationGatewayInstancesExtraneousCosts",
+          "title": "Stop Application Gateway instances when not in use",
+          "description": "You aren't billed when Application Gateway is in the stopped state. Continuously running Application Gateway instances can incur extraneous costs. Evaluate usage patterns and stop instances when you don't need them. For example, usage after business hours in Dev/Test environments is expected to be low.See these articles for information about how to stop and start instances.- Stop-AzApplicationGateway- Start-AzApplicationGateway",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayInstancesExtraneousCosts.yaml"
+        },
+        {
+          "name": "wafsg-ApplicationGatewayInstancesUse",
+          "title": "Stop Application Gateway instances that are not in use",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-application-gateway.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.network/applicationgateways"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "a36bac4f-bf10-44c6-a51e-0d845162b3af"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayInstancesUse.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "title": [
+          {
+            "id": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+            "value": "Stop Application Gateway instances when not in use"
+          },
+          {
+            "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+            "value": "Stop Application Gateway instances that are not in use"
+          }
+        ],
+        "description": [
+          {
+            "id": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+            "value": "You aren't billed when Application Gateway is in the stopped state. Continuously running Application Gateway instances can incur extraneous costs. Evaluate usage patterns and stop instances when you don't need them. For example, usage after business hours in Dev/Test environments is expected to be low.See these articles for information about how to stop and start instances.- Stop-AzApplicationGateway- Start-AzApplicationGateway"
+          },
+          {
+            "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+            "value": ""
+          }
+        ],
+        "source": [
+          {
+            "id": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+            "value": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            }
+          },
+          {
+            "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+            "value": {
+              "guid": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1"
+            }
+          },
+          {
+            "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+            "value": {
+              "guid": "a36bac4f-bf10-44c6-a51e-0d845162b3af"
+            }
+          }
+        ]
+      },
+      "decision": "applied_cost_stage",
+      "mergeApplied": true,
+      "technicalBlockers": [],
+      "rationale": "Both still require stopping unused Application Gateway instances after evaluating usage patterns. Preserve Dev/Test scheduling context and stop/start operation references. Duplicate confirmation does not independently certify the inherited billing statement.",
+      "requiredPreservation": [
+        "Keep chosen canonical GUID and every proposed obsolete ID/name/source/label alias.",
+        "Retain the only nonempty original description, if any, verbatim; no description rewrite required.",
+        "Keep empty queries and identical unknown automation; no ARG query or validation claim added.",
+        "Preserve differing upstream source file/timestamp information through aliases and durable source evidence."
+      ],
+      "decisionAtReadOnlyReview": "still_safe_proposal",
+      "appliedTransactionReport": "cost-alias-migration.json",
+      "coordinationRequirementAtReview": "Read-only follow-up: do not apply until parent coordinates Cost manifest/test exact counts and explicitly approves this proposal.",
+      "coordinationStatus": "Parent approved; Cost apply agent completed the manifest."
+    },
+    {
+      "groupId": "confirmed-067",
+      "canonicalId": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+      "ids": [
+        "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+        "271b6cfe-4507-4afa-a1e5-000e3be105ac"
+      ],
+      "aliases": [
+        {
+          "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+          "name": "wafsg-DeprovisionExpressrouteCircuitsUse"
+        }
+      ],
+      "changesSinceOriginalAudit": [
+        {
+          "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+          "changedFields": [
+            "title",
+            "description",
+            "queries",
+            "automation",
+            "provenance"
+          ]
+        },
+        {
+          "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+          "changedFields": []
+        }
+      ],
+      "currentEvidence": [
+        {
+          "name": "wafsg-ExpressrouteCircuitsUnnecessaryCost",
+          "title": "Retire unused ExpressRoute circuits and review residual gateway charges",
+          "description": "Investigate unprovisioned or no-longer-needed circuits with connectivity owners and the service provider. Validate redundancy, migrations and recovery plans, then follow the supported provider deprovisioning and Azure deletion process. Review dependent gateways and remaining provider/port charges separately.",
+          "source": {
+            "type": "wafsg",
+            "file": "./checklists-ext/wafsg_checklist.en.json"
+          },
+          "resourceTypes": [
+            "microsoft.network/expressroutecircuits"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "c36e0c83-11b4-409a-a4a6-2118b52a380f"
+          },
+          "links": [],
+          "queries": {
+            "arg": "Resources\n| where type =~ 'microsoft.network/expressroutecircuits'\n| where properties.serviceProviderProvisioningState == 'NotProvisioned'\n| project id, name, subscriptionId, resourceGroup, location, sku,\n    peeringLocation = tostring(properties.serviceProviderProperties.peeringLocation),\n    bandwidthMbps = tolong(properties.serviceProviderProperties.bandwidthInMbps)"
+          },
+          "schemaVersion": 1,
+          "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+          "services": [],
+          "automation": {
+            "status": "query_available",
+            "validatedAt": null,
+            "notes": "Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.\n\nOnly the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.\n\nNotProvisioned circuit candidates; this is not a measure of idle time or traffic.\n\nNo live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.\n\nRequired scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.\n\nCaveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Pending provider activation or approved standby can explain the state. Follow provider deprovisioning requirements and confirm dependent gateway/connection cleanup separately.",
+            "resultSemantics": "inventory"
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": [
+              {
+                "url": "https://learn.microsoft.com/azure/expressroute/plan-manage-cost",
+                "title": "Plan and manage costs for Azure ExpressRoute",
+                "accessedAt": "2026-09-11"
+              },
+              {
+                "url": "https://learn.microsoft.com/cloud-computing/finops/best-practices/networking",
+                "title": "FinOps best practices for Networking",
+                "accessedAt": "2026-09-11"
+              },
+              {
+                "url": "https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language",
+                "title": "Understanding the Azure Resource Graph query language",
+                "accessedAt": "2026-09-11"
+              }
+            ]
+          },
+          "corpus_file": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressrouteCircuitsUnnecessaryCost.yaml"
+        },
+        {
+          "name": "wafsg-DeprovisionExpressrouteCircuitsUse",
+          "title": "Deprovision ExpressRoute circuits no longer in use.",
+          "description": "",
+          "source": {
+            "type": "wafsg",
+            "file": "well-architected/service-guides/azure-expressroute.md",
+            "timestamp": "July 24, 2024"
+          },
+          "resourceTypes": [
+            "microsoft.network/expressroutecircuits"
+          ],
+          "waf": "Cost",
+          "severity": 1,
+          "labels": {
+            "guid": "271b6cfe-4507-4afa-a1e5-000e3be105ac"
+          },
+          "links": [],
+          "queries": {},
+          "schemaVersion": 1,
+          "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+          "services": [],
+          "automation": {
+            "status": "unknown",
+            "validatedAt": null
+          },
+          "provenance": {
+            "upstreamRevision": null,
+            "lastReviewed": null,
+            "sources": []
+          },
+          "corpus_file": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-DeprovisionExpressrouteCircuitsUse.yaml"
+        }
+      ],
+      "observedDifferences": {
+        "title": [
+          {
+            "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+            "value": "Retire unused ExpressRoute circuits and review residual gateway charges"
+          },
+          {
+            "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+            "value": "Deprovision ExpressRoute circuits no longer in use."
+          }
+        ],
+        "description": [
+          {
+            "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+            "value": "Investigate unprovisioned or no-longer-needed circuits with connectivity owners and the service provider. Validate redundancy, migrations and recovery plans, then follow the supported provider deprovisioning and Azure deletion process. Review dependent gateways and remaining provider/port charges separately."
+          },
+          {
+            "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+            "value": ""
+          }
+        ],
+        "source": [
+          {
+            "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+            "value": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            }
+          },
+          {
+            "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+            "value": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            }
+          }
+        ],
+        "labels": [
+          {
+            "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+            "value": {
+              "guid": "c36e0c83-11b4-409a-a4a6-2118b52a380f"
+            }
+          },
+          {
+            "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+            "value": {
+              "guid": "271b6cfe-4507-4afa-a1e5-000e3be105ac"
+            }
+          }
+        ],
+        "queries": [
+          {
+            "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+            "value": {
+              "arg": "Resources\n| where type =~ 'microsoft.network/expressroutecircuits'\n| where properties.serviceProviderProvisioningState == 'NotProvisioned'\n| project id, name, subscriptionId, resourceGroup, location, sku,\n    peeringLocation = tostring(properties.serviceProviderProperties.peeringLocation),\n    bandwidthMbps = tolong(properties.serviceProviderProperties.bandwidthInMbps)"
+            }
+          },
+          {
+            "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+            "value": {}
+          }
+        ],
+        "automation": [
+          {
+            "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+            "value": {
+              "status": "query_available",
+              "validatedAt": null,
+              "notes": "Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.\n\nOnly the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.\n\nNotProvisioned circuit candidates; this is not a measure of idle time or traffic.\n\nNo live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.\n\nRequired scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.\n\nCaveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Pending provider activation or approved standby can explain the state. Follow provider deprovisioning requirements and confirm dependent gateway/connection cleanup separately.",
+              "resultSemantics": "inventory"
+            }
+          },
+          {
+            "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+            "value": {
+              "status": "unknown",
+              "validatedAt": null
+            }
+          }
+        ],
+        "provenance": [
+          {
+            "id": "c36e0c83-11b4-409a-a4a6-2118b52a380f",
+            "value": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": [
+                {
+                  "url": "https://learn.microsoft.com/azure/expressroute/plan-manage-cost",
+                  "title": "Plan and manage costs for Azure ExpressRoute",
+                  "accessedAt": "2026-09-11"
+                },
+                {
+                  "url": "https://learn.microsoft.com/cloud-computing/finops/best-practices/networking",
+                  "title": "FinOps best practices for Networking",
+                  "accessedAt": "2026-09-11"
+                },
+                {
+                  "url": "https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language",
+                  "title": "Understanding the Azure Resource Graph query language",
+                  "accessedAt": "2026-09-11"
+                }
+              ]
+            }
+          },
+          {
+            "id": "271b6cfe-4507-4afa-a1e5-000e3be105ac",
+            "value": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ]
+      },
+      "decision": "deferred_technical",
+      "mergeApplied": false,
+      "technicalBlockers": [
+        "Guidance expanded during refresh: canonical requires retirement review plus dependent-gateway and remaining provider/port-charge review, redundancy/migration/recovery checks and provider coordination. Other record retains only generic unused-circuit deprovisioning.",
+        "New ARG query selects serviceProviderProvisioningState == NotProvisioned, not low traffic, idle duration or every no-longer-needed circuit. Pending activation/approved standby can satisfy this predicate without implying waste.",
+        "Automation differs: query_available/resultSemantics=inventory with explicit human-review/scope/relationship caveats versus unknown/no query. A common resource type does not make the detection contract interchangeable.",
+        "Preserve new ExpressRoute cost-management, FinOps and ARG provenance and provider-deprovisioning/Azure-deletion sequence. Merge requires deliberate guidance and automation reconciliation, not alias-only deduplication."
+      ],
+      "requiredResolution": "Keep both records distinct until an author decides whether general versus narrower/expanded controls should remain separate and explicitly reconciles query/automation contracts. Do not automatically union queries or erase new safeguards.",
+      "finalDisposition": "deferred_technical"
+    }
+  ],
+  "safeManifest": "post-cost-safe-merge-manifest.json",
+  "safeManifestDryRun": {
+    "mode": "dry-run",
+    "before": 2014,
+    "after": 2005,
+    "retired": 9,
+    "groups": [
+      {
+        "canonicalId": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+        "retiredIds": [
+          "96bcda1b-240a-4d4b-93fa-6872b549d711"
+        ],
+        "reason": "Both still require Application Gateway scale-in and scale-out policies; preserve capacity-spike and instance-sizing explanation. Same service applicability, WAF/severity, empty query and unknown automation.",
+        "beforeContentHash": "sha256:3ca0e616e3e9e36c545d04cca61b205ccd9b026783f25c0ff2c20a77ec6ad1ba",
+        "afterContentHash": "sha256:34988998c341e44140832357d21bfa93c5244a1542c5b3be21f43504677245b7",
+        "aliases": [
+          {
+            "id": "96bcda1b-240a-4d4b-93fa-6872b549d711",
+            "name": "wafsg-ScalePolicy",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "96bcda1b-240a-4d4b-93fa-6872b549d711"
+            },
+            "corpusFile": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ScalePolicy.yaml"
+          }
+        ],
+        "originalRecommendations": [
+          {
+            "name": "wafsg-ApplicationGatewayInstanceCountAzureApplicationGateway",
+            "title": "Have a scale-in and scale-out policy",
+            "description": "A scale-out policy ensures that there will be enough instances to handle incoming traffic and spikes. Also, have a scale-in policy that makes sure the number of instances are reduced when demand drops. Consider the choice of instance size. The size can significantly impact the cost. Some considerations are described in the Estimate the Application Gateway instance count.For more information, see What is Azure Application Gateway v2?",
+            "source": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            },
+            "resourceTypes": [
+              "microsoft.network/applicationgateways"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "d0c4b44f-7b43-428c-93f2-dedd7bf00799"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          },
+          {
+            "name": "wafsg-ScalePolicy",
+            "title": "Have a scale-in and scale-out policy",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.network/applicationgateways"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "96bcda1b-240a-4d4b-93fa-6872b549d711"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "96bcda1b-240a-4d4b-93fa-6872b549d711",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ],
+        "originalFiles": [
+          {
+            "id": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+            "path": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayInstanceCountAzureApplicationGateway.yaml",
+            "sha256": "8cba6b572bfc26220b94bbee5ea9d650594b67ccdb6ab4ceeba75b2f3ca4c8b0"
+          },
+          {
+            "id": "96bcda1b-240a-4d4b-93fa-6872b549d711",
+            "path": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ScalePolicy.yaml",
+            "sha256": "bd7994ee3b0f55e6826e0819d6cf3f7a190335d7f2c6b9e621b2156e1dd4ba67"
+          }
+        ]
+      },
+      {
+        "canonicalId": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+        "retiredIds": [
+          "30cbe437-b17d-45ad-a42e-a26bef6f4b77"
+        ],
+        "reason": "Both still require Application Gateway pricing familiarization. The only nonempty description supplies pricing calculator and capacity/performance sizing details, which survive unchanged.",
+        "beforeContentHash": "sha256:27743e09ddec762be5a7c0330befdba4630b355134aef1a54008ebd7711cd6ea",
+        "afterContentHash": "sha256:1edf96bfe110c00c17448d8758b4300d9c4807bb7394e1f2d9ab46f40fdfb31f",
+        "aliases": [
+          {
+            "id": "30cbe437-b17d-45ad-a42e-a26bef6f4b77",
+            "name": "wafsg-ApplicationGatewayPricing",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "30cbe437-b17d-45ad-a42e-a26bef6f4b77"
+            },
+            "corpusFile": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayPricing.yaml"
+          }
+        ],
+        "originalRecommendations": [
+          {
+            "name": "wafsg-AzureApplicationGatewayWebApplicationFirewall",
+            "title": "Familiarize yourself with Application Gateway pricing",
+            "description": "For information about Application Gateway pricing, see Understanding Pricing for Azure Application Gateway and Web Application Firewall. You can also leverage the Pricing calculator.Ensure that the options are adequately sized to meet the capacity demand and deliver expected performance without wasting resources.",
+            "source": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            },
+            "resourceTypes": [
+              "microsoft.network/applicationgateways"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "6f1432ef-61d2-4037-8f85-58e005d16b8c"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          },
+          {
+            "name": "wafsg-ApplicationGatewayPricing",
+            "title": "Familiarize yourself with Application Gateway pricing",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.network/applicationgateways"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "30cbe437-b17d-45ad-a42e-a26bef6f4b77"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "30cbe437-b17d-45ad-a42e-a26bef6f4b77",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ],
+        "originalFiles": [
+          {
+            "id": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+            "path": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-AzureApplicationGatewayWebApplicationFirewall.yaml",
+            "sha256": "41e1954b743e0a17b25da4b41ca83f655626f2f6b63e84aa89853682a8bedd01"
+          },
+          {
+            "id": "30cbe437-b17d-45ad-a42e-a26bef6f4b77",
+            "path": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayPricing.yaml",
+            "sha256": "c708883280e7470e6970ccac412324f9fd9190ac36d5a6b45571e63c1b83226c"
+          }
+        ]
+      },
+      {
+        "canonicalId": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+        "retiredIds": [
+          "0ce550b6-f2ed-428c-b8c2-b224c065a0db"
+        ],
+        "reason": "Both still require Application Gateway consumption/capacity-cost analysis. Preserve Estimated Billed, Fixed Billable and Current Capacity Units plus bandwidth-cost detail; no competing query or interpretation.",
+        "beforeContentHash": "sha256:81dde2b5f4cd4077aa50747664bc7d1b9e65f0dc2f37038b5482e26bb546f1de",
+        "afterContentHash": "sha256:28fb1e1b23acbcd78865b2920101f7be9d46e8aa16cab23d276475a89870c8b2",
+        "aliases": [
+          {
+            "id": "0ce550b6-f2ed-428c-b8c2-b224c065a0db",
+            "name": "wafsg-ConsumptionMetricsDifferentParameters",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "0ce550b6-f2ed-428c-b8c2-b224c065a0db"
+            },
+            "corpusFile": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ConsumptionMetricsDifferentParameters.yaml"
+          }
+        ],
+        "originalRecommendations": [
+          {
+            "name": "wafsg-CurrentCapacityUnitsforMicrosoftCostManagement",
+            "title": "Review consumption metrics across different parameters",
+            "description": "You're billed based on metered instances of Application Gateway based on the metrics tracked by Azure. Evaluate the various metrics and capacity units and determine the cost drivers. For more information, see Microsoft Cost Management and Billing. The following metrics are key for Application Gateway. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic.- Estimated Billed Capacity Units- Fixed Billable Capacity Units- Current Capacity UnitsFor more information, see Application Gateway metrics.Make sure you account for bandwidth costs.",
+            "source": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            },
+            "resourceTypes": [
+              "microsoft.network/applicationgateways"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "ac8bb190-71ba-48ec-9fef-351c1cd5501f"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          },
+          {
+            "name": "wafsg-ConsumptionMetricsDifferentParameters",
+            "title": "Review consumption metrics across different parameters",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.network/applicationgateways"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "0ce550b6-f2ed-428c-b8c2-b224c065a0db"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "0ce550b6-f2ed-428c-b8c2-b224c065a0db",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ],
+        "originalFiles": [
+          {
+            "id": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+            "path": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-CurrentCapacityUnitsforMicrosoftCostManagement.yaml",
+            "sha256": "3ff1bdc6479b57d8119a5173a726eb8cc6c2898920c794e79d9cb8363d3a4503"
+          },
+          {
+            "id": "0ce550b6-f2ed-428c-b8c2-b224c065a0db",
+            "path": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ConsumptionMetricsDifferentParameters.yaml",
+            "sha256": "540a8333d8324fa9dba66a25fe721df457f04aa9b41f41e2213896c2e725fc0e"
+          }
+        ]
+      },
+      {
+        "canonicalId": "edd459fa-3105-4a03-b009-4f983d23da5a",
+        "retiredIds": [
+          "7327aac3-008f-4878-bf49-a6c3f76746a1"
+        ],
+        "reason": "Both still require ExpressRoute cost monitoring and budget alerts; retain spending-anomaly and overspending-risk description. Scope, severity and automation are identical.",
+        "beforeContentHash": "sha256:daacda7db19199774a77314d1da9a4c61f8ace769396ac0e4788d3e127cbe006",
+        "afterContentHash": "sha256:2649a8bdb444af9f5ce5637534b2e9735aff9806d03a52e68681e8d279bdc6bb",
+        "aliases": [
+          {
+            "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+            "name": "wafsg-BudgetAlertsCost",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "7327aac3-008f-4878-bf49-a6c3f76746a1"
+            },
+            "corpusFile": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-BudgetAlertsCost.yaml"
+          }
+        ],
+        "originalRecommendations": [
+          {
+            "name": "wafsg-MonitoringExpressrouteCostsExpressrouteCircuit",
+            "title": "Monitor cost and create budget alerts",
+            "description": "Monitor the cost of your ExpressRoute circuit and create alerts for spending anomalies and overspending risks. For more information, see Monitoring ExpressRoute costs.",
+            "source": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            },
+            "resourceTypes": [
+              "microsoft.network/expressroutecircuits"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "edd459fa-3105-4a03-b009-4f983d23da5a"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "edd459fa-3105-4a03-b009-4f983d23da5a",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          },
+          {
+            "name": "wafsg-BudgetAlertsCost",
+            "title": "Monitor cost and create budget alerts.",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.network/expressroutecircuits"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "7327aac3-008f-4878-bf49-a6c3f76746a1"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ],
+        "originalFiles": [
+          {
+            "id": "edd459fa-3105-4a03-b009-4f983d23da5a",
+            "path": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-MonitoringExpressrouteCostsExpressrouteCircuit.yaml",
+            "sha256": "6c2346759ba89746f0694a7c9f2484f6a76b91ac1a73728f2476e707c34e23f8"
+          },
+          {
+            "id": "7327aac3-008f-4878-bf49-a6c3f76746a1",
+            "path": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-BudgetAlertsCost.yaml",
+            "sha256": "6db27880105cecb7fb829401e00cf355afd041eb08d0f2b8cece47c8f2830d1b"
+          }
+        ]
+      },
+      {
+        "canonicalId": "92eec823-61dd-486c-b46e-0339fc02987e",
+        "retiredIds": [
+          "96599299-4653-4e94-989b-8c7fe64cb2bd"
+        ],
+        "reason": "Both still require ExpressRoute pricing familiarization; retain calculator, capacity-demand sizing and performance/cost balancing details. No different licensing or billing scope is introduced.",
+        "beforeContentHash": "sha256:9e8e2d4ec762ac126b08d8343cdd6a810b2608f143cdddea1161c8934ded8aec",
+        "afterContentHash": "sha256:f04424f67aef0155a533795fd79b17f9504ddc85e5188a54f1edd8ff03223364",
+        "aliases": [
+          {
+            "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+            "name": "wafsg-ExpressroutePricing",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "96599299-4653-4e94-989b-8c7fe64cb2bd"
+            },
+            "corpusFile": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressroutePricing.yaml"
+          }
+        ],
+        "originalRecommendations": [
+          {
+            "name": "wafsg-ExpressroutePricingUnderstandPricing",
+            "title": "Familiarize yourself with ExpressRoute pricing",
+            "description": "For information about ExpressRoute pricing, see Understand pricing for Azure ExpressRoute. You can also use the Pricing calculator.Ensure that the options are adequately sized to meet the capacity demand and deliver expected performance without wasting resources.",
+            "source": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            },
+            "resourceTypes": [
+              "microsoft.network/expressroutecircuits"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "92eec823-61dd-486c-b46e-0339fc02987e"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "92eec823-61dd-486c-b46e-0339fc02987e",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          },
+          {
+            "name": "wafsg-ExpressroutePricing",
+            "title": "Familiarize yourself with ExpressRoute pricing.",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.network/expressroutecircuits"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "96599299-4653-4e94-989b-8c7fe64cb2bd"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ],
+        "originalFiles": [
+          {
+            "id": "92eec823-61dd-486c-b46e-0339fc02987e",
+            "path": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressroutePricingUnderstandPricing.yaml",
+            "sha256": "5a41bcb7a8bba2b2a9a4de48e872b5309e4be722e7fc815a146b50fdd4ec4d56"
+          },
+          {
+            "id": "96599299-4653-4e94-989b-8c7fe64cb2bd",
+            "path": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressroutePricing.yaml",
+            "sha256": "a720ec87715e94df6440bd514e497555dbc30ccfa405d8a48409ad67f20675e7"
+          }
+        ]
+      },
+      {
+        "canonicalId": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+        "retiredIds": [
+          "5473960a-7ac3-44a0-8d01-695132b782cd"
+        ],
+        "reason": "Files and Blob guides still repeat the same account-level cost-versus-budget/forecast and export/Excel/Power BI analysis requirement. Only phrasing differs; no Files/Blob-specific feature or automation condition.",
+        "beforeContentHash": "sha256:5238a123cd2e7470066537068cb214d25477dea1a7c7cc632d22d76a92779ad3",
+        "afterContentHash": "sha256:26a388a9e6f2dfd56e6c811305b79d0a3ac9a1718e59befd8cb87718324211a8",
+        "aliases": [
+          {
+            "id": "5473960a-7ac3-44a0-8d01-695132b782cd",
+            "name": "wafsg-CostAnalysisPaneAzurePortal-1",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-files.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "5473960a-7ac3-44a0-8d01-695132b782cd"
+            },
+            "corpusFile": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-CostAnalysisPaneAzurePortal-1.yaml"
+          }
+        ],
+        "originalRecommendations": [
+          {
+            "name": "wafsg-CostAnalysisPaneAzurePortal",
+            "title": "Monitor costs: Ensure costs stay within budgets, compare costs against forecasts, and see where overspending occurs. You can use the cost analysis pane in the Azure portal to monitor costs. You also can export cost data to a storage account and analyze that data by using Excel or Power BI.",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-blob-storage.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.storage/storageaccounts"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "18f1f2f6-de79-405d-b7a1-65fb571c0493"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          },
+          {
+            "name": "wafsg-CostAnalysisPaneAzurePortal-1",
+            "title": "Monitor costs: Ensure costs stay within budgets, compare costs against forecasts, and see where overspending occurs. You can use the cost analysis pane in the Azure portal to monitor costs. You can also export cost data to a storage account, and use Excel or Power BI to analyze that data.",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-files.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.storage/storageaccounts"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "5473960a-7ac3-44a0-8d01-695132b782cd"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "5473960a-7ac3-44a0-8d01-695132b782cd",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ],
+        "originalFiles": [
+          {
+            "id": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+            "path": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-CostAnalysisPaneAzurePortal.yaml",
+            "sha256": "f231f92a24f970d00c4f891cc742c89d2e6877ebbd94cf6e495253b80ad427ae"
+          },
+          {
+            "id": "5473960a-7ac3-44a0-8d01-695132b782cd",
+            "path": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-CostAnalysisPaneAzurePortal-1.yaml",
+            "sha256": "f82940d28e1386f4881eecd1f424fc114b6c3fc42ff7399a729dca0e93f4ad9f"
+          }
+        ]
+      },
+      {
+        "canonicalId": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+        "retiredIds": [
+          "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea"
+        ],
+        "reason": "Files and Blob guides still prescribe the same subscription/resource-group budgets, configuration/location policies and RBAC cost guardrails. Expanding the RBAC acronym does not alter the requirement.",
+        "beforeContentHash": "sha256:399958177dc4437cda133b793b5dc263e00146169c134122fdd847e76166a421",
+        "afterContentHash": "sha256:10e44731a53aded5c4eeaf7104b9eaf225af68cd8608ccda9825a4ae03192f66",
+        "aliases": [
+          {
+            "id": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea",
+            "name": "wafsg-ResourceGroupsGovernancePolicies",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-blob-storage.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea"
+            },
+            "corpusFile": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-ResourceGroupsGovernancePolicies.yaml"
+          }
+        ],
+        "originalRecommendations": [
+          {
+            "name": "wafsg-RoleBasedAccessControlResourceGroups",
+            "title": "Create guardrails: Create budgets based on subscriptions and resource groups. Use governance policies to restrict resource types, configurations, and locations. Additionally, use role-based access control (RBAC) to block actions that can lead to overspending.",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-files.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.storage/storageaccounts"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          },
+          {
+            "name": "wafsg-ResourceGroupsGovernancePolicies",
+            "title": "Create guardrails: Create budgets based on subscriptions and resource groups. Use governance policies to restrict resource types, configurations, and locations. Additionally, use RBAC to block actions that can lead to overspending.",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-blob-storage.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.storage/storageaccounts"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ],
+        "originalFiles": [
+          {
+            "id": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+            "path": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-RoleBasedAccessControlResourceGroups.yaml",
+            "sha256": "105c93aeeaa804b93d45f2701f6b885604c9ae203342b478a31406020a3b9d84"
+          },
+          {
+            "id": "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea",
+            "path": "Services/MicrosoftStorage-storageAccounts/Cost/wafsg-ResourceGroupsGovernancePolicies.yaml",
+            "sha256": "ef537934e4092103b880e7a1db556aab9fea72308dcb639975385236ded30555"
+          }
+        ]
+      },
+      {
+        "canonicalId": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+        "retiredIds": [
+          "2d710fcf-b8bc-461d-81a1-895193ce91cc"
+        ],
+        "reason": "Both still require choosing ExpressRoute virtual-network-gateway size from workload performance and scale. Preserve private-peering context and gateway-SKU guidance; title-only member adds no competing qualifier.",
+        "beforeContentHash": "sha256:8ac4aabeeabbe1d21d0b4f66b24ae1dc6931410181451da9218d7a55d924fd27",
+        "afterContentHash": "sha256:700fecdcda601a7626017b2bd901f370287303aca628c1b984a0c01c5d1dfbe8",
+        "aliases": [
+          {
+            "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+            "name": "wafsg-ExpressrouteVirtualNetworkGatewaySize",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "2d710fcf-b8bc-461d-81a1-895193ce91cc"
+            },
+            "corpusFile": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressrouteVirtualNetworkGatewaySize.yaml"
+          }
+        ],
+        "originalRecommendations": [
+          {
+            "name": "wafsg-ExpressrouteVirtualNetworkGatewaySizePreferredVirtualNetworkGatewaySku",
+            "title": "Determine the ExpressRoute virtual network gateway size",
+            "description": "ExpressRoute virtual network gateways are used to pass traffic into a virtual network over private peering. Review the performance and scale needs of your preferred Virtual Network Gateway SKU. Select the appropriate gateway SKU on your on-premises to Azure workload.",
+            "source": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            },
+            "resourceTypes": [
+              "microsoft.network/expressroutecircuits"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "73967d95-39ff-47bb-b4f4-33ddade69d1f"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          },
+          {
+            "name": "wafsg-ExpressrouteVirtualNetworkGatewaySize",
+            "title": "Determine the ExpressRoute virtual network gateway size required.",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-expressroute.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.network/expressroutecircuits"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "2d710fcf-b8bc-461d-81a1-895193ce91cc"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ],
+        "originalFiles": [
+          {
+            "id": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+            "path": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressrouteVirtualNetworkGatewaySizePreferredVirtualNetworkGatewaySku.yaml",
+            "sha256": "f2b6c7445dff6c3c05b7d8b2081cd86d04dbfb207cfc1988c2b236538a73e7ea"
+          },
+          {
+            "id": "2d710fcf-b8bc-461d-81a1-895193ce91cc",
+            "path": "Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressrouteVirtualNetworkGatewaySize.yaml",
+            "sha256": "46ff722e77557581949d2364f87c77f706e77d7d1a880746925b90f0a51172b8"
+          }
+        ]
+      },
+      {
+        "canonicalId": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+        "retiredIds": [
+          "a36bac4f-bf10-44c6-a51e-0d845162b3af"
+        ],
+        "reason": "Both still require stopping unused Application Gateway instances after evaluating usage patterns. Preserve Dev/Test scheduling context and stop/start operation references. Duplicate confirmation does not independently certify the inherited billing statement.",
+        "beforeContentHash": "sha256:98a6421933134ae501bdc03f094d9891d91755ea7946e1d52933fd6ecb3702f8",
+        "afterContentHash": "sha256:0a9faa2c4c2987ace0faf4bb83b8c5a756b3fa37a81b2a0bb850bf5a03505d3e",
+        "aliases": [
+          {
+            "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+            "name": "wafsg-ApplicationGatewayInstancesUse",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "labels": {
+              "guid": "a36bac4f-bf10-44c6-a51e-0d845162b3af"
+            },
+            "corpusFile": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayInstancesUse.yaml"
+          }
+        ],
+        "originalRecommendations": [
+          {
+            "name": "wafsg-ApplicationGatewayInstancesExtraneousCosts",
+            "title": "Stop Application Gateway instances when not in use",
+            "description": "You aren't billed when Application Gateway is in the stopped state. Continuously running Application Gateway instances can incur extraneous costs. Evaluate usage patterns and stop instances when you don't need them. For example, usage after business hours in Dev/Test environments is expected to be low.See these articles for information about how to stop and start instances.- Stop-AzApplicationGateway- Start-AzApplicationGateway",
+            "source": {
+              "type": "wafsg",
+              "file": "./checklists-ext/wafsg_checklist.en.json"
+            },
+            "resourceTypes": [
+              "microsoft.network/applicationgateways"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          },
+          {
+            "name": "wafsg-ApplicationGatewayInstancesUse",
+            "title": "Stop Application Gateway instances that are not in use",
+            "description": "",
+            "source": {
+              "type": "wafsg",
+              "file": "well-architected/service-guides/azure-application-gateway.md",
+              "timestamp": "July 24, 2024"
+            },
+            "resourceTypes": [
+              "microsoft.network/applicationgateways"
+            ],
+            "waf": "Cost",
+            "severity": 1,
+            "labels": {
+              "guid": "a36bac4f-bf10-44c6-a51e-0d845162b3af"
+            },
+            "links": [],
+            "queries": {},
+            "schemaVersion": 1,
+            "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+            "services": [],
+            "automation": {
+              "status": "unknown",
+              "validatedAt": null
+            },
+            "provenance": {
+              "upstreamRevision": null,
+              "lastReviewed": null,
+              "sources": []
+            }
+          }
+        ],
+        "originalFiles": [
+          {
+            "id": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+            "path": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayInstancesExtraneousCosts.yaml",
+            "sha256": "48d28ad241aa436f776e669251d8f32e807ef6b2c953aaa62135157174986091"
+          },
+          {
+            "id": "a36bac4f-bf10-44c6-a51e-0d845162b3af",
+            "path": "Services/microsoftnetwork-applicationGateways/Cost/wafsg-ApplicationGatewayInstancesUse.yaml",
+            "sha256": "1c6217943437003e5540147d4a9cb2bb9f67c7626e9a9a865d5f73a0ad2248d9"
+          }
+        ]
+      }
+    ]
+  },
+  "readOnlyEvidence": [
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-ApplicationGatewayInstanceCountAzureApplicationGateway.yaml",
+      "sha256BeforeAndAfter": "8cba6b572bfc26220b94bbee5ea9d650594b67ccdb6ab4ceeba75b2f3ca4c8b0"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-ScalePolicy.yaml",
+      "sha256BeforeAndAfter": "bd7994ee3b0f55e6826e0819d6cf3f7a190335d7f2c6b9e621b2156e1dd4ba67"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-ApplicationGatewayInstancesEmptyBackendPools.yaml",
+      "sha256BeforeAndAfter": "5e8e4e7980ea0f78cd8ab39a60025ef176ee3c8db57dc784d9d60f825fee6b19"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-UnderutilizedResources.yaml",
+      "sha256BeforeAndAfter": "7716a4cd0cd8341e1caba0a81b470f6cc4b9549e5f9502d83e7b11c5e6cce5f9"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-ApplicationGatewayPricing.yaml",
+      "sha256BeforeAndAfter": "c708883280e7470e6970ccac412324f9fd9190ac36d5a6b45571e63c1b83226c"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-AzureApplicationGatewayWebApplicationFirewall.yaml",
+      "sha256BeforeAndAfter": "41e1954b743e0a17b25da4b41ca83f655626f2f6b63e84aa89853682a8bedd01"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-ConsumptionMetricsDifferentParameters.yaml",
+      "sha256BeforeAndAfter": "540a8333d8324fa9dba66a25fe721df457f04aa9b41f41e2213896c2e725fc0e"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-CurrentCapacityUnitsforMicrosoftCostManagement.yaml",
+      "sha256BeforeAndAfter": "3ff1bdc6479b57d8119a5173a726eb8cc6c2898920c794e79d9cb8363d3a4503"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-expressRouteCircuits\\Cost\\wafsg-BudgetAlertsCost.yaml",
+      "sha256BeforeAndAfter": "6db27880105cecb7fb829401e00cf355afd041eb08d0f2b8cece47c8f2830d1b"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-expressRouteCircuits\\Cost\\wafsg-MonitoringExpressrouteCostsExpressrouteCircuit.yaml",
+      "sha256BeforeAndAfter": "6c2346759ba89746f0694a7c9f2484f6a76b91ac1a73728f2476e707c34e23f8"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-expressRouteCircuits\\Cost\\wafsg-ExpressroutePricing.yaml",
+      "sha256BeforeAndAfter": "a720ec87715e94df6440bd514e497555dbc30ccfa405d8a48409ad67f20675e7"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-expressRouteCircuits\\Cost\\wafsg-ExpressroutePricingUnderstandPricing.yaml",
+      "sha256BeforeAndAfter": "5a41bcb7a8bba2b2a9a4de48e872b5309e4be722e7fc815a146b50fdd4ec4d56"
+    },
+    {
+      "path": "v2\\recos\\Services\\MicrosoftStorage-storageAccounts\\Cost\\wafsg-CostAnalysisPaneAzurePortal-1.yaml",
+      "sha256BeforeAndAfter": "f82940d28e1386f4881eecd1f424fc114b6c3fc42ff7399a729dca0e93f4ad9f"
+    },
+    {
+      "path": "v2\\recos\\Services\\MicrosoftStorage-storageAccounts\\Cost\\wafsg-CostAnalysisPaneAzurePortal.yaml",
+      "sha256BeforeAndAfter": "f231f92a24f970d00c4f891cc742c89d2e6877ebbd94cf6e495253b80ad427ae"
+    },
+    {
+      "path": "v2\\recos\\Services\\MicrosoftStorage-storageAccounts\\Cost\\wafsg-ResourceGroupsGovernancePolicies.yaml",
+      "sha256BeforeAndAfter": "ef537934e4092103b880e7a1db556aab9fea72308dcb639975385236ded30555"
+    },
+    {
+      "path": "v2\\recos\\Services\\MicrosoftStorage-storageAccounts\\Cost\\wafsg-RoleBasedAccessControlResourceGroups.yaml",
+      "sha256BeforeAndAfter": "105c93aeeaa804b93d45f2701f6b885604c9ae203342b478a31406020a3b9d84"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-expressRouteCircuits\\Cost\\wafsg-ExpressrouteVirtualNetworkGatewaySize.yaml",
+      "sha256BeforeAndAfter": "46ff722e77557581949d2364f87c77f706e77d7d1a880746925b90f0a51172b8"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-expressRouteCircuits\\Cost\\wafsg-ExpressrouteVirtualNetworkGatewaySizePreferredVirtualNetworkGatewaySku.yaml",
+      "sha256BeforeAndAfter": "f2b6c7445dff6c3c05b7d8b2081cd86d04dbfb207cfc1988c2b236538a73e7ea"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-ApplicationGatewayInstancesExtraneousCosts.yaml",
+      "sha256BeforeAndAfter": "48d28ad241aa436f776e669251d8f32e807ef6b2c953aaa62135157174986091"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-applicationGateways\\Cost\\wafsg-ApplicationGatewayInstancesUse.yaml",
+      "sha256BeforeAndAfter": "1c6217943437003e5540147d4a9cb2bb9f67c7626e9a9a865d5f73a0ad2248d9"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-expressRouteCircuits\\Cost\\wafsg-DeprovisionExpressrouteCircuitsUse.yaml",
+      "sha256BeforeAndAfter": "462988160a1ab630ca44d4c454819bd549eff0c9924942db58f48c4df7fd0efb"
+    },
+    {
+      "path": "v2\\recos\\Services\\microsoftnetwork-expressRouteCircuits\\Cost\\wafsg-ExpressrouteCircuitsUnnecessaryCost.yaml",
+      "sha256BeforeAndAfter": "8af2ed3e39f3dcd3eac03778ab12d0a2fdefde32e9998bc1ba529916819a45a3"
+    }
+  ],
+  "limitations": "No live queries, source fetching, new source verification or YAML mutations. Safe proposals establish merge equivalence and metadata preservation, not fresh certification of unchanged technical/billing claims.",
+  "summaryScope": "Historical read-only follow-up before the parent-approved Cost application. Use finalStageSummary for subsequent execution status.",
+  "status": "finalized_after_cost_application",
+  "finalStageSummary": {
+    "finalizedUtc": "2026-09-11T17:32:54.879222+00:00",
+    "reviewedCostGroups": 11,
+    "appliedCostGroups": 9,
+    "costAliasesPreserved": 9,
+    "technicalDeferralGroups": 2,
+    "pendingSafeMergeProposals": 0,
+    "appliedTransactionReport": "cost-alias-migration.json",
+    "appliedTransactionReportSha256": "2e0be6b8b4c96a9a83cdc1ff5bafe16bb907682da689969e1f968fc0f4158c6e",
+    "aggregateAppliedGroups": 54,
+    "aggregateAliasesPreserved": 55,
+    "aggregateTechnicalDeferrals": 17,
+    "finalCanonicalRecommendations": 2005
+  },
+  "finalValidation": {
+    "validatedUtc": "2026-09-11T17:32:54.879222+00:00",
+    "fullCorpusAndChecklistSchemaValidationPassed": true,
+    "recommendationsValidated": 2005,
+    "checklistsValidated": 9,
+    "originalGuidLookupsChecked": 2052,
+    "originalNameLookupsChecked": 2052,
+    "allOriginalIdentitiesResolve": true,
+    "retiredAliasesChecked": 55,
+    "aliasSourcesLabelsNamesPreserved": true,
+    "retiredFilesAbsent": true,
+    "mergeOwnedMembershipPreservedForAllChecklists": true,
+    "intentionalCostScopeMembershipChanges": 1,
+    "costPrimaryArgAssignments": 31,
+    "finalCorpusContentHash": "sha256:813606c7b45c0cb5fc6a6e510fe1bc68671fa9be857ed9718c311851df2c003c"
+  },
+  "readOnlyEvidenceScope": "Historical pre-application byte evidence; retired paths may no longer exist after the approved Cost merge. Actual write snapshots/hashes are in cost-alias-migration.json."
+}

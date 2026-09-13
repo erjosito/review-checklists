@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/logic-apps/single-tenant-overview-compare
 queries: {}
+schemaVersion: 1
+id: cb26b2ba-a9db-45d1-8260-d9c6ec1447d9
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

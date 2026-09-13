@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/paths/secure-networking-infrastructure/
 queries: {}
+schemaVersion: 1
+id: d8a03e97-7784-424d-9167-85d6fa96c96a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

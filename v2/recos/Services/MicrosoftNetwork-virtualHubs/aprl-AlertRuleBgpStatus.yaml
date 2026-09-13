@@ -1,16 +1,49 @@
 name: aprl-AlertRuleBgpStatus
 title: Monitor health for v-Hubs
-description: Set up monitoring and alerts for v-Hubs. Create alert rule for ensuring
-  promptly response to changes in BGP status and Data processed by v-Hubs.
+description: Set up monitoring and alerts for v-Hubs. Create alert rule for ensuring promptly response
+  to changes in BGP status and Data processed by v-Hubs.
 source:
   type: aprl
   file: azure-resources/Network/virtualHubs/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/virtualHubs
+- microsoft.network/virtualhubs
 severity: 1
 labels:
   guid: 30ec8a5e-46de-4323-87e9-a7c56b72813b
   area: Monitoring and Alerting
 links: []
-queries: {}
+queries:
+  arg: ''
+schemaVersion: 1
+id: 30ec8a5e-46de-4323-87e9-a7c56b72813b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualHubs/recommendations.yaml
+    title: 'APRL 30ec8a5e-46de-4323-87e9-a7c56b72813b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 30ec8a5e-46de-4323-87e9-a7c56b72813b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualHubs/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b50d562c3f8f5a0ed31b1247ba32aa8c318c50320e8d79b6644dc7b92c75ff8c
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Represented comment-only/empty
+      ARG honestly as manual or candidate automation. Current upstream ARG differs from the frozen query;
+      the old executable body is retained pending semantic/edge-case validation, not silently replaced
+      by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/event-hubs/compare-tiers
 queries: {}
+schemaVersion: 1
+id: 20b56c56-ad58-4519-8f82-735c586bb281
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

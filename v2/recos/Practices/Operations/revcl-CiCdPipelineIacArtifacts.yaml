@@ -1,6 +1,6 @@
 name: revcl-CiCdPipelineIacArtifacts
-title: Use a CI/CD pipeline to deploy IaC artifacts and ensure the quality of your
-  deployment and Azure environments.
+title: Use a CI/CD pipeline to deploy IaC artifacts and ensure the quality of your deployment and Azure
+  environments.
 source:
   type: revcl
   file: ./checklists/alz_checklist.en.json
@@ -16,3 +16,37 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/considerations/infrastructure-as-code
 queries: {}
+schemaVersion: 1
+id: 165eb5e9-b434-448a-9e24-178632186212
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/infrastructure-as-code-design
+    title: Architecture strategies for using infrastructure as code
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/workload-supply-chain
+    title: Architecture strategies for designing a workload development supply chain
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments
+    title: Architecture strategies for safe deployment practices
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:06
+    coverage: partial
+    notes: Add quality gates and controlled artifact promotion to the existing CI/CD requirement. Narrow
+      control or service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/workload-supply-chain
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:2f826a2abaaf5f56cc1286cfc5f0126c6eb391f18d3aeee875fcfc0b95146cba
+description: Deploy version-controlled IaC through predictable CI/CD pipelines. Promote the same tested
+  artifacts across environments, with explicit parameters for intended differences. Require code review,
+  configuration/security checks, integration tests and release gates. Use small changes, staged exposure,
+  health checks and sufficient observation time; halt on degraded health and exercise rollback or roll-forward,
+  including stateful changes. Define emergency approval and follow-up rules rather than bypassing the
+  supply chain. Verify pipeline definitions and run evidence manually.

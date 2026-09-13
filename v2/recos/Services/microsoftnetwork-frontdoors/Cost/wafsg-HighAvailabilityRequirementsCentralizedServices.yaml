@@ -1,8 +1,7 @@
 name: wafsg-HighAvailabilityRequirementsCentralizedServices
-title: Consider using a shared instance that's provided by the organization. Costs
-  incurred from centralized services are shared between the workloads. However, consider
-  the tradeoff with reliability. For mission-critical applications that have high
-  availability requirements, we recommend an autonomous instance.
+title: Consider using a shared instance that's provided by the organization. Costs incurred from centralized
+  services are shared between the workloads. However, consider the tradeoff with reliability. For mission-critical
+  applications that have high availability requirements, we recommend an autonomous instance.
 description: ''
 source:
   type: wafsg
@@ -16,3 +15,26 @@ labels:
   guid: 78f09072-d08f-430c-9d24-6d3b938ecd14
 links: []
 queries: {}
+schemaVersion: 1
+id: 78f09072-d08f-430c-9d24-6d3b938ecd14
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/cost-optimization/checklist
+    title: Design review checklist for Cost Optimization
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-cost-checklist
+    recommendationId: CO:14
+    url: https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/consolidation
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:39bef6a97c6735ebcaa43fa971d2bf6ca1df82f9c0a3be8f377fae36e253aea2
+    notes: Shared Front Door and mission-critical isolation cover centralized-resource use; broader within-workload
+      density and responsibility consolidation are not fully represented. Source-text assessment, not
+      independent human approval or live Azure validation.

@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/spring-apps/overview
 queries: {}
+schemaVersion: 1
+id: dfcaffd1-d27c-4ef2-998d-64c1df3a7ac3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

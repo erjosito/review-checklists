@@ -20,3 +20,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/app-service/networking/nat-gateway-integration
 queries: {}
+schemaVersion: 1
+id: cda3b54e-b2eb-403d-b9a2-582718d2ddb1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

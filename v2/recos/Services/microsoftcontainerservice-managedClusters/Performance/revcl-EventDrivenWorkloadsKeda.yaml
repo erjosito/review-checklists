@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-functions/functions-kubernetes-keda
 queries: {}
+schemaVersion: 1
+id: a280dcf5-90ce-465d-b8e1-3f9ccbd46926
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

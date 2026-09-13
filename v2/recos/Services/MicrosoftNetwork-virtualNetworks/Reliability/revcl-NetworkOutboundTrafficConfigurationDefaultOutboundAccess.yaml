@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-network/ip-services/default-outbound-access
 queries: {}
+schemaVersion: 1
+id: b034c01e-110b-463a-b36e-e3346e57f225
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

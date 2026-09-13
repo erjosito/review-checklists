@@ -1,18 +1,49 @@
 name: aprl-SeparateStorageAccountSameOne
 title: Create a separate storage account for logs
-description: |-
-  Creating a separate storage account for logs and not using the same one for application data prevents logging activities from reducing application performance by ensuring that the resources dedicated to handling application data are not burdened by logging processes.
+description: Creating a separate storage account for logs and not using the same one for application data
+  prevents logging activities from reducing application performance by ensuring that the resources dedicated
+  to handling application data are not burdened by logging processes.
 source:
   type: aprl
   file: azure-resources/Web/sites/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/sites
+- microsoft.web/sites
 severity: 1
 labels:
   guid: 3f9ddb59-0bb3-4acb-9c9b-99aa1776f0ab
   area: Scalability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 3f9ddb59-0bb3-4acb-9c9b-99aa1776f0ab
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    title: 'APRL 3f9ddb59-0bb3-4acb-9c9b-99aa1776f0ab: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 3f9ddb59-0bb3-4acb-9c9b-99aa1776f0ab
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:61959b66239d879e8b7fbd5fdf9eb9e14a0a04fcb08f0d07aa7ef06774e40a74
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

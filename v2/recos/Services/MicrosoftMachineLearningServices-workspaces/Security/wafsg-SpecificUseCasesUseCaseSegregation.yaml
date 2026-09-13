@@ -17,3 +17,13 @@ labels:
   guid: 18119160-8531-45fb-b169-3e5488b9bd30
 links: []
 queries: {}
+schemaVersion: 1
+id: 18119160-8531-45fb-b169-3e5488b9bd30
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

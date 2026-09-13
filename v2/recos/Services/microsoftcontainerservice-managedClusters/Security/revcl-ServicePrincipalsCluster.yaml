@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/update-credentials
 queries: {}
+schemaVersion: 1
+id: b03dda6d-58d7-4c89-8ddb-107d5769ae66
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

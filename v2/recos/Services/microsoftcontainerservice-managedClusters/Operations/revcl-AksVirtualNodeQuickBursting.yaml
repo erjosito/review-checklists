@@ -1,5 +1,5 @@
 name: revcl-AksVirtualNodeQuickBursting
-title: Consider AKS virtual node for quick bursting
+title: Evaluate AKS virtual nodes for compatible burst workloads
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -12,7 +12,22 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/concepts-scale
-queries:
-  arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
-    = (isnotnull(properties.addonProfiles.aciConnectorLinux) and properties.addonProfiles.aciConnectorLinux.enabled==true)
-    | distinct id,compliant
+queries: {}
+schemaVersion: 1
+id: c755562f-2b4e-4456-9b4d-874a748b662e
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/aks/virtual-nodes
+    title: Use virtual nodes with Azure Kubernetes Service
+    accessedAt: '2026-09-11'
+description: Consider AKS virtual nodes only for compatible Linux workloads that benefit from rapid ACI-backed
+  bursting. Validate regional ACI availability, quotas, Azure CNI and subnet requirements, API-server
+  access, image authentication, storage and unsupported Kubernetes features before adoption. An enabled
+  add-on does not prove the workload is schedulable or that virtual nodes are required. Review deployment
+  manifests and a representative burst test manually.

@@ -15,3 +15,13 @@ labels:
   guid: caa13588-59c1-416a-8b81-4e1ce3d9b707
 links: []
 queries: {}
+schemaVersion: 1
+id: caa13588-59c1-416a-8b81-4e1ce3d9b707
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

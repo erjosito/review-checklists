@@ -1,7 +1,6 @@
 name: wafsg-DetailedCapacityPlanExerciseWorkloadArchitectures
-title: 'Cluster and workload architectures: Perform and iterate on a detailed capacity
-  plan exercise that includes SKU, autoscale settings, IP addressing, and failover
-  considerations.'
+title: 'Cluster and workload architectures: Perform and iterate on a detailed capacity plan exercise that
+  includes SKU, autoscale settings, IP addressing, and failover considerations.'
 description: ''
 source:
   type: wafsg
@@ -15,3 +14,22 @@ labels:
   guid: f527e0a1-3ba5-48d8-93db-07cf5ce42fdd
 links: []
 queries: {}
+schemaVersion: 1
+id: f527e0a1-3ba5-48d8-93db-07cf5ce42fdd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+  upstreamRecommendations:
+  - sourceId: waf-performance-checklist
+    recommendationId: PE:02
+    url: https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/capacity-planning
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:49ffb1f01ca9fc6666a61f1d6000628b4b4323f3f20274bb6110c2ad0a1e6840
+    notes: AKS capacity planning addresses SKU, autoscale, addressing and failover. It does not establish
+      workload-wide anticipation of seasonal/campaign/regulatory demand changes.

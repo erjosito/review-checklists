@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-private-endpoints
 queries: {}
+schemaVersion: 1
+id: f42d78e7-9d17-4a73-a22a-5a67e7a8ed4b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

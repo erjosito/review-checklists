@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/app-service/manage-disaster-recovery#recover-app-content-only
 queries: {}
+schemaVersion: 1
+id: bd2a865c-0835-4418-bb58-4df91a5a9b3f
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

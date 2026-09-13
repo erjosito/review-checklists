@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://github.com/Azure/fta-resiliencyplaybooks/blob/main/pass-foundations-playbooks-CosmosDB_v1.docx
 queries: {}
+schemaVersion: 1
+id: 43e52f47-22d9-428c-8b1c-d521e54a29a9
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

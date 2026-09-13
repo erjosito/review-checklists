@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region
 queries: {}
+schemaVersion: 1
+id: beae759e-4ddb-4326-bf26-47f87d3454b6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

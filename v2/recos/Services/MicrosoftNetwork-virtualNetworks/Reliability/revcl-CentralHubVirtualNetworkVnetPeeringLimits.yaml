@@ -18,3 +18,14 @@ queries:
   arg: resources | where type == 'microsoft.network/virtualnetworks' | mvexpand properties.virtualNetworkPeerings
     | summarize peeringcount = count() by id | extend compliant = (peeringcount <
     450) | distinct id,compliant
+schemaVersion: 1
+id: 0e7c28ec-9366-4572-83b0-f4664b1d944a
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

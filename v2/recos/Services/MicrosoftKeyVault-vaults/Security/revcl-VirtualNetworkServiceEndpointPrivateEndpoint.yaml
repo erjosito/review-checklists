@@ -1,6 +1,5 @@
 name: revcl-VirtualNetworkServiceEndpointPrivateEndpoint
-title: Enable firewall and virtual network service endpoint or private endpoint on
-  the vault to control access to the key vault.
+title: Restrict Key Vault network access and validate application connectivity and identity authorization.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -14,3 +13,34 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/best-practices
 queries: {}
+schemaVersion: 1
+id: cdb3751a-b2ab-413a-ba6e-55d7d8a2adb1
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/key-vault/general/secure-key-vault
+    title: Secure your Azure Key Vault
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:06
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/networking
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:14e3d82ed6eafa23e930d49272cb9ef06964e8e3768c39f709b07be256b1ee57
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.
+description: Prefer private endpoints with public network access disabled where the workload can support
+  that model. Otherwise constrain firewall and virtual-network access to approved callers, review any
+  trusted-service bypass, and consider Network Security Perimeter where applicable. Network isolation
+  does not replace authentication or data-plane authorization. Test DNS resolution and authorized application
+  paths without assuming that a resolvable public DNS name means the data plane is publicly accessible.

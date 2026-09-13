@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://sapit-forme-prod.authentication.eu11.hana.ondemand.com/login
 queries: {}
+schemaVersion: 1
+id: c027f893-f404-41a9-b33d-39d625a14964
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

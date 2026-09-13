@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/microsoft-defender-endpoint-mde-for-sap-applications-on-windows/ba-p/3912268
 queries: {}
+schemaVersion: 1
+id: a4777842-4d11-4678-9d2f-a56c56ad4840
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

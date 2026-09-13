@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "normalizedAt": "2026-09-12",
+  "basis": "Offline normalization of previously verified local inventories, not a new source retrieval or semantic review.",
+  "archived": [
+    {
+      "file": "deprecated/aprl--2026-09-11--4ed61607223b49e3d0bdd9ce3127ef6e842b5463--64150c805330.json",
+      "originalSourceId": "aprl",
+      "scopedSourceId": "aprl-azure-resources",
+      "scope": "All records in azure-resources/**/recommendations.yaml in Azure/Azure-Proactive-Resiliency-Library-v2 at the pinned commit",
+      "unit": "aprl-guid",
+      "fingerprintScope": "canonical-json-v1 payload is the complete original YAML recommendation object (ISO dates), excluding enclosing document and generated fetch/commit metadata",
+      "items": 372,
+      "sha256": "ba14202a5b31a08795c92c75d2c10652422fa40d09c80dce06790fbeb1a520c1",
+      "reason": "Historical diagnostic subset with a distinct scope; excluded from default whole-source coverage and comparisons."
+    },
+    {
+      "file": "deprecated/aprl-virtual-machines--2026-09-11--4ed61607223b49e3d0bdd9ce3127ef6e842b5463--94a5bd3c234d.json",
+      "originalSourceId": "aprl-virtual-machines",
+      "scopedSourceId": "aprl-virtual-machines",
+      "scope": "All records in Azure/Azure-Proactive-Resiliency-Library-v2 azure-resources/Compute/virtualMachines/recommendations.yaml at the pinned commit",
+      "unit": "aprl-guid",
+      "fingerprintScope": "canonical-json-v1 payload is the complete original YAML recommendation object (ISO dates), excluding enclosing document and generated fetch/commit metadata",
+      "items": 20,
+      "sha256": "1d4c6d62e1a55e75e39c703a981afce428910bb50d5423dbe96a6ac87560f0ae",
+      "reason": "Historical diagnostic subset with a distinct scope; excluded from default whole-source coverage and comparisons."
+    },
+    {
+      "file": "deprecated/azure-advisor-cost--2026-09-11--0eef202feb80322f1d1da95d4d026c2e2b70ce06--b9ff18b3cf4c.json",
+      "originalSourceId": "azure-advisor-cost",
+      "scopedSourceId": "advisor-cost-catalog",
+      "scope": "All Recommendation ID sections in the English published Advisor Cost recommendations reference page",
+      "unit": "published-advisor-recommendation-guid",
+      "fingerprintScope": "canonical-json-v1 payload {id,title,content}: trimmed Markdown level-four recommendation section, excluding following headings and page/fetch metadata",
+      "items": 66,
+      "sha256": "156c6775c58e58810e7c5410eef88a6e7f2139f2d770cef1abadb659e1a13d53",
+      "reason": "Superseded source-name copy; canonical-name observation already retained. Not a second source or retrieval."
+    },
+    {
+      "file": "deprecated/azure-waf-cost--2026-09-11--28a78d22523542beeafc7de5eaa11fad791559b6--1acacbe542c4.json",
+      "originalSourceId": "azure-waf-cost",
+      "scopedSourceId": "waf-cost-checklist",
+      "scope": "All numbered rows in the English WAF Cost Optimization design review checklist",
+      "unit": "published-checklist-row",
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "items": 14,
+      "sha256": "1cda4ae44ecfd91116d099a22bea0498e2924ebce555f9c4fd57a19e6f2825cd",
+      "reason": "Superseded source-name copy; canonical-name observation already retained. Not a second source or retrieval."
+    },
+    {
+      "file": "deprecated/azure-waf-operations--2026-09-11--84fd234f106eacce573ee415497edd96436e6620--516766d7d030.json",
+      "originalSourceId": "azure-waf-operations",
+      "scopedSourceId": "waf-operations-checklist",
+      "scope": "All numbered rows in the English WAF Operational Excellence design review checklist",
+      "unit": "published-checklist-row",
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "items": 11,
+      "sha256": "4fc732c669409603f76a1ab21432e91f86b1c741b653324166cf648a2b5aa71c",
+      "reason": "Superseded source-name copy; canonical-name observation already retained. Not a second source or retrieval."
+    },
+    {
+      "file": "deprecated/azure-waf-performance--2026-09-11--ce3921ce25f18132fc642077a7e9edfc0fa69cc3--b3dee9eb1eab.json",
+      "originalSourceId": "azure-waf-performance",
+      "scopedSourceId": "waf-performance-checklist",
+      "scope": "All numbered rows in the English WAF Performance Efficiency design review checklist",
+      "unit": "published-checklist-row",
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "items": 12,
+      "sha256": "76e0e5aad97f625c18d1b268a6e7b5825d671f3914a944aa519e1542a6c2eae5",
+      "reason": "Superseded source-name copy; canonical-name observation already retained. Not a second source or retrieval."
+    },
+    {
+      "file": "deprecated/azure-waf-reliability--2026-09-11--687e8febe6ddfa4646952220e057a50b1046a75a--cfffff192415.json",
+      "originalSourceId": "azure-waf-reliability",
+      "scopedSourceId": "waf-reliability-checklist",
+      "scope": "All numbered rows in the English WAF Reliability design review checklist",
+      "unit": "published-checklist-row",
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "items": 10,
+      "sha256": "2a006351213d62ad53346a1dd73f51b12b5b5d2279cfa40a0fdeeacc2beeaa73",
+      "reason": "Superseded source-name copy; canonical-name observation already retained. Not a second source or retrieval."
+    },
+    {
+      "file": "deprecated/azure-waf-security--2026-09-11--1df1c6023e01032c7be0013b086379c176827b1c--a2f6ee3d5324.json",
+      "originalSourceId": "azure-waf-security",
+      "scopedSourceId": "waf-security-checklist",
+      "scope": "All numbered rows in the English WAF Security design review checklist",
+      "unit": "published-checklist-row",
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "items": 12,
+      "sha256": "ce7d6ef01576d9c2bd48eedbb856f100d70616d366ab435af24fe16c9164221c",
+      "reason": "Superseded source-name copy; canonical-name observation already retained. Not a second source or retrieval."
+    },
+    {
+      "file": "deprecated/legacy-revcl-aks--2026-09-11--3c83b1476d6d439df8259b4b12578e29283bafc0--41306d405d37.json",
+      "originalSourceId": "legacy-revcl-aks",
+      "scopedSourceId": "legacy-revcl-aks",
+      "scope": "All items in Azure/review-checklists checklists/aks_checklist.en.json at the pinned commit",
+      "unit": "legacy-checklist-guid",
+      "fingerprintScope": "canonical-json-v1 payload is the complete original item object, excluding enclosing checklist metadata and generated fetch/commit metadata",
+      "items": 112,
+      "sha256": "008e17d33f3130e72d0820cd3d86d5a09de3bd40121f67340c18d69724dd5053",
+      "reason": "Historical diagnostic subset with a distinct scope; excluded from default whole-source coverage and comparisons."
+    },
+    {
+      "file": "deprecated/aprl-active--recorded-2026-09-11.json",
+      "originalSourceId": "aprl",
+      "scopedSourceId": "aprl-active",
+      "scope": "All Active real GUID recommendations under azure-resources, azure-specialized-workloads, and azure-waf; excludes Disabled recommendations and archetype templates.",
+      "unit": "upstream recommendation GUID",
+      "fingerprintScope": "The complete parsed recommendation YAML mapping, including requirement text, metadata, and learnMoreLink. Paths, retrieval metadata, and separately assessed KQL files are excluded.",
+      "items": 393,
+      "sha256": "48057410e1d91dd383b2b2a601141f5601b09bca21618fc92c1132b72140d50c",
+      "reason": "Preserved original Active-only diagnostic document. Its historical aprl label must not be loaded as a second all-state source history; use distinct aprl-active scope identity for any future explicit reissue."
+    }
+  ],
+  "promoted": [
+    {
+      "from": "../full-refresh-2026-09-11/cost-waf-inventory.json",
+      "file": "waf-cost-checklist--2026-09-11--28a78d22523542beeafc7de5eaa11fad791559b6--4c59d9796cff.json",
+      "sourceId": "waf-cost-checklist",
+      "items": 14,
+      "inventoryStatus": "complete",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/security-waf-inventory.json",
+      "file": "waf-security-checklist--2026-09-11--1df1c6023e01032c7be0013b086379c176827b1c--ed51828272ff--capture-a0021c1a.json",
+      "sourceId": "waf-security-checklist",
+      "items": 12,
+      "inventoryStatus": "complete",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/reliability-waf-inventory.json",
+      "file": "waf-reliability-checklist--2026-09-11--687e8febe6ddfa4646952220e057a50b1046a75a--1f145d9fc89f--capture-4dcd128f.json",
+      "sourceId": "waf-reliability-checklist",
+      "items": 10,
+      "inventoryStatus": "complete",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/performance-waf-inventory.json",
+      "file": "waf-performance-checklist--2026-09-11--ce3921ce25f18132fc642077a7e9edfc0fa69cc3--815dd4e6eca5.json",
+      "sourceId": "waf-performance-checklist",
+      "items": 12,
+      "inventoryStatus": "complete",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/operations-waf-inventory.json",
+      "file": "waf-operations-checklist--2026-09-11--84fd234f106eacce573ee415497edd96436e6620--3eb65da4ffa6.json",
+      "sourceId": "waf-operations-checklist",
+      "items": 11,
+      "inventoryStatus": "complete",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/cost-advisor-inventory.json",
+      "file": "advisor-cost-catalog--2026-09-11--0eef202feb80322f1d1da95d4d026c2e2b70ce06--749a29e63992.json",
+      "sourceId": "advisor-cost-catalog",
+      "items": 66,
+      "inventoryStatus": "complete",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/security-advisor-inventory.json",
+      "file": "advisor-security-catalog--2026-09-11--unknown--7a6558ff2bcb.json",
+      "sourceId": "advisor-security-catalog",
+      "items": 0,
+      "inventoryStatus": "unknown",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/reliability-advisor-inventory.json",
+      "file": "advisor-reliability-catalog--2026-09-11--0eef202feb80322f1d1da95d4d026c2e2b70ce06--88dc0492f267.json",
+      "sourceId": "advisor-reliability-catalog",
+      "items": 9,
+      "inventoryStatus": "partial",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/performance-advisor-inventory.json",
+      "file": "advisor-performance-catalog--2026-09-11--unknown--3429a012adf8.json",
+      "sourceId": "advisor-performance-catalog",
+      "items": 150,
+      "inventoryStatus": "complete",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/operations-advisor-inventory.json",
+      "file": "advisor-operations-catalog--2026-09-11--0eef202feb80322f1d1da95d4d026c2e2b70ce06--4fa42a85c4e6.json",
+      "sourceId": "advisor-operations-catalog",
+      "items": 122,
+      "inventoryStatus": "complete",
+      "preserved": "Exact inventory document, payload hashes, capture dates, revision, status and limitations."
+    },
+    {
+      "from": "../full-refresh-2026-09-11/aprl-inventory-all.json",
+      "file": "aprl--2026-09-11--4ed61607223b49e3d0bdd9ce3127ef6e842b5463--9c44ce390562.json",
+      "sourceId": "aprl",
+      "items": 456,
+      "inventoryStatus": "complete",
+      "preserved": "Original all-state sourceId/scope/unit/fingerprint, items, payload hashes, dates, revision and limitations; explicit default Active coverageSelection added."
+    }
+  ],
+  "mappingExceptions": []
+}

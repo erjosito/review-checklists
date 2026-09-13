@@ -16,3 +16,14 @@ queries:
   arg: where type=='microsoft.containerservice/managedclusters' | extend compliant
     = (tolower(properties.networkProfile.loadBalancerSku)=='standard') | distinct
     id,compliant
+schemaVersion: 1
+id: ba7da7be-9952-4914-a384-5d997cb39132
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

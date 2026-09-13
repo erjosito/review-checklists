@@ -19,3 +19,13 @@ labels:
   guid: f96f9439-c6c3-4bd1-a6ef-912307025375
 links: []
 queries: {}
+schemaVersion: 1
+id: f96f9439-c6c3-4bd1-a6ef-912307025375
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

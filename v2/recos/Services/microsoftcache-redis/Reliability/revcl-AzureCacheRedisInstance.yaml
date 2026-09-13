@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-high-availability#persistence
 queries: {}
+schemaVersion: 1
+id: bc178bdc-5a06-4ca7-8443-51e19dd34429
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

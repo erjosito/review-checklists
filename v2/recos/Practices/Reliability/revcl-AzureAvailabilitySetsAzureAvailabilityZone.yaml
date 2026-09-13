@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/sap/workloads/proximity-placement-scenarios
 queries: {}
+schemaVersion: 1
+id: f2201000-d045-40a6-a79a-d7cdc01b4d86
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

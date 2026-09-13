@@ -1,10 +1,9 @@
 name: wafsg-ActivityLogSubscriptionLevel
 title: Configure Activity log to send logs to archive
-description: Activity logs provide insights into operations that were performed at
-  the subscription level for ExpressRoute resources. With Activity logs, you can determine
-  who and when an operation was performed at the control plane. Data retention is
-  only 90 days and required to be stored in Log Analytics, Event Hubs or a storage
-  account for archive.
+description: Activity logs provide insights into operations that were performed at the subscription level
+  for ExpressRoute resources. With Activity logs, you can determine who and when an operation was performed
+  at the control plane. Data retention is only 90 days and required to be stored in Log Analytics, Event
+  Hubs or a storage account for archive.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -16,3 +15,23 @@ labels:
   guid: b893441c-5f7c-44fe-bfa2-457af4ae1cb8
 links: []
 queries: {}
+schemaVersion: 1
+id: b893441c-5f7c-44fe-bfa2-457af4ae1cb8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: dbcfcfa3-dcb3-43f7-8e98-a9d6d44ab3ae
+  name: wafsg-ActivityLogLogs
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: dbcfcfa3-dcb3-43f7-8e98-a9d6d44ab3ae
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Security/wafsg-ActivityLogLogs.yaml

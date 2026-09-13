@@ -1,7 +1,7 @@
 name: wafsg-OverallSecurityPostureAppServicePlan
 title: (App Service plan) Enable Microsoft Defender for Cloud for App Service.
-description: Get real-time protection for resources that run in an App Service plan.
-  Guard against threats and enhance your overall security posture.
+description: Get real-time protection for resources that run in an App Service plan. Guard against threats
+  and enhance your overall security posture.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,3 +13,29 @@ labels:
   guid: def198c3-8a34-4d8f-8e46-91b6f36064ab
 links: []
 queries: {}
+schemaVersion: 1
+id: def198c3-8a34-4d8f-8e46-91b6f36064ab
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:10
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/monitor-threats
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:93d8303993577971e33174ea7a96a67e57bc26e305038d8428a7dec17cc9e59d
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

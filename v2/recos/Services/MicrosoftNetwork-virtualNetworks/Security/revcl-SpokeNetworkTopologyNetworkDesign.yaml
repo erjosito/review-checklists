@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/architect-network-infrastructure/
 queries: {}
+schemaVersion: 1
+id: e8bbac75-7155-49ab-a153-e8908ae28c84
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

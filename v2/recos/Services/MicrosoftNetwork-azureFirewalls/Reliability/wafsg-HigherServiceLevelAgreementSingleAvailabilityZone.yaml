@@ -16,3 +16,13 @@ labels:
   guid: bc96dc36-32aa-404b-b450-aaacf0b1becc
 links: []
 queries: {}
+schemaVersion: 1
+id: bc96dc36-32aa-404b-b450-aaacf0b1becc
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure
 queries: {}
+schemaVersion: 1
+id: 7b95e06e-158e-42ea-9992-c2de6e2065b3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

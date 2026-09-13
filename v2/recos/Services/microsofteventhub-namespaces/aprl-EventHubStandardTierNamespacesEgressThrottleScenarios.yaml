@@ -1,13 +1,14 @@
 name: aprl-EventHubStandardTierNamespacesEgressThrottleScenarios
 title: Enable auto-inflate on Event Hub Standard tier
-description: |-
-  Enable auto-inflate on Event Hub Standard tier namespaces to automatically scale up TUs, meeting usage needs and preventing data ingress or egress throttle scenarios by adjusting to allowed rates.
+description: Enable auto-inflate on Event Hub Standard tier namespaces to automatically scale up throughput
+  units (TUs), meeting usage needs and preventing data ingress or egress throttle scenarios by adjusting
+  to allowed rates.
 source:
   type: aprl
   file: azure-resources/EventHub/namespaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.EventHub/namespaces
+- microsoft.eventhub/namespaces
 severity: 0
 labels:
   guid: fbfef3df-04a5-41b2-a8fd-b8541eb04956
@@ -22,3 +23,31 @@ queries:
     | where sku.tier == "Standard"
     | where properties.isAutoInflateEnabled == "false"
     | project recommendationId = "fbfef3df-04a5-41b2-a8fd-b8541eb04956", name, id, tags, param1 = "AutoInflateEnabled: False"
+schemaVersion: 1
+id: fbfef3df-04a5-41b2-a8fd-b8541eb04956
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/EventHub/namespaces/recommendations.yaml
+    title: 'APRL fbfef3df-04a5-41b2-a8fd-b8541eb04956: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: fbfef3df-04a5-41b2-a8fd-b8541eb04956
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/EventHub/namespaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:4f733d4e22bb01ee60e0d1d34d9041ea21ec3274d45c3859ea29088552485ee2
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

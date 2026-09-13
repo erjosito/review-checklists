@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 6e154e3a-a359-4282-ae6e-206173686af4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

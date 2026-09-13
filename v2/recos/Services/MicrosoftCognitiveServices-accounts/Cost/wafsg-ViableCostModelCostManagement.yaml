@@ -1,8 +1,9 @@
 name: wafsg-ViableCostModelCostManagement
-title: 'Cost management: Develop your cost model, considering prompt sizes. Understanding
-  prompt input and response sizes and how text translates into tokens helps you create
-  a viable cost model.'
-description: ''
+title: Include reasoning, multimodal and hosting costs in the Azure OpenAI cost model
+description: Model representative input and output token volumes, including billed reasoning tokens where
+  applicable. Include model-specific image/audio meters, fine-tuning, deployed-model hosting and dependent
+  services. Reconcile estimates with the same billing scope and date range; prompt and visible response
+  length alone can understate total cost.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -15,3 +16,21 @@ labels:
   guid: fb012775-b93d-442c-916c-81ca72d7bc91
 links: []
 queries: {}
+schemaVersion: 1
+id: fb012775-b93d-442c-916c-81ca72d7bc91
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Extend the text-only model to the documented additional meters. Requires
+    workload, billing and operational evidence; no ARG query or live validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/foundry/concepts/manage-costs
+    title: Plan and Manage Costs - Microsoft Foundry
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/foundry/openai/how-to/reasoning
+    title: Azure OpenAI reasoning models
+    accessedAt: '2026-09-11'

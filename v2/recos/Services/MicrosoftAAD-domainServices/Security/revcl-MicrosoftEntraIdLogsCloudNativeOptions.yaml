@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor
 queries: {}
+schemaVersion: 1
+id: 1cf0b8da-70bd-44d0-94af-8d99cfc89ae1
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

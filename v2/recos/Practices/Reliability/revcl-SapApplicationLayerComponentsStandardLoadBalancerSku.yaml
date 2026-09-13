@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/implement-high-availability-for-sap-workloads-azure/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: a78b3d31-3170-44f2-b5d7-651a29f4ccf5
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

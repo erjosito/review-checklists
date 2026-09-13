@@ -1,7 +1,7 @@
 name: revcl-SharedAccessSignatureSasTokens
 title: Limit shared access signature (SAS) tokens to HTTPS connections only
-description: Requiring HTTPS when a client uses a SAS token to access blob data helps
-  to minimize the risk of credential loss.
+description: Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the
+  risk of credential loss.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +15,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-sas-overview
 queries: {}
+schemaVersion: 1
+id: 6b4bed3d-5035-447c-8347-dc56028a71ff
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/common/storage-sas-overview
+    title: Grant limited access to data with shared access signatures (SAS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

@@ -1,13 +1,14 @@
 name: aprl-AzureVirtualMachineScaleSetVirtualMachineScaleSets
 title: Enable Azure Virtual Machine Scale Set Application Health Monitoring
-description: |-
-  Monitoring application health in Azure Virtual Machine Scale Sets is crucial for deployment management. It supports rolling upgrades such as automatic OS-image upgrades and VM guest patching, leveraging health monitoring for upgrading.
+description: Monitoring application health in Azure Virtual Machine Scale Sets is crucial for deployment
+  management. It supports rolling upgrades such as automatic OS-image upgrades and VM guest patching,
+  leveraging health monitoring for upgrading.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachineScaleSets
+- microsoft.compute/virtualmachinescalesets
 severity: 1
 labels:
   guid: 94794d2a-eff0-2345-9b67-6f9349d0a627
@@ -28,3 +29,35 @@ queries:
     ) on id
     | where id1 == ""
     | project recommendationId = "94794d2a-eff0-2345-9b67-6f9349d0a627", name, id, tags, param1 = "extension: null"
+schemaVersion: 1
+id: 94794d2a-eff0-2345-9b67-6f9349d0a627
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    title: 'APRL 94794d2a-eff0-2345-9b67-6f9349d0a627: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 94794d2a-eff0-2345-9b67-6f9349d0a627
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:9f05bb5f0fb61eb3c4f31a19619728a3de828e5243bd7b5ed3722f7f4324bac4
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

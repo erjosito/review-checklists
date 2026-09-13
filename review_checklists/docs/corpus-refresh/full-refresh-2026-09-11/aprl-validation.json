@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-11",
+  "scope": "Frozen 333 initially-unclassified APRL-source records",
+  "result": "passed",
+  "checks": [
+    {
+      "command": "python -m unittest review_checklists.tests.test_full_refresh_aprl",
+      "exitCode": 0,
+      "tests": 13,
+      "result": "passed"
+    },
+    {
+      "command": "python -m review_checklists corpus validate --corpus v2\\recos",
+      "exitCode": 0,
+      "canonicalRecommendations": 2011,
+      "result": "passed"
+    },
+    {
+      "command": "python -m scripts.validate_corpus --root v2",
+      "exitCode": 0,
+      "canonicalRecommendations": 2011,
+      "checklists": 9,
+      "result": "passed"
+    }
+  ],
+  "verifiedInvariants": [
+    "All 333 frozen IDs, names, paths, source objects, labels, services, constraints, and aliases are preserved.",
+    "Original YAML bytes are reconstructible from aprl-baseline.json and match all frozen SHA256 hashes.",
+    "Every applied YAML matches its recorded afterSha256.",
+    "332 primary WAF classifications span all five pillars; one Photon/Spark-recovery conflict remains explicitly unclassified.",
+    "All 333 rows have a substantive disposition and rationale; needs_manual_review always has a concrete gap.",
+    "456 real upstream GUIDs form the complete pinned repository denominator, including 393 Active and 63 Disabled records.",
+    "All full/partial mappings match their exact inventory payload hashes; supporting references and missing GUIDs do not become current semantic coverage.",
+    "Both coverage reports reproduce through review_checklists.source_coverage with zero stale mappings.",
+    "Four imported queries exactly match the statically reviewed pinned query text; four misleading queries are withdrawn; all other executable bodies are preserved.",
+    "Comment-only payloads are not advertised as available queries.",
+    "lastReviewed, validatedAt, and legacy reviewedDate values are not fabricated or refreshed.",
+    "All first-round duplicate reports match their pre-refresh hashes."
+  ],
+  "limitations": [
+    "No Azure queries, deployments, or product-group validation were executed.",
+    "2011 is the concurrent whole-corpus count observed during validation, not the size of this agent's write scope; other agents are refreshing and adding records.",
+    "159 records retain explicit source-reconciliation gaps; source-slice assessment completion does not mean all upstream guidance is safe or current.",
+    "Inventory fingerprints cover complete parsed recommendation metadata, not separately assessed KQL. A provider with a different fingerprintScope must not compare its hashes as if they used this payload contract."
+  ]
+}

@@ -1,13 +1,12 @@
 name: aprl-PublicIpAddressesDdosProtection
 title: Public IP addresses should have DDoS protection enabled
-description: |-
-  DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
+description: DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
 source:
   type: aprl
   file: azure-resources/Network/publicIPAddresses/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/publicIPAddresses
+- microsoft.network/publicipaddresses
 severity: 1
 labels:
   guid: c4254c66-b8a5-47aa-82f6-e7d7fb418f47
@@ -21,3 +20,18 @@ queries:
     | where type =~ 'Microsoft.Network/publicIPAddresses'
     | where properties.ddosSettings.protectionMode !in~ ("Enabled", "VirtualNetworkInherited")
     | project recommendationId="c4254c66-b8a5-47aa-82f6-e7d7fb418f47", name, id, tags, param1=strcat("Apply either DDoS Network protection or DDoS IP Protrection to the public IP address.")
+schemaVersion: 1
+id: c4254c66-b8a5-47aa-82f6-e7d7fb418f47
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The frozen GUID is absent from the complete pinned upstream
+    repository inventory; historical source identity does not prove a current recommendation or replacement
+    ID. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Security

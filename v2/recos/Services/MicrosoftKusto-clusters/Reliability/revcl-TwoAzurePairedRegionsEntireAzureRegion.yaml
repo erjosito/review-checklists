@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/data-explorer/business-continuity-create-solution#create-multiple-independent-clusters
 queries: {}
+schemaVersion: 1
+id: 861bb2bc-14ae-4a6e-95d8-d9a3adc218e6
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

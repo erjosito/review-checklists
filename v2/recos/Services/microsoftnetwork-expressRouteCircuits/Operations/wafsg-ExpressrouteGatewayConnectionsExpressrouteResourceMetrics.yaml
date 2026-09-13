@@ -1,10 +1,9 @@
 name: wafsg-ExpressrouteGatewayConnectionsExpressrouteResourceMetrics
 title: Review ExpressRoute resource metrics
-description: ExpressRoute uses Azure Monitor to collect metrics and create alerts
-  base on your configuration. Metrics are collected for ExpressRoute circuits, ExpressRoute
-  gateways, ExpressRoute gateway connections, and ExpressRoute Direct. These metrics
-  are useful for diagnosing connectivity problems and understanding the performance
-  of your ExpressRoute connection.
+description: ExpressRoute uses Azure Monitor to collect metrics and create alerts base on your configuration.
+  Metrics are collected for ExpressRoute circuits, ExpressRoute gateways, ExpressRoute gateway connections,
+  and ExpressRoute Direct. These metrics are useful for diagnosing connectivity problems and understanding
+  the performance of your ExpressRoute connection.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -16,3 +15,23 @@ labels:
   guid: e2ca25a4-7d0d-49f8-8618-f81f0f3ff3e0
 links: []
 queries: {}
+schemaVersion: 1
+id: e2ca25a4-7d0d-49f8-8618-f81f0f3ff3e0
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 8c22c571-98a1-4d91-94b7-efb58db4763e
+  name: wafsg-ReviewExpressrouteResourceMetrics
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 8c22c571-98a1-4d91-94b7-efb58db4763e
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Operations/wafsg-ReviewExpressrouteResourceMetrics.yaml

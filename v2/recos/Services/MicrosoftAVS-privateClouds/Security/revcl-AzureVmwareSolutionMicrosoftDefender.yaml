@@ -12,3 +12,13 @@ labels:
   guid: ee29711b-d352-4caa-ab79-b198dab81932
 links: []
 queries: {}
+schemaVersion: 1
+id: ee29711b-d352-4caa-ab79-b198dab81932
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

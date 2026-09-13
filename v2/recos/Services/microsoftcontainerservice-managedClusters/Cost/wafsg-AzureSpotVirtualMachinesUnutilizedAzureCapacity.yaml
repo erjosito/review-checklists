@@ -1,8 +1,9 @@
 name: wafsg-AzureSpotVirtualMachinesUnutilizedAzureCapacity
-title: 'Cluster architecture: Select Azure Spot Virtual Machines.'
-description: Spot VMs allow you to take advantage of unutilized Azure capacity with
-  significant discounts (up to 90% as compared to pay-as-you-go prices). If Azure
-  needs capacity back, the Azure infrastructure evicts the Spot nodes.
+title: Use AKS Spot pools only for eviction-tolerant workloads
+description: Place interruption-tolerant workloads on appropriate Spot user pools with scheduling controls,
+  retry/checkpoint behavior and a tested fallback. Preserve regular capacity for critical/system workloads
+  and verify eviction/capacity risk. Use actual prices and workload completion cost rather than assuming
+  a fixed discount.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -13,4 +14,49 @@ severity: 1
 labels:
   guid: 357e61fe-86e6-41c6-b446-3f0def6d8bcf
 links: []
-queries: {}
+queries:
+  arg: |-
+    Resources
+    | where type =~ 'microsoft.containerservice/managedclusters'
+    | mv-expand pool = properties.agentPoolProfiles limit 2000
+    | project id, name, subscriptionId, resourceGroup, location,
+        poolName = tostring(pool.name), mode = tostring(pool.mode),
+        vmSize = tostring(pool.vmSize), count = toint(pool['count']),
+        autoScaleEnabled = tobool(pool.enableAutoScaling),
+        minCount = toint(pool.minCount), maxCount = toint(pool.maxCount),
+        priority = tostring(pool.scaleSetPriority), clusterTier = tostring(sku.tier)
+schemaVersion: 1
+id: 357e61fe-86e6-41c6-b446-3f0def6d8bcf
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  notes: |-
+    Documented ARG evidence query available, but unvalidated and inventory-only; the optimization decision still requires human review and additional data.
+
+    Only the primary ARG query below is executed by the app. Supplemental variants, if any, are documentation-only in cost-research.json.
+
+    All visible agent-pool profiles, not a list of inefficient or noncompliant clusters.
+
+    No live Azure execution or compilation was performed. Empty or truncated results do not establish compliance, realized savings or permission to change resources.
+
+    Required scope/data: Read access to the resources/recommendations in the reviewer-selected subscriptions or management-group scope; no scope IDs are invented or embedded. For relationship/absence checks, include all relevant related resources and verify visibility before interpreting unmatched rows. Billing, utilization metrics and business/retention context must be reviewed separately to estimate net savings.
+
+    Caveats: ARG is a scoped, eventually consistent control-plane index. Missing rows, fields, permissions or subscriptions are not evidence of compliance. Retrieve complete query results using the client's supported paging and respect ARG result/expansion limits; truncated output is not a complete inventory. Inventory identifies review candidates, not realized savings or authorization to change/delete resources. Review ownership, change windows, retention, security, availability, dependencies and current negotiated pricing before action. Pool profiles do not contain Kubernetes pod demand, PDBs, actual utilization, pending pods or savings. System pools, cluster mode and node-autoprovisioned capacity may require different treatment. Absence of Spot is not a defect. The explicit 2,000-item expansion limit is the documented ARG maximum; confirm no array exceeds it before treating the inventory as complete. One row per pool repeats cluster id; consumers must preserve poolName and not collapse evidence by id alone.
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/compute
+    title: FinOps best practices for compute
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-reference-cost-recommendations
+    title: Cost recommendations
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/cloud-computing/finops/best-practices/general
+    title: FinOps best practices for general resource management
+    accessedAt: '2026-09-11'

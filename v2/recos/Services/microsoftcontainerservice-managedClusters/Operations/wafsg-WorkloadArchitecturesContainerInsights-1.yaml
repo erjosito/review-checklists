@@ -1,8 +1,10 @@
 name: wafsg-WorkloadArchitecturesContainerInsights-1
-title: 'Cluster and workload architectures: Enable Container insights to collect metrics,
-  logs, and diagnostics to monitor the availability and performance of the cluster
-  and workloads running on it.'
-description: ''
+title: 'Cluster and workload architectures: Enable Container insights to collect metrics, logs, and diagnostics
+  to monitor the availability and performance of the cluster and workloads running on it.'
+description: Choose and configure container logs, Prometheus metrics, control-plane resource logs and
+  application instrumentation according to cluster and workload requirements. These use separate collection
+  paths. Validate actual telemetry, useful alerts and troubleshooting workflows; Container insights enablement
+  alone is not evidence of availability or performance quality.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-kubernetes-service.md
@@ -15,3 +17,25 @@ labels:
   guid: 9ab6b90d-899e-4c61-8127-e097c1d80cca
 links: []
 queries: {}
+schemaVersion: 1
+id: 9ab6b90d-899e-4c61-8127-e097c1d80cca
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-overview
+    title: Kubernetes monitoring in Azure Monitor
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-operations-checklist
+    recommendationId: OE:07
+    coverage: partial
+    notes: Distinguish monitoring components without declaring one add-on sufficient. Narrow control or
+      service scope; not all aspects of the upstream control.
+    url: https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d7ff0edae246230e37ed4540167e40cb788e2c395f5116da145255680530a540

@@ -1,7 +1,7 @@
 name: revcl-VirtualMachineScaleSetsAzureSiteRecovery
 title: Avoid running a production workload on a single VM
-description: Azure provides multiple options for VM redundancy to meet different requirements
-  (Availability Zones, Virtual Machine Scale Sets, Availability Sets, Azure Site Recovery)
+description: Azure provides multiple options for VM redundancy to meet different requirements (Availability
+  Zones, Virtual Machine Scale Sets, Availability Sets, Azure Site Recovery)
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +15,22 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/availability
 queries: {}
+schemaVersion: 1
+id: 6ba2c021-4991-414a-9d3c-e574dccbd979
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 7ccb7c06-5511-42df-8177-d97f08d0337d
+  name: revcl-ProductionWorkloadSingleVm
+  source:
+    type: revcl
+    file: ./checklists/waf_checklist.en.json
+  labels:
+    guid: 7ccb7c06-5511-42df-8177-d97f08d0337d
+  corpusFile: Services/MicrosoftCompute-virtualMachines/Reliability/revcl-ProductionWorkloadSingleVm.yaml

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/fundamentals/scenario-azure-first-sap-identity-integration
 queries: {}
+schemaVersion: 1
+id: 750ab1ab-039d-495d-94c7-c8929cb107d5
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

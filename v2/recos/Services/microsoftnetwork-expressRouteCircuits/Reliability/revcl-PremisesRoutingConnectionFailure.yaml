@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections
 queries: {}
+schemaVersion: 1
+id: d581a947-69a2-4783-942e-9df3664324c8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

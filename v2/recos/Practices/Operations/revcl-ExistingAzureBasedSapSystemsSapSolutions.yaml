@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/explore-azure-center-sap-solutions/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: 4620dc87-e948-4ce8-8426-f3e6e5d7bd85
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/event-grid/event-schema-aks
 queries: {}
+schemaVersion: 1
+id: 9583c0f6-6083-43f6-aa6b-df7102c901bb
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "sourceId": "waf-cost-checklist",
+      "title": "WAF Cost Optimization checklist",
+      "scope": "All numbered rows in the English WAF Cost Optimization design review checklist",
+      "unit": "published-checklist-row",
+      "adapter": "learn-waf-checklist",
+      "idPrefix": "CO",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/checklist",
+      "allowedHosts": [
+        "learn.microsoft.com"
+      ],
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "limitations": [
+        "Checklist rows only, not all Cost guidance paragraphs or service guides.",
+        "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+        "Explicit ID mapping is not human semantic review."
+      ]
+    },
+    {
+      "sourceId": "waf-security-checklist",
+      "title": "WAF Security checklist",
+      "scope": "All numbered rows in the English WAF Security design review checklist",
+      "unit": "published-checklist-row",
+      "adapter": "learn-waf-checklist",
+      "idPrefix": "SE",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/security/checklist",
+      "allowedHosts": [
+        "learn.microsoft.com"
+      ],
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "limitations": [
+        "Checklist rows only, not all Security guidance paragraphs or service guides.",
+        "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+        "Explicit ID mapping is not human semantic review."
+      ]
+    },
+    {
+      "sourceId": "waf-reliability-checklist",
+      "title": "WAF Reliability checklist",
+      "scope": "All numbered rows in the English WAF Reliability design review checklist",
+      "unit": "published-checklist-row",
+      "adapter": "learn-waf-checklist",
+      "idPrefix": "RE",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist",
+      "allowedHosts": [
+        "learn.microsoft.com"
+      ],
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "limitations": [
+        "Checklist rows only, not all Reliability guidance paragraphs or service guides.",
+        "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+        "Explicit ID mapping is not human semantic review."
+      ]
+    },
+    {
+      "sourceId": "waf-performance-checklist",
+      "title": "WAF Performance Efficiency checklist",
+      "scope": "All numbered rows in the English WAF Performance Efficiency design review checklist",
+      "unit": "published-checklist-row",
+      "adapter": "learn-waf-checklist",
+      "idPrefix": "PE",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/checklist",
+      "allowedHosts": [
+        "learn.microsoft.com"
+      ],
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "limitations": [
+        "Checklist rows only, not all Performance guidance paragraphs or service guides.",
+        "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+        "Explicit ID mapping is not human semantic review."
+      ]
+    },
+    {
+      "sourceId": "waf-operations-checklist",
+      "title": "Design review checklist for Operational Excellence - Microsoft Azure Well-Architected Framework | Microsoft Learn",
+      "scope": "All numbered rows in the English WAF Operational Excellence design review checklist",
+      "unit": "published-checklist-row",
+      "adapter": "learn-waf-checklist",
+      "idPrefix": "OE",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/checklist",
+      "allowedHosts": [
+        "learn.microsoft.com"
+      ],
+      "fingerprintScope": "canonical-json-v1 payload {id,code,recommendation}: trimmed Markdown table cells, excluding checkbox and page/fetch metadata",
+      "limitations": [
+        "Control-level published inventory only, not all guidance or linked service documentation.",
+        "Page-reported revision is source evidence, not a separately inspected repository commit.",
+        "Mappings are explicit semantic assessments by this bounded pass, not human approval.",
+        "A missing mapping is unassessed coverage, not proof that the full corpus lacks a related recommendation."
+      ]
+    },
+    {
+      "sourceId": "advisor-cost-catalog",
+      "title": "Published Azure Advisor Cost catalog",
+      "scope": "All Recommendation ID sections in the English published Advisor Cost recommendations reference page",
+      "unit": "published-advisor-recommendation-guid",
+      "adapter": "learn-advisor-catalog",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+      "allowedHosts": [
+        "learn.microsoft.com"
+      ],
+      "fingerprintScope": "canonical-json-v1 payload {id,title,content}: trimmed Markdown level-four recommendation section, excluding following headings and page/fetch metadata",
+      "limitations": [
+        "Advisor Cost published catalog only, not all Advisor categories or customer-specific available recommendations.",
+        "Published HTTPS page capture; upstreamRevision is the page-reported commit, not a separately fetched private repository.",
+        "No Azure login or customer resource enumeration."
+      ]
+    },
+    {
+      "sourceId": "advisor-security-catalog",
+      "title": "Azure Advisor Security recommendation-ID inventory gap",
+      "scope": "Published Azure Advisor Security recommendation type IDs",
+      "unit": "published-advisor-recommendation-guid",
+      "adapter": "unsupported",
+      "unsupportedReason": "Recorded inventory is unknown: no complete public stable-ID Security catalog has been verified.",
+      "fingerprintScope": "No recommendation payload fingerprint established: no complete Security type-ID catalog verified.",
+      "limitations": [
+        "The Advisor Security reference URL could not be retrieved.",
+        "The Advisor security guidance URL redirects to Defender for Cloud review guidance, not a complete Advisor type-ID catalog.",
+        "An empty inventory records an evidence gap; it is not a zero-recommendation denominator, a zero-percent coverage score or a compliance pass.",
+        "Defender assessment keys, Azure Policy IDs, local GUIDs and Advisor recommendation-type IDs cannot be silently equated."
+      ]
+    },
+    {
+      "sourceId": "advisor-reliability-catalog",
+      "title": "Published Azure Advisor Reliability catalog",
+      "scope": "All Recommendation ID sections in the English published Advisor Reliability recommendations reference page",
+      "unit": "published-advisor-recommendation-guid",
+      "adapter": "unsupported",
+      "unsupportedReason": "Recorded inventory is partial (nine explicitly verified GUIDs). Generic catalog parsing encounters an ID-less section; complete repeat enumeration is not verified.",
+      "fingerprintScope": "canonical-json-v1 payload {id,title,content}: trimmed Markdown level-four recommendation section, excluding following headings and page/fetch metadata",
+      "limitations": [
+        "Only nine explicitly read and mapped catalog GUIDs are inventoried; not a complete denominator.",
+        "Shared complete parser failed on an ID-less section. No recommendation ID was inferred from a repeated title.",
+        "Unidentified sections observed: Avoid placing Traffic Manager behind Front Door\r",
+        "Full/partial item mappings are semantic assessments, not independent human approval or tenant Advisor findings.",
+        "A partial inventory must not produce whole-catalog coverage percentages."
+      ]
+    },
+    {
+      "sourceId": "advisor-performance-catalog",
+      "title": "Published Azure Advisor Performance catalog",
+      "scope": "All 150 unique Recommendation IDs in the retrieved public Performance reference page, including historical recommendations.",
+      "unit": "upstream recommendation ID",
+      "adapter": "unsupported",
+      "unsupportedReason": "Recorded complete 150-ID snapshot uses advisor-learn-markdown-section-v1 digest payloads. The generic Advisor parser uses a different payload; repeat fetch is disabled until a matching reviewed adapter and fixtures exist.",
+      "fingerprintScope": "advisor-learn-markdown-section-v1: recommendationId + resourceType + SHA-256 of whitespace-normalized fetched h4 section through Recommendation ID; excludes heading marker and subsequent sections",
+      "limitations": [
+        "Complete means all published IDs on this single retrieved page, not all Azure performance guidance or live Advisor findings.",
+        "Payload preserves a digest of upstream text rather than copying the article. A different extraction/fingerprintScope is not hash-compatible.",
+        "Source retrieval and LLM-authored semantic assessments are not human approval, live validation or a vendor support commitment.",
+        "No historical inventory was available in this fingerprint representation, so new/removed upstream IDs cannot be established.",
+        "Catalog retrieval time is the timestamp of the Microsoft Learn fetch tool output, not publication time.",
+        "Only opening networking items were semantically read. Inventory extraction is not a claim that the other catalog recommendations are current or covered."
+      ]
+    },
+    {
+      "sourceId": "advisor-operations-catalog",
+      "title": "Operational excellence recommendations - Azure Advisor | Microsoft Learn",
+      "scope": "All Recommendation ID sections in the English published Advisor Operational Excellence recommendations reference page",
+      "unit": "published-advisor-recommendation-guid",
+      "adapter": "learn-advisor-catalog",
+      "fingerprintScope": "canonical-json-v1 payload {id,title,content}: trimmed Markdown level-four recommendation section, excluding following headings and page/fetch metadata",
+      "limitations": [
+        "Control-level published inventory only, not all guidance or linked service documentation.",
+        "Page-reported revision is source evidence, not a separately inspected repository commit.",
+        "Mappings are explicit semantic assessments by this bounded pass, not human approval.",
+        "A missing mapping is unassessed coverage, not proof that the full corpus lacks a related recommendation."
+      ],
+      "allowedHosts": [
+        "learn.microsoft.com"
+      ],
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-operational-excellence-recommendations"
+    },
+    {
+      "sourceId": "aprl",
+      "title": "Pinned public APRL recommendation GUID inventory",
+      "scope": "All real GUID recommendations under azure-resources, azure-specialized-workloads, and azure-waf; includes Active and Disabled, excludes archetype templates.",
+      "unit": "upstream recommendation GUID",
+      "fingerprintScope": "The complete parsed recommendation YAML mapping, including requirement text, metadata, and learnMoreLink. Paths, retrieval metadata, and separately assessed KQL files are excluded.",
+      "limitations": [
+        "This is the complete pinned repository GUID denominator, not a count of recommendations endorsed for present deployment: 393 Active and 63 Disabled.",
+        "Six docs/archetypes placeholder records are excluded; real specialized-workload and WAF records are included.",
+        "Per-item hashes cover the stated metadata payload, not KQL. Query text, drift, and static review decisions are recorded separately.",
+        "Only the frozen 333 APRL-source corpus IDs are semantically assessed here. Unmapped upstream IDs may be covered by other owned corpus records; no absence claim is made about them.",
+        "Published APRL text is not automatically a correct service contract. Independently verified corrections and unresolved upstream contradictions are recorded per corpus ID.",
+        "No Azure queries or deployments were executed. Null execution/review dates are preserved; assessedAt records source assessment only.",
+        "Upstream metadata is distributed under the Microsoft MIT license; see adjacent aprl-upstream-license.txt and the pinned repository LICENSE."
+      ],
+      "adapter": "unsupported",
+      "unsupportedReason": "Recorded full-scope inventory contains 456 real GUIDs across azure-resources, azure-specialized-workloads and azure-waf (393 Active, 63 Disabled). The generic tree adapter selects only one prefix and cannot reproduce the GUID/template/state selector; repeat fetch requires a matching reviewed adapter. The older 372 Azure-resource-only snapshot is archived under distinct scope aprl-azure-resources."
+    },
+    {
+      "sourceId": "legacy-review-checklists",
+      "title": "Legacy review-checklists recommendation sources",
+      "scope": "All English legacy recommendation checklists in Azure/review-checklists",
+      "unit": "legacy-checklist-guid",
+      "adapter": "unsupported",
+      "unsupportedReason": "Whole-provider enumeration is not verified: the legacy WAF JSON contains duplicate GUIDs. Historical AKS-only inventory is a diagnostic subset, not a denominator for every legacy checklist."
+    },
+    {
+      "sourceId": "azure-waf-service-guides",
+      "title": "WAF service-guide recommendations",
+      "scope": "All recommendation units across WAF service guides",
+      "unit": "service-guide-recommendation",
+      "adapter": "unsupported",
+      "unsupportedReason": "Stable upstream unit IDs and a complete service-guide denominator have not been established. The five pillar checklist inventories do not cover all guide paragraphs."
+    }
+  ]
+}

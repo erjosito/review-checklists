@@ -1,12 +1,10 @@
 name: wafsg-TotalAzureFilesBillAzureFileSync
-title: Monitor snapshot usage. Snapshots incur charges, but they're billed based on
-  the differential storage usage of each snapshot. You pay only for the difference
-  in each snapshot. For more information, see Snapshots. Azure File Sync takes share-level
-  and file-level snapshots as part of regular usage, which can increase your total
-  Azure Files bill.
-description: Differential snapshots ensure that you're not billed multiple times for
-  storing the same data. However, you should still monitor snapshot usage to help
-  reduce your Azure Files bill.
+title: Monitor differential Azure Files snapshots using the correct billing model
+description: 'Track snapshot growth and required retention, including snapshots produced by value-added
+  services such as Azure File Sync. Snapshots are differential, but billing depends on the model: provisioned
+  v2 charges overflow when live data plus differential snapshots exceed provisioned storage; provisioned
+  v1 bills differential snapshot usage separately. Reconcile the appropriate meters instead of assuming
+  every snapshot always adds a separate charge.'
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -18,3 +16,19 @@ labels:
   guid: f3715e13-e5c7-4830-b1a0-4319523efab1
 links: []
 queries: {}
+schemaVersion: 1
+id: f3715e13-e5c7-4830-b1a0-4319523efab1
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Account for provisioned v2 snapshot inclusion/overflow instead of
+    generalizing older billing. Requires workload, billing and operational evidence; no ARG query or live
+    validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/files/understanding-billing
+    title: Understand Azure Files Billing
+    accessedAt: '2026-09-11'

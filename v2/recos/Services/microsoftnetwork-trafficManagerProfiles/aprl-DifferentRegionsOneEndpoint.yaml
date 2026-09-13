@@ -1,18 +1,48 @@
 name: aprl-DifferentRegionsOneEndpoint
 title: Configure at least one endpoint within a another region
-description: |-
-  Profiles should have multiple endpoints to ensure availability in case an endpoint fails. It's also advised to distribute these endpoints across different regions for enhanced reliability.
+description: Profiles should have multiple endpoints to ensure availability in case an endpoint fails.
+  It's also advised to distribute these endpoints across different regions for enhanced reliability.
 source:
   type: aprl
   file: azure-resources/Network/trafficManagerProfiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/trafficManagerProfiles
+- microsoft.network/trafficmanagerprofiles
 severity: 1
 labels:
   guid: 1ad9d7b7-9692-1441-a8f4-93792efbe97a
   area: Disaster Recovery
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 1ad9d7b7-9692-1441-a8f4-93792efbe97a
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/trafficManagerProfiles/recommendations.yaml
+    title: 'APRL 1ad9d7b7-9692-1441-a8f4-93792efbe97a: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1ad9d7b7-9692-1441-a8f4-93792efbe97a
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/trafficManagerProfiles/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:58d9f8bab87cf2c73b7172bf731c7e87c1ece48d537590316e3875b99f4a1e29
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

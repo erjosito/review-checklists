@@ -14,3 +14,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/frontdoor/best-practices#use-head-health-probes
 queries: {}
+schemaVersion: 1
+id: 9579d66b-896d-471f-a6ca-7be9955d04c3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

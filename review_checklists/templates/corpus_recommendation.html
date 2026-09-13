@@ -1,0 +1,39 @@
+{% extends "corpus_base.html" %}
+{% block title %}Corpus recommendation{% endblock %}
+{% block content %}
+{% set reco = row.recommendation %}
+<h1>{{ reco.title }}</h1>
+{% if requested_identity != reco.id %}<p class="notice">Retired alias {{ requested_identity }} resolves to this canonical record.</p>{% endif %}
+<dl><dt>Canonical ID</dt><dd><code>{{ reco.id }}</code></dd>
+<dt>Name</dt><dd>{{ reco.name }}</dd><dt>Corpus-relative source file</dt><dd>{{ reco.corpus_file }}</dd>
+<dt>WAF pillar</dt><dd>{{ row.pillar }}</dd><dt>Services</dt><dd>{{ row.services | join(", ") or 'Not service-specific' }} ({{ row.service_mode }})</dd>
+<dt>Recorded human review</dt><dd>{{ reco.provenance.lastReviewed or 'Not recorded' }}</dd>
+<dt>Upstream revision</dt><dd>{{ reco.provenance.upstreamRevision or 'Not recorded' }}</dd></dl>
+<h2>Description</h2><pre>{{ reco.get('description', 'Not recorded') }}</pre>
+<h2>Original source</h2>
+<pre>{{ reco.source | tojson(indent=2) }}</pre>
+{% if safe_external_url(reco.source.get('url')) %}<a href="{{ safe_external_url(reco.source.url) }}" rel="noreferrer noopener">Open original source</a>{% endif %}
+<h2>Supporting provenance references</h2>
+<ul>{% for reference in reco.provenance.sources %}
+<li>{% if safe_external_url(reference.url) %}<a href="{{ safe_external_url(reference.url) }}" rel="noreferrer noopener">{{ reference.get('title') or reference.url }}</a>
+{% else %}{{ reference.get('title') or reference.url }} (non-HTTP(S) link not enabled){% endif %}
+ - accessed {{ reference.get('accessedAt') or 'Not recorded' }}</li>
+{% else %}<li>No supporting references recorded.</li>{% endfor %}</ul>
+<h2>Explicit upstream recommendation mappings</h2>
+<p>Supporting citations alone do not prove that an upstream requirement is fully covered.
+  Compare mappings with the dated inventory on the source coverage page.</p>
+{% for reference in reco.provenance.get('upstreamRecommendations', []) %}
+<section><h3><a href="{{ url_for('corpus_admin.source', source_id=reference.sourceId) }}">{{ reference.sourceId }}</a> / {{ reference.recommendationId }}</h3>
+<p>{{ reference.coverage }} - assessed {{ reference.assessedAt }}</p>
+<p>{{ reference.notes }}</p><code>{{ reference.get('upstreamContentHash', 'No upstream hash recorded') }}</code>
+{% if safe_external_url(reference.url) %}<p><a href="{{ safe_external_url(reference.url) }}" rel="noreferrer noopener">Upstream recommendation</a></p>{% endif %}
+</section>{% else %}<p>No explicit mappings recorded.</p>{% endfor %}
+<h2>Automation metadata</h2><pre>{{ reco.automation | tojson(indent=2) }}</pre>
+{% if row.arg_available %}<h3>Primary ARG text - not executable here</h3><pre>{{ reco.queries.arg }}</pre>{% endif %}
+<h2>Retired aliases</h2>
+{% for alias in reco.get('aliases', []) %}<pre>{{ alias | tojson(indent=2) }}</pre>
+{% else %}<p>No retired aliases.</p>{% endfor %}
+<h2>Missing metadata and review conditions</h2>
+<ul>{% for key in row.quality | sort %}<li>{{ quality_labels[key] }}</li>
+{% else %}<li>None of the dashboard's recorded conditions match. This is not a technical quality grade.</li>{% endfor %}</ul>
+{% endblock %}

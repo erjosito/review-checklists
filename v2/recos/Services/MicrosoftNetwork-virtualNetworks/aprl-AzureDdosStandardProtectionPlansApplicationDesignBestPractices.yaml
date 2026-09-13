@@ -1,14 +1,13 @@
 name: aprl-AzureDdosStandardProtectionPlansApplicationDesignBestPractices
-title: Shield public endpoints in Azure VNets with Azure DDoS Standard Protection
-  Plans
-description: |-
-  Azure DDoS Protection offers enhanced mitigation features against DDoS attacks and is auto-tuned to protect specific resources in a virtual network, combined with application design best practices.
+title: Shield public endpoints in Azure VNets with Azure DDoS Standard Protection Plans
+description: Azure DDoS Protection offers enhanced mitigation features against DDoS attacks and is auto-tuned
+  to protect specific resources in a virtual network, combined with application design best practices.
 source:
   type: aprl
   file: azure-resources/Network/virtualNetworks/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/virtualNetworks
+- microsoft.network/virtualnetworks
 severity: 0
 labels:
   guid: 69ea1185-19b7-de40-9da1-9e8493547a5c
@@ -22,3 +21,34 @@ queries:
     | where type =~ 'Microsoft.Network/virtualNetworks'
     | where isnull(properties.enableDdosProtection) or properties.enableDdosProtection contains "false"
     | project recommendationId = "69ea1185-19b7-de40-9da1-9e8493547a5c", name, id, tags, param1 = strcat("EnableDdosProtection: ", properties.enableDdosProtection)
+schemaVersion: 1
+id: 69ea1185-19b7-de40-9da1-9e8493547a5c
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworks/recommendations.yaml
+    title: 'APRL 69ea1185-19b7-de40-9da1-9e8493547a5c: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 69ea1185-19b7-de40-9da1-9e8493547a5c
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/virtualNetworks/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:24d31bcdf07c38b7aa0a4c4cfd949cdf6262a666b3ed8e3a5a12e2b54b46f912
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

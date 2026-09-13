@@ -16,3 +16,13 @@ labels:
   guid: 34d0c653-4565-4c84-b000-6226c6410dac
 links: []
 queries: {}
+schemaVersion: 1
+id: 34d0c653-4565-4c84-b000-6226c6410dac
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

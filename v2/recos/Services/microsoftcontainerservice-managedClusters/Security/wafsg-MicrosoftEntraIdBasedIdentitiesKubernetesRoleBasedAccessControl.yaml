@@ -15,3 +15,13 @@ labels:
   guid: 8431face-139d-4a91-ba8c-6053f0125e74
 links: []
 queries: {}
+schemaVersion: 1
+id: 8431face-139d-4a91-ba8c-6053f0125e74
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

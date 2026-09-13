@@ -1,8 +1,9 @@
 name: wafsg-UsageOptimizationTokenLimitingConstraints
-title: 'Usage optimization: Use the token-limiting constraints offered by the API
-  calls, such as `max_tokens` and `n`, which indicate the number of completions to
-  generate.'
-description: ''
+title: Bound generated tokens without assuming every Azure OpenAI API uses max_tokens
+description: 'Select the supported output budget for the model and endpoint: max_output_tokens for Responses
+  and max_completion_tokens for reasoning Chat Completions. Include reasoning tokens and inspect incomplete-response
+  status. Tune limits using measured task quality and cost; a short visible response can still consume
+  billed reasoning tokens.'
 source:
   type: wafsg
   file: well-architected/service-guides/azure-openai.md
@@ -15,3 +16,19 @@ labels:
   guid: d310e9bc-ae3d-4eff-90a1-8356d72a1376
 links: []
 queries: {}
+schemaVersion: 1
+id: d310e9bc-ae3d-4eff-90a1-8356d72a1376
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Correct a second distinct legacy token-limit control without merging
+    identities. Requires workload, billing and operational evidence; no ARG query or live validation is
+    claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/foundry/openai/how-to/reasoning
+    title: Azure OpenAI reasoning models
+    accessedAt: '2026-09-11'

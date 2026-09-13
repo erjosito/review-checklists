@@ -14,3 +14,13 @@ labels:
   guid: 406ddc6b-7ccc-4262-8c11-e00714f74590
 links: []
 queries: {}
+schemaVersion: 1
+id: 406ddc6b-7ccc-4262-8c11-e00714f74590
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,26 +1,52 @@
 name: aprl-SecureScalableAuthenticationSystemExternalIdentityProviders
 title: Disable local accounts
-description: |-
-  Local Kubernetes accounts in AKS, being non-auditable and legacy, are discouraged. Microsoft Entra's integration offers centralized management, multi-factor authentication, RBAC for detailed access, and a secure, scalable authentication system compatible with Azure and external identity providers.
+description: Local Kubernetes accounts in AKS, being non-auditable and legacy, are discouraged. Microsoft
+  Entra's integration offers centralized management, multi-factor authentication, RBAC for detailed access,
+  and a secure, scalable authentication system compatible with Azure and external identity providers.
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 0
 labels:
   guid: ca324d71-54b0-4a3e-b9e4-10e767daa9fc
   area: Security
 links: []
 queries:
-  arg: |
-    // Azure Resource Graph Query
-    // Returns a list of AKS clusters not using AAD enabled
-    resources
-    | where type == "microsoft.containerservice/managedclusters"
-    | extend aadProfile = tostring (parse_json(properties.aadProfile))
-    | extend disablelocalAdmin = tostring(parse_json(properties.disableLocalAccounts))
-    | extend RBAC = tostring(parse_json(properties.enableRBAC))
-    | where RBAC == "false"
-    | project recommendationId="ca324d71-54b0-4a3e-b9e4-10e767daa9fc", name, id, tags, param1=strcat("aadProfile: ", aadProfile), param2=strcat("disablelocalAdmin: ",disablelocalAdmin), param3=strcat("RBAC: ", RBAC)
+  arg: ''
+schemaVersion: 1
+id: ca324d71-54b0-4a3e-b9e4-10e767daa9fc
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The old ARG predicate checks enableRBAC rather than disableLocalAccounts; it cannot establish
+    the stated local-account requirement. The exact old query is retained in aprl-baseline.json; no Azure
+    validation is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL ca324d71-54b0-4a3e-b9e4-10e767daa9fc: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: ca324d71-54b0-4a3e-b9e4-10e767daa9fc
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b9b69b25aa566eb6a5cc630c74aea930a7b80763eb82dc408ab87e32e9b1d1f7
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Withdrew a misleading executable query:
+      The old ARG predicate checks enableRBAC rather than disableLocalAccounts; it cannot establish the
+      stated local-account requirement. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. The old ARG predicate checks enableRBAC rather than disableLocalAccounts;
+      it cannot establish the stated local-account requirement. Coverage concerns the inventory''s explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.'
+waf: Security

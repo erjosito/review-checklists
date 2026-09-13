@@ -15,3 +15,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/authorize-data-access
 queries: {}
+schemaVersion: 1
+id: e1ce15dd-3f0d-45e7-92d4-1e3611cc57b4
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

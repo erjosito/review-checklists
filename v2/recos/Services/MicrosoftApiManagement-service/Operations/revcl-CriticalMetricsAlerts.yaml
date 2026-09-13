@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor
 queries: {}
+schemaVersion: 1
+id: 55fd27bb-76ac-4a91-bc37-049e885be6b7
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

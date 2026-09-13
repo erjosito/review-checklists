@@ -1,0 +1,5 @@
+<p>{{ total }} matching records. Page {{ page }} of {{ pages }} (50 per page).</p>
+<nav aria-label="Result pages">
+  {% if page > 1 %}<a href="{{ page_url(page - 1) }}">Previous</a>{% endif %}
+  {% if page < pages %}<a href="{{ page_url(page + 1) }}">Next</a>{% endif %}
+</nav>

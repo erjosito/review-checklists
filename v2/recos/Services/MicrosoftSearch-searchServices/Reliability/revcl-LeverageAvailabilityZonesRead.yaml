@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/search/search-reliability#availability-zone-support
 queries: {}
+schemaVersion: 1
+id: 44dc5f2b-a032-4d03-aae8-90c3f2c0a4c3
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,13 +1,12 @@
 name: aprl-AppConfigurationStandardTierFreeTier
 title: Upgrade to App Configuration Standard tier
-description: |-
-  SLA is not available for Free tier. Upgrade to the Standard tier to get an SLA of 99.9%
+description: SLA is not available for Free tier. Upgrade to the Standard tier to get an SLA of 99.9%
 source:
   type: aprl
   file: azure-resources/AppConfiguration/configurationStores/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.AppConfiguration/configurationStores
+- microsoft.appconfiguration/configurationstores
 severity: 0
 labels:
   guid: 2102a57a-a056-4d5e-afe5-9df9f92177ca
@@ -21,3 +20,34 @@ queries:
     | where type =~ "Microsoft.AppConfiguration/configurationStores"
     | where sku.name == "free"
     | project recommendationId = "2102a57a-a056-4d5e-afe5-9df9f92177ca", name, id, tags, param1 = "Upgrade to Standard SKU"
+schemaVersion: 1
+id: 2102a57a-a056-4d5e-afe5-9df9f92177ca
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: The published Standard-tier SLA percentage was not independently
+    reaffirmed; retain legacy wording pending SKU/SLA verification. Existing ARG is retained, not newly
+    validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AppConfiguration/configurationStores/recommendations.yaml
+    title: 'APRL 2102a57a-a056-4d5e-afe5-9df9f92177ca: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 2102a57a-a056-4d5e-afe5-9df9f92177ca
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/AppConfiguration/configurationStores/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:3fb1c40ec6cc6259c96bb54e00554fb0564a38b736f494652dae80a6eadca770
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. The published Standard-tier SLA percentage
+      was not independently reaffirmed; retain legacy wording pending SKU/SLA verification. Coverage concerns
+      the inventory's explicit metadata fingerprint; queries were not executed and lastReviewed/validatedAt
+      remain unchanged.
+waf: Reliability

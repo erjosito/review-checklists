@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/web-application-firewall/ag/best-practices#add-diagnostic-settings-to-save-your-wafs-logs
 queries: {}
+schemaVersion: 1
+id: f84106a2-2e9e-42ac-add6-d3416ecfed53
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

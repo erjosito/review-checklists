@@ -1,18 +1,49 @@
 name: aprl-MbResponseLimitCosmosDb
 title: Ensure query results are fully drained
-description: |-
-  Cosmos DB has a 4 MB response limit, leading to paginated results for large or partition-spanning queries. Each page shows availability and provides a continuation token for the next. A while loop in code is necessary to traverse all pages until completion.
+description: Cosmos DB has a 4 MB response limit, leading to paginated results for large or partition-spanning
+  queries. Each page shows availability and provides a continuation token for the next. A while loop in
+  code is necessary to traverse all pages until completion.
 source:
   type: aprl
   file: azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DocumentDB/databaseAccounts
+- microsoft.documentdb/databaseaccounts
 severity: 0
 labels:
   guid: c006604a-0d29-684c-99f0-9729cb40dac5
   area: Scalability
 links: []
 queries:
-  arg: |-
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: c006604a-0d29-684c-99f0-9729cb40dac5
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
+    title: 'APRL c006604a-0d29-684c-99f0-9729cb40dac5: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: c006604a-0d29-684c-99f0-9729cb40dac5
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DocumentDB/databaseAccounts/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:5c435d4a0ee32614813f949d1e6b99a8dbf028269db05246231988a824635ab1
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Represented comment-only/empty ARG honestly
+      as manual or candidate automation. Current APRL explicitly marks this GUID Disabled. Its historical
+      requirement is not reaffirmed or counted as current semantic coverage; a supported replacement needs
+      service-specific review. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

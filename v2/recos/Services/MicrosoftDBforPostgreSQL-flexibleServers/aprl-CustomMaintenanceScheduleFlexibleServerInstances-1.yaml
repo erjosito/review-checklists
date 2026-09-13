@@ -1,13 +1,13 @@
 name: aprl-CustomMaintenanceScheduleFlexibleServerInstances-1
 title: Enable custom maintenance schedule
-description: |-
-  Use custom maintenance schedule on flexible server instances to select a preferred time for service updates to be applied.
+description: Use custom maintenance schedule on flexible server instances to select a preferred time for
+  service updates to be applied.
 source:
   type: aprl
   file: azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.DBforPostgreSQL/flexibleServers
+- microsoft.dbforpostgresql/flexibleservers
 severity: 0
 labels:
   guid: b2bad57d-7e03-4c0f-9024-597c9eb295bb
@@ -21,3 +21,31 @@ queries:
     | where type == "microsoft.dbforpostgresql/flexibleservers"
     | where properties.maintenanceWindow.customWindow != "Enabled"
     | project recommendationId = "b2bad57d-7e03-4c0f-9024-597c9eb295bb", name, id, tags, param1 = strcat("customWindow:", properties['maintenanceWindow']['customWindow'])
+schemaVersion: 1
+id: b2bad57d-7e03-4c0f-9024-597c9eb295bb
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
+    title: 'APRL b2bad57d-7e03-4c0f-9024-597c9eb295bb: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b2bad57d-7e03-4c0f-9024-597c9eb295bb
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:81654ccfcc6262b168ee298259a4d70bc158a957c6047f9e08946016f66314a5
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

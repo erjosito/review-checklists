@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Corpus administration{% endblock %} - Azure Review Checklists</title>
+  <link rel="stylesheet" href="{{ url_for('corpus_admin.static', filename='corpus.css') }}">
+</head>
+<body>
+  <header><a href="{{ url_for('corpus_admin.index') }}">Azure Review Checklists</a>
+    <span>public corpus administration - read-only prototype</span></header>
+  <main>
+    <nav aria-label="Corpus administration">
+      {% if has_review_surface %}<a href="{{ url_for('index') }}">Return to review</a>{% endif %}
+      <a href="{{ url_for('corpus_admin.index') }}">Overview</a>
+      <a href="{{ url_for('corpus_admin.recommendations') }}">Recommendations</a>
+      <a href="{{ url_for('corpus_admin.sources') }}">Source coverage</a>
+      <a href="{{ url_for('corpus_admin.history') }}">Maintenance history</a>
+    </nav>
+    <p class="boundary">Public source corpus only. No customer review statistics, Azure queries,
+      network source checks, refreshes, or AI operations run from these pages.</p>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

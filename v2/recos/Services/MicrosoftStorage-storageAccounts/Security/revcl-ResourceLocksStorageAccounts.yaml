@@ -1,7 +1,7 @@
 name: revcl-ResourceLocksStorageAccounts
 title: Enable resource locks on storage accounts
-description: Prevents accidental deletion of a storage account, by forcing the user
-  to first remove the deletion lock, prior to deletion
+description: Prevents accidental deletion of a storage account, by forcing the user to first remove the
+  deletion lock, prior to deletion
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -15,3 +15,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/lock-account-resource
 queries: {}
+schemaVersion: 1
+id: 5398e6de-d227-4dd1-92b0-6c21d7999a64
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources
+    title: Lock your Azure resources to protect your infrastructure
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:08
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

@@ -1,14 +1,13 @@
 name: aprl-AzureExpressrouteDirectAdminState
-title: The Admin State of both Links of an ExpressRoute Direct should be in Enabled
-  state
-description: |-
-  In Azure ExpressRoute Direct, the "Admin State" indicates the administrative status of layer 1 links, showing if a link is enabled or disabled, effectively turning the physical port on or off.
+title: The Admin State of both Links of an ExpressRoute Direct should be in Enabled state
+description: In Azure ExpressRoute Direct, the "Admin State" indicates the administrative status of layer
+  1 links, showing if a link is enabled or disabled, effectively turning the physical port on or off.
 source:
   type: aprl
   file: azure-resources/Network/expressRoutePorts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/ExpressRoutePorts
+- microsoft.network/expressrouteports
 severity: 0
 labels:
   guid: 60077378-7cb1-4b35-89bb-393884d9921d
@@ -22,3 +21,31 @@ queries:
     | where type == "microsoft.network/expressrouteports"
     | where properties['links'][0]['properties']['adminState'] == "Disabled" or properties['links'][1]['properties']['adminState'] == "Disabled"
     | project recommendationId = "60077378-7cb1-4b35-89bb-393884d9921d", name, id, tags, param1 = strcat("Link1AdminState: ", properties['links'][0]['properties']['adminState']), param2 = strcat("Link2AdminState: ", properties['links'][1]['properties']['adminState'])
+schemaVersion: 1
+id: 60077378-7cb1-4b35-89bb-393884d9921d
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRoutePorts/recommendations.yaml
+    title: 'APRL 60077378-7cb1-4b35-89bb-393884d9921d: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 60077378-7cb1-4b35-89bb-393884d9921d
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRoutePorts/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:9ae00b9f1cee7ac6ce1c6690ef9b5abd1fdd4195476c33900402494e86e3d1d1
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

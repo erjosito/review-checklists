@@ -1,18 +1,31 @@
 name: aprl-PreProvisionVmsProvisioningErrors
 title: Use Databricks Pools
-description: |-
-  Databricks pools pre-provision VMs, reducing risks of provisioning errors during cluster start or scale, enhancing reliability.
+description: Databricks pools pre-provision VMs, reducing risks of provisioning errors during cluster
+  start or scale, enhancing reliability.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 0
 labels:
   guid: c166602e-0804-e34b-be8f-09b4d56e1fcd
   area: Scalability
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: c166602e-0804-e34b-be8f-09b4d56e1fcd
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+waf: Performance

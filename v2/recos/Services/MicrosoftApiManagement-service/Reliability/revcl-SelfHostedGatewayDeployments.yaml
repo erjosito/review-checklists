@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
 queries: {}
+schemaVersion: 1
+id: 10f58602-f0f9-4d77-972a-956f6e0f2600
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

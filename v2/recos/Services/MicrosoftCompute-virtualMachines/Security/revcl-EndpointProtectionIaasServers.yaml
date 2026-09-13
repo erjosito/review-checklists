@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/mem/configmgr/protect/deploy-use/endpoint-protection
 queries: {}
+schemaVersion: 1
+id: 24d96b30-61ee-4436-a1cc-d6ef08bc574b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

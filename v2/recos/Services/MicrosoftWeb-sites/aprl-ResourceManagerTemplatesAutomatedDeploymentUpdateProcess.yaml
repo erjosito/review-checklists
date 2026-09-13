@@ -1,25 +1,63 @@
 name: aprl-ResourceManagerTemplatesAutomatedDeploymentUpdateProcess
-title: Store configuration as app settings
-description: |-
-  Use app settings for configuration and define them in Resource Manager templates or via PowerShell to facilitate part of an automated deployment/update process for improved reliability.
+title: Store configuration as app settings for Web Sites
+description: Use app settings for configuration and define them in Resource Manager templates or via PowerShell
+  to facilitate part of an automated deployment/update process for improved reliability.
 source:
   type: aprl
   file: azure-resources/Web/sites/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/sites
+- microsoft.web/sites
 severity: 1
 labels:
   guid: 0b80b67c-afbe-4988-ad58-a85a146b681e
   area: Other Best Practices
 links: []
 queries:
-  arg: |
+  arg: |+
     // Azure Resource Graph Query
     // Provides a list of Azure App Service resources that don't have App Settings configured
+    Resources
+    | where type =~ 'microsoft.web/sites'
+    | join kind=inner
+        (appserviceresources
+        | where type == "microsoft.web/sites/config"
+        | extend AppSettings = iif(isempty(properties.AppSettings), false, true)
+        | where AppSettings == false
+        | extend id = replace(@"/config/web$", "", id)
+        ) on id
+    | project recommendationID = "0b80b67c-afbe-4988-ad58-a85a146b681e", id, name, param1="AppSettings is not configured"
 
-    appserviceresources
-    | where type == "microsoft.web/sites/config"
-    | extend AppSettings = iif(isempty(properties.AppSettings), true, false)
-    | where AppSettings == false
-    | project  recommendationId="0b80b67c-afbe-4988-ad58-a85a146b681e", id, name, tags="", param1="AppSettings is not configured"
+schemaVersion: 1
+id: 0b80b67c-afbe-4988-ad58-a85a146b681e
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+  notes: The current query fixes the inverted isempty test and joins configuration rows to Web Sites;
+    returned rows are an inventory, not proof about unreturned sites. Static source review only; not executed
+    against Azure. Returned rows require applicability review, and zero rows do not prove compliance.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    title: 'APRL 0b80b67c-afbe-4988-ad58-a85a146b681e: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 0b80b67c-afbe-4988-ad58-a85a146b681e
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:259b98ea278097508a20e09077b38863978223bf4021e3bec76ad104de52f684
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. The current query fixes the inverted isempty test
+      and joins configuration rows to Web Sites; returned rows are an inventory, not proof about unreturned
+      sites. Coverage concerns the inventory's explicit metadata fingerprint; queries were not executed
+      and lastReviewed/validatedAt remain unchanged.
+waf: Operations

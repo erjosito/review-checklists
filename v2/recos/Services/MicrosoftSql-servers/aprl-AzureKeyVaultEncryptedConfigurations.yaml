@@ -1,18 +1,49 @@
 name: aprl-AzureKeyVaultEncryptedConfigurations
 title: Back Up Your Keys
-description: |-
-  It is highly recommended to use Azure Key Vault (AKV) to store encryption keys related to Always Encrypted configurations, however it is not required. If you are not using AKV, then ensure that your keys are properly backed up and stored in a secure manner.
+description: It is highly recommended to use Azure Key Vault (AKV) to store encryption keys related to
+  Always Encrypted configurations, however it is not required. If you are not using AKV, then ensure that
+  your keys are properly backed up and stored in a secure manner.
 source:
   type: aprl
   file: azure-resources/Sql/servers/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Sql/servers
+- microsoft.sql/servers
 severity: 1
 labels:
   guid: d6ef87aa-574e-584e-a955-3e6bb8b5425b
   area: Disaster Recovery
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: d6ef87aa-574e-584e-a955-3e6bb8b5425b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Sql/servers/recommendations.yaml
+    title: 'APRL d6ef87aa-574e-584e-a955-3e6bb8b5425b: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: d6ef87aa-574e-584e-a955-3e6bb8b5425b
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Sql/servers/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dd0d4be92e9db9e872211e5fea8a70c4097105600349e0c554582b2971c25429
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

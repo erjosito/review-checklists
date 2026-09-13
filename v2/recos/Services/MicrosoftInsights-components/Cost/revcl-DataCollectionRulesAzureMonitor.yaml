@@ -1,10 +1,11 @@
 name: revcl-DataCollectionRulesAzureMonitor
-title: Data collection rules in Azure Monitor -https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview
+title: Filter unnecessary telemetry with supported data collection rules
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
 resourceTypes:
-- microsoft.insights/components
+- microsoft.insights/datacollectionrules
+- microsoft.operationalinsights/workspaces
 waf: Cost
 severity: 1
 labels:
@@ -15,3 +16,23 @@ links:
 - type: docs
   url: https://azure.microsoft.com/pricing/reservations/
 queries: {}
+schemaVersion: 1
+id: a95b86ad-8840-48e3-9273-4b875ba18f20
+services:
+- Azure Monitor
+automation:
+  status: candidate
+  validatedAt: null
+  notes: Requires DCR configuration plus billed ingestion/usage and operational requirements; no complete
+    ARG savings query is proposed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/azure-monitor/fundamentals/best-practices-cost
+    title: Cost optimization in Azure Monitor
+    accessedAt: '2026-09-11'
+description: Identify top billable tables and sources, then reduce unneeded collection at source or through
+  supported ingestion-time transformations. Check duplicated collection across agents and workspaces.
+  Retain data needed for security, reliability, auditing and incident response, and measure the resulting
+  billable ingestion rather than assuming every filter saves cost.

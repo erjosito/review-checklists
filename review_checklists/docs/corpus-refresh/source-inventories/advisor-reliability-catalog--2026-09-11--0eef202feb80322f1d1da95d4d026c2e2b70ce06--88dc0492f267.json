@@ -1,0 +1,123 @@
+{
+  "asOf": "2026-09-11",
+  "fingerprintScope": "canonical-json-v1 payload {id,title,content}: trimmed Markdown level-four recommendation section, excluding following headings and page/fetch metadata",
+  "inventoryStatus": "partial",
+  "items": [
+    {
+      "contentHash": "sha256:00d5e7e3b5b8fd588b23ce901819b39ed8659a2a56715b730535fe0e51fefd6f",
+      "id": "52fef986-5897-4359-8b92-0f22749f0d73",
+      "payload": {
+        "content": "Your Azure Cosmos DB accounts use periodic backup. Continuous backup with point-in-time restore is now available - restore data to any moment in the past 30 days. It may also be more cost-effective, retaining only a single copy of your data.\r\n\r\n**Potential benefits**: Improve the resiliency of your Azure Cosmos DB workloads\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [Continuous Backup with Point-in-Time Restore - Azure Cosmos DB](/en-us/azure/cosmos-db/continuous-backup-restore-introduction)\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: 52fef986-5897-4359-8b92-0f22749f0d73 Subcategory: BusinessContinuity",
+        "id": "52fef986-5897-4359-8b92-0f22749f0d73",
+        "title": "Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup"
+      },
+      "title": "Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+    },
+    {
+      "contentHash": "sha256:a40fbf7e154f73f8fe8987c4c1993dbbf2af9cea2ccb306ceab38d5926ca2f84",
+      "id": "5c488377-be3e-4365-92e8-09d1e8d9038c",
+      "payload": {
+        "content": "Achieve zone redundancy by deploying Application Gateway across Availability Zones. Zone redundancy boosts resilience by enabling Application Gateway to survive various outages. Zone redundancy ensures continuity even if one zone is affected and enhances overall reliability.\r\n\r\n**Potential benefits**: Availability zones add resiliency for Application Gateways\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Scaling and Zone-redundant Application Gateway v2](https://aka.ms/appgw/az)\r\n\r\nResourceType: microsoft.network/applicationgateways Recommendation ID: 5c488377-be3e-4365-92e8-09d1e8d9038c Subcategory: undefined",
+        "id": "5c488377-be3e-4365-92e8-09d1e8d9038c",
+        "title": "Deploy your Application Gateway across Availability Zones"
+      },
+      "title": "Deploy your Application Gateway across Availability Zones",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+    },
+    {
+      "contentHash": "sha256:2c61e2b7eea1189ec7b094a66d95a388dbf288984effcc9635f7e7a642a8c2e1",
+      "id": "5de9f2e6-087e-40da-863a-34b7943beed4",
+      "payload": {
+        "content": "Enable service managed failover for Cosmos DB account to ensure high availability of the account. Service managed failover automatically switches the write region to the secondary region in case of a primary region outage. This ensures that the application continues to function without any downtime.\r\n\r\n**Potential benefits**: Azure's Service-Managed Failover feature enhances system availability by automating failover processes, reducing downtime, and improving resilience.\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [High availability (Reliability) in Azure Cosmos DB for NoSQL](/en-us/azure/cosmos-db/high-availability).\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: 5de9f2e6-087e-40da-863a-34b7943beed4 Subcategory: Other",
+        "id": "5de9f2e6-087e-40da-863a-34b7943beed4",
+        "title": "Enable service managed failover for Cosmos DB account"
+      },
+      "title": "Enable service managed failover for Cosmos DB account",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+    },
+    {
+      "contentHash": "sha256:1cc551f14316782e7e38d8aa1f022bcb8454cbf697c13a2262faee9aaab68750",
+      "id": "687f83d3-db01-4ab1-a77b-b31e99f16d33",
+      "payload": {
+        "content": "Enabling zone redundancy for multi-region Cosmos DB accounts to improve high availability and reduce the risk of data loss in case of a regional outage.\r\n\r\n**Potential benefits**: Improved availability and reliability\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [High Availability (Reliability) in Azure Cosmos DB for NoSQL](https://aka.ms/learnmore_cosmos)\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: 687f83d3-db01-4ab1-a77b-b31e99f16d33 Subcategory: undefined",
+        "id": "687f83d3-db01-4ab1-a77b-b31e99f16d33",
+        "title": "Enable zone redundancy for multi-region Cosmos DB accounts"
+      },
+      "title": "Enable zone redundancy for multi-region Cosmos DB accounts",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+    },
+    {
+      "contentHash": "sha256:e9207f0ef3d728d21aae44a3fbbeff591afaef553407c3d34faf7ac4e0f5f1d9",
+      "id": "72063b96-92fa-4b74-9457-b84b662155f9",
+      "payload": {
+        "content": "Use health check for production workloads. Health check increases the availability of the application by rerouting requests away from unhealthy instances and replacing instances if the instances remain unhealthy. The health check path should check critical components of the application.\r\n\r\n**Potential benefits**: Enhanced reliability via automation\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Monitor the health of App Service instances - Azure App Service](/en-us/azure/app-service/monitor-instances-health-check?tabs=dotnet)\r\n\r\nResourceType: microsoft.web/sites Recommendation ID: 72063b96-92fa-4b74-9457-b84b662155f9 Subcategory: MonitoringAndAlerting",
+        "id": "72063b96-92fa-4b74-9457-b84b662155f9",
+        "title": "Enable Health check for App Service"
+      },
+      "title": "Enable Health check for App Service",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+    },
+    {
+      "contentHash": "sha256:289541adf313970f61eb56da7d1c96257c8741d7890a62fc626db5718ca6a7a2",
+      "id": "8034b205-167a-4fd5-a133-0c8cb166103c",
+      "payload": {
+        "content": "This recommendation suggests enabling zone redundancy for multi-region Cosmos DB accounts to improve high availability and reduce the risk of data loss in case of a regional outage.\r\n\r\n**Potential benefits**: Improved high availability and reduced risk of data loss\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [High Availability (Reliability) in Azure Cosmos DB for NoSQL](/en-us/azure/cosmos-db/high-availability#replica-outages)\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: 8034b205-167a-4fd5-a133-0c8cb166103c Subcategory: undefined",
+        "id": "8034b205-167a-4fd5-a133-0c8cb166103c",
+        "title": "Enable zone redundancy for multi-region Cosmos DB accounts"
+      },
+      "title": "Enable zone redundancy for multi-region Cosmos DB accounts",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+    },
+    {
+      "contentHash": "sha256:5df00a6656f0c88fa0294291b0d453f7f965d10f3aba3b789177d43c71500b0a",
+      "id": "a2002089-9dd1-46b6-881c-d0f349515230",
+      "payload": {
+        "content": "Multi-region writes enable high availability but require careful consistency and conflict resolution. Using Bounded Staleness is an anti-pattern, as replication lag increases latency and coordination overhead. This setup undermines scalability, impacting performance and availability.\r\n\r\n**Potential benefits**: Enhances high availability\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Configure Multi-Region Writes](/en-us/azure/cosmos-db/nosql/how-to-multi-master?tabs=api-async)\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: a2002089-9dd1-46b6-881c-d0f349515230 Subcategory: undefined",
+        "id": "a2002089-9dd1-46b6-881c-d0f349515230",
+        "title": "Evaluate multi-region write capability in Azure Cosmos DB"
+      },
+      "title": "Evaluate multi-region write capability in Azure Cosmos DB",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+    },
+    {
+      "contentHash": "sha256:f11b3fa9ccd35a08d61816e14343ddb5e5037091a27733e4ee6044042b3be2a5",
+      "id": "b57f7a29-dcc8-43de-86fa-18d3f9d3764d",
+      "payload": {
+        "content": "Production workloads on Azure Cosmos DB run in a single region might have availability issues, this appears to be the case with some of your Cosmos DB accounts. Increase their availability by configuring them to span at least two Azure regions. NOTE: Additional regions incur additional costs.\r\n\r\n**Potential benefits**: Improve the availability of your production workloads\r\n\r\n**Impact:** Medium\r\n\r\nFor more information, see [High availability (Reliability) in Azure Cosmos DB for NoSQL](/en-us/azure/cosmos-db/high-availability).\r\n\r\nResourceType: microsoft.documentdb/databaseaccounts Recommendation ID: b57f7a29-dcc8-43de-86fa-18d3f9d3764d Subcategory: BusinessContinuity",
+        "id": "b57f7a29-dcc8-43de-86fa-18d3f9d3764d",
+        "title": "Add a second region to your production workloads on Azure Cosmos DB"
+      },
+      "title": "Add a second region to your production workloads on Azure Cosmos DB",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+    },
+    {
+      "contentHash": "sha256:02cbd27cca0e5c7c204f396a0611c08c468b5fdd523223181245ba3d4ca242f1",
+      "id": "fac3022a-eda5-44b9-b54d-cb500d1d01dd",
+      "payload": {
+        "content": "Deploy App Service Plan with zoneRedundant set to true\r\n\r\n**Potential benefits**: Keeps web apps running across zones\r\n\r\n**Impact:** High\r\n\r\nFor more information, see [Azure App Service Plans - Azure App Service](https://aka.ms/WebServerFarms)\r\n\r\nResourceType: microsoft.web/serverfarms Recommendation ID: fac3022a-eda5-44b9-b54d-cb500d1d01dd Subcategory: HighAvailability",
+        "id": "fac3022a-eda5-44b9-b54d-cb500d1d01dd",
+        "title": "Use zone-supported App Service Plan"
+      },
+      "title": "Use zone-supported App Service Plan",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+    }
+  ],
+  "limitations": [
+    "Only nine explicitly read and mapped catalog GUIDs are inventoried; not a complete denominator.",
+    "Shared complete parser failed on an ID-less section. No recommendation ID was inferred from a repeated title.",
+    "Unidentified sections observed: Avoid placing Traffic Manager behind Front Door\r",
+    "Full/partial item mappings are semantic assessments, not independent human approval or tenant Advisor findings.",
+    "A partial inventory must not produce whole-catalog coverage percentages."
+  ],
+  "retrievedAt": "2026-09-11T18:18:26.206512Z",
+  "schemaVersion": 1,
+  "scope": "All Recommendation ID sections in the English published Advisor Reliability recommendations reference page",
+  "sourceId": "advisor-reliability-catalog",
+  "sourceUrls": [
+    "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations"
+  ],
+  "title": "Published Azure Advisor Reliability catalog",
+  "unit": "published-advisor-recommendation-guid",
+  "upstreamRevision": "0eef202feb80322f1d1da95d4d026c2e2b70ce06"
+}

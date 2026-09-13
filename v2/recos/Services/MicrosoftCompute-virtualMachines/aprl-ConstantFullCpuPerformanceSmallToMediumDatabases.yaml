@@ -1,13 +1,13 @@
 name: aprl-ConstantFullCpuPerformanceSmallToMediumDatabases
 title: Don't use A or B-Series VMs for production needing constant full CPU performance
-description: |-
-  A-series VMs are tailored for entry-level workloads like development and testing, including use cases such as development and test servers, low traffic web servers, and small to medium databases.
+description: A-series VMs are tailored for entry-level workloads like development and testing, including
+  use cases such as development and test servers, low traffic web servers, and small to medium databases.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 0
 labels:
   guid: 3201dba8-d1da-4826-98a4-104066545170
@@ -21,3 +21,31 @@ queries:
     | where type == 'microsoft.compute/virtualmachines'
     | where properties.hardwareProfile.vmSize contains "Standard_B" or properties.hardwareProfile.vmSize contains "Standard_A"
     | project recommendationId = "3201dba8-d1da-4826-98a4-104066545170", name, id, tags, param1=strcat("vmSku: " , properties.hardwareProfile.vmSize)
+schemaVersion: 1
+id: 3201dba8-d1da-4826-98a4-104066545170
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL 3201dba8-d1da-4826-98a4-104066545170: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 3201dba8-d1da-4826-98a4-104066545170
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b607ecd3688e61537370aafdd66b00803e942a424e9204857fd8e0611d8e3339
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

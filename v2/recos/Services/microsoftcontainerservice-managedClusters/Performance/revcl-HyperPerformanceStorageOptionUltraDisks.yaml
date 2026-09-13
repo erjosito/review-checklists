@@ -1,5 +1,5 @@
 name: revcl-HyperPerformanceStorageOptionUltraDisks
-title: For hyper performance storage option use Ultra Disks on AKS
+title: Benchmark Ultra Disks against AKS persistent-storage requirements
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/use-ultra-disks
 queries: {}
+schemaVersion: 1
+id: 39c486ce-d5af-4062-89d5-18bb5fd795db
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/concepts-storage
+    title: Storage options for applications in Azure Kubernetes Service (AKS)
+    accessedAt: '2026-09-11'
+description: Consider Ultra Disks for workloads needing their performance characteristics, after checking
+  VM, region, CSI and volume eligibility. Compare alternatives using measured latency, IOPS, throughput
+  and cost. Premium SSDs or shared file services can be more appropriate; a high-performance workload
+  does not automatically require Ultra Disks.

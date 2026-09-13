@@ -1,5 +1,5 @@
 name: revcl-AzureCniMaximumPodsNode
-title: If using Azure CNI, check the maximum pods/node (default 30)
+title: Verify maxPods against the AKS CNI mode and node-pool configuration
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/configure-azure-cni
 queries: {}
+schemaVersion: 1
+id: 22f54b29-bade-43aa-b1e8-c38ec9366673
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/aks/concepts-network-ip-address-planning
+    title: IP address planning for your Azure Kubernetes Service (AKS) clusters
+    accessedAt: '2026-09-11'
+description: 'Read each pool''s configured maxPods and validate subnet/pod-CIDR headroom for growth and
+  upgrades. Current documented defaults differ: Azure CNI Overlay 250, Azure CNI Pod Subnet 110, legacy
+  Azure CNI 30, and kubenet 110. These are defaults, not desired values for every workload; the documented
+  configurable maximum is 250. Verify current constraints before creating or replacing pools.'

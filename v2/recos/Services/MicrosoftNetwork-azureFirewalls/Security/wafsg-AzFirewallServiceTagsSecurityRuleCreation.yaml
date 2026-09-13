@@ -19,3 +19,13 @@ labels:
   guid: 2747c05a-f1a0-44e2-918a-f673f409e9aa
 links: []
 queries: {}
+schemaVersion: 1
+id: 2747c05a-f1a0-44e2-918a-f673f409e9aa
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/azure-administrator-manage-virtual-networks/
 queries: {}
+schemaVersion: 1
+id: cc881471-607c-41cc-a0e6-14658dd558f9
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

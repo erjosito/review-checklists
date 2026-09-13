@@ -17,3 +17,13 @@ labels:
   guid: 88413b43-c031-4930-acbf-fc1d33b7d930
 links: []
 queries: {}
+schemaVersion: 1
+id: 88413b43-c031-4930-acbf-fc1d33b7d930
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

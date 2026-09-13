@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/aks/aks-resource-health
 queries: {}
+schemaVersion: 1
+id: 74c2ee76-569b-4a79-a57e-dedf91b022c9
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

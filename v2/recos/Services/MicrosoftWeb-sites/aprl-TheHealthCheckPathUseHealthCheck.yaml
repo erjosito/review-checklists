@@ -1,14 +1,15 @@
 name: aprl-TheHealthCheckPathUseHealthCheck
 title: Enable Health check for App Services
-description: |-
-  Use Health Check for production workloads. Health check increases your application's availability by rerouting requests away from unhealthy instances, and replacing instances if they remain unhealthy. The Health check path should check critical components of your application.
+description: Use Health Check for production workloads. Health check increases your application's availability
+  by rerouting requests away from unhealthy instances, and replacing instances if they remain unhealthy.
+  The Health check path should check critical components of your application.
 source:
   type: aprl
   file: azure-resources/Web/sites/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Web/sites
-severity: 1
+- microsoft.web/sites
+severity: 0
 labels:
   guid: fd049c28-ae6d-48f0-a641-cc3ba1a3fe1d
   area: Other Best Practices
@@ -28,3 +29,31 @@ queries:
         | project  name
         ) on name
     | project recommendationId = "fd049c28-ae6d-48f0-a641-cc3ba1a3fe1d", name, id, tags, param1 = "Healthcheckpath = not set"
+schemaVersion: 1
+id: fd049c28-ae6d-48f0-a641-cc3ba1a3fe1d
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    title: 'APRL fd049c28-ae6d-48f0-a641-cc3ba1a3fe1d: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: fd049c28-ae6d-48f0-a641-cc3ba1a3fe1d
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Web/sites/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e61bff02d95e7b443767251c63ca5aba267f9275af181e1075e19018e3714d6e
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

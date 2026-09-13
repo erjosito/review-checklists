@@ -1,9 +1,8 @@
 name: wafsg-ExpressroutePricingUnderstandPricing
 title: Familiarize yourself with ExpressRoute pricing
-description: For information about ExpressRoute pricing, see Understand pricing for
-  Azure ExpressRoute. You can also use the Pricing calculator.Ensure that the options
-  are adequately sized to meet the capacity demand and deliver expected performance
-  without wasting resources.
+description: For information about ExpressRoute pricing, see Understand pricing for Azure ExpressRoute.
+  You can also use the Pricing calculator.Ensure that the options are adequately sized to meet the capacity
+  demand and deliver expected performance without wasting resources.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +14,23 @@ labels:
   guid: 92eec823-61dd-486c-b46e-0339fc02987e
 links: []
 queries: {}
+schemaVersion: 1
+id: 92eec823-61dd-486c-b46e-0339fc02987e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 96599299-4653-4e94-989b-8c7fe64cb2bd
+  name: wafsg-ExpressroutePricing
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-expressroute.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 96599299-4653-4e94-989b-8c7fe64cb2bd
+  corpusFile: Services/microsoftnetwork-expressRouteCircuits/Cost/wafsg-ExpressroutePricing.yaml

@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/modules/hub-and-spoke-network-architecture/?source=recommendations
 queries: {}
+schemaVersion: 1
+id: facc08c6-ea95-4641-91cd-fa09e573adbd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

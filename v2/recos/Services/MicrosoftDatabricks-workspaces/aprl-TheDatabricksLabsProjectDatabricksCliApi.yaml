@@ -1,18 +1,49 @@
 name: aprl-TheDatabricksLabsProjectDatabricksCliApi
 title: Create regular backups
-description: |-
-  To recover from a failure, regular backups are needed. The Databricks Labs project migrate lets admins create backups by exporting workspace assets using the Databricks CLI/API. These backups help in restoring or migrating workspaces.
+description: To recover from a failure, regular backups are needed. The Databricks Labs project migrate
+  lets admins create backups by exporting workspace assets using the Databricks CLI/API. These backups
+  help in restoring or migrating workspaces.
 source:
   type: aprl
   file: azure-resources/Databricks/workspaces/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Databricks/workspaces
+- microsoft.databricks/workspaces
 severity: 2
 labels:
   guid: 932d45d6-b46d-e341-abfb-d97bce832f1f
   area: Disaster Recovery
 links: []
 queries:
-  arg: |
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 932d45d6-b46d-e341-abfb-d97bce832f1f
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    title: 'APRL 932d45d6-b46d-e341-abfb-d97bce832f1f: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 932d45d6-b46d-e341-abfb-d97bce832f1f
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Databricks/workspaces/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:536b28c5b285a7fe957e3c520eccb49a6221bd35ed37a27b366bed732865c310
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

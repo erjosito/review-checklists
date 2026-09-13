@@ -1,14 +1,14 @@
 name: aprl-AzureNetworkSecurityGroupsDefaultSecurityRules
-title: The NSG only has Default Security Rules, make sure to configure the necessary
-  rules
-description: |-
-  Azure network security groups filter network traffic between resources in a virtual network, using security rules to allow or deny inbound or outbound traffic based on source, destination, port, and protocol.
+title: The NSG only has Default Security Rules, make sure to configure the necessary rules
+description: Azure network security groups filter network traffic between resources in a virtual network,
+  using security rules to allow or deny inbound or outbound traffic based on source, destination, port,
+  and protocol.
 source:
   type: aprl
   file: azure-resources/Network/networkSecurityGroups/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/networkSecurityGroups
+- microsoft.network/networksecuritygroups
 severity: 1
 labels:
   guid: 8291c1fa-650c-b44b-b008-4deb7465919d
@@ -23,3 +23,34 @@ queries:
     | extend sr = string_size(properties.securityRules)
     | where sr <=2 or isnull(properties.securityRules)
     | project recommendationId = "8291c1fa-650c-b44b-b008-4deb7465919d", name, id
+schemaVersion: 1
+id: 8291c1fa-650c-b44b-b008-4deb7465919d
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/networkSecurityGroups/recommendations.yaml
+    title: 'APRL 8291c1fa-650c-b44b-b008-4deb7465919d: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 8291c1fa-650c-b44b-b008-4deb7465919d
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/networkSecurityGroups/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d7a9f7461d097adfa7162413e8864857365c3f40c909bf4cf6b9ab562588f17f
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

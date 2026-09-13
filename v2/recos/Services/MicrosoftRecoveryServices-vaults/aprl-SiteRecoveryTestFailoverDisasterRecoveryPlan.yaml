@@ -1,14 +1,14 @@
 name: aprl-SiteRecoveryTestFailoverDisasterRecoveryPlan
-title: Validate VM functionality with a Site Recovery test failover to check performance
-  at target
-description: |-
-  Perform a test failover to validate your BCDR strategy and ensure that your applications are functioning correctly in the target region without impacting your production environment. Test your Disaster Recovery plan periodically without any data loss or downtime, using test failovers.
+title: Validate VM functionality with a Site Recovery test failover to check performance at target
+description: Perform a test failover to validate your BCDR strategy and ensure that your applications
+  are functioning correctly in the target region without impacting your production environment. Test your
+  Disaster Recovery plan periodically without any data loss or downtime, using test failovers.
 source:
   type: aprl
   file: azure-resources/RecoveryServices/vaults/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.RecoveryServices/vaults
+- microsoft.recoveryservices/vaults
 severity: 0
 labels:
   guid: 17e877f7-3a89-4205-8a24-0670de54ddcd
@@ -22,3 +22,34 @@ queries:
     | where type == "microsoft.recoveryservices/vaults/replicationfabrics/replicationprotectioncontainers/replicationprotecteditems"
     | where properties.providerSpecificDetails.dataSourceInfo.datasourceType == 'AzureVm' and isnull(properties.lastSuccessfulTestFailoverTime)
     | project recommendationId="17e877f7-3a89-4205-8a24-0670de54ddcd" , name = properties.providerSpecificDetails.recoveryAzureVMName, id=properties.providerSpecificDetails.dataSourceInfo.resourceId
+schemaVersion: 1
+id: 17e877f7-3a89-4205-8a24-0670de54ddcd
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Upstream resource scope is [''Microsoft.Compute/virtualMachines''],
+    while the frozen corpus scope is [''Microsoft.RecoveryServices/vaults'']; applicability is not broadened
+    or narrowed without separate verification. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/RecoveryServices/vaults/recommendations.yaml
+    title: 'APRL 17e877f7-3a89-4205-8a24-0670de54ddcd: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 17e877f7-3a89-4205-8a24-0670de54ddcd
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/RecoveryServices/vaults/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:3cd0fd68e5fc425bc98336a3bde3bad34484b628cd8bb65312d3cfbce298402f
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Upstream resource scope is ['Microsoft.Compute/virtualMachines'],
+      while the frozen corpus scope is ['Microsoft.RecoveryServices/vaults']; applicability is not broadened
+      or narrowed without separate verification. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

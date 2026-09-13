@@ -1,31 +1,52 @@
 name: aprl-ApplicationGatewaySubnetWafVSku
-title: Ensure Application Gateway Subnet is using a /24 subnet mask
-description: |-
-  Application Gateway v2 (Standard_v2 or WAF_v2 SKU) can support up to 125 instances. A /24 subnet isn't mandatory for deployment but is advised to provide enough space for autoscaling and maintenance upgrades.
+title: A minimum subnet size of /24 is recommended for Application Gateway v2 subnets.
+description: Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance
+  IP addresses + 1 private frontend IP configuration + 5 Azure reserved). A minimum subnet size of /24
+  is recommended.
 source:
   type: aprl
   file: azure-resources/Network/applicationGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/applicationGateways
+- microsoft.network/applicationgateways
 severity: 0
 labels:
   guid: 8364fd0a-7c0e-e240-9d95-4bf965aec243
   area: Other Best Practices
 links: []
 queries:
-  arg: |
-    // Azure Resource Graph Query
-    // This query will validate the subnet id for an appGW ends with a /24
-
-    resources
-    | where type =~ 'Microsoft.Network/applicationGateways'
-    | extend subnetid = tostring(properties.gatewayIPConfigurations[0].properties.subnet.id)
-    | join kind=leftouter(resources
-        | where type == "microsoft.network/virtualnetworks"
-        | mv-expand properties.subnets
-        | extend subnetid = tostring(properties_subnets.id)
-        | extend addressprefix = tostring(properties_subnets.properties.addressPrefix)
-        | project subnetid, addressprefix) on subnetid
-    | where addressprefix !endswith '/24'
-    | project recommendationId = "8364fd0a-7c0e-e240-9d95-4bf965aec243", name, id, tags, param1 = strcat('AppGW subnet prefix: ', addressprefix)
+  arg: ''
+schemaVersion: 1
+id: 8364fd0a-7c0e-e240-9d95-4bf965aec243
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The old exact /24 string test falsely flags larger /23 subnets and lacks a v2 SKU filter. The
+    new upstream multi-prefix expansion also requires execution/edge-case review; use a manual minimum-size
+    assessment. The exact old query is retained in aprl-baseline.json; no Azure validation is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    title: 'APRL 8364fd0a-7c0e-e240-9d95-4bf965aec243: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 8364fd0a-7c0e-e240-9d95-4bf965aec243
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:1406b13061118f11b86a96c7b2ce56e452af742dda3466a3543577f4c13137f1
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Withdrew a misleading executable query: The old
+      exact /24 string test falsely flags larger /23 subnets and lacks a v2 SKU filter. The new upstream
+      multi-prefix expansion also requires execution/edge-case review; use a manual minimum-size assessment.
+      Coverage concerns the inventory''s explicit metadata fingerprint; queries were not executed and
+      lastReviewed/validatedAt remain unchanged.'
+waf: Performance

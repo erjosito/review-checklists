@@ -14,3 +14,13 @@ labels:
   guid: cb964e93-b3f5-43b4-a52f-30f53a16d163
 links: []
 queries: {}
+schemaVersion: 1
+id: cb964e93-b3f5-43b4-a52f-30f53a16d163
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

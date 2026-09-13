@@ -1,0 +1,76 @@
+{
+  "groups": [
+    {
+      "canonicalId": "d0c4b44f-7b43-428c-93f2-dedd7bf00799",
+      "retiredIds": [
+        "96bcda1b-240a-4d4b-93fa-6872b549d711"
+      ],
+      "reason": "Both still require Application Gateway scale-in and scale-out policies; preserve capacity-spike and instance-sizing explanation. Same service applicability, WAF/severity, empty query and unknown automation.",
+      "beforeContentHash": "sha256:3ca0e616e3e9e36c545d04cca61b205ccd9b026783f25c0ff2c20a77ec6ad1ba"
+    },
+    {
+      "canonicalId": "6f1432ef-61d2-4037-8f85-58e005d16b8c",
+      "retiredIds": [
+        "30cbe437-b17d-45ad-a42e-a26bef6f4b77"
+      ],
+      "reason": "Both still require Application Gateway pricing familiarization. The only nonempty description supplies pricing calculator and capacity/performance sizing details, which survive unchanged.",
+      "beforeContentHash": "sha256:27743e09ddec762be5a7c0330befdba4630b355134aef1a54008ebd7711cd6ea"
+    },
+    {
+      "canonicalId": "ac8bb190-71ba-48ec-9fef-351c1cd5501f",
+      "retiredIds": [
+        "0ce550b6-f2ed-428c-b8c2-b224c065a0db"
+      ],
+      "reason": "Both still require Application Gateway consumption/capacity-cost analysis. Preserve Estimated Billed, Fixed Billable and Current Capacity Units plus bandwidth-cost detail; no competing query or interpretation.",
+      "beforeContentHash": "sha256:81dde2b5f4cd4077aa50747664bc7d1b9e65f0dc2f37038b5482e26bb546f1de"
+    },
+    {
+      "canonicalId": "edd459fa-3105-4a03-b009-4f983d23da5a",
+      "retiredIds": [
+        "7327aac3-008f-4878-bf49-a6c3f76746a1"
+      ],
+      "reason": "Both still require ExpressRoute cost monitoring and budget alerts; retain spending-anomaly and overspending-risk description. Scope, severity and automation are identical.",
+      "beforeContentHash": "sha256:daacda7db19199774a77314d1da9a4c61f8ace769396ac0e4788d3e127cbe006"
+    },
+    {
+      "canonicalId": "92eec823-61dd-486c-b46e-0339fc02987e",
+      "retiredIds": [
+        "96599299-4653-4e94-989b-8c7fe64cb2bd"
+      ],
+      "reason": "Both still require ExpressRoute pricing familiarization; retain calculator, capacity-demand sizing and performance/cost balancing details. No different licensing or billing scope is introduced.",
+      "beforeContentHash": "sha256:9e8e2d4ec762ac126b08d8343cdd6a810b2608f143cdddea1161c8934ded8aec"
+    },
+    {
+      "canonicalId": "18f1f2f6-de79-405d-b7a1-65fb571c0493",
+      "retiredIds": [
+        "5473960a-7ac3-44a0-8d01-695132b782cd"
+      ],
+      "reason": "Files and Blob guides still repeat the same account-level cost-versus-budget/forecast and export/Excel/Power BI analysis requirement. Only phrasing differs; no Files/Blob-specific feature or automation condition.",
+      "beforeContentHash": "sha256:5238a123cd2e7470066537068cb214d25477dea1a7c7cc632d22d76a92779ad3"
+    },
+    {
+      "canonicalId": "a5675d94-de9f-44b1-8b21-f8032cdf3f3d",
+      "retiredIds": [
+        "f0c38fed-fc9f-458d-aab7-9b03b8a0dfea"
+      ],
+      "reason": "Files and Blob guides still prescribe the same subscription/resource-group budgets, configuration/location policies and RBAC cost guardrails. Expanding the RBAC acronym does not alter the requirement.",
+      "beforeContentHash": "sha256:399958177dc4437cda133b793b5dc263e00146169c134122fdd847e76166a421"
+    },
+    {
+      "canonicalId": "73967d95-39ff-47bb-b4f4-33ddade69d1f",
+      "retiredIds": [
+        "2d710fcf-b8bc-461d-81a1-895193ce91cc"
+      ],
+      "reason": "Both still require choosing ExpressRoute virtual-network-gateway size from workload performance and scale. Preserve private-peering context and gateway-SKU guidance; title-only member adds no competing qualifier.",
+      "beforeContentHash": "sha256:8ac4aabeeabbe1d21d0b4f66b24ae1dc6931410181451da9218d7a55d924fd27"
+    },
+    {
+      "canonicalId": "3c5f0966-3c57-4e15-a6b0-6cb73405bbf1",
+      "retiredIds": [
+        "a36bac4f-bf10-44c6-a51e-0d845162b3af"
+      ],
+      "reason": "Both still require stopping unused Application Gateway instances after evaluating usage patterns. Preserve Dev/Test scheduling context and stop/start operation references. Duplicate confirmation does not independently certify the inherited billing statement.",
+      "beforeContentHash": "sha256:98a6421933134ae501bdc03f094d9891d91755ea7946e1d52933fd6ecb3702f8"
+    }
+  ]
+}

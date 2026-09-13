@@ -17,3 +17,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/backup?tabs=azure-cli#design-considerations
 queries: {}
+schemaVersion: 1
+id: 9ef2b0d2-3206-4c94-b47a-4f07e6a1c509
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

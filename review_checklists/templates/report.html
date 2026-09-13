@@ -4,11 +4,28 @@
 <title>{{ report.metadata.name }}</title></head>
 <body>
 <h1>{{ report.metadata.name }}</h1>
+{% if report.metadata.get('description') %}<pre>{{ report.metadata.description }}</pre>{% endif %}
+{% if report.metadata.get('review_id') %}<p>Review ID: {{ report.metadata.review_id }}</p>{% endif %}
 <p>Created: {{ report.metadata.created_at }}</p>
-<p>Corpus snapshot SHA-256: {{ report.metadata.corpus_sha256 }}</p>
+<p>Original corpus snapshot SHA-256: {{ report.metadata.corpus_sha256 }}</p>
+{% if report.metadata.get('corpus_version') %}
+<p>Original source corpus release: {{ report.metadata.corpus_version }}.
+Catalog content hash: {{ report.metadata.corpus_content_hash }}.</p>
+{% endif %}
+{% if report.metadata.get('last_applied_source') %}
+<p>Latest applied source (not every item's origin): {{ report.metadata.last_applied_source }}.</p>
+<p>Actual reviewed recommendation snapshot hash: {{ report.metadata.reviewed_snapshot_hash }}.</p>
+{% endif %}
 <p>Statuses are reviewer assessments, not automated compliance certification.
 Zero ARG results do not prove compliance. This report may contain sensitive review data.</p>
 <h2>Summary</h2>
+{% set pending = report['items'] | selectattr('refresh_state.needs_reassessment') | list %}
+{% set retained = report['items'] | rejectattr('refresh_state.currency', 'equalto', 'current') | list %}
+{% if pending or retained %}
+<p><strong>Historical saved assessments: {{ pending | length }} checks need reassessment;
+{{ retained | length }} retain removed or superseded guidance.
+These counts are not certification against the latest applied bundle.</strong></p>
+{% endif %}
 <ul>{% for status, count in report.summary.items() %}<li>{{ status }}: {{ count }}</li>{% endfor %}</ul>
 {% for item in report['items'] %}
 <section>
@@ -16,10 +33,14 @@ Zero ARG results do not prove compliance. This report may contain sensitive revi
   <p>{{ item.id }} | {{ item.recommendation.get('waf', '') }} |
   {{ {0: 'High', 1: 'Medium', 2: 'Low'}.get(item.recommendation.severity, 'Unknown') }} severity</p>
   <p><strong>{{ item.status }}</strong></p>
+  {% include "review_refresh_state.html" %}
+  <pre>{{ item.recommendation.get('description', '') }}</pre>
   <pre>{{ item.comments }}</pre>
   {% for evidence in item.evidence %}
   <h3>ARG run {{ evidence.run_id }}: {{ evidence.outcome }}</h3>
   <p>{{ evidence.completed_at }} | Subscriptions: {{ evidence.subscriptions | join(', ') }}</p>
+  <p>Result semantics: {{ evidence.get('result_semantics', 'unknown') }}.
+  Query validation date: {{ evidence.get('query_validated_at') or 'Not recorded' }}.</p>
   <pre>{{ evidence.query }}</pre>
   {% if evidence.outcome == 'error' %}<p>{{ evidence.error }}</p>{% else %}
   <p>{{ evidence.rows | length }} rows saved.
@@ -30,5 +51,12 @@ Zero ARG results do not prove compliance. This report may contain sensitive revi
   {% endfor %}
 </section>
 {% endfor %}
+<h2>Review refresh history</h2>
+{% for record in report.refresh_history %}
+<details><summary>{{ record.applied_at }} - {{ record.plan.target.version }} ({{ record.refresh_id }})</summary>
+<p>Backup: {{ record.backup_path }}. Resulting snapshot: {{ record.reviewed_snapshot_hash }}.</p>
+{% with plan=record.plan %}{% include "review_refresh_plan.html" %}{% endwith %}
+</details>
+{% else %}<p>No review refreshes have been applied.</p>{% endfor %}
 </body>
 </html>

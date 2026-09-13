@@ -1,13 +1,13 @@
 name: aprl-ProductionVmWorkloadsVmssFlexInstance
 title: Run production workloads on two or more VMs using VMSS Flex
-description: |-
-  Production VM workloads should be deployed on multiple VMs and grouped in a VMSS Flex instance to intelligently distribute across the platform, minimizing the impact of platform faults and updates.
+description: Production VM workloads should be deployed on multiple VMs and grouped in a VMSS Flex instance
+  to intelligently distribute across the platform, minimizing the impact of platform faults and updates.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 0
 labels:
   guid: 273f6b30-68e0-4241-85ea-acf15ffb60bf
@@ -21,3 +21,31 @@ queries:
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where isnull(properties.virtualMachineScaleSet.id)
     | project recommendationId="273f6b30-68e0-4241-85ea-acf15ffb60bf", name, id, tags
+schemaVersion: 1
+id: 273f6b30-68e0-4241-85ea-acf15ffb60bf
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL 273f6b30-68e0-4241-85ea-acf15ffb60bf: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 273f6b30-68e0-4241-85ea-acf15ffb60bf
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:e52e5e3fb7e15f3c2d10947a496e9fcd3b0dfd0f9786cae685ac5ef33afae134
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

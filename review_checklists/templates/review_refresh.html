@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Refresh saved review</h1>
+<p>{{ metadata.name }}: update recommendation guidance from a versioned JSON bundle.
+This does not run Azure queries, fetch sources, or change source YAML.</p>
+<p><a href="{{ url_for('review_refresh_history') }}">Review refresh history</a> |
+<a href="{{ review_url }}">Return to assessments</a></p>
+<p class="warning"><strong>Preview first. Nothing is saved by uploading.</strong>
+Existing assessments, comments, evidence, and area placements are preserved.
+Removed or superseded checks stay separate with their original guidance.
+Changed guidance may need reassessment; a saved Compliant status is not approval of new guidance.</p>
+<p>Apply requires explicit confirmation on the next page and creates a sensitive SQLite backup beside
+the review before changes. Close outdated application versions before applying schema-2 refreshes.</p>
+<form method="post" action="{{ url_for('review_refresh_preview') }}" enctype="multipart/form-data">
+  <input type="hidden" name="csrf" value="{{ session.csrf }}">
+  <label>Versioned JSON bundle
+    <input type="file" name="bundle" accept=".json,application/json" required>
+  </label>
+  <p>UTF-8 JSON, at most {{ bundle_limit }} MiB. Schema, identity collisions, and content hash are validated.
+  A content hash detects corruption; it is not a publisher signature.</p>
+  <label><input type="checkbox" name="add_new" value="1"> Add new checks within the selected scope</label>
+  <p>Unchecked means existing checks only. New checks begin as Not reviewed.</p>
+  <fieldset>
+    <legend>Scope for additions (never removes existing checks)</legend>
+    <label><input type="radio" name="refresh_scope" value="saved" checked>
+      Keep saved scope: {{ saved_scope.kind }}</label>
+    <label><input type="radio" name="refresh_scope" value="all">
+      Explicitly use all-corpus scope</label>
+    <label><input type="radio" name="refresh_scope" value="checklist">
+      Explicitly use an uploaded checklist definition</label>
+    <label>Checklist YAML or JSON
+      <input type="file" name="checklist" accept=".yaml,.yml,.json">
+    </label>
+    <p>Optional UTF-8 checklist file, at most 256 KiB, without YAML aliases.
+    An explicit scope is saved on apply for future additions. Existing IDs outside it are still refreshed;
+    their placements are unchanged.</p>
+    {% if saved_scope.kind == 'unknown' %}
+    <p class="warning">This review has unknown scope. Existing-only refresh is allowed;
+    adding new checks requires an explicit all-corpus or checklist choice.</p>
+    {% endif %}
+  </fieldset>
+  <button type="submit">Preview review refresh</button>
+</form>
+{% endblock %}

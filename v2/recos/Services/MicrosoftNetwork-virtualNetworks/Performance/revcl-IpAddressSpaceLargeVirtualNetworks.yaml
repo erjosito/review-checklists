@@ -1,6 +1,5 @@
 name: revcl-IpAddressSpaceLargeVirtualNetworks
-title: Ensure that IP address space isn't wasted, don't create unnecessarily large
-  virtual networks (for example /16)
+title: Plan virtual network address space for capacity, growth and non-overlap
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,8 +15,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/paths/architect-network-infrastructure/
 queries:
-  arg: resources | where type == 'microsoft.network/virtualnetworks' | extend addressSpace
-    = todynamic(properties.addressSpace) | extend addressPrefix = todynamic(properties.addressSpace.addressPrefixes)
-    | mvexpand addressSpace | mvexpand addressPrefix | extend addressMask = split(addressPrefix,'/')[1]
-    | extend compliant = addressMask > 16 | project name, id, subscriptionId, resourceGroup,
-    addressPrefix, compliant
+  arg: |
+    Resources
+    | where type =~ 'microsoft.network/virtualnetworks'
+    | project id, name, resourceGroup, subscriptionId, location,
+        addressSpace = properties.addressSpace, subnets = properties.subnets
+schemaVersion: 1
+id: 33aad5e8-c68e-41d7-9667-313b4f5664b5
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm
+    title: Plan virtual networks
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/aks/concepts-network-ip-address-planning
+    title: IP address planning for your Azure Kubernetes Service (AKS) clusters
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+description: |-
+  Size virtual networks and service-specific subnets for expected resources, scale-out, upgrades and connected networks. Avoid overlap and unnecessary address consumption, but do not classify a /16 as a performance violation simply because it is large. Compare the allocation with an approved IP plan.
+
+  ARG returns configuration inventory only, not utilization, latency, capacity sufficiency or a compliance verdict. Missing properties, limited permissions, truncation and zero rows do not establish a pass. Compare with workload telemetry and requirements; this query has not been executed or validated against Azure.

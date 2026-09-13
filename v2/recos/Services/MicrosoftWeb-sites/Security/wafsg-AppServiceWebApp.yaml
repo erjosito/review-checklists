@@ -1,11 +1,11 @@
 name: wafsg-AppServiceWebApp
-title: (App Service) Assign managed identities to the web app. To maintain isolation
-  boundaries, don't share or reuse identities across applications.  Make sure that
-  you securely connect to your container registry if you use containers for your deployment.
-description: The application retrieves secrets from Key Vault to authenticate outward
-  communication from the application. Azure manages the identity and doesn't require
-  you to provision or rotate any secrets.  You have distinct identities for granularity
-  of control. Distinct identities make revocation easy if an identity is compromised.
+title: (App Service) Assign managed identities to the web app. To maintain isolation boundaries, don't
+  share or reuse identities across applications.  Make sure that you securely connect to your container
+  registry if you use containers for your deployment.
+description: The application retrieves secrets from Key Vault to authenticate outward communication from
+  the application. Azure manages the identity and doesn't require you to provision or rotate any secrets.  You
+  have distinct identities for granularity of control. Distinct identities make revocation easy if an
+  identity is compromised.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -17,3 +17,29 @@ labels:
   guid: 14bc5ea3-400b-4bbf-9187-f0b21505173d
 links: []
 queries: {}
+schemaVersion: 1
+id: 14bc5ea3-400b-4bbf-9187-f0b21505173d
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

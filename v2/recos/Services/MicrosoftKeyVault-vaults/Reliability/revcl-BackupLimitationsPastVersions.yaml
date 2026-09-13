@@ -1,8 +1,5 @@
 name: revcl-BackupLimitationsPastVersions
-title: Understand Key Vault's backup limitations. Key Vault does not support the ability
-  to backup more than 500 past versions of a key, secret, or certificate object. Attempting
-  to backup a key, secret, or certificate object may result in an error. It is not
-  possible to delete previous versions of a key, secret, or certificate.
+title: Keep individual Key Vault object backups within the supported version limit
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +13,20 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/key-vault/general/backup?tabs=azure-cli#limitations
 queries: {}
+schemaVersion: 1
+id: e8659d11-7e02-4db0-848c-c6541dbab68c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/reliability/reliability-key-vault
+    title: Reliability in Azure Key Vault
+    accessedAt: '2026-09-11'
+description: Key Vault backup is limited to no more than 500 past versions of an individual key, secret
+  or certificate. Plan object lifecycle and backup operations within this limit, monitor backup failures,
+  and verify that recovery copies can be restored in the permitted subscription and geography. A backup
+  file is a point-in-time copy, not proof that current secrets are protected.

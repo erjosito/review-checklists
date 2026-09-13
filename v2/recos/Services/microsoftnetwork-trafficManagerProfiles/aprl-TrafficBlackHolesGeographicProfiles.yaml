@@ -1,13 +1,14 @@
 name: aprl-TrafficBlackHolesGeographicProfiles
 title: Ensure endpoint configured to (All World) for geographic profiles
-description: |-
-  For geographic routing, traffic is directed to endpoints based on specific regions. If a region fails, without a predefined failover, configuring an endpoint to "All (World)" for geographic profiles can prevent traffic black holes, ensuring service remains available.
+description: For geographic routing, traffic is directed to endpoints based on specific regions. If a
+  region fails, without a predefined failover, configuring an endpoint to "All (World)" for geographic
+  profiles can prevent traffic black holes, ensuring service remains available.
 source:
   type: aprl
   file: azure-resources/Network/trafficManagerProfiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/trafficManagerProfiles
+- microsoft.network/trafficmanagerprofiles
 severity: 0
 labels:
   guid: c31f76a0-48cd-9f44-aa43-99ee904db9bc
@@ -25,3 +26,34 @@ queries:
     | where endpoint.properties.geoMapping !contains "WORLD"
     | extend endpointName = endpoint.name
     | project recommendationId="c31f76a0-48cd-9f44-aa43-99ee904db9bc", name, id, tags, param1=strcat("endpointName:",endpointName), param2=strcat("GeoMapping:", tostring(endpoint.properties.geoMapping))
+schemaVersion: 1
+id: c31f76a0-48cd-9f44-aa43-99ee904db9bc
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: An All World geographic endpoint is not an unconditional
+    failover design; nested-profile and overlapping geography behavior require review. Existing ARG is
+    retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/trafficManagerProfiles/recommendations.yaml
+    title: 'APRL c31f76a0-48cd-9f44-aa43-99ee904db9bc: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: c31f76a0-48cd-9f44-aa43-99ee904db9bc
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/trafficManagerProfiles/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:fd40cc5ad3fd66951eb4d61727f37e6cba696ae09527a42c0d2c05a041c480a6
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. An All World geographic endpoint is
+      not an unconditional failover design; nested-profile and overlapping geography behavior require
+      review. Coverage concerns the inventory's explicit metadata fingerprint; queries were not executed
+      and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

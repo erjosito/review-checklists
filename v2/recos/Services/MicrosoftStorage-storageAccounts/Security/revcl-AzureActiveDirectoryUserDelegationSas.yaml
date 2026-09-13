@@ -1,10 +1,8 @@
 name: revcl-AzureActiveDirectoryUserDelegationSas
-title: When using SAS, prefer 'user delegation SAS' over storage-account-key based
-  SAS.
-description: 'A user delegation SAS is secured with Azure Active Directory (Azure
-  AD) credentials and also by the permissions specified for the SAS. A user delegation
-  SAS is analogous to a service SAS in terms of its scope and function, but offers
-  security benefits over the service SAS. '
+title: When using SAS, prefer 'user delegation SAS' over storage-account-key based SAS.
+description: 'A user delegation SAS is secured with Azure Active Directory (Azure AD) credentials and
+  also by the permissions specified for the SAS. A user delegation SAS is analogous to a service SAS in
+  terms of its scope and function, but offers security benefits over the service SAS. '
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -18,3 +16,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-sas-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#best-practices-when-using-sas
 queries: {}
+schemaVersion: 1
+id: 55461e1a-3e34-453a-9c86-39648b652d6c
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/common/storage-sas-overview
+    title: Grant limited access to data with shared access signatures (SAS)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:09
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:ac338a6d1496d0dd1c929ff668c02645a5a64327a44120d4a6c79fb2476dcbf3
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

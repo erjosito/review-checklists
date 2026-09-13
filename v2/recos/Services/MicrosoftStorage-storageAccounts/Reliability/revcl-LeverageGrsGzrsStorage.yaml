@@ -1,5 +1,5 @@
 name: revcl-LeverageGrsGzrsStorage
-title: Leverage GRS, ZRS or GZRS storage for the highest availability
+title: Distinguish Azure Storage zone availability from geographic durability
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,3 +13,21 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/storage/common/storage-redundancy
 queries: {}
+schemaVersion: 1
+id: e05bbe20-9d49-4fda-9777-8424d116785c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy
+    title: Azure Storage redundancy
+    accessedAt: '2026-09-11'
+description: ZRS supports primary-region zone resilience; GRS adds asynchronous secondary-region replication
+  but does not provide the same primary-zone resilience as GZRS. Use GZRS when both are required and supported.
+  Secondary reads before failover require RA-GRS or RA-GZRS for supported services; Azure Files does not
+  support read-access geo-redundancy. Test client behavior and recovery procedures rather than treating
+  any geo-redundant SKU as highest availability.

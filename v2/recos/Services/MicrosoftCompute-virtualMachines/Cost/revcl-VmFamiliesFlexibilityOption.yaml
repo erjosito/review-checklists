@@ -1,6 +1,5 @@
 name: revcl-VmFamiliesFlexibilityOption
-title: Consolidate reserved VM families with flexibility option (no more than 4-5
-  families)
+title: Use reservation flexibility without forcing arbitrary VM-family limits
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +15,26 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/automation/automation-solution-vm-management
 queries: {}
+schemaVersion: 1
+id: 75c1e945-b459-4837-bf7a-e7c6d3b475a5
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: Requires workload requirements, financial or operational judgment; a generic ARG property check
+    cannot establish this recommendation.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation
+    title: Decide between a savings plan and a reservation
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/advisor/advisor-cost-recommendations
+    title: Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resizing or shutting
+      down underutilized instances
+    accessedAt: '2026-09-11'
+description: Review instance-size flexibility and benefit scope against actual eligible usage and existing
+  reservations. Prefer configurations that preserve performance and increase commitment utilization; do
+  not force all workloads into an arbitrary number of VM families. Reassess before moving across families
+  or regions.

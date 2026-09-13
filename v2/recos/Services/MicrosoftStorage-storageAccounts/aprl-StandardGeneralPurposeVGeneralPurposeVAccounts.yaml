@@ -1,13 +1,14 @@
 name: aprl-StandardGeneralPurposeVGeneralPurposeVAccounts
 title: Consider upgrading legacy storage accounts to v2 storage accounts
-description: |-
-  General-purpose v2 accounts are recommended for most storage scenarios offering the latest features or the lowest per-gigabyte pricing. Legacy accounts like Standard general-purpose v1 and Blob Storage aren't advised by Microsoft but may fit specific scenarios.
+description: General-purpose v2 accounts are recommended for most storage scenarios offering the latest
+  features or the lowest per-gigabyte pricing. Legacy accounts like Standard general-purpose v1 and Blob
+  Storage aren't advised by Microsoft but may fit specific scenarios.
 source:
   type: aprl
   file: azure-resources/Storage/storageAccounts/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Storage/storageAccounts
+- microsoft.storage/storageaccounts
 severity: 2
 labels:
   guid: 2ad78dec-5a4d-4a30-8fd1-8584335ad781
@@ -24,3 +25,31 @@ queries:
         param2 = strcat("Performance: ", sku.tier),
         param3 = strcat("Replication: ", sku.name)
     | project recommendationId = "2ad78dec-5a4d-4a30-8fd1-8584335ad781", name, id, tags, param1, param2, param3
+schemaVersion: 1
+id: 2ad78dec-5a4d-4a30-8fd1-8584335ad781
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    title: 'APRL 2ad78dec-5a4d-4a30-8fd1-8584335ad781: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 2ad78dec-5a4d-4a30-8fd1-8584335ad781
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Storage/storageAccounts/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:9b3ecec73f5e586b5d0a7517a1ff2a5aaf2c059c331f3efbf349dc35e4901d07
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Performance

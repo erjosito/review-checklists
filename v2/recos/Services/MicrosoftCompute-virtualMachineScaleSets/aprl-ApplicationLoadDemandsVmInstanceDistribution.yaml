@@ -1,14 +1,14 @@
 name: aprl-ApplicationLoadDemandsVmInstanceDistribution
-title: Disable Force strictly even balance across zones to avoid scale in and out
-  fail attempts
-description: |-
-  Microsoft advises disabling strictly even VM instance distribution across Availability Zones in VMSS to improve scalability and flexibility, noting that uneven distribution may better serve application load demands despite the potential trade-off in resilience.
+title: Disable Force strictly even balance across zones to avoid scale in and out fail attempts
+description: Microsoft advises disabling strictly even VM instance distribution across Availability Zones
+  in VMSS to improve scalability and flexibility, noting that uneven distribution may better serve application
+  load demands despite the potential trade-off in resilience.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachineScaleSets
+- microsoft.compute/virtualmachinescalesets
 severity: 0
 labels:
   guid: b5a63aa0-c58e-244f-b8a6-cbba0560a6db
@@ -23,3 +23,31 @@ queries:
     | where properties.orchestrationMode == "Uniform" and properties.zoneBalance == true
     | project recommendationId = "b5a63aa0-c58e-244f-b8a6-cbba0560a6db", name, id, tags, param1 = "strictly zoneBalance: Enabled"
     | order by id asc
+schemaVersion: 1
+id: b5a63aa0-c58e-244f-b8a6-cbba0560a6db
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    title: 'APRL b5a63aa0-c58e-244f-b8a6-cbba0560a6db: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: b5a63aa0-c58e-244f-b8a6-cbba0560a6db
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:b5823f20492a2e233f827a4460d5a3365abb6dd102f4d93af26afd7a36d5c155
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

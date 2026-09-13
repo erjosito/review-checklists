@@ -1,13 +1,14 @@
 name: aprl-TrustedLaunchSupportedImagesLargeBootVolume
 title: Consider creating TrustedLaunchSupported images where possible
-description: |-
-  We recommend creating Trusted Launch Supported Images for benefits like Secure Boot, vTPM, trusted launch VMs, large boot volume. These are Gen 2 Images by default and you cannot change a VM's generation after creation, so review the considerations first.
+description: We recommend creating Trusted Launch Supported Images for benefits like Secure Boot, vTPM,
+  trusted launch VMs, large boot volume. These are Gen 2 Images by default and you cannot change a VM's
+  generation after creation, so review the considerations first.
 source:
   type: aprl
   file: azure-resources/Compute/galleries/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/galleries
+- microsoft.compute/galleries
 severity: 2
 labels:
   guid: 1c5e1e58-4e56-491c-8529-10f37af9d4ed
@@ -22,3 +23,34 @@ queries:
     | extend VMGeneration = properties.hyperVGeneration
     | where VMGeneration <> 'V2'
     | project RecommendationId="1c5e1e58-4e56-491c-8529-10f37af9d4ed",name,id,tags,param1=strcat("VMGeneration: ",VMGeneration)
+schemaVersion: 1
+id: 1c5e1e58-4e56-491c-8529-10f37af9d4ed
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/galleries/recommendations.yaml
+    title: 'APRL 1c5e1e58-4e56-491c-8529-10f37af9d4ed: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 1c5e1e58-4e56-491c-8529-10f37af9d4ed
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/galleries/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:69c9e35852be3605ee0e7ec7d7de4f0a1490e3533a61518d749b1d45dc8ab0a1
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

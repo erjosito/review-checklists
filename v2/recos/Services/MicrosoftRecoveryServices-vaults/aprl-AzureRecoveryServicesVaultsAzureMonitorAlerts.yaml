@@ -1,19 +1,23 @@
 name: aprl-AzureRecoveryServicesVaultsAzureMonitorAlerts
-title: Migrate from classic alerts to built-in Azure Monitor alerts for Azure Recovery
-  Services Vaults
-description: |-
-  Classic alerts for Recovery Services vaults in Azure Backup will be retired on 31 March 2026.
+title: Migrate remaining classic Backup alerts to built-in Azure Monitor alerts
+description: Use the built-in Azure Monitor alerting capabilities for Recovery Services vaults instead
+  of relying on the older classic alerting solution. Complete any remaining migration, configure the required
+  notification delivery, and verify coverage of backup/restore failures and the relevant protected workloads.
+  Review the documented classic-alert exceptions so that existing operational procedures do not assume
+  every cancellation or concurrent backup job produces an alert.
 source:
   type: aprl
   file: azure-resources/RecoveryServices/vaults/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.RecoveryServices/vaults
+- microsoft.recoveryservices/vaults
 severity: 1
 labels:
   guid: 2912472d-0198-4bdc-aa90-37f145790edc
   area: Monitoring and Alerting
-links: []
+links:
+- type: docs
+  url: https://learn.microsoft.com/azure/backup/move-to-azure-monitor-alerts
 queries:
   arg: |
     // Azure Resource Graph Query
@@ -25,3 +29,35 @@ queries:
     | extend isUsingJobsAlerts = case(isnull(monitoringSettings), 'Enabled', monitoringSettings.azureMonitorAlertSettings.alertsForAllJobFailures)
     | where isUsingClassicAlerts == 'Enabled'
     | project recommendationId = "2912472d-0198-4bdc-aa90-37f145790edc", name, id, tags, param1=strcat("isUsingClassicAlerts: ", isUsingClassicAlerts), param2=strcat("isUsingJobsAlerts: ", isUsingJobsAlerts)
+schemaVersion: 1
+id: 2912472d-0198-4bdc-aa90-37f145790edc
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/backup/move-to-azure-monitor-alerts
+    title: Backup alert migration recommendation and classic-alert coverage exceptions
+    accessedAt: '2026-09-11'
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/RecoveryServices/vaults/recommendations.yaml
+    title: 'APRL 2912472d-0198-4bdc-aa90-37f145790edc: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 2912472d-0198-4bdc-aa90-37f145790edc
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/RecoveryServices/vaults/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:c44501050050566a60d9dafb53700d133fd8a0725bca1580a79b4f86733a0d10
+    notes: 'Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Corrected or qualified guidance
+      using the independently retrieved documentation: Backup alert migration recommendation and classic-alert
+      coverage exceptions. Coverage concerns the inventory''s explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.'
+waf: Operations

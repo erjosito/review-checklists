@@ -3,21 +3,21 @@ name: Test local review prototype
 on:
   push:
     paths:
+      - ".gitattributes"
       - "review_checklists/**"
       - "v2/recos/**"
       - "v2/checklists/**"
-      - "scripts/modules/cl_analyze_v2.py"
-      - "scripts/modules/cl_v1tov2.py"
-      - "scripts/service_dictionary.json"
+      - "v2/schema/**"
+      - "scripts/**"
       - ".github/workflows/review-checklists-tests.yml"
   pull_request:
     paths:
+      - ".gitattributes"
       - "review_checklists/**"
       - "v2/recos/**"
       - "v2/checklists/**"
-      - "scripts/modules/cl_analyze_v2.py"
-      - "scripts/modules/cl_v1tov2.py"
-      - "scripts/service_dictionary.json"
+      - "v2/schema/**"
+      - "scripts/**"
       - ".github/workflows/review-checklists-tests.yml"
 
 permissions:
@@ -39,6 +39,34 @@ jobs:
         run: python -m pip install -r review_checklists/requirements.txt
       - name: Run offline tests
         run: python -m unittest discover -s review_checklists/tests -v
+      - name: Run authoring and pipeline tests
+        run: python -m unittest discover -s scripts/tests -v
+
+  corpus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install dependencies
+        run: python -m pip install -r review_checklists/requirements.txt
+      - name: Validate current-schema sources
+        run: python -m review_checklists corpus validate --corpus v2/recos
+      - name: Validate checklist selectors and source schemas
+        run: python -m scripts.validate_corpus --root v2
+      - name: Build and check deterministic release
+        env:
+          CORPUS_VERSION: ${{ github.sha }}
+        run: |
+          python -m review_checklists corpus build --corpus v2/recos --version "$CORPUS_VERSION" --output dist/catalog.json
+          python -m review_checklists corpus build --corpus v2/recos --version "$CORPUS_VERSION" --output dist/catalog-repeat.json
+          cmp dist/catalog.json dist/catalog-repeat.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recommendation-catalog-${{ github.sha }}
+          path: dist/catalog.json
+          if-no-files-found: error
 
   browser:
     runs-on: ubuntu-latest
@@ -52,4 +80,4 @@ jobs:
       - name: Install Chromium
         run: python -m playwright install --with-deps chromium
       - name: Run isolated browser form tests
-        run: python -m review_checklists.tests.browser_forms -v
+        run: python -m unittest review_checklists.tests.browser_forms review_checklists.tests.browser_autosave review_checklists.tests.browser_review_refresh -v

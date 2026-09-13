@@ -1,13 +1,14 @@
 name: aprl-AzureFrontDoorSecureConnections
 title: Use HTTP to HTTPS redirection
-description: |-
-  Using HTTPS is ideal for secure connections. However, for compatibility with older clients, HTTP requests may be necessary. Azure Front Door enables auto redirection of HTTP to HTTPS, enhancing security without sacrificing accessibility.
+description: Using HTTPS is ideal for secure connections. However, for compatibility with older clients,
+  HTTP requests may be necessary. Azure Front Door enables auto redirection of HTTP to HTTPS, enhancing
+  security without sacrificing accessibility.
 source:
   type: aprl
   file: azure-resources/Cdn/profiles/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Cdn/profiles
+- microsoft.cdn/profiles
 severity: 0
 labels:
   guid: 24ab9f11-a3e4-3043-a985-22cf94c4933a
@@ -23,3 +24,34 @@ queries:
     | project id,name,httpsRedirect,tags
     | where httpsRedirect !~ "enabled"
     | project recommendationId= "24ab9f11-a3e4-3043-a985-22cf94c4933a", name,id,tags,param1=strcat("httpsRedirect:",httpsRedirect)
+schemaVersion: 1
+id: 24ab9f11-a3e4-3043-a985-22cf94c4933a
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current APRL explicitly marks this GUID Disabled. Its
+    historical requirement is not reaffirmed or counted as current semantic coverage; a supported replacement
+    needs service-specific review. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    title: 'APRL 24ab9f11-a3e4-3043-a985-22cf94c4933a: Disabled pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 24ab9f11-a3e4-3043-a985-22cf94c4933a
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Cdn/profiles/recommendations.yaml
+    coverage: supporting
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:cc3e9afb5095749f05db3c72fecb6e56fe2189f5b10b1e9e018e3f78c66bf688
+    notes: Frozen corpus GUID matches this actual APRL GUID (Disabled) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Current APRL explicitly marks this GUID
+      Disabled. Its historical requirement is not reaffirmed or counted as current semantic coverage;
+      a supported replacement needs service-specific review. Coverage concerns the inventory's explicit
+      metadata fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Security

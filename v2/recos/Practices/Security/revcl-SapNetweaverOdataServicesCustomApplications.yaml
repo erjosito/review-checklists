@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial#configure-sap-netweaver-for-oauth
 queries: {}
+schemaVersion: 1
+id: 16785d6f-a96c-496a-b885-18f482734c88
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

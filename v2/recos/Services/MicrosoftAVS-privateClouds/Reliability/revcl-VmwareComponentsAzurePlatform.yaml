@@ -12,3 +12,13 @@ labels:
   guid: 26028a71-f0f1-4cac-9d9e-f1d5e832d42e
 links: []
 queries: {}
+schemaVersion: 1
+id: 26028a71-f0f1-4cac-9d9e-f1d5e832d42e
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

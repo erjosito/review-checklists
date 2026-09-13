@@ -1,13 +1,14 @@
 name: aprl-ContinuousAsynchronousDiskReplicationRecoveryPointObjective
 title: Replicate VMs using Azure Site Recovery
-description: |-
-  Replicating Azure VMs via Site Recovery entails continuous, asynchronous disk replication to a target region. Recovery points are generated every few minutes, ensuring a Recovery Point Objective (RPO) in minutes.
+description: Replicating Azure VMs via Site Recovery entails continuous, asynchronous disk replication
+  to a target region. Recovery points are generated every few minutes, ensuring a Recovery Point Objective
+  (RPO) in minutes.
 source:
   type: aprl
   file: azure-resources/Compute/virtualMachines/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Compute/virtualMachines
+- microsoft.compute/virtualmachines
 severity: 1
 labels:
   guid: cfe22a65-b1db-fd41-9e8e-d573922709ae
@@ -31,3 +32,31 @@ queries:
         on $left.vmIdForJoin == $right.vmResourceId
     | where isempty(vmResourceId)
     | project recommendationId = "cfe22a65-b1db-fd41-9e8e-d573922709ae", name, id, tags
+schemaVersion: 1
+id: cfe22a65-b1db-fd41-9e8e-d573922709ae
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    title: 'APRL cfe22a65-b1db-fd41-9e8e-d573922709ae: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: cfe22a65-b1db-fd41-9e8e-d573922709ae
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Compute/virtualMachines/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:86641afa474caee5e28e742f61ea1be00a1a3a6f1ce00c846566cf8078d190f4
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

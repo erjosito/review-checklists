@@ -13,3 +13,13 @@ labels:
   guid: a2adb1c3-d232-46af-825c-a44e1695fddd
 links: []
 queries: {}
+schemaVersion: 1
+id: a2adb1c3-d232-46af-825c-a44e1695fddd
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

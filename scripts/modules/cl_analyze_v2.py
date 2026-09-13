@@ -13,6 +13,30 @@ import os
 import datetime
 from pathlib import Path
 from collections import Counter
+from .cl_corpus import CorpusError, load_yaml_document
+from .cl_services import normalize_service_name
+
+
+def recommendation_ids(reco):
+    return {
+        value.lower() for value in (
+            reco.get('id'), reco.get('guid'), reco.get('labels', {}).get('guid'),
+            *(alias['id'] for alias in reco.get('aliases', [])),
+        ) if isinstance(value, str)
+    }
+
+
+def recommendation_names(reco):
+    return {
+        value.lower() for value in (
+            reco.get('name'), *(alias['name'] for alias in reco.get('aliases', [])),
+        ) if isinstance(value, str)
+    }
+
+
+def recommendation_sources(reco):
+    sources = [reco.get('source', {}), *(alias.get('source', {}) for alias in reco.get('aliases', []))]
+    return {source['type'].lower() for source in sources if isinstance(source.get('type'), str)}
 
 # Function that returns true if a given reco matches the criteria specified by a label selector, a service selector and a WAF selector
 def reco_matches_criteria(reco, labels=None, services=None, resource_types=None, waf_pillars=None, sources=None, guids=None, names=None, arg=False):
@@ -21,42 +45,38 @@ def reco_matches_criteria(reco, labels=None, services=None, resource_types=None,
     if guids:
         guid_match = False
         guids_lower = [x.lower() for x in guids]
-        if 'guid' in reco:
-            if reco['guid'].lower() in guids_lower:
-                return True
-        elif 'labels' in reco and 'guid' in reco['labels']:
-            if reco['labels']['guid'].lower() in guids_lower:
-                return True
+        if recommendation_ids(reco).intersection(guids_lower):
+            return True
     else:
         guid_match = True
     # Names
     if names:
         name_match = False
         names_lower = [x.lower() for x in names]
-        if 'name' in reco:
-            if reco['name'].lower() in names_lower:
-                return True
+        if recommendation_names(reco).intersection(names_lower):
+            return True
     else:
         name_match = True
     # Labels
     if labels:
         label_match = False
-        if 'labels' in reco:
-            for key in labels.keys():
-                if key in reco['labels']:
-                    if labels[key] == reco['labels'][key]:
-                        label_match = True
+        for key, value in labels.items():
+            if key == 'guid' and isinstance(value, str):
+                if value.lower() in recommendation_ids(reco):
+                    label_match = True
+            elif key in reco.get('labels', {}) and value == reco['labels'][key]:
+                label_match = True
     else:
         label_match = True
     # Services
     if services:
         service_match = False
-        services = [x.lower() for x in services]        # Transform to lower case for case-insensitive comparison
+        services = [normalize_service_name(x).casefold() for x in services]
         if 'none' in services:
-            service_match = ('services' not in reco)
+            service_match = not reco.get('services')
         if 'services' in reco:
             for reco_service in reco['services']:
-                if reco_service.lower() in services:
+                if normalize_service_name(reco_service).casefold() in services:
                     service_match = True
     else:
         service_match = True
@@ -84,13 +104,11 @@ def reco_matches_criteria(reco, labels=None, services=None, resource_types=None,
         waf_match = True
     # Sources
     if sources:
-        src_match = False
-        if 'none' in sources:
-            src_match = ('source' not in reco)
-        if 'source' in reco:
-            if 'type' in reco['source']:
-                if reco['source']['type'].lower() in sources:
-                    src_match = True
+        source_types = recommendation_sources(reco)
+        selected_sources = {source.lower() for source in sources}
+        src_match = bool(source_types.intersection(selected_sources))
+        if 'none' in selected_sources and not source_types:
+            src_match = True
     else:
         src_match = True
     arg_match = ((not arg) or ('queries' in reco and 'arg' in reco['queries']))
@@ -115,7 +133,7 @@ def filter_v2_recos(input_recos, include=None, exclude=None):
             services = exclude['service']
             resource_types = exclude['resourceType']
             guids = exclude['guid']
-            names = include['name']
+            names = exclude['name']
             labels = exclude['label']
             sources = exclude['source']
             output_recos = [x for x in output_recos_include if not reco_matches_criteria(x, waf_pillars=waf_pillars, services=services, resource_types=resource_types, guids=guids, names=names, sources=sources, labels=labels)]
@@ -154,17 +172,19 @@ def load_v2_files(input_folder, format='yaml', labels=None, services=None, waf_p
     v2recos = []
     # If the input folder exists
     if os.path.exists(input_folder):
-        files = list(Path(input_folder).rglob( '*.*' ))
+        files = sorted(Path(input_folder).rglob('*.*'))
         for file in files:
             # JSON
             if format == 'json':
                 if file.suffix == '.json':
                     # if verbose: print("DEBUG: Loading file", file)
                     try:
-                        with open(file.resolve()) as f:
-                            v2reco = json.safe_load(f)
-                    except Exception as e:
-                        print("ERROR: Error when loading JSON reco file {0} - {1}". format(file, str(e)))
+                        with open(file.resolve(), encoding='utf-8') as f:
+                            v2reco = json.load(f)
+                        if not isinstance(v2reco, dict):
+                            raise CorpusError("Expected a recommendation object")
+                    except (OSError, UnicodeError, ValueError) as e:
+                        raise CorpusError(f"{file}: {e}") from e
                     if import_filepaths:
                         v2reco['filepath'] = str(file.resolve())
                     if reco_matches_criteria(v2reco, labels=labels, services=services, waf_pillars=waf_pillars, sources=sources, guids=guids, names=names, arg=arg):
@@ -176,11 +196,7 @@ def load_v2_files(input_folder, format='yaml', labels=None, services=None, waf_p
             if format == 'yaml' or format == 'yml':
                 if (file.suffix == '.yaml') or (file.suffix == '.yml'):
                     # if verbose: print("DEBUG: Loading file", file)
-                    try:
-                        with open(file.resolve()) as f:
-                            v2reco = yaml.safe_load(f)
-                    except Exception as e:
-                        print("ERROR: Error when loading YAML reco file {0} - {1}". format(file, str(e)))
+                    v2reco = load_yaml_document(file)
                     if import_filepaths:
                         v2reco['filepath'] = str(file.resolve())
                     if reco_matches_criteria(v2reco, labels=labels, services=services, waf_pillars=waf_pillars, sources=sources, guids=guids, names=names, arg=arg):
@@ -242,7 +258,7 @@ def v2_stats_from_object(v2recos, verbose=False):
                         else:
                             stats['labels'][labeltext] = 1
             # Count the number of items per service
-            if 'services' in reco:
+            if reco.get('services'):
                 for service in reco['services']:
                     if service in stats['services']:
                         stats['services'][service] += 1
@@ -404,7 +420,6 @@ def refresh_reviewed(recos, verbose=False):
 # Function to modify yaml.dump for multiline strings, see https://github.com/yaml/pyyaml/issues/240
 def str_presenter(dumper, data):
     if data.count('\n') > 0:
-        data = "\n".join([line.rstrip() for line in data.splitlines()])  # Remove any trailing spaces, then put it back together again
         return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
     return dumper.represent_scalar('tag:yaml.org,2002:str', data)
 
@@ -630,10 +645,6 @@ def delete_file(file_name, verbose=False):
 # Function that returns a reco name provided its GUID. It takes as argument an object with the full list of recos
 def get_reco_name_from_guid(recos, guid):
     for reco in recos:
-        if 'labels' in reco and 'guid' in reco['labels']:
-            if reco['labels']['guid'].lower() == guid.lower():
-                if 'name' in reco:
-                    return reco['name']
-                else:
-                    return None
+        if guid.lower() in recommendation_ids(reco):
+            return reco.get('name')
     return None

@@ -1,13 +1,14 @@
 name: aprl-AzureMonitorContainerInsightsPerformanceInsights
 title: Enable AKS Monitoring
-description: |-
-  Azure Monitor enables real-time health and performance insights for AKS by collecting events, capturing container logs, and gathering CPU/Memory data from the Metrics API. It allows data visualization using Azure Monitor Container Insights, Prometheus, Grafana, or others.
+description: Azure Monitor enables real-time health and performance insights for AKS by collecting events,
+  capturing container logs, and gathering CPU/Memory data from the Metrics API. It allows data visualization
+  using Azure Monitor Container Insights, Prometheus, Grafana, or others.
 source:
   type: aprl
   file: azure-resources/ContainerService/managedClusters/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.ContainerService/managedClusters
+- microsoft.containerservice/managedclusters
 severity: 0
 labels:
   guid: dcaf8128-94bd-4d53-9235-3a0371df6b74
@@ -23,3 +24,35 @@ queries:
     |  extend insights = tostring(parse_json(properties.addonProfiles.omsagent.enabled))
     |  where isempty(azureMonitor) or isempty(insights)
     |  project recommendationId="dcaf8128-94bd-4d53-9235-3a0371df6b74",id, name, tags, param1=strcat("azureMonitorProfileEnabled: ", iff(isempty(azureMonitor), "false", azureMonitor)), param2=strcat("containerInsightsEnabled: ", iff(isempty(insights), "false", insights))
+schemaVersion: 1
+id: dcaf8128-94bd-4d53-9235-3a0371df6b74
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+  notes: 'Source assessment needs manual review: Current upstream ARG differs from the frozen query; the
+    old executable body is retained pending semantic/edge-case validation, not silently replaced by unreviewed
+    KQL. Existing ARG is retained, not newly validated.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    title: 'APRL dcaf8128-94bd-4d53-9235-3a0371df6b74: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: dcaf8128-94bd-4d53-9235-3a0371df6b74
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/ContainerService/managedClusters/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:10b7645a91cec6f65f2766e1651d5f25c13bf42d7cbd07fc0c40e591f54e96d7
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Current upstream ARG differs
+      from the frozen query; the old executable body is retained pending semantic/edge-case validation,
+      not silently replaced by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint;
+      queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

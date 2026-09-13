@@ -1,6 +1,5 @@
 name: revcl-RightSkuExpressrouteVpnGateways
-title: Ensure that you're using the right SKU for the ExpressRoute/VPN gateways based
-  on bandwidth and performance requirements.
+title: Choose ExpressRoute and VPN gateway SKUs from measured requirements
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,8 +15,32 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/design-implement-azure-expressroute/
 queries:
-  arg: resources| where type == 'microsoft.network/virtualnetworkgateways'| where
-    properties.gatewayType =~ 'vpn' or properties.gatewayType == 'ExpressRoute'| extend
-    SKUName = properties.sku.name, SKUTier = properties.sku.tier, Type = properties.gatewayType|
-    extend compliant = SKUTier !in ('Basic', 'Standard')| project name, id, subscriptionId,
-    resourceGroup, compliant
+  arg: |
+    Resources
+    | where type =~ 'microsoft.network/virtualnetworkgateways'
+    | project id, name, resourceGroup, subscriptionId, location,
+        gatewayType = tostring(properties.gatewayType), sku = properties.sku
+schemaVersion: 1
+id: d4cd21b0-8813-47f5-b6c4-cfd3e504547c
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: inventory
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-expressroute
+    title: Architecture best practices for Azure ExpressRoute
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm
+    title: Plan virtual networks
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/concepts/query-language
+    title: Understanding the Azure Resource Graph query language
+    accessedAt: '2026-09-11'
+description: |-
+  Compare current SKU throughput, connection and feature limits with workload traffic, concurrency, routing and availability requirements. For ExpressRoute, assess scalable gateway options and FastPath eligibility separately. Basic or Standard appearing in a SKU name is not sufficient evidence of noncompliance.
+
+  ARG returns configuration inventory only, not utilization, latency, capacity sufficiency or a compliance verdict. Missing properties, limited permissions, truncation and zero rows do not establish a pass. Compare with workload telemetry and requirements; this query has not been executed or validated against Azure.

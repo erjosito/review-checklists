@@ -1,10 +1,9 @@
 name: wafsg-SecondaryRegionPrimaryRegion-1
-title: 'Design applications: Design your applications to seamlessly shift so that
-  they read data from a secondary region if the primary region is unavailable. This
-  design consideration only applies to geo-redundant storage (GRS) and geo-zone-redundant
-  storage (GZRS) configurations. Design your applications to properly handle outages,
-  which reduces downtime for customers.'
-description: ''
+title: Design Azure Files clients for supported failover rather than direct secondary reads
+description: Azure Files does not support read-access geo-redundant storage. GRS/GZRS data in a secondary
+  region is unavailable for direct read/write access until a supported failover completes. Check share/account
+  and regional support, plan client reconnection and application recovery, and account for unreplicated
+  writes and possible data inconsistencies.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-files.md
@@ -17,3 +16,16 @@ labels:
   guid: 6104ed5f-a4ee-4d87-82dd-1f7bafd7c468
 links: []
 queries: {}
+schemaVersion: 1
+id: 6104ed5f-a4ee-4d87-82dd-1f7bafd7c468
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy
+    title: Azure Storage redundancy
+    accessedAt: '2026-09-11'

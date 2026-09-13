@@ -1,20 +1,50 @@
 name: aprl-VirtualWanExpressRouteGatewayBgpRoutesPrefixes
-title: Monitor health for v-Hub's ExpressRoute gateway
-description: Set up monitoring and alerts for Virtual WAN Express Route Gateway. Create
-  alert rule for ensuring promptly response to critical events such as exceeding packets
-  per second, exceeding BGP routes prefixes, Gateway overutilization and high frequency
-  in route changes.
+title: Monitor health for ExpressRoute gateway
+description: Set up monitoring and alerts for ExpressRoute Gateway. Create alert rule for ensuring promptly
+  response to critical events such as exceeding packets per second, exceeding BGP routes prefixes, Gateway
+  overutilization and high frequency in route changes.
 source:
   type: aprl
   file: azure-resources/Network/expressRouteGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/expressRouteGateways
+- microsoft.network/expressroutegateways
 severity: 0
 labels:
   guid: 17e8d380-e4b4-41a1-9b37-2e4df9fd5125
   area: Monitoring and Alerting
 links: []
 queries:
-  arg: |-
-    // under-development
+  arg: ''
+schemaVersion: 1
+id: 17e8d380-e4b4-41a1-9b37-2e4df9fd5125
+services: []
+automation:
+  status: candidate
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteGateways/recommendations.yaml
+    title: 'APRL 17e8d380-e4b4-41a1-9b37-2e4df9fd5125: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 17e8d380-e4b4-41a1-9b37-2e4df9fd5125
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/expressRouteGateways/recommendations.yaml
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:6a0dde6faeac40168c9e5737b8b4c315d24e3c88baefb1b658ac9f93f567718b
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Lineage is not treated as interchangeable current guidance. Compared and retained/adopted the current
+      pinned requirement text and impact within the same resource scope. Represented comment-only/empty
+      ARG honestly as manual or candidate automation. Current upstream ARG differs from the frozen query;
+      the old executable body is retained pending semantic/edge-case validation, not silently replaced
+      by unreviewed KQL. Coverage concerns the inventory's explicit metadata fingerprint; queries were
+      not executed and lastReviewed/validatedAt remain unchanged.
+waf: Operations

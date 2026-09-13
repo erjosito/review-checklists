@@ -1,8 +1,7 @@
 name: wafsg-LanguageRuntimeSupportPolicyLatestRuntime
-title: 'Use the latest runtime and libraries: Thoroughly test your application builds
-  before you do updates to catch problems early and ensure a smooth transition to
-  the new version. App Service supports the language runtime support policy for updating
-  existing stacks and retiring end-of-support stacks.'
+title: 'Use the latest runtime and libraries: Thoroughly test your application builds before you do updates
+  to catch problems early and ensure a smooth transition to the new version. App Service supports the
+  language runtime support policy for updating existing stacks and retiring end-of-support stacks.'
 description: ''
 source:
   type: wafsg
@@ -16,3 +15,29 @@ labels:
   guid: 4133fafa-441c-4d27-bfd1-f76a58ab6620
 links: []
 queries: {}
+schemaVersion: 1
+id: 4133fafa-441c-4d27-bfd1-f76a58ab6620
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/app-service-web-apps
+    title: Architecture best practices for Azure App Service (Web Apps)
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:08
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:77b7608ce1a206b1f0f5770b50f6d2e782b57d131721f17241fbd2c89e495ed8
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

@@ -1,11 +1,9 @@
 name: wafsg-StandardSmbAzureFileSharesSameStandardStorageHardware
-title: 'Choose the most cost-effective access tier: Standard SMB Azure file shares
-  offer three access tiers: transaction optimized, hot, and cool. All three tiers
-  are stored on the same standard storage hardware. The main difference for these
-  three tiers is their data at rest storage prices, which are lower in cooler tiers,
-  and the transaction prices, which are higher in cooler tiers. For more information,
-  see Differences in standard tiers.'
-description: ''
+title: Apply hot, cool and transaction-optimized tier comparisons only to PAYG Azure Files
+description: The three access tiers apply to HDD classic file shares using PAYG billing. Compare capacity,
+  transaction and transfer costs using observed usage. Provisioned v2 separately bills provisioned storage,
+  IOPS and throughput and is the recommended starting point for new deployments; do not apply PAYG tier
+  rules to provisioned shares.
 source:
   type: wafsg
   file: well-architected/service-guides/azure-files.md
@@ -18,3 +16,18 @@ labels:
   guid: f3dd18d1-9937-413e-99a6-6abbe25b574c
 links: []
 queries: {}
+schemaVersion: 1
+id: f3dd18d1-9937-413e-99a6-6abbe25b574c
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  notes: 'Manual cost/design review: Scope an inherited standard-media tier rule to its actual billing
+    model. Requires workload, billing and operational evidence; no ARG query or live validation is claimed.'
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/storage/files/understanding-billing
+    title: Understand Azure Files Billing
+    accessedAt: '2026-09-11'

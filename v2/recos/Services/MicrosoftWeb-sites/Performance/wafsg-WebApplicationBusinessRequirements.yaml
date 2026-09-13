@@ -15,3 +15,13 @@ labels:
   guid: 62ea8582-63cb-4ac6-8a73-c800a2a0428a
 links: []
 queries: {}
+schemaVersion: 1
+id: 62ea8582-63cb-4ac6-8a73-c800a2a0428a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

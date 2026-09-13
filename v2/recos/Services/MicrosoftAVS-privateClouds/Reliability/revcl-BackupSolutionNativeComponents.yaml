@@ -11,3 +11,13 @@ labels:
   guid: bb77036f-5e6b-4fbb-aed5-03547cc447e8
 links: []
 queries: {}
+schemaVersion: 1
+id: bb77036f-5e6b-4fbb-aed5-03547cc447e8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,9 +1,8 @@
 name: wafsg-WebApplicationFirewallApplicationGatewayInstances
 title: Enable diagnostics on Application Gateway and Web Application Firewall (WAF)
-description: Diagnostic logs allow you to view firewall logs, performance logs, and
-  access logs. Use these logs to manage and troubleshoot issues with Application Gateway
-  instances. For more information, see Back-end health and diagnostic logs for Application
-  Gateway.
+description: Diagnostic logs allow you to view firewall logs, performance logs, and access logs. Use these
+  logs to manage and troubleshoot issues with Application Gateway instances. For more information, see
+  Back-end health and diagnostic logs for Application Gateway.
 source:
   type: wafsg
   file: ./checklists-ext/wafsg_checklist.en.json
@@ -15,3 +14,23 @@ labels:
   guid: ee3b1f28-7d23-484a-a721-a0e0da65aed8
 links: []
 queries: {}
+schemaVersion: 1
+id: ee3b1f28-7d23-484a-a721-a0e0da65aed8
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 63eb295f-ef20-4749-a576-fbbdd528d093
+  name: wafsg-WebApplicationFirewallApplicationGateway
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-application-gateway.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 63eb295f-ef20-4749-a576-fbbdd528d093
+  corpusFile: Services/microsoftnetwork-applicationGateways/Operations/wafsg-WebApplicationFirewallApplicationGateway.yaml

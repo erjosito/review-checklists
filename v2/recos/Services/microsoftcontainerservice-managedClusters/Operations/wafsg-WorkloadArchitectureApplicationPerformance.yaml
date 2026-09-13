@@ -13,3 +13,13 @@ labels:
   guid: ea1485fc-32d7-46dc-a000-9e87c4834091
 links: []
 queries: {}
+schemaVersion: 1
+id: ea1485fc-32d7-46dc-a000-9e87c4834091
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

@@ -1,13 +1,13 @@
 name: aprl-CustomHealthProbesBackendAvailability
 title: Use Health Probes to detect backend availability
-description: |-
-  Using custom health probes enhances understanding of backend availability and facilitates monitoring of backend services for any impact.
+description: Using custom health probes enhances understanding of backend availability and facilitates
+  monitoring of backend services for any impact.
 source:
   type: aprl
   file: azure-resources/Network/applicationGateways/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Network/applicationGateways
+- microsoft.network/applicationgateways
 severity: 0
 labels:
   guid: 847a8d88-21c4-bc48-a94e-562206edd767
@@ -21,3 +21,31 @@ queries:
     | where type =~ "microsoft.network/applicationGateways"
     | where array_length(properties.probes) == 0
     | project recommendationId="847a8d88-21c4-bc48-a94e-562206edd767", name, id, tags, param1="customHealthProbeUsed: false"
+schemaVersion: 1
+id: 847a8d88-21c4-bc48-a94e-562206edd767
+services: []
+automation:
+  status: query_available
+  validatedAt: null
+  resultSemantics: unknown
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    title: 'APRL 847a8d88-21c4-bc48-a94e-562206edd767: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 847a8d88-21c4-bc48-a94e-562206edd767
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Network/applicationGateways/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:21311caea8b24ae1a64bbc6eced660458124a7e4251c18e2074120cb687107d8
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Coverage concerns the inventory's explicit metadata
+      fingerprint; queries were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

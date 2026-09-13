@@ -1,8 +1,11 @@
 name: revcl-AcrPullPushOperationsAcrpushRbacRoles
-title: Assign AcrPull & AcrPush RBAC roles rather than granting Administrative access
-  to identity principals
-description: Disable Administrator account and assign RBAC roles to principals for
-  ACR Pull/Push operations
+title: Grant least-privilege Container Registry data roles appropriate to the registry permission mode.
+description: Avoid the shared administrator account for routine image operations. In RBAC-only registries
+  use scoped AcrPull or AcrPush roles as needed. In RBAC Registry + ABAC Repository Permissions mode,
+  use Container Registry Repository Reader, Writer or Contributor; legacy AcrPull, AcrPush and AcrDelete
+  assignments are not honored. Add repository conditions where isolation is required; without conditions
+  the new roles grant registry-wide access. Grant Catalog Lister only when repository enumeration is needed.
+  Migrate identities and task permissions before switching modes, then test pull and push paths.
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -16,3 +19,29 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/container-registry/container-registry-roles?tabs=azure-cli
 queries: {}
+schemaVersion: 1
+id: 387e5ced-126c-4d13-8af5-b20c6998a646
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/container-registry/container-registry-rbac-abac-repository-permissions
+    title: Azure ABAC repository permissions in Azure Container Registry
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/well-architected/security/checklist
+    title: Design review checklist for Security
+    accessedAt: '2026-09-11'
+  upstreamRecommendations:
+  - sourceId: waf-security-checklist
+    recommendationId: SE:05
+    url: https://learn.microsoft.com/en-us/azure/well-architected/security/identity-access
+    coverage: partial
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:dc36ea9b08af1f6b444aa6ec1ff83c8aa47d886cbdde8f26130f4341c25c9d2c
+    notes: LLM-assisted draft semantic mapping, not human approval or live validation. This record implements
+      only a particular service or subrequirement; it does not establish complete workload-wide control
+      coverage.

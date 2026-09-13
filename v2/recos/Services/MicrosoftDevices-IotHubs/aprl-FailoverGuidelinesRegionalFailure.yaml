@@ -1,18 +1,48 @@
 name: aprl-FailoverGuidelinesRegionalFailure
 title: Define Failover Guidelines
-description: |-
-  In case of a regional failure, an IoT Hub can failover to a second region, automatically or manually, to ensure your application continues working.
+description: In case of a regional failure, an IoT Hub can failover to a second region, automatically
+  or manually, to ensure your application continues working.
 source:
   type: aprl
   file: azure-resources/Devices/iotHubs/recommendations.yaml
   timestamp: July 24, 2024
 resourceTypes:
-- Microsoft.Devices/IotHubs
+- microsoft.devices/iothubs
 severity: 0
 labels:
   guid: 02568a5d-335e-4e51-9f7c-fe2ada977300
   area: High Availability
 links: []
 queries:
-  arg: |
-    // cannot-be-validated-with-arg
+  arg: ''
+schemaVersion: 1
+id: 02568a5d-335e-4e51-9f7c-fe2ada977300
+services: []
+automation:
+  status: manual
+  validatedAt: null
+  resultSemantics: unknown
+  notes: The imported ARG payload was empty or comment-only, not executable automation. Original marker
+    is retained in aprl-baseline.json. Assess this requirement manually; no Azure execution is claimed.
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Devices/iotHubs/recommendations.yaml
+    title: 'APRL 02568a5d-335e-4e51-9f7c-fe2ada977300: Active pinned requirement'
+    accessedAt: '2026-09-11'
+    revision: 4ed61607223b49e3d0bdd9ce3127ef6e842b5463
+  upstreamRecommendations:
+  - sourceId: aprl
+    recommendationId: 02568a5d-335e-4e51-9f7c-fe2ada977300
+    url: https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2/blob/4ed61607223b49e3d0bdd9ce3127ef6e842b5463/azure-resources/Devices/iotHubs/recommendations.yaml
+    coverage: full
+    assessedAt: '2026-09-11'
+    upstreamContentHash: sha256:d8294fe15c18dc57dc03b2b56e27c0390a18fed1897ae2b8236d780badc2ae54
+    notes: Frozen corpus GUID matches this actual APRL GUID (Active) at 4ed61607223b49e3d0bdd9ce3127ef6e842b5463.
+      Current requirement text/impact were assessed within the matching resource scope; ARG text/marker
+      correspondence was separately checked. Compared and retained/adopted the current pinned requirement
+      text and impact within the same resource scope. Represented comment-only/empty ARG honestly as manual
+      or candidate automation. Coverage concerns the inventory's explicit metadata fingerprint; queries
+      were not executed and lastReviewed/validatedAt remain unchanged.
+waf: Reliability

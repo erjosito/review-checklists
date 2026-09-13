@@ -18,3 +18,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication
 queries: {}
+schemaVersion: 1
+id: a8c26c9b-32ab-45bd-bc69-98a135e33789
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

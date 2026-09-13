@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/virtual-machines/premium-storage-performance
 queries: {}
+schemaVersion: 1
+id: 415833ea-3ad3-4c2d-b733-165c3acbe04b
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

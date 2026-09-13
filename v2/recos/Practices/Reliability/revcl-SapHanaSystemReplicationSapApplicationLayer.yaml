@@ -19,3 +19,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/training/paths/ensure-business-continuity-implement-disaster-recovery/
 queries: {}
+schemaVersion: 1
+id: b651423c-8552-42db-a545-5cb50c05527a
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

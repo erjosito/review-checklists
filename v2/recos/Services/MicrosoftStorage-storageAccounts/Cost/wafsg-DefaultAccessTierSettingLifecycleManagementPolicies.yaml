@@ -21,3 +21,13 @@ labels:
   guid: d8225b92-cc37-400e-9e24-660b9f4c1a28
 links: []
 queries: {}
+schemaVersion: 1
+id: d8225b92-cc37-400e-9e24-660b9f4c1a28
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

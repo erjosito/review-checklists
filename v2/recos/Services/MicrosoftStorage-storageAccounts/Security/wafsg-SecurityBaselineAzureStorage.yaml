@@ -1,6 +1,6 @@
 name: wafsg-SecurityBaselineAzureStorage
-title: 'Review the security baseline for Azure Storage: To get started, first review
-  the security baseline for Storage.'
+title: 'Review the security baseline for Azure Storage: To get started, first review the security baseline
+  for Storage.'
 description: ''
 source:
   type: wafsg
@@ -14,3 +14,32 @@ labels:
   guid: a7cd3662-4984-4a5a-8ed7-95c707f19c25
 links: []
 queries: {}
+schemaVersion: 1
+id: a7cd3662-4984-4a5a-8ed7-95c707f19c25
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
+aliases:
+- id: 486329dd-f6a9-4714-bab2-0c7da68e2473
+  name: wafsg-SecurityBaselineAzureStorage-1
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-files.md
+    timestamp: July 24, 2024
+  labels:
+    guid: 486329dd-f6a9-4714-bab2-0c7da68e2473
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Security/wafsg-SecurityBaselineAzureStorage-1.yaml
+- id: c5f40aec-9c2c-4c16-8ae9-f9fdd4733804
+  name: wafsg-SecurityBaselineStorage
+  source:
+    type: wafsg
+    file: well-architected/service-guides/azure-files.md
+    timestamp: July 24, 2024
+  labels:
+    guid: c5f40aec-9c2c-4c16-8ae9-f9fdd4733804
+  corpusFile: Services/MicrosoftStorage-storageAccounts/Security/wafsg-SecurityBaselineStorage.yaml

@@ -17,3 +17,13 @@ labels:
   guid: 6014ae08-0163-41c5-84ea-1467ad0d98ee
 links: []
 queries: {}
+schemaVersion: 1
+id: 6014ae08-0163-41c5-84ea-1467ad0d98ee
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

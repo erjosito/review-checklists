@@ -16,3 +16,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/learn/modules/implement-hybrid-identity-windows-server/
 queries: {}
+schemaVersion: 1
+id: 8b9fe5c4-1049-4d40-9a92-3c3474d00018
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

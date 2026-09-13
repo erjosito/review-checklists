@@ -1,6 +1,5 @@
 name: revcl-AzureFrontDoorOriginGroupOneOrigin
-title: Disable health probes when there is only one origin in an Azure Front Door
-  origin group.
+title: Review Front Door health probes for single-origin groups
 source:
   type: revcl
   file: ./checklists/waf_checklist.en.json
@@ -13,12 +12,28 @@ labels:
 links:
 - type: docs
   url: https://learn.microsoft.com/azure/frontdoor/best-practices#disable-health-probes-when-theres-only-one-origin-in-an-origin-group
-queries:
-  arg: cdnresources | where type =~ 'microsoft.cdn/profiles/origingroups/origins'
-    | extend frontDoorId = substring(id, 0, indexof(id, '/origingroups')) | extend
-    originGroupId = substring(id, 0, indexof(id, '/origins')) | join kind=inner (cdnresources
-    | where type =~ 'microsoft.cdn/profiles/origingroups' | extend originGroupName
-    = name | extend hasHealthProbe = isnotnull(properties.healthProbeSettings)) on
-    $left.originGroupId == $right.id | summarize numberOrigins = count() by originGroupId,
-    subscriptionId, frontDoorId, hasHealthProbe, originGroupName | extend compliant
-    = not(numberOrigins == 1 and hasHealthProbe) | project id = frontDoorId, compliant
+queries: {}
+schemaVersion: 1
+id: 0b5a380c-4bfb-47bc-b1d7-dcfef363a61b
+services: []
+automation:
+  status: manual
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources:
+  - url: https://learn.microsoft.com/azure/well-architected/service-guides/azure-front-door
+    title: Architecture best practices for Azure Front Door
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources
+    title: Azure Resource Graph table and resource type reference
+    accessedAt: '2026-09-11'
+  - url: https://learn.microsoft.com/azure/frontdoor/health-probes
+    title: Health probes
+    accessedAt: '2026-09-11'
+description: For an origin group with one origin, the service guide recommends disabling redundant probes
+  because health status does not change origin selection. Confirm topology, future failover requirements
+  and independent application health monitoring before changing it. The inherited CdnResources/origin-child
+  ARG query is not supported by the retrieved ARG table reference; inspect origin configuration through
+  the service API or portal. No automatic pass is inferred.

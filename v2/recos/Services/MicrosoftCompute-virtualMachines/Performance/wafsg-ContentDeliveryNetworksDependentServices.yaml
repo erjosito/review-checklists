@@ -16,3 +16,13 @@ labels:
   guid: b255b907-9f43-4998-ad40-ef60a225fe43
 links: []
 queries: {}
+schemaVersion: 1
+id: b255b907-9f43-4998-ad40-ef60a225fe43
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

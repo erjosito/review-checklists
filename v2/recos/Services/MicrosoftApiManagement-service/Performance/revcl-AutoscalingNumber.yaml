@@ -13,3 +13,13 @@ links:
 - type: docs
   url: https://learn.microsoft.com/azure/api-management/api-management-howto-autoscale
 queries: {}
+schemaVersion: 1
+id: bb5f356b-3daf-47a2-a9ee-867a8100bbd5
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []

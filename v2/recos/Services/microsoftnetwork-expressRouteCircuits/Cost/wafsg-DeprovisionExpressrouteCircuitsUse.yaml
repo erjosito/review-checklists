@@ -13,3 +13,13 @@ labels:
   guid: 271b6cfe-4507-4afa-a1e5-000e3be105ac
 links: []
 queries: {}
+schemaVersion: 1
+id: 271b6cfe-4507-4afa-a1e5-000e3be105ac
+services: []
+automation:
+  status: unknown
+  validatedAt: null
+provenance:
+  upstreamRevision: null
+  lastReviewed: null
+  sources: []
